@@ -1375,156 +1375,156 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/android-arm64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/android-arm64@npm:0.17.19"
+"@esbuild/android-arm64@npm:0.18.11":
+  version: 0.18.11
+  resolution: "@esbuild/android-arm64@npm:0.18.11"
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
 
-"@esbuild/android-arm@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/android-arm@npm:0.17.19"
+"@esbuild/android-arm@npm:0.18.11":
+  version: 0.18.11
+  resolution: "@esbuild/android-arm@npm:0.18.11"
   conditions: os=android & cpu=arm
   languageName: node
   linkType: hard
 
-"@esbuild/android-x64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/android-x64@npm:0.17.19"
+"@esbuild/android-x64@npm:0.18.11":
+  version: 0.18.11
+  resolution: "@esbuild/android-x64@npm:0.18.11"
   conditions: os=android & cpu=x64
   languageName: node
   linkType: hard
 
-"@esbuild/darwin-arm64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/darwin-arm64@npm:0.17.19"
+"@esbuild/darwin-arm64@npm:0.18.11":
+  version: 0.18.11
+  resolution: "@esbuild/darwin-arm64@npm:0.18.11"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@esbuild/darwin-x64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/darwin-x64@npm:0.17.19"
+"@esbuild/darwin-x64@npm:0.18.11":
+  version: 0.18.11
+  resolution: "@esbuild/darwin-x64@npm:0.18.11"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@esbuild/freebsd-arm64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/freebsd-arm64@npm:0.17.19"
+"@esbuild/freebsd-arm64@npm:0.18.11":
+  version: 0.18.11
+  resolution: "@esbuild/freebsd-arm64@npm:0.18.11"
   conditions: os=freebsd & cpu=arm64
   languageName: node
   linkType: hard
 
-"@esbuild/freebsd-x64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/freebsd-x64@npm:0.17.19"
+"@esbuild/freebsd-x64@npm:0.18.11":
+  version: 0.18.11
+  resolution: "@esbuild/freebsd-x64@npm:0.18.11"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
-"@esbuild/linux-arm64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/linux-arm64@npm:0.17.19"
+"@esbuild/linux-arm64@npm:0.18.11":
+  version: 0.18.11
+  resolution: "@esbuild/linux-arm64@npm:0.18.11"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"@esbuild/linux-arm@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/linux-arm@npm:0.17.19"
+"@esbuild/linux-arm@npm:0.18.11":
+  version: 0.18.11
+  resolution: "@esbuild/linux-arm@npm:0.18.11"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@esbuild/linux-ia32@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/linux-ia32@npm:0.17.19"
+"@esbuild/linux-ia32@npm:0.18.11":
+  version: 0.18.11
+  resolution: "@esbuild/linux-ia32@npm:0.18.11"
   conditions: os=linux & cpu=ia32
   languageName: node
   linkType: hard
 
-"@esbuild/linux-loong64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/linux-loong64@npm:0.17.19"
+"@esbuild/linux-loong64@npm:0.18.11":
+  version: 0.18.11
+  resolution: "@esbuild/linux-loong64@npm:0.18.11"
   conditions: os=linux & cpu=loong64
   languageName: node
   linkType: hard
 
-"@esbuild/linux-mips64el@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/linux-mips64el@npm:0.17.19"
+"@esbuild/linux-mips64el@npm:0.18.11":
+  version: 0.18.11
+  resolution: "@esbuild/linux-mips64el@npm:0.18.11"
   conditions: os=linux & cpu=mips64el
   languageName: node
   linkType: hard
 
-"@esbuild/linux-ppc64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/linux-ppc64@npm:0.17.19"
+"@esbuild/linux-ppc64@npm:0.18.11":
+  version: 0.18.11
+  resolution: "@esbuild/linux-ppc64@npm:0.18.11"
   conditions: os=linux & cpu=ppc64
   languageName: node
   linkType: hard
 
-"@esbuild/linux-riscv64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/linux-riscv64@npm:0.17.19"
+"@esbuild/linux-riscv64@npm:0.18.11":
+  version: 0.18.11
+  resolution: "@esbuild/linux-riscv64@npm:0.18.11"
   conditions: os=linux & cpu=riscv64
   languageName: node
   linkType: hard
 
-"@esbuild/linux-s390x@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/linux-s390x@npm:0.17.19"
+"@esbuild/linux-s390x@npm:0.18.11":
+  version: 0.18.11
+  resolution: "@esbuild/linux-s390x@npm:0.18.11"
   conditions: os=linux & cpu=s390x
   languageName: node
   linkType: hard
 
-"@esbuild/linux-x64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/linux-x64@npm:0.17.19"
+"@esbuild/linux-x64@npm:0.18.11":
+  version: 0.18.11
+  resolution: "@esbuild/linux-x64@npm:0.18.11"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"@esbuild/netbsd-x64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/netbsd-x64@npm:0.17.19"
+"@esbuild/netbsd-x64@npm:0.18.11":
+  version: 0.18.11
+  resolution: "@esbuild/netbsd-x64@npm:0.18.11"
   conditions: os=netbsd & cpu=x64
   languageName: node
   linkType: hard
 
-"@esbuild/openbsd-x64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/openbsd-x64@npm:0.17.19"
+"@esbuild/openbsd-x64@npm:0.18.11":
+  version: 0.18.11
+  resolution: "@esbuild/openbsd-x64@npm:0.18.11"
   conditions: os=openbsd & cpu=x64
   languageName: node
   linkType: hard
 
-"@esbuild/sunos-x64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/sunos-x64@npm:0.17.19"
+"@esbuild/sunos-x64@npm:0.18.11":
+  version: 0.18.11
+  resolution: "@esbuild/sunos-x64@npm:0.18.11"
   conditions: os=sunos & cpu=x64
   languageName: node
   linkType: hard
 
-"@esbuild/win32-arm64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/win32-arm64@npm:0.17.19"
+"@esbuild/win32-arm64@npm:0.18.11":
+  version: 0.18.11
+  resolution: "@esbuild/win32-arm64@npm:0.18.11"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@esbuild/win32-ia32@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/win32-ia32@npm:0.17.19"
+"@esbuild/win32-ia32@npm:0.18.11":
+  version: 0.18.11
+  resolution: "@esbuild/win32-ia32@npm:0.18.11"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@esbuild/win32-x64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/win32-x64@npm:0.17.19"
+"@esbuild/win32-x64@npm:0.18.11":
+  version: 0.18.11
+  resolution: "@esbuild/win32-x64@npm:0.18.11"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -2804,41 +2804,41 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vuepress/bundler-vite@npm:2.0.0-beta.64":
-  version: 2.0.0-beta.64
-  resolution: "@vuepress/bundler-vite@npm:2.0.0-beta.64"
+"@vuepress/bundler-vite@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "@vuepress/bundler-vite@npm:2.0.0-beta.66"
   dependencies:
     "@vitejs/plugin-vue": ^4.2.3
-    "@vuepress/client": 2.0.0-beta.64
-    "@vuepress/core": 2.0.0-beta.64
-    "@vuepress/shared": 2.0.0-beta.64
-    "@vuepress/utils": 2.0.0-beta.64
+    "@vuepress/client": 2.0.0-beta.66
+    "@vuepress/core": 2.0.0-beta.66
+    "@vuepress/shared": 2.0.0-beta.66
+    "@vuepress/utils": 2.0.0-beta.66
     autoprefixer: ^10.4.14
     connect-history-api-fallback: ^2.0.0
-    postcss: ^8.4.24
+    postcss: ^8.4.25
     postcss-load-config: ^4.0.1
-    rollup: ^3.26.0
-    vite: ~4.3.9
+    rollup: ^3.26.2
+    vite: ~4.4.2
     vue: ^3.3.4
-    vue-router: ^4.2.2
-  checksum: 6cc312a45200b8ccb0baeef67e169ae53395297ca21f2628f4187643f219a91b8f3a9929028dfe31771a00b8ef22800a14944e8850aa99532f082f611924e2f5
+    vue-router: ^4.2.4
+  checksum: 64f5c73e5cab7bb472ebacbaf7c15dc74ca90418b01eff6c0f7ea3fd28c9d1344974323e7d44150fb1d0f4775c9a905e35ea7f8625dae87f014eb4c0b838182a
   languageName: node
   linkType: hard
 
-"@vuepress/cli@npm:2.0.0-beta.64":
-  version: 2.0.0-beta.64
-  resolution: "@vuepress/cli@npm:2.0.0-beta.64"
+"@vuepress/cli@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "@vuepress/cli@npm:2.0.0-beta.66"
   dependencies:
-    "@vuepress/core": 2.0.0-beta.64
-    "@vuepress/shared": 2.0.0-beta.64
-    "@vuepress/utils": 2.0.0-beta.64
+    "@vuepress/core": 2.0.0-beta.66
+    "@vuepress/shared": 2.0.0-beta.66
+    "@vuepress/utils": 2.0.0-beta.66
     cac: ^6.7.14
     chokidar: ^3.5.3
     envinfo: ^7.10.0
-    esbuild: ~0.17.19
+    esbuild: ~0.18.11
   bin:
     vuepress-cli: bin/vuepress.js
-  checksum: 82e9f4755ffe63b9423923560541ff28f6bd5a114748c11a30046d2927209f59c67886be2cfdffca397d50aab08ff6b8af3b192a928f914041230f032619efc7
+  checksum: 8ed633f279ead654233c60f777de04faf284ff13e12b664178c9d5afff22476828f7fbd6ab8074f38830e1184348b21a29d581077be1e1969716384d52d9996e
   languageName: node
   linkType: hard
 
@@ -2867,6 +2867,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vuepress/client@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "@vuepress/client@npm:2.0.0-beta.66"
+  dependencies:
+    "@vue/devtools-api": ^6.5.0
+    "@vuepress/shared": 2.0.0-beta.66
+    "@vueuse/core": ^10.2.1
+    vue: ^3.3.4
+    vue-router: ^4.2.4
+  checksum: 48b0b9a8b1db73938dcec92bc523bae65f7d8981dea90702a09269d7dec6e35c09b962ac5a263f51a0468dec45eae26f1dabf83808dfebbe916d8af503784914
+  languageName: node
+  linkType: hard
+
 "@vuepress/core@npm:2.0.0-beta.60":
   version: 2.0.0-beta.60
   resolution: "@vuepress/core@npm:2.0.0-beta.60"
@@ -2880,16 +2893,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vuepress/core@npm:2.0.0-beta.64":
-  version: 2.0.0-beta.64
-  resolution: "@vuepress/core@npm:2.0.0-beta.64"
+"@vuepress/core@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "@vuepress/core@npm:2.0.0-beta.66"
   dependencies:
-    "@vuepress/client": 2.0.0-beta.64
-    "@vuepress/markdown": 2.0.0-beta.64
-    "@vuepress/shared": 2.0.0-beta.64
-    "@vuepress/utils": 2.0.0-beta.64
+    "@vuepress/client": 2.0.0-beta.66
+    "@vuepress/markdown": 2.0.0-beta.66
+    "@vuepress/shared": 2.0.0-beta.66
+    "@vuepress/utils": 2.0.0-beta.66
     vue: ^3.3.4
-  checksum: 63fefba5a9413008b44eb27b0397231fc3efc20fbe03528161079e4c2a8408be5c96d7a7cc4821bd75d25f8aa60a2c9966b9ec4a454daa5570452000e79f17de
+  checksum: 8c75ec1ba8ddd799653e177337fe1c73f6ec40f8c49ba80df680579ab1e71d81b9566d68ce208924f3e02caeb36d5b91bc9a10924ff614327bc717c0bc634701
   languageName: node
   linkType: hard
 
@@ -2917,9 +2930,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vuepress/markdown@npm:2.0.0-beta.64":
-  version: 2.0.0-beta.64
-  resolution: "@vuepress/markdown@npm:2.0.0-beta.64"
+"@vuepress/markdown@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "@vuepress/markdown@npm:2.0.0-beta.66"
   dependencies:
     "@mdit-vue/plugin-component": ^0.12.0
     "@mdit-vue/plugin-frontmatter": ^0.12.0
@@ -2931,196 +2944,196 @@ __metadata:
     "@mdit-vue/types": ^0.12.0
     "@types/markdown-it": ^12.2.3
     "@types/markdown-it-emoji": ^2.0.2
-    "@vuepress/shared": 2.0.0-beta.64
-    "@vuepress/utils": 2.0.0-beta.64
+    "@vuepress/shared": 2.0.0-beta.66
+    "@vuepress/utils": 2.0.0-beta.66
     markdown-it: ^13.0.1
     markdown-it-anchor: ^8.6.7
     markdown-it-emoji: ^2.0.2
     mdurl: ^1.0.1
-  checksum: 9c97f1188c21ec95e172f44887fceab466d4a61ae7e2d73accc41fc397948ace10b62fdec972c2b31067bdbb4799035b0227f7aefe5ff4d3a234183fe9c418e5
+  checksum: a721210c7b1e5dacf2cd9146ab78f7443e150ed3402c359b69ef8c2d41d74cd7c61821c25acc3aa5d9c8d06412f6cc384cfb17b8c28567081cead14cd1001c72
   languageName: node
   linkType: hard
 
-"@vuepress/plugin-active-header-links@npm:2.0.0-beta.64":
-  version: 2.0.0-beta.64
-  resolution: "@vuepress/plugin-active-header-links@npm:2.0.0-beta.64"
+"@vuepress/plugin-active-header-links@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "@vuepress/plugin-active-header-links@npm:2.0.0-beta.66"
   dependencies:
-    "@vuepress/client": 2.0.0-beta.64
-    "@vuepress/core": 2.0.0-beta.64
-    "@vuepress/utils": 2.0.0-beta.64
+    "@vuepress/client": 2.0.0-beta.66
+    "@vuepress/core": 2.0.0-beta.66
+    "@vuepress/utils": 2.0.0-beta.66
     ts-debounce: ^4.0.0
     vue: ^3.3.4
-    vue-router: ^4.2.2
-  checksum: da1e66a380b3121ada5cd215d743600f68a3b6093273b168f248407b9e1770b02b41829e5f2c6102b34fa05db13f69f098433e397b7dad24f92c0a552061e799
+    vue-router: ^4.2.4
+  checksum: c97571916dcb0f1968fc48582ee73a0a69127dd2b67bafc51af6e5316f73ab03a7ab86b768932b70a75e1baf2a20471338829eab79e8f94031dac2eebb951159
   languageName: node
   linkType: hard
 
-"@vuepress/plugin-back-to-top@npm:2.0.0-beta.64":
-  version: 2.0.0-beta.64
-  resolution: "@vuepress/plugin-back-to-top@npm:2.0.0-beta.64"
+"@vuepress/plugin-back-to-top@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "@vuepress/plugin-back-to-top@npm:2.0.0-beta.66"
   dependencies:
-    "@vuepress/client": 2.0.0-beta.64
-    "@vuepress/core": 2.0.0-beta.64
-    "@vuepress/utils": 2.0.0-beta.64
+    "@vuepress/client": 2.0.0-beta.66
+    "@vuepress/core": 2.0.0-beta.66
+    "@vuepress/utils": 2.0.0-beta.66
     ts-debounce: ^4.0.0
     vue: ^3.3.4
-  checksum: bd66ca05045b87b8a7e9ebb3f0b8c8b9fd089ebbb90f60bbc461ccd8a8313b4dc3f9691b78bd7d3cb38742b005dd3fef85d708aa30b1e4fe4a04a775ac927f48
+  checksum: 898c9e7c919a3b2452db33fe62ea4b9e4830400b64931a53ab7ffc8de2618b806f441c2eb5b25839e6dd909deac1ae3e1fad92c46537e419a05aac92a1a6dd05
   languageName: node
   linkType: hard
 
-"@vuepress/plugin-container@npm:2.0.0-beta.64":
-  version: 2.0.0-beta.64
-  resolution: "@vuepress/plugin-container@npm:2.0.0-beta.64"
+"@vuepress/plugin-container@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "@vuepress/plugin-container@npm:2.0.0-beta.66"
   dependencies:
     "@types/markdown-it": ^12.2.3
-    "@vuepress/core": 2.0.0-beta.64
-    "@vuepress/markdown": 2.0.0-beta.64
-    "@vuepress/shared": 2.0.0-beta.64
-    "@vuepress/utils": 2.0.0-beta.64
+    "@vuepress/core": 2.0.0-beta.66
+    "@vuepress/markdown": 2.0.0-beta.66
+    "@vuepress/shared": 2.0.0-beta.66
+    "@vuepress/utils": 2.0.0-beta.66
     markdown-it: ^13.0.1
     markdown-it-container: ^3.0.0
-  checksum: b4377452990c3efc3848d7815beee4c9f0f69b60835bfd11c90122de6447eac55feb5871bed87c0489bef1e4484e8ed9c67bbc8d5299c406323752f60720913f
+  checksum: 1fe1944bea8e9a770aae54dff3ccfa5cd9cffe89e07f6f78e825a793b7a80ba5fbcf0b4b282e51f799f6f2ca5a645387035a82d82b6574c32f46dfd3dfa009f6
   languageName: node
   linkType: hard
 
-"@vuepress/plugin-external-link-icon@npm:2.0.0-beta.64":
-  version: 2.0.0-beta.64
-  resolution: "@vuepress/plugin-external-link-icon@npm:2.0.0-beta.64"
+"@vuepress/plugin-external-link-icon@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "@vuepress/plugin-external-link-icon@npm:2.0.0-beta.66"
   dependencies:
-    "@vuepress/client": 2.0.0-beta.64
-    "@vuepress/core": 2.0.0-beta.64
-    "@vuepress/markdown": 2.0.0-beta.64
-    "@vuepress/shared": 2.0.0-beta.64
-    "@vuepress/utils": 2.0.0-beta.64
+    "@vuepress/client": 2.0.0-beta.66
+    "@vuepress/core": 2.0.0-beta.66
+    "@vuepress/markdown": 2.0.0-beta.66
+    "@vuepress/shared": 2.0.0-beta.66
+    "@vuepress/utils": 2.0.0-beta.66
     vue: ^3.3.4
-  checksum: 5ecf763026307d0f72b15b54986395f1abaf1b96aeaa3b85da66c8579bea73ef1f23809f14342c59d86da9ed1c7b6de662b727f5df25c2736fccf70d45abf68f
+  checksum: ee25f6b3add7216e37c6a156b8c8ab6f8e774ac7d3e97bf2916a885d6a014bf8eb69a83dde22dc4ffed88787c9eae81f0ae5adce04178ccb9138ee9a950be1ec
   languageName: node
   linkType: hard
 
-"@vuepress/plugin-git@npm:2.0.0-beta.64":
-  version: 2.0.0-beta.64
-  resolution: "@vuepress/plugin-git@npm:2.0.0-beta.64"
+"@vuepress/plugin-git@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "@vuepress/plugin-git@npm:2.0.0-beta.66"
   dependencies:
-    "@vuepress/core": 2.0.0-beta.64
-    "@vuepress/utils": 2.0.0-beta.64
+    "@vuepress/core": 2.0.0-beta.66
+    "@vuepress/utils": 2.0.0-beta.66
     execa: ^7.1.1
-  checksum: 7d00cbd8b81f0313ecbff1427d596a3188b83335b1d66bf28c5952776155bb07186df3eb0a10794b40e222cc0b9062fba29234bafc7cfd14cdf7e6db765fa6fa
+  checksum: f1d6d1668d487a600f4be58ebb3d35413798941997e0d4df2050945c14854faa8d59c4e64353f1a1f039d15372bfd6dba6bacff3b291f8e7c4fb0e86f371f7cb
   languageName: node
   linkType: hard
 
-"@vuepress/plugin-medium-zoom@npm:2.0.0-beta.64":
-  version: 2.0.0-beta.64
-  resolution: "@vuepress/plugin-medium-zoom@npm:2.0.0-beta.64"
+"@vuepress/plugin-medium-zoom@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "@vuepress/plugin-medium-zoom@npm:2.0.0-beta.66"
   dependencies:
-    "@vuepress/client": 2.0.0-beta.64
-    "@vuepress/core": 2.0.0-beta.64
-    "@vuepress/utils": 2.0.0-beta.64
+    "@vuepress/client": 2.0.0-beta.66
+    "@vuepress/core": 2.0.0-beta.66
+    "@vuepress/utils": 2.0.0-beta.66
     medium-zoom: ^1.0.8
     vue: ^3.3.4
-  checksum: 47233295b4db5d9d3afc1641913ddce01ae569352b17561784751a907e73e6cc8d7b2f8baf3b9366d24fdf0a79ba387f295d086c9da23e414eeb0fc0bbc0f4ed
+  checksum: 7da120a23690dab5c817890e9c9a63804af4978ac2b4be2846caacfacc106bf70a5e1a08180c68812aff156124cc253577fe190630ccbd8c8ff07ebf96d38d80
   languageName: node
   linkType: hard
 
-"@vuepress/plugin-nprogress@npm:2.0.0-beta.64":
-  version: 2.0.0-beta.64
-  resolution: "@vuepress/plugin-nprogress@npm:2.0.0-beta.64"
+"@vuepress/plugin-nprogress@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "@vuepress/plugin-nprogress@npm:2.0.0-beta.66"
   dependencies:
-    "@vuepress/client": 2.0.0-beta.64
-    "@vuepress/core": 2.0.0-beta.64
-    "@vuepress/utils": 2.0.0-beta.64
+    "@vuepress/client": 2.0.0-beta.66
+    "@vuepress/core": 2.0.0-beta.66
+    "@vuepress/utils": 2.0.0-beta.66
     vue: ^3.3.4
-    vue-router: ^4.2.2
-  checksum: d9a8c69b91d882f9f379374e68eb3990662d675c0499e6cf995b015c00b5694be3da16fbe31fbfa066fe789522f13062361db2c62067e5ecfbbdcb294d09d8be
+    vue-router: ^4.2.4
+  checksum: fbb7c0f02a19fe0f751890f46399a50df1ae594e36776fa783d5b80ab0622d0b01352715959d45b5e8c61c140161487a4a330d0062e24c1d6cf5c67e328fbab2
   languageName: node
   linkType: hard
 
-"@vuepress/plugin-palette@npm:2.0.0-beta.64":
-  version: 2.0.0-beta.64
-  resolution: "@vuepress/plugin-palette@npm:2.0.0-beta.64"
+"@vuepress/plugin-palette@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "@vuepress/plugin-palette@npm:2.0.0-beta.66"
   dependencies:
-    "@vuepress/core": 2.0.0-beta.64
-    "@vuepress/utils": 2.0.0-beta.64
+    "@vuepress/core": 2.0.0-beta.66
+    "@vuepress/utils": 2.0.0-beta.66
     chokidar: ^3.5.3
-  checksum: c2a708c4f3d13a76aff41faf0626886e628316d8a6a838e5d5ce494972fa3407047581bb0d9cb5b5801401e286a888f1b17729358ac43f7ad83e1b694f893c28
+  checksum: 7b8359fff683ff27509c46f3c230b418189bc862387ff0989321fe6b1dcb36563fa6702c76cc059f4501f8f4ab06b5cdc595e5df2ae39c26c7de1fc1721c6c57
   languageName: node
   linkType: hard
 
-"@vuepress/plugin-prismjs@npm:2.0.0-beta.64":
-  version: 2.0.0-beta.64
-  resolution: "@vuepress/plugin-prismjs@npm:2.0.0-beta.64"
+"@vuepress/plugin-prismjs@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "@vuepress/plugin-prismjs@npm:2.0.0-beta.66"
   dependencies:
-    "@vuepress/core": 2.0.0-beta.64
+    "@vuepress/core": 2.0.0-beta.66
     prismjs: ^1.29.0
-  checksum: cd0462a2c262259051cf61965eb74996d287a0887f69c0bc25211060dfc2347ab218f2c538fb9aaeb97f841b5266ad97f2c87c3a5699b4e03c2c094a031f6c6d
+  checksum: 5c32f34b76b943c417d70dc93320a610f1f91de9c1f95044d3a84bd0cfcde9379a03a39fc26a963c951f85d5057b7da4e52dd8a8bed8bcce66c674932777d600
   languageName: node
   linkType: hard
 
-"@vuepress/plugin-pwa-popup@npm:2.0.0-beta.64":
-  version: 2.0.0-beta.64
-  resolution: "@vuepress/plugin-pwa-popup@npm:2.0.0-beta.64"
+"@vuepress/plugin-pwa-popup@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "@vuepress/plugin-pwa-popup@npm:2.0.0-beta.66"
   dependencies:
-    "@vuepress/client": 2.0.0-beta.64
-    "@vuepress/core": 2.0.0-beta.64
-    "@vuepress/plugin-pwa": 2.0.0-beta.64
-    "@vuepress/shared": 2.0.0-beta.64
-    "@vuepress/utils": 2.0.0-beta.64
+    "@vuepress/client": 2.0.0-beta.66
+    "@vuepress/core": 2.0.0-beta.66
+    "@vuepress/plugin-pwa": 2.0.0-beta.66
+    "@vuepress/shared": 2.0.0-beta.66
+    "@vuepress/utils": 2.0.0-beta.66
     vue: ^3.3.4
-  checksum: 1074579d000317fb96ca650a52f16d40207f4c5746e50c971864dacafe847e4c10abbbf705f6f1c75035fb27fb47fa08683686ca91b680a5a99a09e9c1db3bb7
+  checksum: 72afef9916c338a1afe203108e4cc7ff131389ef39ca01a16c1bccae8a63b7a6d0aa8fc4b107dae3918fb8aefd2eae1def8563f724485954efc50695e255d328
   languageName: node
   linkType: hard
 
-"@vuepress/plugin-pwa@npm:2.0.0-beta.64":
-  version: 2.0.0-beta.64
-  resolution: "@vuepress/plugin-pwa@npm:2.0.0-beta.64"
+"@vuepress/plugin-pwa@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "@vuepress/plugin-pwa@npm:2.0.0-beta.66"
   dependencies:
-    "@vuepress/client": 2.0.0-beta.64
-    "@vuepress/core": 2.0.0-beta.64
-    "@vuepress/utils": 2.0.0-beta.64
-    mitt: ^3.0.0
+    "@vuepress/client": 2.0.0-beta.66
+    "@vuepress/core": 2.0.0-beta.66
+    "@vuepress/utils": 2.0.0-beta.66
+    mitt: ^3.0.1
     register-service-worker: ^1.7.2
     vue: ^3.3.4
     workbox-build: ^7.0.0
-  checksum: 9038c4cd50734d728a59e1ecd9f7ccc724a22ba4d920d82de1c2f98e8c85f5c5d4798cf01179a29ad83e06ee8916f07c8155ee2c02be46a5d35c8148d3acae5a
+  checksum: c41e88bc032e3c4610f955d0cdea588fa3929b7a0579c522f6fd75386e162829ab5fdabcc5c17461c30765a6f5189203840074df0752c986a0734e235598f4af
   languageName: node
   linkType: hard
 
-"@vuepress/plugin-register-components@npm:2.0.0-beta.64":
-  version: 2.0.0-beta.64
-  resolution: "@vuepress/plugin-register-components@npm:2.0.0-beta.64"
+"@vuepress/plugin-register-components@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "@vuepress/plugin-register-components@npm:2.0.0-beta.66"
   dependencies:
-    "@vuepress/core": 2.0.0-beta.64
-    "@vuepress/utils": 2.0.0-beta.64
+    "@vuepress/core": 2.0.0-beta.66
+    "@vuepress/utils": 2.0.0-beta.66
     chokidar: ^3.5.3
-  checksum: 6c75670facc77348d3dae3a0ee9e6407a9f2a43bd202e946ce6eb897802b87f3c90ced780672959c298e43023cf6ec9d7b5acf62e11bb99aa0dec3e817ecd334
+  checksum: 19b9113372c1a5663560f06ea3eea96ce18b98c6479ac8b65e115503858bac9a176577f9bd6124ff33d13832a5e7428ef76ae930f8d973cba5dc7a76df42bd2c
   languageName: node
   linkType: hard
 
-"@vuepress/plugin-search@npm:2.0.0-beta.64":
-  version: 2.0.0-beta.64
-  resolution: "@vuepress/plugin-search@npm:2.0.0-beta.64"
+"@vuepress/plugin-search@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "@vuepress/plugin-search@npm:2.0.0-beta.66"
   dependencies:
-    "@vuepress/client": 2.0.0-beta.64
-    "@vuepress/core": 2.0.0-beta.64
-    "@vuepress/shared": 2.0.0-beta.64
-    "@vuepress/utils": 2.0.0-beta.64
+    "@vuepress/client": 2.0.0-beta.66
+    "@vuepress/core": 2.0.0-beta.66
+    "@vuepress/shared": 2.0.0-beta.66
+    "@vuepress/utils": 2.0.0-beta.66
     chokidar: ^3.5.3
     vue: ^3.3.4
-    vue-router: ^4.2.2
-  checksum: 766bac350613263b8638db52f77030fbac3b132da385dacb0c737842ba06424a87482fa453d135ed2520ce3eb84176ae0ecc7f753df6645f7df853040a088db8
+    vue-router: ^4.2.4
+  checksum: 49fd9f1f80c3e9ab5f1fbe5aac64ecfd4afdf32a21300b40a0710ebaa436b7efd615890a91c6949225be8abc4043ab741856ff8483f29ed3384cb4717eb7a39c
   languageName: node
   linkType: hard
 
-"@vuepress/plugin-theme-data@npm:2.0.0-beta.64":
-  version: 2.0.0-beta.64
-  resolution: "@vuepress/plugin-theme-data@npm:2.0.0-beta.64"
+"@vuepress/plugin-theme-data@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "@vuepress/plugin-theme-data@npm:2.0.0-beta.66"
   dependencies:
     "@vue/devtools-api": ^6.5.0
-    "@vuepress/client": 2.0.0-beta.64
-    "@vuepress/core": 2.0.0-beta.64
-    "@vuepress/shared": 2.0.0-beta.64
-    "@vuepress/utils": 2.0.0-beta.64
+    "@vuepress/client": 2.0.0-beta.66
+    "@vuepress/core": 2.0.0-beta.66
+    "@vuepress/shared": 2.0.0-beta.66
+    "@vuepress/utils": 2.0.0-beta.66
     vue: ^3.3.4
-  checksum: 8030c0a6064d79f197b4f1b9ff35c28d3d5be67ab7aca9d325a22c93fcd73ec7bf042e6f1cd73544bff11b2043d9b9eb6fc76d35731936387acddce4024ea476
+  checksum: 9ed872186bf11513dc49e6b31a0a23ffebba68c5a13b9149f2ce2bbe2794cbdf2d05d91e3fe096da8c18fb0b16fd57e6a037a6a7100b976545c063330938d2fc
   languageName: node
   linkType: hard
 
@@ -3144,35 +3157,45 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vuepress/theme-default@npm:2.0.0-beta.64":
-  version: 2.0.0-beta.64
-  resolution: "@vuepress/theme-default@npm:2.0.0-beta.64"
+"@vuepress/shared@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "@vuepress/shared@npm:2.0.0-beta.66"
   dependencies:
-    "@vuepress/client": 2.0.0-beta.64
-    "@vuepress/core": 2.0.0-beta.64
-    "@vuepress/plugin-active-header-links": 2.0.0-beta.64
-    "@vuepress/plugin-back-to-top": 2.0.0-beta.64
-    "@vuepress/plugin-container": 2.0.0-beta.64
-    "@vuepress/plugin-external-link-icon": 2.0.0-beta.64
-    "@vuepress/plugin-git": 2.0.0-beta.64
-    "@vuepress/plugin-medium-zoom": 2.0.0-beta.64
-    "@vuepress/plugin-nprogress": 2.0.0-beta.64
-    "@vuepress/plugin-palette": 2.0.0-beta.64
-    "@vuepress/plugin-prismjs": 2.0.0-beta.64
-    "@vuepress/plugin-theme-data": 2.0.0-beta.64
-    "@vuepress/shared": 2.0.0-beta.64
-    "@vuepress/utils": 2.0.0-beta.64
+    "@mdit-vue/types": ^0.12.0
+    "@vue/shared": ^3.3.4
+  checksum: ec84a1ed72460e2c0f01742206ffd3b86703603d91a15826a14a5c65503d66bd7d13166d83eb570808efdd45aedb6ad01217cb70843582f6a7acd705e38b9e08
+  languageName: node
+  linkType: hard
+
+"@vuepress/theme-default@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "@vuepress/theme-default@npm:2.0.0-beta.66"
+  dependencies:
+    "@vuepress/client": 2.0.0-beta.66
+    "@vuepress/core": 2.0.0-beta.66
+    "@vuepress/plugin-active-header-links": 2.0.0-beta.66
+    "@vuepress/plugin-back-to-top": 2.0.0-beta.66
+    "@vuepress/plugin-container": 2.0.0-beta.66
+    "@vuepress/plugin-external-link-icon": 2.0.0-beta.66
+    "@vuepress/plugin-git": 2.0.0-beta.66
+    "@vuepress/plugin-medium-zoom": 2.0.0-beta.66
+    "@vuepress/plugin-nprogress": 2.0.0-beta.66
+    "@vuepress/plugin-palette": 2.0.0-beta.66
+    "@vuepress/plugin-prismjs": 2.0.0-beta.66
+    "@vuepress/plugin-theme-data": 2.0.0-beta.66
+    "@vuepress/shared": 2.0.0-beta.66
+    "@vuepress/utils": 2.0.0-beta.66
     "@vueuse/core": ^10.2.1
     sass: ^1.63.6
     sass-loader: ^13.3.2
     vue: ^3.3.4
-    vue-router: ^4.2.2
+    vue-router: ^4.2.4
   peerDependencies:
     sass-loader: ^13.2.1
   peerDependenciesMeta:
     sass-loader:
       optional: true
-  checksum: 8e96a5f08046b863e558fe5b3f53f2ae7d16cbf1af6800b068cf1e8fc7dc1c55e5ab90e7a8a12cff60e611dc2cf1090aac00f3e385c122522fb217379a3b06d3
+  checksum: b4c481bad4ad5f79e87deaec3a6a2bef8805e3fb9d17b0ba519ce45eb2d01a6212c894d6eb69b59634b244f897ffa2014408a3d9a4062753767875876fce60b4
   languageName: node
   linkType: hard
 
@@ -3211,6 +3234,25 @@ __metadata:
     picocolors: ^1.0.0
     upath: ^2.0.1
   checksum: 778cc0f5abbededbd8aefb2bac02f5700f6e81eddabb745d86dc3dc52669b978405d63eb7a81d6676d33e57dd56550c16152a7bfcfbe080fc2f3fb9022583044
+  languageName: node
+  linkType: hard
+
+"@vuepress/utils@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "@vuepress/utils@npm:2.0.0-beta.66"
+  dependencies:
+    "@types/debug": ^4.1.8
+    "@types/fs-extra": ^11.0.1
+    "@types/hash-sum": ^1.0.0
+    "@vuepress/shared": 2.0.0-beta.66
+    debug: ^4.3.4
+    fs-extra: ^11.1.1
+    globby: ^13.2.2
+    hash-sum: ^2.0.0
+    ora: ^6.3.1
+    picocolors: ^1.0.0
+    upath: ^2.0.1
+  checksum: 26fc21cca67c104353e2809aacdf2f44434990aeb607d01fff34ee82d901490cfb1a4ac9714591cc62abb8efcb2f14ebbb37ac4f560f9dd3e69c09708197b1d0
   languageName: node
   linkType: hard
 
@@ -4841,32 +4883,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.17.5, esbuild@npm:~0.17.19":
-  version: 0.17.19
-  resolution: "esbuild@npm:0.17.19"
+"esbuild@npm:^0.18.10, esbuild@npm:~0.18.11":
+  version: 0.18.11
+  resolution: "esbuild@npm:0.18.11"
   dependencies:
-    "@esbuild/android-arm": 0.17.19
-    "@esbuild/android-arm64": 0.17.19
-    "@esbuild/android-x64": 0.17.19
-    "@esbuild/darwin-arm64": 0.17.19
-    "@esbuild/darwin-x64": 0.17.19
-    "@esbuild/freebsd-arm64": 0.17.19
-    "@esbuild/freebsd-x64": 0.17.19
-    "@esbuild/linux-arm": 0.17.19
-    "@esbuild/linux-arm64": 0.17.19
-    "@esbuild/linux-ia32": 0.17.19
-    "@esbuild/linux-loong64": 0.17.19
-    "@esbuild/linux-mips64el": 0.17.19
-    "@esbuild/linux-ppc64": 0.17.19
-    "@esbuild/linux-riscv64": 0.17.19
-    "@esbuild/linux-s390x": 0.17.19
-    "@esbuild/linux-x64": 0.17.19
-    "@esbuild/netbsd-x64": 0.17.19
-    "@esbuild/openbsd-x64": 0.17.19
-    "@esbuild/sunos-x64": 0.17.19
-    "@esbuild/win32-arm64": 0.17.19
-    "@esbuild/win32-ia32": 0.17.19
-    "@esbuild/win32-x64": 0.17.19
+    "@esbuild/android-arm": 0.18.11
+    "@esbuild/android-arm64": 0.18.11
+    "@esbuild/android-x64": 0.18.11
+    "@esbuild/darwin-arm64": 0.18.11
+    "@esbuild/darwin-x64": 0.18.11
+    "@esbuild/freebsd-arm64": 0.18.11
+    "@esbuild/freebsd-x64": 0.18.11
+    "@esbuild/linux-arm": 0.18.11
+    "@esbuild/linux-arm64": 0.18.11
+    "@esbuild/linux-ia32": 0.18.11
+    "@esbuild/linux-loong64": 0.18.11
+    "@esbuild/linux-mips64el": 0.18.11
+    "@esbuild/linux-ppc64": 0.18.11
+    "@esbuild/linux-riscv64": 0.18.11
+    "@esbuild/linux-s390x": 0.18.11
+    "@esbuild/linux-x64": 0.18.11
+    "@esbuild/netbsd-x64": 0.18.11
+    "@esbuild/openbsd-x64": 0.18.11
+    "@esbuild/sunos-x64": 0.18.11
+    "@esbuild/win32-arm64": 0.18.11
+    "@esbuild/win32-ia32": 0.18.11
+    "@esbuild/win32-x64": 0.18.11
   dependenciesMeta:
     "@esbuild/android-arm":
       optional: true
@@ -4914,7 +4956,7 @@ __metadata:
       optional: true
   bin:
     esbuild: bin/esbuild
-  checksum: ac11b1a5a6008e4e37ccffbd6c2c054746fc58d0ed4a2f9ee643bd030cfcea9a33a235087bc777def8420f2eaafb3486e76adb7bdb7241a9143b43a69a10afd8
+  checksum: fbd981388fe391c4f0a1b71120ca86ee75cc6de88c01bd6883f26d8450cb3beeaae602459f9a8b9dc9e026ad68b67cda2cad5f5327c9960a53fa0cb358c61d97
   languageName: node
   linkType: hard
 
@@ -5797,7 +5839,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globby@npm:^13.1.3, globby@npm:^13.2.1":
+"globby@npm:^13.1.3, globby@npm:^13.2.1, globby@npm:^13.2.2":
   version: 13.2.2
   resolution: "globby@npm:13.2.2"
   dependencies:
@@ -6965,17 +7007,17 @@ __metadata:
   resolution: "lss-manager-v4-docs@workspace:docs/.vuepress"
   dependencies:
     "@primer/octicons": 19.4.0
-    "@vuepress/client": 2.0.0-beta.64
-    "@vuepress/plugin-pwa": 2.0.0-beta.64
-    "@vuepress/plugin-pwa-popup": 2.0.0-beta.64
-    "@vuepress/plugin-register-components": 2.0.0-beta.64
-    "@vuepress/plugin-search": 2.0.0-beta.64
+    "@vuepress/client": 2.0.0-beta.66
+    "@vuepress/plugin-pwa": 2.0.0-beta.66
+    "@vuepress/plugin-pwa-popup": 2.0.0-beta.66
+    "@vuepress/plugin-register-components": 2.0.0-beta.66
+    "@vuepress/plugin-search": 2.0.0-beta.66
     cloc: 2.11.0
     moment: 2.29.4
     showdown: 2.1.0
     simple-git: 3.19.1
     vue: 3.3.4
-    vuepress: 2.0.0-beta.64
+    vuepress: 2.0.0-beta.66
     vuepress-plugin-clipboard: 2.1.5
     vuepress-plugin-sitemap2: 2.0.0-beta.231
   languageName: unknown
@@ -7373,7 +7415,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mitt@npm:^3.0.0":
+"mitt@npm:^3.0.1":
   version: 3.0.1
   resolution: "mitt@npm:3.0.1"
   checksum: b55a489ac9c2949ab166b7f060601d3b6d893a852515ae9eca4e11df01c013876df777ea109317622b5c1c60e8aae252558e33c8c94e14124db38f64a39614b1
@@ -8068,7 +8110,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.1.10, postcss@npm:^8.4.14, postcss@npm:^8.4.21, postcss@npm:^8.4.23, postcss@npm:^8.4.24":
+"postcss@npm:^8.1.10, postcss@npm:^8.4.14, postcss@npm:^8.4.21, postcss@npm:^8.4.25":
   version: 8.4.25
   resolution: "postcss@npm:8.4.25"
   dependencies:
@@ -8506,7 +8548,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^3.21.0, rollup@npm:^3.26.0":
+"rollup@npm:^3.25.2, rollup@npm:^3.26.2":
   version: 3.26.2
   resolution: "rollup@npm:3.26.2"
   dependencies:
@@ -9678,17 +9720,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:~4.3.9":
-  version: 4.3.9
-  resolution: "vite@npm:4.3.9"
+"vite@npm:~4.4.2":
+  version: 4.4.3
+  resolution: "vite@npm:4.4.3"
   dependencies:
-    esbuild: ^0.17.5
+    esbuild: ^0.18.10
     fsevents: ~2.3.2
-    postcss: ^8.4.23
-    rollup: ^3.21.0
+    postcss: ^8.4.25
+    rollup: ^3.25.2
   peerDependencies:
     "@types/node": ">= 14"
     less: "*"
+    lightningcss: ^1.21.0
     sass: "*"
     stylus: "*"
     sugarss: "*"
@@ -9701,6 +9744,8 @@ __metadata:
       optional: true
     less:
       optional: true
+    lightningcss:
+      optional: true
     sass:
       optional: true
     stylus:
@@ -9711,7 +9756,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 8c45a516278d1e0425fac00c0877336790f71484a851a318346a70e0d2aef9f3b9651deb2f9f002c791ceb920eda7d6a3cda753bdefd657321c99f448b02dd25
+  checksum: 2f7c90de35c840ed7f33000d65006053885c0342aa7c19cee7369d7b3d92473a9bae790f910eb3e9900bdb7ca89559a772ee4782f35636ec4e6bd10717e7f5ff
   languageName: node
   linkType: hard
 
@@ -9980,33 +10025,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vuepress-vite@npm:2.0.0-beta.64":
-  version: 2.0.0-beta.64
-  resolution: "vuepress-vite@npm:2.0.0-beta.64"
+"vuepress-vite@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "vuepress-vite@npm:2.0.0-beta.66"
   dependencies:
-    "@vuepress/bundler-vite": 2.0.0-beta.64
-    "@vuepress/cli": 2.0.0-beta.64
-    "@vuepress/core": 2.0.0-beta.64
-    "@vuepress/theme-default": 2.0.0-beta.64
+    "@vuepress/bundler-vite": 2.0.0-beta.66
+    "@vuepress/cli": 2.0.0-beta.66
+    "@vuepress/core": 2.0.0-beta.66
+    "@vuepress/theme-default": 2.0.0-beta.66
     vue: ^3.3.4
   peerDependencies:
-    "@vuepress/client": 2.0.0-beta.64
+    "@vuepress/client": 2.0.0-beta.66
     vue: ^3.3.4
   bin:
     vuepress: bin/vuepress.js
     vuepress-vite: bin/vuepress.js
-  checksum: c1bbe3d578ea1a88225bee026902a11fa1aebd9d49d0bd333bd143a7e62b6bbb853a7a082cb1327c3ed02610126539e45fe33b5043f7381ac40caf2530357157
+  checksum: f7111a75636c27c061cedea5a7f6a4b2243ad9f049a68e0ef29da4593958caf52446248c7b0ebe58455f102f7e2295abb2ef6330ea95ad322fdaaea3c233c516
   languageName: node
   linkType: hard
 
-"vuepress@npm:2.0.0-beta.64":
-  version: 2.0.0-beta.64
-  resolution: "vuepress@npm:2.0.0-beta.64"
+"vuepress@npm:2.0.0-beta.66":
+  version: 2.0.0-beta.66
+  resolution: "vuepress@npm:2.0.0-beta.66"
   dependencies:
-    vuepress-vite: 2.0.0-beta.64
+    vuepress-vite: 2.0.0-beta.66
   bin:
     vuepress: bin/vuepress.js
-  checksum: aa37c27da6793814dd704659f8c845b280c49779399c0f07c2ff2b18f88797e6ec37de342355cd5166463d207e39a15f6aa8625b211e420895df2a3e8a9173ce
+  checksum: 960249a94242d3b3a839680b48db9ce5f6974eb437544014d1050850bb24d5c7c63df8ec234b754e48de8d8e6df188aaa4cf605aff8dbae57541c1d3191b64db
   languageName: node
   linkType: hard
 
