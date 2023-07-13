@@ -9,6 +9,11 @@
         "url": "https://fontawesome.com",
         "version": "6.4.0"
     },
+    "@fortawesome/free-regular-svg-icons": {
+        "icon": "https://avatars.githubusercontent.com/u/1505683",
+        "url": "https://fontawesome.com",
+        "version": "6.4.0"
+    },
     "@fortawesome/free-solid-svg-icons": {
         "icon": "https://avatars.githubusercontent.com/u/1505683",
         "url": "https://fontawesome.com",
