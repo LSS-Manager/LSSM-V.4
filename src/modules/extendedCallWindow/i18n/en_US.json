@@ -141,7 +141,7 @@
             },
             {
                 "texts": ["Patrol car", "Patrol cars"],
-                "vehicles": [10, 26, 19, 47, 49, 56, 62]
+                "vehicles": [10, 26, 19, 47, 49, 56, 62, 81, 82]
             },
             { "texts": ["HEMS"], "vehicles": [11] },
             {
