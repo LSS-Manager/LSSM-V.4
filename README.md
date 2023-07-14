@@ -181,16 +181,16 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 ### GitHub Stars
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=LSS-Manager/LSSM-V.4&type=Date&theme=dark" />
-  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=LSS-Manager/LSSM-V.4&type=Date" />
-  <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=LSS-Manager/LSSM-V.4&type=Date" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=LSS-Manager%2FLSSM-V.4&type=Date&theme=dark" />
+  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=LSS-Manager%2FLSSM-V.4&type=Date" />
+  <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=LSS-Manager%2FLSSM-V.4&type=Date" />
 </picture>
 
 #### In Comparison to v3 by weeks after creation
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=LSS-Manager/LSSM-V.4,LSS-Manager/lss-manager-v3&type=Timeline&theme=dark" />
-  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=LSS-Manager/LSSM-V.4,LSS-Manager/lss-manager-v3&type=Timeline" />
-  <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=LSS-Manager/LSSM-V.4,LSS-Manager/lss-manager-v3&type=Timeline" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=LSS-Manager%2FLSSM-V.4%2CLSS-Manager%2Flss-manager-v3&type=Timeline&theme=dark" />
+  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=LSS-Manager%2FLSSM-V.4%2CLSS-Manager%2Flss-manager-v3&type=Timeline" />
+  <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=LSS-Manager%2FLSSM-V.4%2CLSS-Manager%2Flss-manager-v3&type=Timeline" />
 </picture>
 
 [License]: http://creativecommons.org/licenses/by-nc-sa/4.0/
