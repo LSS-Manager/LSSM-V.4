@@ -176,7 +176,7 @@ export default Vue.extend<
             ),
         dscBadge: () =>
             import(
-                /* webpackChunkName: "modules/dailyCreditsSummary/components/dsc-badge" */ './components/dscBadge.vue'
+                /* webpackChunkName: "modules/dailyCreditsSummary/components/dcs-badge" */ './components/dcsBadge.vue'
             ),
         Highcharts: Chart,
     },
