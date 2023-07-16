@@ -1,5 +1,5 @@
-import { createI18n } from 'vue-i18n-composable';
 import VueI18n from 'vue-i18n';
+import { createI18n, useI18n as useI18nHelper } from 'vue-i18n-composable';
 
 import type { VueConstructor } from 'vue/types/vue';
 
@@ -64,3 +64,22 @@ export default async (Vue: VueConstructor): Promise<VueI18n> => {
 
     return i18n;
 };
+
+const useI18n = (scope: string) => {
+    const { t, tc } = useI18nHelper();
+    return {
+        $t: t,
+        $tc: tc,
+        $m: (key: VueI18n.Path, args?: VueI18n.Values) =>
+            t(`${scope}.${key}`, args),
+        $mc: (
+            key: VueI18n.Path,
+            choice?: VueI18n.Choice,
+            args?: VueI18n.Values
+        ) => tc(`${scope}.${key}`, choice, args),
+    };
+};
+
+const useI18nModule = (module: string) => useI18n(`modules.${module}`);
+
+export { useI18n, useI18nModule };
