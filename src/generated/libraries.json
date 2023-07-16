@@ -358,9 +358,14 @@
         "version": "2.7.14"
     },
     "vue-i18n": {
-        "icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
+        "icon": "https://vue-i18n.intlify.dev/vue-i18n-logo.svg",
         "url": "https://github.com/kazupon/vue-i18n#readme",
         "version": "8.28.2"
+    },
+    "vue-i18n-composable": {
+        "icon": "https://vue-i18n.intlify.dev/vue-i18n-logo.svg",
+        "url": "https://github.com/intlify/vue-i18n-composable",
+        "version": "2.0.0"
     },
     "vue-js-modal": {
         "url": "https://vue-js-modal.yev.io/",

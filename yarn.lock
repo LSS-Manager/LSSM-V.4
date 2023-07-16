@@ -7061,6 +7061,7 @@ __metadata:
     util: 0.12.5
     vue: 2.7.14
     vue-i18n: 8.28.2
+    vue-i18n-composable: 2.0.0
     vue-js-modal: 2.0.1
     vue-js-toggle-button: 1.3.3
     vue-loader: 15.10.1
@@ -9784,6 +9785,16 @@ __metadata:
   version: 2.3.4
   resolution: "vue-hot-reload-api@npm:2.3.4"
   checksum: 9befc0b3d6c1cc69430813fb7cfd2125c6a228730a36fad0653e4ddb60c8d4cf3ddc9649d2c9105c3d6044b42e8c8dce62b3c245bc65a6f187c1e2ca82a79252
+  languageName: node
+  linkType: hard
+
+"vue-i18n-composable@npm:2.0.0":
+  version: 2.0.0
+  resolution: "vue-i18n-composable@npm:2.0.0"
+  peerDependencies:
+    vue: ">=2.7 <3"
+    vue-i18n: ">=8 <9"
+  checksum: 7e43221dcd0df8aafa5457e678b7ee2a0f2441bf1512cd776266fe330fb7e4e1b4b6ce1a6df4bead4ad6dd5fc58e32f7d85f52a5a232386c7da3580561c31d10
   languageName: node
   linkType: hard
 

@@ -1,3 +1,4 @@
+import { createI18n } from 'vue-i18n-composable';
 import VueI18n from 'vue-i18n';
 
 import type { VueConstructor } from 'vue/types/vue';
@@ -42,7 +43,7 @@ export default async (Vue: VueConstructor): Promise<VueI18n> => {
         }
     }
 
-    const i18n = new VueI18n({
+    const i18n = createI18n({
         locale,
         messages: {
             [locale]: {
