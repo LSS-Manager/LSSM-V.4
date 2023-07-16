@@ -158,10 +158,12 @@ interface AppendableListSetting<Type extends SettingType = SettingType> {
           ) => string | false);
 }
 
-export interface PreviewElement
+export interface PreviewElement<Component = undefined>
     extends Omit<AppendableListSetting, 'name' | 'setting'> {
     type: 'preview';
-    component: ExtendedVue<Vue, unknown, unknown, unknown, unknown, unknown>;
+    component: Component extends undefined
+        ? ExtendedVue<Vue, unknown, unknown, unknown, unknown, unknown>
+        : Component;
 }
 
 export interface AppendableList extends SettingTemplate {

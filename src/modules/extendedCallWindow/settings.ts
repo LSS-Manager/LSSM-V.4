@@ -1,5 +1,5 @@
 import aipreview from './components/alarmIcons/preview.vue';
-import mkpreview from './components/missionKeywords/preview.vue';
+import mkPreview from './components/missionKeywords/mkPreview.vue';
 
 import type { $m, ModuleSettingFunction } from 'typings/Module';
 import type {
@@ -370,10 +370,10 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
                         type: 'color',
                     },
                 },
-                <PreviewElement>{
+                <PreviewElement<typeof mkPreview>>{
                     type: 'preview',
-                    component: mkpreview,
-                    title: $m('settings.missionKeywords.preview'),
+                    component: mkPreview,
+                    title: $m('settings.missionKeywords.preview').toString(),
                     size: 1,
                 },
                 <AppendableListSetting<Toggle>>{
