@@ -364,7 +364,7 @@
     },
     "vue-i18n-composable": {
         "icon": "https://vue-i18n.intlify.dev/vue-i18n-logo.svg",
-        "url": "https://github.com/intlify/vue-i18n-composable",
+        "url": "https://github.com/intlify/vue-i18n-composable/tree/master#readme",
         "version": "2.0.0"
     },
     "vue-js-modal": {
