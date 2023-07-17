@@ -1,4 +1,4 @@
-import aipreview from './components/alarmIcons/preview.vue';
+import aiPreview from './components/alarmIcons/aiPreview.vue';
 import mkPreview from './components/missionKeywords/mkPreview.vue';
 
 import type { $m, ModuleSettingFunction } from 'typings/Module';
@@ -431,9 +431,9 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
                         labels: ['solid', 'regular', 'brand'],
                     },
                 },
-                <PreviewElement>{
+                <PreviewElement<typeof aiPreview>>{
                     type: 'preview',
-                    component: aipreview,
+                    component: aiPreview,
                     title: $m('settings.alarmIcons.preview'),
                     size: 1,
                 },
