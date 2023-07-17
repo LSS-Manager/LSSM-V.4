@@ -264,4 +264,4 @@ Zur besseren Übersicht kann man die Tabs der AAO-Kategorien individuell anpasse
 Sowohl für die Hintergrund-,
 als auch die Schriftfarbe können entweder Standard- oder benutzerdefinierte Farben ausgewählt werden.
 
-![Färbbare AAO-Kategorien](./Färbbare AAO-Kategorien.png)
+![Färbbare AAO-Kategorien](./färbbareAAO-Kategorien.png)

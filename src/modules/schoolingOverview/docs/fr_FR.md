@@ -26,4 +26,4 @@ Voici par exemple ce qui se passe pour les formations avec vos propres participa
 
 Et pour les formations ouvertes :
 
-! [Formations ouvertes](alliance.png)
+![Formations ouvertes](./alliance.png)
