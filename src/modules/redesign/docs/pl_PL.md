@@ -7,7 +7,6 @@ ponieważ przeprojektowanie szybko powoduje,
 
 <!-- markdownlint-disable md013 line-length -->
 
-
 |              Zalety                |    Wady                                                                                           |
 | :-----------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | Cała gra działa trochę szybciej. | Niektóre skrypty mogą nie działać z “przeprojektowaniem” bez dodatkowej pracy. Oczywiście przed premierą upewniamy się, że wszystkie popularne skrypty są kompatybilne. |
