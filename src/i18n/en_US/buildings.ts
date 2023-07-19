@@ -526,7 +526,7 @@ export default {
                     newCells: 1,
                     cannotDisable: true,
                 },
-                9
+                29
             ),
         ],
         levelcost: [],
