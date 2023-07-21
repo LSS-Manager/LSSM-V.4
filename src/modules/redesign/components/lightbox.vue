@@ -682,7 +682,7 @@ export default Vue.extend<
                         (
                             scope.split('.') as [
                                 RootScopeWithoutAll,
-                                ...string[]
+                                ...string[],
                             ]
                         )[0],
                     ]).then(commands => ({
@@ -850,6 +850,10 @@ iframe
     align-items: center
     color: black
     cursor: wait
+
+    body.dark &
+        background: rgba(0, 0, 0, 0.5)
+        color: rgb(100, 100, 100)
 
     .error-list
         position: absolute

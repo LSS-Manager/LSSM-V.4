@@ -547,7 +547,7 @@ export default <RedesignParser<VehicleWindow>>(({
             ): ShoreStation[] => {
                 return Array.from(
                     doc.querySelectorAll<HTMLTableRowElement>(
-                        `.col-md-9:first-of-type table#${list}-hospitals tbody tr`
+                        `.col-md-9:first-of-type table#${list}-intermediate-stations tbody tr`
                     )
                 )
                     .map(row => {

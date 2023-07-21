@@ -11,6 +11,7 @@
             "selection": "Séléction de véhicules"
         }
     },
+    "arrHighlight": { "removeBeforeParsing": "" },
     "arrHover": {
         "arrSpecs": {
             "boot": "Bateaux (généraux)",
@@ -45,7 +46,10 @@
             "rth_only": "Hélicoptère",
             "rtw": "ASSU",
             "rw": "Véhicule de secours routier",
-            "wasser_amount": "litres d'eau"
+            "wasser_amount": "litres d'eau",
+            "water_damage_pump": "litres d'eau/min",
+            "water_damage_pump_value": "litres d'eau/min",
+            "water_damage_pump_value_only_pumps": "litres d'eau/min"
         },
         "headers": {
             "attribute": "Nom",
@@ -65,6 +69,7 @@
     "enhancedMissingVehicles": {
         "driving": "En approche",
         "missing": "Manque sur la mission",
+        "pump": "l d’eau/min",
         "selected": "Séléctionné",
         "staff": [
             {

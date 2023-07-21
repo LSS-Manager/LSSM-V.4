@@ -63,6 +63,7 @@ Or in the <discord-channel channel="uptime"/> on our <discord/>
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
+[docs.home]: /cs_CZ/
 [docs.apps]: /cs_CZ/apps.md
 [docs.appstore]: /cs_CZ/appstore.md
 [docs.bugs]: /cs_CZ/bugs.md

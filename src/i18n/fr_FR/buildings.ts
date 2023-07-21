@@ -16,6 +16,10 @@ export default {
         color: '#bb0000',
         coins: 30,
         credits: 100_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(22).fill(100_000)],
+            coins: [10, 15, ...Array(22).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Service de Santé et de Secours Médical',
@@ -44,6 +48,22 @@ export default {
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [35, 36, 37, 38],
             },
+            {
+                caption:
+                    "Service de Sauvetage et de Lutte contre L'incendie des Aéronefs",
+                credits: 300_000,
+                coins: 30,
+                duration: '5 jours',
+                isVehicleExtension: true,
+                givesParkingLots: 5,
+                unlocksVehicleTypes: [51, 52, 53, 54, 55],
+            },
+            {
+                caption: "Extension d'équipement d'inondation",
+                credits: 200_000,
+                coins: 25,
+                duration: '5 jours',
+            },
         ],
         levelcost: ['1. 10 000', '2. 50 000', '3-24. 100 000'],
         maxBuildings: '6 000',
@@ -62,6 +82,10 @@ export default {
         color: '#992222',
         coins: 50,
         credits: 500_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             index => ({
                 caption: 'Plus de salles de cours',
@@ -87,6 +111,10 @@ export default {
         color: '#ffa500',
         coins: 35,
         credits: 200_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(12).fill(100_000)],
+            coins: [10, 15, ...Array(12).fill(20)],
+        },
         extensions: [],
         levelcost: ['1. 10 000', '2. 50 000', '3-14. 100 000'],
         maxBuildings: 'Aucune limite',
@@ -103,6 +131,10 @@ export default {
         color: '#ffa500',
         coins: 50,
         credits: 500_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             index => ({
                 caption: 'Plus de salles de cours',
@@ -128,6 +160,10 @@ export default {
         color: '#bbe944',
         coins: 35,
         credits: 200_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [
             {
                 caption: 'Interne général',
@@ -213,6 +249,10 @@ export default {
         color: '#e7ad2f',
         coins: 50,
         credits: 1_000_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: [],
         maxBuildings: 'Voir particularités',
@@ -234,6 +274,10 @@ export default {
         color: '#007700',
         coins: 35,
         credits: 100_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(12).fill(100_000)],
+            coins: [10, 15, ...Array(12).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Cellule de prison',
@@ -273,6 +317,10 @@ export default {
         color: '#24c3ae',
         coins: 0,
         credits: 0,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: [],
         maxBuildings: 'Un CTA tous les 25 batiments',
@@ -288,6 +336,10 @@ export default {
         color: '#225522',
         coins: 50,
         credits: 500_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             index => ({
                 caption: 'Plus de salles de cours',
@@ -313,6 +365,10 @@ export default {
         color: '#225522',
         coins: 50,
         credits: 500_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [
             {
                 caption: 'Section des Moyens Spécialisés n°1',
@@ -396,6 +452,10 @@ export default {
         color: '#148423',
         coins: 50,
         credits: 1_000_000,
+        levelPrices: {
+            credits: [1_000_000],
+            coins: [50],
+        },
         extensions: [],
         levelcost: ['1. 1 000 000 crédits / 50 pièces'],
         maxBuildings: 'Voir particularités',
@@ -417,6 +477,10 @@ export default {
         color: '#c259b5',
         coins: 0,
         credits: 0,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: [],
         maxBuildings: 1,
@@ -432,6 +496,10 @@ export default {
         color: '#00ff00',
         coins: -1,
         credits: 100_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [
             {
                 caption: 'Cellule de prison',
@@ -479,6 +547,10 @@ export default {
         color: '#aa1111',
         coins: 25,
         credits: 50_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(3).fill(100_000)],
+            coins: [10, 15, ...Array(3).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Service de Santé et de Secours Médical',
@@ -530,6 +602,10 @@ export default {
         color: '#116611',
         coins: 25,
         credits: 50_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(2).fill(100_000)],
+            coins: [10, 15, ...Array(2).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Cellule de prison',
@@ -572,6 +648,10 @@ export default {
         color: '#eeb611',
         coins: 25,
         credits: 100_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(3).fill(100_000)],
+            coins: [10, 15, ...Array(3).fill(20)],
+        },
         extensions: [],
         levelcost: [
             '1. 10 000',
@@ -593,6 +673,10 @@ export default {
         color: '#8B4513',
         coins: -1,
         credits: -1,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: ['Trop cher'],
         maxBuildings: 'Aucune limite',
@@ -610,6 +694,10 @@ export default {
         coins: -1,
         credits: -1,
         extensions: [],
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         levelcost: ['Trop cher'],
         maxBuildings: 'Aucune limite',
         maxLevel: 5,
@@ -625,6 +713,17 @@ export default {
         color: '#116611',
         coins: 50,
         credits: 500_000,
+        levelPrices: {
+            credits: [
+                10_000,
+                20_000,
+                75_000,
+                ...Array(5).fill(100_000),
+                ...Array(5).fill(150_000),
+                ...Array(6).fill(200_000),
+            ],
+            coins: [10, 10, 15, ...Array(10).fill(20), ...Array(6).fill(25)],
+        },
         extensions: [],
         levelcost: [
             '1. 10 000',
@@ -648,6 +747,17 @@ export default {
         color: '#116611',
         coins: 30,
         credits: 500_000,
+        levelPrices: {
+            credits: [
+                10_000,
+                25_000,
+                45_000,
+                75_000,
+                ...Array(5).fill(100_000),
+                150_000,
+            ],
+            coins: [10, 10, 15, 15, ...Array(6).fill(20)],
+        },
         extensions: [],
         levelcost: [
             '1. 10 000',
@@ -671,6 +781,10 @@ export default {
         color: '#116611',
         coins: 50,
         credits: 500_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             index => ({
                 caption: 'Plus de salles de cours',
@@ -695,6 +809,10 @@ export default {
         color: '#116611',
         coins: 50,
         credits: 1_000_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [
             {
                 caption: 'Hangar pour hélicoptère',
@@ -740,6 +858,98 @@ export default {
                 givesParkingLots: 1,
                 requiredExtensions: [3],
             },
+            {
+                caption: "Hangar pour hélicoptères bombardiers d'eau",
+                credits: 100_000,
+                coins: 15,
+                duration: '2 jours',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+            },
+            {
+                caption:
+                    "Hangar supplémentaire pour hélicoptères bombardiers d'eau",
+                credits: 200_000,
+                coins: 15,
+                duration: '4 jours',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                requiredExtensions: [5],
+            },
+            {
+                caption:
+                    "Hangar supplémentaire pour hélicoptères bombardiers d'eau",
+                credits: 200_000,
+                coins: 15,
+                duration: '4 jours',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                requiredExtensions: [6],
+            },
+            {
+                caption:
+                    "Hangar supplémentaire pour hélicoptères bombardiers d'eau",
+                credits: 200_000,
+                coins: 15,
+                duration: '4 jours',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                requiredExtensions: [7],
+            },
+            {
+                caption:
+                    "Hangar supplémentaire pour hélicoptères bombardiers d'eau",
+                credits: 200_000,
+                coins: 15,
+                duration: '4 jours',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                requiredExtensions: [8],
+            },
+            {
+                caption: "Hangar pour avion bombardiers d'eau",
+                credits: 100_000,
+                coins: 15,
+                duration: '2 jours',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+            },
+            {
+                caption: "Hangar supplémentaire pour avion bombardiers d'eau",
+                credits: 200_000,
+                coins: 15,
+                duration: '4 jours',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                requiredExtensions: [10],
+            },
+            {
+                caption: "Hangar supplémentaire pour avion bombardiers d'eau",
+                credits: 200_000,
+                coins: 15,
+                duration: '4 jours',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                requiredExtensions: [11],
+            },
+            {
+                caption: "Hangar supplémentaire pour avion bombardiers d'eau",
+                credits: 200_000,
+                coins: 15,
+                duration: '4 jours',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                requiredExtensions: [12],
+            },
+            {
+                caption: "Hangar supplémentaire pour avion bombardiers d'eau",
+                credits: 200_000,
+                coins: 15,
+                duration: '4 jours',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                requiredExtensions: [13],
+            },
         ],
         levelcost: [],
         maxBuildings: 'Aucune limite',
@@ -751,4 +961,4 @@ export default {
         schoolingTypes: ['Secours nautique'],
         icon: 'building-shield',
     },
-} as Record<number, InternalBuilding>;
+} satisfies Record<number, InternalBuilding>;

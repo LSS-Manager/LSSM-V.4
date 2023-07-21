@@ -48,6 +48,10 @@
             "description": "Sets a gray filter over all ARRs that do not contain a word of the mission name.",
             "title": "Grey out unsuitable ARRs"
         },
+        "arrMatchHighlightAllWords": {
+            "description": "Uses all words of the missions name for the \"Grey out unsuitable ARRs\" feature.",
+            "title": "Use all words"
+        },
         "arrSearch": {
             "description": "Shows a search bar above the ARRs that makes filtering your ARRs available.",
             "title": "ARR-Search"
@@ -197,6 +201,10 @@
             "title": "Vehicle counter: color",
             "warning": "orange"
         },
+        "vehicleListPermanentSearch": {
+            "description": "Vehicle search bar permanently displayed.",
+            "title": "Permanent vehicle search bar"
+        },
         "vehicleTypeInList": {
             "description": "Displays the vehicle type in the Available Units list.",
             "title": "Show vehicle type"
@@ -211,7 +219,7 @@
             { "name": "Firetruck", "vehicleTypes": [0, 1, 12, 13, 19] },
             {
                 "name": "Other Fire Apparatus",
-                "vehicleTypes": [2, 3, 4, 6, 7, 10, 11]
+                "vehicleTypes": [2, 3, 4, 6, 7, 10, 11, 43, 44, 45]
             },
             { "name": "Ambulance", "vehicleTypes": [5, 9, 23, 24, 25, 26, 27] },
             { "name": "Police", "vehicleTypes": [8, 15, 16, 17, 18, 22, 37] },

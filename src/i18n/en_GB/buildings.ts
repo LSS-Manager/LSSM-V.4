@@ -16,6 +16,10 @@ export default {
         color: '#bb0000',
         coins: 30,
         credits: 100_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(22).fill(100_000)],
+            coins: [10, 15, ...Array(22).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Ambulance extension',
@@ -26,7 +30,24 @@ export default {
                 givesParkingLots: 0,
                 isVehicleExtension: true,
             },
-            null,
+            {
+                caption: 'Aviation firefighting Extension',
+                credits: 100_000,
+                coins: 20,
+                duration: '5 Days',
+                unlocksVehicleTypes: [75, 76, 77, 78],
+                givesParkingLots: 0,
+                isVehicleExtension: true,
+            },
+            {
+                caption: 'Technical Rescue',
+                credits: 100_000,
+                coins: 20,
+                duration: '7 Days',
+                unlocksVehicleTypes: [73, 74],
+                givesParkingLots: 0,
+                isVehicleExtension: true,
+            },
             {
                 caption: 'Foam Extension',
                 credits: 150_000,
@@ -69,6 +90,16 @@ export default {
                 },
                 11
             ),
+            {
+                caption: 'Airfield Operations Extension',
+                credits: 200_000,
+                coins: 25,
+                duration: '5 Days',
+                unlocksVehicleTypes: [79, 80, 81],
+                givesParkingLots: 2,
+                parkingLotReservations: [[81, 81]],
+                isVehicleExtension: true,
+            },
             null,
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
@@ -88,6 +119,10 @@ export default {
         color: '#992222',
         coins: 50,
         credits: 500_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             {
                 caption: 'Additional classroom',
@@ -112,6 +147,10 @@ export default {
         color: '#ffa500',
         coins: 35,
         credits: 200_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(17).fill(100_000)],
+            coins: [10, 15, ...Array(17).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Mass Casualty Extension',
@@ -139,6 +178,10 @@ export default {
         color: '#9f9830',
         coins: 50,
         credits: 500_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             {
                 caption: 'Additional classroom',
@@ -163,6 +206,10 @@ export default {
         color: '#bbe944',
         coins: 25,
         credits: 200_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [
             {
                 caption: 'General Internal',
@@ -248,6 +295,10 @@ export default {
         color: '#e7ad2f',
         coins: 50,
         credits: 1_000_000,
+        levelPrices: {
+            credits: [1_000_000],
+            coins: [50],
+        },
         extensions: [],
         levelcost: ['1.000.000 / 50 Coins'],
         maxBuildings: 'see specials',
@@ -269,6 +320,10 @@ export default {
         color: '#007700',
         coins: 35,
         credits: 100_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(17).fill(100_000)],
+            coins: [10, 15, ...Array(17).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Prison cell',
@@ -297,7 +352,7 @@ export default {
                 unlocksVehicleTypes: [53, 54, 55, 56],
                 givesParkingLots: 1,
                 isVehicleExtension: true,
-                parkingLotReservations: [54],
+                parkingLotReservations: [[54]],
             },
             {
                 caption: 'Additional Detention Van Parking Spaces',
@@ -306,8 +361,27 @@ export default {
                 duration: '5 Days',
                 givesParkingLots: 2,
                 isVehicleExtension: true,
-                parkingLotReservations: [54, 54],
+                parkingLotReservations: [[54], [54]],
                 requiredExtensions: [10],
+            },
+            {
+                caption: 'Aviation policing Extension',
+                credits: 100_000,
+                coins: 20,
+                duration: '5 Days',
+                unlocksVehicleTypes: [82],
+                givesParkingLots: 0,
+                isVehicleExtension: true,
+            },
+            {
+                caption: 'Airfield Operations Extension',
+                credits: 200_000,
+                coins: 25,
+                duration: '5 Days',
+                unlocksVehicleTypes: [79, 80, 81],
+                givesParkingLots: 2,
+                parkingLotReservations: [[81, 81]],
+                isVehicleExtension: true,
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
@@ -328,6 +402,10 @@ export default {
         color: '#24c3ae',
         coins: 0,
         credits: 0,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: [],
         maxBuildings:
@@ -344,6 +422,10 @@ export default {
         color: '#225522',
         coins: 50,
         credits: 500_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             {
                 caption: 'Additional classroom',
@@ -368,6 +450,10 @@ export default {
         color: '#148423',
         coins: 50,
         credits: 1_000_000,
+        levelPrices: {
+            credits: [...Array(5).fill(1_000_000)],
+            coins: [...Array(5).fill(50)],
+        },
         extensions: [],
         levelcost: ['1-5. 1.000.000 Credits / 50 Coins'],
         maxBuildings: 'see specials',
@@ -389,6 +475,10 @@ export default {
         color: '#c259b5',
         coins: 0,
         credits: 0,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: [],
         maxBuildings: 4,
@@ -404,6 +494,10 @@ export default {
         color: '#00ff00',
         coins: -1,
         credits: 100_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [
             {
                 caption: 'Prison cell',
@@ -449,6 +543,10 @@ export default {
         color: '#aa1111',
         coins: 25,
         credits: 50_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(3).fill(100_000)],
+            coins: [10, 15, ...Array(3).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Ambulance extension',
@@ -460,10 +558,22 @@ export default {
                 isVehicleExtension: true,
             },
             {
-                caption: 'Airport extension',
+                caption: 'Aviation firefighting Extension',
+                credits: 100_000,
+                coins: 20,
+                duration: '5 Days',
+                unlocksVehicleTypes: [75, 76, 77, 78],
+                givesParkingLots: 0,
+                isVehicleExtension: true,
+            },
+            {
+                caption: 'Technical Rescue',
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Days',
+                unlocksVehicleTypes: [73, 74],
+                givesParkingLots: 0,
+                isVehicleExtension: true,
             },
             {
                 caption: 'Foam Extension',
@@ -485,7 +595,7 @@ export default {
                 givesParkingLots: 1,
                 isVehicleExtension: true,
                 parkingLotReservations: [
-                    41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
+                    [41, 42, 43, 44, 45, 46, 47, 48, 49, 50],
                 ],
                 cannotDisable: true,
             },
@@ -500,15 +610,19 @@ export default {
                 givesParkingLots: 1,
                 isVehicleExtension: true,
                 parkingLotReservations: [
-                    41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
+                    [41, 42, 43, 44, 45, 46, 47, 48, 49, 50],
                 ],
                 cannotDisable: true,
             },
             {
-                caption: 'Water rescue expansion',
-                credits: 100_000,
-                coins: 20,
-                duration: '7 Days',
+                caption: 'Airfield Operations Extension',
+                credits: 200_000,
+                coins: 25,
+                duration: '5 Days',
+                unlocksVehicleTypes: [79, 80, 81],
+                givesParkingLots: 2,
+                parkingLotReservations: [[81, 81]],
+                isVehicleExtension: true,
             },
         ],
         levelcost: [
@@ -533,6 +647,10 @@ export default {
         color: '#116611',
         coins: 25,
         credits: 50_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(3).fill(100_000)],
+            coins: [10, 15, ...Array(3).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Prison cell',
@@ -561,7 +679,26 @@ export default {
                 unlocksVehicleTypes: [53, 54, 55, 56],
                 givesParkingLots: 1,
                 isVehicleExtension: true,
-                parkingLotReservations: [54],
+                parkingLotReservations: [[54]],
+            },
+            {
+                caption: 'Aviation policing Extension',
+                credits: 100_000,
+                coins: 20,
+                duration: '5 Days',
+                unlocksVehicleTypes: [82],
+                givesParkingLots: 0,
+                isVehicleExtension: true,
+            },
+            {
+                caption: 'Airfield Operations Extension',
+                credits: 200_000,
+                coins: 25,
+                duration: '5 Days',
+                unlocksVehicleTypes: [79, 80, 81],
+                givesParkingLots: 2,
+                parkingLotReservations: [[81, 81]],
+                isVehicleExtension: true,
             },
         ],
         levelcost: [
@@ -587,6 +724,10 @@ export default {
         color: '#eeb611',
         coins: 25,
         credits: 100_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(3).fill(100_000)],
+            coins: [10, 15, ...Array(3).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Mass Casualty Extension',
@@ -619,6 +760,10 @@ export default {
         color: '#e2e53b',
         coins: 25,
         credits: 100_000,
+        levelPrices: {
+            credits: [...Array(5).fill(20_000)],
+            coins: [...Array(5).fill(20)],
+        },
         extensions: [
             {
                 caption: 'General Internal',
@@ -645,6 +790,10 @@ export default {
         color: '#eeb611',
         coins: 10,
         credits: 10_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: ['not expandable'],
         maxBuildings: 'No limit',
@@ -662,6 +811,10 @@ export default {
         color: '#652d06',
         coins: -1,
         credits: -1,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: ['Too Expensive'],
         maxBuildings: 'No Limit',
@@ -678,6 +831,10 @@ export default {
         color: '#562704',
         coins: -1,
         credits: -1,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: ['Too Expensive'],
         maxBuildings: 'No Limit',
@@ -694,6 +851,17 @@ export default {
         color: '#eeb611',
         coins: 25,
         credits: 400_000,
+        levelPrices: {
+            credits: [
+                10_000,
+                25_000,
+                50_000,
+                ...Array(6).fill(100_000),
+                ...Array(5).fill(150_000),
+                ...Array(6).fill(200_000),
+            ],
+            coins: [10, 10, 15, ...Array(10).fill(20), ...Array(5).fill(25)],
+        },
         extensions: [
             {
                 caption: 'Mass Casualty Extension',
@@ -724,6 +892,25 @@ export default {
         color: '#116611',
         coins: 50,
         credits: 1_000_000,
+        levelPrices: {
+            credits: [
+                20_000,
+                50_000,
+                100_000,
+                150_000,
+                ...Array(5).fill(200_000),
+                ...Array(5).fill(300_000),
+                ...Array(6).fill(400_000),
+            ],
+            coins: [
+                10,
+                10,
+                10,
+                15,
+                ...Array(10).fill(20),
+                ...Array(6).fill(25),
+            ],
+        },
         extensions: [
             {
                 caption: 'Prison cell',
@@ -752,7 +939,7 @@ export default {
                 unlocksVehicleTypes: [53, 54, 55, 56],
                 givesParkingLots: 1,
                 isVehicleExtension: true,
-                parkingLotReservations: [54],
+                parkingLotReservations: [[54]],
             },
             {
                 caption: 'Additional Detention Van Parking Spaces',
@@ -761,7 +948,7 @@ export default {
                 duration: '5 Days',
                 givesParkingLots: 2,
                 isVehicleExtension: true,
-                parkingLotReservations: [54, 54],
+                parkingLotReservations: [[54], [54]],
                 requiredExtensions: [40],
             },
         ],
@@ -786,4 +973,196 @@ export default {
         parkingLotsPerLevel: 2,
         icon: 'city',
     },
-} as Record<number, InternalBuilding>;
+    27: {
+        caption: 'Lifeboat Station',
+        color: '#88ecc4',
+        coins: 35,
+        credits: 100_000,
+        levelPrices: {
+            credits: [...Array(5).fill(20_000)],
+            coins: [...Array(5).fill(10)],
+        },
+        extensions: [
+            {
+                caption: 'Hovercraft Extension',
+                credits: 100_000,
+                coins: 20,
+                duration: '5 Days',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                unlocksVehicleTypes: [71, 72],
+            },
+            {
+                caption: 'Beach Lifeguard',
+                credits: 100_000,
+                coins: 20,
+                duration: '5 Days',
+                isVehicleExtension: true,
+                givesParkingLots: 2,
+                unlocksVehicleTypes: [70],
+            },
+            {
+                caption: 'Flood Rescue',
+                credits: 100_000,
+                coins: 20,
+                duration: '5 Days',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                unlocksVehicleTypes: [61],
+            },
+        ],
+        levelcost: ['1-5. 20.000'],
+        maxBuildings: 'No limit',
+        maxLevel: 5,
+        special: '',
+        startPersonnel: 5,
+        startVehicles: [''],
+        schoolingTypes: ['Water Rescue'],
+        startParkingLots: 1,
+        parkingLotsPerLevel: 1,
+        icon: 'staff-snake',
+    },
+    28: {
+        caption: 'Coastguard Rescue Station',
+        color: '#88ecc4',
+        coins: 35,
+        credits: 100_000,
+        levelPrices: {
+            credits: [...Array(5).fill(20_000)],
+            coins: [...Array(5).fill(10)],
+        },
+        extensions: [
+            {
+                caption: 'Mud Decontamination',
+                credits: 100_000,
+                coins: 20,
+                duration: '5 Days',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                unlocksVehicleTypes: [58, 62],
+            },
+            {
+                caption: 'Flood Rescue',
+                credits: 100_000,
+                coins: 20,
+                duration: '5 Days',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                unlocksVehicleTypes: [61],
+            },
+        ],
+        levelcost: ['1-5. 20.000'],
+        maxBuildings: 'No limit',
+        maxLevel: 5,
+        special: '',
+        startPersonnel: 4,
+        startVehicles: [''],
+        schoolingTypes: ['Water Rescue'],
+        startParkingLots: 1,
+        parkingLotsPerLevel: 1,
+        icon: 'staff-snake',
+    },
+    29: {
+        caption: 'Lifeboat College',
+        color: '#88ecc4',
+        coins: 50,
+        credits: 500_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
+        extensions: multiplyExtension(
+            {
+                caption: 'Additional classroom',
+                credits: 400_000,
+                coins: 40,
+                duration: '7 Days',
+                newClassrooms: 1,
+                cannotDisable: true,
+            },
+            3
+        ),
+        levelcost: [],
+        maxBuildings: 'No limit',
+        maxLevel: 0,
+        special:
+            "Finance Admins and admins can (expand) association Lifeboat College with the help of credits from the association's Funds. Alliance Educators and admins can start training courses at association Lifeboat College.",
+        startClassrooms: 1,
+        icon: 'graduation-cap',
+    },
+    30: {
+        caption: 'Coastal Rescue Heliport',
+        color: '#88ecc4',
+        coins: 50,
+        credits: 1_000_000,
+        levelPrices: {
+            credits: [...Array(5).fill(1_000_000)],
+            coins: [...Array(5).fill(50)],
+        },
+        extensions: [
+            {
+                caption: 'Helicopter Hangar',
+                credits: 10_000,
+                coins: 1,
+                duration: '0 Days',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                unlocksVehicleTypes: [64, 65],
+            },
+            {
+                caption: 'Additional Helicopter Hangar',
+                credits: 200_000,
+                coins: 15,
+                duration: '4 Days',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                requiredExtensions: [0],
+                unlocksVehicleTypes: [64, 65],
+            },
+            {
+                caption: 'Additional Helicopter Hangar',
+                credits: 200_000,
+                coins: 15,
+                duration: '4 Days',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                requiredExtensions: [1],
+                unlocksVehicleTypes: [64, 65],
+            },
+            {
+                caption: 'Additional Helicopter Hangar',
+                credits: 200_000,
+                coins: 15,
+                duration: '4 Days',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                requiredExtensions: [2],
+                unlocksVehicleTypes: [64, 65],
+            },
+            {
+                caption: 'Additional Helicopter Hangar',
+                credits: 200_000,
+                coins: 15,
+                duration: '4 Days',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                requiredExtensions: [3],
+                unlocksVehicleTypes: [64, 65],
+            },
+        ],
+        levelcost: ['1-5. 1.000.000 Credits / 50 Coins'],
+        maxBuildings: 'see specials',
+        maxLevel: 5,
+        special:
+            'Up to 6 landing sites can be built per station (expansion stages). Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
+        startPersonnel: 1,
+        startVehicles: [],
+        schoolingTypes: ['Water Rescue'],
+        startParkingLots: 1,
+        maxBuildingsFunction: (buildingsAmountTotal: number): number =>
+            buildingsAmountTotal < 125
+                ? 4
+                : Math.floor(buildingsAmountTotal / 25),
+        icon: 'helicopter',
+    },
+} satisfies Record<number, InternalBuilding>;

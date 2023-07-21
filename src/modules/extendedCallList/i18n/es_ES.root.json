@@ -137,7 +137,8 @@
             "distance_station": "Distancia a la siguiente estación",
             "id": "Tiempo de la misión",
             "remaining_patients": "Pacientes actuales",
-            "remaining_prisoners": "Presos actuales"
+            "remaining_prisoners": "Presos actuales",
+            "zip_code": "ZIP-Codes (globally)"
         }
     }
 }

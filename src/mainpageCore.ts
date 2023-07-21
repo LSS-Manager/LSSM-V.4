@@ -12,7 +12,7 @@ export default async (LSSM: Vue): Promise<void> => {
     const indicatorWrapper = document.createElement('li') as HTMLLIElement;
     document
         .querySelector('.navbar-default .navbar-right')
-        ?.appendChild(indicatorWrapper);
+        ?.append(indicatorWrapper);
 
     LSSM.$stores.root.updateCredits(
         LSSM.$utils.getNumberFromText(
@@ -51,7 +51,7 @@ export default async (LSSM: Vue): Promise<void> => {
 
     if (new Date() < new Date('2022-11-29T00:00')) {
         import(
-            /* webpackChunkName: "components/anniversary" */ './components/anniversary.vue'
+            /* webpackChunkName: "components/anniversary" */ './components/anniversaryComponent.vue'
         ).then(({ default: anniversary }) => {
             const anniversaryWrapper = document.createElement('div');
             document.body.append(anniversaryWrapper);

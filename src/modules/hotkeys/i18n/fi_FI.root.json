@@ -135,6 +135,14 @@
                 "onlyAmbulance": "Peruuta kaikki ambulanssit",
                 "title": "Peruuta"
             },
+            "emv": {
+                "title": "Enhanced missing vehicles",
+                "toggleCollapse": "Collapse / Uncollapse"
+            },
+            "missionHelper": {
+                "title": "MissionHelper",
+                "toggleCollapse": "Collapse / Uncollapse"
+            },
             "next": "Seuraava tehtävä",
             "prev": "Edellinen tehtävä",
             "share": "Jaa liittouman kanssa",
@@ -153,6 +161,10 @@
                 "previous": "edellinen välilehti",
                 "title": "ajoneuvo lista"
             }
+        },
+        "schoolings": {
+            "educate": "Press \"Educate\"-Button",
+            "title": "Schoolings"
         },
         "vehicles": {
             "alarm": {

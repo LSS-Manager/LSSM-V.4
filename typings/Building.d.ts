@@ -17,6 +17,17 @@ type Extension = {
           available: true;
       }
 );
+interface Storage {
+    upgrade_type: string;
+    available: boolean;
+    type_id: string;
+}
+interface Specialization {
+    caption: string;
+    type: string;
+    active: boolean;
+    available: boolean;
+}
 
 export interface Building {
     id: number;
@@ -27,6 +38,7 @@ export interface Building {
     latitude: number;
     longitude: number;
     extensions: Extension[];
+    storage_upgrades: Storage[];
     leitstelle_building_id: number | null;
     small_building: boolean;
     enabled: boolean;
@@ -36,7 +48,9 @@ export interface Building {
     hiring_automatic: boolean;
     custom_icon_url?: string;
     is_alliance_shared?: boolean;
+    specialization: Specialization[];
     alliance_share_credits_percentage?: 0 | 10 | 20 | 30 | 40 | 50;
+    generates_mission_categories: string[];
 }
 
 export interface BuildingCategory {
@@ -83,11 +97,25 @@ interface CellExtension extends BaseExtension {
     newCells: number;
 }
 
+interface BedExtension extends BaseExtension {
+    newBeds: number;
+}
+
 type InternalExtension =
     | BaseExtension
+    | BedExtension
     | CellExtension
     | ClassroomExtension
     | VehicleExtension;
+
+interface StorageUpgrade {
+    caption: string;
+    duration: string;
+    credits: number;
+    coins: number;
+    additionalStorage: number;
+    requiredStorageUpgrades?: string[];
+}
 
 interface BaseBuilding {
     caption: string;
@@ -95,6 +123,11 @@ interface BaseBuilding {
     credits: number;
     coins: number;
     extensions: (InternalExtension | null)[]; // null if extension is not available
+    storageUpgrades?: Record<string, StorageUpgrade>;
+    levelPrices: {
+        credits: number[];
+        coins: number[];
+    };
     levelcost: string[];
     maxBuildings: number | string;
     maxLevel: number;
@@ -125,7 +158,7 @@ interface StagingAreaBuilding extends BaseBuilding {
 }
 
 type CanHaveVehiclesBuilding<
-    BaseBuildingType extends BaseBuilding | InternalBuilding
+    BaseBuildingType extends BaseBuilding | InternalBuilding,
 > = BaseBuildingType & {
     schoolingTypes: string[];
     startPersonnel: number;

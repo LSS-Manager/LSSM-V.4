@@ -131,6 +131,14 @@
                 "onlyAmbulance": "Annuleer alleen ambulances",
                 "title": "Annuleer voertuigen"
             },
+            "emv": {
+                "title": "Enhanced missing vehicles",
+                "toggleCollapse": "Collapse / Uncollapse"
+            },
+            "missionHelper": {
+                "title": "MissionHelper",
+                "toggleCollapse": "Collapse / Uncollapse"
+            },
             "next": "Volgende melding",
             "prev": "Vorige melding",
             "share": "Deel",
@@ -149,6 +157,10 @@
                 "previous": "vorige tab",
                 "title": "Voertuigenlijst"
             }
+        },
+        "schoolings": {
+            "educate": "Press \"Educate\"-Button",
+            "title": "Schoolings"
         },
         "vehicles": {
             "alarm": {

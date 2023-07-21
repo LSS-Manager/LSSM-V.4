@@ -6,7 +6,7 @@ import type { NotificationOptions } from 'vue-notification';
 import type { NotificationsState, NotificationType } from './State';
 
 interface ClickHandlerProp<
-    Data extends Record<string, unknown> = Record<string, unknown>
+    Data extends Record<string, unknown> = Record<string, unknown>,
 > {
     item: Required<NotificationOptions> & {
         data: Data & {
@@ -19,7 +19,7 @@ interface ClickHandlerProp<
 
 export type ClickHandler<
     AcceptsNullProp extends boolean = false,
-    Data extends Record<string, unknown> = Record<string, unknown>
+    Data extends Record<string, unknown> = Record<string, unknown>,
 > = (
     props: AcceptsNullProp extends true
         ? ClickHandlerProp<Data> | null
@@ -29,7 +29,7 @@ export type ClickHandler<
 
 export interface NotificationsSend<
     Data extends Record<string, unknown> = Record<string, unknown>,
-    Desktop extends boolean = boolean
+    Desktop extends boolean = boolean,
 > {
     group?: NotificationsState['groups'][0];
     type?: NotificationType;

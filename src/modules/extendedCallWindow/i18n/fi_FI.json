@@ -11,6 +11,9 @@
             "selection": "Ajoneuvon valinta"
         }
     },
+    "arrHighlight": {
+        "removeBeforeParsing": ["(PALOHÄLYTYSJÄRJESTELMÄ)", "[LIITTOUMA]"]
+    },
     "arrHover": {
         "arrSpecs": {
             "dlk": "Nostolava-autot",
@@ -58,6 +61,7 @@
     },
     "enhancedMissingVehicles": {
         "driving": "Matkalla",
+        "foam": "litraa vaahtoa",
         "missing": "Tarvitaan",
         "selected": "Valittu",
         "staff": [
@@ -89,7 +93,10 @@
         "total": "Vielä tarvitaan",
         "vehicle": "Ajoneuvotyyppi",
         "vehiclesByRequirement": [
-            { "texts": ["partioauto", "partioauto"], "vehicles": [8, 16, 18] },
+            {
+                "texts": ["partioauto", "partioauto"],
+                "vehicles": [8, 16, 18, 37, 15]
+            },
             {
                 "texts": ["Poliisihelikopteri", "Poliisihelikopteria"],
                 "vehicles": [14]
@@ -112,11 +119,11 @@
             { "texts": ["johtoauto", "johtoautoa"], "vehicles": [3, 11] },
             { "texts": ["Koirapartio", "Koirapartiota"], "vehicles": [16] },
             {
-                "texts": ["johtokeskusauto", "johtokeskusautoa"],
+                "texts": ["johtokeskusauto", "johtokeskusautot"],
                 "vehicles": [11]
             },
             {
-                "texts": ["kemikaalitorjunta-auto, kemikaalitorjunta-auto"],
+                "texts": ["kemikaalitorjunta-auto", "kemikaalitorjunta-auto"],
                 "vehicles": [7]
             },
             {
@@ -134,8 +141,50 @@
                 "texts": ["Suurtehopumppu", "Suurtehopumppua"],
                 "vehicles": [26, 28, 30]
             },
-            { "texts": ["Vaahtoyksikkö", "Vaahtoyksikköä"], "vehicles": [25] }
-        ]
+            { "texts": ["vaaka-auto", "vaaka-autoa"], "vehicles": [34] },
+            { "texts": ["VATV-yksikkö", "VATV-yksikköä"], "vehicles": [33] },
+            {
+                "texts": ["tutkintayksikkö", "tutkintayksikköä"],
+                "vehicles": [36]
+            },
+            {
+                "texts": ["Poliisin kenttäjohtaja", "Poliisin kenttäjohtajat"],
+                "vehicles": [35]
+            },
+            {
+                "texts": ["RVL Partioauto", "RVL Partioautot"],
+                "vehicles": [37]
+            },
+            {
+                "texts": ["RVL Partiovene", "RVL Partioveneet"],
+                "vehicles": [38]
+            },
+            {
+                "texts": ["RVL Rannikkovartiovene", "RVL Rannikkovartioveneet"],
+                "vehicles": [39]
+            },
+            { "texts": ["H215", "H215s"], "vehicles": [41] },
+            { "texts": ["Do228", "Do228"], "vehicles": [40] },
+            {
+                "texts": [
+                    "ARFF Lentokenttäpaloauto",
+                    "ARFF Lentokenttäpaloautot"
+                ],
+                "vehicles": [42]
+            },
+            {
+                "texts": ["Lentokentän Johtoauto", "Lentokentän Johtoautot"],
+                "vehicles": [45]
+            },
+            {
+                "texts": [
+                    "RIV Lentokenttäpaloauto",
+                    "RIV Lentokenttäpaloautot"
+                ],
+                "vehicles": [44]
+            }
+        ],
+        "water": "litraa vettä"
     },
     "hideVehicleList": {
         "hide": "Piilota ajoneuvolista",
@@ -153,8 +202,8 @@
         "vehicleMissing": {
             "close": "Sulje huomautus muutokseen asti",
             "hide": "Piilota huomautus",
-            "text": "The following vehicle types are only present in the \"All\" tab:",
-            "title": "One vehicle is not present in any tab | Several vehicles are not present in any tab"
+            "text": "Seuraavat ajoneuvotyypit ovat vain \"Kaikki\"-välilehdellä:",
+            "title": "Yhtä ajoneuvoa ei ole missään välilehdessä | Useita ajoneuvoja ei ole missään välilehdessä."
         }
     },
     "vehiclePlayerCounter": {

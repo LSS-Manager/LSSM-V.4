@@ -1,15 +1,17 @@
 {
     "building-list": {
         "actions": "",
+        "beds": "sängyt",
+        "bedsFree": "vapaat sängyt",
         "caption": "Nimi",
-        "current": "Number (active)",
+        "current": "Aktiivisien määrä",
         "fastDispatchChooser": { "noDispatch": "Ei hätäkeskusta" },
         "type": "Tyyppi",
         "unavailable": "Rakenteilla"
     },
     "building-types": {
         "building": "Rakennukset",
-        "current": "Number (active)",
+        "current": "Aktiivisten määrä",
         "extension": "Laajennukset",
         "maximum": "Suurin mahdollinen",
         "title": "Kaikki {type}",
@@ -66,8 +68,8 @@
         "chart": "Yhteenveto tilasta",
         "status": "Tila",
         "statuses": [1, 2, 3, 4, 5, 6, 7, 9],
-        "sum": "Total",
-        "title": "All {type} | All {type} in status {n} | All {type} in status {n}",
+        "sum": "Yhteensä",
+        "title": "Kaikki {type} | Kaikki {type} statuksessa {n} | Kaikki {type} statuksessa {n}",
         "type": "Ajoneuvo tyyppi",
         "vehicles": "Aujoneuvot"
     }

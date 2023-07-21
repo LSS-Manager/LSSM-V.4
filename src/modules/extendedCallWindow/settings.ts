@@ -1,5 +1,5 @@
-import aipreview from './components/alarmIcons/preview.vue';
-import mkpreview from './components/missionKeywords/preview.vue';
+import aiPreview from './components/alarmIcons/aiPreview.vue';
+import mkPreview from './components/missionKeywords/mkPreview.vue';
 
 import type { $m, ModuleSettingFunction } from 'typings/Module';
 import type {
@@ -27,41 +27,46 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
     }[];
 
     const vehicles = LSSM.$stores.translations.vehicles;
-    const vehicleCaptions = [] as string[];
-    const vehicleIds = [] as string[];
-    Object.entries(vehicles).forEach(([id, { caption }]) => {
-        vehicleCaptions.push(caption);
-        vehicleIds.push(id);
-    });
+    const vehicleValues: { id: string; caption: string }[] = [];
+    Object.entries(vehicles).forEach(([id, { caption }]) =>
+        vehicleValues.push({ id, caption })
+    );
 
     (await LSSM.$stores.api.getVehicles(`${MODULE_ID}_settings`)).value
         .filter(v => v.vehicle_type_caption && vehicles[v.vehicle_type])
         .forEach(({ vehicle_type, vehicle_type_caption = '' }) => {
             const caption = `[${vehicles[vehicle_type].caption}] ${vehicle_type_caption}`;
-            if (!vehicle_type_caption || vehicleCaptions.includes(caption))
+            if (
+                !vehicle_type_caption ||
+                vehicleValues.some(v => v.caption === caption)
+            )
                 return;
-            vehicleCaptions.push(caption);
-            vehicleIds.push(`${vehicle_type}-${vehicle_type_caption}`);
+            vehicleValues.push({
+                caption,
+                id: `${vehicle_type}-${vehicle_type_caption}`,
+            });
 
             const noCustomsType = `${vehicle_type}*`;
-            if (!vehicleIds.includes(noCustomsType)) {
-                vehicleCaptions.push(
-                    `${vehicles[vehicle_type].caption} [${$m(
+            if (!vehicleValues.some(v => v.id === noCustomsType)) {
+                vehicleValues.push({
+                    caption: `${vehicles[vehicle_type].caption} [${$m(
                         'tailoredTabs.noCustoms'
-                    )}]`
-                );
-                vehicleIds.push(noCustomsType);
+                    )}]`,
+                    id: noCustomsType,
+                });
             }
         });
 
-    const vehicleCaptionsSorted = [...vehicleCaptions].sort((a, b) => {
-        if (a.startsWith('[') && !b.startsWith('[')) return 1;
-        if (!a.startsWith('[') && b.startsWith('[')) return -1;
-        return a.toLowerCase().localeCompare(b.toLowerCase());
-    });
-    const vehicleIdsSorted: string[] = [];
-    vehicleCaptionsSorted.forEach(caption =>
-        vehicleIdsSorted.push(vehicleIds[vehicleCaptions.indexOf(caption)])
+    const vehicleValuesSorted = [...vehicleValues].sort(
+        ({ caption: a }, { caption: b }) => {
+            if (a.startsWith('[') && !b.startsWith('[')) return 1;
+            if (!a.startsWith('[') && b.startsWith('[')) return -1;
+            return a.toLowerCase().localeCompare(b.toLowerCase());
+        }
+    );
+    const vehicleIdsSorted = vehicleValuesSorted.map(({ id }) => id);
+    const vehicleCaptionsSorted = vehicleValuesSorted.map(
+        ({ caption }) => caption
     );
 
     const { missionIds, missionNames } = await LSSM.$utils.getMissionOptions(
@@ -157,6 +162,11 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             type: 'toggle',
             default: false,
         },
+        arrMatchHighlightAllWords: <Toggle>{
+            type: 'toggle',
+            default: false,
+            dependsOn: '.arrMatchHighlight',
+        },
         arrTime: <Toggle>{
             type: 'toggle',
             default: false,
@@ -207,6 +217,10 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             values: bootsTrapColors,
             labels: bootsTrapColorLabels,
             dependsOn: '.vehicleCounter',
+        },
+        vehicleListPermanentSearch: <Toggle>{
+            type: 'toggle',
+            default: false,
         },
         playerCounter: <Toggle>{
             type: 'toggle',
@@ -356,10 +370,10 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
                         type: 'color',
                     },
                 },
-                <PreviewElement>{
+                <PreviewElement<typeof mkPreview>>{
                     type: 'preview',
-                    component: mkpreview,
-                    title: $m('settings.missionKeywords.preview'),
+                    component: mkPreview,
+                    title: $m('settings.missionKeywords.preview').toString(),
                     size: 1,
                 },
                 <AppendableListSetting<Toggle>>{
@@ -417,9 +431,9 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
                         labels: ['solid', 'regular', 'brand'],
                     },
                 },
-                <PreviewElement>{
+                <PreviewElement<typeof aiPreview>>{
                     type: 'preview',
-                    component: aipreview,
+                    component: aiPreview,
                     title: $m('settings.alarmIcons.preview'),
                     size: 1,
                 },

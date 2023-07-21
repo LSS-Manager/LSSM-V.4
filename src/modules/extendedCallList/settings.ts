@@ -58,7 +58,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             type: 'toggle',
             default: false,
         },
-        ...(['de_DE'].includes(locale)
+        ...(['de_DE', 'fr_FR'].includes(locale)
             ? {
                   remainingPumpingTime: <Toggle>{
                       type: 'toggle',

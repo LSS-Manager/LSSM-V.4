@@ -38,6 +38,7 @@ Teraz możesz wysłać nam swój raport o błędzie. Aby to zrobić, otwórz zg�
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
+[docs.home]: /pl_PL/
 [docs.apps]: /pl_PL/apps.md
 [docs.appstore]: /pl_PL/appstore.md
 [docs.bugs]: /pl_PL/bugs.md

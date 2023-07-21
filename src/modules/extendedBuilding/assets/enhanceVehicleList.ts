@@ -150,9 +150,8 @@ export default async (
                             'disabled'
                         );
                         vehicleTypeNode.textContent =
-                            internalVehicleTypes[
-                                storedVehicle.vehicle_type
-                            ]?.caption;
+                            internalVehicleTypes[storedVehicle.vehicle_type]
+                                ?.caption;
                         typeWrapper.append(vehicleTypeNode);
                     }
                     if (storedVehicle.vehicle_type_caption) {
@@ -201,7 +200,7 @@ export default async (
                                             .createRange()
                                             .createContextualFragment(res)
                                             .querySelectorAll(
-                                                '#vehicle_details table tbody tr'
+                                                '#vehicle_details table#vehicle-attr-personnel tbody tr'
                                             ).length
                                 );
                         }
@@ -210,7 +209,7 @@ export default async (
                         const maxPersonnel =
                             storedVehicle.max_personnel_override ??
                             internalVehicleTypes[storedVehicle.vehicle_type]
-                                ?.maxPersonnel ??
+                                ?.staff.max ??
                             0;
                         const assignedPersonnel = (await getSetting(
                             'vehiclesPersonnelColorized'
@@ -225,16 +224,16 @@ export default async (
                             vehicle.lastElementChild.innerHTML = `(${lastRowItems
                                 .map(
                                     item =>
-                                        ((
-                                            {
+                                        (
+                                            ({
                                                 vehiclesPersonnelCurrent:
                                                     currentPersonnel,
                                                 vehiclesPersonnelMax:
                                                     maxPersonnel,
                                                 vehiclesPersonnelAssigned:
                                                     assignedPersonnel,
-                                            } as Record<string, number>
-                                        )[item])
+                                            }) as Record<string, number>
+                                        )[item]
                                 )
                                 .join(' / ')})`;
                         }

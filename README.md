@@ -21,7 +21,7 @@
   <summary>🇩🇪</summary>
 Der LSS-MANAGER V.4 ist eine Erweiterung für das Leitstellenspiel.de und dessen anderssprachige Versionen.
 
-Mit dieser Erweiterung wird ein Appstore zum Spiel hinzugefügt, welcher das Installieren von Plugins ermöglicht. Dabei sind alle Funktionen modular aufgebaut - man kann bis auf den letzten Baustein bestimmen, was alles aktiviert werden soll.
+Mit dieser Erweiterung wird ein Appstore zum Spiel hinzugefügt, welcher das Installieren von Plugins ermöglicht. Dabei sind alle Funktionen modular aufgebaut - man kann bis auf den letzten Baustein bestimmen, was alles aktiviert werden soll. Der LSSM ist ein Community-Projekt und freut sich über alle, die sich an ihm beteiligen!
 
 ### Wiki
 In unserem [Wiki](https://docs.lss-manager.de/de_DE/) findest du alles zur Installation, die FAQ und eine Erklärung aller Funktionen.
@@ -49,7 +49,6 @@ In our [Wiki](https://docs.lss-manager.de/) you can find everything about the in
 ### Support Server
 
 Just click on the banner below to get to our Support Discord Server!
-
 
 [![Our Discord-Server: United Dispatch][Discord Banner]][Discord]
 
@@ -179,6 +178,20 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+### GitHub Stars
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=LSS-Manager%2FLSSM-V.4&type=Date&theme=dark" />
+  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=LSS-Manager%2FLSSM-V.4&type=Date" />
+  <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=LSS-Manager%2FLSSM-V.4&type=Date" />
+</picture>
+
+#### In Comparison to v3 by weeks after creation
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=LSS-Manager%2FLSSM-V.4%2CLSS-Manager%2Flss-manager-v3&type=Timeline&theme=dark" />
+  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=LSS-Manager%2FLSSM-V.4%2CLSS-Manager%2Flss-manager-v3&type=Timeline" />
+  <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=LSS-Manager%2FLSSM-V.4%2CLSS-Manager%2Flss-manager-v3&type=Timeline" />
+</picture>
 
 [License]: http://creativecommons.org/licenses/by-nc-sa/4.0/
 [Discord Banner]: https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1

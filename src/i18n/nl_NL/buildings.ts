@@ -16,6 +16,10 @@ export default {
         color: '#bb0000',
         coins: 30,
         credits: 100_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(22).fill(100_000)],
+            coins: [10, 15, ...Array(22).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Ambulance standplaats',
@@ -99,6 +103,16 @@ export default {
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [68, 69, 70],
             },
+            {
+                caption: 'Signalisatie',
+                credits: 150_000,
+                coins: 20,
+                duration: '7 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 0,
+                unlocksVehicleTypes: [83],
+                cannotDisable: true,
+            },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
         maxBuildings: '6.000',
@@ -128,6 +142,10 @@ export default {
         color: '#24c3ae',
         coins: 0,
         credits: 0,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: [],
         maxBuildings: 'Elke 25 gebouwen mag je 1 meldkamer bouwen',
@@ -144,6 +162,10 @@ export default {
         color: '#bbe944',
         coins: 35,
         credits: 200_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [
             {
                 caption: 'Interne Geneeskunde',
@@ -229,6 +251,10 @@ export default {
         color: '#ffa500',
         coins: 35,
         credits: 200_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(17).fill(100_000)],
+            coins: [10, 15, ...Array(17).fill(20)],
+        },
         extensions: [],
         levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
         maxBuildings: 'Geen limiet',
@@ -245,6 +271,10 @@ export default {
         color: '#992222',
         coins: 50,
         credits: 500_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             {
                 caption: 'Extra klaslokaal',
@@ -269,6 +299,10 @@ export default {
         color: '#007700',
         coins: 35,
         credits: 100_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(37).fill(100_000)],
+            coins: [10, 15, ...Array(37).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Gevangeniscel',
@@ -308,6 +342,10 @@ export default {
         color: '#ffd500',
         coins: 50,
         credits: 800_000,
+        levelPrices: {
+            credits: [10_000, 50_000, 100_000],
+            coins: [10, 15, 20],
+        },
         extensions: [],
         levelcost: ['1. 10.000', '2. 50.000', '3. 100.000'],
         maxBuildings: 'Maximaal 1 gebouw per 10 ambulance gebouwen',
@@ -324,6 +362,10 @@ export default {
         color: '#ffc400',
         coins: 50,
         credits: 500_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             {
                 caption: 'Extra klaslokaal',
@@ -348,6 +390,10 @@ export default {
         color: '#225522',
         coins: 50,
         credits: 500_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             {
                 caption: 'Extra klaslokaal',
@@ -372,6 +418,10 @@ export default {
         color: '#e7ad2f',
         coins: 50,
         credits: 1_000_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: [],
         maxBuildings: 'Zie bijzonderheden',
@@ -393,6 +443,10 @@ export default {
         color: '#404040',
         coins: 0,
         credits: 0,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: [],
         maxBuildings: 1,
@@ -408,6 +462,10 @@ export default {
         color: '#663300',
         coins: 50,
         credits: 400_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [
             {
                 caption: '2e OvD-P',
@@ -496,6 +554,16 @@ export default {
                     [73, 74],
                 ],
             },
+            {
+                caption: 'Waterwerper Uitbreiding',
+                credits: 100_000,
+                coins: 15,
+                duration: '4 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                unlocksVehicleTypes: [84],
+                parkingLotReservations: [[84]],
+            },
         ],
         levelcost: [],
         maxBuildings: 'Geen limiet',
@@ -513,6 +581,10 @@ export default {
         color: '#800000',
         coins: -1,
         credits: 100_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [
             {
                 caption: 'Gevangeniscel',
@@ -547,6 +619,10 @@ export default {
         color: '#eeb611',
         coins: 25,
         credits: 100_000,
+        levelPrices: {
+            credits: [10_000],
+            coins: [10],
+        },
         extensions: [],
         levelcost: ['1. 10.000', 'Upgraden naar normale post: 100.000'],
         maxBuildings: 'Geen limiet',
@@ -563,6 +639,10 @@ export default {
         color: '#ffffff',
         coins: -1,
         credits: -1,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: ['Te duur'],
         maxBuildings: 'Geen limiet',
@@ -580,6 +660,10 @@ export default {
         color: '#ffffff',
         coins: -1,
         credits: -1,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: ['Te duur'],
         maxBuildings: 'Geen limiet',
@@ -597,6 +681,25 @@ export default {
         color: '#f5a42a',
         coins: 50,
         credits: 500_000,
+        levelPrices: {
+            credits: [
+                10_000,
+                25_000,
+                50_000,
+                75_000,
+                ...Array(5).fill(100_000),
+                ...Array(5).fill(150_000),
+                ...Array(6).fill(200_000),
+            ],
+            coins: [
+                10,
+                10,
+                15,
+                15,
+                ...Array(10).fill(20),
+                ...Array(6).fill(25),
+            ],
+        },
         extensions: [
             {
                 caption: 'Boten',
@@ -631,6 +734,10 @@ export default {
         color: '#bb0000',
         coins: 25,
         credits: 50_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(3).fill(100_000)],
+            coins: [10, 15, ...Array(3).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Ambulance standplaats',
@@ -697,6 +804,16 @@ export default {
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [68, 69, 70],
             },
+            {
+                caption: 'Signalisatie',
+                credits: 150_000,
+                coins: 20,
+                duration: '7 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 0,
+                unlocksVehicleTypes: [83],
+                cannotDisable: true,
+            },
         ],
         levelcost: [
             '1. 10.000',
@@ -731,6 +848,10 @@ export default {
         color: '#007700',
         coins: 25,
         credits: 50_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(2).fill(100_000)],
+            coins: [10, 15, ...Array(2).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Gevangeniscel',
@@ -772,6 +893,25 @@ export default {
         color: '#f5a42a',
         coins: 50,
         credits: 500_000,
+        levelPrices: {
+            credits: [
+                10_000,
+                25_000,
+                50_000,
+                75_000,
+                ...Array(5).fill(100_000),
+                ...Array(5).fill(150_000),
+                ...Array(6).fill(200_000),
+            ],
+            coins: [
+                10,
+                10,
+                15,
+                15,
+                ...Array(10).fill(20),
+                ...Array(6).fill(25),
+            ],
+        },
         extensions: [],
         levelcost: [
             '1. 10.000',
@@ -797,6 +937,10 @@ export default {
         color: '#992222',
         coins: 50,
         credits: 500_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             {
                 caption: 'Extra klaslokaal',
@@ -821,11 +965,16 @@ export default {
         color: '#11858d',
         coins: 50,
         credits: 1_000_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [
             {
                 caption: 'SAR Helicopter Hangar',
                 credits: 10_000,
                 coins: 1,
+                duration: '0 Dagen',
                 isVehicleExtension: true,
                 givesParkingLots: 1,
                 unlocksVehicleTypes: [80],
@@ -864,4 +1013,24 @@ export default {
         startParkingLots: 0,
         icon: 'spaghetti-monster-flying',
     },
-} as Record<number, InternalBuilding>;
+    22: {
+        caption: 'Steunpunt Rijkswaterstaat',
+        color: '#f5a42a',
+        coins: 50,
+        credits: 100_000,
+        levelPrices: {
+            credits: [25_000],
+            coins: [10],
+        },
+        extensions: [],
+        levelcost: ['1. 25.000'],
+        maxBuildings: 'Geen limiet',
+        maxLevel: 10,
+        special: '',
+        startPersonnel: 0,
+        startVehicles: [],
+        schoolingTypes: ['Brandweer'],
+        startParkingLots: 1,
+        icon: 'fire-flame-curved',
+    },
+} satisfies Record<number, InternalBuilding>;

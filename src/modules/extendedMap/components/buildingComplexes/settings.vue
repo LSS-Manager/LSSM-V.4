@@ -349,8 +349,11 @@ export default Vue.extend<
                             'bereitstellungsraum',
                             'bomb_disposal',
                             'clinic',
+                            'coastal_guard',
+                            'coastal_rescue_heli_port',
                             'commerce_police',
                             'complex',
+                            'customs_heliport',
                             'federal_police',
                             'fire_aviation_station',
                             'fire_boat_dock',
@@ -364,6 +367,7 @@ export default Vue.extend<
                             'hospital',
                             'leitstelle',
                             'municipal_police',
+                            'police_boat_dock',
                             'police_depot',
                             'police_horse',
                             'polizeischule',
@@ -371,9 +375,11 @@ export default Vue.extend<
                             'polizeiwache',
                             'rescue_boat_dock',
                             'rescue_dog_unit',
+                            'rescue_station',
                             'rettungsschule',
                             'rettungswache',
                             'seg',
+                            'technical_aid',
                             'thw',
                             'thw_school',
                             'wasserwacht',
@@ -387,6 +393,11 @@ export default Vue.extend<
                             'spec_police_station_game_warden',
                             'spec_police_station_water_police',
                             'spec_police_station_riot_police',
+                            'spec_fire_station_airport',
+                            'spec_fire_station_factory_fire_dept',
+                            'spec_fire_station_water_rescue',
+                            'spec_fire_station_fire_support',
+                            'spec_fire_station_forestry',
                         ]
                             .sort()
                             .map(icon => `/images/${icon}.png`)
@@ -499,7 +510,7 @@ export default Vue.extend<
     mounted() {
         this.name = this.complex.name;
         this.icon = this.complex.icon;
-        const removeUndefined = <S>(value: S | undefined): value is S =>
+        const removeUndefined = <S,>(value: S | undefined): value is S =>
             !!value;
         this.buildingIds = this.complex.buildings
             .map(id => this.buildingOptions.find(({ value }) => id === value))

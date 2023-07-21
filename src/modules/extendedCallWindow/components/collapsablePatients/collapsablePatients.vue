@@ -177,7 +177,7 @@ export default Vue.extend<
                 .sort(([, amountA], [, amountB]) => amountA - amountB)
                 .map(([combis, amount]) => [JSON.parse(combis), amount]) as [
                 Record<string, string>,
-                number
+                number,
             ][];
         },
         amountPatients() {

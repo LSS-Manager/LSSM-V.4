@@ -15,7 +15,7 @@
                 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193,
                 194
             ],
-            "🌹": [298, 299, 300, 301, 302, 303, 304, 305, 306],
+            "🌹": [298, 299, 300, 301, 302, 303, 304, 305, 306, 529, 530, 531],
             "🌿": [431, 432, 433, 434, 435, 436, 437, 438, 439],
             "🍂": [373, 374, 375, 376, 377, 378, 379, 380, 381],
             "🎂": [
@@ -23,7 +23,10 @@
                 256, 257, 258, 259
             ],
             "🎃": [229, 230, 231, 232, 233, 234, 235, 236, 237],
-            "🎅": [75, 76, 77, 78, 79, 80, 81, 506, 507, 508, 509],
+            "🎅": [
+                75, 76, 77, 78, 79, 80, 81, 506, 507, 508, 509, 516, 517, 518,
+                519
+            ],
             "🎉": [409, 410, 411, 412, 413, 414, 415, 416, 417, 418],
             "🔥": [404, 405, 406, 407, 408],
             "🥅": [335, 336, 337, 338, 339, 340, 341, 342, 343, 344],
@@ -32,8 +35,30 @@
                 445
             ],
             "🧨": [
-                85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 278, 279,
-                280, 281, 282, 283, 284, 285, 286, 287
+                85,
+                86,
+                87,
+                88,
+                89,
+                90,
+                91,
+                92,
+                93,
+                94,
+                "94/a",
+                95,
+                96,
+                97,
+                278,
+                279,
+                280,
+                281,
+                282,
+                283,
+                284,
+                285,
+                286,
+                287
             ]
         }
     },
@@ -90,8 +115,8 @@
             "title": "Durée du traitement du patient"
         },
         "remainingPumpingTime": {
-            "description": "Indique, pour la progression du pompage, le temps restant jusqu'à ce qu'il soit terminé.",
-            "title": "Temps restant pour la progression de pompage"
+            "description": "Afficher le temps restant du pompage",
+            "title": "Durée du pompage"
         },
         "remainingTime": {
             "description": "Montre pendant les missions combien de temps chaque mission est encore en cours.",
@@ -152,7 +177,8 @@
             "distance_station": "Distance jusqu'à la prochaine station",
             "id": "Age",
             "remaining_patients": "Patients actuels",
-            "remaining_prisoners": "Prisonniers actuels"
+            "remaining_prisoners": "Prisonniers actuels",
+            "zip_code": "Codes postaux (globalement)"
         }
     }
 }

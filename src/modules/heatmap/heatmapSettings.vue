@@ -295,7 +295,7 @@ export default Vue.extend<
                         : 0
                 );
             } else if (this.settings.heatmapMode === 'buildings') {
-                const removeNull = <S>(value: S | null): value is S => !!value;
+                const removeNull = <S,>(value: S | null): value is S => !!value;
                 return Object.entries(useTranslationStore().buildings)
                     .flatMap(([id, { caption, extensions = [] }]) => [
                         { value: id, label: caption },

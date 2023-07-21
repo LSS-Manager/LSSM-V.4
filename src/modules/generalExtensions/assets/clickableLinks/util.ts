@@ -48,6 +48,6 @@ export default async (
                 }
                 n.parentNode?.insertBefore(linkNode, n);
             });
-            n.parentNode?.removeChild(n);
+            n.remove();
         });
 };

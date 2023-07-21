@@ -1,5 +1,6 @@
 {
     "description": "Affiche une horloge configurable à différents endroits.",
+    "localTime": "heure locale",
     "name": "Horloge",
     "settings": {
         "displayNav": {
@@ -17,6 +18,10 @@
         "overlayFormat": {
             "description": "Ici, vous pouvez définir le format de l'horloge. Vous trouverez une aide à ce sujet : <a class=\"lightbox-open\" href=\"{wiki}modules/clock/#Configuration\">ici</a>.",
             "title": "Format de l'horloge en overlay"
+        },
+        "timeZone": {
+            "description": "Ici, vous pouvez définir le fuseau horaire.",
+            "title": "Timezone"
         }
     }
 }

@@ -1,7 +1,8 @@
 name: '[👷🔀] PR Build'
 run-name: '[👷🔀] Build on PR #${{ github.event.number }}, `${{ github.ref }}`'
 
-on: [pull_request]
+on:
+    pull_request:
 
 jobs:
     build:

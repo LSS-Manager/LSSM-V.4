@@ -1,6 +1,6 @@
 {
     "description": "Montre les informations importantes de la mission dans la fenêtre de mission.",
-    "name": "Aide à la mission",
+    "name": "Aide-mission",
     "noVehicleRequirements": {
         "average_min_fire_personnel": {
             "badge": false,
@@ -16,6 +16,11 @@
             "badge": false,
             "in": "additional",
             "text": "Spécialistes IMP requis"
+        },
+        "min_pump_speed": {
+            "badge": true,
+            "in": "requirements",
+            "text": "Pompe: {n} l/min"
         },
         "title": "Conditions particulières",
         "water_needed": {
@@ -54,6 +59,10 @@
         "hide_battalion_chief_vehicles": {
             "description": "Cache le nombre de VLCG et affiche seulement les VPC.",
             "title": "Cacher VLCG"
+        },
+        "hide_on_Krankentransport": {
+            "description": "Hide on patient transfer missions",
+            "title": "Hide on patient transfer missions"
         },
         "hoverTip": {
             "description": "Infobulles pour le bouton de superposition, par exemple.",

@@ -134,6 +134,14 @@
                 "onlyAmbulance": "Odwołaj wszystkie ambulanse",
                 "title": "Odwołaj"
             },
+            "emv": {
+                "title": "Enhanced missing vehicles",
+                "toggleCollapse": "Zwiń / Rozwiń"
+            },
+            "missionHelper": {
+                "title": "Pomocnik misji",
+                "toggleCollapse": "Zwiń / Rozwiń"
+            },
             "next": "Następna misja",
             "prev": "Poprzednia misja",
             "share": "Udostępnij",
@@ -152,6 +160,10 @@
                 "previous": "Następna zakładka",
                 "title": "Lista pojazdów"
             }
+        },
+        "schoolings": {
+            "educate": "Naciśnij przycisk \"Edukuj\"",
+            "title": "Kursy"
         },
         "vehicles": {
             "alarm": {

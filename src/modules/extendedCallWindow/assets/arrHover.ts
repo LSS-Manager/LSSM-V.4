@@ -361,7 +361,7 @@ export default (
             ...(
                 JSON.parse(group.getAttribute('vehicles') ?? '[]') as [
                     number,
-                    string
+                    string,
                 ][]
             ).map(([vehicleId, vehicleName]) => {
                 const vehicleRow = document.querySelector<HTMLTableRowElement>(

@@ -49,6 +49,10 @@
             "description": "Zet een grijsfilter over alle inzetvoorstellen waarin geen woord van de naam van de inzet voorkomt.",
             "title": "Niet passende inzetvoorstellen grijs"
         },
+        "arrMatchHighlightAllWords": {
+            "description": "Uses all words of the missions name for the \"Grey out unsuitable ARRs\" feature.",
+            "title": "Use all words"
+        },
         "arrSearch": {
             "description": "Toont een zoekbalk boven de inzetvoorstellen om deze te filteren.",
             "title": "Inzetvoorstellen zoeken"
@@ -197,6 +201,10 @@
             "success": "Groen",
             "title": "Voertuigteller: kleur",
             "warning": "Oranje"
+        },
+        "vehicleListPermanentSearch": {
+            "description": "Vehicle search bar permanently displayed.",
+            "title": "Permanent vehicle search bar"
         },
         "vehicleTypeInList": {
             "description": "Geeft het voertuigtype in de lijst met te selecteren voertuigen weer.",

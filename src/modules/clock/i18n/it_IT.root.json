@@ -1,5 +1,6 @@
 {
     "description": "Visualizza un orologio configurabile in varie posizioni, secondo le necessità.",
+    "localTime": "local time",
     "name": "Orologio",
     "settings": {
         "displayNav": {
@@ -17,6 +18,10 @@
         "overlayFormat": {
             "description": "Qui puoi impostare il formato dell'orologio. Troverai un aiuto per questo <a class=\"lightbox-open\" href=\"{wiki}modules/clock/#konfiguration\">qui</a>.",
             "title": "Formato dell'orologio in sovrapposizione"
+        },
+        "timeZone": {
+            "description": "Here, you can set time timezone of the clock(s).",
+            "title": "Timezone"
         }
     }
 }

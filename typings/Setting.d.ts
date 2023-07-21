@@ -103,7 +103,7 @@ type Location = LocationWithoutZoom | LocationWithZoom;
 
 type CustomProps<
     ModuleOrAList extends Record<string, unknown> = Record<string, unknown>,
-    AListKey extends keyof ModuleOrAList = keyof ModuleOrAList
+    AListKey extends keyof ModuleOrAList = keyof ModuleOrAList,
 > = DefaultProps &
     Partial<
         | {
@@ -120,7 +120,7 @@ interface Custom<
     ComponentData extends DefaultData<Vue> = DefaultData<Vue>,
     ComponentMethods extends DefaultMethods<Vue> = DefaultMethods<Vue>,
     ComponentComputed extends DefaultComputed = DefaultComputed,
-    ComponentProps extends CustomProps = DefaultProps
+    ComponentProps extends CustomProps = DefaultProps,
 > extends SettingTemplate {
     type: 'custom';
     default: Data;
@@ -158,10 +158,12 @@ interface AppendableListSetting<Type extends SettingType = SettingType> {
           ) => string | false);
 }
 
-export interface PreviewElement
+export interface PreviewElement<Component = undefined>
     extends Omit<AppendableListSetting, 'name' | 'setting'> {
     type: 'preview';
-    component: ExtendedVue<Vue, unknown, unknown, unknown, unknown, unknown>;
+    component: Component extends undefined
+        ? ExtendedVue<Vue, unknown, unknown, unknown, unknown, unknown>
+        : Component;
 }
 
 export interface AppendableList extends SettingTemplate {
@@ -183,7 +185,7 @@ type SettingType<
     CustomComponentData extends DefaultData<Vue> = DefaultData<Vue>,
     CustomComponentMethods extends DefaultMethods<Vue> = DefaultMethods<Vue>,
     CustomComponentComputed extends DefaultComputed = DefaultComputed,
-    CustomComponentProps extends DefaultProps = DefaultProps
+    CustomComponentProps extends DefaultProps = DefaultProps,
 > =
     | AppendableList
     | Color

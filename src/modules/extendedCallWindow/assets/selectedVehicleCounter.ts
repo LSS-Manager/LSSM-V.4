@@ -45,6 +45,7 @@ export default (LSSM: Vue, MODULE_ID: string, btnVehicles: string[]): void => {
     table.style.setProperty('border-radius', '4px');
     table.style.setProperty('overflow', 'auto');
     table.style.setProperty('width', 'auto');
+    if (!LSSM.$stores.root.isDarkMode) table.style.setProperty('color', '#333');
     table.append(tableBody);
 
     table.addEventListener('click', e => {

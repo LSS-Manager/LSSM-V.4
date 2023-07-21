@@ -1026,7 +1026,7 @@ export default Vue.extend<
             const directionModifier = { asc: 1, desc: -1 }[this.table.sortDir];
 
             const findSortValue = (
-                item: typeof this.filteredItems[number]
+                item: (typeof this.filteredItems)[number]
             ): number | string => {
                 if (item.id in sortValues) return sortValues[item.id];
                 const sort = this.table.sort;
@@ -1140,7 +1140,7 @@ export default Vue.extend<
             const btnClass = useRootStore().nodeAttribute(
                 'extendedCallList_starrable-missions_btn'
             );
-            const getSetting = <T = boolean>(
+            const getSetting = <T = boolean,>(
                 settingId: string,
                 defaultValue?: T
             ) =>
@@ -1149,7 +1149,7 @@ export default Vue.extend<
                     settingId,
                     defaultValue,
                 });
-            const setSetting = <T = boolean>(settingId: string, value: T) =>
+            const setSetting = <T = boolean,>(settingId: string, value: T) =>
                 this.settingsStore.setSetting<T>({
                     moduleId: 'extendedCallList',
                     settingId,

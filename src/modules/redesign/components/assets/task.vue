@@ -26,6 +26,9 @@
                 <span class="task_name">
                     {{ task.name }}
                 </span>
+                <span v-if="task.isPremiumTask">
+                    <font-awesome-icon :icon="faGem"></font-awesome-icon>
+                </span>
                 <div v-if="collapsed">
                     <span>{{ $sm('end') }}:</span>
                     <span :id="task.countdownId"></span>
@@ -37,6 +40,13 @@
                 <div v-if="collapsed" class="progress_value">
                     {{ task.progress.toLocaleString() }} /
                     {{ task.total.toLocaleString() }}
+
+                    <font-awesome-icon
+                        v-if="task.hasNextTask"
+                        :icon="faCircleRight"
+                        :title="$sm('nextTask')"
+                        class="pull-right"
+                    ></font-awesome-icon>
                 </div>
             </div>
         </div>
@@ -75,8 +85,10 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { faCircleRight } from '@fortawesome/free-solid-svg-icons/faCircleRight';
 import { faCompressAlt } from '@fortawesome/free-solid-svg-icons/faCompressAlt';
 import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
+import { faGem } from '@fortawesome/free-regular-svg-icons/faGem';
 
 import { collapsedLocalStorageKey, type ModifiedTask } from '../tasks.vue';
 
@@ -86,8 +98,10 @@ import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 export default Vue.extend<
     {
+        faCircleRight: IconDefinition;
         faCompressAlt: IconDefinition;
         faExpandAlt: IconDefinition;
+        faGem: IconDefinition;
         collapsed: boolean;
     },
     { toggleCollapsedState(): void },
@@ -103,8 +117,10 @@ export default Vue.extend<
             localStorage.getItem(collapsedLocalStorageKey) || '[]'
         );
         return {
+            faCircleRight,
             faCompressAlt,
             faExpandAlt,
+            faGem,
             collapsed:
                 collapsedTasks.includes(this.task.id) ||
                 collapsedTasks.includes(-1),
@@ -162,4 +178,8 @@ export default Vue.extend<
 
             > *:not(:last-child)
                 margin-right: 1rem
+
+            .progress_value
+                display: flex
+                justify-content: space-between
 </style>

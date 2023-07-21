@@ -103,5 +103,6 @@ export default {
             raw: 'JSON (Ruwe data)',
             prettified: 'JSON (Mooie weergave)',
         },
+        csv: 'CSV',
     },
 };

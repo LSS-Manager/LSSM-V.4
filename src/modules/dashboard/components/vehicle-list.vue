@@ -274,11 +274,11 @@ export default Vue.extend<
             let missionName =
                 document.querySelector<HTMLAnchorElement>(
                     `#mission_caption_${id}`
-                )?.innerText ?? '';
+                )?.textContent ?? '';
             missionName = missionName.replace(
                 document.querySelector<HTMLSpanElement>(
                     `#mission_old_caption_${id}`
-                )?.innerText ?? '',
+                )?.textContent ?? '',
                 ''
             );
             return missionName.trim();

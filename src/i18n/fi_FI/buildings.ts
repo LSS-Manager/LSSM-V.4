@@ -16,24 +16,33 @@ export default {
         color: '#FF0000',
         credits: 100_000,
         coins: 30,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(22).fill(100_000)],
+            coins: [10, 15, ...Array(22).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Ambulanssilaajennus',
                 credits: 100_000,
                 coins: 20,
                 duration: '7 päivää',
-                cannotDisable: false,
                 isVehicleExtension: true,
                 unlocksVehicleTypes: [5, 19, 20, 21, 22, 23],
             },
-            null,
+            {
+                caption: 'Lentokenttälaajennus',
+                credits: 250_000,
+                coins: 25,
+                duration: '5 päivää',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [42, 43, 44, 45],
+            },
             null,
             {
                 caption: 'Huoltolaajennus',
                 credits: 150_000,
                 coins: 15,
                 duration: '5 päivää',
-                cannotDisable: false,
                 isVehicleExtension: true,
                 unlocksVehicleTypes: [26, 27, 28, 29, 30],
             },
@@ -50,7 +59,7 @@ export default {
             'Kevyt sammutusauto',
             '(Pelastusauton (lisää hintaa 14 000) ja Säiliösammutusauton (lisää hintaa 15 900) voidaan ostaa arvosta "Kapteeni" alkaen )',
         ],
-        schoolingTypes: [],
+        schoolingTypes: ['Paloasema'],
         icon: 'fire',
     },
     1: {
@@ -58,6 +67,10 @@ export default {
         color: '#d9ae6f',
         credits: 500_000,
         coins: 50,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             index => ({
                 caption: 'Lisäluokkahuone',
@@ -82,6 +95,10 @@ export default {
         color: '#ffff00',
         credits: 200_000,
         coins: 35,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(12).fill(100_000)],
+            coins: [10, 15, ...Array(12).fill(20)],
+        },
         extensions: [],
         levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
         maxBuildings: 'Ei rajoitusta',
@@ -90,7 +107,7 @@ export default {
         startPersonnel: 3,
         startParkingLots: 1,
         startVehicles: ['Hoitotason Ambulanssi'],
-        schoolingTypes: [],
+        schoolingTypes: ['Pelastustoimi'],
         icon: 'truck-medical',
     },
     3: {
@@ -98,6 +115,10 @@ export default {
         color: '#d9ae6f',
         credits: 500_000,
         coins: 50,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             index => ({
                 caption: 'Lisäluokkahuone',
@@ -122,6 +143,10 @@ export default {
         color: '#ff0000',
         credits: 200_000,
         coins: 35,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [
             {
                 caption: 'Yleislääkäri',
@@ -206,6 +231,10 @@ export default {
         color: '#ffff00',
         credits: 1_000_000,
         coins: 50,
+        levelPrices: {
+            credits: [1_000_000],
+            coins: [50],
+        },
         extensions: [],
         levelcost: ['1000000'],
         maxBuildings: 'Ei rajoitusta',
@@ -214,7 +243,7 @@ export default {
         startPersonnel: 1,
         startVehicles: [],
         startParkingLots: 1,
-        schoolingTypes: [],
+        schoolingTypes: ['Pelastustoimi'],
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
                 ? 4
@@ -226,6 +255,10 @@ export default {
         color: '#06377b',
         credits: 100_000,
         coins: 35,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(12).fill(100_000)],
+            coins: [10, 15, ...Array(12).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Vankilan selli',
@@ -246,6 +279,22 @@ export default {
                 },
                 9
             ),
+            {
+                caption: 'Liikenneryhmä',
+                credits: 100_000,
+                coins: 15,
+                duration: '5 päivää',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [33, 34],
+            },
+            {
+                caption: 'Rikostutkintayksikkö',
+                credits: 100_000,
+                coins: 15,
+                duration: '5 päivää',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [36],
+            },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
         maxBuildings: 'Ei rajoitusta',
@@ -255,7 +304,7 @@ export default {
         startPersonnel: 2,
         startParkingLots: 1,
         startVehicles: ['Partioauto'],
-        schoolingTypes: [],
+        schoolingTypes: ['Poliisi'],
         icon: 'shield-halved',
     },
     7: {
@@ -263,6 +312,10 @@ export default {
         color: '#ff0000',
         credits: 0,
         coins: 0,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: [],
         maxBuildings: '1 per 25 rakennusta',
@@ -278,6 +331,10 @@ export default {
         color: '#d9ae6f',
         credits: 500_000,
         coins: 50,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: multiplyExtension(
             index => ({
                 caption: 'Lisäluokkahuone',
@@ -302,6 +359,10 @@ export default {
         color: '#06377b',
         credits: 1_000_000,
         coins: 50,
+        levelPrices: {
+            credits: [1_000_000],
+            coins: [50],
+        },
         extensions: [],
         levelcost: ['1000000'],
         maxBuildings: 'Ei rajoitusta',
@@ -310,7 +371,7 @@ export default {
         startPersonnel: 1,
         startVehicles: [],
         startParkingLots: 1,
-        schoolingTypes: [],
+        schoolingTypes: ['Poliisi'],
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
                 ? 4
@@ -322,6 +383,10 @@ export default {
         color: '#FFFFFF',
         credits: 0,
         coins: 0,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
         extensions: [],
         levelcost: [],
         maxBuildings: '1',
@@ -335,24 +400,33 @@ export default {
         color: '#FF0000',
         credits: 50_000,
         coins: 25,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(2).fill(100_000)],
+            coins: [10, 15, ...Array(2).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Ambulanssilaajennus',
                 credits: 100_000,
                 coins: 20,
                 duration: '7 päivää',
-                cannotDisable: false,
                 isVehicleExtension: true,
                 unlocksVehicleTypes: [5, 19, 20, 21, 22, 23],
             },
-            null,
+            {
+                caption: 'Lentokenttälaajennus',
+                credits: 250_000,
+                coins: 25,
+                duration: '5 päivää',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [42, 43, 44, 45],
+            },
             null,
             {
                 caption: 'Huoltolaajennus',
                 credits: 150_000,
                 coins: 15,
                 duration: '5 päivää',
-                cannotDisable: false,
                 isVehicleExtension: true,
                 unlocksVehicleTypes: [26, 27, 28, 29, 30],
             },
@@ -369,7 +443,7 @@ export default {
             'Kevyt sammutusauto',
             '(Pelastusauton (lisää hintaa 14 000) ja Säiliösammutusauton (lisää hintaa 15 900) voidaan ostaa arvosta',
         ],
-        schoolingTypes: [],
+        schoolingTypes: ['Paloasema'],
         icon: 'fire',
     },
     19: {
@@ -377,6 +451,10 @@ export default {
         color: '#06377b',
         credits: 50_000,
         coins: 25,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(2).fill(100_000)],
+            coins: [10, 15, ...Array(2).fill(20)],
+        },
         extensions: [
             {
                 caption: 'Vankilan selli',
@@ -394,6 +472,14 @@ export default {
                 newCells: 1,
                 cannotDisable: true,
             },
+            {
+                caption: 'Liikenneryhmä',
+                credits: 100_000,
+                coins: 15,
+                duration: '5 päivää',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [33, 34],
+            },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
         maxBuildings: 'Ei rajoitusta',
@@ -403,7 +489,7 @@ export default {
         startPersonnel: 2,
         startParkingLots: 1,
         startVehicles: ['Partioauto'],
-        schoolingTypes: [],
+        schoolingTypes: ['Poliisi'],
         icon: 'shield-halved',
     },
     20: {
@@ -411,6 +497,10 @@ export default {
         color: '#ffff00',
         credits: 100_000,
         coins: 25,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(2).fill(100_000)],
+            coins: [10, 15, ...Array(2).fill(20)],
+        },
         extensions: [],
         levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
         maxBuildings: 'Ei rajoitusta',
@@ -419,7 +509,47 @@ export default {
         startPersonnel: 3,
         startParkingLots: 1,
         startVehicles: ['Hoitotason ambulanssi'],
-        schoolingTypes: [],
+        schoolingTypes: ['Pelastustoimi'],
         icon: 'truck-medical',
     },
-} as Record<number, InternalBuilding>;
+    23: {
+        caption: 'Rajavartioasema',
+        color: '#06377b',
+        credits: 500_000,
+        coins: 25,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(2).fill(100_000)],
+            coins: [10, 15, ...Array(2).fill(20)],
+        },
+        extensions: [],
+        levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
+        maxBuildings: 'Ei rajoitusta',
+        maxLevel: 20,
+        special: '',
+        startPersonnel: 5,
+        startParkingLots: 1,
+        startVehicles: [],
+        schoolingTypes: ['Poliisi'],
+        icon: 'ship',
+    },
+    24: {
+        caption: 'Rannikkovartioston lentoasema',
+        color: '#06377b',
+        credits: 1_000_000,
+        coins: 50,
+        levelPrices: {
+            credits: [...Array(2).fill(1_000_000)],
+            coins: [...Array(2).fill(50)],
+        },
+        extensions: [],
+        levelcost: ['1. 1.000.000', '2. 1.000.000'],
+        maxBuildings: 'Ei rajoitusta',
+        maxLevel: 2,
+        special: '',
+        startPersonnel: 3,
+        startParkingLots: 0,
+        startVehicles: [],
+        schoolingTypes: ['Poliisi'],
+        icon: 'helicopter',
+    },
+} satisfies Record<number, InternalBuilding>;

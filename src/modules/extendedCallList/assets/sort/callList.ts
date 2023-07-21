@@ -1,3 +1,8 @@
+import {
+    getCityFromAddress,
+    getZipFromCity,
+} from '../../../shareAlliancePost/assets/util';
+
 import type { Building } from 'typings/Building';
 import type { LatLng } from 'leaflet';
 import type { $m, ModuleMainFunction } from 'typings/Module';
@@ -15,7 +20,13 @@ export type Sort =
     | 'distance_station'
     | 'id'
     | 'remaining_patients'
-    | 'remaining_prisoners';
+    | 'remaining_prisoners'
+    | 'zip_code';
+
+interface StringSorting {
+    items: string[];
+    order: number[];
+}
 
 export default (
     LSSM: Vue,
@@ -37,6 +48,7 @@ export default (
         'alphabet',
         'distance_dispatch',
         'distance_station',
+        'zip_code',
     ];
     let sortingType = sort;
     const sortingDirection = direction;
@@ -117,11 +129,11 @@ export default (
     const maxCSSInteger = Number(getComputedStyle(cssMaxIntDummy).order);
     cssMaxIntDummy.remove();
 
+    const maxListOrderDistance = Math.floor(Math.sqrt(maxCSSInteger));
+
     const numToCSSRange = (num: number): number => {
-        let rangedNum = num;
-        while (rangedNum > maxCSSInteger) rangedNum -= maxCSSInteger;
-        while (rangedNum < -maxCSSInteger) rangedNum += maxCSSInteger;
-        return rangedNum;
+        if (!num) return 0;
+        return num % maxCSSInteger;
     };
 
     const maxWorldDistance = new window.L.LatLng(-85, -180).distanceTo(
@@ -130,6 +142,44 @@ export default (
 
     const distanceToCSSRange = (distance: number) =>
         Math.floor((maxWorldDistance / maxCSSInteger) * distance);
+
+    const zipCodes: StringSorting = {
+        items: [],
+        order: [],
+    };
+
+    const findStringOrder = (str: string, sorting: StringSorting) => {
+        if (sorting.items.includes(str))
+            return sorting.order[sorting.items.indexOf(str)];
+
+        if (sorting.items.length === 0) {
+            sorting.items.push(str);
+            sorting.order.push(maxListOrderDistance);
+            return maxListOrderDistance;
+        }
+
+        for (let i = 0; i < sorting.items.length; i++) {
+            const item = sorting.items[i];
+            if (str.localeCompare(item) < 0) {
+                const lastOrderNr = i ? sorting.order[i - 1] : 0;
+                const nextOrderNr = sorting.order[i];
+                let thisOrderNr = Math.floor(
+                    lastOrderNr + (nextOrderNr - lastOrderNr) / 2
+                );
+                if (Number.isNaN(thisOrderNr))
+                    thisOrderNr = lastOrderNr + maxListOrderDistance;
+                sorting.items.splice(i, 0, str);
+                sorting.order.splice(i, 0, thisOrderNr);
+                return thisOrderNr;
+            }
+        }
+
+        const lastOrderNr = sorting.order.at(-1) ?? 0;
+        const nextOrderNr = lastOrderNr + maxListOrderDistance;
+        sorting.items.push(str);
+        sorting.order.push(nextOrderNr);
+        return nextOrderNr;
+    };
 
     enum faSortIcon {
         alphabet = 'font',
@@ -140,6 +190,7 @@ export default (
         id = 'clock-rotate-left',
         remaining_patients = 'user-injured',
         remaining_prisoners = 'handcuffs',
+        zip_code = 'map-location-dot',
     }
 
     enum faDirectionIcon {
@@ -182,48 +233,59 @@ export default (
     );
     sortSelectionList.classList.add('dropdown-menu', 'pull-right');
     sorts.forEach(sort => {
-        const liAsc = document.createElement('li');
-        liAsc.dataset.sort = sort;
-        liAsc.dataset.direction = 'asc';
-        const liDesc = document.createElement('li');
-        liDesc.dataset.sort = sort;
-        liDesc.dataset.direction = 'desc';
-        const aAsc = document.createElement('a');
-        aAsc.setAttribute('href', '#');
-        liAsc.append(aAsc);
-        const title = document.createTextNode(
-            $m(`sort.types.${sort}`).toString()
-        );
-        const directionIcon = document.createElement('i');
-        directionIcon.classList.add('fas', `fa-${faDirectionIcon['asc']}`);
-        const aDesc = document.createElement('a');
-        aDesc.setAttribute('href', '#');
-        liDesc.append(aDesc);
+        const listElement = document.createElement('li');
+        listElement.dataset.sort = sort;
+        const link = document.createElement('a');
+        link.setAttribute('href', '#');
+
         const icon = document.createElement('i');
         icon.classList.add('fas', `fa-${faSortIcon[sort]}`, 'fa-fw');
         icon.style.setProperty('margin-right', '0.2em');
-        directionIcon.style.setProperty('margin-left', '0.2em');
-        aAsc.append(icon, title, directionIcon.cloneNode(true));
-        directionIcon.classList.replace(
-            `fa-${faDirectionIcon['asc']}`,
-            `fa-${faDirectionIcon['desc']}`
-        );
-        aDesc.append(
-            icon.cloneNode(true),
-            title.cloneNode(true),
-            directionIcon
-        );
-        sortSelectionList.append(liAsc, liDesc);
+
+        const ascBtn = document.createElement('button');
+        ascBtn.classList.add('btn', 'btn-xs', 'btn-default');
+        ascBtn.dataset.direction = 'asc';
+        const ascIcon = document.createElement('i');
+        ascIcon.classList.add('fas', `fa-${faDirectionIcon['asc']}`);
+        ascBtn.append(ascIcon);
+
+        const descBtn = document.createElement('button');
+        descBtn.classList.add('btn', 'btn-xs', 'btn-default');
+        descBtn.dataset.direction = 'desc';
+        const descIcon = document.createElement('i');
+        descIcon.classList.add('fas', `fa-${faDirectionIcon['desc']}`);
+        descBtn.append(descIcon);
+
+        const btnGroup = document.createElement('div');
+        btnGroup.classList.add('btn-group', 'pull-right');
+        btnGroup.append(ascBtn, descBtn);
+        btnGroup.style.setProperty('margin-left', '1em');
+
+        if (sort === sortingType) {
+            if (sortingDirection === 'asc') ascBtn.setAttribute('disabled', '');
+            else descBtn.setAttribute('disabled', '');
+        }
+
+        link.append(icon, $m(`sort.types.${sort}`).toString(), btnGroup);
+        listElement.append(link);
+        sortSelectionList.append(listElement);
     });
     sortSelectionList.addEventListener('click', async event => {
         event.preventDefault();
         const target = event.target as HTMLElement | null;
-        const sorter = target?.closest<HTMLLIElement>(
-            'li[data-sort][data-direction]'
+        const sorter = target?.closest<HTMLLIElement>('li[data-sort]');
+        const directionBtn = target?.closest<HTMLButtonElement>(
+            'li[data-sort] button[data-direction]'
         );
         if (!sorter) return;
+        sortSelectionList
+            .querySelector<HTMLButtonElement>('button[data-direction]:disabled')
+            ?.removeAttribute('disabled');
+
         sortingType = sorter.dataset.sort as Sort;
-        const sortDirection = sorter.dataset.direction as 'asc' | 'desc';
+        const sortDirection = (directionBtn?.dataset.direction ?? 'asc') as
+            | 'asc'
+            | 'desc';
         panelBody.classList[sortDirection === 'desc' ? 'add' : 'remove'](
             reverseClass
         );
@@ -233,6 +295,11 @@ export default (
         document
             .querySelector<SVGElement>(`#${directionIcon.id}`)
             ?.setAttribute('data-icon', faDirectionIcon[sortDirection]);
+        sorter
+            .querySelector<HTMLButtonElement>(
+                `button[data-direction="${sortDirection}"]`
+            )
+            ?.setAttribute('disabled', 'disabled');
         await setSetting('sortMissionsType', sortingType);
         await setSetting('sortMissionsDirection', sortDirection);
         if (updateOrderListTimeout) window.clearTimeout(updateOrderListTimeout);
@@ -286,16 +353,16 @@ export default (
             parseFloat(mission.getAttribute('longitude') ?? '0')
         );
 
-    const orderFunctions: Record<Sort, (mission: HTMLDivElement) => string> = {
-        default: () => '0',
-        id: mission =>
-            numToCSSRange(
-                parseInt(mission.getAttribute('mission_id') ?? '0')
-            ).toString(),
+    const orderFunctions: Record<
+        Sort,
+        (mission: HTMLDivElement) => number | undefined
+    > = {
+        default: () => 0,
+        id: mission => parseInt(mission.getAttribute('mission_id') ?? '0'),
         credits: mission => {
             let missionType = mission.getAttribute('mission_type_id') ?? '-1';
             if (missionType === '-1' || missionType === 'null')
-                return (maxCSSInteger - 1).toString();
+                return maxCSSInteger - 1;
             const overlayIndex =
                 mission.getAttribute('data-overlay-index') ?? 'null';
             if (overlayIndex && overlayIndex !== 'null')
@@ -304,20 +371,16 @@ export default (
                 mission.getAttribute('data-additive-overlays') ?? 'null';
             if (additionalOverlay && additionalOverlay !== 'null')
                 missionType += `/${additionalOverlay}`;
-            return numToCSSRange(
-                missionsById[missionType]?.average_credits ?? 0
-            ).toString();
+            return missionsById[missionType]?.average_credits;
         },
         remaining_patients: mission => {
             if (
                 mission.querySelector(
                     '[id^="mission_patients_"] [id^="patient_"]'
                 )
-            ) {
-                return mission
-                    .querySelectorAll('.patient_progress')
-                    .length.toString();
-            }
+            )
+                return mission.querySelectorAll('.patient_progress').length;
+
             if (
                 mission
                     .querySelector<HTMLDivElement>(
@@ -325,25 +388,17 @@ export default (
                     )
                     ?.style.getPropertyValue('display') !== 'none'
             ) {
-                return LSSM.$utils
-                    .getNumberFromText(
-                        mission.querySelector(
-                            '.mission_list_patient_icon + strong'
-                        )?.textContent ?? '0'
-                    )
-                    .toString();
+                return LSSM.$utils.getNumberFromText(
+                    mission.querySelector('.mission_list_patient_icon + strong')
+                        ?.textContent ?? '0'
+                );
             }
-            return '0';
+            return 0;
         },
         remaining_prisoners: mission => {
-            return (
-                mission
-                    .querySelector(
-                        '.mission_prisoners[id^="mission_prisoners_"]'
-                    )
-                    ?.querySelectorAll('.small[id^="prisoner_"]')
-                    .length.toString() ?? '0'
-            );
+            return mission
+                .querySelector('.mission_prisoners[id^="mission_prisoners_"]')
+                ?.querySelectorAll('.small[id^="prisoner_"]').length;
         },
         alphabet: mission => {
             let missionType = mission.getAttribute('mission_type_id') ?? '-1';
@@ -355,9 +410,7 @@ export default (
                 mission.getAttribute('data-additive-overlays') ?? 'null';
             if (additionalOverlay && additionalOverlay !== 'null')
                 missionType += `/${additionalOverlay}`;
-            return numToCSSRange(
-                missionIdsByAlphabet[missionType] ?? 0
-            ).toString();
+            return missionIdsByAlphabet[missionType];
         },
         distance_dispatch: mission => {
             const latLng = getLatLngFromMission(mission);
@@ -365,7 +418,7 @@ export default (
                 Math.min(
                     ...dispatchCenterLatLngs.map(dc => latLng.distanceTo(dc))
                 )
-            ).toString();
+            );
         },
         distance_station: mission => {
             const latLng = getLatLngFromMission(mission);
@@ -373,7 +426,18 @@ export default (
                 Math.min(
                     ...vehicleBuildingLatLngs.map(dc => latLng.distanceTo(dc))
                 )
-            ).toString();
+            );
+        },
+        zip_code: mission => {
+            const address =
+                mission
+                    .querySelector<HTMLSpanElement>(
+                        `#mission_address_${mission.getAttribute('mission_id')}`
+                    )
+                    ?.textContent?.trim() ?? '–';
+            const zip = getZipFromCity(getCityFromAddress(address));
+
+            return findStringOrder(zip, zipCodes);
         },
     };
 
@@ -425,10 +489,10 @@ export default (
 
     const setMissionOrder = (mission: HTMLDivElement) => {
         const missionId = mission.getAttribute('mission_id') ?? '0';
-        const orderValue =
-            orderFunctions[sortingType]?.(mission) ??
-            orderFunctions.id(mission);
-        mission.style.setProperty('order', orderValue);
+        const order = numToCSSRange(
+            orderFunctions[sortingType]?.(mission) ?? 0
+        );
+        mission.style.setProperty('order', order.toString());
         const list =
             mission.parentElement?.id?.replace(/^mission_list_?/u, '') ?? '';
         if (!missionOrderValuesById.hasOwnProperty(list))
@@ -437,11 +501,10 @@ export default (
             delete missionOrderValuesById[list][missionId];
         } else if (
             !missionOrderValuesById[list].hasOwnProperty(missionId) ||
-            missionOrderValuesById[list][missionId].order !==
-                parseInt(orderValue)
+            missionOrderValuesById[list][missionId].order !== order
         ) {
             missionOrderValuesById[list][missionId] = {
-                order: parseInt(orderValue),
+                order,
                 el: mission,
             };
             if (updateOrderListTimeout)

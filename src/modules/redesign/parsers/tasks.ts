@@ -12,6 +12,7 @@ interface Task {
     isCollectionTask: boolean;
     hasNextTask: boolean;
     claimConfirmation: string | false;
+    isPremiumTask: boolean;
 }
 
 export interface TasksWindow {
@@ -77,6 +78,10 @@ export default <RedesignParser<TasksWindow>>(({ LSSM, doc, $sm }) => ({
                 isCollectionTask,
                 hasNextTask: !!task.querySelector<HTMLDivElement>('.next_task'),
                 claimConfirmation,
+                isPremiumTask:
+                    !!task.querySelector<HTMLImageElement>(
+                        '.task-premium-icon'
+                    ),
             };
         }
     ),

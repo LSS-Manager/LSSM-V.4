@@ -214,8 +214,8 @@ export default Vue.extend<
                 .map(e =>
                     parseInt(e.replace(`${this.building?.building_type}_`, ''))
                 )
-                .filter(e =>
-                    this.building?.extensions.find(be => be.type_id === e)
+                .filter(
+                    e => this.building?.extensions.find(be => be.type_id === e)
                 );
         },
     },

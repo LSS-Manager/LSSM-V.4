@@ -100,10 +100,12 @@ export default async (
                 counterNode = document.createElement('span');
                 counterNode.classList.add(counterClass);
                 counterNode.setAttribute('data-amount', '0');
-                arr.querySelector('.label')?.insertAdjacentElement(
-                    counterBadge ? 'beforebegin' : 'afterend',
-                    counterNode
-                );
+                arr
+                    .querySelector('.label')
+                    ?.insertAdjacentElement(
+                        counterBadge ? 'beforebegin' : 'afterend',
+                        counterNode
+                    );
                 counterNodes[arrId] = counterNode;
             }
 
@@ -153,7 +155,7 @@ export default async (
             .querySelector<HTMLElement>(
                 '#container_navbar_alarm .container-fluid'
             )
-            ?.appendChild(resetBtnHolder);
+            ?.append(resetBtnHolder);
     }
     document
         .querySelector<HTMLDivElement>('#navbar-right-help-button')

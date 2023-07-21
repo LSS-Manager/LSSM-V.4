@@ -7,5 +7,5 @@ export default (): void => {
     pABtn.classList.add('btn', 'btn-default');
     pABtn.setAttribute('href', `/vehicles/${vehicleId}/zuweisung`);
     pABtn.innerHTML = '<i class="fas fa-users"></i>';
-    btn?.parentElement?.appendChild(pABtn);
+    btn?.parentElement?.append(pABtn);
 };

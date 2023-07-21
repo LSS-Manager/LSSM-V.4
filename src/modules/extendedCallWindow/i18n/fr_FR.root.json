@@ -48,6 +48,10 @@
             "description": "Grise les régulations qui ne contiennent pas un des mots du nom de la mission.",
             "title": "Griser régulations non adaptées"
         },
+        "arrMatchHighlightAllWords": {
+            "description": "Utilise tous les mots du nom de la mission pour la fonction \"Griser régulations non adaptées\".",
+            "title": "Utiliser tous les mots"
+        },
         "arrSearch": {
             "description": "Affiche une barre de recherche au-dessus des RAIs qui permet de filtrer vos Rais.",
             "title": "RAI-Recherche"
@@ -105,8 +109,8 @@
             "title": "Personnel maximum"
         },
         "enhancedMissingVehicles": {
-            "description": "Change l'affichage des véhicules requis additionnels vers un tableau plus clair.",
-            "title": "Vue améliorée des véhicules requis"
+            "description": "Convertit l'affichage des véhicules supplémentaires requis en un tableau plus clair..",
+            "title": "Vue améliorée des véhicules"
         },
         "generationDate": {
             "description": "Affiche la date et heure de génération de mission à côté de son titre.",
@@ -197,6 +201,10 @@
             "title": "Compteur de véhicules : couleur",
             "warning": "Orange"
         },
+        "vehicleListPermanentSearch": {
+            "description": "Vehicle search bar permanently displayed.",
+            "title": "Permanent vehicle search bar"
+        },
         "vehicleTypeInList": {
             "description": "Affiche le type de véhicule dans la liste des unités disponibles.",
             "title": "Afficher le type de véhicule"
@@ -210,10 +218,14 @@
         "defaultTabs": [
             {
                 "name": "Fourgon d'incendie",
-                "vehicleTypes": [0, 1, 12, 13, 15, 32, 33, 34]
+                "vehicleTypes": [0, 1, 12, 13, 15, 32, 33, 34, 58, 59, 60]
             },
             {
-                "name": "Autres appareils incendie",
+                "name": "Véhicules Aéroport d'incendie",
+                "vehicleTypes": [51, 52, 53, 54, 55, 56, 57]
+            },
+            {
+                "name": "Autres véhicules d'incendie",
                 "vehicleTypes": [2, 3, 4, 6, 7, 10, 11, 14, 15, 31, 36, 37, 38]
             },
             {

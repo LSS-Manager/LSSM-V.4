@@ -16,6 +16,7 @@ export default {
         },
         extensions: ['.tsx', '.ts', '.js', '.vue', '.json'],
         // modules: ['node_modules', path.resolve(__dirname, 'src')],
+        fallback: { util: require.resolve('util/') },
     },
     module: {
         rules: [
@@ -54,7 +55,14 @@ export default {
             },
             {
                 test: /\.vue$/u,
-                loader: 'vue-loader',
+                use: [
+                    {
+                        loader: 'vue-loader',
+                        options: {
+                            prettify: false,
+                        },
+                    },
+                ],
             },
             {
                 test: /\.sass$/u,

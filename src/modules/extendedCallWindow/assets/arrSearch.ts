@@ -25,8 +25,26 @@ export default (
         const searchFieldSize = '20px';
         searchField.style.setProperty('height', searchFieldSize);
         searchField.style.setProperty('padding-left', searchFieldSize);
-        searchField.style.setProperty('margin-bottom', '5px');
         searchField.style.setProperty('font-size', '12px');
+
+        const loadMissingVehiclesBtn =
+            aaoGroupElement.parentElement?.querySelector<HTMLAnchorElement>(
+                '.missing_vehicles_load'
+            );
+
+        let insertElement = aaoGroupElement.before.bind(aaoGroupElement);
+
+        if (loadMissingVehiclesBtn) {
+            const lineWrapper = document.createElement('div');
+            lineWrapper.style.setProperty('display', 'flex');
+            loadMissingVehiclesBtn.before(lineWrapper);
+
+            insertElement = lineWrapper.append.bind(lineWrapper);
+
+            insertElement(loadMissingVehiclesBtn);
+        } else {
+            searchField.style.setProperty('margin-bottom', '5px');
+        }
 
         const hideStyle = document.createElement('style');
         let styleAdded = false;
@@ -41,7 +59,7 @@ export default (
         );
 
         searchField.addEventListener('input', () => {
-            const search = searchField.value.replace(/"/gu, '\\"');
+            const search = searchField.value.trim();
             if (search && !styleAdded) {
                 document.head.append(hideStyle);
                 styleAdded = true;
@@ -53,7 +71,7 @@ export default (
             const searchAttributeSelectors = Array.from(
                 new Set(
                     [search.toLowerCase(), search.toUpperCase()].map(
-                        s => `[search_attribute*="${s}" i]`
+                        s => `[search_attribute*="${CSS.escape(s)}" i]`
                     )
                 )
             );
@@ -76,7 +94,7 @@ export default (
                 .join('');
             hideSelector = `.aao_searchable${notAttributesSelector}`;
             hideStyle.textContent = `
-                ${hideSelector}, ${hideSelector}${notAttributesSelector} + br {
+                ${hideSelector}, ${hideSelector} + br {
                     display: none;
                 }`;
             if (dissolveCategories) {
@@ -146,7 +164,7 @@ export default (
                 });
         }
 
-        aaoGroupElement.before(searchField);
+        insertElement(searchField);
         if (autoFocus) searchField.focus();
     } else {
         const wrapper = document.createElement('div');

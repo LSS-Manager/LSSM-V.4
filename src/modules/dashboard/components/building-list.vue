@@ -5,6 +5,7 @@
             :head="{
                 ...headingsAll,
                 ...headingsExtensions,
+                ...headingsHospital,
             }"
             :table-attrs="{ class: 'table table-striped' }"
             @sort="setSort"
@@ -111,6 +112,22 @@
                 <td v-if="listType === 'extension'">
                     {{ building.extension_unavailable.toLocaleString() }}
                 </td>
+                <td
+                    v-if="
+                        listType === 'building' &&
+                        bedBuildingsType.includes(building.building_type)
+                    "
+                >
+                    {{ getTotalBeds(building) }}
+                </td>
+                <td
+                    v-if="
+                        listType === 'building' &&
+                        bedBuildingsType.includes(building.building_type)
+                    "
+                >
+                    {{ getTotalBeds(building) - building.patient_count }}
+                </td>
             </tr>
         </enhanced-table>
     </lightbox>
@@ -123,7 +140,11 @@ import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { useAPIStore } from '@stores/api';
 import { useTranslationStore } from '@stores/translationUtilities';
 
-import type { Building } from 'typings/Building';
+import type {
+    BedExtension,
+    Building,
+    InternalBuilding,
+} from 'typings/Building';
 import type {
     BuildingList,
     BuildingListComputed,
@@ -150,6 +171,7 @@ export default Vue.extend<
     },
     data() {
         const apiStore = useAPIStore();
+        const translationStore = useTranslationStore();
         const headingsAll = {
             building_type: { title: this.$m('type') },
             caption: { title: this.$m('caption') },
@@ -169,6 +191,23 @@ export default Vue.extend<
                           title: this.$m('unavailable'),
                           noSort: true,
                       },
+                  }
+                : {}
+        ) as Record<
+            string,
+            {
+                title: string;
+                noSort?: boolean;
+            }
+        >;
+        const headingsHospital = (
+            this.listType === 'building' &&
+            useTranslationStore().bedBuildings.includes(
+                this.buildings[0]?.building_type
+            )
+                ? {
+                      beds: { title: this.$m('beds') },
+                      bedsFree: { title: this.$m('bedsFree') },
                   }
                 : {}
         ) as Record<
@@ -199,6 +238,11 @@ export default Vue.extend<
                 ? 1
                 : 0
         );
+        const bedBuildings: Building[] = [];
+        const bedBuildingsType = useTranslationStore().bedBuildings;
+        bedBuildingsType.forEach(type =>
+            bedBuildings.push(...(buildingsByType[type] ?? []))
+        );
         return {
             buildingTypeNames: Object.fromEntries(
                 Object.entries(useTranslationStore().buildings).map(
@@ -211,9 +255,13 @@ export default Vue.extend<
             faPencilAlt,
             headingsExtensions,
             headingsAll,
+            headingsHospital,
             dispatchBuildings,
             dispatchCenterBuildings,
+            bedBuildings,
+            bedBuildingsType,
             apiStore,
+            translationStore,
         } as BuildingList;
     },
     props: {
@@ -290,6 +338,48 @@ export default Vue.extend<
                 dispatchBuildings.find(
                     b => b.id === (building.leitstelle_building_id ?? 0)
                 )?.caption ?? ''
+            );
+        },
+        getTotalBeds(building) {
+            const buildingType: InternalBuilding =
+                this.translationStore.buildings[building.building_type];
+            if (!('startBeds' in buildingType)) return 0;
+            const removeNull = <S,>(value: S | null): value is S => !!value;
+            const bedExtensions = buildingType.extensions
+                .map<
+                    | (Exclude<InternalBuilding['extensions'][0], null> & {
+                          typeId: number;
+                      })
+                    | null
+                >((extension, index) =>
+                    extension ? { ...extension, typeId: index } : null
+                )
+                .filter(removeNull)
+                .filter(
+                    (
+                        extension
+                    ): extension is BedExtension & { typeId: number } =>
+                        'newBeds' in extension
+                );
+            const bedExtensionIds = bedExtensions.map(
+                extension => extension.typeId
+            );
+            return (
+                buildingType.startBeds +
+                building.level +
+                building.extensions
+                    .filter(extension =>
+                        bedExtensionIds.includes(extension.type_id)
+                    )
+                    .reduce(
+                        (total, extension) =>
+                            total +
+                            (bedExtensions.find(
+                                bedExtension =>
+                                    bedExtension.typeId === extension.type_id
+                            )?.newBeds ?? 0),
+                        0
+                    )
             );
         },
     },

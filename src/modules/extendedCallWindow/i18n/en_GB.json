@@ -11,9 +11,11 @@
             "selection": "Vehicle selection"
         }
     },
+    "arrHighlight": { "removeBeforeParsing": "" },
     "arrHover": {
         "arrSpecs": {
             "any_traffic_car": "Any Traffic Car",
+            "coastal_rescue": "Any Coastal Guard Vehicle",
             "coresponder": "Co-Responder Vehicle",
             "crew_carrier": "Crew Carrier",
             "dlk": "Aerial Appliance Truck",
@@ -144,7 +146,7 @@
                     "Operational Team Leader",
                     "Operational Team Leaders"
                 ],
-                "vehicles": [20, 31]
+                "vehicles": [20, 31, 34]
             },
             { "texts": ["Traffic Car", "Traffic Cars"], "vehicles": [24, 25] },
             { "texts": ["ATV Carrier", "ATV Carriers"], "vehicles": [30] },
@@ -175,7 +177,111 @@
                 "vehicles": [35, 36, 37, 38, 42]
             },
             { "texts": ["Mass Casualty Equipment"], "vehicles": [33] },
-            { "texts": ["Mounted Unit", "Mounted Units"], "vehicles": [55] }
+            { "texts": ["Mounted Unit", "Mounted Units"], "vehicles": [55] },
+            { "texts": ["4x4 Vehicle", "4x4 Vehicles"], "vehicles": [66, 73] },
+            {
+                "texts": [
+                    "Coastguard Rope Rescue Unit",
+                    "Coastguard Rope Rescue Units"
+                ],
+                "vehicles": [59]
+            },
+            {
+                "texts": ["Flood Rescue Unit", "Flood Rescue Units"],
+                "vehicles": [61]
+            },
+            { "texts": ["CRV", "CRVs"], "vehicles": [57] },
+            {
+                "texts": ["Coastguard Commander", "Coastguard Commanders"],
+                "vehicles": [60]
+            },
+            {
+                "texts": [
+                    "Boat Trailer or Inland Rescue Boat",
+                    "Boat Trailers or Inland Rescue Boats"
+                ],
+                "vehicles": [67, 74]
+            },
+            { "texts": ["ILB", "ILBs"], "vehicles": [68] },
+            {
+                "texts": [
+                    "Coastguard Rescue Helicopter",
+                    "Coastguard Rescue Helicopters"
+                ],
+                "vehicles": [64, 65]
+            },
+            { "texts": ["ALB", "ALBs"], "vehicles": [69] },
+            {
+                "texts": [
+                    "Mud Decontamination Unit",
+                    "Mud Decontamination Units"
+                ],
+                "vehicles": [62]
+            },
+            { "texts": ["Support Unit", "Support Units"], "vehicles": [63] },
+            {
+                "texts": [
+                    "Rescue Watercraft (Trailer)",
+                    "Rescue Watercraft (Trailers)"
+                ],
+                "vehicles": [70]
+            },
+            {
+                "texts": [
+                    "Coastguard Mud Rescue Unit",
+                    "Coastguard Mud Rescue Units"
+                ],
+                "vehicles": [58]
+            },
+            {
+                "texts": ["Hovercraft (trailer)", "hovercrafts (trailer)"],
+                "vehicles": [71]
+            },
+            {
+                "texts": ["Major Foam Tender", "Major Foam Tenders"],
+                "vehicles": [75]
+            },
+            { "texts": ["Rescue Stair", "Rescue Stairs"], "vehicles": [78] },
+            {
+                "texts": [
+                    "Airfield Firefighting Command Vehicle",
+                    "Airfield Firefighting Command Vehicles"
+                ],
+                "vehicles": [77]
+            },
+            {
+                "texts": [
+                    "Airfield Operations Vehicle",
+                    "Airfield Operations Vehicles"
+                ],
+                "vehicles": [79]
+            },
+            { "texts": ["RIV", "RIVs"], "vehicles": [76] },
+            {
+                "texts": [
+                    "Medical equipment trailer",
+                    "Medical equipment trailers"
+                ],
+                "vehicles": [81]
+            },
+            {
+                "texts": [
+                    "Airfield Operations Supervisor",
+                    "Airfield Operations Supervisors"
+                ],
+                "vehicles": [80]
+            },
+            {
+                "texts": ["Armed Cell Van", "Armed Cell Vans"],
+                "vehicles": [82]
+            },
+            {
+                "texts": [
+                    "Medical cycle responder",
+                    "Medical cycle responders"
+                ],
+                "vehicles": [83]
+            }
         ]
     },
     "hideVehicleList": {

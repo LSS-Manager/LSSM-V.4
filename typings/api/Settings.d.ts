@@ -29,4 +29,8 @@ export interface Settings {
     start_view: 'buildings' | 'chat' | 'map' | 'missions' | 'radio';
     hide_faq_button: boolean;
     design_mode: number; //0=Default,1=Dark,2=Bright,3=Window Design,4=Window Design Dark
+    hide_anti_abuse_message: boolean;
+    disable_event_missions: boolean;
+    prisoner_transportation_disabled: boolean;
+    prisoner_transportation_delay: number;
 }

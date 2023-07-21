@@ -208,6 +208,16 @@
                                 <td v-if="hasBedBuildings">
                                     <template v-if="building.hasBeds">
                                         {{ building.beds }}
+                                        <template
+                                            v-if="building.bedsUnavailable"
+                                        >
+                                            ({{
+                                                $mc(
+                                                    'overview.buildings.inConstruction',
+                                                    building.bedsUnavailable
+                                                )
+                                            }})
+                                        </template>
 
                                         <template
                                             v-if="
@@ -939,6 +949,13 @@
                     >
                         <h2 class="indented-title">
                             {{ $m('overview.classrooms.title') }}
+                            <button
+                                class="btn btn-success pull-right"
+                                :disabled="classroomStats.free === 0"
+                                @click="openAvailableSchool"
+                            >
+                                {{ $m('overview.classrooms.startTraining') }}
+                            </button>
                             <br />
                             <small>
                                 {{
@@ -1285,7 +1302,7 @@ type HasNotInterface<HasAttribute extends string> = Record<HasAttribute, false>;
 type MaybeInterface<
     HasInterface,
     HasNotInterface,
-    Has extends Maybe = unknown
+    Has extends Maybe = unknown,
 > = Has extends true
     ? HasInterface
     : Has extends false
@@ -1294,6 +1311,7 @@ type MaybeInterface<
 
 type AttributedBuildingHasBeds = HasInterface<'hasBeds'> & {
     beds: number;
+    bedsUnavailable: number;
     is_alliance_shared: boolean;
     alliance_share_credits_percentage: 0 | 10 | 20 | 30 | 40 | 50;
 };
@@ -1368,7 +1386,7 @@ type AttributedBuilding<
     HasClassrooms extends Maybe = unknown,
     HasLevel extends Maybe = unknown,
     HasStaff extends Maybe = unknown,
-    HasVehicles extends Maybe = unknown
+    HasVehicles extends Maybe = unknown,
 > = AttributedBuildingBeds<HasBeds> &
     AttributedBuildingCells<HasCells> &
     AttributedBuildingClassrooms<HasClassrooms> &
@@ -1555,6 +1573,7 @@ export default Vue.extend<
         toggleInCellOptions($event: MouseEvent): void;
         toggleAllianceShare(buildingId: number): void;
         setAllianceTax(buildingId: number, tax: number): void;
+        openAvailableSchool(): void;
     },
     {
         buildings: Record<number, Building>;
@@ -1725,45 +1744,57 @@ export default Vue.extend<
                         ? this.allianceBuildings[intId]
                         : this.buildings[intId];
                     if (!building) return null;
-                    const buildingType =
-                        this.buildingTypes[building.building_type];
 
-                    let bigBuildingType = building.building_type;
-                    if (building.small_building) {
-                        bigBuildingType = parseInt(
-                            (
-                                Object.entries(smallBuildings).find(
-                                    ([, small]) =>
-                                        small === building.building_type
-                                )?.[0] ?? bigBuildingType
-                            ).toString()
-                        );
-                    }
+                    const realBuildingType = building.small_building
+                        ? smallBuildings[building.building_type] ??
+                          building.building_type
+                        : building.building_type;
+
+                    const buildingType =
+                        this.buildingTypes[realBuildingType] ?? {};
 
                     const buildingAttrs = {
                         alliance: isAllianceBuilding,
                         id: building.id,
-                        type: building.building_type,
+                        type: realBuildingType,
                         icon:
                             building.custom_icon_url ??
                             window.flavouredAsset(
                                 window
                                     .getBuildingMarkerIcon({
-                                        building_type: bigBuildingType,
+                                        building_type: building.building_type,
                                     })
                                     ?.replace(/_other(?=\.png$)/u, '')
                             ),
-                        typeName: buildingType.caption,
+                        typeName: buildingType?.caption ?? '🦥',
                         name: building.caption,
                         extensions: building.extensions,
                         leitstelle: building.leitstelle_building_id,
                     };
 
+                    const bedExtensions = {
+                        beds:
+                            'startBeds' in buildingType
+                                ? buildingType.startBeds + building.level
+                                : 0,
+                        bedsUnavailable: 0,
+                    };
+                    building.extensions.forEach(extension => {
+                        const extensionType =
+                            buildingType.extensions?.[extension.type_id] ?? {};
+                        if ('newBeds' in extensionType) {
+                            if (!extension.available) {
+                                bedExtensions.bedsUnavailable +=
+                                    extensionType.newBeds;
+                            }
+                            bedExtensions.beds += extensionType.newBeds;
+                        }
+                    });
                     const beds: AttributedBuildingBeds =
                         'startBeds' in buildingType
                             ? {
                                   hasBeds: true,
-                                  beds: buildingType.startBeds + building.level,
+                                  ...bedExtensions,
                                   is_alliance_shared:
                                       building.is_alliance_shared ?? false,
                                   alliance_share_credits_percentage:
@@ -1780,17 +1811,15 @@ export default Vue.extend<
                         cellsUnavailable: 0,
                     };
                     building.extensions.forEach(extension => {
-                        if (
-                            !(
-                                'newCells' in
-                                (buildingType.extensions[extension.type_id] ??
-                                    {})
-                            )
-                        )
-                            return;
-                        if (!extension.available)
-                            cellExtensions.cellsUnavailable++;
-                        cellExtensions.cells++;
+                        const extensionType =
+                            buildingType.extensions?.[extension.type_id] ?? {};
+                        if ('newCells' in extensionType) {
+                            if (!extension.available) {
+                                cellExtensions.cellsUnavailable +=
+                                    extensionType.newCells;
+                            }
+                            cellExtensions.cells += extensionType.newCells;
+                        }
                     });
 
                     const cells: AttributedBuildingCells =
@@ -1817,7 +1846,7 @@ export default Vue.extend<
                         if (
                             !(
                                 'newClassrooms' in
-                                (buildingType.extensions[extension.type_id] ??
+                                (buildingType.extensions?.[extension.type_id] ??
                                     {})
                             )
                         )
@@ -1899,7 +1928,7 @@ export default Vue.extend<
                         ...vehicles,
                     };
                 })
-                .filter(<S>(value: S | null): value is S => !!value);
+                .filter(<S,>(value: S | null): value is S => !!value);
         },
         sortedBuildingsByName() {
             const buildings = this.attributedBuildings;
@@ -2160,7 +2189,7 @@ export default Vue.extend<
                     )
                         maxExtensionsFunctionResults[buildingTypeId] = {};
 
-                    const removeNull = <S>(value: S | null): value is S =>
+                    const removeNull = <S,>(value: S | null): value is S =>
                         !!value;
 
                     const availableAtSorted = extensions
@@ -2171,141 +2200,160 @@ export default Vue.extend<
                         .sort()
                         .reverse();
 
-                    return buildingType.extensions
-                        .filter(removeNull)
-                        .map((extensionType, index) => {
-                            const boughtExtension = extensions.find(
-                                ({ type_id }) => index === type_id
-                            );
-                            if (
-                                !boughtExtension &&
-                                extensionType.maxExtensionsFunction
-                            ) {
-                                maxExtensionsFunctionResults[buildingTypeId][
-                                    index
-                                ] ??= extensionType.maxExtensionsFunction(
-                                    this.apiStore.buildingsByType
-                                );
-                            }
+                    return (
+                        buildingType?.extensions
+                            ?.map<AttributedExtension | null>(
+                                (extensionType, index) => {
+                                    if (!extensionType) return null;
+                                    const boughtExtension = extensions.find(
+                                        ({ type_id }) => index === type_id
+                                    );
+                                    if (
+                                        !boughtExtension &&
+                                        extensionType.maxExtensionsFunction
+                                    ) {
+                                        maxExtensionsFunctionResults[
+                                            buildingTypeId
+                                        ][index] ??=
+                                            extensionType.maxExtensionsFunction(
+                                                this.apiStore.buildingsByType
+                                            );
+                                    }
 
-                            const requiredExtensions =
-                                extensionType.requiredExtensions;
+                                    const requiredExtensions =
+                                        extensionType.requiredExtensions;
 
-                            const allRequiredExtensionsBought =
-                                requiredExtensions?.every(extension =>
-                                    extensions.find(
-                                        ({ type_id }) => extension === type_id
-                                    )
-                                );
+                                    const allRequiredExtensionsBought =
+                                        requiredExtensions?.every(extension =>
+                                            extensions.find(
+                                                ({ type_id }) =>
+                                                    extension === type_id
+                                            )
+                                        );
 
-                            const canBuyByAmount =
-                                extensionType.canBuyByAmount?.(
-                                    this.boughtExtensionsAmountByType,
-                                    maxExtensionsFunctionResults[
-                                        buildingTypeId
-                                    ][index]
-                                );
+                                    const canBuyByAmount =
+                                        extensionType.canBuyByAmount?.(
+                                            this.boughtExtensionsAmountByType,
+                                            maxExtensionsFunctionResults[
+                                                buildingTypeId
+                                            ][index]
+                                        );
 
-                            const canBuy =
-                                allRequiredExtensionsBought ??
-                                canBuyByAmount ??
-                                true;
+                                    const canBuy =
+                                        allRequiredExtensionsBought ??
+                                        canBuyByAmount ??
+                                        true;
 
-                            const available =
-                                boughtExtension?.available ?? false;
-                            const availableAt =
-                                boughtExtension && !boughtExtension.available
-                                    ? boughtExtension.available_at
-                                    : '';
-                            const canBeAborted =
-                                availableAt === availableAtSorted[0];
+                                    const available =
+                                        boughtExtension?.available ?? false;
+                                    const availableAt =
+                                        boughtExtension &&
+                                        !boughtExtension.available
+                                            ? boughtExtension.available_at
+                                            : '';
+                                    const canBeAborted =
+                                        availableAt === availableAtSorted[0];
 
-                            const countdownId = this.rootStore.nodeAttribute(
-                                `buildingComplexes-extensions-${buildingId}-${index}-countdown`,
-                                true
-                            );
+                                    const countdownId =
+                                        this.rootStore.nodeAttribute(
+                                            `buildingComplexes-extensions-${buildingId}-${index}-countdown`,
+                                            true
+                                        );
 
-                            return {
-                                allianceBuilding: alliance,
-                                buildingId,
-                                buildingName,
-                                name: extensionType.caption,
-                                type: index,
-                                ...(boughtExtension
-                                    ? {
-                                          bought: true,
-                                          ...(available
-                                              ? { available }
-                                              : {
-                                                    available,
-                                                    availableAt,
-                                                    availableAtReadable:
-                                                        this.moment(
-                                                            availableAt
-                                                        ).calendar(),
-                                                    canBeAborted,
-                                                    countdownId,
-                                                    initCountdown: () =>
-                                                        this.$utils.countdown(
-                                                            countdownId,
-                                                            Math.floor(
-                                                                (new Date(
+                                    return {
+                                        allianceBuilding: alliance,
+                                        buildingId,
+                                        buildingName,
+                                        name: extensionType.caption,
+                                        type: index,
+                                        ...(boughtExtension
+                                            ? {
+                                                  bought: true,
+                                                  ...(available
+                                                      ? { available }
+                                                      : {
+                                                            available,
+                                                            availableAt,
+                                                            availableAtReadable:
+                                                                this.moment(
                                                                     availableAt
-                                                                ).getTime() -
-                                                                    Date.now()) /
-                                                                    1000
-                                                            ),
-                                                            true
-                                                        ),
-                                                }),
-                                          enabled: boughtExtension.enabled,
-                                          canToggle:
-                                              !extensionType.cannotDisable,
-                                      }
-                                    : {
-                                          ...(canBuy
-                                              ? {
-                                                    canBuy: true,
-                                                }
-                                              : {
-                                                    canBuy: false,
-                                                    requirements: [
-                                                        ...(requiredExtensions?.map(
-                                                            id =>
-                                                                buildingType
-                                                                    .extensions[
-                                                                    id
-                                                                ]?.caption ?? ''
-                                                        ) ?? []),
-                                                        ...(canBuyByAmount ||
-                                                        typeof canBuyByAmount ===
-                                                            'undefined'
-                                                            ? []
-                                                            : [
-                                                                  this.$mc(
-                                                                      'overview.extensions.limit',
-                                                                      maxExtensionsFunctionResults[
-                                                                          buildingTypeId
-                                                                      ][index]
-                                                                  ).toString(),
-                                                              ]),
-                                                    ],
-                                                }),
-                                          duration: extensionType.duration,
-                                          credits: extensionType.credits,
-                                          coins: extensionType.coins,
-                                          enoughCredits:
-                                              (alliance
-                                                  ? this.apiStore.allianceinfo
-                                                        ?.credits_current ?? 0
-                                                  : this.rootStore.credits) >=
-                                              extensionType.credits,
-                                          enoughCoins:
-                                              this.rootStore.coins >=
-                                              extensionType.coins,
-                                      }),
-                            };
-                        });
+                                                                ).calendar(),
+                                                            canBeAborted,
+                                                            countdownId,
+                                                            initCountdown: () =>
+                                                                this.$utils.countdown(
+                                                                    countdownId,
+                                                                    Math.floor(
+                                                                        (new Date(
+                                                                            availableAt
+                                                                        ).getTime() -
+                                                                            Date.now()) /
+                                                                            1000
+                                                                    ),
+                                                                    true
+                                                                ),
+                                                        }),
+                                                  enabled:
+                                                      boughtExtension.enabled,
+                                                  canToggle:
+                                                      !extensionType.cannotDisable,
+                                              }
+                                            : {
+                                                  ...(canBuy
+                                                      ? {
+                                                            canBuy: true,
+                                                        }
+                                                      : {
+                                                            canBuy: false,
+                                                            requirements: [
+                                                                ...(requiredExtensions?.map(
+                                                                    id =>
+                                                                        buildingType
+                                                                            .extensions[
+                                                                            id
+                                                                        ]
+                                                                            ?.caption ??
+                                                                        ''
+                                                                ) ?? []),
+                                                                ...(canBuyByAmount ||
+                                                                typeof canBuyByAmount ===
+                                                                    'undefined'
+                                                                    ? []
+                                                                    : [
+                                                                          this.$mc(
+                                                                              'overview.extensions.limit',
+                                                                              maxExtensionsFunctionResults[
+                                                                                  buildingTypeId
+                                                                              ][
+                                                                                  index
+                                                                              ]
+                                                                          ).toString(),
+                                                                      ]),
+                                                            ],
+                                                        }),
+                                                  duration:
+                                                      extensionType.duration,
+                                                  credits:
+                                                      extensionType.credits,
+                                                  coins: extensionType.coins,
+                                                  enoughCredits:
+                                                      (alliance
+                                                          ? this.apiStore
+                                                                .allianceinfo
+                                                                ?.credits_current ??
+                                                            0
+                                                          : this.rootStore
+                                                                .credits) >=
+                                                      extensionType.credits,
+                                                  enoughCoins:
+                                                      this.rootStore.coins >=
+                                                      extensionType.coins,
+                                              }),
+                                    };
+                                }
+                            )
+                            .filter(removeNull) ?? []
+                    );
                 }
             );
         },
@@ -2607,10 +2655,11 @@ export default Vue.extend<
         schoolings() {
             return this.allSchoolings.filter(
                 ({ building_id }) =>
-                    this.complex.buildings.includes(building_id.toString()) ||
-                    this.complex.allianceBuildings.includes(
-                        building_id.toString()
-                    )
+                    building_id &&
+                    (this.complex.buildings.includes(building_id.toString()) ||
+                        this.complex.allianceBuildings.includes(
+                            building_id.toString()
+                        ))
             );
         },
         schoolingBuildings() {
@@ -2952,7 +3001,7 @@ export default Vue.extend<
             ) {
                 this.extensionsTable.filters.buildings = 'all';
             } else {
-                const removeAllElement = <S>(
+                const removeAllElement = <S,>(
                     building: S | '*'
                 ): building is S => building !== '*';
                 this.extensionsTable.filters.buildings =
@@ -2963,7 +3012,7 @@ export default Vue.extend<
             if (states.indexOf('*') === states.length - 1 || !states.length) {
                 this.extensionsTable.filters.states = 'all';
             } else {
-                const removeAllElement = <S>(state: S | '*'): state is S =>
+                const removeAllElement = <S,>(state: S | '*'): state is S =>
                     state !== '*';
                 this.extensionsTable.filters.states =
                     states.filter(removeAllElement);
@@ -2998,7 +3047,10 @@ export default Vue.extend<
                     .then(html => {
                         const protocolDocument =
                             new DOMParser().parseFromString(html, 'text/html');
-                        const attachedBuildingsSelector = this.complex.buildings
+                        const attachedBuildingsSelector = [
+                            ...this.complex.buildings,
+                            ...this.complex.allianceBuildings,
+                        ]
                             .map(
                                 buildingId =>
                                     `a[href="/buildings/${buildingId}"]`
@@ -3033,11 +3085,12 @@ export default Vue.extend<
                                             node =>
                                                 node.nodeType === Node.TEXT_NODE
                                         )
-                                        .map(node =>
-                                            node.textContent
-                                                ?.trim()
-                                                .replace(/^-|\.$/gu, '')
-                                                .trim()
+                                        .map(
+                                            node =>
+                                                node.textContent
+                                                    ?.trim()
+                                                    .replace(/^-|\.$/gu, '')
+                                                    .trim()
                                         )
                                         .join(' ');
                                     const buildingId = parseInt(
@@ -3154,6 +3207,12 @@ export default Vue.extend<
                     feature,
                 })
                 .then(() => this.apiStore.getBuilding(buildingId, feature));
+        },
+        openAvailableSchool() {
+            const buildingId = this.schoolingBuildings.find(
+                building => building.freeClassrooms
+            )?.id;
+            if (buildingId) window.lightboxOpen(`/buildings/${buildingId}`);
         },
     },
     props: {

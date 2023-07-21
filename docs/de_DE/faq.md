@@ -57,13 +57,10 @@ Die Antwort lautet: Ja – über Umwege – allerdings bieten wir keinen Support
 
 Wie geht das?
 
-*wir haben uns hierbei an folgendem Artikel orientiert: [How to use Tampermonkey on Firefox mobile](https://enux.pl/article/en/2021-03-14/how-use-tampermonkey-firefox-mobile)*
-
-1. Firefox Nightly für Android installieren: [Google Play](https://play.google.com/store/apps/details?id=org.mozilla.fenix)
-2. im Firefox Nightly in die Einstellungen, runter scrollen bis "Über Firefox Nightly".
-3. 5 Mal auf das Firefox-Logo klicken. Es kommt so ein kleines Hinweis-Ding unten, welches auf die Aktivierung des Debug-Menüs hinweist.
-4. Zurück zu den Einstellungen. Im Bereich "Erweitert" ist nun ein Punkt "Benutzerdefinierte Add-on-Sammlung" aufgetaucht. Wenn man da drauf klickt, kann man eine Nutzer-ID und einen Collection-Namen eintragen. Wir haben uns die Mühe gemacht und alle Add-ons welche standardmäßig in Firefox Nightly für Android verfügbar sind zusammen mit Tampermonkey in eine Collection gepackt: [https://addons.mozilla.org/en-US/firefox/collections/16048019/tampermonkey/](https://addons.mozilla.org/en-US/firefox/collections/16048019/tampermonkey/)
-5. Bei "Benutzer-ID" `16048019` eintragen, bei "Name der Sammlung" `Tampermonkey`. Selbstverständlich ist es jedem überlassen, andere Sammlungen zu verwenden oder eigene zu erstellen. Leider scheint es keine offizielle "Collection-Sammlung" zu geben, wo man einfach durch Collections durch Browsen kann. Außerdem sind die standardmäßigen Add-Ons nur verfügbar, wenn diese in der Collection sind (so wie in der oben verlinkten Collection).
+1. Firefox für Android installieren (Muss mindestens Version 110 sein)
+2. Firefox starten und das Kontextmenü (drei Punkte in der Menüleiste) öffnen
+3. Unter "empfohlene Addons" sollte jetzt Tampermonkey vorgeschlagen werden
+4. Weiter mit der normalen [Installationsanleitung][docs.home] fortfahren
 
 Trotzdem weisen wir nochmals explizit darauf hin, dass der LSSM nicht für mobile Endgeräte gedacht ist und unser Support somit, wenn überhaupt, nur sehr eingeschränkt vorhanden ist.
 
@@ -74,7 +71,7 @@ Ja, das geht. Klicke dazu einfach in den [Einstellungen][docs.settings] auf `Exp
 ## Gibt es eine Möglichkeit, Einstellungen Account-gebunden zu speichern, um sie an einem anderen Gerät nicht importieren zu müssen?
 Derzeit bieten wir das nicht an, eine Implementierung dieses Features ist aber geplant.
 
-## Wo seh ich, ob die LSSM-Server grad online sind? 
+## Wo seh ich, ob die LSSM-Server grad online sind?
 Am besten hier: [https://status.lss-manager.de/](https://status.lss-manager.de/)
 
 Oder im <discord-channel channel="uptime"/> auf unserem <discord/>
@@ -85,6 +82,7 @@ Oder im <discord-channel channel="uptime"/> auf unserem <discord/>
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
+[docs.home]: /de_DE/
 [docs.apps]: /de_DE/apps.md
 [docs.appstore]: /de_DE/appstore.md
 [docs.bugs]: /de_DE/bugs.md

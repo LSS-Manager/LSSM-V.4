@@ -137,6 +137,14 @@
                 "onlyAmbulance": "Backalarm only ambulances",
                 "title": "Backalarm"
             },
+            "emv": {
+                "title": "Enhanced missing vehicles",
+                "toggleCollapse": "Collapse / Uncollapse"
+            },
+            "missionHelper": {
+                "title": "MissionHelper",
+                "toggleCollapse": "Collapse / Uncollapse"
+            },
             "next": "next mission",
             "prev": "previous mission",
             "share": "Share",
@@ -155,6 +163,10 @@
                 "previous": "previous tab",
                 "title": "vehicle list"
             }
+        },
+        "schoolings": {
+            "educate": "Press \"Educate\"-Button",
+            "title": "Schoolings"
         },
         "vehicles": {
             "alarm": {

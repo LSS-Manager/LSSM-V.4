@@ -1,6 +1,8 @@
 {
     "building-list": {
         "actions": "",
+        "beds": "beds",
+        "bedsFree": "free beds",
         "caption": "Namn",
         "current": "Nummer (aktiv)",
         "fastDispatchChooser": { "noDispatch": "Ingen larmcentral" },

@@ -576,11 +576,14 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                         mission.mtid
                     );
                 const icon =
-                    (mission.mtid !== null
-                        ? window.mission_graphics[mission.mtid]?.[
-                              mission.vehicle_state
+                    (mission.mission_type
+                        ? window.mission_graphics_lookups.generic[
+                              mission.mission_type
                           ]
-                        : 0) || `/images/${mission.icon}.png`;
+                        : window.mission_graphics_lookups.regular[
+                              mission.mtid
+                          ])?.[mission.vehicle_state] ||
+                    `/images/${mission.icon}.png`;
                 const isEventMission =
                     isAllianceMission && mission.user_id === null;
                 const { caption, address, id } = mission;

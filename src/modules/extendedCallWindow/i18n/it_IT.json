@@ -11,6 +11,7 @@
             "selection": "Selezione veicoli"
         }
     },
+    "arrHighlight": { "removeBeforeParsing": "" },
     "arrHover": {
         "arrSpecs": {
             "any_traffic_car": "Pattuglia Polizia Stradale e Moto Polizia Stradale",
@@ -134,7 +135,10 @@
                 ],
                 "vehicles": [4, 20]
             },
-            { "texts": ["Volant", "Volanti"], "vehicles": [7, 16, 15, 21] },
+            {
+                "texts": ["Volant", "Volanti"],
+                "vehicles": [7, 16, 15, 21, 38, 39]
+            },
             {
                 "texts": ["Furgone artificieri", "Furgoni artificieri"],
                 "vehicles": [22]

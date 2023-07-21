@@ -42,6 +42,7 @@ Sobald es so weit ist, werden wir natürlich über die Releasenotes darüber inf
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
+[docs.home]: /de_DE/
 [docs.apps]: /de_DE/apps.md
 [docs.appstore]: /de_DE/appstore.md
 [docs.bugs]: /de_DE/bugs.md

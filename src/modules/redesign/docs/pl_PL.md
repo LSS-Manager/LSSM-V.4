@@ -7,10 +7,10 @@ ponieważ przeprojektowanie szybko powoduje,
 
 <!-- markdownlint-disable md013 line-length -->
 
-|              Zalety              |                                                                                  Wady                                                                                   |
-| :------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------: | --- |
+|              Zalety                |    Wady                                                                                           |
+| :-----------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | Cała gra działa trochę szybciej. | Niektóre skrypty mogą nie działać z “przeprojektowaniem” bez dodatkowej pracy. Oczywiście przed premierą upewniamy się, że wszystkie popularne skrypty są kompatybilne. |
-|   Świeży i nowoczesny design.    |                                                  Będziesz musiał się przyzwyczaić do znacznie zmienionego wyglądu gry                                                   |     |
+|   Świeży i nowoczesny design.   |  Będziesz musiał się przyzwyczaić do znacznie zmienionego wyglądu gry               |
 
 <!-- markdownlint-enable md013 line-length -->
 

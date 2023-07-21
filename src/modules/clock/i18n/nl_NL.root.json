@@ -1,5 +1,6 @@
 {
     "description": "Geeft naar wens op verschillende plaatsen een configureerbare klok weer.",
+    "localTime": "local time",
     "name": "Klok",
     "settings": {
         "displayNav": {
@@ -17,6 +18,10 @@
         "overlayFormat": {
             "description": "Hier kunt u het formaat van de klok instellen. Hiervoor vindt u hulp <a class=\"lightbox-open\" href=\"{wiki}settings.html#moment-js\">op de wiki</a>.",
             "title": "Formaat van de klok als overlay"
+        },
+        "timeZone": {
+            "description": "Here, you can set time timezone of the clock(s).",
+            "title": "Timezone"
         }
     }
 }

@@ -10,7 +10,7 @@ import ingameHotkeys, { breadcrumb } from './assets/ingameHotkeys';
 import type { ModuleMainFunction } from 'typings/Module';
 import type { Empty, Scope } from 'typings/modules/Hotkeys';
 
-export type RootScope = typeof rootCommandScopes[number];
+export type RootScope = (typeof rootCommandScopes)[number];
 export type RootScopeWithoutAll = Exclude<RootScope, '*'>;
 
 type Commands = Scope<Empty, RootScope[], [], true>;
@@ -20,13 +20,14 @@ type HotkeySetting = {
     hotkey: string;
 }[];
 
-const rootCommandScopes: ['*', 'main', 'mission', 'building', 'vehicles'] = [
+const rootCommandScopes: [
     '*',
     'main',
     'mission',
     'building',
+    'schoolings',
     'vehicles',
-];
+] = ['*', 'main', 'mission', 'building', 'schoolings', 'vehicles'];
 
 export const hotkeyUtility = new HotkeyUtility();
 
@@ -190,6 +191,11 @@ export default (async ({ LSSM, $m, getSetting }) => {
         window.location.pathname.match(/^\/vehicles\/\d+\/?/u)
     )
         rootScopes.push('vehicles');
+    if (
+        hotkeys.some(({ command }) => command.startsWith('schoolings.')) &&
+        window.location.pathname.match(/^\/(buildings|schoolings)\/\d+\/?/u)
+    )
+        rootScopes.push('schoolings');
 
     const commands = await resolveCommands(rootScopes);
 

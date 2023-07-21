@@ -36,8 +36,8 @@
                                     @search="s => (vehiclesTab['search'] = s)"
                                 >
                                     <tr
-                                        v-for="vehicle in vehicleTypes"
-                                        :key="vehicle.caption"
+                                        v-for="(vehicle, index) in vehicleTypes"
+                                        :key="index"
                                     >
                                         <td
                                             v-for="(
@@ -69,7 +69,7 @@
                                                 <template
                                                     v-for="(
                                                         schoolings, type
-                                                    ) in vehicle[attr]"
+                                                    ) in vehicle.staff.training"
                                                 >
                                                     <span :key="type + '-t'"
                                                         >{{ type }}:</span
@@ -111,11 +111,26 @@
                                                                 }}:
                                                             </template>
                                                             {{ type }} -
-                                                            {{ schooling }}
+                                                            {{ s.caption }}
                                                         </li>
                                                     </ul>
-                                                </template> </span
-                                            ><span
+                                                </template>
+                                            </span>
+                                            <span
+                                                v-else-if="
+                                                    attr === 'minPersonnel'
+                                                "
+                                            >
+                                                {{ vehicle.staff.min }}
+                                            </span>
+                                            <span
+                                                v-else-if="
+                                                    attr === 'maxPersonnel'
+                                                "
+                                            >
+                                                {{ vehicle.staff.max }}
+                                            </span>
+                                            <span
                                                 v-else-if="
                                                     typeof vehicle[attr] ===
                                                     'object'
@@ -322,7 +337,15 @@ export default Vue.extend<
         const vehicleCategories = cloneDeep(
             this.$t('vehicleCategories') as unknown
         ) as Record<string, VehicleCategory>;
-        const vehicleTypes = translationStore.vehicles;
+        const vehicleTypes = Object.fromEntries(
+            Object.entries(translationStore.vehicles).map(([id, vehicle]) => [
+                id,
+                {
+                    ...vehicle,
+                    id: parseInt(id),
+                },
+            ])
+        );
         const resolvedVehicleCategories = {} as Record<
             string,
             ResolvedVehicleCategory
@@ -345,22 +368,32 @@ export default Vue.extend<
                 resolvedVehicleCategories[category] = { color, vehicles: {} };
                 Object.entries(groups).forEach(
                     ([group, vehicles]) =>
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
                         (resolvedVehicleCategories[category].vehicles[group] =
                             Object.values(vehicles as number[]).map(type => {
                                 const v = vehicleTypes[type];
-                                Object.entries(v.schooling ?? {}).forEach(
+                                if (!v.staff.training) return v;
+                                Object.entries(v.staff.training).forEach(
                                     ([school, schoolings]) =>
                                         Object.keys(schoolings).forEach(
-                                            schooling =>
-                                                resolvedSchoolings[school]
-                                                    .find(
-                                                        ({ caption }) =>
-                                                            caption ===
-                                                            schooling
-                                                    )
-                                                    ?.required_for.push(
-                                                        v.caption
-                                                    )
+                                            schooling => {
+                                                const s = resolvedSchoolings[
+                                                    school
+                                                ].find(
+                                                    ({ key }) =>
+                                                        key === schooling
+                                                );
+                                                if (!s) return;
+                                                s.required_for.push(v.caption);
+                                                if (!v.staff.training) return;
+
+                                                v.staff.training[school][
+                                                    schooling
+                                                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                                    // @ts-ignore
+                                                ].caption = s.caption;
+                                            }
                                         )
                                 );
                                 return v;
@@ -409,6 +442,7 @@ export default Vue.extend<
                         index,
                         {
                             ...building,
+                            id: parseInt(index),
                             extensions: minifiedExtensions,
                         },
                     ];
@@ -431,6 +465,7 @@ export default Vue.extend<
             >,
             vehiclesTab: {
                 head: {
+                    id: { title: '#' },
                     caption: { title: this.$m('titles.vehicles.caption') },
                     minPersonnel: {
                         title: this.$m('titles.vehicles.minPersonnel'),
@@ -453,14 +488,14 @@ export default Vue.extend<
                         'es_ES',
                     ].includes(locale)
                         ? {
-                              wtank: {
+                              waterTank: {
                                   title: this.$m('titles.vehicles.wtank'),
                               },
                           }
                         : null),
-                    ...(['de_DE'].includes(locale)
+                    ...(['de_DE', 'fr_FR'].includes(locale)
                         ? {
-                              pumpcap: {
+                              pumpCapacity: {
                                   title: this.$m('titles.vehicles.pumpcap'),
                               },
                           }
@@ -475,7 +510,7 @@ export default Vue.extend<
                         'sv_SE',
                     ].includes(locale)
                         ? {
-                              ftank: {
+                              foamTank: {
                                   title: this.$m('titles.vehicles.ftank'),
                               },
                           }
@@ -497,6 +532,7 @@ export default Vue.extend<
             >,
             buildingsTab: {
                 head: {
+                    id: { title: '#' },
                     caption: { title: this.$m('titles.buildings.caption') },
                     cost: { title: this.$m('titles.buildings.cost') },
                     maxLevel: { title: this.$m('titles.buildings.maxLevel') },

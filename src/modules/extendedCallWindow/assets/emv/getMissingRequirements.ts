@@ -112,7 +112,6 @@ export default (
         '#mission_vehicle_driving tbody'
     );
     if (drivingTable) {
-        const drivingRows = drivingTable.innerHTML;
         missingRequirements.forEach(requirement => {
             const isWater = requirement.vehicle === water;
             const isFoam = requirement.vehicle === foam;
@@ -197,6 +196,9 @@ export default (
                     const vehicleTypes: number[] = Object.values(
                         vehicleGroups[vehicleGroupRequirement].vehicles
                     );
+                    const equipment = Object.values(
+                        vehicleGroups[vehicleGroupRequirement].equipment ?? {}
+                    );
                     Object.entries(
                         vehicleGroups[vehicleGroupRequirement]
                             .conditionalVehicles ?? {}
@@ -208,19 +210,20 @@ export default (
                         )
                             vehicleTypes.push(...Object.values(vehicles));
                     });
-                    requirement.driving = vehicleTypes
+
+                    const selectors = vehicleTypes
                         .map(
-                            vehicleType =>
-                                (
-                                    drivingRows.match(
-                                        new RegExp(
-                                            `vehicle_type_id="${vehicleType}"`,
-                                            'g'
-                                        )
-                                    ) || []
-                                ).length
+                            vehicleType => `[vehicle_type_id="${vehicleType}"]`
                         )
-                        .reduce((a, b) => a + b, 0);
+                        .concat(
+                            ...equipment.map(
+                                e => `[data-equipment-type="${e}"]`
+                            )
+                        );
+
+                    requirement.driving = drivingTable.querySelectorAll(
+                        selectors.join(',')
+                    ).length;
                 }
             }
             requirement.total = requirement.missing - requirement.driving;

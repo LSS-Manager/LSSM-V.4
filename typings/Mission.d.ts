@@ -18,6 +18,7 @@ interface Additional {
     need_elw_police_only_if_present?: boolean;
     need_police_horse_only_if_present?: boolean;
     max_civil_patrol_replacing_police_cars?: number;
+    allow_police_motorcycle_instead_of_fustw?: boolean;
     pump_water_amount?: number;
 
     // Guard missions
@@ -66,7 +67,7 @@ interface Chances {
     battalion_chief_vehicles?: number; // de_DE: ELW 1
     heavy_rescue_vehicles?: number; // de_DE: RW / HLF
     mobile_command_vehicles?: number; // de_DE: ELW 2
-    mobile_air_vehicles?: number; // de_DE: GW-Atem
+    mobile_air_vehicles?: number; // de_DE: GW-Atemschutz
     water_tankers?: number; // de_DE: Schlauchwagen
     gwoil?: number; // de_DE: GW-Öl
     gwmess?: number; // de_DE: GW-Mes

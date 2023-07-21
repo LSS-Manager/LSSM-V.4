@@ -48,6 +48,10 @@
             "description": "Sets a gray filter over all ARRs that do not contain a word of the mission name.",
             "title": "Grey out unsuitable ARRs"
         },
+        "arrMatchHighlightAllWords": {
+            "description": "Uses all words of the missions name for the \"Grey out unsuitable ARRs\" feature.",
+            "title": "Use all words"
+        },
         "arrSearch": {
             "description": "Shows a search bar above the ARRs that makes filtering your ARRs available.",
             "title": "ARR-Search"
@@ -197,6 +201,10 @@
             "title": "Vehicle counter: color",
             "warning": "orange"
         },
+        "vehicleListPermanentSearch": {
+            "description": "Vehicle search bar permanently displayed.",
+            "title": "Permanent vehicle search bar"
+        },
         "vehicleTypeInList": {
             "description": "Displays the vehicle type in the Available Units list.",
             "title": "Show vehicle type"
@@ -225,7 +233,10 @@
             },
             {
                 "name": "Police",
-                "vehicleTypes": [10, 14, 16, 19, 23, 26, 47, 55, 56]
+                "vehicleTypes": [
+                    10, 14, 16, 19, 23, 26, 47, 55, 56, 81, 82, 83, 84, 85, 86,
+                    87, 88, 89, 90
+                ]
             },
             {
                 "name": "Water",

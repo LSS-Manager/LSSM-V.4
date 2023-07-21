@@ -17,6 +17,11 @@
             "in": "requirements",
             "text": "Foam: {n} gallon | Foam: {n} gallons"
         },
+        "smoke_jumper_personnel": {
+            "badge": false,
+            "in": "additional",
+            "text": "Required Smoke Jumpers (in Smoke Jumper Planes)"
+        },
         "swat_personnel": {
             "badge": false,
             "in": "additional",
@@ -59,6 +64,10 @@
         "hide_battalion_chief_vehicles": {
             "description": "Hides Battalion Chief completely and shows only MCV.",
             "title": "Hide Battalion Chiefs"
+        },
+        "hide_on_Krankentransport": {
+            "description": "Hide on patient transfer missions",
+            "title": "Hide on patient transfer missions"
         },
         "hoverTip": {
             "description": "Tooltips for as example the overlay button.",

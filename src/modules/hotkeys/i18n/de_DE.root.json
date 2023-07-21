@@ -138,6 +138,14 @@
                 "onlyAmbulance": "Eigenen Rettungsdienst rückalarmieren",
                 "title": "Zurückalamieren"
             },
+            "emv": {
+                "title": "Benötigte Fahrzeuge verschönern",
+                "toggleCollapse": "Ein- / Ausklappen"
+            },
+            "missionHelper": {
+                "title": "Einsatzhelfer",
+                "toggleCollapse": "Ein- / Ausklappen"
+            },
             "next": "nächster Einsatz",
             "prev": "vorheriger Einsatz",
             "share": "Teilen",
@@ -156,6 +164,10 @@
                 "previous": "Vorheriger Tab",
                 "title": "Fahrzeugliste"
             }
+        },
+        "schoolings": {
+            "educate": "\"Ausbilden\"-Knopf drücken",
+            "title": "Lehrgänge"
         },
         "vehicles": {
             "alarm": {

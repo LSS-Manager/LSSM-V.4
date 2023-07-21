@@ -11,6 +11,9 @@
             "selection": "Fahrzeugauswahl"
         }
     },
+    "arrHighlight": {
+        "removeBeforeParsing": ["(Brandmeldeanlage)", "[Verband]"]
+    },
     "arrHover": {
         "arrSpecs": {
             "ab_atemschutz_only": "AB-Atemschutz",
@@ -29,6 +32,8 @@
             "elw1_or_elw2": "ELW 1, ELW 2 oder AB-Einsatzleitung",
             "elw2": "Einsatzleitfahrzeuge 2",
             "elw2_or_ab_elw": "ELW 2 oder AB-Einsatzleitung",
+            "energy_supply": "NEA50",
+            "energy_supply_2": "NEA200",
             "fire": "Löschfahrzeuge oder Tanklöschfahrzeuge",
             "fukw": "FüKw (Führungskraftwagen)",
             "fustw": "Funkstreifenwagen",
@@ -101,13 +106,14 @@
             "thw_lkw_7_lkr_19_tm": "LKW 7 Lkr 19 tm",
             "thw_mlw5": "Mannschaftslastwagen Typ V (MLW 5)",
             "thw_mtw": "Mannschaftstransportwagen Technischer Zug (MTW-TZ - THW)",
-            "thw_mzkw": "Mehrzweckkraftwagen (MzKW)",
+            "thw_mzkw": "Mehrzweck-Gerätewagen (FGr N)",
             "thw_tauchkraftwagen": "Tauchkraftwagen",
             "thw_tauchkraftwagen_or_gw_taucher": "Tauchkraftwagen oder GW-Taucher",
             "tlf_only": "Tanklöschfahrzeuge",
             "tm50": "TM 50",
             "turboloescher": "Turbolöscher",
             "ulf": "ULF mit Löscharm",
+            "ventilation": "Lüfter",
             "wasser_amount": "Liter Wasser",
             "wasser_amount_tlf": "Liter Wasser - Nur TLF",
             "wasserwerfer": "Wasserwerfer",
@@ -139,7 +145,8 @@
                 "vehicles": [
                     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
                     17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 30, 33, 34, 36,
-                    37, 46, 53, 57, 75, 76, 83, 84, 85, 86, 87, 88, 89, 90
+                    37, 46, 53, 57, 75, 76, 83, 84, 85, 86, 87, 88, 89, 90, 104,
+                    105, 106, 107, 114
                 ]
             },
             {
@@ -174,7 +181,10 @@
             "77": [46],
             "78": [46],
             "92": [93],
-            "96": [61]
+            "96": [61],
+            "110": [41],
+            "112": [99],
+            "116": [46]
         },
         "vehicle": "Fahrzeugtyp",
         "vehiclesByRequirement": [
@@ -185,7 +195,11 @@
             },
             { "texts": ["Boot", "Boote"], "vehicles": [66, 67, 68, 70, 71] },
             { "texts": ["DHuFüKw"], "vehicles": [94] },
-            { "texts": ["Dekon-P"], "vehicles": [53, 54] },
+            {
+                "equipment": ["decon"],
+                "texts": ["Dekon-P"],
+                "vehicles": [53, 54]
+            },
             {
                 "texts": ["Drehleiter (DLK 23)", "Drehleitern (DLK 23)"],
                 "vehicles": [2, 85]
@@ -206,14 +220,14 @@
                 ],
                 "vehicles": [
                     0, 1, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 30, 37, 6, 7,
-                    8, 87, 88, 89, 9, 90, 101, 102
+                    8, 87, 88, 89, 9, 90, 101, 102, 107
                 ]
             },
             {
                 "conditionalVehicles": {
                     "allow_arff_instead_of_lf": [
                         0, 1, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 30, 37, 6,
-                        7, 8, 87, 88, 89, 9, 90
+                        7, 8, 87, 88, 89, 9, 90, 107
                     ]
                 },
                 "texts": ["Flugfeldlöschfahrzeug", "Flugfeldlöschfahrzeuge"],
@@ -232,14 +246,30 @@
             },
             { "texts": ["FwK"], "vehicles": [57] },
             { "texts": ["FüKw"], "vehicles": [51] },
-            { "texts": ["GW-Atemschutz"], "vehicles": [5, 48] },
-            { "texts": ["GW-Gefahrgut"], "vehicles": [27, 77] },
-            { "texts": ["GW-Höhenrettung"], "vehicles": [33] },
+            {
+                "equipment": ["breathing_protection"],
+                "texts": ["GW-Atemschutz"],
+                "vehicles": [5, 48]
+            },
+            {
+                "equipment": ["hazmat"],
+                "texts": ["GW-Gefahrgut"],
+                "vehicles": [27, 77]
+            },
+            {
+                "equipment": ["hight_rescue"],
+                "texts": ["GW-Höhenrettung"],
+                "vehicles": [33]
+            },
             { "texts": ["GW-Messtechnik"], "vehicles": [12] },
             { "texts": ["GW-San"], "vehicles": [60] },
-            { "texts": ["GW-Taucher"], "vehicles": [63, 69] },
+            {
+                "equipment": ["diver"],
+                "texts": ["GW-Taucher"],
+                "vehicles": [63, 69]
+            },
             { "texts": ["GW-Werkfeuerwehr"], "vehicles": [83] },
-            { "texts": ["GW-Öl"], "vehicles": [10, 49] },
+            { "equipment": ["oil"], "texts": ["GW-Öl"], "vehicles": [10, 49] },
             { "texts": ["GefKw"], "vehicles": [52] },
             { "texts": ["Gerätekraftwagen (GKW)"], "vehicles": [39] },
             { "texts": ["GruKw"], "vehicles": [50] },
@@ -251,7 +281,7 @@
                 "texts": ["Löschfahrzeug (LF)", "Löschfahrzeuge (LF)"],
                 "vehicles": [
                     0, 1, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 30, 37, 6, 7,
-                    8, 87, 88, 89, 9, 90
+                    8, 87, 88, 89, 9, 90, 107
                 ]
             },
             {
@@ -278,6 +308,7 @@
                 "vehicles": [76]
             },
             {
+                "equipment": ["heavy_rescue"],
                 "texts": ["Rüstwagen oder HLF"],
                 "vehicles": [4, 30, 39, 47, 90]
             },
@@ -286,6 +317,7 @@
                 "vehicles": [79, 80]
             },
             {
+                "equipment": ["hose_water"],
                 "texts": [
                     "Schlauchwagen (GW-L2 Wasser, SW 1000, SW 2000 oder Ähnliches)"
                 ],
@@ -296,13 +328,17 @@
                 "vehicles": [101, 102]
             },
             { "texts": ["THW-Einsatzleitung (MTW TZ)"], "vehicles": [40] },
-            { "texts": ["THW-Mehrzweckkraftwagen (MzKW)"], "vehicles": [41] },
+            { "texts": ["MzGW (FGr N)"], "vehicles": [41] },
             { "texts": ["Teleskopmast", "Teleskopmasten"], "vehicles": [85] },
             { "texts": ["Turbolöscher"], "vehicles": [86] },
             { "texts": ["ULF mit Löscharm"], "vehicles": [84] },
             { "texts": ["Wasserwerfer"], "vehicles": [72] },
             { "texts": ["Zivilstreifenwagen"], "vehicles": [98] },
-            { "texts": ["leBefKw"], "vehicles": [35] }
+            { "texts": ["leBefKw"], "vehicles": [35] },
+            { "texts": ["NEA50"], "vehicles": [110, 111, 112, 113] },
+            { "texts": ["NEA200"], "vehicles": [112, 113] },
+            { "texts": ["MzGW SB"], "vehicles": [109] },
+            { "texts": ["Lüfter"], "vehicles": [114, 115, 116] }
         ],
         "water": "l. Wasser"
     },

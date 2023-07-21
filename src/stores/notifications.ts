@@ -71,7 +71,7 @@ export const defineNotificationStore = defineStore('notifications', {
         },
         async sendNotification<
             Data extends Record<string, unknown> = Record<string, unknown>,
-            Desktop extends boolean = true
+            Desktop extends boolean = true,
         >({
             group = 'bottom_right',
             type = 'info',

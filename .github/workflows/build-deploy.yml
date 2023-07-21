@@ -1,8 +1,13 @@
 name: '[👷🚀] Build and Deploy'
-run-name: '[👷🚀] Build on `${{ github.ref }}` and deploy on master & dev'
+# prettier-ignore
+run-name: '[👷🚀] Build on `${{ github.ref }}`${{ (github.repository_owner == ''LSS-Manager'' && (github.ref == ''refs/heads/master'' || github.ref == ''refs/heads/dev'')) && '' and deploy'' || '''' }}'
 
 on:
     push:
+        branches:
+            - master
+            - dev
+    workflow_dispatch:
 
 jobs:
     build:

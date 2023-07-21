@@ -61,7 +61,7 @@ interface SicherheitswacheRadioMessage extends BasicRadioMessage {
 
 export type RadioMessage = SicherheitswacheRadioMessage | VehicleRadioMessage;
 
-export interface MissionMarkerAdd {
+interface MissionMarkerAddBase {
     address: string;
     alliance_id: number | null;
     caption: string;
@@ -78,7 +78,6 @@ export interface MissionMarkerAdd {
     live_current_value: number;
     missing_text: string;
     missing_text_short: string;
-    mtid: number | null; // mission type id (null => diy mission)
     patients_count: number;
     prisoners_count: number;
     sw: boolean;
@@ -95,9 +94,23 @@ export interface MissionMarkerAdd {
     pumping_date_end: number;
 }
 
-export interface MissionTimer extends MissionMarkerAdd {
-    date_end_calc: number;
+interface RegularMissionMarkerAdd extends MissionMarkerAddBase {
+    mission_type: null;
+    mtid: number; // mtid = mission type id
 }
+
+interface GenericMissionMarkerAdd extends MissionMarkerAddBase {
+    mission_type: keyof MissionGraphicsLookup['generic'];
+    mtid: null;
+}
+
+export type MissionMarkerAdd =
+    | GenericMissionMarkerAdd
+    | RegularMissionMarkerAdd;
+
+export type MissionTimer = MissionMarkerAdd & {
+    date_end_calc: number;
+};
 
 export interface PatientMarkerAdd {
     id: number;
@@ -150,4 +163,11 @@ export interface BuildingMarkerAdd {
     building_type: number;
     filter_id: string;
     detail_button: string;
+}
+
+export interface MissionGraphicsLookup {
+    regular: [string, string, string][]; // red, yellow, green
+    generic: Partial<
+        Record<'alliance_custom' | 'handoff', [string, string, string]>
+    >;
 }

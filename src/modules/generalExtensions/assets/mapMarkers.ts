@@ -305,7 +305,7 @@ export default async (
                 __: unknown,
                 [coordinates, zoom = window.map.getZoom()]: [
                     { lat: number; lng: number } | [number, number],
-                    number
+                    number,
                 ]
             ) {
                 if (previewEnabled) return;

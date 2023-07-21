@@ -10,7 +10,7 @@ import type {
 type Sequence = string[][];
 type NormalizedSequence = string[];
 export type CallbackFunction<
-    RedesignType extends RedesignKey | undefined = undefined
+    RedesignType extends RedesignKey | undefined = undefined,
 > = (
     sequence: string[],
     redesign?: RedesignType extends RedesignKey
@@ -22,7 +22,7 @@ type Listener =
           string,
           NormalizedSequence,
           CallbackFunction<RedesignKey>,
-          RedesignParameter
+          RedesignParameter,
       ]
     | [string, NormalizedSequence, CallbackFunction];
 
@@ -30,7 +30,7 @@ type ModifierAttributes = 'altKey' | 'ctrlKey' | 'metaKey' | 'shiftKey';
 type Modifiers = 'alt' | 'control' | 'meta' | 'shift';
 
 export interface RedesignParameter<
-    RedesignType extends RedesignKey = RedesignKey
+    RedesignType extends RedesignKey = RedesignKey,
 > {
     element: Element;
     data: RedesignLightbox<RedesignType>['Data']['data'];

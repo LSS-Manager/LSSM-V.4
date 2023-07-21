@@ -49,6 +49,10 @@
             "description": "Ustawia szary filtr na wszystkie ZR, które nie zawierają słowa nazwy misji.",
             "title": "Wyszarzenie nieodpowiednich ZR"
         },
+        "arrMatchHighlightAllWords": {
+            "description": "Uses all words of the missions name for the \"Grey out unsuitable ARRs\" feature.",
+            "title": "Use all words"
+        },
         "arrSearch": {
             "description": "Pokazuje pasek wyszukiwania nad ZR, który działa lepiej niż wbudowany. ",
             "title": "Wyszukiwanie ZR"
@@ -197,6 +201,10 @@
             "success": "Zielony",
             "title": "Licznik pojazdów: kolor",
             "warning": "Pomarańczowy"
+        },
+        "vehicleListPermanentSearch": {
+            "description": "Vehicle search bar permanently displayed.",
+            "title": "Permanent vehicle search bar"
         },
         "vehicleTypeInList": {
             "description": "Wyświetla typy pojazdów na liście.",

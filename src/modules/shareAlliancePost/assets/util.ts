@@ -5,7 +5,6 @@
 /**
  * A method to extract the city name (including ZIP Code) from an address as used for missions in game.
  * May lead to false results because it is kept simple.
- *
  * @param address - The address to extract the address from.
  * @returns - The extracted city name including ZIP Code.
  */
@@ -14,26 +13,32 @@ export function getCityFromAddress(address: string): string {
     return addressSplit.at(-1)?.trim() ?? '–';
 }
 
+// matches all Zip-styles of the countries supported by LSSM
+const ZIP_REGEX =
+    /^((\d{4} ?[A-Z]{2})|((\d{4}|\d{2})[ -]\d{3})|(\d{3} \d{2})|\d+|([\dA-Z]{2,4} [\dA-Z]{3}))/u;
+
 /**
  * A method to remove the ZIP Code from a city name.
  * All ZIP-Styles of countries supported by LSSM are detected.
- *
  * @param city - The City (including ZIP Code) to remove the ZIP Code from.
  * @returns - The City name without ZIP Code.
  */
 export function removeZipFromCity(city: string): string {
-    return city
-        .replace(
-            // matches all Zip-styles of the countries supported by LSSM
-            /^((\d{4} ?[A-Z]{2})|((\d{4}|\d{2})[ -]\d{3})|(\d{3} \d{2})|\d+|([\dA-Z]{2,4} [\dA-Z]{3}))/u,
-            ''
-        )
-        .trim();
+    return city.replace(ZIP_REGEX, '').trim();
+}
+
+/**
+ * A method to extract the ZIP Code from a city name.
+ * All ZIP-Styles of countries supported by LSSM are detected.
+ * @param city - The City (including ZIP Code) to extract the ZIP Code from.
+ * @returns - The ZIP Code as a string.
+ */
+export function getZipFromCity(city: string): string {
+    return city.match(ZIP_REGEX)?.[0].trim() ?? '';
 }
 
 /**
  * A method to add a certain amount of minutes to a specific timestamp.
- *
  * @param minutes - The amount of minutes to add to the {@link date} param.
  * @param date - The timestamp to add minutes to, as a Date object.
  * @returns - The passed Date object, increased by {@link minutes} minutes.
@@ -45,7 +50,6 @@ export function addMinutesToDate(minutes: number, date: Date): Date {
 
 /**
  * A method to add a certain amount of minutes to now.
- *
  * @param minutes - The amount of minutes to add to now.
  * @returns - A new Date object with the resulting timestamp, {@link minutes} minutes from now.
  */
@@ -55,7 +59,6 @@ export function addMinutesToNow(minutes: number): Date {
 
 /**
  * A method to add a certain amount of hours to now.
- *
  * @param hours - The amount of hours to add to now.
  * @returns - A new Date object with the resulting timestamp, {@link hours} hours from now.
  */
@@ -65,7 +68,6 @@ export function addHoursToNow(hours: number): Date {
 
 /**
  * A method to add a certain amount of days to now.
- *
  * @param addDays - The amount of days to add to now.
  * @returns - A new Date object with the resulting timestamp, {@link addDays} days from now.
  */
@@ -75,7 +77,6 @@ export function addDaysToToday(addDays = 0): Date {
 
 /**
  * A method to return the time of a certain timestamp in the format `hh:mm`.
- *
  * @param date - A timestamp as Date object to return the time from.
  * @returns - The time representation in format `hh:mm`.
  */
@@ -88,7 +89,6 @@ export function dateToTime(date: Date): string {
 
 /**
  * A method to return the day of a certain timestamp, localized with month and day as each a 2-digit number.
- *
  * @param date - A timestamp as Date object to return the day from.
  * @returns - The localized day representation of the timestamp.
  */
@@ -101,7 +101,6 @@ export function dateToDayString(date: Date): string {
 
 /**
  * A method to return the {@link dateToDayString} of either today or a date {@link addDays} days from today.
- *
  * @param addDays - An optional integer of how many days to add to today.
  * @returns - The {@link dateToDayString} representation of the desired day.
  */
@@ -111,27 +110,55 @@ export function getDateFromToday(addDays = 0): string {
 
 /**
  * A method that returns an Object that is used by SAP to replace the time & date variables.
- *
  * @returns - An Object containing the replacer functions.
  */
 export function getTimeReplacers(): Record<
     string,
     (match: string, ...groups: string[]) => string
 > {
+    const format = (date: Date, printDate: boolean): string => {
+        if (printDate) return `${dateToTime(date)} (${dateToDayString(date)})`;
+        else return dateToTime(date);
+    };
+    const roundDate = (date: Date, round: string): void => {
+        const roundTo = Math.abs(parseInt(round)) % 60;
+        const roundUp = !round.startsWith('-');
+        const resultHours = date.getHours();
+        const resultMinutes = date.getMinutes();
+        if (!roundTo) {
+            date.setMinutes(0);
+            if (roundUp) date.setHours(resultHours + 1);
+        } else {
+            if (roundUp)
+                addMinutesToDate(roundTo - (resultMinutes % roundTo), date);
+            else addMinutesToDate(-(resultMinutes % roundTo), date);
+        }
+    };
     return {
         [/now\+(\d+(?:[,.]\d+)?)(d?)/u.toString()]: (
             match,
             additive,
             printDate
         ) => {
-            const resultDate = addHoursToNow(parseFloat(additive));
-            if (printDate) {
-                return `${dateToTime(resultDate)} (${dateToDayString(
-                    resultDate
-                )})`;
-            } else {
-                return dateToTime(resultDate);
-            }
+            const resultDate = addHoursToNow(
+                parseFloat(additive.replace(',', '.'))
+            );
+            return format(resultDate, !!printDate);
+        },
+        [/share\+(\d+(?:[,.]\d+)?)(d?)/u.toString()]: (
+            match,
+            additive,
+            printDate
+        ) => {
+            const shareTime = document.querySelector<HTMLLIElement>(
+                '#mission_replies > li:last-child'
+            )?.dataset.messageTime;
+
+            const resultDate = addMinutesToDate(
+                parseFloat(additive.replace(',', '.')) * 60,
+                new Date(shareTime ?? Date.now())
+            );
+            return format(resultDate, !!printDate);
         },
         [/now\+(\d+(?:[,.]\d+)?)r(-?\d+)(d?)/u.toString()]: (
             match,
@@ -139,38 +166,33 @@ export function getTimeReplacers(): Record<
             round,
             printDate
         ) => {
-            const resultDate = addHoursToNow(parseFloat(additive));
-            const roundTo = Math.abs(parseInt(round)) % 60;
-            const roundUp = !round.startsWith('-');
-            const resultHours = resultDate.getHours();
-            const resultMinutes = resultDate.getMinutes();
-            if (!roundTo) {
-                resultDate.setMinutes(0);
-                if (roundUp) resultDate.setHours(resultHours + 1);
-            } else {
-                if (roundUp) {
-                    addMinutesToDate(
-                        roundTo - (resultMinutes % roundTo),
-                        resultDate
-                    );
-                } else {
-                    addMinutesToDate(-(resultMinutes % roundTo), resultDate);
-                }
-            }
-            if (printDate) {
-                return `${dateToTime(resultDate)} (${dateToDayString(
-                    resultDate
-                )})`;
-            } else {
-                return dateToTime(resultDate);
-            }
+            const resultDate = addHoursToNow(
+                parseFloat(additive.replace(',', '.'))
+            );
+            roundDate(resultDate, round);
+            return format(resultDate, !!printDate);
+        },
+        [/share\+(\d+(?:[,.]\d+)?)r(-?\d+)(d?)/u.toString()]: (
+            match,
+            additive,
+            round,
+            printDate
+        ) => {
+            const shareTime = document.querySelector<HTMLLIElement>(
+                '#mission_replies > li:last-child'
+            )?.dataset.messageTime;
+            const resultDate = addMinutesToDate(
+                parseFloat(additive.replace(',', '.')) * 60,
+                new Date(shareTime ?? Date.now())
+            );
+            roundDate(resultDate, round);
+            return format(resultDate, !!printDate);
         },
     };
 }
 
 /**
  * A method to share a mission with the alliance.
- *
  * @param LSSM - The current LSSM instance.
  * @param missionId - The ID of the mission that is to be shared.
  * @param isCallList - Whether sharing from call list or not. Is used for the Feature HTTP-Header.
@@ -189,7 +211,6 @@ export function shareMission(
 
 /**
  * A method to send a reply to a mission and optionally share it in alliance chat.
- *
  * @param LSSM - The current LSSM instance.
  * @param missionId - The ID of the mission the reply is to be added to.
  * @param message - The message that is to be sent.
@@ -231,7 +252,6 @@ export function sendReply(
 
 /**
  * A method to create an HTML Element containing an Icon.
- *
  * @param icon - The FA icon name.
  * @param style - The FA icon style.
  * @param classes - Additional classes that are to be added to the element.
@@ -249,7 +269,6 @@ export function createIcon(
 
 /**
  * A method to create a button to edit a message in the SAP Dropdown.
- *
  * @param editBtnClass - A single class or a list of classes to add to the button.
  * @param transform - Whether to transform the button position. Is true by default.
  * @returns - The button Element.
@@ -278,7 +297,6 @@ export function createEditBtn(
 
 /**
  * A method to create a field to edit a SAP message before posting it.
- *
  * @param defaultMessage - The message the field has by default.
  * @param postInChat - Whether to post the message in chat by default.
  * @param editBtn - A Button created from {@link createEditBtn}.
@@ -389,7 +407,6 @@ export function createEditField(
 /**
  * A method to create the edit field of a message in a SAP Dropdown.
  * Is a shortcut for a special configuration of {@link createEditField}.
- *
  * @param liElement - The list element of the message.
  * @param editBtn - The edit Button created by {@link createEditBtn}.
  * @param inputGroupClass -  A single class or a list of classes to be added to the input group.
@@ -420,7 +437,6 @@ export function createEditFieldForDropdown(
 
 /**
  * A method to create a click handler to handle clicks in a SAP dropdown.
- *
  * @param inputGroupClass - A single class to be added to the input group of edit fields.
  * @param editBtnClass - A single class to be added to the edit buttons.
  * @param additionalFn - A function to be called if there is no edit button. We still don't understand why Jan implemented that, but we're sure it has some good reason.

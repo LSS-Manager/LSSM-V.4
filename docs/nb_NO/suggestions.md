@@ -21,6 +21,7 @@ Du kan også åpne et problem på [GitHub][github.issues]. Sjekk om det allerede
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
+[docs.home]: /nb_NO/
 [docs.apps]: /nb_NO/apps.md
 [docs.appstore]: /nb_NO/appstore.md
 [docs.bugs]: /nb_NO/bugs.md

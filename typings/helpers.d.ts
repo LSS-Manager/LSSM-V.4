@@ -27,6 +27,7 @@ import type {
 import type {
     BuildingMarker,
     BuildingMarkerAdd,
+    MissionGraphicsLookup,
     MissionMarker,
     PatientTimer,
     POIMarker,
@@ -39,6 +40,10 @@ import type {
 } from 'typings/components/Settings';
 
 export type GameFlavour = 'missionchief' | 'policechief';
+
+export type Prefixed<str extends string> = `${typeof PREFIX}-${str}`;
+
+declare const GM_INFO_KEY: Prefixed<'GM_Info'>;
 
 declare global {
     interface Window {
@@ -71,15 +76,16 @@ declare global {
             massFiltersChange(filter_id: string, add: boolean): void;
             decorateFilterText(text: string, filter_id: string): string;
         };
-        [PREFIX: string]: Vue | unknown;
-        [`lssmv4-GM_Info`]: Tampermonkey.ScriptInfo;
+        [PREFIX]: Vue | unknown;
+        [GM_INFO_KEY]: Tampermonkey.ScriptInfo;
         map: L.Map;
         L: typeof L;
         icon_empty: L.Icon;
         mission_position_new_marker?: L.Marker;
         building_new_marker?: L.Marker;
         building_move_marker?: L.Marker;
-        mission_graphics: [string, string, string][];
+        mission_graphics_lookups: MissionGraphicsLookup;
+        mission_graphics: MissionGraphicsLookup['regular'];
         patient_timers: PatientTimer[];
         sale_count_down: number;
         mission_label: boolean;
@@ -143,6 +149,7 @@ declare global {
             }
         ): void;
         flavouredAsset(asset: string, scope?: string): string;
+        searchMission(): void;
         schooling_check_educated_counter_visible_check?(): void; // in schooling windows
     }
 }

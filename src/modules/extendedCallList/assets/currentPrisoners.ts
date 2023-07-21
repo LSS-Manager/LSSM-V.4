@@ -48,19 +48,33 @@ export default (
             currentPrisonersInTooltips &&
             (amount || (!amount && !hide0CurrentPrisoners))
         ) {
-            window.mission_markers
+            const getComment = (position: 'end' | 'start') =>
+                `<!--${PREFIX}-ecl-prisoners-${position}-->`;
+            const startComment = getComment('start');
+            const endComment = getComment('end');
+            const tooltip = window.mission_markers
                 .find(
                     m =>
                         m.mission_id ==
                         parseInt(mission.getAttribute('mission_id') ?? '-1')
                 )
-                ?.getTooltip()
-                ?.setContent(
-                    `${
-                        mission.querySelector(`a[id^="mission_caption_"]`)
-                            ?.innerHTML
-                    }<i class="fa fa-handcuffs" style="margin-left: 0.2em; width: 0.875em"></i> ${amount.toLocaleString()}`
-                );
+                ?.getTooltip();
+            const content = tooltip?.getContent();
+            const prevContent =
+                content instanceof HTMLElement
+                    ? content.innerHTML
+                    : content?.toString() ?? '';
+            tooltip?.setContent(
+                `${prevContent.replace(
+                    new RegExp(
+                        `${LSSM.$utils.escapeRegex(
+                            startComment
+                        )}.*?${LSSM.$utils.escapeRegex(endComment)}`,
+                        's'
+                    ),
+                    ''
+                )}${startComment}&nbsp;<i class="fa fa-handcuffs fa-fw" style="width: 0.875em"></i> ${amount.toLocaleString()}${endComment}`
+            );
         }
     };
 

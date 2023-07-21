@@ -221,7 +221,13 @@ export default <ModuleMainFunction>(async ({
     if (await getSetting('arrMatchHighlight')) {
         import(
             /* webpackChunkName: "modules/extendedCallWindow/arrMatchHighlight" */ './assets/arrMatchHighlight'
-        ).then(({ default: arrMatchHighlight }) => arrMatchHighlight(LSSM));
+        ).then(async ({ default: arrMatchHighlight }) =>
+            arrMatchHighlight(
+                LSSM,
+                await getSetting('arrMatchHighlightAllWords'),
+                $m
+            )
+        );
     }
     if (await getSetting('alarmTime')) {
         import(
@@ -288,6 +294,13 @@ export default <ModuleMainFunction>(async ({
         import(
             /* webpackChunkName: "modules/extendedCallWindow/centerMap" */ './assets/centerMap'
         ).then(({ default: centerMap }) => centerMap(LSSM));
+    }
+    if (await getSetting('vehicleListPermanentSearch')) {
+        import(
+            /* webpackChunkName: "modules/extendedCallWindow/vehicleListPermanentSearch" */ './assets/vehicleListPermanentSearch'
+        ).then(({ default: vehicleListPermanentSearch }) =>
+            vehicleListPermanentSearch()
+        );
     }
     if (await getSetting('remainingPatientTime')) {
         import(

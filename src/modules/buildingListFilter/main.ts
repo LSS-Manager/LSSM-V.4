@@ -377,16 +377,25 @@ export default <ModuleMainFunction>(async ({
             );
         });
 
+        extraBtnsGroup.append(searchBtn, search, sortBtn, dcvBtn);
+
         if (fixedFilters) {
             fixedWhiteSpace.style.setProperty(
                 'height',
                 getComputedStyle(wrapper).height
             );
+            LSSM.$stores.root.hook({
+                event: 'bigMapWindowSizeChanged',
+                callback() {
+                    fixedWhiteSpace.style.setProperty(
+                        'height',
+                        getComputedStyle(wrapper).height
+                    );
+                },
+            });
         } else {
             selectGroup.style.setProperty('width', '100%');
         }
-
-        extraBtnsGroup.append(searchBtn, search, sortBtn, dcvBtn);
         window.buildingsVehicleLoadVisible();
     };
 

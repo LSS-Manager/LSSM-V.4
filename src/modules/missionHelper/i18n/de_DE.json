@@ -5,9 +5,11 @@
     "generated_by": "Generiert von",
     "mission_categories": {
         "airport": "Flughafenfeuerwehr-Einsätze",
-        "airport_specialization": "Flughafenfeuerwehr-Einsätze (Spezialisierung",
+        "airport_specialization": "Flughafenfeuerwehr-Einsätze (Spezialisierung)",
         "ambulance": "Rettungseinsätze",
         "criminal_investigation": "Kriminalpolizei-Einsätze",
+        "energy_supply": "NEA50-Einsätze",
+        "energy_supply_2": "NEA200-Einsätze",
         "factory_fire_brigade": "Werkfeuerwehr-Einsätze",
         "factory_fire_brigade_specialization": "Werkfeuerwehr-Einsätze (Spezialisierung)",
         "fire": "Feuerwehreinsätze",
@@ -39,8 +41,11 @@
         "bereitschaftspolizei": "Bereitschaftspolizei-Standort | Bereitschaftspolizei-Standorte",
         "criminal_investigation_count": "Kriminalpolizei-Ausbau | Kriminalpolizei-Ausbauten",
         "detention_unit_count": "Sonderfahrzeug: Gefangenenkraftwagen",
+        "energy_supply": "NEA50-Erweiterung | NEA50-Erweiterungen",
+        "energy_supply_2": "NEA200-Erweiterung | NEA200-Erweiterungen",
         "fire_stations": "Feuerwache | Feuerwachen",
         "guard_dog_count": "Diensthundestaffel | Diensthundestaffeln",
+        "heavy_rescue": "Fachgruppe SB | Fachgruppen SB",
         "max_police_stations": "Polizeiwache maximal | Polizeiwachen maximal",
         "max_rescue_stations": "Rettungswache maximal | Rettungswachen maximal",
         "mek": "MEK-Zug | MEK-Züge",
@@ -58,6 +63,7 @@
         "thw_gkw_count": "THW-Ausbau: Technischer Zug | THW-Ausbauten: Technische Züge",
         "thw_zugtrupp_count": "THW-Ausbau: Zugtrupp | THW-Ausbauten: Zugtrupp",
         "title": "Vorraussetzung | Vorraussetzungen",
+        "ventilation": "Lüfter-Erweiterung | Lüfter-Erweiterungen",
         "wasserrettung": "Wasserrettung | Wasserrettungen",
         "water_cannon": "Technischer Zug: Wasserwerfer| Technische Züge: Wasserwerfer",
         "water_damage_pump_count": "THW-Ausbau: Fachgruppe Wasserschaden/Pumpen| THW-Ausbauten: Fachgruppen Wasserschaden/Pumpen",
@@ -84,6 +90,8 @@
             "bucket_only_if_needed": "Außenlastbehälter (allgemein) (nur wenn aktiver Ausbau vorhanden)",
             "civil_patrolcar": "Zivilstreifenwagen",
             "diver_units": "GW-Taucher oder Tauchkraftwagen",
+            "energy_supply": "NEA50",
+            "energy_supply_2": "NEA200",
             "firetrucks": "Löschfahrzeug | Löschfahrzeuge",
             "fukw": "FüKw",
             "fwk": "Feuerwehrkran | Feuerwehrkräne",
@@ -95,6 +103,7 @@
             "gwoil": "GW-Öl",
             "hazmat_dekon": "Dekon-P",
             "hazmat_vehicles": "GW-Gefahrgut",
+            "heavy_rescue": "MzGW SB",
             "heavy_rescue_vehicles": "Rüstwagen",
             "height_rescue_units": "GW-Höhenrettung",
             "helicopter_bucket": "Außenlastbehälter (allgemein)",
@@ -121,9 +130,10 @@
             "thw_gkw": "GKW",
             "thw_lkw": "LKW K9",
             "thw_mtwtz": "MTW-TZ",
-            "thw_mzkw": "MzKw",
+            "thw_mzkw": "MzGW (FGr N)",
             "turboloescher": "Turbolöscher",
             "ulf": "ULF mit Löscharm",
+            "ventilation": "Lüfter",
             "wasserwerfer": "WaWe 10",
             "water_damage_pump": "Feuerlöschpumpe | Feuerlöschpumpen",
             "water_tankers": "Schlauchwagen"
@@ -158,8 +168,18 @@
             "allow_ktw_instead_of_rtw": {
                 "ambulances": "RTW oder KTW oder KTW Typ B"
             },
+            "allow_police_motorcycle_instead_of_fustw": {
+                "additional_text": "davon max. {n} Motorrad |  davon max. {n} Motorräder",
+                "based_on": "police_cars",
+                "line_break": true
+            },
             "allow_rw_instead_of_lf": {
                 "firetrucks": "Löschfahrzeug oder Rüstwagen oder GKW | Löschfahrzeuge oder Rüstwagen oder GKW"
+            },
+            "max_civil_patrol_replacing_police_cars": {
+                "additional_text": "davon max. {n} Zivilstreifenwagen",
+                "based_on": "police_cars",
+                "line_break": true
             }
         },
         "patient_additionals": { "5": "LNA", "10": "OrgL" },

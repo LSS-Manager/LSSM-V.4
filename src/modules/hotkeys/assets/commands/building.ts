@@ -12,7 +12,7 @@ export default <Scope<Empty, ['goto', 'changeSharing', 'dispatch'], [], true>>{
                 'expand',
                 'firstVehicle',
                 'hire',
-                'personal'
+                'personal',
             ]
         >
     >{
@@ -157,7 +157,7 @@ export default <Scope<Empty, ['goto', 'changeSharing', 'dispatch'], [], true>>{
                 'patrol_vehicles',
                 'patrol',
                 'settings',
-                'openFirstPlannedMission'
+                'openFirstPlannedMission',
             ]
         >
     >{

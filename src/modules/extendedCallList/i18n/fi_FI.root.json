@@ -134,7 +134,8 @@
             "distance_station": "Etäisyys lähimmälle asemalle",
             "id": "Ikä",
             "remaining_patients": "Nykyiset potilaat",
-            "remaining_prisoners": "Nykyiset vangit"
+            "remaining_prisoners": "Nykyiset vangit",
+            "zip_code": "ZIP-Codes (globally)"
         }
     }
 }

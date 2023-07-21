@@ -90,6 +90,7 @@
                 </button>
                 <a
                     class="btn btn-info"
+                    :class="{ disabled: !exportData }"
                     download="LSSM_V4.lssm"
                     :href="exportData"
                 >

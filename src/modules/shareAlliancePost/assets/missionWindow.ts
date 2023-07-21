@@ -230,17 +230,18 @@ export default async ({
             }
             return (
                 missingRequirements?.missingRequirements
-                    .map(({ vehicle, total, missing, selected }) => [
+                    .map(({ vehicle, total, missing, selected }) => ({
                         vehicle,
-                        total ??
+                        remaining:
+                            total ??
                             (typeof selected === 'number'
                                 ? missing - selected
                                 : missing - selected.max) ??
                             0,
-                    ])
-                    .filter(([, remaining]) => remaining > 0)
+                    }))
+                    .filter(({ remaining }) => remaining > 0)
                     .map(
-                        ([vehicle, remaining]) =>
+                        ({ vehicle, remaining }) =>
                             `${remaining.toLocaleString()} ${vehicle}`
                     )
                     .join(', ') ??
@@ -515,18 +516,19 @@ export default async ({
                                     }
                                 })
                         )
-                        .then(() =>
-                            document
-                                .querySelector<HTMLAnchorElement>(
-                                    liElement.closest(
-                                        `#${alarmSharePostGroup.id}`
+                        .then(
+                            () =>
+                                document
+                                    .querySelector<HTMLAnchorElement>(
+                                        liElement.closest(
+                                            `#${alarmSharePostGroup.id}`
+                                        )
+                                            ? '#mission_alarm_btn'
+                                            : missionsSorted
+                                            ? `.${sortedMissionClass}`
+                                            : '#alert_next_btn'
                                     )
-                                        ? '#mission_alarm_btn'
-                                        : missionsSorted
-                                        ? `.${sortedMissionClass}`
-                                        : '#alert_next_btn'
-                                )
-                                ?.click()
+                                    ?.click()
                         );
                 }
             )

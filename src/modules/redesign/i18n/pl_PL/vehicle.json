@@ -28,7 +28,7 @@
             }
         },
         "patient": {
-            "department": "Department: {department}",
+            "department": "Oddział: {department}",
             "distance": "Maksymalna odległość",
             "freeBeds": "Minimalna ilość wolnych łóżek",
             "show": "Pokaż x budynków",
@@ -60,7 +60,7 @@
     "fms": "Stan",
     "fms_switch": { "is_s2": "Dostępny", "is_s6": "Niedostępny" },
     "foam_amount": "Ilość piany",
-    "followup_missions": "Rozprzestrzeniająca się misja | Rozprzestrzeniające się misje",
+    "followup_missions": "Następna misja",
     "load_all_hospitals": {
         "btn": "Załaduj wszystkie!",
         "text": "Liczba wyświetlonych szpitali jest ograniczona. Załadowanie wszystkich szpitali może zająć dużo czasu w zależności od ilości!"

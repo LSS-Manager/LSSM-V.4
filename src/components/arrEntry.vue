@@ -1,9 +1,8 @@
 <template>
-    <div class="btn-group arr">
+    <div class="btn-group arr" :data-custom-style="!!props.bg_color">
         <button
             :title="title"
             class="btn btn-xs btn-default"
-            :style="style"
             :accesskey="accesskey"
             :type="type"
             :vehicle_group_id="type === 'vehicle_group' ? id : null"
@@ -17,7 +16,6 @@
         <button
             v-if="editable"
             class="btn btn-default btn-xs dropdown-toggle"
-            :style="style"
             data-toggle="dropdown"
         >
             <span class="caret"></span>
@@ -54,88 +52,21 @@
     </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-
+<script setup lang="ts">
 import { faCopy } from '@fortawesome/free-solid-svg-icons/faCopy';
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 
-import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import type { DefaultMethods, PropType } from 'vue/types/options';
-
-export default Vue.extend<
-    {
-        faCopy: IconDefinition;
-        faEdit: IconDefinition;
-        faTrash: IconDefinition;
-    },
-    DefaultMethods<Vue>,
-    {
-        style: string;
-    },
-    {
-        id: number;
-        title: string;
-        color: string;
-        bg_color: string;
-        type: 'arr' | 'vehicle_group';
-        editable: boolean;
-        accesskey?: string;
-        vehicles?: [number, string][];
-    }
->({
-    name: 'lssmv4-arr',
-    computed: {
-        style() {
-            return this.bg_color
-                ? `color:${this.color};background-color:${this.bg_color};background-image: none;`
-                : '';
-        },
-    },
-    data() {
-        return {
-            faCopy,
-            faEdit,
-            faTrash,
-        };
-    },
-    props: {
-        id: {
-            type: Number,
-            required: true,
-        },
-        title: {
-            type: String,
-            required: true,
-        },
-        color: {
-            type: String,
-            required: true,
-        },
-        bg_color: {
-            type: String,
-            required: true,
-        },
-        type: {
-            type: String as PropType<'arr' | 'vehicle_group'>,
-            required: true,
-            validator: t => ['arr', 'vehicle_group'].includes(t),
-        },
-        editable: {
-            type: Boolean,
-            required: true,
-        },
-        accesskey: {
-            type: String,
-            required: false,
-        },
-        vehicles: {
-            type: Array as PropType<[number, string][]>,
-            required: false,
-        },
-    },
-});
+const props = defineProps<{
+    id: number;
+    title: string;
+    color: string;
+    bg_color: string;
+    type: 'arr' | 'vehicle_group';
+    editable: boolean;
+    accesskey?: string;
+    vehicles?: [number, string][];
+}>();
 </script>
 
 <style scoped lang="sass">
@@ -148,4 +79,10 @@ export default Vue.extend<
 
     .btn
         border: 0
+
+.arr[data-custom-style]
+    > button
+        color: v-bind('props.color')
+        background-color: v-bind('props.bg_color')
+        background-image: none
 </style>

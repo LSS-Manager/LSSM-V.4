@@ -12,6 +12,8 @@ export default (
     const $m = (key: string, args?: Record<string, unknown>) =>
         LSSM.$t(`modules.telemetry.${key}`, args);
 
+    const wikiLocale = `${LSSM.$stores.root.wiki}/`;
+
     const checkBrowser = (browser: UAParser.IBrowser, browserMajor: number) =>
         LSSM.$stores.storage
             .get<string>({
@@ -63,7 +65,7 @@ export default (
                         text:
                             $m('browsersupport.not.text', {
                                 name: browser.name,
-                                wiki: LSSM.$stores.root.wiki,
+                                wiki: wikiLocale,
                                 wikiAnchor: $m('browsersupport.faqAnchor'),
                             }) + table,
                         options: {},
@@ -91,7 +93,7 @@ export default (
                                 supported: browserSupport.supported,
                                 current: browserMajor,
                                 download: browserSupport.download,
-                                wiki: LSSM.$stores.root.wiki,
+                                wiki: wikiLocale,
                                 wikiAnchor: $m('browsersupport.faqAnchor'),
                             }) + table,
                         options: {},
@@ -187,7 +189,7 @@ export default (
                         LSSM.$modal.show('dialog', {
                             title: $m('info.title'),
                             text: $m('info.text', {
-                                wiki: LSSM.$stores.root.wiki,
+                                wiki: wikiLocale,
                             }),
                             options: {},
                             buttons: [
