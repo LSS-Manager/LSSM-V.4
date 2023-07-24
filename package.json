@@ -88,7 +88,7 @@
         "prettier": "3.0.0",
         "sass": "1.64.1",
         "sass-loader": "13.3.2",
-        "terser": "5.19.1",
+        "terser": "5.19.2",
         "ts-loader": "9.4.4",
         "ts-node": "10.9.1",
         "typescript": "5.1.6",
