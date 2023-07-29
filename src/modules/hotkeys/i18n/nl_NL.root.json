@@ -155,6 +155,7 @@
                 "loadMissing": "Laad missende voertuigen",
                 "next": "volgende tab",
                 "previous": "vorige tab",
+                "reset": "reset vehicle selection",
                 "title": "Voertuigenlijst"
             }
         },

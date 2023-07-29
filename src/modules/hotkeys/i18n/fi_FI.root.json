@@ -159,6 +159,7 @@
                 "loadMissing": "Lataa puuttuvat ajoneuvot",
                 "next": "seuraava välilehti",
                 "previous": "edellinen välilehti",
+                "reset": "reset vehicle selection",
                 "title": "ajoneuvo lista"
             }
         },

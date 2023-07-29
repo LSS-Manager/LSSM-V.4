@@ -154,6 +154,7 @@
                 "loadMissing": "Load missing vehicles",
                 "next": "next tab",
                 "previous": "previous tab",
+                "reset": "reset vehicle selection",
                 "title": "vehicle list"
             }
         },

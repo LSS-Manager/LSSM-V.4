@@ -62,6 +62,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         'mission.vehicleList.next',
         'mission.vehicleList.previous',
         'mission.vehicleList.loadMissing',
+        'mission.vehicleList.reset',
         'mission.backalarm.allVehicles',
         'mission.backalarm.onlyAmbulance',
         'mission.backalarm.abortApproach',
