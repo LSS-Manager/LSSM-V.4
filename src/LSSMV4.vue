@@ -2,7 +2,7 @@
     <div :id="id">
         <v-dialog></v-dialog>
         <notifications
-            v-for="group in notificationGroups"
+            v-for="group in notificationStore.groups"
             :key="group"
             :group="group.replace(' ', '_')"
             :position="group"
@@ -12,7 +12,7 @@
                 <div
                     class="lssm-notification"
                     :class="`alert-${props.item.type} notification-${props.item.type}`"
-                    @click.capture="getHandler(props, $event)()"
+                    @click.capture="clickHandler(props, $event)"
                 >
                     <img
                         v-if="props.item.data.icon"
@@ -44,72 +44,47 @@
     </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script setup lang="ts">
+import { getCurrentInstance, onMounted } from 'vue';
 
-import { defineNotificationStore } from '@stores/notifications';
-import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
-import { mapState } from 'pinia';
+import { useNotificationStore } from '@stores/notifications';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 
-import type { DefaultProps } from 'vue/types/options';
-import type { LSSMV4Computed, LSSMV4Data, LSSMV4Methods } from 'typings/LSSMV4';
+const rootStore = useRootStore();
+const notificationStore = useNotificationStore();
 
-export default Vue.extend<
-    LSSMV4Data,
-    LSSMV4Methods,
-    LSSMV4Computed,
-    DefaultProps
->({
-    name: 'LSSMV4',
-    components: {},
-    data() {
-        const rootStore = useRootStore();
-        return {
-            faTimes,
-            id: rootStore.nodeAttribute('app', true),
-        };
-    },
-    computed: {
-        ...mapState(defineNotificationStore, {
-            notificationGroups: 'groups',
-        }),
-    },
-    methods: {
-        getHandler(props, $event) {
-            return () =>
-                (($event.target as HTMLElement).closest('button.close')
-                    ? undefined
-                    : props.item.data.clickHandler?.(props, $event)) ??
-                props.close();
-        },
-    },
-    mounted() {
-        useSettingsStore()
-            .getModule('global')
-            .then(({ iconBg, iconBgAsNavBg }) => {
-                if (iconBgAsNavBg) {
-                    useRootStore().addStyle({
-                        selectorText:
-                            '.navbar-default, .navbar-default .dropdown-menu',
-                        style: {
-                            'background-color': `${iconBg} !important`,
-                        },
-                    });
-                }
-            });
+const id = rootStore.nodeAttribute('app', true);
+const clickHandler = (props, $event) =>
+    (($event.target as HTMLElement).closest('button.close')
+        ? undefined
+        : props.item.data.clickHandler?.(props, $event)) ?? props.close();
 
-        // Workaround for when modals container appears behind V4 instance (dialogs are behind modals)
-        const modalsContainer =
-            document.querySelector<HTMLDivElement>('#modals-container');
-        if (
-            modalsContainer &&
-            this.$el.compareDocumentPosition(modalsContainer) &
-                Node.DOCUMENT_POSITION_FOLLOWING
-        )
-            this.$el.before(modalsContainer);
-    },
+onMounted(() => {
+    useSettingsStore()
+        .getModule('global')
+        .then(({ iconBg, iconBgAsNavBg }) => {
+            if (iconBgAsNavBg) {
+                useRootStore().addStyle({
+                    selectorText:
+                        '.navbar-default, .navbar-default .dropdown-menu',
+                    style: {
+                        'background-color': `${iconBg} !important`,
+                    },
+                });
+            }
+        });
+
+    // Workaround for when modals container appears behind V4 instance (dialogs are behind modals)
+    const modalsContainer =
+        document.querySelector<HTMLDivElement>('#modals-container');
+    if (
+        modalsContainer &&
+        getCurrentInstance()?.proxy.$el.compareDocumentPosition(
+            modalsContainer
+        ) & Node.DOCUMENT_POSITION_FOLLOWING
+    )
+        getCurrentInstance()?.proxy.$el.before(modalsContainer);
 });
 </script>
 

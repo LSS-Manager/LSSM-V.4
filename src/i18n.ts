@@ -65,18 +65,22 @@ export default async (Vue: VueConstructor): Promise<VueI18n> => {
     return i18n;
 };
 
-const useI18n = (scope: string) => {
+const useI18n = (scope?: string) => {
     const { t, tc } = useI18nHelper();
     return {
         $t: t,
         $tc: tc,
-        $m: (key: VueI18n.Path, args?: VueI18n.Values) =>
-            t(`${scope}.${key}`, args),
-        $mc: (
-            key: VueI18n.Path,
-            choice?: VueI18n.Choice,
-            args?: VueI18n.Values
-        ) => tc(`${scope}.${key}`, choice, args),
+        $m: scope
+            ? (key: VueI18n.Path, args?: VueI18n.Values) =>
+                  t(`${scope}.${key}`, args)
+            : t,
+        $mc: scope
+            ? (
+                  key: VueI18n.Path,
+                  choice?: VueI18n.Choice,
+                  args?: VueI18n.Values
+              ) => tc(`${scope}.${key}`, choice, args)
+            : tc,
     };
 };
 
