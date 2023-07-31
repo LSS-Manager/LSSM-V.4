@@ -5346,7 +5346,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"execa@npm:^7.1.1":
+"execa@npm:^7.1.1, execa@npm:^7.2.0":
   version: 7.2.0
   resolution: "execa@npm:7.2.0"
   dependencies:
@@ -6990,7 +6990,7 @@ __metadata:
     vue: 3.3.4
     vuepress: 2.0.0-beta.66
     vuepress-plugin-clipboard: 2.1.5
-    vuepress-plugin-sitemap2: 2.0.0-beta.233
+    vuepress-plugin-sitemap2: 2.0.0-beta.234
   languageName: unknown
   linkType: soft
 
@@ -9992,14 +9992,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vuepress-plugin-sitemap2@npm:2.0.0-beta.233":
-  version: 2.0.0-beta.233
-  resolution: "vuepress-plugin-sitemap2@npm:2.0.0-beta.233"
+"vuepress-plugin-sitemap2@npm:2.0.0-beta.234":
+  version: 2.0.0-beta.234
+  resolution: "vuepress-plugin-sitemap2@npm:2.0.0-beta.234"
   dependencies:
     "@vuepress/shared": 2.0.0-beta.66
     "@vuepress/utils": 2.0.0-beta.66
     sitemap: ^7.1.1
-    vuepress-shared: 2.0.0-beta.233
+    vuepress-shared: 2.0.0-beta.234
   peerDependencies:
     vuepress: 2.0.0-beta.66
     vuepress-vite: 2.0.0-beta.66
@@ -10011,13 +10011,13 @@ __metadata:
       optional: true
     vuepress-webpack:
       optional: true
-  checksum: 605bb2051acc1e0de12397fa4140fe075abc823b9728a5900b19c2373dcee013d55cf6bbe68c06d9b326a561bb772a9b55e8fa68ca0e82f7bd8875394eaf3114
+  checksum: 126bb869ed2ff6d340207d6cd80671a4042a61893f9ccbe67f410ce46b45e6d00888eb94bedacaf279310988fee7e1e03d4f3926dc7f7a83fc78b5b91c633eac
   languageName: node
   linkType: hard
 
-"vuepress-shared@npm:2.0.0-beta.233":
-  version: 2.0.0-beta.233
-  resolution: "vuepress-shared@npm:2.0.0-beta.233"
+"vuepress-shared@npm:2.0.0-beta.234":
+  version: 2.0.0-beta.234
+  resolution: "vuepress-shared@npm:2.0.0-beta.234"
   dependencies:
     "@vuepress/client": 2.0.0-beta.66
     "@vuepress/shared": 2.0.0-beta.66
@@ -10025,7 +10025,7 @@ __metadata:
     "@vueuse/core": ^10.2.1
     cheerio: 1.0.0-rc.12
     dayjs: ^1.11.9
-    execa: ^7.1.1
+    execa: ^7.2.0
     fflate: ^0.8.0
     gray-matter: ^4.0.3
     semver: ^7.5.4
@@ -10043,7 +10043,7 @@ __metadata:
       optional: true
     vuepress-webpack:
       optional: true
-  checksum: cfc0efe32d1cca1795b502d719801396d64e2d1cc16ed9a5eb4efa4f690c882120367b9a248101355d011a2feadc30abedc5be697a1afdb0176e816a40db935e
+  checksum: 769c0e75d0d63aab40c35c05ad2e25c8ad651e4c01955094d8e2e447e1ce5dbfa78e7d39f91192f8f0f3d16a5cf451dbfa476a1908eb5fb6666761872f75721b
   languageName: node
   linkType: hard
 
