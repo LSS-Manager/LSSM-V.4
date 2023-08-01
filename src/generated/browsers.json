@@ -6,8 +6,8 @@
     },
     "edge": {
         "download": "https://microsoft.com/edge",
-        "latest": 114,
-        "supported": 108
+        "latest": 115,
+        "supported": 109
     },
     "firefox": {
         "download": "https://firefox.com",
