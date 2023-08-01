@@ -430,7 +430,7 @@ export default {
                 coins: 25,
                 duration: '3 Days',
                 givesParkingLots: 3,
-                unlocksVehicleTypes: [46,47,48],
+                unlocksVehicleTypes: [46, 47, 48],
             },
             {
                 caption: 'Disaster Response Equipment Extension',
@@ -438,7 +438,7 @@ export default {
                 coins: 25,
                 duration: '3 Days',
                 givesParkingLots: 3,
-                unlocksVehicleTypes: [49,50,51,52],
+                unlocksVehicleTypes: [49, 50, 51, 52],
             },
             {
                 caption: 'Search and Rescue Extension',
@@ -446,7 +446,7 @@ export default {
                 coins: 25,
                 duration: '3 Days',
                 givesParkingLots: 2,
-                unlocksVehicleTypes: [53,54],
+                unlocksVehicleTypes: [53, 54],
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-25. 100.000'],

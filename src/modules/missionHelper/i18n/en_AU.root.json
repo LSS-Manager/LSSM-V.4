@@ -12,20 +12,20 @@
             "in": "additional",
             "text": "Average min . Police Personnel"
         },
-        "swat_personnel": {
-            "badge": false,
-            "in": "additional",
-            "text": "Required TOG Personnel"
+        "min_pump_speed": {
+            "badge": true,
+            "in": "requirements",
+            "text": "Min. Pump Capacity: {n}"
         },
         "pump_water_amount": {
             "badge": true,
             "in": "additional",
             "text": "Water to pump (in Litres): {n}"
         },
-        "min_pump_speed": {
-            "badge": true,
-            "in": "requirements",
-            "text": "Min. Pump Capacity: {n}"
+        "swat_personnel": {
+            "badge": false,
+            "in": "additional",
+            "text": "Required TOG Personnel"
         },
         "title": "Special requirements",
         "water_needed": {
