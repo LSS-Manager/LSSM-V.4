@@ -13,7 +13,8 @@
         "police": "Police Mission",
         "riot_police_specialization": "Riot Police Missions",
         "title": "Generating Categories",
-        "water_rescue": "SES Missions"
+        "water_rescue": "SES Missions",
+        "water_damage_and_flood_water_rescue": "Flood Rescue Mission"
     },
     "patients": {
         "critical_care": "Intensive Care Chance",
@@ -41,7 +42,10 @@
         "rescue_stations": "Ambulance Station | Ambulance Stations",
         "riot_police": "Riot Police Extension | Riot Police Extensions",
         "title": "Prerequisite | Prerequisites",
-        "wasserrettung": "SES Unit | SES Units"
+        "wasserrettung": "SES Unit | SES Units",
+        "water_damage_pump_count": "Flood and Rescue Extension | Flood and Rescue Extensions",
+        "disaster_response_count": "Disaster Response Equipment Extension | Disaster Response Equipment Extensions",
+        "search_and_rescue": "Search and Rescue Extension | Search and Rescue Extensions"
     },
     "prisoners": {
         "max_possible_prisoners": "Maximum Prisoners",
@@ -89,7 +93,16 @@
             "swat_armored_vehicle": "TOG Armoured Vehicle | TOG Armoured Vehicles",
             "swat_suv": "TOG SUV | TOG SUVs",
             "water_rescue": "SES Vehicle | SES Vehicles",
-            "water_tankers": "Bulk Water Tanker | Bulk Water Tankers"
+            "pump": "SES Pump Trailer | SES Pump Trailers",
+            "water_tankers": "Bulk Water Tanker | Bulk Water Tankers",
+            "flood_equipment": "SES Sandbag Trailer | SES Sandbag Trailers",
+            "communication_repeater": "SES Comms Repeater Trailer | SES Comms Repeater Trailers",
+            "elw_water_rescue": "SES FOV | SES FOVs",
+            "light_supply": "SES Emergency Lighting Trailer | SES Emergency Lighting Trailers",
+            "energy_supply": "SES Solar/Wind Power Trailer | SES Solar/Wind Power Trailers",
+            "airshelta": "SES Aireshelta Trailer | SES Aireshelta Trailers",
+            "quad": "SES Quad Rescue 6x6 Trailer | SES Quad Rescue 6x6 Trailers",
+            "search_and_rescue": "SES Search and Rescue Trailer | SES Search and Rescue Trailers"
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {

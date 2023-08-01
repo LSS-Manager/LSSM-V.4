@@ -117,6 +117,9 @@ export default {
         'SES & Water Rescue': {
             vehicles: {
                 SES: [20, 21, 40, 41, 42],
+                FAR: [46,47,48],
+                DR: [49,50,51,52],
+                SAR: [53,54],
                 VMR: [38, 39],
             },
             color: '#02a18c',

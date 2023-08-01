@@ -17,6 +17,16 @@
             "in": "additional",
             "text": "Required TOG Personnel"
         },
+        "pump_water_amount": {
+            "badge": true,
+            "in": "additional",
+            "text": "Water to pump (in Litres): {n}"
+        },
+        "min_pump_speed": {
+            "badge": true,
+            "in": "requirements",
+            "text": "Min. Pump Capacity: {n}"
+        },
         "title": "Special requirements",
         "water_needed": {
             "badge": true,
