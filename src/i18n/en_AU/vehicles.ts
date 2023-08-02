@@ -10,6 +10,8 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         waterTank: 2000,
+        pumpCapacity: 2000,
+        pumpType: 'fire',
     },
     1: {
         caption: 'Medium Tanker',
@@ -20,6 +22,8 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         waterTank: 3000,
+        pumpCapacity: 1500,
+        pumpType: 'fire',
     },
     2: {
         caption: 'Ladder Platform',
@@ -69,6 +73,8 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         waterTank: 11_000,
+        pumpCapacity: 2000,
+        pumpType: 'fire',
         special: 'Required once you have built 7 firehouses',
     },
     7: {
@@ -157,6 +163,9 @@ export default {
         staff: { min: 1, max: 6 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
+        waterTank: 2000,
+        pumpCapacity: 1500,
+        pumpType: 'fire',
         special:
             'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Rescue Pumper acts as a MRU and a Fire Truck.',
     },
@@ -168,6 +177,9 @@ export default {
         staff: { min: 1, max: 5 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
+        waterTank: 2000,
+        pumpCapacity: 1500,
+        pumpType: 'fire',
         special:
             'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Aerial Pumper acts as a Turntable Ladder and a Fire Truck.',
     },
@@ -278,6 +290,8 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         waterTank: 4000,
+        pumpCapacity: 1500,
+        pumpType: 'fire',
     },
     20: {
         caption: 'SES Vehicle',
@@ -435,7 +449,9 @@ export default {
         staff: { min: 4, max: 5 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        waterTank: 3000,
+        waterTank: 2000,
+        pumpCapacity: 1500,
+        pumpType: 'fire',
     },
     31: {
         caption: 'Fire Helicopter',
@@ -624,6 +640,8 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'car-side',
         possibleBuildings: [15],
+        isTrailer: true,
+        tractiveVehicles: [20,40],
         special: 'Can be towed by SES Vehicle or SES Rescue Truck',
     },
     43: {
@@ -644,7 +662,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        waterTank: 6000,
+        waterTank: 14000,
     },
     44: {
         caption: 'RIV',
@@ -664,7 +682,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        waterTank: 600,
+        waterTank: 2000,
     },
     45: {
         caption: 'Emergency Stairs',
@@ -712,6 +730,8 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'car-side',
         possibleBuildings: [15],
+        isTrailer: true,
+        tractiveVehicles: [20,40,46],
         special: 'Can be towed by SES Vehicle, SES FOV, SES Rescue Truck',
     },
     48: {
@@ -722,6 +742,10 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'car-side',
         possibleBuildings: [15],
+        isTrailer: true,
+        tractiveVehicles: [20,40,46],
+        pumpCapacity: 5000,
+        pumpType: 'fire',
         special: 'Can be towed by SES Vehicle, SES FOV, SES Rescue Truck',
     },
     49: {
@@ -732,6 +756,8 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'car-side',
         possibleBuildings: [15],
+        isTrailer: true,
+        tractiveVehicles: [20,40,46],
         special: 'Can be towed by SES Vehicle, SES FOV, SES Rescue Truck',
     },
     50: {
@@ -742,6 +768,8 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'car-side',
         possibleBuildings: [15],
+        isTrailer: true,
+        tractiveVehicles: [20,40,46],
         special: 'Can be towed by SES Vehicle, SES FOV, SES Rescue Truck',
     },
     51: {
@@ -752,6 +780,8 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'car-side',
         possibleBuildings: [15],
+        isTrailer: true,
+        tractiveVehicles: [20,40,46],
         special: 'Can be towed by SES Vehicle, SES FOV, SES Rescue Truck',
     },
     52: {
@@ -762,6 +792,8 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'car-side',
         possibleBuildings: [15],
+        isTrailer: true,
+        tractiveVehicles: [20,40,46],
         special: 'Can be towed by SES Vehicle, SES FOV, SES Rescue Truck',
     },
     53: {
@@ -772,6 +804,8 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'car-side',
         possibleBuildings: [15],
+        isTrailer: true,
+        tractiveVehicles: [20,40,46],
         special: 'Can be towed by SES Vehicle, SES FOV, SES Rescue Truck',
     },
     54: {
@@ -782,6 +816,8 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'car-side',
         possibleBuildings: [15],
+        isTrailer: true,
+        tractiveVehicles: [20,40,46],
         special: 'Can be towed by SES Vehicle, SES FOV, SES Rescue Truck',
     },
 } satisfies Record<number, InternalVehicle>;

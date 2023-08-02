@@ -12,6 +12,16 @@
             "in": "additional",
             "text": "Required Armed Response Personnel"
         },
+        "min_pump_speed": {
+            "badge": true,
+            "in": "requirements",
+            "text": "Min. Pump Capacity: {n}"
+        },
+        "pump_water_amount": {
+            "badge": true,
+            "in": "additional",
+            "text": "Water to pump (in Litres): {n}"
+        },
         "title": "Special requirements"
     },
     "settings": {
