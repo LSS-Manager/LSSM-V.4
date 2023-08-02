@@ -110,6 +110,12 @@ export default {
             staffList: 'Smoke Jumper Training',
             key: 'smoke_jumper',
         },
+        {
+            caption: 'Traffic Control Training',
+            duration: '3 Days',
+            staffList: 'Traffic Control Training',
+            key: 'traffic_control',
+        },
     ],
     'Police': [
         {

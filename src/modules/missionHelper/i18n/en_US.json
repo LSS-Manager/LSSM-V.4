@@ -18,6 +18,7 @@
         "police": "Police Missions",
         "riot_police_specialization": "Riot Police Missions (Specialization)",
         "title": "Generating Categories",
+        "water_damage_and_flood": "Water Damage and Flood Mission",
         "water_police_specialization": "Water Police Missions (Specialization)",
         "water_rescue": "Water Rescue Missions",
         "water_rescue_specialization": "Water Rescue Missions (Specialization)"
@@ -68,8 +69,11 @@
         "smoke_jumper": "Smoke Jumper Team | SmokeJumper Teams",
         "sniper": "Sharpshooter",
         "title": "Prerequisite | Prerequisites",
+        "traffic_control": "Traffic Control",
         "wasserrettung": "Water Rescue Station | Water Rescue Stations",
-        "water_police_count": "Water Police Expansion | Water Police Expansions"
+        "water_police_count": "Water Police Expansion | Water Police Expansions",
+        "disaster_response_count": "Disater Response Extension | Disater Response Extensions",
+        "water_damage_pump_count": "Flood Control Extension | Flood Control Extensions"
     },
     "prisoners": {
         "max_possible_prisoners": "Maximum Prisoners",
@@ -140,7 +144,10 @@
             "swat_armored_vehicle": "SWAT Armoured Vehicle | SWAT Armoured Vehicles",
             "swat_suv": "SWAT SUV | SWAT SUVs",
             "water_rescue": "Lifeguard Truck | Lifeguard Trucks",
-            "water_tankers": "Water Tanker | Water Tankers"
+            "water_tankers": "Water Tanker | Water Tankers",
+            "flood_equipment": "Flood Equipment | Flood Equipments",
+            "light_supply": "Light Tower Trailer | Light Tower Trailers",
+            "energy_supply": "Energy Supplie | Energy Supplies"
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {

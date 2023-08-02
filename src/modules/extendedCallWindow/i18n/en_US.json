@@ -66,6 +66,8 @@
             "swat_armored_vehicle": "SWAT Armoured Vehicle",
             "swat_suv": "SWAT SUV",
             "wasser_amount": "Gallons of water",
+            "water_damage_pump": "Water Pumps",
+            "water_damage_pump_value": "Pump Capacity",
             "water_drop_helicopter": "Water drop helicopter"
         },
         "headers": {
@@ -88,6 +90,7 @@
         "foam": "gal. foam",
         "missing": "Missing on mission",
         "selected": "Selected",
+        "pump": "gal/min pumping process",
         "staff": [
             { "texts": ["SWAT Personnel"], "vehicles": [16, 26] },
             {
@@ -125,7 +128,7 @@
                 "texts": ["Heavy Rescue Vehicle", "Heavy Rescue Vehicles"],
                 "vehicles": [4, 8, 18, 21, 28, 61, 67]
             },
-            { "texts": ["Mobile Air"], "vehicles": [6] },
+            { "texts": ["Mobile Air"], "vehicles": [6,92] },
             {
                 "texts": ["Water Tanker", "Water Tankers"],
                 "vehicles": [7, 33, 64, 65, 77, 78]
@@ -159,7 +162,7 @@
                 "texts": ["Large rescue boat", "Large rescue boats"],
                 "vehicles": [25]
             },
-            { "texts": ["Light Boat", "Light Boats"], "vehicles": [21, 22] },
+            { "texts": ["Light Boat", "Light Boats"], "vehicles": [21, 22,95] },
             {
                 "texts": ["Wildland fire vehicle", "Wildland fire vehicles"],
                 "vehicles": [30, 31, 32, 35, 36, 37, 38, 39, 40]
@@ -289,6 +292,23 @@
             {
                 "texts": ["Riot Police Trailer", "Riot Police Trailers"],
                 "vehicles": [85]
+            },
+            {
+                "texts": ["Flood Equipment"],
+                "vehicles": [91]
+            },
+            {
+                "texts": ["Energy Supplie", "Energy Supplies"],
+                "vehicles": [94]
+            },
+            {
+                "texts": [
+                    "SES Emergency Lighting Trailer",
+                    "SES Emergency Lighting Trailers",
+                    "Light Tower Trailer",
+                    "Light Tower Trailers"
+                ],
+                "vehicles": [93]
             }
         ],
         "water": "gal. water"

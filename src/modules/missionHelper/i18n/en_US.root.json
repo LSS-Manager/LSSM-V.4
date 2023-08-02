@@ -27,6 +27,16 @@
             "in": "additional",
             "text": "Required SWAT Personnel"
         },
+        "min_pump_speed": {
+            "badge": true,
+            "in": "requirements",
+            "text": "Min. Pump Capacity: {n}"
+        },
+        "pump_water_amount": {
+            "badge": true,
+            "in": "additional",
+            "text": "Water to pump (in Gallons): {n}"
+        },
         "title": "Special requirements",
         "water_needed": {
             "badge": true,
