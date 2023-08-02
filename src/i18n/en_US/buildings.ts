@@ -113,8 +113,11 @@ export default {
                 duration: '5 Days',
                 isVehicleExtension: true,
                 givesParkingLots: 2,
-                unlocksVehicleTypes: [93,94],
-                parkingLotReservations: [[93,94], [93,94]],
+                unlocksVehicleTypes: [93, 94],
+                parkingLotReservations: [
+                    [93, 94],
+                    [93, 94],
+                ],
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
@@ -689,8 +692,11 @@ export default {
                 duration: '5 Days',
                 isVehicleExtension: true,
                 givesParkingLots: 2,
-                unlocksVehicleTypes: [93,94],
-                parkingLotReservations: [[93,94], [93,94]],
+                unlocksVehicleTypes: [93, 94],
+                parkingLotReservations: [
+                    [93, 94],
+                    [93, 94],
+                ],
             },
         ],
         levelcost: [
