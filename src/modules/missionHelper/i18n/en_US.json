@@ -50,6 +50,7 @@
         "coastal_rescue_small_count": "Lifeguard Posts or Coastal Rescue Stations",
         "dea_count": "DEA Expansion | DEA Expansions",
         "detention_unit_count": "detention unit extension | detention unit extensions",
+        "disaster_response_count": "Disater Response Extension | Disater Response Extensions",
         "federalpolice_stations": "Federal Police Station | Federal Police Stations",
         "fire_aviation_count": "Firefighting Plane Station | Firefighting Plane Stations",
         "fire_boat_docks": "fire boat dock | fire boat docks",
@@ -71,9 +72,8 @@
         "title": "Prerequisite | Prerequisites",
         "traffic_control": "Traffic Control",
         "wasserrettung": "Water Rescue Station | Water Rescue Stations",
-        "water_police_count": "Water Police Expansion | Water Police Expansions",
-        "disaster_response_count": "Disater Response Extension | Disater Response Extensions",
-        "water_damage_pump_count": "Flood Control Extension | Flood Control Extensions"
+        "water_damage_pump_count": "Flood Control Extension | Flood Control Extensions",
+        "water_police_count": "Water Police Expansion | Water Police Expansions"
     },
     "prisoners": {
         "max_possible_prisoners": "Maximum Prisoners",
@@ -113,6 +113,7 @@
             "detention_unit": "Police Prisoner Van | Police Prisoner Van",
             "elw_police": "Police MCV | Police MCVs",
             "elw3": "Wildland MCC | Wildland MCCs",
+            "energy_supply": "Energy Supplie | Energy Supplies",
             "fbi": "FBI Unit | FBI Units",
             "fbi_bomb": "FBI Bomb Technician Vehicle | FBI Bomb Technician Vehicles",
             "fbi_drone": "FBI Surveillance Drone | FBI Surveillance Drones",
@@ -121,6 +122,7 @@
             "fire_aviation": "Airborne Firefighting Vehicle | Airborne Firefighting Vehicles",
             "fire_investigation": "Fire Investigation Unit | Fire Investigation Units",
             "firetrucks": "Fire Engine | Fire Engines",
+            "flood_equipment": "Flood Equipment | Flood Equipments",
             "foam": "Foam Tender | Foam Tenders",
             "game_warden": "Warden Truck | Warden Trucks",
             "gw_wasserrettung": "Lifeguard Truck | Lifeguard Trucks",
@@ -132,6 +134,7 @@
             "large_coastal_boat": "Large Coastal Boat | Large Coastal Boats",
             "large_fire_boat": "Large Fire Boat | Large Fire Boats",
             "large_rescue_boat": "Large  Rescue Boat | Large Rescue Boats",
+            "light_supply": "Light Tower Trailer | Light Tower Trailers",
             "mobile_air_vehicles": "Mobile Air Unit | Mobile Air Units",
             "mobile_command_vehicles": "Mobile Command Vehicle | Mobile Command Vehicles",
             "platform_trucks": "Platform Truck | Platform Trucks",
@@ -144,10 +147,7 @@
             "swat_armored_vehicle": "SWAT Armoured Vehicle | SWAT Armoured Vehicles",
             "swat_suv": "SWAT SUV | SWAT SUVs",
             "water_rescue": "Lifeguard Truck | Lifeguard Trucks",
-            "water_tankers": "Water Tanker | Water Tankers",
-            "flood_equipment": "Flood Equipment | Flood Equipments",
-            "light_supply": "Light Tower Trailer | Light Tower Trailers",
-            "energy_supply": "Energy Supplie | Energy Supplies"
+            "water_tankers": "Water Tanker | Water Tankers"
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {

@@ -1354,11 +1354,12 @@ export default {
             max: 0,
         },
         icon: 'car-side',
-        special: "Needed towing vehicle (Water Ladder, Light 4X4 Pump (L4P), Rescue Support Unit (RSU))",
+        special:
+            'Needed towing vehicle (Water Ladder, Light 4X4 Pump (L4P), Rescue Support Unit (RSU))',
         pumpCapacity: 4000,
         pumpType: 'fire',
         possibleBuildings: [0, 18],
         isTrailer: true,
-        tractiveVehicles: [0,1,4],
+        tractiveVehicles: [0, 1, 4],
     },
 } satisfies Record<number, InternalVehicle>;

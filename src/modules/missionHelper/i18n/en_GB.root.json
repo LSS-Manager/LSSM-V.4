@@ -7,11 +7,6 @@
             "in": "additional",
             "text": "Average min . Fire Personnel"
         },
-        "swat_personnel": {
-            "badge": false,
-            "in": "additional",
-            "text": "Required Armed Response Personnel"
-        },
         "min_pump_speed": {
             "badge": true,
             "in": "requirements",
@@ -21,6 +16,11 @@
             "badge": true,
             "in": "additional",
             "text": "Water to pump (in Litres): {n}"
+        },
+        "swat_personnel": {
+            "badge": false,
+            "in": "additional",
+            "text": "Required Armed Response Personnel"
         },
         "title": "Special requirements"
     },

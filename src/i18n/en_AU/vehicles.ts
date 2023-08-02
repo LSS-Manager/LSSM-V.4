@@ -641,7 +641,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [15],
         isTrailer: true,
-        tractiveVehicles: [20,40],
+        tractiveVehicles: [20, 40],
         special: 'Can be towed by SES Vehicle or SES Rescue Truck',
     },
     43: {
@@ -662,7 +662,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        waterTank: 14000,
+        waterTank: 14_000,
     },
     44: {
         caption: 'RIV',
@@ -731,7 +731,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [15],
         isTrailer: true,
-        tractiveVehicles: [20,40,46],
+        tractiveVehicles: [20, 40, 46],
         special: 'Can be towed by SES Vehicle, SES FOV, SES Rescue Truck',
     },
     48: {
@@ -743,7 +743,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [15],
         isTrailer: true,
-        tractiveVehicles: [20,40,46],
+        tractiveVehicles: [20, 40, 46],
         pumpCapacity: 5000,
         pumpType: 'fire',
         special: 'Can be towed by SES Vehicle, SES FOV, SES Rescue Truck',
@@ -757,7 +757,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [15],
         isTrailer: true,
-        tractiveVehicles: [20,40,46],
+        tractiveVehicles: [20, 40, 46],
         special: 'Can be towed by SES Vehicle, SES FOV, SES Rescue Truck',
     },
     50: {
@@ -769,7 +769,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [15],
         isTrailer: true,
-        tractiveVehicles: [20,40,46],
+        tractiveVehicles: [20, 40, 46],
         special: 'Can be towed by SES Vehicle, SES FOV, SES Rescue Truck',
     },
     51: {
@@ -781,7 +781,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [15],
         isTrailer: true,
-        tractiveVehicles: [20,40,46],
+        tractiveVehicles: [20, 40, 46],
         special: 'Can be towed by SES Vehicle, SES FOV, SES Rescue Truck',
     },
     52: {
@@ -793,7 +793,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [15],
         isTrailer: true,
-        tractiveVehicles: [20,40,46],
+        tractiveVehicles: [20, 40, 46],
         special: 'Can be towed by SES Vehicle, SES FOV, SES Rescue Truck',
     },
     53: {
@@ -805,7 +805,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [15],
         isTrailer: true,
-        tractiveVehicles: [20,40,46],
+        tractiveVehicles: [20, 40, 46],
         special: 'Can be towed by SES Vehicle, SES FOV, SES Rescue Truck',
     },
     54: {
@@ -817,7 +817,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [15],
         isTrailer: true,
-        tractiveVehicles: [20,40,46],
+        tractiveVehicles: [20, 40, 46],
         special: 'Can be towed by SES Vehicle, SES FOV, SES Rescue Truck',
     },
 } satisfies Record<number, InternalVehicle>;

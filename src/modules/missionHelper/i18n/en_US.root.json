@@ -17,16 +17,6 @@
             "in": "requirements",
             "text": "Foam: {n} gallon | Foam: {n} gallons"
         },
-        "smoke_jumper_personnel": {
-            "badge": false,
-            "in": "additional",
-            "text": "Required Smoke Jumpers (in Smoke Jumper Planes)"
-        },
-        "swat_personnel": {
-            "badge": false,
-            "in": "additional",
-            "text": "Required SWAT Personnel"
-        },
         "min_pump_speed": {
             "badge": true,
             "in": "requirements",
@@ -36,6 +26,16 @@
             "badge": true,
             "in": "additional",
             "text": "Water to pump (in Gallons): {n}"
+        },
+        "smoke_jumper_personnel": {
+            "badge": false,
+            "in": "additional",
+            "text": "Required Smoke Jumpers (in Smoke Jumper Planes)"
+        },
+        "swat_personnel": {
+            "badge": false,
+            "in": "additional",
+            "text": "Required SWAT Personnel"
         },
         "title": "Special requirements",
         "water_needed": {
