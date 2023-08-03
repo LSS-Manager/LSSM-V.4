@@ -376,16 +376,16 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
-        ...(locale !== 'fr_FR'
-            ? {
+        ...(['fr_FR', 'en_GB'].includes(locale)
+            ? null // note that it is disabled on above locales
+            : {
                   'optionalAlternatives.allow_police_motorcycle_instead_of_fustw':
                       <Toggle>{
                           type: 'toggle',
                           default: false,
                           dependsOn: '.vehicles.content',
                       },
-              }
-            : null),
+              }),
         'hide_on_Krankentransport': <Toggle>{
             type: 'toggle',
             default: false,
