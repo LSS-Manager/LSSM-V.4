@@ -391,7 +391,11 @@ export default async ({
         replyField.before(addon);
 
         replyField.addEventListener('keydown', e => {
-            if (e.key !== 'Enter') return;
+            if (
+                e.key !== 'Enter' ||
+                replyField.dataset.userChoiceOpen === 'true'
+            )
+                return;
             e.preventDefault();
             replyField.nextElementSibling
                 ?.querySelector<HTMLButtonElement>('button[type="submit"]')

@@ -1,1 +1,5 @@
-{ "github": 34, "location": "^(/alliance_chats)?/?$", "settings": true }
+{
+    "github": 34,
+    "location": "^(/alliance_chats|/missions/\\d+)?/?$",
+    "settings": true
+}
