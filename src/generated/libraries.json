@@ -228,7 +228,7 @@
     "eslint-plugin-vue": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://eslint.vuejs.org",
-        "version": "9.15.1"
+        "version": "9.16.1"
     },
     "he": {
         "url": "https://mths.be/he",
