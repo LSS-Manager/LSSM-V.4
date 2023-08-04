@@ -197,7 +197,7 @@
     },
     "eslint-plugin-import": {
         "url": "https://github.com/import-js/eslint-plugin-import",
-        "version": "2.27.5"
+        "version": "2.28.0"
     },
     "eslint-plugin-jsdoc": {
         "version": "46.4.5"
