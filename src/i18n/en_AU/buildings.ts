@@ -50,7 +50,7 @@ export default {
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-        maxBuildings: '6.000 together with small fire stations',
+        maxBuildings: 'No limit',
         maxLevel: 16,
         special:
             'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. The Coins price remains constant!',
@@ -58,7 +58,6 @@ export default {
         startVehicles: ['Pumper', 'Medium Tanker', ' Heavy Tanker'],
         schoolingTypes: ['Fire Station'],
         startParkingLots: 1,
-        maxBuildingsFunction: (): number => 6000,
         icon: 'fire-flame-curved',
     },
     1: {
@@ -311,7 +310,7 @@ export default {
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-        maxBuildings: '1.700 together with small police stations',
+        maxBuildings: 'No limit',
         maxLevel: 16,
         special:
             'From the 24th police station onwards, the costs for the new construction of a police station increase according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. The Coins price remains constant!',
@@ -320,7 +319,6 @@ export default {
         schoolingTypes: ['Police'],
         startParkingLots: 1,
         startCells: 0,
-        maxBuildingsFunction: (): number => 1700,
         icon: 'building-shield',
     },
     7: {
@@ -543,7 +541,7 @@ export default {
             '3.-5. 100.000',
             'Conversion to normal guard: difference price to normal guard',
         ],
-        maxBuildings: '6.000 together with fire stations',
+        maxBuildings: 'No limit',
         maxLevel: 5,
         special:
             'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>(50.000+100.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
@@ -551,7 +549,6 @@ export default {
         startVehicles: ['Pumper', 'Medium Tanker', ' Heavy Tanker'],
         schoolingTypes: ['Fire Station'],
         startParkingLots: 1,
-        maxBuildingsFunction: (): number => 6000,
         icon: 'fire-flame-curved',
     },
     19: {
@@ -605,7 +602,7 @@ export default {
             '3.-4. 100.000',
             'Conversion to normal guard: difference price to normal guard',
         ],
-        maxBuildings: '1.700 mit Polizeiwachen zusammen',
+        maxBuildings: 'No limit',
         maxLevel: 4,
         special:
             'From the 24th police station onwards, the costs for the new construction of a police station are calculated according to the following formula: <code>(50.000+100.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
@@ -614,7 +611,6 @@ export default {
         schoolingTypes: ['Police'],
         startParkingLots: 1,
         startCells: 0,
-        maxBuildingsFunction: (): number => 1700,
         icon: 'building-shield',
     },
     20: {

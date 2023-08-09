@@ -66,7 +66,7 @@ export default {
             },
         ],
         levelcost: ['1. 10 000', '2. 50 000', '3-24. 100 000'],
-        maxBuildings: '6 000',
+        maxBuildings: 'Aucune limite',
         maxLevel: 24,
         special:
             'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>100 000+(200 000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
@@ -74,7 +74,6 @@ export default {
         startVehicles: ['FPT', 'FPTL', 'FPTSR', 'CCRL', 'CCRM', 'CCRSR'],
         schoolingTypes: ['Centre de secours'],
         startParkingLots: 1,
-        maxBuildingsFunction: (): number => 6000,
         icon: 'fire-flame-curved',
     },
     1: {
@@ -301,14 +300,13 @@ export default {
             ),
         ],
         levelcost: ['1. 10 000', '2. 50 000', '3-14. 100 000'],
-        maxBuildings: '1 700 postes de police/gendarmerie',
+        maxBuildings: 'Aucune limite',
         maxLevel: 14,
         startPersonnel: 2,
         startVehicles: ['Véhicule de patrouille'],
         schoolingTypes: ['Poste de police'],
         startParkingLots: 1,
         startCells: 0,
-        maxBuildingsFunction: (): number => 1700,
         special: '',
         icon: 'building-shield',
     },
@@ -586,7 +584,7 @@ export default {
             '3-5. 100 000',
             "Ceci est une petite caserne. Si vous souhaitez construire des extensions ou augmenter le nombre d'emplacements de véhicules, vous devez l'améliorer pour en faire une caserne ordinaire. Ce processus prend 24 heures.",
         ],
-        maxBuildings: '6 000 casernes de pompiers',
+        maxBuildings: 'Aucune limite',
         maxLevel: 5,
         special:
             'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>(50 000+100 000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
@@ -594,7 +592,6 @@ export default {
         startVehicles: ['FPT', 'FPTL', 'FPTSR', 'CCRL', 'CCRM', 'CCRSR'],
         schoolingTypes: ['Centre de secours'],
         startParkingLots: 1,
-        maxBuildingsFunction: (): number => 6000,
         icon: 'fire-flame-curved',
     },
     19: {
@@ -631,7 +628,7 @@ export default {
             '3-4. 100 000',
             'Ceci est un petit poste de police. Si vous souhaitez l’agrandir ou bâtir davantage d’extensions, vous devez le reconstruire pour en faire un poste de police ordinaire. Ce processus prend 24 heures.',
         ],
-        maxBuildings: '1 700 postes de police/gendarmerie',
+        maxBuildings: 'Aucune limite',
         maxLevel: 4,
         special:
             'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>(50 000+100 000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
@@ -640,7 +637,6 @@ export default {
         startCells: 0,
         startVehicles: ['Véhicule de patrouille'],
         schoolingTypes: ['Poste de police'],
-        maxBuildingsFunction: (): number => 1700,
         icon: 'building-shield',
     },
     20: {
