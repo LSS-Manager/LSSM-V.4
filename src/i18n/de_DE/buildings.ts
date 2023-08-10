@@ -286,7 +286,7 @@ export default {
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
-                    (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
+                    (boughtExtensionsAmountByType[2][0] ?? 0) < maxExtensions,
                 isVehicleExtension: true,
                 givesParkingLots: 10,
                 cannotDisable: true,
@@ -418,9 +418,9 @@ export default {
                 duration: '7 Tage',
                 maxExtensionsFunction: (
                     buildingsByType: Record<number, Building[]>
-                ): number => Math.floor((buildingsByType[0]?.length ?? 4) / 5),
+                ): number => Math.floor((buildingsByType[4]?.length ?? 4) / 5),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
-                    (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
+                    (boughtExtensionsAmountByType[4][9] ?? 0) < maxExtensions,
                 newBeds: 10,
                 cannotDisable: true,
             },
@@ -540,7 +540,7 @@ export default {
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
-                    (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
+                    (boughtExtensionsAmountByType[6][14] ?? 0) < maxExtensions,
                 isVehicleExtension: true,
                 givesParkingLots: 10,
                 cannotDisable: true,
@@ -559,7 +559,7 @@ export default {
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
-                    (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
+                    (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
                 isVehicleExtension: true,
                 givesParkingLots: 1,
                 newCells: 10,
