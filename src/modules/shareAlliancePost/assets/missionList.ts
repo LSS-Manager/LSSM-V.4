@@ -29,7 +29,8 @@ const createLi = <I extends 'comment-slash' | 'comment'>(
     a.textContent = content;
     if (icon) {
         const iconEl = createIcon(icon, 'fas', 'fa-fw', 'pull-right');
-        iconEl.style.setProperty('margin-right', '7px');
+        iconEl.style.setProperty('margin-right', '12px');
+        iconEl.style.setProperty('margin-left', '1ch');
         a.append(iconEl, createEditBtn(editBtnClass));
     }
     li.append(a);
@@ -57,6 +58,7 @@ export default (
 
     const dropdown = document.createElement('ul');
     dropdown.classList.add('dropdown-menu', dropdownClass);
+    dropdown.style.setProperty('width', 'max-content');
 
     if (!isStayMode) {
         const noMessageLi = createLi(noMessage);

@@ -306,6 +306,7 @@ export default async ({
 
     const dropdown = document.createElement('ul');
     dropdown.classList.add('dropdown-menu', dropdownClass);
+    dropdown.style.setProperty('width', 'max-content');
 
     const addMessagesToDropdown = (
         btn: HTMLButtonElement,
@@ -348,7 +349,8 @@ export default async ({
                         a.append(icon);
 
                         if (editable) {
-                            icon.style.setProperty('margin-right', '7px');
+                            icon.style.setProperty('margin-right', '12px');
+                            icon.style.setProperty('margin-left', '1ch');
                             a.append(createEditBtn(editBtnClass));
                         }
 
