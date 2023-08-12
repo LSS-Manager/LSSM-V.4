@@ -17,52 +17,47 @@ export default (
         vehicleTypes: (number | string)[];
         color: `#${string}`;
     }[],
-    stagingMode: boolean,
+    isStagingArea: boolean,
     $m: $m,
     $mc: $mc
 ): void => {
-    const missionHelpBtn =
-        document.querySelector<HTMLAnchorElement>('#mission_help');
-    const isDiyMission = !missionHelpBtn;
-    let missionTypeID = '-1';
-    if (!isDiyMission)
-        missionTypeID = LSSM.$utils.getMissionTypeInMissionWindow();
+    const missionTypeID = LSSM.$utils.getMissionTypeInMissionWindow();
 
+    const initiallyActiveTabName =
+        document
+            ?.querySelector<HTMLLIElement>('#tabs > li.active')
+            ?.textContent?.trim()
+            .toLowerCase() ?? '';
+
+    // if this is a transfer mission, tailored tabs are not available
     if (
-        !stagingMode &&
+        !isStagingArea &&
         Object.values(LSSM.$t('transfer_missions') as unknown as number[])
             .map(m => m.toString())
             .includes(missionTypeID)
     )
         return;
 
-    const activeTabName =
-        document
-            ?.querySelector<HTMLLIElement>('#tabs > li.active')
-            ?.textContent?.trim() ?? '';
-
-    Array.from(
-        document.querySelectorAll<HTMLAnchorElement>(
-            '#tabs > li > a:not([href="#all"]):not([href="#occupied"])'
+    // remove all existing tabs except all and occupied
+    const tabList =
+        document.querySelector<HTMLUListElement>('#tabs') ??
+        document.createElement('ul');
+    tabList
+        ?.querySelectorAll<HTMLLIElement>(
+            'li > a:not([tabload="all"]):not([tabload="occupied"])'
         )
-    ).forEach(e => {
-        const target = e.getAttribute('href');
-        if (target) document.querySelector(target)?.remove();
-        e.parentElement?.remove();
-    });
+        .forEach(tab => tab.closest('li')?.remove());
+    document
+        .querySelectorAll<HTMLDivElement>(
+            '#col_right .tab-content > div:not([id="all"]):not([id="occupied"])'
+        )
+        .forEach(tab => tab.remove());
 
-    let tabList = document.querySelector<HTMLUListElement>('#tabs');
-    let allTab = tabList?.querySelector<HTMLLIElement>(
-        '#tabs > li:first-child'
-    );
-    let occupiedTab = tabList?.querySelector<HTMLLIElement>(
-        '#tabs > li:last-child'
-    );
-    const occupiedTabActive =
-        occupiedTab?.classList.contains('active') ?? false;
-    let panelWrapper = document.querySelector<HTMLDivElement>(
-        '#vehicle_list_step .tab-content'
-    );
+    const DATASET_ATTR = 'ecwTtIndex';
+    const DATASET_ATTR_SELECTOR = `data-${DATASET_ATTR.replace(
+        /([A-Z])/gu,
+        '-$1'
+    ).toLowerCase()}`;
 
     const vehicleTypes = LSSM.$stores.translations.vehicles;
 
@@ -98,10 +93,12 @@ export default (
 
         const showAlert = () => {
             LSSM.$modal.show('dialog', {
-                title: $mc(
+                title: `[${$m('name')} – ${$m(
+                    'settings.tailoredTabs.title'
+                )}]: ${$mc(
                     'tailoredTabs.vehicleMissing.title',
                     vehiclesNotInTabs.length
-                ),
+                )}`,
                 text: `${$m(
                     'tailoredTabs.vehicleMissing.text'
                 )}<ul>${vehiclesNotInTabs
@@ -145,240 +142,161 @@ export default (
             );
     }
 
-    if (!document.querySelector('#vehicle_list_step')) {
-        const vehicleListStep = document.createElement('div');
-        vehicleListStep.setAttribute('id', 'vehicle_list_step');
-        document
-            .querySelector('form > table#vehicle_show_table_all')
-            ?.parentElement?.insertBefore(
-                vehicleListStep,
-                document.querySelector('table#vehicle_show_table_all')
-            );
-    }
-    if (!tabList) {
-        tabList = document.createElement('ul');
+    // if this is a staging area, add a wrapper and tab for all vehicles
+    if (isStagingArea) {
         tabList.classList.add('nav', 'nav-tabs');
-        tabList.setAttribute('role', 'tablist');
-        tabList.setAttribute('id', 'tabs');
-        document.querySelector('#vehicle_list_step')?.append(tabList);
-    }
-    if (!allTab) {
-        allTab = document.createElement('li');
-        allTab.setAttribute('role', 'presentation');
+
+        const allTab = document.createElement('li');
         allTab.classList.add('active');
+        allTab.dataset[DATASET_ATTR] = '-1';
         const allTabA = document.createElement('a');
         allTabA.setAttribute('href', '#all');
-        allTabA.setAttribute('tabload', 'all');
-        allTabA.setAttribute('aria-controls', 'all');
-        allTabA.setAttribute('role', 'tab');
-        allTabA.setAttribute('data-toggle', 'tab');
-        allTabA.setAttribute('aria-expanded', 'true');
-        allTabA.textContent = $m(`tailoredTabs.allTab`) as string;
+        allTabA.textContent = $m(`tailoredTabs.allTab`).toString();
         allTab.append(allTabA);
+
         tabList.append(allTab);
-    }
-    if (!occupiedTab) {
-        occupiedTab = document.createElement('li');
-        occupiedTab.setAttribute('role', 'presentation');
-        occupiedTab.classList.add('hidden');
-        const occupiedTabA = document.createElement('a');
-        occupiedTabA.setAttribute('href', '#occupied');
-        occupiedTabA.setAttribute('tabload', 'occupied');
-        occupiedTabA.textContent = <string>$m(`tailoredTabs.occupiedTab`);
-        occupiedTab.append(occupiedTabA);
-        tabList.append(occupiedTab);
-    }
-    if (!panelWrapper) {
-        panelWrapper = document.createElement('div');
-        panelWrapper.classList.add('tab-content');
-        const panelDiv = document.createElement('div');
-        panelDiv.classList.add('tab-pane', 'active');
-        panelDiv.setAttribute('id', 'all');
-        panelDiv.setAttribute('role', 'tabpanel');
-        const allVehicleTable = document.querySelector(
-            '#vehicle_show_table_all'
-        ) as HTMLTableElement | null;
-        if (!allVehicleTable) return;
-        allVehicleTable?.setAttribute('role', 'grid');
-        panelDiv.append(allVehicleTable);
-        panelWrapper.append(panelDiv);
-        document.querySelector('#vehicle_list_step')?.append(panelWrapper);
-    }
-
-    const panels = {} as Record<string, HTMLDivElement>;
-    const tabBar = {
-        all: { tablesorterId: null },
-        occupied: { tablesorterId: 'vehicle_show_table_occupied' },
-    } as Record<
-        string,
-        {
-            tablesorterId: string | null;
-        }
-    >;
-    const vehicleTypeMap = {} as Record<string, string[]>;
-    const idByName: Record<string, string> = {};
-    tabs.forEach(({ name, vehicleTypes, color }) => {
-        if (!tabList || !allTab || !occupiedTab || !panelWrapper) return;
-        const tabId = LSSM.$stores.root.nodeAttribute(
-            `tailoredtabs-${name}`,
-            true
+        document.querySelector('#vehicle_show_table_all')?.before(tabList);
+    } else {
+        const originalAllTab = document.querySelector<HTMLLIElement>(
+            '#tabs > li:first-child'
         );
+        if (originalAllTab) originalAllTab.dataset[DATASET_ATTR] = '-1';
+    }
 
-        const tabSelector = document.createElement('li');
-        tabSelector.setAttribute('role', 'presentation');
-        const tabLink = document.createElement('a');
-        tabLink.href = `#${tabId}`;
-        tabLink.setAttribute('tabload', tabId);
-        tabLink.textContent = name;
-        tabSelector.append(tabLink);
-        occupiedTab.before(tabSelector);
+    // add the custom tabs to tabList
+    tabs.forEach(({ name, color }, index) => {
+        const tabLi = document.createElement('li');
+        tabLi.dataset[DATASET_ATTR] = index.toString();
+        const tabA = document.createElement('a');
+        tabA.setAttribute('href', `#`);
+        tabA.textContent = name;
 
         if (color !== (LSSM.$stores.root.isDarkMode ? '#505050' : '#fff')) {
-            tabLink.style.setProperty('background-color', color);
-            tabLink.style.setProperty(
+            tabA.style.setProperty('background-color', color);
+            tabA.style.setProperty(
                 'color',
                 isLightColor(color) ? '#000' : '#fff'
             );
         }
 
-        const tabPane = document.createElement('div');
-        tabPane.classList.add('tab-pane');
-        tabPane.id = tabId;
-        tabPane.setAttribute('role', 'tabpanel');
-
-        const tabTable = document.createElement('table');
-        tabTable.classList.add('table', 'table-striped');
-        tabTable.id = `vehicle_show_table_${tabId}`;
-
-        const thead = document.createElement('thead');
-        const headRow = document.createElement('tr');
-        const searchHead = document.createElement('th');
-        searchHead.style.width = '20px';
-        const searchLink = document.createElement('a');
-        searchLink.href = '#';
-        searchLink.setAttribute('table_id', tabId);
-        searchLink.classList.add('show_hide_search');
-        const searchSpan = document.createElement('span');
-        searchSpan.classList.add('glyphicon', 'glyphicon-search');
-        const emptyHead = document.createElement('th');
-        emptyHead.style.width = '20px';
-        const vehicleHead = document.createElement('th');
-        vehicleHead.textContent = LSSM.$tc('vehicle', 0);
-        const distanceHead = document.createElement('th');
-        distanceHead.textContent = LSSM.$tc('distance', 1).toString();
-        const stationHead = document.createElement('th');
-        stationHead.classList.add('hidden-xs');
-        stationHead.textContent = LSSM.$tc('station', 1).toString();
-        const searchRow = document.createElement('tr');
-        searchRow.classList.add('mission_vehicle_search_outer');
-        searchRow.id = `mission_vehicle_search_outer_${tabId}`;
-        const searchWrapper = document.createElement('th');
-        searchWrapper.colSpan = 5;
-        const searchInput = document.createElement('input');
-        searchInput.type = 'text';
-        searchInput.setAttribute('table_id', tabId);
-        searchInput.classList.add('mission_vehicle_search_input');
-        searchInput.id = `search_field_${tabId}`;
-
-        const tbody = document.createElement('tbody');
-        tbody.id = `vehicle_show_table_body_${tabId}`;
-
-        searchLink.append(searchSpan);
-        searchHead.append(searchLink);
-        headRow.append(searchHead);
-        headRow.append(emptyHead);
-        headRow.append(vehicleHead);
-        headRow.append(distanceHead);
-        headRow.append(stationHead);
-        thead.append(headRow);
-        searchWrapper.append(searchInput);
-        searchRow.append(searchWrapper);
-        thead.append(searchRow);
-        tabTable.append(thead);
-        tabTable.append(tbody);
-        tabPane.append(tabTable);
-
-        panelWrapper.append(tabPane);
-
-        panels[tabId] = tabPane;
-        tabBar[tabId] = { tablesorterId: `vehicle_show_table_${tabId}` };
-        vehicleTypeMap[tabId] = vehicleTypes.map(v => v.toString());
-        idByName[name] = tabId;
+        tabLi.append(tabA);
+        tabList.append(tabLi);
     });
+    // move the occupied tab to the end (if it exists)
+    const occupiedTab = tabList
+        .querySelector<HTMLLIElement>('li > a[tabload="occupied"]')
+        ?.closest('li');
+    if (occupiedTab) tabList.append(occupiedTab);
 
-    if (stagingMode) {
-        document
-            .querySelector<HTMLTableSectionElement>(
-                '#vehicle_show_table_body_all'
-            )
-            ?.addEventListener('change', ({ target }) => {
-                const checkbox = target as HTMLInputElement;
-                document
-                    .querySelectorAll<HTMLInputElement>(
-                        `.vehicle_checkbox[value="${checkbox.getAttribute(
-                            'value'
-                        )}"]`
+    const allTable = document.querySelector<HTMLTableElement>(
+        '#vehicle_show_table_all'
+    );
+    const allTbody = allTable?.querySelector<HTMLTableSectionElement>('tbody');
+
+    if (!allTable || !allTbody) return;
+
+    const hiddenTBody = document.createElement('tbody');
+    hiddenTBody.classList.add('hidden');
+    allTable.append(hiddenTBody);
+
+    const showRow = (vehicle: HTMLInputElement): void => {
+        const row = vehicle.parentElement?.parentElement;
+        if (row) allTbody.append(row);
+    };
+    const hideRow = (vehicle: HTMLInputElement): void => {
+        const row = vehicle.parentElement?.parentElement;
+        if (row) hiddenTBody.append(row);
+    };
+
+    const filter = (vehicleTypes: string[], showAll: boolean) =>
+        [allTbody, hiddenTBody].forEach(table =>
+            table
+                .querySelectorAll<HTMLInputElement>(
+                    'tr td input.vehicle_checkbox[vehicle_type_id]'
+                )
+                .forEach(checkbox => {
+                    if (showAll) return showRow(checkbox);
+
+                    const vehicleType =
+                        checkbox.getAttribute('vehicle_type_id') ?? '';
+                    const customVehicleType = `${vehicleType}-${
+                        checkbox.parentElement?.parentElement?.getAttribute(
+                            'vehicle_type'
+                        ) ?? ''
+                    }`;
+                    const isCustomVehicleType =
+                        !checkbox.hasAttribute('custom_');
+                    if (
+                        vehicleTypes.includes(vehicleType) ||
+                        vehicleTypes.includes(customVehicleType) ||
+                        (!isCustomVehicleType &&
+                            vehicleTypes.includes(`${vehicleType}*`))
                     )
-                    .forEach(box => (box.checked = checkbox.checked));
-            });
-    }
+                        showRow(checkbox);
+                    else hideRow(checkbox);
+                })
+        );
 
+    // handle clicks on custom tabs
     tabList.addEventListener('click', e => {
-        if (!tabList || !allTab || !occupiedTab || !panelWrapper) return;
-        const tabSelector = (e.target as HTMLElement)?.closest('a[tabload]');
-        const tab = tabSelector?.getAttribute('tabload');
-        if (!tabSelector || !tab || ['all', 'occupied'].includes(tab)) return;
+        const target = e.target;
+        if (!(target instanceof HTMLElement)) return;
+        const targetLi = target.closest<HTMLLIElement>(
+            `li[${DATASET_ATTR_SELECTOR}]`
+        );
+        if (!targetLi) return;
         e.preventDefault();
 
-        tabList.querySelector('li.active')?.classList.remove('active');
-        tabSelector.parentElement?.classList.add('active');
+        // set active class to current tab
+        tabList
+            .querySelector<HTMLLIElement>('li.active')
+            ?.classList.remove('active');
+        targetLi.classList.add('active');
+
+        // hide occupied table and show all table
         document
-            .querySelector<HTMLDivElement>('#all')
+            .querySelector<HTMLDivElement>('.tab-content #occupied.active')
             ?.classList.remove('active');
         document
-            .querySelector<HTMLDivElement>('#occupied')
-            ?.classList.remove('active');
-        Object.entries(panels).forEach(([id, panel]) =>
-            panel.classList[id === tab ? 'add' : 'remove']('active')
+            .querySelector<HTMLDivElement>('.tab-content #all')
+            ?.classList.add('active');
+
+        // tab index of -1 indicates all tab in staging area
+        const tabIndex = parseInt(targetLi.dataset[DATASET_ATTR] ?? '-1');
+
+        const vehicleTypes = (tabs[tabIndex]?.vehicleTypes ?? []).map(vt =>
+            vt.toString()
         );
 
-        const tableSorterId = tabBar[tab].tablesorterId;
-        if (!tableSorterId) return;
-        const tableSorterEl = document.querySelector<HTMLTableElement>(
-            `#${tableSorterId}`
+        filter(vehicleTypes, tabIndex === -1);
+
+        if (tabIndex === -1)
+            // trigger sort
+            $(allTable).trigger('update');
+    });
+
+    // trigger filter after sorting as sorting re-adds rows to the table
+    $(allTable).on('sortEnd', () => {
+        const tabIndex = parseInt(
+            tabList.querySelector<HTMLLIElement>('li.active')?.dataset[
+                DATASET_ATTR
+            ] ?? '-1'
         );
-        if (!tableSorterEl) return;
+        if (tabIndex !== -1) {
+            filter(
+                tabs[tabIndex].vehicleTypes.map(vt => vt.toString()),
+                false
+            );
+        } else {
+            filter([], true);
+        }
+    });
 
-        const vehicles = Array.from(
-            document.querySelectorAll<HTMLInputElement>(
-                '#vehicle_show_table_body_all tr td input.vehicle_checkbox[vehicle_type_id]'
-            )
-        )
-            .filter(v => {
-                const vehicleType = v.getAttribute('vehicle_type_id') ?? '';
-                const customVehicleType = `${vehicleType}-${
-                    v.parentElement?.parentElement?.getAttribute(
-                        'vehicle_type'
-                    ) ?? ''
-                }`;
-                const isCustomVehicleType = !v.hasAttribute('custom_');
-                return (
-                    vehicleTypeMap[tab].includes(vehicleType) ||
-                    vehicleTypeMap[tab].includes(customVehicleType) ||
-                    (!isCustomVehicleType &&
-                        vehicleTypeMap[tab].includes(`${vehicleType}*`))
-                );
-            })
-            .map(v => v.parentElement?.parentElement)
-            .filter(v => !!v) as HTMLTableRowElement[];
-
-        const tbody = tableSorterEl.querySelector('tbody');
-        if (!tbody) return;
-        tbody.innerHTML = '';
-        tbody.append(...vehicles.map(v => v.cloneNode(true)));
+    // in staging area init sorting
+    if (isStagingArea) {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        $<HTMLTableElement>(`#${tableSorterId}`).tablesorter({
+        // @ts-ignore as we don't have the types for tableSorter-Plugin
+        $(allTable).tablesorter({
             sortList: [[3, 0]],
             headers: {
                 3: {
@@ -390,20 +308,18 @@ export default (
                 0: {
                     sorter: false,
                 },
-                1: {
-                    sorter: false,
-                },
             },
         });
-    });
+    }
 
-    tabList
-        .querySelector<HTMLAnchorElement>(
-            `#tabs > li > a[href="#${
-                occupiedTabActive
-                    ? 'occupied'
-                    : idByName[activeTabName] || 'all'
-            }"]`
-        )
-        ?.click();
+    const initiallyActiveTabIndex = tabs.findIndex(
+        ({ name }) => name.toLowerCase() === initiallyActiveTabName
+    );
+    if (initiallyActiveTabIndex !== -1) {
+        tabList
+            .querySelector<HTMLLIElement>(
+                `li[${DATASET_ATTR_SELECTOR}="${initiallyActiveTabIndex}"]`
+            )
+            ?.click();
+    }
 };
