@@ -60,13 +60,6 @@ export default (
     ).toLowerCase()}`;
 
     const vehicleTypes = LSSM.$stores.translations.vehicles;
-    const tractiveTypes = Array.from(
-        new Set(
-            Object.values(vehicleTypes).flatMap(vehicle =>
-                vehicle.isTrailer ? vehicle.tractiveVehicles : []
-            )
-        )
-    ).map(v => v.toString());
 
     const vehiclesInTabs = [
         ...new Set(tabs.flatMap(({ vehicleTypes }) => vehicleTypes)),
@@ -202,52 +195,75 @@ export default (
 
     if (!allTable || !allTbody) return;
 
-    // tractive vehicles need to be in DOM but non-tractives can be outside of DOM for performance reasons
-    const tractiveTBody = document.createElement('tbody');
-    tractiveTBody.classList.add('hidden');
-    allTable.append(tractiveTBody);
-    const hiddenTBody = document.createElement('tbody');
+    const HIDDEN_CLASS = LSSM.$stores.root.nodeAttribute('ecw-tt-row_hidden');
+    const LIGHT_CLASS = LSSM.$stores.root.nodeAttribute('ecw-tt-row_light');
+    let isLightRow = true;
+
+    const lightColor = LSSM.$stores.root.isDarkMode ? '#505050' : '#ffffff';
+    const darkColor = LSSM.$stores.root.isDarkMode ? '#323232' : '#f9f9f9';
+
+    LSSM.$stores.root.addStyles([
+        {
+            selectorText: `#vehicle_show_table_all tbody tr.${HIDDEN_CLASS}`,
+            style: {
+                display: 'none !important',
+            },
+        },
+        {
+            selectorText: `#vehicle_show_table_all tbody tr`,
+            style: {
+                'background-color': darkColor,
+            },
+        },
+        {
+            selectorText: `#vehicle_show_table_all tbody tr.${LIGHT_CLASS}`,
+            style: {
+                'background-color': lightColor,
+            },
+        },
+    ]);
 
     const showRow = (vehicle: HTMLInputElement): void => {
         const row = vehicle.parentElement?.parentElement;
-        if (row) allTbody.append(row);
+        if (!row) return;
+        row.classList.remove(HIDDEN_CLASS);
+        if (isLightRow) row.classList.add(LIGHT_CLASS);
+        else row.classList.remove(LIGHT_CLASS);
+        isLightRow = !isLightRow;
     };
-    const hideRow = (vehicle: HTMLInputElement, vehicleType: string): void => {
-        const row = vehicle.parentElement?.parentElement;
-        if (row) {
-            if (tractiveTypes.includes(vehicleType)) tractiveTBody.append(row);
-            else hiddenTBody.append(row);
-        }
-    };
+    const hideRow = (vehicle: HTMLInputElement): void =>
+        vehicle.parentElement?.parentElement?.classList.add(HIDDEN_CLASS);
 
-    const filter = (vehicleTypes: string[], showAll: boolean) =>
-        [allTbody, hiddenTBody].forEach(table =>
-            table
-                .querySelectorAll<HTMLInputElement>(
-                    'tr td input.vehicle_checkbox[vehicle_type_id]'
+    const filter = (vehicleTypes: string[], showAll: boolean) => {
+        isLightRow = true;
+        allTbody
+            .querySelectorAll<HTMLInputElement>(
+                'tr td input.vehicle_checkbox[vehicle_type_id]'
+            )
+            .forEach(checkbox => {
+                if (showAll) return showRow(checkbox);
+
+                const vehicleType =
+                    checkbox.getAttribute('vehicle_type_id') ?? '';
+                const customVehicleType = `${vehicleType}-${
+                    checkbox.parentElement?.parentElement?.getAttribute(
+                        'vehicle_type'
+                    ) ?? ''
+                }`;
+                const isCustomVehicleType = !checkbox.hasAttribute('custom_');
+                if (
+                    vehicleTypes.includes(vehicleType) ||
+                    vehicleTypes.includes(customVehicleType) ||
+                    (!isCustomVehicleType &&
+                        vehicleTypes.includes(`${vehicleType}*`))
                 )
-                .forEach(checkbox => {
-                    if (showAll) return showRow(checkbox);
+                    showRow(checkbox);
+                else hideRow(checkbox);
+            });
+    };
 
-                    const vehicleType =
-                        checkbox.getAttribute('vehicle_type_id') ?? '';
-                    const customVehicleType = `${vehicleType}-${
-                        checkbox.parentElement?.parentElement?.getAttribute(
-                            'vehicle_type'
-                        ) ?? ''
-                    }`;
-                    const isCustomVehicleType =
-                        !checkbox.hasAttribute('custom_');
-                    if (
-                        vehicleTypes.includes(vehicleType) ||
-                        vehicleTypes.includes(customVehicleType) ||
-                        (!isCustomVehicleType &&
-                            vehicleTypes.includes(`${vehicleType}*`))
-                    )
-                        showRow(checkbox);
-                    else hideRow(checkbox, vehicleType);
-                })
-        );
+    // initially show all vehicles and apply custom colors
+    filter([], true);
 
     // handle clicks on custom tabs
     tabList.addEventListener('click', e => {
