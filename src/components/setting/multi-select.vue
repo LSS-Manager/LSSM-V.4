@@ -7,6 +7,7 @@
             :options="filteredOptions"
             :disabled="disabled"
             :clearable="false"
+            :closeOnSelect="closeOnSelect"
         >
             <div slot="no-options">
                 {{ $t('noOptions') }}
@@ -63,6 +64,11 @@ export default Vue.extend<
             type: Boolean,
             required: false,
             default: false,
+        },
+        closeOnSelect: {
+            type: Boolean,
+            required: false,
+            default: true,
         },
     },
     computed: {

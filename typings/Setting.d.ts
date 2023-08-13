@@ -79,6 +79,7 @@ interface MultiSelect extends SettingTemplate {
     values: string[];
     labels?: string[];
     noLabelTranslation?: boolean;
+    closeOnSelect?: boolean;
 }
 
 interface HotKey extends SettingTemplate {
