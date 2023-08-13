@@ -60,6 +60,13 @@ export default (
     ).toLowerCase()}`;
 
     const vehicleTypes = LSSM.$stores.translations.vehicles;
+    const tractiveTypes = Array.from(
+        new Set(
+            Object.values(vehicleTypes).flatMap(vehicle =>
+                vehicle.isTrailer ? vehicle.tractiveVehicles : []
+            )
+        )
+    ).map(v => v.toString());
 
     const vehiclesInTabs = [
         ...new Set(tabs.flatMap(({ vehicleTypes }) => vehicleTypes)),
@@ -195,17 +202,22 @@ export default (
 
     if (!allTable || !allTbody) return;
 
+    // tractive vehicles need to be in DOM but non-tractives can be outside of DOM for performance reasons
+    const tractiveTBody = document.createElement('tbody');
+    tractiveTBody.classList.add('hidden');
+    allTable.append(tractiveTBody);
     const hiddenTBody = document.createElement('tbody');
-    hiddenTBody.classList.add('hidden');
-    allTable.append(hiddenTBody);
 
     const showRow = (vehicle: HTMLInputElement): void => {
         const row = vehicle.parentElement?.parentElement;
         if (row) allTbody.append(row);
     };
-    const hideRow = (vehicle: HTMLInputElement): void => {
+    const hideRow = (vehicle: HTMLInputElement, vehicleType: string): void => {
         const row = vehicle.parentElement?.parentElement;
-        if (row) hiddenTBody.append(row);
+        if (row) {
+            if (tractiveTypes.includes(vehicleType)) tractiveTBody.append(row);
+            else hiddenTBody.append(row);
+        }
     };
 
     const filter = (vehicleTypes: string[], showAll: boolean) =>
@@ -233,7 +245,7 @@ export default (
                             vehicleTypes.includes(`${vehicleType}*`))
                     )
                         showRow(checkbox);
-                    else hideRow(checkbox);
+                    else hideRow(checkbox, vehicleType);
                 })
         );
 

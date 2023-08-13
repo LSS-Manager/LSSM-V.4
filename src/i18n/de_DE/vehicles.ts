@@ -1434,6 +1434,8 @@ export default {
         possibleBuildings: [13],
         special:
             'Der Polizeihelikopter ist das Trägerfahrzeug hier von. Der Helikopter brauch min. 2 Ausgebildete Kräfte mit der Ausbildung "Brandbekämpfung"',
+        isTrailer: true,
+        tractiveVehicles: [61],
     },
     97: {
         caption: 'ITW',
