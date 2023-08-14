@@ -493,7 +493,7 @@ export default Vue.extend<
                               },
                           }
                         : null),
-                    ...(['de_DE', 'fr_FR'].includes(locale)
+                    ...(['de_DE', 'fr_FR', 'en_GB', 'en_US', 'en_AU'].includes(locale)
                         ? {
                               pumpCapacity: {
                                   title: this.$m('titles.vehicles.pumpcap'),

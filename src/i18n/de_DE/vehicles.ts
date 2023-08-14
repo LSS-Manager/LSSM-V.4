@@ -1664,7 +1664,7 @@ export default {
     },
     111: {
         caption: 'NEA50',
-        color: '#36759e',
+        color: '#f60303',
         credits: 10_000,
         coins: 20,
         staff: {
@@ -1705,7 +1705,7 @@ export default {
     },
     113: {
         caption: 'NEA200',
-        color: '#36759e',
+        color: '#fd090f',
         credits: 50_000,
         coins: 20,
         staff: {
@@ -1730,7 +1730,7 @@ export default {
     },
     114: {
         caption: 'GW-Lüfter',
-        color: '#36759e',
+        color: '#b40f0f',
         credits: 25_000,
         coins: 25,
         staff: {
@@ -1744,7 +1744,7 @@ export default {
     },
     115: {
         caption: 'Anh Lüfter',
-        color: '#36759e',
+        color: '#b62e2e',
         credits: 10_000,
         coins: 15,
         staff: {
@@ -1762,7 +1762,7 @@ export default {
     },
     116: {
         caption: 'AB-Lüfter',
-        color: '#36759e',
+        color: '#9d2424',
         credits: 7000,
         coins: 12,
         staff: { min: 0, max: 0 },
@@ -1770,5 +1770,59 @@ export default {
         possibleBuildings: [0, 18],
         isTrailer: true,
         tractiveVehicles: [46],
+    },
+    117: {
+        caption: 'AB-Tank',
+        color: '#9d2424',
+        credits: 4000,
+        coins: 12,
+        staff: { min: 0, max: 0 },
+        icon: 'square',
+        waterTank: 10000,
+        possibleBuildings: [0, 18],
+        isTrailer: true,
+        tractiveVehicles: [46],
+    },
+    118: {
+        caption: 'Kleintankwagen',
+        color: '#dd2222',
+        credits: 10000,
+        coins: 15,
+        staff: { min: 1, max: 3 },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 18],
+        waterTank: 10000,
+    },
+    119: {
+        caption: 'AB-Lösch',
+        color: '#9d2424',
+        credits: 8000,
+        coins: 12,
+        staff: { min: 0, max: 0 },
+        icon: 'square',
+        possibleBuildings: [0, 18],
+        waterTank: 8000,
+        isTrailer: true,
+        tractiveVehicles: [46],
+    },
+    120: {
+        caption: 'Tankwagen',
+        color: '#dd2222',
+        credits: 15000,
+        coins: 15,
+        staff: { min: 1, max: 3 },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 18],
+        waterTank: 20000,
+    },
+    121: {
+        caption: 'GTLF',
+        color: '#dd2222',
+        credits: 10000,
+        coins: 15,
+        staff: { min: 1, max: 3 },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 18],
+        waterTank: 10000,
     },
 } satisfies Record<number, InternalVehicle>;
