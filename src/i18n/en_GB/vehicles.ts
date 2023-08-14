@@ -247,6 +247,8 @@ export default {
         staff: { min: 1, max: 9 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
+        pumpCapacity: 1500,
+        pumpType: 'fire',
         special:
             'To purchase with credits it requires the rank: Captain or Superintendent, <br>Lower ranked members can purchase the vehicle for 25 Coins. A Pump with extraction tools. Perfect for your Road Traffic Collisions.',
     },
@@ -258,6 +260,8 @@ export default {
         staff: { min: 1, max: 6 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
+        pumpCapacity: 1500,
+        pumpType: 'fire',
         special:
             'To purchase with credits it requires the rank: Captain or Superintendent, <br>Lower ranked members can purchase the vehicle for 25 Coins. A Pump with an Aerial Asset on top, perfect for high rise fires and rescuing people form tall buildings.',
     },
@@ -593,6 +597,8 @@ export default {
         staff: { min: 2, max: 9 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
+        pumpCapacity: 1500,
+        pumpType: 'fire',
         special:
             'Acts as a Bulk Foam Unit and a Water Ladder (Pump). Used On any fire but also has the capability to use foam to extinguish a fire. Requires Foam Extension.',
     },
@@ -603,6 +609,8 @@ export default {
         coins: 10,
         staff: { min: 2, max: 9 },
         icon: 'car-side',
+        pumpCapacity: 1500,
+        pumpType: 'fire',
         possibleBuildings: [0, 18],
         special:
             'Acts as a Bulk Foam Unit, Rescue Support Vehicle and a Pump. Used on any fire, foam capabilty as well as being useful at RTCs. Requires Foam Extension.',
