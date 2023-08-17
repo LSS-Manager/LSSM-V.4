@@ -58,9 +58,8 @@ const modulesFile: ModulesFile = {};
         const MODULE_DOCS_FOLDER = path.join(MODULE_FOLDER, 'docs');
         const MODULE_REGISTER_FILE = path.join(MODULE_FOLDER, 'register');
 
-        const registerFile = await loadJsonOrTSFile<Module>(
-            MODULE_REGISTER_FILE
-        );
+        const registerFile =
+            await loadJsonOrTSFile<Module>(MODULE_REGISTER_FILE);
         if (registerFile.noapp) continue;
 
         const getRootI18n = (
