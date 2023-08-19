@@ -89,6 +89,11 @@
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/showdown",
         "version": "2.0.1"
     },
+    "@types/simpleheat": {
+        "icon": "https://avatars.githubusercontent.com/u/3637556",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/simpleheat",
+        "version": "0.4.0"
+    },
     "@types/tampermonkey": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/tampermonkey",
@@ -317,6 +322,10 @@
     },
     "simple-git": {
         "version": "3.19.1"
+    },
+    "simpleheat": {
+        "url": "https://github.com/mourner/simpleheat",
+        "version": "0.4.0"
     },
     "terser": {
         "icon": "https://terser.org/img/terser-square-logo.png",

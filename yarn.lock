@@ -2437,6 +2437,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/simpleheat@npm:0.4.0":
+  version: 0.4.0
+  resolution: "@types/simpleheat@npm:0.4.0"
+  checksum: ed6d50577fb9eade4d996398a9414a0821911ab4ed90bde7ba7e15ad0dd1f39f1e839f8f06064c37fac8be5b1eb15664ea73e069adb591331b382e45e4f3c7a9
+  languageName: node
+  linkType: hard
+
 "@types/sizzle@npm:*":
   version: 2.3.3
   resolution: "@types/sizzle@npm:2.3.3"
@@ -6993,6 +7000,7 @@ __metadata:
     "@types/qrcode": 1.5.1
     "@types/semver": 7.5.0
     "@types/showdown": 2.0.1
+    "@types/simpleheat": 0.4.0
     "@types/tampermonkey": 4.0.11
     "@types/ua-parser-js": 0.7.36
     "@types/vue-select": 3.16.2
@@ -7037,6 +7045,7 @@ __metadata:
     sass-loader: 13.3.2
     semver: 7.5.4
     showdown: 2.1.0
+    simpleheat: 0.4.0
     terser: 5.19.2
     ts-loader: 9.4.4
     ts-node: 10.9.1
@@ -8829,6 +8838,13 @@ __metadata:
     "@kwsites/promise-deferred": ^1.1.1
     debug: ^4.3.4
   checksum: ab7c6901130eadd5758c5f1b0d957573b13cd981549cb5853e757cf13f8cb53b79a50e1acde8eaceba88da814d252f90cf7feab9bd67c64db903250adc51b02f
+  languageName: node
+  linkType: hard
+
+"simpleheat@npm:0.4.0":
+  version: 0.4.0
+  resolution: "simpleheat@npm:0.4.0"
+  checksum: 1b35fd5e97f9d92a7a3131db29710b171f8a54677ad9fe1fa970492431c5c20a1f1d57a76efba8a8b105a2c28f64811c9515817850ea7b79f57e9d66068a3c9c
   languageName: node
   linkType: hard
 
