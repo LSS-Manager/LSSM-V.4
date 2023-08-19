@@ -131,6 +131,7 @@
                 "onlyAmbulance": "Backalarm only ambulances",
                 "title": "Backalarm"
             },
+            "easter_click": "Collect Easter Egg",
             "emv": {
                 "title": "Enhanced missing vehicles",
                 "toggleCollapse": "Collapse / Uncollapse"

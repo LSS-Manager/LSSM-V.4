@@ -134,6 +134,7 @@
                 "onlyAmbulance": "Backalarm only ambulances",
                 "title": "Backalarm"
             },
+            "easter_click": "recoger huevo de pascua",
             "emv": {
                 "title": "Enhanced missing vehicles",
                 "toggleCollapse": "Collapse / Uncollapse"

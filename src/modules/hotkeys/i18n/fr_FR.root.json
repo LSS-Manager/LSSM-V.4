@@ -137,6 +137,7 @@
                 "onlyAmbulance": "Signal de retour uniquement pour les ambulances",
                 "title": "Signal de retour"
             },
+            "easter_click": "Récupérez l'œuf de Pâques",
             "emv": {
                 "title": "Vue améliorée des véhicules",
                 "toggleCollapse": "Réduire / Déplier"

@@ -138,6 +138,7 @@
                 "onlyAmbulance": "Eigenen Rettungsdienst rückalarmieren",
                 "title": "Zurückalamieren"
             },
+            "easter_click": "Ostereier sammeln",
             "emv": {
                 "title": "Benötigte Fahrzeuge verschönern",
                 "toggleCollapse": "Ein- / Ausklappen"

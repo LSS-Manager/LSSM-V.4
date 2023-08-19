@@ -134,6 +134,7 @@
                 "onlyAmbulance": "Odwołaj wszystkie ambulanse",
                 "title": "Odwołaj"
             },
+            "easter_click": "Zbierz jajko wielkanocne",
             "emv": {
                 "title": "Enhanced missing vehicles",
                 "toggleCollapse": "Zwiń / Rozwiń"
