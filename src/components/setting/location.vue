@@ -85,7 +85,7 @@ export default Vue.extend<
             this.$modal.show(
                 () =>
                     import(
-                        /* webpackChunkName: "components/setting/location/map" */ './location/map.vue'
+                        /* webpackChunkName: "components/setting/location/select" */ './location/LocationSelect.vue'
                     ),
                 {
                     name: this.name,
