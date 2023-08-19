@@ -188,7 +188,7 @@ export default Vue.extend<
     components: {
         Lightbox: () =>
             import(
-                /* webpackChunkName: "components/lightbox" */ '../../components/lightbox.vue'
+                /* webpackChunkName: "components/lightbox" */ '../../components/LightboxWrapper.vue'
             ),
     },
     data() {

@@ -47,7 +47,7 @@ export default Vue.extend<
     components: {
         Lightbox: () =>
             import(
-                /* webpackChunkName: "components/lightbox" */ '../../lightbox.vue'
+                /* webpackChunkName: "components/lightbox" */ '../../LightboxWrapper.vue'
             ),
         LeafletMap: () =>
             import(
