@@ -10,7 +10,7 @@
             :start-lat="location[0]"
             :start-long="location[1]"
             :start-zoom="location[2]"
-            :layers="[locationMarker]"
+            :layers="locationMarker ? [locationMarker] : []"
             @mounted="mapMounted"
         ></leaflet-map>
     </lightbox>
@@ -21,7 +21,7 @@ import { computed, onBeforeMount, ref } from 'vue';
 
 import { useRootStore } from '@stores/index';
 
-import LeafletMap from '../../leaflet-map.vue';
+import LeafletMap from '../../LeafletMap.vue';
 import Lightbox from '../../LightboxWrapper.vue';
 import { useI18n } from '../../../i18n';
 
