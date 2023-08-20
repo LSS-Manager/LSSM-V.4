@@ -22,10 +22,21 @@ const excludedSteps = [
     'git_prepare',
     'import_gpg',
     'git_push',
+    'live_server',
 ];
 const shortcuts = {
     'dependencies': ['yarn_setup', 'versions', 'yarn_install', 'browserslist'],
     'quick': ['env', 'format', 'eslint', 'tsc', 'webpack'],
+    'local': [
+        'yarn_setup',
+        'versions',
+        'yarn_install',
+        'env',
+        'tsc',
+        'userscript',
+        'webpack',
+        'live_server',
+    ],
     'pre-commit': ['format', 'eslint', 'tsc'],
     'full': [],
 };
@@ -122,11 +133,20 @@ try {
                 'enable_debugging',
             id: 'node',
         } as Job,
-    ].concat(
-        workflow.jobs.build.steps.filter(
-            step => step.run && !excludedSteps.includes(step.id ?? '')
+    ]
+        .concat(
+            workflow.jobs.build.steps.filter(
+                step => step.run && !excludedSteps.includes(step.id ?? '')
+            )
+            //To make sure that the test server started as latest call
         )
-    );
+        .concat([
+            {
+                name: 'Start test server',
+                run: 'live-server ./dist/ --port=3000 --no-browser',
+                id: 'live_server',
+            } as Job,
+        ]);
     const stepIds = steps.map(step => step.id ?? '');
 
     script.push(

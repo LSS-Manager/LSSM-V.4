@@ -69,6 +69,7 @@ _RUN_STEP_PREBUILD=false
 _RUN_STEP_WEBPACK=false
 _RUN_STEP_DOCS=false
 _RUN_STEP_GIT_DIFF=false
+_RUN_STEP_LIVE_SERVER=false
 MODE="development"
 DEBUG=false
 
@@ -91,6 +92,7 @@ while :; do
         --webpack) _RUN_STEP_WEBPACK=true ;;
         --docs) _RUN_STEP_DOCS=true ;;
         --git_diff) _RUN_STEP_GIT_DIFF=true ;;
+        --live_server) _RUN_STEP_LIVE_SERVER=true ;;
         --dependencies)
           _RUN_STEP_YARN_SETUP=true
           _RUN_STEP_VERSIONS=true
@@ -102,6 +104,15 @@ while :; do
           _RUN_STEP_ESLINT=true
           _RUN_STEP_TSC=true
           _RUN_STEP_WEBPACK=true ;;
+        --local)
+          _RUN_STEP_YARN_SETUP=true
+          _RUN_STEP_VERSIONS=true
+          _RUN_STEP_YARN_INSTALL=true
+          _RUN_STEP_ENV=true
+          _RUN_STEP_TSC=true
+          _RUN_STEP_USERSCRIPT=true
+          _RUN_STEP_WEBPACK=true
+          _RUN_STEP_LIVE_SERVER=true ;;
         --pre-commit)
           _RUN_STEP_FORMAT=true
           _RUN_STEP_ESLINT=true
@@ -123,7 +134,8 @@ while :; do
           _RUN_STEP_PREBUILD=true
           _RUN_STEP_WEBPACK=true
           _RUN_STEP_DOCS=true
-          _RUN_STEP_GIT_DIFF=true ;;
+          _RUN_STEP_GIT_DIFF=true
+          _RUN_STEP_LIVE_SERVER=true ;;
         -p | --production) MODE="production" ;;
         --debug) DEBUG=true ;;
         -?*)
@@ -361,6 +373,16 @@ if [[ $_RUN_STEP_GIT_DIFF = true ]] && [[ $GIT_REPO = true ]]; then
     git --no-pager diff --color-words
     disable_debugging
     print_end_message "[ℹ️] git diff" "$start_time"
+fi
+
+# Start test server
+if [[ $_RUN_STEP_LIVE_SERVER = true ]]; then
+    start_time=$(now)
+    print_start_message "Start test server"
+    enable_debugging
+    live-server ./dist/ --port=3000 --no-browser
+    disable_debugging
+    print_end_message "Start test server" "$start_time"
 fi
 
 print_end_message "Total" "$total_start_time"

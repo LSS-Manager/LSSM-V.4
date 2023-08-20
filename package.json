@@ -1,10 +1,11 @@
 {
     "name": "lss-manager-v4",
-    "version": "4.7.7+20230819.2317",
+    "version": "4.7.7+20230820.1356",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "quickbuild": "./build/build.sh --quick",
         "dev": "./build/build.sh --full",
+        "local": "./build/build.sh --local",
         "build": "./build/build.sh --full --production",
         "docs": "./build/build.sh --docs",
         "format": "./build/build.sh --format",
@@ -85,6 +86,7 @@
         "html-loader": "4.2.0",
         "husky": "8.0.3",
         "js-yaml": "4.1.0",
+        "live-server": "1.2.2",
         "moment-timezone": "0.5.43",
         "prettier": "3.0.2",
         "sass": "1.66.0",

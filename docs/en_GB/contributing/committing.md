@@ -36,6 +36,7 @@ what you changed (eg. translations). Some long module names got unofficial abbre
 
 :::tip What's next?
 
+* Read [Test locally](./runningLocally.md)
 * Read [how to create a Pull Request](./prs.md)
 * Read one of the special sections for contribution topics
   :::
