@@ -229,7 +229,11 @@
             { "texts": ["VCT"], "vehicles": [40] },
             { "texts": ["RAM"], "vehicles": [41] },
             { "texts": ["Barre-pont", "Barres-ponts"], "vehicles": [44] },
-            { "texts": ["VAT"], "vehicles": [45] }
+            { "texts": ["VAT"], "vehicles": [45] },
+            { "texts": ["VIM"], "vehicles": [51] },
+            { "texts": ["VLCM"], "vehicles": [55] },
+            { "texts": ["VSA"], "vehicles": [52] },
+            { "texts": ["VIRP"], "vehicles": [54] }
         ],
         "water": "l d’eau"
     },
