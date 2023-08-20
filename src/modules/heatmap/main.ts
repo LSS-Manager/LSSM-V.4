@@ -1,4 +1,5 @@
 import 'leaflet.heat';
+import simpleHeat from 'simpleheat';
 
 import type { ModuleMainFunction } from 'typings/Module';
 import type { LatLng, Map } from 'leaflet';
@@ -19,6 +20,8 @@ export default <ModuleMainFunction>(async ({
 }) => {
     if (window.location.pathname === '/' && window.hasOwnProperty('mapkit'))
         return;
+
+    window.simpleheat = simpleHeat;
 
     await LSSM.$stores.api.getBuildings(MODULE_ID);
     await LSSM.$stores.api.getVehicles(MODULE_ID);
@@ -307,12 +310,11 @@ export default <ModuleMainFunction>(async ({
     if (window.location.pathname.startsWith(`/profile/${window.user_id}`)) {
         if (window.map) initHeatmap(window.map);
 
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        window.addEventListener(
-            'lssmv4-map-loaded',
-            ({ detail: { map } }: CustomEvent<{ id: string; map: Map }>) =>
-                initHeatmap(map)
-        );
+        LSSM.$stores.event.addListener({
+            name: 'leaflet-map-loaded',
+            listener: ({
+                detail: { map },
+            }: CustomEvent<{ id: string; map: Map }>) => initHeatmap(map),
+        });
     }
 });

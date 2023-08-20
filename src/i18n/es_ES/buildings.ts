@@ -35,8 +35,7 @@ export default {
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
-        maxBuildings:
-            '6.000 edificios junto con pequeñas estaciones de bomberos',
+        maxBuildings: 'sin límite',
         maxLevel: 25,
         special:
             'A partir del 24º parque de bomberos en adelante, el coste de construcción de un nuevo parque de bomberos aumenta según la siguiente fórmula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. ¡El precio de las monedas es constante!',
@@ -44,7 +43,6 @@ export default {
         startVehicles: ['Camión BUP', 'Camión BUL', 'Vehículo de rescate'],
         schoolingTypes: ['Parque de bomberos'],
         startParkingLots: 1,
-        maxBuildingsFunction: (): number => 6000,
         icon: 'fire-flame-curved',
     },
     1: {
@@ -268,8 +266,7 @@ export default {
             ),
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
-        maxBuildings:
-            '1.700 comisarías de policía junto con pequeñas comisarías',
+        maxBuildings: 'sin límite',
         maxLevel: 14,
         special:
             'A partir de la comisaría 24 en adelante, los costes de la nueva construcción de una comisaría aumentan según la siguiente fórmula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. ¡El precio de las monedas es constante!',
@@ -278,7 +275,6 @@ export default {
         startCells: 0,
         startVehicles: ['Coche patrulla'],
         schoolingTypes: ['Policía'],
-        maxBuildingsFunction: (): number => 1700,
         icon: 'building-shield',
     },
     7: {
@@ -439,15 +435,13 @@ export default {
             '3.-5. 100.000',
             'Convertir a parque de bombero normal: precio de la diferencia a parque de bombero normal',
         ],
-        maxBuildings:
-            '6.000 parques de bomberos junto con parques de bomberos pequeños',
+        maxBuildings: 'sin límite',
         maxLevel: 5,
         special:
             'A partir del 24º parque de bomberos en adelante, el coste de construcción de un nuevo parque de bomberos aumenta según la siguiente fórmula: <code>(50.000+100.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. ¡El precio de las monedas es constante!',
         startPersonnel: 10,
         startVehicles: ['Camión BUP', 'Camión BUL', 'Vehículo de rescate'],
         schoolingTypes: ['Parque de bomberos'],
-        maxBuildingsFunction: (): number => 6000,
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -484,8 +478,7 @@ export default {
             '3.-4. 100.000',
             'Convertir a comisaria de policía normal: precio de la diferencia a comisaría de policía normal',
         ],
-        maxBuildings:
-            '1.700 comisarías de polcía junto con comisarías de policías pequeños',
+        maxBuildings: 'sin límite',
         maxLevel: 4,
         special:
             'A partir de la comisaría 24º en adelante, los costes de la nueva construcción de una comisaría se calculan de acuerdo con la siguiente fórmula: <code>(50.000+100.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. ¡El precio de las monedas es constante!',
@@ -494,7 +487,6 @@ export default {
         schoolingTypes: ['Policía'],
         startParkingLots: 1,
         startCells: 0,
-        maxBuildingsFunction: (): number => 1700,
         icon: 'building-shield',
     },
     20: {

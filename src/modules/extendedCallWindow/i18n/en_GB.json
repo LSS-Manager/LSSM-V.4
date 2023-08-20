@@ -41,7 +41,9 @@
             "rth_only": "HEMS",
             "rtw": "Ambulance",
             "rw": "Rescue Support Unit or Rescue Pump",
-            "swat_suv": "Armed Response Vehicle (ARV)"
+            "swat_suv": "Armed Response Vehicle (ARV)",
+            "water_damage_pump": "Water Pumps",
+            "water_damage_pump_value": "Pump Capacity"
         },
         "headers": {
             "attribute": "Name",
@@ -61,6 +63,7 @@
     "enhancedMissingVehicles": {
         "driving": "En-route",
         "missing": "Missing on mission",
+        "pump": "l/min pumping process",
         "selected": "Selected",
         "staff": [
             {

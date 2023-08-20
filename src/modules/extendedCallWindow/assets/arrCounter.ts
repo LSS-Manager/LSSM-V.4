@@ -84,8 +84,12 @@ export default async (
                 arr => arr.classList.remove(highlightClass)
             );
         }
-        if (resetSelection) window.vehicleSelectionReset();
     };
+
+    LSSM.$stores.root.hook({
+        event: 'vehicleSelectionReset',
+        callback: resetCounters,
+    });
 
     if (counter || highlight) {
         const clickHandler = (arr: HTMLAnchorElement) => {
@@ -108,8 +112,6 @@ export default async (
                     );
                 counterNodes[arrId] = counterNode;
             }
-
-            if (arr.getAttribute('reset') === 'true') resetCounters();
 
             if (counter) {
                 counterNode.setAttribute(
@@ -175,7 +177,9 @@ export default async (
         'navbar-btn',
         'hidden-xs'
     );
-    resetBtn.addEventListener('click', resetCounters);
+    if (resetSelection)
+        resetBtn.addEventListener('click', window.vehicleSelectionReset);
+    else resetBtn.addEventListener('click', resetCounters);
     resetBtn.textContent = $m('arrCounter.reset', {
         text: $m(`arrCounter.resetTexts.${resetBtnTexts.join('_')}`),
     }).toString();

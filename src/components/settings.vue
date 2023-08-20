@@ -314,6 +314,7 @@
                                 "
                                 @input="update(moduleId, settingId)"
                                 :disabled="setting.isDisabled"
+                                :close-on-select="setting.closeOnSelect"
                             ></settings-multi-select>
                             <settings-hotkey
                                 v-else-if="setting.type === 'hotkey'"
@@ -464,7 +465,7 @@ export default Vue.extend<
             ),
         Lightbox: () =>
             import(
-                /* webpackChunkName: "components/lightbox" */ './lightbox.vue'
+                /* webpackChunkName: "components/lightbox" */ './LightboxWrapper.vue'
             ),
     },
     data() {

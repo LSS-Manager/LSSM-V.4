@@ -158,6 +158,7 @@
                 "loadMissing": "Załaduj brakujące pojazdy",
                 "next": "Poprzednia zakładka",
                 "previous": "Następna zakładka",
+                "reset": "reset vehicle selection",
                 "title": "Lista pojazdów"
             }
         },

@@ -88,7 +88,7 @@ export default {
         'Fire Fighting Vehicles': {
             vehicles: {
                 'Pumps': [0, 1, 16, 26, 17],
-                'Special Vehicles': [4, 7, 14, 18, 6, 2, 39],
+                'Special Vehicles': [4, 7, 14, 18, 6, 2, 39, 84],
                 'Command Vehicles': [15, 3],
                 'Pods and Prime Movers': [
                     40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,

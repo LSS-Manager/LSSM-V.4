@@ -102,5 +102,6 @@ export default {
             raw: 'JSON (raw)',
             prettified: 'JSON (prettified)',
         },
+        csv: 'CSV',
     },
 };

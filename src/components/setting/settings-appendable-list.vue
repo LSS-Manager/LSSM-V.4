@@ -102,6 +102,7 @@
                             getMultiselectOptions(item, value[item.name], index)
                         "
                         :placeholder="item.title"
+                        :close-on-select="item.setting.closeOnSelect"
                         @input="changeValue(index, value, item, list_index)"
                     ></settings-multi-select>
                     <settings-hotkey

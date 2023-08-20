@@ -48,7 +48,7 @@ export default {
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
-        maxBuildings: '6000 yhdessä pienten paloasemien kanssa',
+        maxBuildings: 'Ei rajoitusta',
         maxLevel: 24,
         special:
             'Paloasemien hinta 25. paloaseman jälkeen lasketaan: 100000+(200000 * log2(asemien määrä-22))',
@@ -432,7 +432,7 @@ export default {
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
-        maxBuildings: '6000 yhdessä paloasemien kanssa',
+        maxBuildings: 'Ei rajoitusta',
         maxLevel: 5,
         special:
             'Voi rakentaa vain yhden laajennuksen. Paloasemien hinta 25. paloaseman jälkeen lasketaan: 100000+(200000 * log2(asemien määrä-22))',

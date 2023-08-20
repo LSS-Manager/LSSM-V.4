@@ -7,6 +7,16 @@
             "in": "additional",
             "text": "Average min . Fire Personnel"
         },
+        "min_pump_speed": {
+            "badge": true,
+            "in": "requirements",
+            "text": "Min. Pump Capacity: {n}"
+        },
+        "pump_water_amount": {
+            "badge": true,
+            "in": "additional",
+            "text": "Water to pump (in Litres): {n}"
+        },
         "swat_personnel": {
             "badge": false,
             "in": "additional",

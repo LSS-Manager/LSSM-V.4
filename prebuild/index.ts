@@ -1,5 +1,6 @@
 import buildAPI from './api';
 import buildUserscript from './buildUserscript';
+import collectFAIconNames from './collectFAIconNames';
 import copyStatic from './copyStatic';
 import { emptyFolder } from './emptyDir';
 import getLibraries from './getLibraries';
@@ -26,6 +27,7 @@ const timeWrap = async (name: string, fn: () => Promise<unknown> | unknown) => {
     await timeWrap('copyStatic', copyStatic);
     await timeWrap('build API', buildAPI);
     await timeWrap('Collect Third-Party Libraries', getLibraries);
+    await timeWrap('Collect FA-Icons', collectFAIconNames);
 
     console.timeEnd('prebuild');
     console.log('Prebuild ran successfully, building...');

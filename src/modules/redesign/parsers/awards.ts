@@ -13,39 +13,38 @@ export interface AwardsWindow {
 }
 
 export default <RedesignParser<AwardsWindow>>(({ doc }) => ({
-    awards: Array.from(doc.querySelectorAll<HTMLDivElement>('.panel')).map(
-        award => ({
-            caption:
-                award
-                    .querySelector<HTMLDivElement>(
-                        '.panel-heading .panel-title'
-                    )
-                    ?.textContent?.trim() ?? '',
-            image:
-                award.querySelector<HTMLImageElement>('.panel-body img')?.src ??
-                '',
-            desc:
-                Array.from(
-                    award.querySelector<HTMLDivElement>('.panel-body')
-                        ?.childNodes ?? []
+    awards: Array.from(
+        doc.querySelectorAll<HTMLDivElement>(
+            '#collection .collection:not(.always-hidden)'
+        )
+    ).map(award => ({
+        caption:
+            award
+                .querySelector<HTMLDivElement>('.grid-item-header .panel-title')
+                ?.textContent?.trim() ?? '',
+        image:
+            award.querySelector<HTMLImageElement>('.grid-item-img img')?.src ??
+            '',
+        desc:
+            Array.from(
+                award.querySelector<HTMLDivElement>('.grid-item-text')
+                    ?.childNodes ?? []
+            )
+                .find(
+                    ({ nodeType, nextSibling }) =>
+                        nodeType === 3 &&
+                        nextSibling?.nodeType === 1 &&
+                        (nextSibling as HTMLElement).matches(
+                            'div.progress, div.line'
+                        )
                 )
-                    .find(
-                        ({ nodeType, nextSibling }) =>
-                            nodeType === 3 &&
-                            nextSibling?.nodeType === 1 &&
-                            (nextSibling as HTMLElement).matches(
-                                'div.progress, div.label-award-gold'
-                            )
-                    )
-                    ?.textContent?.trim() ?? '',
-            finished:
-                !!award.querySelector<HTMLDivElement>('.label-award-gold'),
-            progress:
-                award
-                    .querySelector<HTMLDivElement>('.progress')
-                    ?.nextSibling?.textContent?.trim()
-                    .match(/\d+/gu)
-                    ?.map(n => parseInt(n)) ?? null,
-        })
-    ),
+                ?.textContent?.trim() ?? '',
+        finished: !!award.querySelector<HTMLDivElement>('.label-award-gold'),
+        progress:
+            award
+                .querySelector<HTMLDivElement>('.progress')
+                ?.nextSibling?.textContent?.trim()
+                .match(/\d+/gu)
+                ?.map(n => parseInt(n)) ?? null,
+    })),
 }));

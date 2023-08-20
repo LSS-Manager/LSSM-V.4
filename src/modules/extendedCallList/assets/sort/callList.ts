@@ -132,10 +132,8 @@ export default (
     const maxListOrderDistance = Math.floor(Math.sqrt(maxCSSInteger));
 
     const numToCSSRange = (num: number): number => {
-        let rangedNum = num;
-        while (rangedNum > maxCSSInteger) rangedNum -= maxCSSInteger;
-        while (rangedNum < -maxCSSInteger) rangedNum += maxCSSInteger;
-        return rangedNum;
+        if (!num) return 0;
+        return num % maxCSSInteger;
     };
 
     const maxWorldDistance = new window.L.LatLng(-85, -180).distanceTo(

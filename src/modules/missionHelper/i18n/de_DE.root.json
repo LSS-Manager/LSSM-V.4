@@ -15,7 +15,7 @@
         "min_pump_speed": {
             "badge": true,
             "in": "requirements",
-            "text": "Min.Pumpenleistung: {n}"
+            "text": "Min. Pumpenleistung: {n}"
         },
         "pump_mission_mode": {
             "badge": true,

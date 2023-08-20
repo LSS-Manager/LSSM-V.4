@@ -26,6 +26,9 @@
                 <span class="task_name">
                     {{ task.name }}
                 </span>
+                <span v-if="task.isPremiumTask">
+                    <font-awesome-icon :icon="faGem"></font-awesome-icon>
+                </span>
                 <div v-if="collapsed">
                     <span>{{ $sm('end') }}:</span>
                     <span :id="task.countdownId"></span>
@@ -85,6 +88,7 @@ import Vue from 'vue';
 import { faCircleRight } from '@fortawesome/free-solid-svg-icons/faCircleRight';
 import { faCompressAlt } from '@fortawesome/free-solid-svg-icons/faCompressAlt';
 import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
+import { faGem } from '@fortawesome/free-regular-svg-icons/faGem';
 
 import { collapsedLocalStorageKey, type ModifiedTask } from '../tasks.vue';
 
@@ -97,6 +101,7 @@ export default Vue.extend<
         faCircleRight: IconDefinition;
         faCompressAlt: IconDefinition;
         faExpandAlt: IconDefinition;
+        faGem: IconDefinition;
         collapsed: boolean;
     },
     { toggleCollapsedState(): void },
@@ -115,6 +120,7 @@ export default Vue.extend<
             faCircleRight,
             faCompressAlt,
             faExpandAlt,
+            faGem,
             collapsed:
                 collapsedTasks.includes(this.task.id) ||
                 collapsedTasks.includes(-1),

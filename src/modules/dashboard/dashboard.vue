@@ -50,7 +50,7 @@ export default Vue.extend<
             ),
         Lightbox: () =>
             import(
-                /* webpackChunkName: "modules/components/lightbox" */ '../../components/lightbox.vue'
+                /* webpackChunkName: "modules/components/lightbox" */ '../../components/LightboxWrapper.vue'
             ),
     },
     computed: {

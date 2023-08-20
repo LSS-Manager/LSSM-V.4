@@ -41,7 +41,17 @@ jobs:
 
             - name: '[🚀] Deployment'
               if: ${{ success() }}
-              run: rsync -ruthz --stats --progress -e "ssh -p 22" ./dist/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_DIR }}/${{ inputs.branch }}
+              # -h => human-readable output format for numbers
+              # -i => itemize changes
+              # -r => recursive
+              # -t => preserve modification times
+              # -u => update (skip files that are newer on the receiver)
+              # -z => compress for transfer
+              # --delete --delete-delay => delete files on server that are not in the local directory (in an efficient way)
+              # --stats => show stats at the end
+              # --progress => show progress during transfer
+              # -e => specify ssh port
+              run: rsync -hirtuz --delete --delete-delay --stats --progress -e "ssh -p 22" ./dist/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_DIR }}/${{ inputs.branch }}
 
             - name: '[🔗] Create symlinks on server'
               if: ${{ success() }}

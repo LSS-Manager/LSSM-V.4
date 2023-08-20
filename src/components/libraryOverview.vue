@@ -49,7 +49,7 @@
 import { computed, ref } from 'vue';
 
 import libraries from '../generated/libraries.json';
-import Lightbox from './lightbox.vue';
+import Lightbox from './LightboxWrapper.vue';
 
 const librarySearch = ref('');
 

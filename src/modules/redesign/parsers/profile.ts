@@ -105,20 +105,22 @@ export default <RedesignParser<ProfileWindow>>(({ LSSM, doc, href = '' }) => {
         text: profileText?.textContent?.trim() ?? '',
         image: profileText?.querySelector<HTMLImageElement>('img')?.src ?? '',
         awards: Array.from(
-            doc.querySelectorAll('#profile_awards > .col-sm-3 > .panel')
+            doc.querySelectorAll(
+                '#profile_awards > .grid-container > .grid-item'
+            )
         ).map(award => ({
             caption:
                 award
                     .querySelector<HTMLDivElement>(
-                        '.panel-heading .panel-title'
+                        '.grid-item-header .panel-title'
                     )
                     ?.textContent?.trim() ?? '',
             image:
-                award.querySelector<HTMLImageElement>('.panel-body img')?.src ??
-                '',
+                award.querySelector<HTMLImageElement>('.grid-item-img img')
+                    ?.src ?? '',
             desc:
                 award
-                    .querySelector<HTMLDivElement>('.panel-body')
+                    .querySelector<HTMLDivElement>('.grid-item-text')
                     ?.textContent?.trim() ?? '',
         })),
         has_map: !!doc.querySelector<HTMLDivElement>('#profile_map'),

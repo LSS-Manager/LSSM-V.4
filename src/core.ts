@@ -27,6 +27,8 @@ import LSSMV4 from './LSSMV4.vue';
 import registerGlobalSettings from './core/registerGlobalSettings';
 import utils from './utils';
 
+import './sass/main.sass';
+
 require('./natives/navTabsClicker');
 require('./natives/lightbox');
 

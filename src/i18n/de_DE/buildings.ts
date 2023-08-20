@@ -211,7 +211,7 @@ export default {
             },
         },
         levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
-        maxBuildings: '6.000 mit kleinen Feuerwachen zusammen',
+        maxBuildings: 'Keine Grenze',
         maxLevel: 19,
         special:
             'Ab der 24. Feuerwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Feuerwachen − 22)</code>. Der Coins-Preis bleibt konstant!',
@@ -231,7 +231,6 @@ export default {
             '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenführer(in)" => Baukosten 20.000 höher)',
         ],
         schoolingTypes: ['Feuerwehr'],
-        maxBuildingsFunction: (): number => 6000,
         icon: 'fire-flame-curved',
     },
     1: {
@@ -287,7 +286,7 @@ export default {
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
-                    (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
+                    (boughtExtensionsAmountByType[2][0] ?? 0) < maxExtensions,
                 isVehicleExtension: true,
                 givesParkingLots: 10,
                 cannotDisable: true,
@@ -419,9 +418,9 @@ export default {
                 duration: '7 Tage',
                 maxExtensionsFunction: (
                     buildingsByType: Record<number, Building[]>
-                ): number => Math.floor((buildingsByType[0]?.length ?? 4) / 5),
+                ): number => Math.floor((buildingsByType[4]?.length ?? 4) / 5),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
-                    (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
+                    (boughtExtensionsAmountByType[4][9] ?? 0) < maxExtensions,
                 newBeds: 10,
                 cannotDisable: true,
             },
@@ -541,7 +540,7 @@ export default {
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
-                    (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
+                    (boughtExtensionsAmountByType[6][14] ?? 0) < maxExtensions,
                 isVehicleExtension: true,
                 givesParkingLots: 10,
                 cannotDisable: true,
@@ -560,7 +559,7 @@ export default {
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
-                    (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
+                    (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
                 isVehicleExtension: true,
                 givesParkingLots: 1,
                 newCells: 10,
@@ -570,7 +569,7 @@ export default {
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
-        maxBuildings: '1.700 mit kleinen Polizeiwachen zusammen',
+        maxBuildings: 'Keine Grenze',
         maxLevel: 14,
         special:
             'Ab der 24. Polizeiwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Polizeiwache − 22)</code>. Der Coins-Preis bleibt konstant!',
@@ -579,7 +578,6 @@ export default {
         startCells: 0,
         startVehicles: ['FuStW'],
         schoolingTypes: ['Polizei'],
-        maxBuildingsFunction: (): number => 1700,
         icon: 'building-shield',
     },
     7: {
@@ -1313,7 +1311,7 @@ export default {
             '3.-5. 100.000',
             'Umbau zur normalen Wache: Differenz-Preis zur normalen Wache',
         ],
-        maxBuildings: '6.000 mit Feuerwachen zusammen',
+        maxBuildings: 'Keine Grenze',
         maxLevel: 5,
         special:
             'Ab der 24. Feuerwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>(50.000+100.000*LOG<sub>2</sub>(Anzahl der vorhandenen Feuerwachen − 22)) / 2</code>. max. 1 Million Credits. Der Coins-Preis bleibt konstant!',
@@ -1333,7 +1331,6 @@ export default {
             '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenführer(in)" => Baukosten 15.000 höher)',
         ],
         schoolingTypes: ['Feuerwehr'],
-        maxBuildingsFunction: (): number => 6000,
         icon: 'fire-flame-curved',
     },
     19: {
@@ -1409,7 +1406,7 @@ export default {
             '3.-5. 100.000',
             'Umbau zur normalen Wache: Differenz-Preis zur normalen Wache',
         ],
-        maxBuildings: '1.700 mit Polizeiwachen zusammen',
+        maxBuildings: 'Keine Grenze',
         maxLevel: 5,
         special:
             'Ab der 24. Polizeiwache berechnen sich die Kosten für den Neubau einer Wache nach folgender Formel: <code>(50.000+100.000*LOG<sub>2</sub>(Anzahl der vorhandenen Polizeiwachen − 22)) / 2</code>. Der Coins-Preis bleibt konstant!',
@@ -1418,7 +1415,6 @@ export default {
         startCells: 0,
         startVehicles: ['FuStW'],
         schoolingTypes: ['Polizei'],
-        maxBuildingsFunction: (): number => 1700,
         icon: 'building-shield',
     },
     20: {

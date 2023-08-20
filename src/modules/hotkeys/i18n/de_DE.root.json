@@ -162,6 +162,7 @@
                 "loadMissing": "Fehlende Fahrzeuge nachladen",
                 "next": "Nächster Tab",
                 "previous": "Vorheriger Tab",
+                "reset": "Fahrzeugauswahl zurücksetzen",
                 "title": "Fahrzeugliste"
             }
         },

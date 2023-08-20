@@ -107,5 +107,6 @@ export default {
             raw: 'JSON (Rohformat)',
             prettified: 'JSON (schöne Ausgabe)',
         },
+        csv: 'CSV',
     },
 };
