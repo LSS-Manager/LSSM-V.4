@@ -1,6 +1,6 @@
 {
     "name": "lss-manager-v4",
-    "version": "4.7.7+20230818.0332",
+    "version": "4.7.8+20230820.1937",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "quickbuild": "./build/build.sh --quick",
@@ -60,6 +60,7 @@
         "@types/qrcode": "1.5.1",
         "@types/semver": "7.5.0",
         "@types/showdown": "2.0.1",
+        "@types/simpleheat": "0.4.0",
         "@types/tampermonkey": "4.0.11",
         "@types/ua-parser-js": "0.7.36",
         "@types/vue-select": "3.16.2",
@@ -88,6 +89,7 @@
         "prettier": "3.0.2",
         "sass": "1.66.0",
         "sass-loader": "13.3.2",
+        "simpleheat": "0.4.0",
         "terser": "5.19.2",
         "ts-loader": "9.4.4",
         "ts-node": "10.9.1",

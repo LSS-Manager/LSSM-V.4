@@ -1,4 +1,5 @@
 import 'leaflet.heat';
+import simpleHeat from 'simpleheat';
 
 import type { ModuleMainFunction } from 'typings/Module';
 import type { LatLng, Map } from 'leaflet';
@@ -19,6 +20,8 @@ export default <ModuleMainFunction>(async ({
 }) => {
     if (window.location.pathname === '/' && window.hasOwnProperty('mapkit'))
         return;
+
+    window.simpleheat = simpleHeat;
 
     await LSSM.$stores.api.getBuildings(MODULE_ID);
     await LSSM.$stores.api.getVehicles(MODULE_ID);
