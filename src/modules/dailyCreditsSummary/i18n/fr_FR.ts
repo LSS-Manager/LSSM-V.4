@@ -99,9 +99,8 @@ export default {
     export: {
         export: 'Exporter',
         json: {
-            raw: 'JSON (brut)',
-            prettified: 'JSON (simplifié)',
+            raw: 'brut',
+            prettified: 'simplifié',
         },
-        csv: 'CSV',
     },
 };

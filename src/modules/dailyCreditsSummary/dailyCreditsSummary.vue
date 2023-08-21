@@ -69,10 +69,10 @@
                                     <a
                                         download="credits.json"
                                         :href="`data:application/json;charset=utf-8,${encodeURIComponent(
-                                            exports.jsonPretty
+                                            exports.json
                                         )}`"
                                     >
-                                        {{ $m('export.json.raw') }}
+                                        JSON ({{ $m('export.json.raw') }})
                                     </a>
                                 </li>
                                 <li>
@@ -82,7 +82,7 @@
                                             exports.jsonPretty
                                         )}`"
                                     >
-                                        {{ $m('export.json.prettified') }}
+                                        JSON({{ $m('export.json.prettified') }})
                                     </a>
                                 </li>
                                 <li>
@@ -92,7 +92,7 @@
                                             exports.csv
                                         )}`"
                                     >
-                                        {{ $m('export.csv') }}
+                                        CSV
                                     </a>
                                 </li>
                             </ul>

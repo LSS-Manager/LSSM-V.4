@@ -99,9 +99,8 @@ export default {
     export: {
         export: 'Exportovat',
         json: {
-            raw: 'JSON (raw)',
-            prettified: 'JSON (upravený)',
+            raw: 'raw',
+            prettified: 'upravený',
         },
-        csv: 'CSV',
     },
 };
