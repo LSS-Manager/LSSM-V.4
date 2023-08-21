@@ -82,7 +82,9 @@
                                             exports.jsonPretty
                                         )}`"
                                     >
-                                        JSON({{ $m('export.json.prettified') }})
+                                        JSON ({{
+                                            $m('export.json.prettified')
+                                        }})
                                     </a>
                                 </li>
                                 <li>
