@@ -27,6 +27,7 @@ import type {
 import type {
     BuildingMarker,
     BuildingMarkerAdd,
+    MissionGraphicsLookup,
     MissionMarker,
     PatientTimer,
     POIMarker,
@@ -83,7 +84,8 @@ declare global {
         mission_position_new_marker?: L.Marker;
         building_new_marker?: L.Marker;
         building_move_marker?: L.Marker;
-        mission_graphics: [string, string, string][];
+        mission_graphics_lookups: MissionGraphicsLookup;
+        mission_graphics: MissionGraphicsLookup['regular'];
         patient_timers: PatientTimer[];
         sale_count_down: number;
         mission_label: boolean;

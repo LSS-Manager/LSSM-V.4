@@ -104,8 +104,8 @@ export default {
     export: {
         export: 'Exportieren',
         json: {
-            raw: 'JSON (Rohformat)',
-            prettified: 'JSON (schöne Ausgabe)',
+            raw: 'Rohformat',
+            prettified: 'schöne Ausgabe',
         },
     },
 };

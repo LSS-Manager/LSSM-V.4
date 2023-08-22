@@ -161,6 +161,7 @@
                 "loadMissing": "Chargement des véhicules manquants",
                 "next": "Onglet Suivant",
                 "previous": "Onglet Précédent",
+                "reset": "reset vehicle selection",
                 "title": "Liste des véhicules"
             }
         },

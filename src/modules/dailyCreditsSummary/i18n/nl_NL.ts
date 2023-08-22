@@ -100,8 +100,8 @@ export default {
     export: {
         export: 'Exporteren',
         json: {
-            raw: 'JSON (Ruwe data)',
-            prettified: 'JSON (Mooie weergave)',
+            raw: 'Ruwe data',
+            prettified: 'Mooie weergave',
         },
     },
 };

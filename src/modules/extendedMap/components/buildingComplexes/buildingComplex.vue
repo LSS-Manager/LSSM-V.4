@@ -949,6 +949,12 @@
                     >
                         <h2 class="indented-title">
                             {{ $m('overview.classrooms.title') }}
+                            <span
+                                v-show="classRoomsUpdating"
+                                class="update-info"
+                            >
+                                ({{ $m('overview.protocol.updating') }})
+                            </span>
                             <button
                                 class="btn btn-success pull-right"
                                 :disabled="classroomStats.free === 0"
@@ -1150,7 +1156,7 @@
                                     {{ $m('overview.protocol.title') }}
                                     <span
                                         v-show="protocolUpdating"
-                                        class="protocol-update-info"
+                                        class="update-info"
                                     >
                                         ({{ $m('overview.protocol.updating') }})
                                     </span>
@@ -1528,6 +1534,7 @@ export default Vue.extend<
             };
         };
         tempDisableAllExtensionButtons: boolean;
+        classRoomsUpdating: boolean;
         protocol: ProtocolEntry[];
         protocolUpdating: boolean;
         protocolDeletions: number[];
@@ -1652,7 +1659,7 @@ export default Vue.extend<
     components: {
         Lightbox: () =>
             import(
-                /* webpackChunkName: "components/lightbox" */ '../../../../components/lightbox.vue'
+                /* webpackChunkName: "components/lightbox" */ '../../../../components/LightboxWrapper.vue'
             ),
         EnhancedTable: () =>
             import(
@@ -1697,6 +1704,7 @@ export default Vue.extend<
                 },
             },
             tempDisableAllExtensionButtons: false,
+            classRoomsUpdating: false,
             protocol: [],
             protocolUpdating: false,
             protocolDeletions: [],
@@ -2777,6 +2785,7 @@ export default Vue.extend<
             (async () => {
                 switch (index) {
                     case this.overviewTabs.classrooms:
+                        this.classRoomsUpdating = true;
                         return this.apiStore
                             .getSchoolings('buildingComplex')
                             .then(() =>
@@ -2785,7 +2794,8 @@ export default Vue.extend<
                                 )
                             )
                             .then(() => this.$nextTick())
-                            .then(() => this.initSchoolingCountdowns());
+                            .then(() => this.initSchoolingCountdowns())
+                            .then(() => (this.classRoomsUpdating = false));
                     case this.overviewTabs.buildings:
                         return this.apiStore.getBuildings('buildingComplex');
                     case this.overviewTabs.extensions:
@@ -3355,7 +3365,7 @@ export default Vue.extend<
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr))
     grid-gap: 1em
 
-.protocol-update-info
+.update-info
     font-size: small
 
 .protocol-staff-list

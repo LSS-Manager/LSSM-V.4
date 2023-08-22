@@ -17,6 +17,16 @@
             "in": "requirements",
             "text": "Foam: {n} gallon | Foam: {n} gallons"
         },
+        "min_pump_speed": {
+            "badge": true,
+            "in": "requirements",
+            "text": "Min. Pump Capacity: {n}"
+        },
+        "pump_water_amount": {
+            "badge": true,
+            "in": "additional",
+            "text": "Water to pump (in Gallons): {n}"
+        },
         "smoke_jumper_personnel": {
             "badge": false,
             "in": "additional",

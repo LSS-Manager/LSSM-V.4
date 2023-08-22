@@ -114,7 +114,7 @@ export default Vue.extend<
     components: {
         LeafletMap: () =>
             import(
-                /* webpackChunkName: "components/leaflet-map" */ '../../../../components/leaflet-map.vue'
+                /* webpackChunkName: "components/leafletMap" */ '../../../../components/LeafletMap.vue'
             ),
         EnhancedTable: () =>
             import(

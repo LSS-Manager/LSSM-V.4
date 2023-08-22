@@ -11,6 +11,8 @@ export default {
         possibleBuildings: [0, 13],
         waterTank: 750,
         foamTank: 25,
+        pumpCapacity: 2000,
+        pumpType: 'fire',
     },
     1: {
         caption: 'Type 2 fire engine',
@@ -22,6 +24,8 @@ export default {
         possibleBuildings: [0, 13],
         waterTank: 500,
         foamTank: 25,
+        pumpCapacity: 1500,
+        pumpType: 'fire',
     },
     2: {
         caption: 'Platform truck',
@@ -51,6 +55,8 @@ export default {
         staff: { min: 1, max: 4 },
         icon: 'car-side',
         possibleBuildings: [0, 13],
+        pumpCapacity: 1500,
+        pumpType: 'fire',
         special: 'Required once you have built 4 firehouses',
     },
     5: {
@@ -81,6 +87,9 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 13],
         waterTank: 3000,
+        pumpCapacity: 2000,
+        pumpType: 'fire',
+        waterBonus: 25,
         special: 'Required once you have built 7 firehouses',
     },
     8: {
@@ -111,6 +120,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0, 13],
+        foamTank: 50,
         special: 'Required once you have built 11 firehouses',
     },
     10: {
@@ -283,7 +293,7 @@ export default {
         credits: 19_000,
         coins: 25,
         staff: {
-            min: 1,
+            min: 3,
             max: 5,
             training: {
                 'Fire Station': {
@@ -306,6 +316,8 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'car-side',
         possibleBuildings: [0, 11, 12],
+        isTrailer: true,
+        tractiveVehicles: [8, 3, 1, 31, 39, 4],
         special:
             'Accessory boat that can be towed with the Utility Unit. Requires Swift Water Rescue trained personnel to operate.<br> The boat trailer cannot be assigned personnel, <br>either assign your trained personnel to the towing vehicle, or assign them to a separate unit en route.',
     },
@@ -457,6 +469,9 @@ export default {
         possibleBuildings: [0, 13],
         waterTank: 2500,
         foamTank: 25,
+        waterBonus: 25,
+        pumpCapacity: 1500,
+        pumpType: 'fire',
     },
     34: {
         caption: 'Crew Carrier',
@@ -534,7 +549,7 @@ export default {
         coins: 10,
         staff: { min: 3, max: 5 },
         icon: 'car-side',
-        possibleBuildings: [0],
+        possibleBuildings: [0, 13],
         waterTank: 750,
     },
     39: {
@@ -544,7 +559,7 @@ export default {
         coins: 5,
         staff: { min: 1, max: 2 },
         icon: 'car-side',
-        possibleBuildings: [0],
+        possibleBuildings: [0, 13],
         waterTank: 150,
     },
     40: {
@@ -564,7 +579,9 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [0],
+        possibleBuildings: [0, 13],
+        isTrailer: true,
+        tractiveVehicles: [41],
         special:
             "Dozer Trailer that can be towed with the Crew cap semi. Requires Heavy Machinery Operating and Truck Driver's License trained personnel to operate.<br> The dozer trailer cannot be assigned personnel, <br>either assign your trained personnel to the towing vehicle, or assign them to a separate unit en route.",
     },
@@ -844,6 +861,8 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'car-side',
         possibleBuildings: [3],
+        isTrailer: true,
+        tractiveVehicles: [41],
         special:
             'Needed towing vehicle (Crew cab semi). Works like the Mass Casualty Unit but without transport.',
     },
@@ -855,6 +874,8 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'car-side',
         possibleBuildings: [3],
+        isTrailer: true,
+        tractiveVehicles: [15, 28, 29],
         special:
             'Needed towing vehicle (Fly-Car, EMS Rescue, EMS Chief). Works like the Mass Casualty Unit but without transport.',
     },
@@ -939,7 +960,7 @@ export default {
         coins: 15,
         staff: { min: 2, max: 3 },
         icon: 'car-side',
-        possibleBuildings: [0],
+        possibleBuildings: [0, 13],
         foamTank: 2500,
     },
     65: {
@@ -949,8 +970,10 @@ export default {
         coins: 10,
         staff: { min: 0, max: 0 },
         icon: 'car-side',
-        possibleBuildings: [0],
+        possibleBuildings: [0, 13],
         foamTank: 650,
+        isTrailer: true,
+        tractiveVehicles: [8, 39, 3, 12],
         special:
             'Needed towing vehicle (Utility unit, Type 6 engine, Battalion chief unit, mcv)',
     },
@@ -1107,7 +1130,10 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0, 13, 26],
-        special: '',
+        isTrailer: true,
+        tractiveVehicles: [66, 67, 68, 8, 3, 1],
+        special:
+            'Needed towing vehicle (Lifeguard Truck, Lifeguard Rescue, Lifeguard Supervisor, Utility unit, Battalion chief unit, Type 2 fire engine)',
     },
     74: {
         caption: 'Wildfire MCC',
@@ -1175,6 +1201,8 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 13],
         waterTank: 10_000,
+        isTrailer: true,
+        tractiveVehicles: [41],
         special: 'Towed by Crew cab semi',
     },
     78: {
@@ -1186,6 +1214,8 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 13],
         waterTank: 1000,
+        isTrailer: true,
+        tractiveVehicles: [3, 8, 34, 31, 32, 39, 18],
         special:
             'Towed by Battalion chief unit, Utility unit, Type 2 fire engine, Crew Carrier, Type 5 engine, Type 7 engine, ',
     },
@@ -1314,6 +1344,8 @@ export default {
         coins: 15,
         staff: { min: 0, max: 0 },
         icon: 'car-side',
+        isTrailer: true,
+        tractiveVehicles: [10, 26, 47],
         special:
             'Needed towing vehicle (Patrol car, SWAT SUV, Police Supervisor / Sheriff Unit)',
         possibleBuildings: [5, 15],
@@ -1352,6 +1384,8 @@ export default {
             max: 0,
         },
         icon: 'car-side',
+        isTrailer: true,
+        tractiveVehicles: [47, 56],
         special:
             "Needed towing vehicle (Police Supervisor / Sheriff Unit, Warden's Truck)",
         possibleBuildings: [5, 15],
@@ -1396,5 +1430,72 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [5, 15],
+    },
+    91: {
+        caption: 'Flood Equipment Trailer',
+        color: '#9f1616',
+        credits: 15_000,
+        coins: 15,
+        staff: { min: 0, max: 0 },
+        icon: 'car-side',
+        possibleBuildings: [0, 13],
+        isTrailer: true,
+        tractiveVehicles: [8, 3, 1, 31, 39, 4],
+        pumpCapacity: 5000,
+        pumpType: 'fire',
+        special:
+            'Needed towing vehicle (Utility unit, Battalion chief unit, Type 2 fire engine, Type 5 engine, Type 6 engine, Heavy rescue vehicle)',
+    },
+    92: {
+        caption: 'Mobile Air Trailer',
+        color: '#9f1616',
+        credits: 10_000,
+        coins: 10,
+        staff: { min: 0, max: 0 },
+        icon: 'car-side',
+        possibleBuildings: [0, 13],
+        isTrailer: true,
+        tractiveVehicles: [0, 1, 8, 4, 3],
+        special:
+            'Needed towing vehicle (Utility unit, Battalion chief unit, Type 1 fire engine, Type 2 fire engine, Heavy rescue vehicle)',
+    },
+    93: {
+        caption: 'Light Tower Trailer',
+        color: '#9f1616',
+        credits: 10_000,
+        coins: 10,
+        staff: { min: 0, max: 0 },
+        icon: 'car-side',
+        possibleBuildings: [0, 13],
+        isTrailer: true,
+        tractiveVehicles: [0, 1, 8, 4, 3],
+        special:
+            'Needed towing vehicle (Utility unit, Battalion chief unit, Type 1 fire engine, Type 2 fire engine, Heavy rescue vehicle)',
+    },
+    94: {
+        caption: 'Energy Generator Trailer',
+        color: '#9f1616',
+        credits: 10_000,
+        coins: 10,
+        staff: { min: 0, max: 0 },
+        icon: 'car-side',
+        possibleBuildings: [0, 13],
+        isTrailer: true,
+        tractiveVehicles: [0, 1, 8, 4, 3],
+        special:
+            'Needed towing vehicle (Utility unit, Battalion chief unit, Type 1 fire engine, Type 2 fire engine, Heavy rescue vehicle)',
+    },
+    95: {
+        caption: 'Double Light Boat Trailer',
+        color: '#9f1616',
+        credits: 60_000,
+        coins: 25,
+        staff: { min: 0, max: 0 },
+        icon: 'car-side',
+        possibleBuildings: [0, 13],
+        isTrailer: true,
+        tractiveVehicles: [8, 3, 1, 31, 39, 4],
+        special:
+            'Needed towing vehicle (Utility unit, Battalion chief unit, Type 2 fire engine, Type 5 engine, Type 6 engine, Heavy rescue vehicle)',
     },
 } satisfies Record<number, InternalVehicle>;

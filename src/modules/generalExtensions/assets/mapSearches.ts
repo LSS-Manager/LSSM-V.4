@@ -125,13 +125,12 @@ export default (
         window.map.addEventListener('moveend', resetNewBuildingMarker);
     }
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    window.addEventListener(
-        'lssmv4-map-loaded',
-        ({ detail: { id, map } }: CustomEvent<{ id: string; map: LMap }>) =>
-            addToMap(map, id)
-    );
+    LSSM.$stores.event.addListener({
+        name: 'leaflet-map-loaded',
+        listener: ({
+            detail: { id, map },
+        }: CustomEvent<{ id: string; map: LMap }>) => addToMap(map, id),
+    });
 
     if (window.location.pathname === '/' && !mapSearchOnMap) return;
 

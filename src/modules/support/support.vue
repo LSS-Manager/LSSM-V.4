@@ -43,7 +43,7 @@
 import VSelect from 'vue-select';
 
 import Chat from './components/chat.vue';
-import Lightbox from '../../components/lightbox.vue';
+import Lightbox from '../../components/LightboxWrapper.vue';
 
 const config = require('../../config');
 

@@ -99,8 +99,8 @@ export default {
     export: {
         export: 'Esporta',
         json: {
-            raw: 'JSON (grezzo)',
-            prettified: 'JSON (abbellito)',
+            raw: 'grezzo',
+            prettified: 'abbellito',
         },
     },
 };

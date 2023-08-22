@@ -42,6 +42,8 @@
             "swat_armored": "TOG Armoured Vehicle",
             "swat_suv": "TOG SUV",
             "wasser_amount": "Litres of water",
+            "water_damage_pump": "Water Pumps",
+            "water_damage_pump_value": "Pump Capacity",
             "water_drop_helicopter": "Fire Helicopter"
         },
         "headers": {
@@ -62,6 +64,7 @@
     "enhancedMissingVehicles": {
         "driving": "En-route",
         "missing": "Missing on mission",
+        "pump": "l/min pumping process",
         "selected": "Selected",
         "staff": [{ "texts": ["TOG Personnel"], "vehicles": [15, 18] }],
         "staffPrefix": ["We need"],
@@ -164,6 +167,54 @@
             { "texts": ["Emergency Stairs"], "vehicles": [45] },
             { "texts": ["MVR Quad", "MVR Quads"], "vehicles": [38] },
             { "texts": ["MVR Boat", "MVR Boats"], "vehicles": [39] },
+            {
+                "texts": [
+                    "SES Search and Rescue Trailer",
+                    "SES Search and Rescue Trailers"
+                ],
+                "vehicles": [54]
+            },
+            {
+                "texts": ["SES Sandbag Trailer", "SES Sandbag Trailers"],
+                "vehicles": [47]
+            },
+            {
+                "texts": ["SES Pump Trailer", "SES Pump Trailers"],
+                "vehicles": [48]
+            },
+            {
+                "texts": [
+                    "SES Solar/Wind Power Trailer",
+                    "SES Solar/Wind Power Trailers"
+                ],
+                "vehicles": [52]
+            },
+            {
+                "texts": [
+                    "SES Emergency Lighting Trailer",
+                    "SES Emergency Lighting Trailers"
+                ],
+                "vehicles": [49]
+            },
+            {
+                "texts": ["SES Aireshelta Trailer", "SES Aireshelta Trailers"],
+                "vehicles": [50]
+            },
+            {
+                "texts": [
+                    "SES Comms Repeater Trailer",
+                    "SES Comms Repeater Trailers"
+                ],
+                "vehicles": [51]
+            },
+            {
+                "texts": [
+                    "SES Quad Rescue 6x6 Trailer",
+                    "SES Quad Rescue 6x6 Trailers"
+                ],
+                "vehicles": [53]
+            },
+            { "texts": ["SES FOV", "SES FOVs"], "vehicles": [46] },
             {
                 "texts": ["SES Storm Trailer", "SES Storm Trailers"],
                 "vehicles": [42]

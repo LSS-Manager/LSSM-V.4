@@ -170,7 +170,7 @@ export default <
                 loadMissingBtn: HTMLAnchorElement | null;
             },
             [],
-            ['next', 'previous', 'loadMissing']
+            ['next', 'previous', 'loadMissing', 'reset']
         >
     >{
         validatorFunction() {
@@ -202,6 +202,9 @@ export default <
             //display:none => no vehicles missing
             if (this.loadMissingBtn?.style.display != 'none')
                 this.loadMissingBtn?.click();
+        },
+        reset() {
+            window.vehicleSelectionReset();
         },
     },
     backalarm: <

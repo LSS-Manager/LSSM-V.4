@@ -35,7 +35,7 @@ export default <RedesignParser<AwardsWindow>>(({ doc }) => ({
                         nodeType === 3 &&
                         nextSibling?.nodeType === 1 &&
                         (nextSibling as HTMLElement).matches(
-                            'div.progress, div.label-award-gold'
+                            'div.progress, div.line'
                         )
                 )
                 ?.textContent?.trim() ?? '',

@@ -15,6 +15,7 @@
         "police": "Police Mission",
         "riot_police_specialization": "Police & Public Order Missions (Specialization)",
         "title": "Generating Categories",
+        "water_damage_and_flood": "Water Damage and Flood Mission",
         "water_rescue_2": "Coastguard Missions"
     },
     "patients": {
@@ -60,6 +61,7 @@
         "riot_police": "Police & Public Order Extension | Police & Public Order Extensions",
         "title": "Prerequisite | Prerequisites",
         "wasserrettung": "Technical Rescue Extension | Technical Rescue Extensions",
+        "water_damage_pump_count": "Water Damage Pump Extension | Water Damage Pump Extensions",
         "water_rescue_2": "Coastguard Rescue Station | Coastguard Rescue Stations"
     },
     "prisoners": {
