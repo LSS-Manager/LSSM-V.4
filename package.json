@@ -23,7 +23,7 @@
         "acorn": "8.10.0",
         "acorn-walk": "8.2.0",
         "broadcast-channel": "4.20.2",
-        "emoji-toolkit": "7.0.1",
+        "emoji-toolkit": "8.0.0",
         "he": "1.2.0",
         "highcharts": "11.1.0",
         "highcharts-vue": "1.4.3",
