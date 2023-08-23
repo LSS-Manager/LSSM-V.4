@@ -1827,4 +1827,40 @@ export default {
         possibleBuildings: [0, 18],
         waterTank: 10_000,
     },
+    122: {
+        caption: 'LKW 7 Lbw (FGr E)',
+        color: '#36759e',
+        credits: 15_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 3,
+        },
+        icon: 'truck',
+        possibleBuildings: [9],
+    },
+    123: {
+        caption: 'LKW 7 Lbw (FGr WP)',
+        color: '#36759e',
+        credits: 15_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 3,
+        },
+        icon: 'truck',
+        possibleBuildings: [9],
+    },
+    124: {
+        caption: 'MTW-OV',
+        color: '#36759e',
+        credits: 15_000,
+        coins: 13,
+        staff: {
+            min: 1,
+            max: 7,
+        },
+        icon: 'truck',
+        possibleBuildings: [9],
+    },
 } satisfies Record<number, InternalVehicle>;
