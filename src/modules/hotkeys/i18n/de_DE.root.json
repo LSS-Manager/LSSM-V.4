@@ -138,7 +138,7 @@
                 "onlyAmbulance": "Eigenen Rettungsdienst rückalarmieren",
                 "title": "Zurückalamieren"
             },
-            "easter_click": "Ostereier sammeln",
+            "easter_click": "Saisonales Sammelobjekt einsammeln (z.B. Osterei)",
             "emv": {
                 "title": "Benötigte Fahrzeuge verschönern",
                 "toggleCollapse": "Ein- / Ausklappen"
