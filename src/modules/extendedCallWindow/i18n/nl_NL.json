@@ -64,7 +64,9 @@
             "rw": "HV of TS-HV",
             "rw_only": "Hulpverleningsvoertuig",
             "spokesman": "Voorlichters",
-            "wasser_amount": "Water (in Liters)"
+            "wasser_amount": "Water (in Liters)",
+            "brush_truck": "Terreinvaardige Tankautospuit",
+            "search_and_rescue": "Dienstvoertuig USAR"
         },
         "headers": {
             "attribute": "Naam",
@@ -262,7 +264,10 @@
                 "texts": ["Reddingsboot Klein", "Reddingsboten Klein"],
                 "vehicles": [78]
             },
-            { "texts": ["SAR-helicopter", "SAR-helicopters"], "vehicles": [80] }
+            { "texts": ["SAR-helicopter", "SAR-helicopters"], "vehicles": [80] },
+            { "texts": ["FBO Heli", "FBO Helis"], "vehicles": [85] },
+            { "texts": ["DA-LA-NB", "DA-LA-NBs"], "vehicles": [87] },
+            { "texts": ["Natuurbrandbestrijding Vrachtwagen of Haakarmbakken", "Natuurbrandbestrijding Vrachtwagens of Haakarmbakken"], "vehicles": [89] }
         ],
         "water": "L. water"
     },

@@ -1245,6 +1245,244 @@ export default {
             },
         },
         icon: 'shower',
+        possibleBuildings: [11],
+    },
+    85: {
+        caption: 'FBO-Heli',
+        color: '#982132',
+        credits: 300_000,
+        coins: 25,
+        staff: {
+            min: 2,
+            max: 3,
+            training: {
+                Brandweer: {
+                    airborne_firefighting: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'shuttle-van',
+        possibleBuildings: [23],
+    },
+    86: {
+        caption: 'DB-Handcrew',
+        color: '#220000',
+        credits: 30_000,
+        coins: 25,
+        staff: {
+            min: 7,
+            max: 9,
+            training: {
+                Brandweer: {
+                    wildfire: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+    },
+    87: {
+        caption: 'DA-LA-NB',
+        color: '#220000',
+        credits: 30_000,
+        coins: 25,
+        staff: {
+            min: 0,
+            max: 1,
+            training: {
+                Brandweer: {
+                    wildfire_command: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+    },
+    88: {
+        caption: 'VW-NB',
+        color: '#220000',
+        credits: 12_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Brandweer: {
+                    wechsellader: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+    },
+    89: {
+        caption: 'NBH',
+        color: '#220000',
+        credits: 12_000,
+        coins: 25,
+        staff: {
+            min: 0,
+            max: 0,
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+    },
+    90: {
+        caption: 'TS-STH',
+        color: '#220000',
+        credits: 25_000,
+        coins: 25,
+        staff: {
+            min: 7,
+            max: 7,
+            training: {
+                Brandweer: {
+                    disaster_response_command: {
+                        min: 2,
+                    },
+                    disaster_response: {
+                        min: 5,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+        waterTank: 2000,
+    },
+    91: {
+        caption: 'HVH-STH',
+        color: '#220000',
+        credits: 6_000,
+        coins: 12,
+        staff: {
+            min: 0,
+            max: 0,
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+    },
+    92: {
+        caption: 'DB-USAR',
+        color: '#220000',
+        credits: 8_000,
+        coins: 25,
+        staff: {
+            min: 5,
+            max: 9,
+            training: {
+                Brandweer: {
+                    search_and_rescue: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+    },
+    93: {
+        caption: 'TS-USAR',
+        color: '#220000',
+        credits: 10_000,
+        coins: 25,
+        staff: {
+            min: 4,
+            max: 9,
+            training: {
+                Brandweer: {
+                    search_and_rescue: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+        waterTank: 2000,
+    },
+    94: {
+        caption: 'VW-USAR',
+        color: '#220000',
+        credits: 35_000,
+        coins: 25,
+        staff: {
+            min: 2,
+            max: 2,
+            training: {
+                Brandweer: {
+                    wechsellader: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+    },
+    95: {
+        caption: 'DM-USAR',
+        color: '#220000',
+        credits: 5_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 1,
+            training: {
+                Brandweer: {
+                    search_and_rescue: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+    },
+    96: {
+        caption: 'Quat-USAR',
+        color: '#220000',
+        credits: 5_000,
+        coins: 25,
+        staff: {
+            min: 0,
+            max: 2,
+            training: {
+                Brandweer: {
+                    search_and_rescue: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+    },
+    97: {
+        caption: 'DB–Speurhonden',
+        color: '#220000',
+        credits: 10_000,
+        coins: 25,
+        staff: {
+            min: 2,
+            max: 4,
+            training: {
+                Brandweer: {
+                    rescue_dogs: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
         possibleBuildings: [0, 17],
     },
 } satisfies Record<number, InternalVehicle>;

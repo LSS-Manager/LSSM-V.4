@@ -27,6 +27,7 @@
         "vehicles": {
             "caption": "Vehicle type",
             "cost": "Price",
+            "pumpcap": "Pump capacity l/min",
             "maxPersonnel": "maximum personnel",
             "minPersonnel": "minimum personnel",
             "schooling": "Education",

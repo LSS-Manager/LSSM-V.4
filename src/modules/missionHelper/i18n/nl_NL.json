@@ -16,7 +16,10 @@
         "technical_aid": "RWS / Signalisatie Inzetten",
         "water_rescue": "Waterredding inzetten",
         "water_rescue_2": "Kustwacht inzetten",
-        "water_rescue_specialization": "Waterredding inzetten (Specialisatie)"
+        "water_rescue_specialization": "Waterredding inzetten (Specialisatie)",
+        "forestry": "Natuurbrandbestrijding",
+        "disaster_response": "Specialisme Technische Hulpverlening",
+        "search_and_rescue": "Urban Search and Rescue"
     },
     "patients": {
         "allow_ktw_instead_of_rtw": "Een zorgambulance kan worden gebruikt als Ambulance",
@@ -50,7 +53,11 @@
         "technical_aid": "RWS / Signalisatie",
         "title": "Vereist | Vereisten",
         "wasserrettung": "Waterongevallenuitbreiding | Waterongevallenuitbreidingen",
-        "water_rescue_2": "Waterreddingspost | Waterreddingsposten"
+        "water_rescue_2": "Waterreddingspost | Waterreddingsposten",
+        "brush_extension": "Natuurbrandbestrijding Uitbreidingen",
+        "fire_aviation_count": "Militaire Hangar",
+        "disaster_response_count": "STH Uitbreidingen",
+        "search_and_rescue": "USAR Uitbreidingen"
     },
     "prisoners": {
         "max_possible_prisoners": "Arrestant maximaal | Arrestanten maximaal",
@@ -106,7 +113,18 @@
             "traffic_motorcycle": "DM-RWS",
             "traffic_unit": "Signalisatie Voertuig | Signalisatie Voertuigen",
             "water_rescue": "Strandvoertuig | Strandvoertuigen",
-            "water_tankers": "Slangenwagen of watertankwagen | Slangenwagens of watertankwagens"
+            "water_tankers": "Slangenwagen of watertankwagen | Slangenwagens of watertankwagens",
+            "brush_truck": "Tankautospuiten (Terreinvaardig)",
+            "wildfire_equipment": "Natuurbrandbestrijding Uitrusting",
+            "wildfire_command": "DA-LA-NB",
+            "fire_aviation": "FBO-Heli",
+            "wildfire": "Handcrew",
+            "disaster_response": "TS-STH",
+            "disaster_response_equipment": "HVH-STH",
+            "rescue_dog_units": "DB–Speurhonden",
+            "search_and_rescue": "USAR",
+            "search_and_rescue_engine": "TS-USAR",
+            "search_and_rescue_equipment": "VW-USAR"
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {
