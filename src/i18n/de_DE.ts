@@ -134,9 +134,10 @@ export default {
                 'Zugtrupp': [40],
                 ['Fachgruppe Räumen']: [42, 43, 44, 45],
                 'Fachgruppe Ortung': [92, 93],
-                'Fachgruppe Wasserschade/Pumpen': [99, 100, 101, 102],
+                'Fachgruppe Wasserschade/Pumpen': [99, 100, 101, 102, 123],
                 'Schwere Bergung': [109],
-                'Netzersatzanlagen': [112],
+                'Netzersatzanlagen': [112, 122],
+                'MTW-OV': [124]
             },
             color: '#0000ff',
         },
