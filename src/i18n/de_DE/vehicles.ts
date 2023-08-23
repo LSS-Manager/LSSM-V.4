@@ -1700,9 +1700,9 @@ export default {
         },
         icon: 'trailer',
         special:
-            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (LKW 7 Lbw)',
+            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (LKW 7 Lbw (FGr E), LKW 7 Lbw)',
         isTrailer: true,
-        tractiveVehicles: [99],
+        tractiveVehicles: [99, 122],
         possibleBuildings: [9],
     },
     113: {
