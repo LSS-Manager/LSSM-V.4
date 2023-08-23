@@ -137,7 +137,7 @@ export default {
                 'Fachgruppe Wasserschade/Pumpen': [99, 100, 101, 102, 123],
                 'Schwere Bergung': [109],
                 'Netzersatzanlagen': [112, 122],
-                'Ortsverbands-Manschaftstransportwagen': [124]
+                'MTW-OV': [124]
             },
             color: '#0000ff',
         },
