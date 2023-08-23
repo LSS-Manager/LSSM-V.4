@@ -317,6 +317,7 @@ if [[ $_RUN_STEP_USERSCRIPT = true ]]; then
     print_start_message "[📜] build userscript"
     enable_debugging
     yarn tsc --pretty --project "src/tsconfig.userscript.json" || exit 1
+    yarn ts-node scripts/buildUserscript.ts || exit 1
     disable_debugging
     print_end_message "[📜] build userscript" "$start_time"
 fi
@@ -379,7 +380,7 @@ if [[ $_RUN_STEP_LIVE_SERVER = true ]]; then
     start_time=$(now)
     print_start_message "Start test server"
     enable_debugging
-    node node_modules/.bin/live-server ./dist/ --port=3000 --no-browser
+    yarn live-server ./dist/ --port=3000 --no-browser
     disable_debugging
     print_end_message "Start test server" "$start_time"
 fi

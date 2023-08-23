@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path';
 
 import Terser from 'terser';
 
@@ -8,9 +9,15 @@ import packageJson from '../package.json';
 const script = packageJson.userscript;
 const localCoreName = 'core';
 
+const getScriptPath = (local: boolean) =>
+    path.resolve(
+        __dirname,
+        `../static/lssm-v4.${local ? 'local.' : ''}user.js`
+    );
+
 const createUserScript = async (local: boolean) =>
     fs.writeFileSync(
-        `./static/lssm-v4.${local ? 'local.' : ''}user.js`,
+        getScriptPath(local),
         `// ==UserScript==
 // @name         ${script.name}${local ? ' – Local' : ''}
 // @version      ${packageJson.version.replace(/\+.*$/u, '')}-${Object.keys(
@@ -80,5 +87,4 @@ ${
 `
     );
 
-export default (): Promise<[void, void]> =>
-    Promise.all([createUserScript(false), createUserScript(true)]);
+Promise.all([createUserScript(false), createUserScript(true)]).then();
