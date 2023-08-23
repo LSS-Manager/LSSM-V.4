@@ -137,6 +137,7 @@
                 "onlyAmbulance": "Backalarm only ambulances",
                 "title": "Backalarm"
             },
+            "easter_click": "sbírat velikonoční vajíčko",
             "emv": {
                 "title": "Enhanced missing vehicles",
                 "toggleCollapse": "Collapse / Uncollapse"

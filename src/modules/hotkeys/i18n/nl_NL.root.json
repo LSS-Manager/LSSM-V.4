@@ -131,6 +131,7 @@
                 "onlyAmbulance": "Annuleer alleen ambulances",
                 "title": "Annuleer voertuigen"
             },
+            "easter_click": "Paaseieren verzamelen",
             "emv": {
                 "title": "Enhanced missing vehicles",
                 "toggleCollapse": "Collapse / Uncollapse"

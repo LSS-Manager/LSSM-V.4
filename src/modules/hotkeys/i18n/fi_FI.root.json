@@ -135,6 +135,7 @@
                 "onlyAmbulance": "Peruuta kaikki ambulanssit",
                 "title": "Peruuta"
             },
+            "easter_click": "Kerää pääsiäismuna",
             "emv": {
                 "title": "Enhanced missing vehicles",
                 "toggleCollapse": "Collapse / Uncollapse"

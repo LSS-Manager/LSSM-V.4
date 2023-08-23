@@ -24,6 +24,7 @@ export default <
             'alert_share_next',
             'share',
             'alert',
+            'easter_click',
         ],
         true
     >
@@ -285,5 +286,8 @@ export default <
     },
     alert() {
         document.querySelector<HTMLInputElement>('#alert_btn')?.click();
+    },
+    easter_click() {
+        document.querySelector<HTMLAnchorElement>('#easter-egg-link')?.click();
     },
 };
