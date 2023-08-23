@@ -13,7 +13,7 @@ interface Workflow {
 
 type Job = Workflow['jobs']['build']['steps'][0];
 
-const excludedSteps = [
+const excludeFromImport = [
     'get_node_yarn_versions',
     'yarn_cache_dir',
     'generate_token',
@@ -22,8 +22,8 @@ const excludedSteps = [
     'git_prepare',
     'import_gpg',
     'git_push',
-    'live_server',
 ];
+const excludeFromFullBuild = ['live_server'];
 const shortcuts = {
     'dependencies': ['yarn_setup', 'versions', 'yarn_install', 'browserslist'],
     'quick': ['env', 'format', 'eslint', 'tsc', 'webpack'],
@@ -136,14 +136,14 @@ try {
     ]
         .concat(
             workflow.jobs.build.steps.filter(
-                step => step.run && !excludedSteps.includes(step.id ?? '')
+                step => step.run && !excludeFromImport.includes(step.id ?? '')
             )
             //To make sure that the test server started as latest call
         )
         .concat([
             {
                 name: 'Start test server',
-                run: 'node node_modules/.bin/live-server ./dist/ --port=3000 --no-browser',
+                run: 'yarn live-server ./dist/ --port=3000 --no-browser',
                 id: 'live_server',
             } as Job,
         ]);
@@ -162,7 +162,10 @@ ${stepIds.map(id => `        --${id}) ${getStepName(id)}=true ;;`).join('\n')}
 ${Object.entries(shortcuts)
     .map(
         ([shortcut, steps]) => `        --${shortcut})
-          ${(shortcut === 'full' ? stepIds : steps)
+          ${(shortcut === 'full'
+              ? stepIds.filter(step => !excludeFromFullBuild.includes(step))
+              : steps
+          )
               .map(step => `${getStepName(step)}=true`)
               .join('\n          ')} ;;`
     )
