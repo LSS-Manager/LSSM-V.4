@@ -6,12 +6,13 @@ import config from '../src/config';
 import packageJson from '../package.json';
 
 const script = packageJson.userscript;
+const localCoreName = 'core';
 
-export default async (): Promise<void> =>
+const createUserScript = async (local: boolean) =>
     fs.writeFileSync(
-        './static/lssm-v4.user.js',
+        `./static/lssm-v4.${local ? 'local.' : ''}user.js`,
         `// ==UserScript==
-// @name         ${script.name}
+// @name         ${script.name}${local ? ' – Local' : ''}
 // @version      ${packageJson.version.replace(/\+.*$/u, '')}-${Object.keys(
             config.games
         )
@@ -38,7 +39,14 @@ ${Object.values(config.games)
 // @run-at       document-idle
 // @grant        GM_info
 // @grant        unsafeWindow
-// ==/UserScript==
+${
+    local
+        ? `
+// @grant        GM_getResourceURL
+// @resource     ${localCoreName} http://127.0.0.1:3000/core.js
+`.trimStart()
+        : ''
+}// ==/UserScript==
 /* global I18n, user_id */
 ${
     (
@@ -51,6 +59,8 @@ ${
                 compress: {
                     ecma: 2020,
                     global_defs: {
+                        local,
+                        localCoreName,
                         host: config.urls.server,
                         prefix: config.prefix,
                     },
@@ -69,3 +79,6 @@ ${
 }
 `
     );
+
+export default (): Promise<[void, void]> =>
+    Promise.all([createUserScript(false), createUserScript(true)]);
