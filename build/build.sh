@@ -380,7 +380,7 @@ if [[ $_RUN_STEP_LIVE_SERVER = true ]]; then
     start_time=$(now)
     print_start_message "Start test server"
     enable_debugging
-    live-server ./dist/ --port=3000 --no-browser
+    node node_modules/.bin/live-server ./dist/ --port=3000 --no-browser
     disable_debugging
     print_end_message "Start test server" "$start_time"
 fi

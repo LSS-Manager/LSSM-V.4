@@ -29,7 +29,7 @@ const shortcuts = {
     'quick': ['env', 'format', 'eslint', 'tsc', 'webpack'],
     'local': [
         'yarn_setup',
-        'versions',
+        'versions', //not required, just for debugging
         'yarn_install',
         'env',
         'tsc',
@@ -143,7 +143,7 @@ try {
         .concat([
             {
                 name: 'Start test server',
-                run: 'live-server ./dist/ --port=3000 --no-browser',
+                run: 'node node_modules/.bin/live-server ./dist/ --port=3000 --no-browser',
                 id: 'live_server',
             } as Job,
         ]);
