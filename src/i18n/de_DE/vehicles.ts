@@ -1363,10 +1363,10 @@ export default {
         icon: 'paw',
         possibleBuildings: [9],
         special:
-            'Muss von einem "MTW-OV" an den Einsatzort gezogen werden. Am Einsatzort sind ein "Anh Hund" und ein "Rettungshundefahrzeug" vom Rettungsdienst gleichwertig!',
+            'Muss von einem "MTW-O" oder "MTW-OV" an den Einsatzort gezogen werden. Am Einsatzort sind ein "Anh Hund" und ein "Rettungshundefahrzeug" vom Rettungsdienst gleichwertig!',
     },
     93: {
-        caption: 'MTW-OV',
+        caption: 'MTW-O',
         color: '#14165e',
         credits: 19_000,
         coins: 0,
