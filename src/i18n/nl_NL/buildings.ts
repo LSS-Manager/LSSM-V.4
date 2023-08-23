@@ -120,7 +120,7 @@ export default {
                 duration: '7 Dagen',
                 isVehicleExtension: true,
                 givesParkingLots: 0,
-                unlocksVehicleTypes: [86,87,88,89],
+                unlocksVehicleTypes: [86, 87, 88, 89],
                 cannotDisable: true,
             },
             {
@@ -130,7 +130,7 @@ export default {
                 duration: '7 Dagen',
                 isVehicleExtension: true,
                 givesParkingLots: 0,
-                unlocksVehicleTypes: [92,93,94,95,96,97],
+                unlocksVehicleTypes: [92, 93, 94, 95, 96, 97],
                 cannotDisable: true,
             },
             {
@@ -140,7 +140,7 @@ export default {
                 duration: '7 Dagen',
                 isVehicleExtension: true,
                 givesParkingLots: 0,
-                unlocksVehicleTypes: [90,91],
+                unlocksVehicleTypes: [90, 91],
                 cannotDisable: true,
             },
         ],
@@ -849,7 +849,7 @@ export default {
                 duration: '7 Dagen',
                 isVehicleExtension: true,
                 givesParkingLots: 0,
-                unlocksVehicleTypes: [86,87,88,89],
+                unlocksVehicleTypes: [86, 87, 88, 89],
                 cannotDisable: true,
             },
             {
@@ -859,7 +859,7 @@ export default {
                 duration: '7 Dagen',
                 isVehicleExtension: true,
                 givesParkingLots: 0,
-                unlocksVehicleTypes: [92,93,94,95,96,97],
+                unlocksVehicleTypes: [92, 93, 94, 95, 96, 97],
                 cannotDisable: true,
             },
             {
@@ -869,7 +869,7 @@ export default {
                 duration: '7 Dagen',
                 isVehicleExtension: true,
                 givesParkingLots: 0,
-                unlocksVehicleTypes: [90,91],
+                unlocksVehicleTypes: [90, 91],
                 cannotDisable: true,
             },
         ],

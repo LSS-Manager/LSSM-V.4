@@ -1361,7 +1361,7 @@ export default {
     91: {
         caption: 'HVH-STH',
         color: '#220000',
-        credits: 6_000,
+        credits: 6000,
         coins: 12,
         staff: {
             min: 0,
@@ -1373,7 +1373,7 @@ export default {
     92: {
         caption: 'DB-USAR',
         color: '#220000',
-        credits: 8_000,
+        credits: 8000,
         coins: 25,
         staff: {
             min: 5,
@@ -1431,7 +1431,7 @@ export default {
     95: {
         caption: 'DM-USAR',
         color: '#220000',
-        credits: 5_000,
+        credits: 5000,
         coins: 25,
         staff: {
             min: 1,
@@ -1450,7 +1450,7 @@ export default {
     96: {
         caption: 'Quat-USAR',
         color: '#220000',
-        credits: 5_000,
+        credits: 5000,
         coins: 25,
         staff: {
             min: 0,

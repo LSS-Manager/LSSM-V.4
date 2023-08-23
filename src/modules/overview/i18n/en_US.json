@@ -28,9 +28,9 @@
             "caption": "Vehicle type",
             "cost": "Price",
             "ftank": "Foam Tank",
-            "pumpcap": "Pump capacity GPM",
             "maxPersonnel": "maximum personnel",
             "minPersonnel": "minimum personnel",
+            "pumpcap": "Pump capacity GPM",
             "schooling": "Education",
             "special": "Specials",
             "wtank": "Water tank"
