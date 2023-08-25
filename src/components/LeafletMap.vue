@@ -3,12 +3,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue';
+import { computed, nextTick, onMounted, ref } from 'vue';
 
 import { useEventStore } from '@stores/event';
+import { useRootStore } from '@stores/index';
 
 import type { FeatureGroup, Layer, Map as LMap } from 'leaflet';
+
 const leafletMap = ref<LMap>();
+const rootStore = useRootStore();
 
 const props = withDefaults(
     defineProps<{
@@ -30,7 +33,7 @@ const props = withDefaults(
     }
 );
 
-const mapId = computed(() => `map-${props.id}`);
+const mapId = computed(() => rootStore.nodeAttribute(`map-${props.id}`, true));
 
 const redraw = () => {
     leafletMap.value?.remove();
@@ -71,6 +74,7 @@ defineExpose({ map: leafletMap, redraw, setView });
 
 onMounted(() => {
     $emit('mounted', redraw());
+    nextTick(() => window.dispatchEvent(new Event('resize')));
 });
 </script>
 
