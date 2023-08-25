@@ -963,8 +963,18 @@ export default {
         coins: 50,
         credits: 100_000,
         levelPrices: {
-            credits: [],
-            coins: [],
+        levelPrices: {
+            credits: [
+                10_000,
+                25_000,
+                45_000,
+                75_000,
+                ...Array(5).fill(100_000),
+                ...Array(9).fill(150_000),
+                ...Array(6).fill(200_000),
+            ],
+            coins: [10, 10, 15, 15, ...Array(20).fill(20)],
+        },
         },
         extensions: [
             {
@@ -1018,7 +1028,7 @@ export default {
             '19-24. 200 000',
         ],
         maxBuildings: 'Aucune limite',
-        maxLevel: 10,
+        maxLevel: 24,
         special: '',
         startPersonnel: 4,
         startParkingLots: 1,
