@@ -1032,5 +1032,6 @@ export default {
         startParkingLots: 1,
         startVehicles: [''],
         schoolingTypes: ['Secours nautique'],
+        icon: 'building-shield',
     },
 } satisfies Record<number, InternalBuilding>;
