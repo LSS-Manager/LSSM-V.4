@@ -30,7 +30,7 @@ export default Vue.extend<
     components: {
         SchoolingsOverview: () =>
             import(
-                /*webpackChunkName: "modules/schoolingOverview/schoolingOverview"*/ '../../schoolingOverview/schoolingOverview.vue'
+                /*webpackChunkName: "modules/schoolingOverview/schoolingOverview"*/ '../../schoolingOverview/SchoolingOverview.vue'
             ),
         OwnSchoolingTabs: () =>
             import(
