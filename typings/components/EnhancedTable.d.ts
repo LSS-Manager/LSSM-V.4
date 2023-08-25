@@ -26,3 +26,11 @@ export interface EnhancedTableProps {
 export interface EnhancedTableMethods {
     titleAttr(i: EnhancedTableProps['head'][0]): string;
 }
+
+export interface Column<Key extends string> {
+    key: Key;
+    attrs: Record<string, unknown>;
+    title: string;
+    titleAttr?: string;
+    noSort?: boolean;
+}
