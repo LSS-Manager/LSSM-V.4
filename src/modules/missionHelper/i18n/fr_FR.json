@@ -6,7 +6,7 @@
     "mission_categories": {
         "airport": "Missions aéroportuaires",
         "ambulance": "Missions ambulancières",
-        "bomb_disposal":"Missions de déminage"
+        "bomb_disposal":"Missions de déminage",
         "coastal_rescue": "Mission côtière",
         "coastal_rescue_ocean": "Mission océanique",
         "decontamination":"Missions de décontamination",
