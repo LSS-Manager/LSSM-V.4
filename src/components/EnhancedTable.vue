@@ -24,18 +24,18 @@
             <thead>
                 <tr>
                     <th
-                        v-for="item in columns"
-                        :key="item.key"
-                        v-bind="item.attrs"
-                        :class="{ noSort: item.noSort }"
-                        @click="!item.noSort && $emit('sort', item.key)"
-                        :title="titleAttr(item)"
+                        v-for="column in columns"
+                        :key="column.key"
+                        v-bind="column.attrs"
+                        :class="{ noSort: column.noSort }"
+                        @click="!column.noSort && $emit('sort', column.key)"
+                        :title="titleAttr(column)"
                     >
-                        {{ item.title }}
+                        {{ colTitle(column) }}
                         <font-awesome-icon
-                            v-if="!item.noSort"
+                            v-if="!column.noSort"
                             class="pull-right"
-                            :icon="item.key === sort ? sortIcon : faSort"
+                            :icon="column.key === sort ? sortIcon : faSort"
                         ></font-awesome-icon>
                     </th>
                 </tr>
@@ -73,7 +73,8 @@ const showHead = ref<boolean>(true);
 
 const props = withDefaults(
     defineProps<{
-        columns: Column<ColumnKey>[];
+        columns: Column<ColumnKey, boolean>[];
+        columnTranslations: Record<ColumnKey, string>;
         sort?: ColumnKey;
         sortDir?: 'asc' | 'desc';
         noSearch?: boolean;
@@ -83,6 +84,7 @@ const props = withDefaults(
         noBody?: boolean;
     }>(),
     {
+        columnTranslations: () => {},
         sort: '',
         sortDir: 'asc',
         noSearch: false,
@@ -101,7 +103,10 @@ const sortIcon = computed(() =>
     props.sortDir === 'asc' ? faSortDown : faSortUp
 );
 
-const titleAttr = (col: Column<ColumnKey>) => col.titleAttr ?? col.title;
+const colTitle = (col: Column<ColumnKey, boolean>) =>
+    props.columnTranslations[col.key] ?? col.title;
+const titleAttr = (col: Column<ColumnKey, boolean>) =>
+    col.titleAttr ?? colTitle(col);
 
 const $emit = defineEmits<{
     (event: 'mounted'): void;

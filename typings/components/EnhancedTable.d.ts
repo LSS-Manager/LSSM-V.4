@@ -27,10 +27,19 @@ export interface EnhancedTableMethods {
     titleAttr(i: EnhancedTableProps['head'][0]): string;
 }
 
-export interface Column<Key extends string> {
-    key: Key;
-    attrs: Record<string, unknown>;
-    title: string;
+export type Column<
+    Key extends string,
+    TitleRequired extends boolean = true,
+> = (TitleRequired extends true
+    ? {
+          key: Key;
+          title: string;
+      }
+    : {
+          key: Key;
+          title?: string;
+      }) & {
+    attrs?: Record<string, unknown>;
     titleAttr?: string;
     noSort?: boolean;
-}
+};

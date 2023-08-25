@@ -1,7 +1,7 @@
 import getSchoolings from './assets/getSchoolings';
 import openSchoolingTabs from './components/openSchoolingTabs.vue';
 import ownSchoolingTabs from './components/ownSchoolingTabs.vue';
-import schoolingOverview from './schoolingOverview.vue';
+import SchoolingOverview from './SchoolingOverview.vue';
 
 import type { ModuleMainFunction } from 'typings/Module';
 
@@ -14,7 +14,7 @@ export default <ModuleMainFunction>(({ LSSM }) => {
             pinia: LSSM.$pinia,
             i18n: LSSM.$i18n,
             render: h =>
-                h(schoolingOverview, {
+                h(SchoolingOverview, {
                     props: {
                         ownSchoolings: ownSchoolings.amounts,
                         openSchoolings: openSchoolings.amounts,
