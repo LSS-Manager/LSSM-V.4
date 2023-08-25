@@ -62,7 +62,7 @@
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-        "version": "18.17.9"
+        "version": "18.17.11"
     },
     "@types/pdfmake": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -345,7 +345,7 @@
     "typescript": {
         "icon": "https://www.typescriptlang.org/icons/icon-512x512.png",
         "url": "https://www.typescriptlang.org/",
-        "version": "5.1.6"
+        "version": "5.2.2"
     },
     "ua-parser-js": {
         "icon": "https://faisalman.github.io/ua-parser-js/images/logo.png",
