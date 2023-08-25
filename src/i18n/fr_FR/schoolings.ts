@@ -134,5 +134,47 @@ export default {
             staffList: 'Formation de mécanicien',
             key: 'airborne_firefighting',
         },
+        {
+            caption: 'Formation des commandants d’intervention en cas de catastrophe',
+            duration: '5 jours',
+            staffList: 'Formation des commandants d’intervention en cas de catastrophe',
+            key: 'disaster_response_command',
+        },
+        {
+            caption: 'Formation risques chimiques',
+            duration: '4 jours',
+            staffList: 'Formation risques chimiques',
+            key: 'decontamination_chemicals',
+        },
+        {
+            caption: 'Formation risques radiologiques',
+            duration: '4 jours',
+            staffList: 'Formation risques radiologiques',
+            key: 'decontamination_radiology',
+        },
+        {
+            caption: 'Formation démineur',
+            duration: '7 jours',
+            staffList: 'Formation démineur',
+            key: 'fbi_bomb_tech',
+        },
+        {
+            caption: 'Formation pilote à distance',
+            duration: '4 jours',
+            staffList: 'Formation pilote à distance',
+            key: 'bomb_drone',
+        },
+        {
+            caption: 'Sauvetage et déblaiement',
+            duration: '4 jours',
+            staffList: 'FSauvetage et déblaiement',
+            key: 'disaster_response',
+        },
+        {
+            caption: 'Formation équipe cynophile',
+            duration: '3 jours',
+            staffList: 'Formation équipe cynophile',
+            key: 'rescue_dogs',
+        },
     ],
 } satisfies SchoolingsBySchool;
