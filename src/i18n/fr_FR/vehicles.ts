@@ -897,4 +897,219 @@ export default {
         possibleBuildings: [26],
         waterTank: 1000,
     },
+    61: {
+        caption: 'MaGec',
+        color: '#225CB5',
+        credits: 25_500,
+        coins: 20,
+        staff: {
+            min: 2,
+            max: 6,
+            training: {
+                'Secours nautique': {
+                    disaster_response_command: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [27]
+		},
+    62: {
+        caption: 'VDIP',
+        color: '#225CB5',
+        credits: 19_200,
+        coins: 20,
+        staff: {
+            min: 2,
+            max: 4,
+            training: {
+                'Secours nautique': {
+                    decontamination_chemicals: {
+                        all: true,
+                    },
+                    decontamination_radiology: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [27]
+    },
+    63: {
+        caption: 'CEDM',
+        color: '#225CB5',
+        credits: 14_200,
+        coins: 15,
+        staff: {
+            min: 0,
+            max: 0
+        },
+        icon: 'car-side',
+        possibleBuildings: [27],
+        special: 'Remorqueuse nécessaire (VDIP)',
+    },
+    64: {
+        caption: 'VDSC',
+        color: '#225CB5',
+        credits: 19_200,
+        coins: 20,
+        staff: {
+            min: 2,
+            max: 2,
+            training: {
+                'Secours nautique': {
+                    fbi_bomb_tech: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [27],
+    },
+    65: {
+        caption: 'TEODOR',
+        color: '#225CB5',
+        credits: 14_200,
+        coins: 15,
+        staff: {
+            min: 0,
+            max: 0,
+            training: {
+                'Secours nautique': {
+                    bomb_dronee: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [27],
+        special: 'Remorqueuse nécessaire (VDSC)',
+    },
+    66: {
+        caption: 'VTPSC',
+        color: '#225CB5',
+        credits: 14_200,
+        coins: 15,
+        staff: {
+            min: 1,
+            max: 9,
+            training: {
+                'Secours nautique': {
+                    FORMISC: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [27],
+    },
+    67: {
+        caption: 'CESD',
+        color: '#225CB5',
+        credits: 300_000,
+        coins: 30,
+        staff: {
+            min: 2,
+            max: 2,
+            training: {
+                'Secours nautique': {
+                    disaster_response: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [27],
+        waterTank: 1000,
+    },
+    68: {
+        caption: 'VEC',
+        color: '#225CB5',
+        credits: 19_200,
+        coins: 20,
+        staff: {
+            min: 4,
+            max:4,
+            training: {
+                'Secours nautique': {
+                    rescue_dogs: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [27],
+    },
+    69: {
+        caption: 'MSAV-SEV',
+        color: '#225CB5',
+        credits: 14_200,
+        coins: 15,
+        staff: {
+            min: 0,
+            max: 0,
+        },
+        icon: 'car-side',
+        possibleBuildings: [27],
+        special: 'Remorqueuse nécessaire (CESD)',
+    },
+    70: {
+        caption: 'MAI',
+        color: '#225CB5',
+        credits: 14_200,
+        coins: 15,
+        staff: {
+            min: 0,
+            max: 0,
+        },
+        icon: 'car-side',
+        possibleBuildings: [27],
+        special: 'Remorqueuse nécessaire (VPCE)',
+    },
+    71: {
+        caption: 'MPI',
+        color: '#225CB5',
+        credits: 14_200,
+        coins: 15,
+        staff: {
+            min: 0,
+            max: 0,
+        },
+        icon: 'car-side',
+        possibleBuildings: [27],
+        special: 'Remorqueuse nécessaire (VPCE)',
+    },
+    72: {
+        caption: 'UFR',
+        color: '#225CB5',
+        credits: 14_200,
+        coins: 15,
+        staff: {
+            min: 2,
+            max: 2,
+        },
+        icon: 'car-side',
+        possibleBuildings: [27],
+        waterTank: 16000,
+    },
+    73: {
+        caption: 'VPCE',
+        color: '#225CB5',
+        credits: 10_000,
+        coins: 10,
+        staff: {
+            min: 2,
+            max: 3,
+        },
+        icon: 'car-side',
+        possibleBuildings: [27]
+    },
 } satisfies Record<number, InternalVehicle>;
