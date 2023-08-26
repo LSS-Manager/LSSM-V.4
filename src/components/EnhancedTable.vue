@@ -72,6 +72,8 @@ const table = ref<HTMLTableElement>();
 const scrolledOver = ref<boolean>(false);
 const showHead = ref<boolean>(true);
 
+const tableRight = ref<string>('0px');
+
 const props = withDefaults(
     defineProps<{
         columns: Column<ColumnKey, boolean>[];
@@ -123,6 +125,7 @@ onMounted(() => {
         const clientRect = table.value?.getBoundingClientRect();
         scrolledOver.value =
             (clientRect?.top ?? 0) < 0 && (clientRect?.bottom ?? 0) > 0;
+        tableRight.value = `${clientRect?.right ?? 0}px`;
     });
 
     if (!props.sort) $emit('sort', props.columns[0].key);
@@ -132,6 +135,11 @@ onMounted(() => {
 </script>
 
 <style scoped lang="sass">
+$table-right: v-bind(tableRight)
+$right-end: calc(100vw - $table-right + 1rem)
+$btn-width: 34px
+$padding: .5rem
+
 thead
     position: sticky
     top: 0
@@ -145,13 +153,13 @@ thead
     align-items: end
 
     &.fixed
+        background: #a0a0a0af
+        padding: $padding
+        border-radius: 15px
         position: fixed
         top: 1rem
         z-index: 1
-        right: 6rem
-        background: #a0a0a0af
-        padding: .5rem
-        border-radius: 15px
+        right: calc($right-end + $btn-width)
 
         &:not(.shown)
             display: none
@@ -161,7 +169,7 @@ thead
 
 .toggle-head-btn
     position: fixed
-    top: 1rem
+    top: 1rem + $padding
     z-index: 1
-    right: 4rem
+    right: $right-end
 </style>
