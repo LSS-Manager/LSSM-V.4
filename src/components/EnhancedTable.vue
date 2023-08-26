@@ -120,8 +120,9 @@ const updateSearch = () =>
 
 onMounted(() => {
     document.addEventListener('scroll', () => {
+        const clientRect = table.value?.getBoundingClientRect();
         scrolledOver.value =
-            (table.value?.getBoundingClientRect().top ?? 0) < 0;
+            (clientRect?.top ?? 0) < 0 && (clientRect?.bottom ?? 0) > 0;
     });
 
     if (!props.sort) $emit('sort', props.columns[0].key);
