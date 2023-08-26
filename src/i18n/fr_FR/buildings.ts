@@ -958,7 +958,8 @@ export default {
         icon: 'building-shield',
     },
     27: {
-        caption: "U.I.I.S.C. - Unité d'Instruction et d'Intervention de la Sécurité Civile",
+        caption:
+            "U.I.I.S.C. - Unité d'Instruction et d'Intervention de la Sécurité Civile",
         color: '#116611',
         coins: 50,
         credits: 100_000,
@@ -976,7 +977,7 @@ export default {
         },
         extensions: [
             {
-                caption: 'Extension d\'équipement d\'inondation',
+                caption: "Extension d'équipement d'inondation",
                 credits: 250_000,
                 coins: 25,
                 duration: '5 jours',
@@ -992,7 +993,8 @@ export default {
                 givesParkingLots: 2,
             },
             {
-                caption: 'FORMISC - Les Formations Militaires de la Sécurité Civile',
+                caption:
+                    'FORMISC - Les Formations Militaires de la Sécurité Civile',
                 credits: 200_000,
                 coins: 25,
                 duration: '5 jours',
@@ -1014,7 +1016,7 @@ export default {
                 duration: '5 jours',
                 isVehicleExtension: true,
                 givesParkingLots: 2,
-            }
+            },
         ],
         levelcost: [
             '1. 10 000',

@@ -135,9 +135,11 @@ export default {
             key: 'airborne_firefighting',
         },
         {
-            caption: 'Formation des commandants d’intervention en cas de catastrophe',
+            caption:
+                'Formation des commandants d’intervention en cas de catastrophe',
             duration: '5 jours',
-            staffList: 'Formation des commandants d’intervention en cas de catastrophe',
+            staffList:
+                'Formation des commandants d’intervention en cas de catastrophe',
             key: 'disaster_response_command',
         },
         {

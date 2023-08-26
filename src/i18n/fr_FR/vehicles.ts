@@ -914,8 +914,8 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [27]
-		},
+        possibleBuildings: [27],
+    },
     62: {
         caption: 'VDIP',
         color: '#225CB5',
@@ -936,7 +936,7 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [27]
+        possibleBuildings: [27],
     },
     63: {
         caption: 'CEDM',
@@ -945,7 +945,7 @@ export default {
         coins: 15,
         staff: {
             min: 0,
-            max: 0
+            max: 0,
         },
         icon: 'car-side',
         possibleBuildings: [27],
@@ -1036,7 +1036,7 @@ export default {
         coins: 20,
         staff: {
             min: 4,
-            max:4,
+            max: 4,
             training: {
                 'Secours nautique': {
                     rescue_dogs: {
@@ -1098,7 +1098,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [27],
-        waterTank: 16000,
+        waterTank: 16_000,
     },
     73: {
         caption: 'VPCE',
@@ -1110,6 +1110,6 @@ export default {
             max: 3,
         },
         icon: 'car-side',
-        possibleBuildings: [27]
+        possibleBuildings: [27],
     },
 } satisfies Record<number, InternalVehicle>;
