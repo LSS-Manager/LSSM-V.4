@@ -34,11 +34,11 @@ export default Vue.extend<
             ),
         OwnSchoolingTabs: () =>
             import(
-                /*webpackChunkName: "modules/schoolingOverview/ownSchoolingTabs"*/ '../../schoolingOverview/components/ownSchoolingTabs.vue'
+                /*webpackChunkName: "modules/schoolingOverview/ownSchoolingTabs"*/ '../../schoolingOverview/components/OwnSchoolingTabs.vue'
             ),
         OpenSchoolingTabs: () =>
             import(
-                /*webpackChunkName: "modules/schoolingOverview/openSchoolingTabs"*/ '../../schoolingOverview/components/openSchoolingTabs.vue'
+                /*webpackChunkName: "modules/schoolingOverview/openSchoolingTabs"*/ '../../schoolingOverview/components/OpenSchoolingTabs.vue'
             ),
     },
     data() {

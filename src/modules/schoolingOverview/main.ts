@@ -1,6 +1,6 @@
 import getSchoolings from './assets/getSchoolings';
-import openSchoolingTabs from './components/openSchoolingTabs.vue';
-import ownSchoolingTabs from './components/ownSchoolingTabs.vue';
+import OpenSchoolingTabs from './components/OpenSchoolingTabs.vue';
+import OwnSchoolingTabs from './components/OwnSchoolingTabs.vue';
 import SchoolingOverview from './SchoolingOverview.vue';
 
 import type { ModuleMainFunction } from 'typings/Module';
@@ -32,7 +32,7 @@ export default <ModuleMainFunction>(({ LSSM }) => {
             pinia: LSSM.$pinia,
             i18n: LSSM.$i18n,
             render: h =>
-                h(ownSchoolingTabs, { props: { tabs: ownSchoolings.tabs } }),
+                h(OwnSchoolingTabs, { props: { tabs: ownSchoolings.tabs } }),
         }).$mount(ownTable);
     }
 
@@ -50,7 +50,7 @@ export default <ModuleMainFunction>(({ LSSM }) => {
             pinia: LSSM.$pinia,
             i18n: LSSM.$i18n,
             render: h =>
-                h(openSchoolingTabs, { props: { tabs: openSchoolings.tabs } }),
+                h(OpenSchoolingTabs, { props: { tabs: openSchoolings.tabs } }),
         }).$mount(openTable);
     }
 });

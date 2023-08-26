@@ -17,6 +17,7 @@
         <button
             class="btn btn-default toggle-head-btn"
             :class="{ hidden: !scrolledOver }"
+            @click.prevent="showHead = !showHead"
         >
             <font-awesome-icon :icon="faSlidersH"></font-awesome-icon>
         </button>
