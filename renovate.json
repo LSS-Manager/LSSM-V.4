@@ -72,7 +72,9 @@
             "matchManagers": ["npm"],
             "matchPackageNames": ["node", "npm", "yarn"],
             "rangeStrategy": "pin",
-            "separateMajorMinor": false
+            "separateMajorMinor": false,
+            "assignees": ["jxn-30"],
+            "reviewers": ["jxn-30"]
         },
         {
             "lockFileMaintenance": { "enabled": true },
