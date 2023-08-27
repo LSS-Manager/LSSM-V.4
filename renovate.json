@@ -66,15 +66,15 @@
             "separateMajorMinor": false
         },
         {
+            "assignees": ["jxn-30"],
             "extends": ["schedule:monthly"],
             "groupName": "engines",
             "lockFileMaintenance": { "enabled": true },
             "matchManagers": ["npm"],
             "matchPackageNames": ["node", "npm", "yarn"],
             "rangeStrategy": "pin",
-            "separateMajorMinor": false,
-            "assignees": ["jxn-30"],
-            "reviewers": ["jxn-30"]
+            "reviewers": ["jxn-30"],
+            "separateMajorMinor": false
         },
         {
             "lockFileMaintenance": { "enabled": true },
