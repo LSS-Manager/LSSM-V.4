@@ -3,6 +3,8 @@ import path from 'path';
 
 import yaml from 'js-yaml';
 
+import { PORT_ENV_KEY } from '../src/config';
+
 interface Workflow {
     jobs: {
         build: {
@@ -86,15 +88,15 @@ fi`,
     timestamp="$(date +%s%N)"
     echo "\${timestamp/N/000000000}"
 }`,
-    `ms_elapsed() {
+    `ms_elapsed () {
     local timestamp_now
     timestamp_now=$(now)
     echo $(((10#$timestamp_now - 10#$1) / 1000000))ms
 }`,
-    `print_start_message() {
+    `print_start_message () {
     echo "\${bold}$\{blue}### $1 ###$\{normal}"
 }`,
-    `print_end_message() {
+    `print_end_message () {
     echo "\${bold}$\{green}=== $1: $(ms_elapsed "$2") [$(date +"%Y-%m-%d %H:%M:%S %Z")] ===$\{normal}"
 }`,
 ];
@@ -143,7 +145,7 @@ try {
         .concat([
             {
                 name: 'Start test server',
-                run: 'yarn live-server ./dist/ --port=3000 --no-browser',
+                run: `yarn live-server ./dist/ --port="$${PORT_ENV_KEY}" --no-browser`,
                 id: 'live_server',
             } as Job,
         ]);
@@ -172,6 +174,7 @@ ${Object.entries(shortcuts)
     .join('\n')}
         -p | --production) MODE="production" ;;
         --debug) DEBUG=true ;;
+        --port) shift; _PORT=$1 ;;
         -?*)
           echo "Unknown option: $1"
           exit 1 ;;
@@ -179,6 +182,14 @@ ${Object.entries(shortcuts)
     esac
     shift
 done`,
+        `# expose the set port (or default port) as environment variable for local server
+if [[ $${getStepName('live_server')} = true ]]; then
+    if [[ -z "$_PORT" ]]; then
+        export ${PORT_ENV_KEY}=36551 # because 536551 is LSSM in base 29 but port numbers are 16-bit only so we omit the leading 5
+    else
+        export ${PORT_ENV_KEY}=$_PORT
+    fi
+fi`,
         'total_start_time=$(now)',
         `NODE_VERSION=$(grep '"node":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/\\^v//g' | tr -d '[:space:]')
 YARN_VERSION=$(grep '"packageManager":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')

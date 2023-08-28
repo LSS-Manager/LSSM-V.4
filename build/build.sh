@@ -36,17 +36,17 @@ now () {
     echo "${timestamp/N/000000000}"
 }
 
-ms_elapsed() {
+ms_elapsed () {
     local timestamp_now
     timestamp_now=$(now)
     echo $(((10#$timestamp_now - 10#$1) / 1000000))ms
 }
 
-print_start_message() {
+print_start_message () {
     echo "${bold}${blue}### $1 ###${normal}"
 }
 
-print_end_message() {
+print_end_message () {
     echo "${bold}${green}=== $1: $(ms_elapsed "$2") [$(date +"%Y-%m-%d %H:%M:%S %Z")] ===${normal}"
 }
 
@@ -137,6 +137,7 @@ while :; do
           _RUN_STEP_GIT_DIFF=true ;;
         -p | --production) MODE="production" ;;
         --debug) DEBUG=true ;;
+        --port) shift; _PORT=$1 ;;
         -?*)
           echo "Unknown option: $1"
           exit 1 ;;
@@ -144,6 +145,15 @@ while :; do
     esac
     shift
 done
+
+# expose the set port (or default port) as environment variable for local server
+if [[ $_RUN_STEP_LIVE_SERVER = true ]]; then
+    if [[ -z "$_PORT" ]]; then
+        export LSSM_PORT=36551 # because 536551 is LSSM in base 29 but port numbers are 16-bit only so we omit the leading 5
+    else
+        export LSSM_PORT=$_PORT
+    fi
+fi
 
 total_start_time=$(now)
 
@@ -380,7 +390,7 @@ if [[ $_RUN_STEP_LIVE_SERVER = true ]]; then
     start_time=$(now)
     print_start_message "Start test server"
     enable_debugging
-    yarn live-server ./dist/ --port=3000 --no-browser
+    yarn live-server ./dist/ --port="$LSSM_PORT" --no-browser
     disable_debugging
     print_end_message "Start test server" "$start_time"
 fi

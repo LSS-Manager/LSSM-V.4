@@ -50,7 +50,7 @@ ${
     local
         ? `
 // @grant        GM_getResourceURL
-// @resource     ${localCoreName} http://127.0.0.1:3000/core.js
+// @resource     ${localCoreName} ${config.urls.server}core.js
 `.trimStart()
         : ''
 }// ==/UserScript==
