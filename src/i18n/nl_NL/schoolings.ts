@@ -68,6 +68,48 @@ export default {
             staffList: 'Weginspecteur',
             key: 'technical_aid',
         },
+        {
+            caption: 'Fire Bucket Operator',
+            duration: '10 Dagen',
+            staffList: 'Fire Bucket Operator',
+            key: 'airborne_firefighting',
+        },
+        {
+            caption: 'Handcrew',
+            duration: '7 Dagen',
+            staffList: 'Handcrew',
+            key: 'wildfire',
+        },
+        {
+            caption: 'Landelijk Adviseur Natuurbranden',
+            duration: '5 Dagen',
+            staffList: 'Landelijk Adviseur Natuurbranden',
+            key: 'wildfire_command',
+        },
+        {
+            caption: 'Teamleider STH',
+            duration: '7 Dagen',
+            staffList: 'Teamleider STH',
+            key: 'disaster_response_command',
+        },
+        {
+            caption: 'Teamlid STH',
+            duration: '5 Dagen',
+            staffList: 'Teamlid STH',
+            key: 'disaster_response',
+        },
+        {
+            caption: 'Teamlid USAR',
+            duration: '7 Dagen',
+            staffList: 'Teamlid USAR',
+            key: 'search_and_rescue',
+        },
+        {
+            caption: 'Hondengeleider USAR',
+            duration: '8 Dagen',
+            staffList: 'Hondengeleider USAR',
+            key: 'rescue_dogs',
+        },
     ],
     Politie: [
         {

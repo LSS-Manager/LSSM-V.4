@@ -171,14 +171,14 @@ export default (
         aaoGroupElement.prepend(wrapper);
         import(
             /* webpackChunkName: "modules/extendedCallWindow/components/arrSearchDropdown" */
-            '../components/arrSearch/arrSearchDropdown.vue'
-        ).then(({ default: arrSearchDropdown }) =>
+            '../components/arrSearch/ARRSearchDropdown.vue'
+        ).then(({ default: ARRSearchDropdown }) =>
             new LSSM.$vue({
                 pinia: LSSM.$pinia,
                 i18n: LSSM.$i18n,
                 render: h =>
-                    h(arrSearchDropdown, {
-                        props: { closeDropdownOnSelect, $sm },
+                    h(ARRSearchDropdown, {
+                        props: { closeDropdownOnSelect },
                     }),
             }).$mount(wrapper)
         );

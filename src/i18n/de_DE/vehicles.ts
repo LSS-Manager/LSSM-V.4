@@ -1362,11 +1362,12 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'paw',
         possibleBuildings: [9],
+        tractiveVehicles: [93, 124],
         special:
-            'Muss von einem "MTW-OV" an den Einsatzort gezogen werden. Am Einsatzort sind ein "Anh Hund" und ein "Rettungshundefahrzeug" vom Rettungsdienst gleichwertig!',
+            'Muss von einem "MTW-O" oder "MTW-OV" an den Einsatzort gezogen werden. Am Einsatzort sind ein "Anh Hund" und ein "Rettungshundefahrzeug" vom Rettungsdienst gleichwertig!',
     },
     93: {
-        caption: 'MTW-OV',
+        caption: 'MTW-O',
         color: '#14165e',
         credits: 19_000,
         coins: 0,
@@ -1541,6 +1542,7 @@ export default {
         possibleBuildings: [9],
         pumpCapacity: 15_000,
         pumpType: 'sewage',
+        tractiveVehicles: [99, 100, 123],
     },
     102: {
         caption: 'Anh 7',
@@ -1552,6 +1554,7 @@ export default {
         possibleBuildings: [9],
         pumpCapacity: 12_400,
         pumpType: 'sewage',
+        tractiveVehicles: [99, 100, 123],
     },
     103: {
         caption: 'FuStW (DGL)',
@@ -1700,9 +1703,9 @@ export default {
         },
         icon: 'trailer',
         special:
-            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (LKW 7 Lbw)',
+            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (LKW 7 Lbw (FGr E), LKW 7 Lbw)',
         isTrailer: true,
-        tractiveVehicles: [99],
+        tractiveVehicles: [99, 122],
         possibleBuildings: [9],
     },
     113: {
@@ -1826,5 +1829,41 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 18],
         waterTank: 10_000,
+    },
+    122: {
+        caption: 'LKW 7 Lbw (FGr E)',
+        color: '#36759e',
+        credits: 15_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 3,
+        },
+        icon: 'truck',
+        possibleBuildings: [9],
+    },
+    123: {
+        caption: 'LKW 7 Lbw (FGr WP)',
+        color: '#36759e',
+        credits: 15_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 3,
+        },
+        icon: 'truck',
+        possibleBuildings: [9],
+    },
+    124: {
+        caption: 'MTW-OV',
+        color: '#36759e',
+        credits: 15_000,
+        coins: 13,
+        staff: {
+            min: 1,
+            max: 7,
+        },
+        icon: 'truck',
+        possibleBuildings: [9],
     },
 } satisfies Record<number, InternalVehicle>;

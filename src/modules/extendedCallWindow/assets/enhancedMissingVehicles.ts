@@ -1,4 +1,4 @@
-import enhancedMissingVehicles from '../components/enhancedMissingVehicles/emv.vue';
+import enhancedMissingVehicles from '../components/enhancedMissingVehicles/EMVComponent.vue';
 
 import type { $m, ModuleMainFunction } from 'typings/Module';
 

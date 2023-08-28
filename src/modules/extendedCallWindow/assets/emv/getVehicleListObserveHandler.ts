@@ -1,8 +1,6 @@
 import type { $m } from 'typings/Module';
-import type { EnhancedMissingVehiclesProps } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
 import type { Mission } from 'typings/Mission';
-
-type Requirements = EnhancedMissingVehiclesProps['missingRequirements'];
+import type { Requirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
 
 // VueI18n returns lists as objects...
 export type GroupTranslation = Record<
@@ -20,11 +18,11 @@ export type GroupTranslation = Record<
 
 export default (
     LSSM: Vue,
-    missingRequirements: Requirements,
-    requirements: Requirements,
+    missingRequirements: Requirement[],
+    requirements: Requirement[],
     missionType: string,
     setSelected: (
-        requirement: Requirements[0],
+        requirement: Requirement,
         value: number | { min: number; max: number }
     ) => void,
     $m: $m
@@ -39,7 +37,7 @@ export default (
     if (!vehicleList || !occupiedList) return;
 
     const getRequirementsByIDs = (translations: GroupTranslation) => {
-        const requirements: Record<number, Requirements> = {};
+        const requirements: Record<number, Requirement[]> = {};
 
         Object.values(translations).forEach(
             ({ texts, vehicles, conditionalVehicles }) => {
@@ -71,7 +69,7 @@ export default (
     };
 
     const getRequirementsByEquipment = (translations: GroupTranslation) => {
-        const requirements: Record<string, Requirements> = {};
+        const requirements: Record<string, Requirement[]> = {};
 
         Object.values(translations).forEach(({ texts, equipment }) => {
             const requirement = missingRequirements.find(({ vehicle }) =>
@@ -126,10 +124,7 @@ export default (
 
     const specialRequirementList = ['water', 'foam', 'pump'];
 
-    const specialRequirements: Record<
-        string,
-        EnhancedMissingVehiclesProps['missingRequirements'][0]
-    > = Object.fromEntries(
+    const specialRequirements: Record<string, Requirement> = Object.fromEntries(
         specialRequirementList
             .map(req => [req, getSpecialRequirement(req)])
             .filter(([, req]) => req)
