@@ -5,7 +5,7 @@
     "scripts": {
         "quickbuild": "./build/build.sh --quick",
         "dev": "./build/build.sh --full",
-        "dev:serve": "ws -d dist --https -p 8080 --hostname localhost",
+        "dev:serve": "./build/build.sh --serve",
         "build": "./build/build.sh --full --production",
         "docs": "./build/build.sh --docs",
         "format": "./build/build.sh --format",

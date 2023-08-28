@@ -69,6 +69,7 @@ _RUN_STEP_PREBUILD=false
 _RUN_STEP_WEBPACK=false
 _RUN_STEP_DOCS=false
 _RUN_STEP_GIT_DIFF=false
+_RUN_STEP_LIVE_SERVER=false
 MODE="development"
 DEBUG=false
 
@@ -91,6 +92,7 @@ while :; do
         --webpack) _RUN_STEP_WEBPACK=true ;;
         --docs) _RUN_STEP_DOCS=true ;;
         --git_diff) _RUN_STEP_GIT_DIFF=true ;;
+        --live_server) _RUN_STEP_LIVE_SERVER=true ;;
         --dependencies)
           _RUN_STEP_YARN_SETUP=true
           _RUN_STEP_VERSIONS=true
@@ -102,6 +104,15 @@ while :; do
           _RUN_STEP_ESLINT=true
           _RUN_STEP_TSC=true
           _RUN_STEP_WEBPACK=true ;;
+        --local)
+          _RUN_STEP_YARN_SETUP=true
+          _RUN_STEP_VERSIONS=true
+          _RUN_STEP_YARN_INSTALL=true
+          _RUN_STEP_ENV=true
+          _RUN_STEP_TSC=true
+          _RUN_STEP_USERSCRIPT=true
+          _RUN_STEP_WEBPACK=true
+          _RUN_STEP_LIVE_SERVER=true ;;
         --pre-commit)
           _RUN_STEP_FORMAT=true
           _RUN_STEP_ESLINT=true
@@ -126,6 +137,7 @@ while :; do
           _RUN_STEP_GIT_DIFF=true ;;
         -p | --production) MODE="production" ;;
         --debug) DEBUG=true ;;
+        --port) shift; _PORT=$1 ;;
         -?*)
           echo "Unknown option: $1"
           exit 1 ;;
@@ -133,6 +145,15 @@ while :; do
     esac
     shift
 done
+
+# expose the set port (or default port) as environment variable for local server
+if [[ $_RUN_STEP_LIVE_SERVER = true ]]; then
+    if [[ -z "$_PORT" ]]; then
+        export LSSM_PORT=36551 # because 536551 is LSSM in base 29 but port numbers are 16-bit only so we omit the leading 5
+    else
+        export LSSM_PORT=$_PORT
+    fi
+fi
 
 total_start_time=$(now)
 
@@ -217,7 +238,7 @@ if [[ $_RUN_STEP_BROWSERSLIST = true ]]; then
     start_time=$(now)
     print_start_message "[⬆] update browserslist"
     enable_debugging
-    npx -y update-browserslist-db
+    npx -y browserslist@latest --update-db
     disable_debugging
     print_end_message "[⬆] update browserslist" "$start_time"
 fi
@@ -229,7 +250,7 @@ if [[ $_RUN_STEP_ENV = true ]]; then
     enable_debugging
     ref="$REF"
     BRANCH="dummy"
-    
+
     if [[ $ref == "refs/heads/master" ]]; then
       BRANCH="stable"
     elif [[ $ref == "refs/heads/dev" ]]; then
@@ -306,6 +327,7 @@ if [[ $_RUN_STEP_USERSCRIPT = true ]]; then
     print_start_message "[📜] build userscript"
     enable_debugging
     yarn tsc --pretty --project "src/tsconfig.userscript.json" || exit 1
+    yarn ts-node scripts/buildUserscript.ts || exit 1
     disable_debugging
     print_end_message "[📜] build userscript" "$start_time"
 fi
@@ -361,6 +383,16 @@ if [[ $_RUN_STEP_GIT_DIFF = true ]] && [[ $GIT_REPO = true ]]; then
     git --no-pager diff --color-words
     disable_debugging
     print_end_message "[ℹ️] git diff" "$start_time"
+fi
+
+# Start test server
+if [[ $_RUN_STEP_LIVE_SERVER = true ]]; then
+    start_time=$(now)
+    print_start_message "Start test server"
+    enable_debugging
+    yarn live-server ./dist/ --port="$LSSM_PORT" --no-browser
+    disable_debugging
+    print_end_message "Start test server" "$start_time"
 fi
 
 print_end_message "Total" "$total_start_time"
