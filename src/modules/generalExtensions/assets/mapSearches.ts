@@ -71,7 +71,7 @@ export default (
                     form.addEventListener('submit', e => {
                         e.preventDefault();
                         const url = new URL(
-                            'https://nominatim.openstreetmap.org/search?format=json&limit=1&q='
+                            'https://reverse.missionchief.com/search?format=json&limit=1&q='
                         );
                         url.searchParams.set('format', 'json');
                         url.searchParams.set('limit', '1');
