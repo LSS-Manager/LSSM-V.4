@@ -86,7 +86,7 @@
         "husky": "8.0.3",
         "js-yaml": "4.1.0",
         "moment-timezone": "0.5.43",
-        "prettier": "3.0.2",
+        "prettier": "3.0.3",
         "sass": "1.66.1",
         "sass-loader": "13.3.2",
         "simpleheat": "0.4.0",
