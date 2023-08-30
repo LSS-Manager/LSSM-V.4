@@ -202,6 +202,13 @@
             "avatar_url": "https://avatars.githubusercontent.com/u/81488720?v=4",
             "profile": "https://www.aawebdev.co.uk/",
             "contributions": ["code"]
+        },
+        {
+            "login": "Tobi-Continued",
+            "name": "Tobi-Continued",
+            "avatar_url": "https://avatars.githubusercontent.com/u/142994500?v=4",
+            "profile": "https://github.com/Tobi-Continued",
+            "contributions": ["de_DE"]
         }
     ],
     "contributorsPerLine": 7,
