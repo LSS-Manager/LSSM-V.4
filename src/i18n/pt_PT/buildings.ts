@@ -51,35 +51,7 @@ export default {
                 unlocksVehicleTypes: [30, 31, 32, 38, 39, 40],
             },
             {
-                caption: 'Wildland Command Extension',
-                credits: 100_000,
-                coins: 15,
-                duration: '5 Dias',
-                isVehicleExtension: true,
-                givesParkingLots: 0,
-                unlocksVehicleTypes: [74],
-                requiredExtensions: [3],
-            },
-            {
-                caption: 'Fire Investigation Extension',
-                credits: 150_000,
-                coins: 15,
-                duration: '7 Dias',
-                isVehicleExtension: true,
-                givesParkingLots: 0,
-                unlocksVehicleTypes: [62, 63],
-            },
-            {
-                caption: 'Foam Extension',
-                credits: 100_000,
-                coins: 15,
-                duration: '5 Dias',
-                isVehicleExtension: true,
-                givesParkingLots: 0,
-                unlocksVehicleTypes: [64, 65],
-            },
-            {
-                caption: 'Lifeguard Extension',
+                caption: 'Expansão de Salvamento e Resgate Aquático',
                 credits: 100_000,
                 coins: 15,
                 duration: '5 Dias',
@@ -88,7 +60,7 @@ export default {
                 unlocksVehicleTypes: [66, 67, 68, 73],
             },
             {
-                caption: 'Water Rescue Expansion',
+                caption: 'extensão de danos por água e inundações.',
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Dias',
@@ -142,9 +114,9 @@ export default {
             coins: [],
         },
         levelcost: [],
-        maxBuildings: 'All 25 buildings one control center',
+        maxBuildings: 'Todos 25 edifícios controlados num centro',
         maxLevel: 0,
-        special: 'The control center is the administrative center.',
+        special: 'O Centro de Comando é um centro administrativo.',
         isDispatchCenter: true,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             Math.floor(buildingsAmountTotal / 25) + 1,
@@ -161,21 +133,21 @@ export default {
         },
         extensions: [
             {
-                caption: 'General Internal',
+                caption: 'Clinica Geral',
                 credits: 10_000,
                 coins: 10,
                 duration: '7 Dias',
                 cannotDisable: true,
             },
             {
-                caption: 'General Surgeon',
+                caption: 'Cirurgia Geral',
                 credits: 10_000,
                 coins: 10,
                 duration: '7 Dias',
                 cannotDisable: true,
             },
             {
-                caption: 'Gynecology',
+                caption: 'Ginecologia',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Dias',
@@ -183,7 +155,7 @@ export default {
                 cannotDisable: true,
             },
             {
-                caption: 'Urology',
+                caption: 'Urologia',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Dias',
@@ -191,7 +163,7 @@ export default {
                 cannotDisable: true,
             },
             {
-                caption: 'Traumatology',
+                caption: 'Traumatologia',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Dias',
@@ -199,7 +171,7 @@ export default {
                 cannotDisable: true,
             },
             {
-                caption: 'Neurology',
+                caption: 'Neurologia',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Dias',
@@ -207,7 +179,7 @@ export default {
                 cannotDisable: true,
             },
             {
-                caption: 'Neurosurgery',
+                caption: 'Neurocirurgia',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Dias',
@@ -215,7 +187,7 @@ export default {
                 cannotDisable: true,
             },
             {
-                caption: 'Cardiology',
+                caption: 'Cardiologia',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Dias',
@@ -223,7 +195,7 @@ export default {
                 cannotDisable: true,
             },
             {
-                caption: 'Cardiac Surgery',
+                caption: 'Cirurgia Cardíaca',
                 credits: 70_000,
                 coins: 15,
                 duration: '7 Dias',
@@ -235,12 +207,12 @@ export default {
         maxBuildings: 'Sem limite',
         maxLevel: 20,
         special:
-            'Finance ministers and admins can (expand) association hospitals with the help of credits from the association treasury.',
+            'Ministros das finanças e administradores pode (expandir) hospitais da aliança acom ajuda dos créditos do tesouro da aliança.',
         startBeds: 10,
         icon: 'hospital',
     },
     3: {
-        caption: 'Ambulance station',
+        caption: 'Posto PEM/AEM',
         color: '#ffa500',
         coins: 35,
         credits: 200_000,
@@ -274,7 +246,7 @@ export default {
         icon: 'house-medical',
     },
     4: {
-        caption: 'Fire academy',
+        caption: 'Escola de Formação de Bombeiros',
         color: '#992222',
         coins: 50,
         credits: 500_000,
@@ -284,7 +256,7 @@ export default {
         },
         extensions: multiplyExtension(
             {
-                caption: 'Additional classroom',
+                caption: 'Sala de aula adicional',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 Dias',
@@ -294,7 +266,7 @@ export default {
             3
         ),
         levelcost: [],
-        maxBuildings: 'Sem limitet',
+        maxBuildings: 'Sem limite',
         maxLevel: 0,
         special:
             "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire- brigade schools.",
@@ -312,7 +284,7 @@ export default {
         },
         extensions: [
             {
-                caption: 'Prison cell',
+                caption: 'Cela',
                 credits: 25_000,
                 coins: 5,
                 duration: '7 Dias',
@@ -321,7 +293,7 @@ export default {
             },
             ...multiplyExtension(
                 {
-                    caption: 'Additional cell',
+                    caption: 'Cela Extra',
                     credits: 25_000,
                     coins: 5,
                     duration: '7 Dias',
@@ -459,7 +431,7 @@ export default {
         },
         extensions: multiplyExtension(
             {
-                caption: 'Additional classroom',
+                caption: 'Sala de aula adicional',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 Dias',
