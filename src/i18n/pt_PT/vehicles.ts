@@ -35,7 +35,7 @@ export default {
         staff: { min: 1, max: 3 },
         icon: 'car-side',
         possibleBuildings: [0, 13],
-        special: 'Required once you have built 3 firehouses',
+        special: 'Requere que tenhas pelo menos construído 3 firehouses',
     },
     3: {
         caption: 'Battalion chief unit',
@@ -45,7 +45,7 @@ export default {
         staff: { min: 1, max: 3 },
         icon: 'car-side',
         possibleBuildings: [0, 13],
-        special: 'Required once you have built 6 firehouses',
+        special: 'Requere que tenhas pelo menos construído 6 firehouses',
     },
     4: {
         caption: 'Heavy rescue vehicle',
@@ -57,7 +57,7 @@ export default {
         possibleBuildings: [0, 13],
         pumpCapacity: 1500,
         pumpType: 'fire',
-        special: 'Required once you have built 4 firehouses',
+        special: 'Requere que tenhas pelo menos construído 4 firehouses',
     },
     5: {
         caption: 'ALS Ambulance',
@@ -76,7 +76,7 @@ export default {
         staff: { min: 1, max: 3 },
         icon: 'car-side',
         possibleBuildings: [0, 13],
-        special: 'Required once you have built 5 firehouses',
+        special: 'Requere que tenhas pelo menos construído 5 firehouses',
     },
     7: {
         caption: 'Water Tanker',
@@ -90,7 +90,7 @@ export default {
         pumpCapacity: 2000,
         pumpType: 'fire',
         waterBonus: 25,
-        special: 'Required once you have built 7 firehouses',
+        special: 'Requere que tenhas pelo menos construído 7 firehouses',
     },
     8: {
         caption: 'Utility unit',
@@ -100,7 +100,7 @@ export default {
         staff: { min: 1, max: 4 },
         icon: 'car-side',
         possibleBuildings: [0, 11, 12, 13],
-        special: 'Required once you have built 4 firehouses',
+        special: 'Requere que tenhas pelo menos construído 4 firehouses',
     },
     9: {
         caption: 'HazMat',
@@ -121,7 +121,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 13],
         foamTank: 50,
-        special: 'Required once you have built 11 firehouses',
+        special: 'Requere que tenhas pelo menos construído 11 firehouses',
     },
     10: {
         caption: 'Patrol Car',
@@ -159,7 +159,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0, 13],
-        special: 'Required once you have built 13 firehouses',
+        special: 'Requere que tenhas pelo menos construído 13 firehouses',
     },
     13: {
         caption: 'Quint',
@@ -220,7 +220,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [5, 15],
-        special: 'Required once you have built 8 police stations',
+        special: 'Requere que tenhas pelo menos construído 8 police stations',
     },
     17: {
         caption: 'Large ARFF Crash Tender',
@@ -396,7 +396,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [5, 15],
-        special: 'Required once you have built 8 police stations',
+        special: 'Requere que tenhas pelo menos construído 8 police stations',
     },
     27: {
         caption: 'BLS Ambulance',
@@ -426,7 +426,7 @@ export default {
         staff: { min: 1, max: 2 },
         icon: 'car-side',
         possibleBuildings: [0, 3, 14, 16],
-        special: 'Required once you have built 10 Rescue stations',
+        special: 'Requere que tenhas pelo menos construído 10 Rescue stations',
     },
     30: {
         caption: 'Type 3 engine',
@@ -777,7 +777,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 3, 14, 16],
         special:
-            'Required once you have built 11 firehouses, works as HazMat and Ambulance',
+            'Requere que tenhas pelo menos construído 11 firehouses, works as HazMat and Ambulance',
     },
     51: {
         caption: 'DEA Unit',
