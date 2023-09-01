@@ -2276,12 +2276,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/leaflet@npm:1.9.3":
-  version: 1.9.3
-  resolution: "@types/leaflet@npm:1.9.3"
+"@types/leaflet@npm:1.9.4":
+  version: 1.9.4
+  resolution: "@types/leaflet@npm:1.9.4"
   dependencies:
     "@types/geojson": "*"
-  checksum: d12042edc3a043d074b4fd3b4c4800f479dfb01db3980d8c1151edbc70b23ca9e84ab7da72ce0d1c36c040f89ba1421bd36d9d9796ec3704a0d3c942985a87ae
+  checksum: ae5b4422b6eb912e6c6910d049f63cb96537eac46af4a897471ab98c642d059a32789f411157b873a5dafdbc9cef3399dc0673c5f64be067eebc530c43783e75
   languageName: node
   linkType: hard
 
@@ -2406,12 +2406,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/qrcode@npm:1.5.1":
-  version: 1.5.1
-  resolution: "@types/qrcode@npm:1.5.1"
+"@types/qrcode@npm:1.5.2":
+  version: 1.5.2
+  resolution: "@types/qrcode@npm:1.5.2"
   dependencies:
     "@types/node": "*"
-  checksum: 0f780f31d983fa8d1bfbba1a130e8f7b07866d556807eccfb1d08d841c70644cdee8fc169ca752bdf17e99995e6155fcb6179079338ac8359294c781b95112b5
+  checksum: 2f696916e66002ecf0616451a44308b33948ce68f7ee1eae0ff8a4acc133024a3d9a7314e9dcb6455ab7f7e126963c204a687a665e3688ba39ec4ae80eb30670
   languageName: node
   linkType: hard
 
@@ -2482,10 +2482,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ua-parser-js@npm:0.7.36":
-  version: 0.7.36
-  resolution: "@types/ua-parser-js@npm:0.7.36"
-  checksum: 8c24d4dc12ed1b8b98195838093391c358c81bf75e9cae0ecec8f7824b441e069daaa17b974a3e257172caddb671439f0c0b44bf43bfcf409b7a574a25aab948
+"@types/ua-parser-js@npm:0.7.37":
+  version: 0.7.37
+  resolution: "@types/ua-parser-js@npm:0.7.37"
+  checksum: dde3733d30801d96959c73fd164c5431080f00bfa5b6bec79eff4726349c9832b3dbac5ce07dae29033cb8bb878b459d63ba25a31aee4e64b37272b90d1f1ca9
   languageName: node
   linkType: hard
 
@@ -7045,17 +7045,17 @@ __metadata:
     "@types/i18n-js": 3.8.5
     "@types/jquery": 3.5.17
     "@types/js-yaml": 4.0.5
-    "@types/leaflet": 1.9.3
+    "@types/leaflet": 1.9.4
     "@types/lodash": 4.14.197
     "@types/node": 18.17.12
     "@types/pdfmake": 0.2.2
     "@types/prettier": 2.7.3
-    "@types/qrcode": 1.5.1
+    "@types/qrcode": 1.5.2
     "@types/semver": 7.5.1
     "@types/showdown": 2.0.1
     "@types/simpleheat": 0.4.0
     "@types/tampermonkey": 4.20.1
-    "@types/ua-parser-js": 0.7.36
+    "@types/ua-parser-js": 0.7.37
     "@types/vue-select": 3.16.2
     "@types/webpack-env": 1.18.1
     "@typescript-eslint/eslint-plugin": 6.5.0
