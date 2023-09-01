@@ -387,16 +387,16 @@ export default {
         maxBuildings: 'no limit',
         maxLevel: 39,
         special:
-            'From the 24th police station onwards, the costs for the new construction of a police station increase according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. The Coins price remains constant!',
+            'A partir da 24º Esquadra PSP/Posto GNR e adiante, o custo de construção de uma nova Esquadra PSP/Posto GNR aumenta segundo a seguinte fórmula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. O preço das moedas é constante!',
         startPersonnel: 2,
-        startVehicles: ['Patrol car'],
-        schoolingTypes: ['Police'],
+        startVehicles: ['Carro de Patrulha'],
+        schoolingTypes: ['Polícia'],
         startParkingLots: 1,
         startCells: 0,
         icon: 'building-shield',
     },
     6: {
-        caption: 'Medical helicopter station',
+        caption: 'Centro de Meios Aéreos Pré-Hospitalares',
         color: '#e7ad2f',
         coins: 50,
         credits: 1_000_000,
@@ -421,7 +421,7 @@ export default {
         icon: 'circle-h',
     },
     7: {
-        caption: 'Police academy',
+        caption: 'Escola Prática de Polícia',
         color: '#225522',
         coins: 50,
         credits: 500_000,
@@ -444,7 +444,7 @@ export default {
         maxBuildings: 'Sem limite',
         maxLevel: 0,
         special:
-            "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
+            "O ministro das finanças  e o administrador podem expandir a escola de polícia usando os creditos do tesouro da aliança.Training course masters and admins can start training courses at association police schools.",
         startClassrooms: 1,
         icon: 'graduation-cap',
     },
@@ -493,7 +493,7 @@ export default {
         icon: 'warehouse',
     },
     10: {
-        caption: 'Prison Cells',
+        caption: 'Prisão',
         color: '#00ff00',
         coins: -1,
         credits: 100_000,
@@ -503,7 +503,7 @@ export default {
         },
         extensions: [
             {
-                caption: 'Prison cell',
+                caption: 'Cela de Prisão',
                 credits: 25_000,
                 coins: 5,
                 duration: '7 Dias',
@@ -512,7 +512,7 @@ export default {
             },
             ...multiplyExtension(
                 {
-                    caption: 'Additional cell',
+                    caption: 'Cela Adicional',
                     credits: 25_000,
                     coins: 5,
                     duration: '7 Dias',
@@ -531,7 +531,7 @@ export default {
         icon: 'border-all',
     },
     11: {
-        caption: 'Fire Boat Dock',
+        caption: 'Capitania',
         color: '#ab0404',
         coins: 35,
         credits: 500_000,
@@ -571,7 +571,7 @@ export default {
         icon: 'ship',
     },
     13: {
-        caption: 'Fire station (Small station) ',
+        caption: 'Corpo de Bombeiros (Pequeno)',
         color: '#aa1111',
         coins: 25,
         credits: 50_000,
@@ -581,7 +581,7 @@ export default {
         },
         extensions: [
             {
-                caption: 'Ambulance Extension',
+                caption: 'Expansão de ambulâncias',
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Dias',
@@ -592,7 +592,7 @@ export default {
                 ],
             },
             {
-                caption: 'Airport Extension',
+                caption: 'Expansão de aeroporto',
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Dias',
@@ -601,7 +601,7 @@ export default {
                 unlocksVehicleTypes: [17],
             },
             {
-                caption: 'Forestry Expansion',
+                caption: 'Expansão de Incêndios Florestais',
                 credits: 50_000,
                 coins: 13,
                 duration: '7 Dias',
@@ -686,7 +686,7 @@ export default {
         icon: 'fire-flame-curved',
     },
     14: {
-        caption: 'Clinic',
+        caption: 'Centro de Saúde',
         color: '#e2e53b',
         coins: 25,
         credits: 100_000,
@@ -696,7 +696,7 @@ export default {
         },
         extensions: [
             {
-                caption: 'General Internal',
+                caption: 'Medicina Geral',
                 credits: 10_000,
                 coins: 10,
                 duration: '7 Dias',
@@ -716,7 +716,7 @@ export default {
         icon: 'staff-snake',
     },
     15: {
-        caption: 'Police station (Small station)',
+        caption: 'Esquadra PSP/Posto GNR (Pequeno)',
         color: '#116611',
         coins: 25,
         credits: 50_000,
@@ -726,7 +726,7 @@ export default {
         },
         extensions: [
             {
-                caption: 'Prison cell',
+                caption: 'Cela da Prisão',
                 credits: 25_000,
                 coins: 5,
                 duration: '7 Dias',
@@ -734,7 +734,7 @@ export default {
                 cannotDisable: true,
             },
             {
-                caption: 'Additional cell',
+                caption: 'Cela Adicional',
                 credits: 25_000,
                 coins: 5,
                 duration: '7 Dias',
@@ -829,7 +829,7 @@ export default {
         icon: 'building-shield',
     },
     16: {
-        caption: 'Ambulance station (Small station)',
+        caption: 'Posto PEM/AEM (Pequeno)',
         color: '#eeb611',
         coins: 25,
         credits: 100_000,
