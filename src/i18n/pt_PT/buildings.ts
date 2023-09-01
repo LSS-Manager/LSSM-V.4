@@ -241,8 +241,8 @@ export default {
         special: '',
         startPersonnel: 3,
         startParkingLots: 1,
-        startVehicles: ['ALS Ambulance'],
-        schoolingTypes: ['Rescue'],
+        startVehicles: ['ABSC'],
+        schoolingTypes: ['Escola de Formação Pré-hospitalar'],
         icon: 'house-medical',
     },
     4: {
@@ -269,12 +269,12 @@ export default {
         maxBuildings: 'Sem limite',
         maxLevel: 0,
         special:
-            "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire- brigade schools.",
+            "O ministro das finanças  e o administrador podem expandir a escola de bombeitos usando os creditos do tesouro da aliança.Training course masters and admins can start training courses at association fire- brigade schools.",
         startClassrooms: 1,
         icon: 'graduation-cap',
     },
     5: {
-        caption: 'Police station',
+        caption: 'Esquadra PSP/Posto GNR',
         color: '#007700',
         coins: 35,
         credits: 100_000,
