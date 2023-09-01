@@ -2033,12 +2033,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@primer/octicons@npm:19.6.0":
-  version: 19.6.0
-  resolution: "@primer/octicons@npm:19.6.0"
+"@primer/octicons@npm:19.7.0":
+  version: 19.7.0
+  resolution: "@primer/octicons@npm:19.7.0"
   dependencies:
     object-assign: ^4.1.1
-  checksum: d2079ff6e249a0bdb37405bc9e9c640eec7ed6485c4a43e3a1a736c815c390c609f3d56a82cce4cbccd05f05b70c2530495945d45bf0d2d8bef6760334a3f6fb
+  checksum: f113b9617bae1a408baf7c936ac686328c0b398c585be5fc524921f2d11ddb301dfabf265d9d9ac44c620f2a61c00716f70a7b956ba88fde55ee4d3cfe761688
   languageName: node
   linkType: hard
 
@@ -2276,12 +2276,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/leaflet@npm:1.9.3":
-  version: 1.9.3
-  resolution: "@types/leaflet@npm:1.9.3"
+"@types/leaflet@npm:1.9.4":
+  version: 1.9.4
+  resolution: "@types/leaflet@npm:1.9.4"
   dependencies:
     "@types/geojson": "*"
-  checksum: d12042edc3a043d074b4fd3b4c4800f479dfb01db3980d8c1151edbc70b23ca9e84ab7da72ce0d1c36c040f89ba1421bd36d9d9796ec3704a0d3c942985a87ae
+  checksum: ae5b4422b6eb912e6c6910d049f63cb96537eac46af4a897471ab98c642d059a32789f411157b873a5dafdbc9cef3399dc0673c5f64be067eebc530c43783e75
   languageName: node
   linkType: hard
 
@@ -2406,12 +2406,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/qrcode@npm:1.5.1":
-  version: 1.5.1
-  resolution: "@types/qrcode@npm:1.5.1"
+"@types/qrcode@npm:1.5.2":
+  version: 1.5.2
+  resolution: "@types/qrcode@npm:1.5.2"
   dependencies:
     "@types/node": "*"
-  checksum: 0f780f31d983fa8d1bfbba1a130e8f7b07866d556807eccfb1d08d841c70644cdee8fc169ca752bdf17e99995e6155fcb6179079338ac8359294c781b95112b5
+  checksum: 2f696916e66002ecf0616451a44308b33948ce68f7ee1eae0ff8a4acc133024a3d9a7314e9dcb6455ab7f7e126963c204a687a665e3688ba39ec4ae80eb30670
   languageName: node
   linkType: hard
 
@@ -2482,10 +2482,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ua-parser-js@npm:0.7.36":
-  version: 0.7.36
-  resolution: "@types/ua-parser-js@npm:0.7.36"
-  checksum: 8c24d4dc12ed1b8b98195838093391c358c81bf75e9cae0ecec8f7824b441e069daaa17b974a3e257172caddb671439f0c0b44bf43bfcf409b7a574a25aab948
+"@types/ua-parser-js@npm:0.7.37":
+  version: 0.7.37
+  resolution: "@types/ua-parser-js@npm:0.7.37"
+  checksum: dde3733d30801d96959c73fd164c5431080f00bfa5b6bec79eff4726349c9832b3dbac5ce07dae29033cb8bb878b459d63ba25a31aee4e64b37272b90d1f1ca9
   languageName: node
   linkType: hard
 
@@ -4026,9 +4026,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001517, caniuse-lite@npm:^1.0.30001520, caniuse-lite@npm:^1.0.30001524":
-  version: 1.0.30001524
-  resolution: "caniuse-lite@npm:1.0.30001524"
-  checksum: 35d662a62f5e6be3c2d2141f1f30b3428ec72c5756cbd9fc723e33606846f28a515fd30f1e8b56e506c63fe0755f6eb7e3548dc6eefd53c5591b1a3bd28fee98
+  version: 1.0.30001525
+  resolution: "caniuse-lite@npm:1.0.30001525"
+  checksum: a0d190c185b8e1220dbc72e42f310633059aa175ca3396eb781b249ac3da6c62b30cb8efc5fa24d632cb938f58d90b0c7772d1c9942b6643cf418c27c2cb8632
   languageName: node
   linkType: hard
 
@@ -7015,7 +7015,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "lss-manager-v4-docs@workspace:docs/.vuepress"
   dependencies:
-    "@primer/octicons": 19.6.0
+    "@primer/octicons": 19.7.0
     "@vuepress/client": 2.0.0-beta.67
     "@vuepress/plugin-pwa": 2.0.0-beta.67
     "@vuepress/plugin-pwa-popup": 2.0.0-beta.67
@@ -7045,17 +7045,17 @@ __metadata:
     "@types/i18n-js": 3.8.5
     "@types/jquery": 3.5.17
     "@types/js-yaml": 4.0.5
-    "@types/leaflet": 1.9.3
+    "@types/leaflet": 1.9.4
     "@types/lodash": 4.14.197
     "@types/node": 18.17.12
     "@types/pdfmake": 0.2.2
     "@types/prettier": 2.7.3
-    "@types/qrcode": 1.5.1
+    "@types/qrcode": 1.5.2
     "@types/semver": 7.5.1
     "@types/showdown": 2.0.1
     "@types/simpleheat": 0.4.0
     "@types/tampermonkey": 4.20.1
-    "@types/ua-parser-js": 0.7.36
+    "@types/ua-parser-js": 0.7.37
     "@types/vue-select": 3.16.2
     "@types/webpack-env": 1.18.1
     "@typescript-eslint/eslint-plugin": 6.5.0
@@ -9637,11 +9637,11 @@ __metadata:
 
 "typescript@patch:typescript@5.2.2#~builtin<compat/typescript>":
   version: 5.2.2
-  resolution: "typescript@patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=14eedb"
+  resolution: "typescript@patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=f3b441"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 07106822b4305de3f22835cbba949a2b35451cad50888759b6818421290ff95d522b38ef7919e70fb381c5fe9c1c643d7dea22c8b31652a717ddbd57b7f4d554
+  checksum: 0f4da2f15e6f1245e49db15801dbee52f2bbfb267e1c39225afdab5afee1a72839cd86000e65ee9d7e4dfaff12239d28beaf5ee431357fcced15fb08583d72ca
   languageName: node
   linkType: hard
 
