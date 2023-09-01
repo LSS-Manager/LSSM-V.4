@@ -1,26 +1,26 @@
 export default {
     updateUserscript: {
-        title: 'Userscript out of date',
-        text: `Dear LSSM-User,<br>
-unfortunately your LSSM V.4 userscript is outdated. In the latest version changes have been made to the userscript, which are important for the function of LSSM V.4.<br>
-You need at least version {minVersion}, the update can be done comfortably by clicking on {updateLink}.<br>
-Sometimes the update does not work by clicking the link (for unknown reasons). Then you can either trigger an update within Tampermonkey (click on the tampermonkey icon in your browser, then "Overview". Check the box in front of the LSSM userscript and select "Update" as action.<br>
-If that also does not work, edit the LSSM Script within Tampermonkey by replacing all script content with the content of {bypassLink}.<br>
-Sometimes, LSSM is installed multiple times after an update. In this case it helps to uninstall/remove all LSSM V.4 installations in Tampermonkey and then reinstall LSSM V.4 once.<br><br>
-Kind regards,<br>
-your LSSM team`,
+        title: 'Userscript desatualizado',
+        text: `Caro LSSM-User,<br>
+infelizmente o nosso LSSM V.4 userscript está desatualizado. Na última versão fizemos alterações ao userscript, que serão importantes nas funcionalidades do LSSM V.4.<br>
+Precisas no mínimo da versão {minVersion}, faz o teu update através de {updateLink}.<br>
+Por vezes carregar no link do update não funciona(por razões desconhecidadas). Podes fazer o update através do Tampermonkey (carrega no icon do tampermonkey do teu browser, depois "Overview". Na caixa à frente do LSSM userscript e seleciona "Update" como ação.<br>
+Se não resultar, edita o LSSM Script no Tampermonkey repondo o conteúdo do script pelo conteúdo {bypassLink}.<br>
+Por vezes, o LSSM é instalado várias vezes depois do update. Neste caso desinstala/remove todas as instalções do LSSM V.4 no Tampermonkey e depois reinstala o LSSM V.4.<br><br>
+Melhores cumprimentos,<br>
+A equipa LSSM,
         close: 'Ok',
     },
     error: {
-        title: 'LSS Manager: Error',
-        msg: 'If this error occurs frequently, please report it to the LSSM team!',
+        title: 'LSS Manager: Erro',
+        msg: 'Se este erro ocorre frequentemente, por favor reporta à equipa LSSM!',
         requestIssue: {
             title: 'Erroneous request: Status {status}',
             text: `Ouch, unfortunately an error occurred with this server request:<br>
-<b>Status</b>: <code>{status}</code> <code>{statusText}</code><br>
+<b>Estado</b>: <code>{status}</code> <code>{statusText}</code><br>
 <b>URL</b>: <em><code>{method}</code></em> <code>{url}</code><br>
 <b>Feature</b>: <code>{feature}</code><br>
-<b>Duration</b>: <code>{duration}ms</code><br>
+<b>Duração</b>: <code>{duration}ms</code><br>
 <b>User</b>: <code>{uid}</code><br>
 <b>Timestamp</b>: <code>{timestamp}</code>
 <br>
@@ -31,14 +31,14 @@ If several requests fail in a short time, this could be due to server problems. 
     },
     warnings: {
         version: {
-            title: 'Wrong LSS Manager version',
-            text: 'Dear user, unfortunately we had to discover that you do not have the latest version of LSS Manager. The latest version is {version}, but you have {curver} first. Please reload the game without cache (with Ctrl + F5, on Apple devices command + R), this should fix the bug. If the error persists, please report it to the team! If you use a wrong version we cannot guarantee the full functionality of the LSS-Manager.',
-            close: 'Close message and reload game (recommended)',
-            abort: 'Close message without reloading game',
+            title: 'Versão errada LSS',
+            text: 'Caro utilizador, infelizmente descobrimos que não estás a usar a última versão do LSS Manager. A última versão é {version}, mas tu tens {curver}. Por favor recarrega o teu jogo sem cache (com Ctrl + F5, em dispositivos Apple command + R), isto deve resolver o bug. Se o erro persistir, por favor reporta à nossa equipa! Se usas a versão antiga não podemos garantir que todas as funcionalidades do LSS-Manager funcionem corretamente.',
+            close: 'Fechar a mensagem e recarregar (recomendado)',
+            abort: 'Fechar a mensagem sem recarregar o jogo',
         },
     },
     anniversary: {
-        closeNote: 'Tip: You can also click on the balloons to close!',
+        closeNote: 'Tip: Podes carregar nos balões para fechar!',
     },
     settings: {
         name: 'General Settings',
