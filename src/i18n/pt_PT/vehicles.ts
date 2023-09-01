@@ -307,7 +307,7 @@ export default {
         staff: { min: 1, max: 2 },
         icon: 'car-side',
         possibleBuildings: [0, 22],
-    },"
+    },
     22: {
         caption: 'Semi-Reboque',
         color: '#9f1616',

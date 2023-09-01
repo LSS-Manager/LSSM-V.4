@@ -8,7 +8,7 @@ Por vezes carregar no link do update não funciona(por razões desconhecidadas).
 Se não resultar, edita o LSSM Script no Tampermonkey repondo o conteúdo do script pelo conteúdo {bypassLink}.<br>
 Por vezes, o LSSM é instalado várias vezes depois do update. Neste caso desinstala/remove todas as instalções do LSSM V.4 no Tampermonkey e depois reinstala o LSSM V.4.<br><br>
 Melhores cumprimentos,<br>
-A equipa LSSM,
+A equipa LSSM`,
         close: 'Ok',
     },
     error: {
