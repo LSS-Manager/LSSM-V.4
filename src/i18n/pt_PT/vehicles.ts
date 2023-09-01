@@ -633,7 +633,7 @@ export default {
         possibleBuildings: [0],
         special:
             'Combines the Heavy Rescue Vehicle/Utility Vehicle with an integrated boat.<br> No need for a boat trailer.',
-    },"
+    },
     43: {
         caption: 'VOPE',
         color: '#bf2222',

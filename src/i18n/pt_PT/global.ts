@@ -2,13 +2,13 @@ export default {
     updateUserscript: {
         title: 'Userscript desatualizado',
         text: `Caro LSSM-User,<br>
-infelizmente o nosso LSSM V.4 userscript está desatualizado. Na última versão fizemos alterações ao userscript, que serão importantes nas funcionalidades do LSSM V.4.<br>
-Precisas no mínimo da versão {minVersion}, faz o teu update através de {updateLink}.<br>
-Por vezes carregar no link do update não funciona(por razões desconhecidadas). Podes fazer o update através do Tampermonkey (carrega no icon do tampermonkey do teu browser, depois "Overview". Na caixa à frente do LSSM userscript e seleciona "Update" como ação.<br>
-Se não resultar, edita o LSSM Script no Tampermonkey repondo o conteúdo do script pelo conteúdo {bypassLink}.<br>
-Por vezes, o LSSM é instalado várias vezes depois do update. Neste caso desinstala/remove todas as instalções do LSSM V.4 no Tampermonkey e depois reinstala o LSSM V.4.<br><br>
-Melhores cumprimentos,<br>
-A equipa LSSM`,
+        infelizmente o nosso LSSM V.4 userscript está desatualizado. Na última versão fizemos alterações ao userscript, que serão importantes nas funcionalidades do LSSM V.4.<br>
+        Precisas no mínimo da versão {minVersion}, faz o teu update através de {updateLink}.<br>
+        Por vezes carregar no link do update não funciona(por razões desconhecidadas). Podes fazer o update através do Tampermonkey (carrega no icon do tampermonkey do teu browser, depois "Overview". Na caixa à frente do LSSM userscript e seleciona "Update" como ação.<br>
+        Se não resultar, edita o LSSM Script no Tampermonkey repondo o conteúdo do script pelo conteúdo {bypassLink}.<br>
+        Por vezes, o LSSM é instalado várias vezes depois do update. Neste caso desinstala/remove todas as instalções do LSSM V.4 no Tampermonkey e depois reinstala o LSSM V.4.<br><br>
+        Melhores cumprimentos,<br>
+        A equipa LSSM`,
         close: 'Ok',
     },
     error: {
