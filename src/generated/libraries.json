@@ -52,7 +52,7 @@
     "@types/leaflet": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/leaflet",
-        "version": "1.9.3"
+        "version": "1.9.4"
     },
     "@types/lodash": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -77,7 +77,7 @@
     "@types/qrcode": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/qrcode",
-        "version": "1.5.1"
+        "version": "1.5.2"
     },
     "@types/semver": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -101,7 +101,8 @@
     },
     "@types/ua-parser-js": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
-        "version": "0.7.36"
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/ua-parser-js",
+        "version": "0.7.37"
     },
     "@types/vue-select": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
