@@ -39,7 +39,6 @@
 // @match        https://policja.operatorratunkowy.pl/*
 // @match        https://www.operador193.com/*
 // @match        https://www.jogo-operador112.com/*
-// @match        https://www.operador112.com/*
 // @match        https://policia.jogo-operador112.com/*
 // @match        https://www.jocdispecerat112.com/*
 // @match        https://www.dispetcher112.ru/*
