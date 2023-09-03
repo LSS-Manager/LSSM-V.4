@@ -258,6 +258,7 @@ export default async ({
         today: () => today,
         tomorrow: () => tomorrow,
         ...getTimeReplacers(),
+        totalDuration: () => mission?.additional?.duration_text ?? '–',
     };
 
     const getModifiedMessage = (message: string) => {
