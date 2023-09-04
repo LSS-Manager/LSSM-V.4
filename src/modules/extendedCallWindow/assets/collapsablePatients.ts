@@ -77,8 +77,8 @@ export default (
         .querySelector<HTMLDivElement>('.mission_patient')
         ?.before(summaryBox);
     import(
-        /* webpackChunkName: "modules/extendedCallWindow/components/collapsablePatients" */
-        '../components/collapsablePatients/collapsablePatients.vue'
+        /* webpackChunkName: "modules/extendedCallWindow/components/CollapsablePatients" */
+        '../components/collapsablePatients/CollapsablePatients.vue'
     ).then(({ default: collapsablePatients }) =>
         new LSSM.$vue({
             pinia: LSSM.$pinia,

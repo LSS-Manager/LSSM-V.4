@@ -99,6 +99,7 @@ const getModifiedMessage = (
             '',
         today: getDateFromToday(),
         tomorrow: getDateFromToday(1),
+        totalDuration: missionSpecs?.additional?.duration_text ?? '–',
     };
 
     let modifiedMessage = raw;

@@ -77,7 +77,7 @@ const tableRight = ref<string>('0px');
 const props = withDefaults(
     defineProps<{
         columns: Column<ColumnKey, boolean>[];
-        columnTranslations: Record<ColumnKey, string>;
+        columnTranslations?: Record<ColumnKey, string>;
         sort?: ColumnKey;
         sortDir?: 'asc' | 'desc';
         noSearch?: boolean;
@@ -87,7 +87,7 @@ const props = withDefaults(
         noBody?: boolean;
     }>(),
     {
-        columnTranslations: () => {},
+        columnTranslations: () => ({}),
         sort: '',
         sortDir: 'asc',
         noSearch: false,

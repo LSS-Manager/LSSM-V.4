@@ -128,6 +128,7 @@ webpack(entry, (err, stats) => {
                 size,
             ]) ?? []
         );
+        fs.mkdirSync('./dist/static', { recursive: true });
         fs.writeFileSync(
             './dist/static/fileSizes.json',
             JSON.stringify(fileSizes)
