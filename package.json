@@ -50,7 +50,7 @@
     "devDependencies": {
         "@types/he": "1.2.0",
         "@types/i18n-js": "3.8.5",
-        "@types/jquery": "3.5.17",
+        "@types/jquery": "3.5.18",
         "@types/js-yaml": "4.0.5",
         "@types/leaflet": "1.9.4",
         "@types/lodash": "4.14.197",
@@ -61,7 +61,7 @@
         "@types/semver": "7.5.1",
         "@types/showdown": "2.0.1",
         "@types/simpleheat": "0.4.0",
-        "@types/tampermonkey": "4.20.1",
+        "@types/tampermonkey": "4.20.2",
         "@types/ua-parser-js": "0.7.37",
         "@types/vue-select": "3.16.2",
         "@types/webpack-env": "1.18.1",
