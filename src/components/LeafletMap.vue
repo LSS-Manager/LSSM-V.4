@@ -47,7 +47,7 @@ const redraw = () => {
     window.L.tileLayer('https://{s}/{z}/{x}/{y}.png', {
         attribution:
             '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors',
-        subdomains: ['maps.leitstellenspiel.de/tiles/osm'],
+        subdomains: ['maps.missionchief.com/tile'],
         maxZoom: 17,
         noWrap: true,
     }).addTo(map);
