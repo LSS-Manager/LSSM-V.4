@@ -1,6 +1,6 @@
 ---
 title: Test your changes locally
-lang: en_US
+lang: en_GB
 sidebarDepth: 2
 ---
 
