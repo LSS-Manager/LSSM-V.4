@@ -61,31 +61,6 @@ export default (async ({ LSSM, getSetting }) => {
                 ).then(({ default: userSelection }) => userSelection(LSSM));
             }
         });
-    } else if (window.location.pathname === 'alliance_chats') {
-        getSetting('lightDesignChatHistory').then(lightChatDesignActive => {
-            if (lightChatDesignActive) {
-                import(
-                    /* webpackChunkName: "modules/chatExtras/lightDesignChatHistory" */ './assets/lightDesignChatHistory'
-                ).then(({ default: addLightChatDesign }) => {
-                    if (location.pathname.includes('alliance_chats'))
-                        addLightChatDesign(false, '');
-
-                    LSSM.$stores.event.addListener({
-                        name: 'redesign-finished-loading',
-                        listener(e: CustomEvent) {
-                            if (e.detail.type === 'chat') {
-                                (window[PREFIX] as Vue).$nextTick(() =>
-                                    addLightChatDesign(
-                                        location.pathname === '/',
-                                        e.detail.modalName
-                                    )
-                                );
-                            }
-                        },
-                    });
-                });
-            }
-        });
     } else if (window.location.pathname.startsWith('/missions/')) {
         getSetting('userSelection').then(userSelection => {
             if (userSelection) {
@@ -95,4 +70,28 @@ export default (async ({ LSSM, getSetting }) => {
             }
         });
     }
+    getSetting('lightDesignChatHistory').then(lightChatDesignActive => {
+        if (lightChatDesignActive) {
+            import(
+                /* webpackChunkName: "modules/chatExtras/lightDesignChatHistory" */ './assets/lightDesignChatHistory'
+            ).then(({ default: addLightChatDesign }) => {
+                if (location.pathname.includes('alliance_chats'))
+                    addLightChatDesign(false, '');
+
+                LSSM.$stores.event.addListener({
+                    name: 'redesign-finished-loading',
+                    listener(e: CustomEvent) {
+                        if (e.detail.type === 'chat') {
+                            (window[PREFIX] as Vue).$nextTick(() =>
+                                addLightChatDesign(
+                                    location.pathname === '/',
+                                    e.detail.modalName
+                                )
+                            );
+                        }
+                    },
+                });
+            });
+        }
+    });
 }) as ModuleMainFunction;
