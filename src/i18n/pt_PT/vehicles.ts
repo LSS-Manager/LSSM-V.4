@@ -853,7 +853,7 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [0],
+        possibleBuildings: [0,18],
     },
     52: {
         caption: 'ATE',
@@ -861,18 +861,11 @@ export default {
         credits: 12_000,
         coins: 13,
         staff: {
-            min: 2,
-            max: 2,
-            training: {
-                'Corpos de Bombeiros': {
-                    arff: {
-                        all: true,
-                    },
-                },
-            },
+            min: 0,
+            max: 0
         },
         icon: 'car-side',
-        possibleBuildings: [0],
+        possibleBuildings: [0,18],
     },
     53: {
         caption: 'ATRI',
@@ -880,17 +873,12 @@ export default {
         credits: 12_000,
         coins: 13,
         staff: {
-            min: 2,
-            max: 2,
-            training: {
-                'Corpos de Bombeiros': {
-                    arff: {
-                        all: true,
-                    },
-                },
-            },
+            min: 0,
+            max: 0
         },
         icon: 'car-side',
-        possibleBuildings: [0],
+        possibleBuildings: [0,18],
+        pumpType: 'fire',
+        pumpCapacity: 4000
     },
 } satisfies Record<number, InternalVehicle>;
