@@ -32,7 +32,7 @@
     "@types/he": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/he",
-        "version": "1.2.0"
+        "version": "1.2.1"
     },
     "@types/i18n-js": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -42,12 +42,12 @@
     "@types/jquery": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jquery",
-        "version": "3.5.18"
+        "version": "3.5.19"
     },
     "@types/js-yaml": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/js-yaml",
-        "version": "4.0.5"
+        "version": "4.0.6"
     },
     "@types/leaflet": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
