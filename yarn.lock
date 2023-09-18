@@ -2223,10 +2223,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/he@npm:1.2.0":
-  version: 1.2.0
-  resolution: "@types/he@npm:1.2.0"
-  checksum: 0110608efe61a8fb710c5a344485d70dab48116e9529d10a3175985ad7a118a2547ffd708349681f3ecdbcd6ae91e63c674b73ed0e4bd2c9a57ca793f538c852
+"@types/he@npm:1.2.1":
+  version: 1.2.1
+  resolution: "@types/he@npm:1.2.1"
+  checksum: 9acb0e115c22507bbff6c9400ee8c66616c5443236bd078fc55befe9fbc23f8abafc4c8fa86f0682791271397135720f83d027bfac99e11cde74ec6941aa8790
   languageName: node
   linkType: hard
 
@@ -2237,19 +2237,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jquery@npm:3.5.18":
-  version: 3.5.18
-  resolution: "@types/jquery@npm:3.5.18"
+"@types/jquery@npm:3.5.19":
+  version: 3.5.19
+  resolution: "@types/jquery@npm:3.5.19"
   dependencies:
     "@types/sizzle": "*"
-  checksum: 6576bc9a6d35671ceb464e8f937b7eb916227b38b4edf8769a0bc628cfbb9f211b61ccd4158d42aa31591f2c6766b7095430f820d374f70245258ac6cec3e439
+  checksum: 0298e53a353089e2abae4be2f660b5f2bfb4797464623701c5c2f2c911317b554f1887c2c3d587d0f724d70a3fb5e31907bf7fa5d96df33af07e2842660ef52a
   languageName: node
   linkType: hard
 
-"@types/js-yaml@npm:4.0.5":
-  version: 4.0.5
-  resolution: "@types/js-yaml@npm:4.0.5"
-  checksum: 7dcac8c50fec31643cc9d6444b5503239a861414cdfaa7ae9a38bc22597c4d850c4b8cec3d82d73b3fbca408348ce223b0408d598b32e094470dfffc6d486b4d
+"@types/js-yaml@npm:4.0.6":
+  version: 4.0.6
+  resolution: "@types/js-yaml@npm:4.0.6"
+  checksum: d4439ec2cc830d355c2a1d7508f49888931b2cfe59d786d27621edd530bf06314b1dceeaa759e21f9b035a0ff623a0ca306752ebb73df9485c02abe045bd962c
   languageName: node
   linkType: hard
 
@@ -7054,10 +7054,10 @@ __metadata:
     "@fortawesome/free-regular-svg-icons": 6.4.2
     "@fortawesome/free-solid-svg-icons": 6.4.2
     "@fortawesome/vue-fontawesome": 2.0.10
-    "@types/he": 1.2.0
+    "@types/he": 1.2.1
     "@types/i18n-js": 3.8.5
-    "@types/jquery": 3.5.18
-    "@types/js-yaml": 4.0.5
+    "@types/jquery": 3.5.19
+    "@types/js-yaml": 4.0.6
     "@types/leaflet": 1.9.4
     "@types/lodash": 4.14.198
     "@types/node": 18.17.17
