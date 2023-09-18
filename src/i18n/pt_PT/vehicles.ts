@@ -33,7 +33,8 @@ export default {
         staff: { min: 1, max: 2 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        special: 'Requere que tenhas pelo menos construído 3 Corpos de Bombeiros',
+        special:
+            'Requere que tenhas pelo menos construído 3 Corpos de Bombeiros',
     },
     3: {
         caption: 'VCOT',
@@ -43,7 +44,8 @@ export default {
         staff: { min: 1, max: 2 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        special: 'Requere que tenhas pelo menos construído 6 Corpos de Bombeiros',
+        special:
+            'Requere que tenhas pelo menos construído 6 Corpos de Bombeiros',
     },
     4: {
         caption: 'VSAT',
@@ -53,7 +55,8 @@ export default {
         staff: { min: 2, max: 5 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        special: 'Requere que tenhas pelo menos construído 4 corpos de bombeiros',
+        special:
+            'Requere que tenhas pelo menos construído 4 corpos de bombeiros',
     },
     5: {
         caption: 'ABSC',
@@ -62,7 +65,7 @@ export default {
         coins: 13,
         staff: { min: 2, max: 2 },
         icon: 'car-side',
-        possibleBuildings: [0, 18,2,20,21],
+        possibleBuildings: [0, 18, 2, 20, 21],
     },
     6: {
         caption: 'VTTU',
@@ -72,8 +75,9 @@ export default {
         staff: { min: 1, max: 2 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        waterTank: 10000,
-        special: 'Requere que tenhas pelo menos construído 7 corpos de bombeiros',
+        waterTank: 10_000,
+        special:
+            'Requere que tenhas pelo menos construído 7 corpos de bombeiros',
     },
     7: {
         caption: 'VPMA',
@@ -94,7 +98,8 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         foamTank: 50,
-        special: 'Requere que tenhas pelo menos construído 11 corpos de bombeiros',
+        special:
+            'Requere que tenhas pelo menos construído 11 corpos de bombeiros',
     },
     8: {
         caption: 'CP',
@@ -132,7 +137,8 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        special: 'Requere que tenhas pelo menos construído 13 corpos de bombeiros',
+        special:
+            'Requere que tenhas pelo menos construído 13 corpos de bombeiros',
     },
     11: {
         caption: 'VUCI',
@@ -163,8 +169,9 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [6, 19],
-        special: 'Requere que tenhas pelo menos construído 6 esquadras da polícia.',
-    },    
+        special:
+            'Requere que tenhas pelo menos construído 6 esquadras da polícia.',
+    },
     13: {
         caption: 'EPRI',
         color: '#cc2222',
@@ -192,7 +199,7 @@ export default {
         staff: { min: 1, max: 2 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-    },    
+    },
     15: {
         caption: 'UAAR',
         color: '#ca1616',
@@ -202,7 +209,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         special: 'Requere 5 corpos dos bombeiros. Carrega botijas de ar.',
-    }, 
+    },
     16: {
         caption: 'VSAE',
         color: '#ad1f1f',
@@ -223,12 +230,11 @@ export default {
         possibleBuildings: [0, 18],
         special:
             'Required once you have built 4 Corpos de Bombeiross. A big lorry with specialist rescue equipment, useful for Road Traffic Collisions.',
-
-    },    
+    },
     17: {
         caption: 'VMER',
         color: '#99631f',
-        credits: 4_000,
+        credits: 4000,
         coins: 10,
         staff: {
             min: 2,
@@ -270,10 +276,10 @@ export default {
     19: {
         caption: 'Mota INEM',
         color: '#996719',
-        credits: 12000,
+        credits: 12_000,
         coins: 8,
-        staff: { 
-            min: 1, 
+        staff: {
+            min: 1,
             max: 1,
             training: {
                 Rescue: {
@@ -282,9 +288,9 @@ export default {
                     },
                 },
             },
-        },    
+        },
         icon: 'car-side',
-        possibleBuildings: [2,20, 21],
+        possibleBuildings: [2, 20, 21],
         special:
             'Can only be placed at the Home Response Location. A Ambulance Rapid Response Vehicle but staffed with volunteers',
     },
@@ -295,7 +301,7 @@ export default {
         coins: 15,
         staff: {
             min: 5,
-            max: 8
+            max: 8,
         },
         icon: 'car-side',
         possibleBuildings: [2, 20],
@@ -307,7 +313,9 @@ export default {
         color: '#9f1616',
         credits: 20_000,
         coins: 8,
-        staff: { min: 3, max: 5,
+        staff: {
+            min: 3,
+            max: 5,
             training: {
                 'Corpos de Bombeiros': {
                     elw3: {
@@ -317,14 +325,16 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [0,18],
+        possibleBuildings: [0, 18],
     },
     22: {
         caption: 'Semi-Reboque',
         color: '#9f1616',
-        credits: 5_000,
+        credits: 5000,
         coins: 5,
-        staff: { min: 1, max: 2,
+        staff: {
+            min: 1,
+            max: 2,
             training: {
                 'Corpos de Bombeiros': {
                     truck_drivers_license: {
@@ -395,9 +405,11 @@ export default {
     26: {
         caption: 'AVBM',
         color: '#a4752e',
-        credits: 1000000,
+        credits: 1_000_000,
         coins: 13,
-        staff: { min: 2, max: 2,
+        staff: {
+            min: 2,
+            max: 2,
             training: {
                 'Corpos de Bombeiros': {
                     airborne_firefighting: {
@@ -549,10 +561,10 @@ export default {
         coins: 5,
         staff: {
             min: 1,
-            max: 1
+            max: 1,
         },
         icon: 'car-side',
-        possibleBuildings: [6, 19,25],
+        possibleBuildings: [6, 19, 25],
     },
     36: {
         caption: 'PCO',
@@ -576,7 +588,7 @@ export default {
     37: {
         caption: 'VMT',
         color: '#488b18',
-        credits: 35000,
+        credits: 35_000,
         coins: 8,
         staff: { min: 2, max: 4 },
         icon: 'car-side',
@@ -585,7 +597,7 @@ export default {
     38: {
         caption: 'EPC',
         color: '#488b18',
-        credits: 25000,
+        credits: 25_000,
         coins: 5,
         staff: { min: 1, max: 2 },
         icon: 'car-side',
@@ -594,11 +606,13 @@ export default {
     39: {
         caption: 'PM',
         color: '#488b18',
-        credits: 50000,
+        credits: 50_000,
         coins: 8,
-        staff: { min: 2, max: 5,
+        staff: {
+            min: 2,
+            max: 5,
             training: {
-            ['Resgate aquático']: {
+                ['Resgate aquático']: {
                     coastal_ocean_navigation: {
                         min: 1,
                     },
@@ -614,9 +628,11 @@ export default {
     40: {
         caption: 'BR',
         color: '#488b18',
-        credits: 75000,
+        credits: 75_000,
         coins: 13,
-        staff: { min: 2, max: 6,
+        staff: {
+            min: 2,
+            max: 6,
             training: {
                 ['Resgate aquático']: {
                     coastal_ocean_navigation: {
@@ -634,9 +650,11 @@ export default {
     41: {
         caption: 'GAT',
         color: '#488b18',
-        credits: 75000,
+        credits: 75_000,
         coins: 13,
-        staff: { min: 7, max: 10,
+        staff: {
+            min: 7,
+            max: 10,
             training: {
                 ['Resgate aquático']: {
                     coastal_ocean_navigation: {
@@ -668,7 +686,7 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [0,18],
+        possibleBuildings: [0, 18],
         special:
             'Combines the Heavy Rescue Vehicle/Utility Vehicle with an integrated boat.<br> No need for a boat trailer.',
     },
@@ -699,8 +717,8 @@ export default {
         },
         icon: 'car-side',
         isTrailer: true,
-        tractiveVehicles: [42,43],
-        possibleBuildings: [0,18],
+        tractiveVehicles: [42, 43],
+        possibleBuildings: [0, 18],
     },
     45: {
         caption: 'MRSA',
@@ -726,7 +744,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18, 25],
         isTrailer: true,
-        tractiveVehicles: [37,38,42,43,33],
+        tractiveVehicles: [37, 38, 42, 43, 33],
         special:
             'Needed towing vehicle (Lifeguard Truck, Lifeguard Rescue, Lifeguard Supervisor, Utility unit, Battalion chief unit, Type 2 fire engine)',
     },
@@ -750,7 +768,7 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [0,18],
+        possibleBuildings: [0, 18],
         waterTank: 9000,
         foamTank: 1500,
     },
@@ -777,7 +795,7 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [0,18],
+        possibleBuildings: [0, 18],
         waterTank: 7000,
         foamTank: 1000,
     },
@@ -810,7 +828,7 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [0,18],
+        possibleBuildings: [0, 18],
     },
     50: {
         caption: 'VIR',
@@ -832,7 +850,7 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [0,18],
+        possibleBuildings: [0, 18],
         waterTank: 5000,
         foamTank: 750,
     },
@@ -853,7 +871,7 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [0,18],
+        possibleBuildings: [0, 18],
     },
     52: {
         caption: 'ATE',
@@ -862,10 +880,10 @@ export default {
         coins: 13,
         staff: {
             min: 0,
-            max: 0
+            max: 0,
         },
         icon: 'car-side',
-        possibleBuildings: [0,18],
+        possibleBuildings: [0, 18],
     },
     53: {
         caption: 'ATRI',
@@ -874,11 +892,11 @@ export default {
         coins: 13,
         staff: {
             min: 0,
-            max: 0
+            max: 0,
         },
         icon: 'car-side',
-        possibleBuildings: [0,18],
+        possibleBuildings: [0, 18],
         pumpType: 'fire',
-        pumpCapacity: 4000
+        pumpCapacity: 4000,
     },
 } satisfies Record<number, InternalVehicle>;

@@ -49,12 +49,12 @@ const modules = {
 export default {
     modules,
     buildingCategories: {
-        'Bombeiros': {
+        Bombeiros: {
             buildings: [0, 1, 18, 24],
             color: '#ff2d2d',
         },
-        'Ambulâncias': {
-            buildings: [2, 3, 5, 20,21],
+        Ambulâncias: {
+            buildings: [2, 3, 5, 20, 21],
             color: '#ffa500',
         },
         ['Polícia']: {
@@ -65,7 +65,7 @@ export default {
             buildings: [25, 26],
             color: '#00ac00',
         },
-        'Outros': {
+        Outros: {
             buildings: [4, 7, 14, 22, 23],
             color: '#02a18c',
         },
@@ -75,19 +75,23 @@ export default {
             vehicles: {
                 'Camião dos Bombeiros': [0, 1, 11],
                 'Tanque de Água': [6],
-                'Veículos Especializados': [53,2,7,14,24,30,29,4,15,16,28,3,10,21],
-                'Veículos Florestais': [22,23],
-                'Carros de Bombeiros de Aeroporto': [46,47,48,49,50,51,52],
-                'Resgate aquático': [42,43,44,45],
-                'Avião dos bombeiros': [25,26,27],
+                'Veículos Especializados': [
+                    53, 2, 7, 14, 24, 30, 29, 4, 15, 16, 28, 3, 10, 21,
+                ],
+                'Veículos Florestais': [22, 23],
+                'Carros de Bombeiros de Aeroporto': [
+                    46, 47, 48, 49, 50, 51, 52,
+                ],
+                'Resgate aquático': [42, 43, 44, 45],
+                'Avião dos bombeiros': [25, 26, 27],
             },
             color: '#ff2d2d',
         },
         'Veículos de Resgate': {
             vehicles: {
-                'Ambulâncias': [5,19],
+                'Ambulâncias': [5, 19],
                 'Helicópteros de Emergência Médica': [9],
-                'Outros Veículos de Resgate': [17,18,20],
+                'Outros Veículos de Resgate': [17, 18, 20],
             },
             color: '#ffa500',
         },
@@ -95,15 +99,15 @@ export default {
             vehicles: {
                 'Carro de Patrulha': [8],
                 'Mota da Polícia': [13],
-                'UEP': [12,31,32,33],
-                'outro veículo de polícia': [34,35,36],
+                'UEP': [12, 31, 32, 33],
+                'outro veículo de polícia': [34, 35, 36],
             },
             color: '#00ac00',
         },
         'Veículos Salva-vidas': {
             vehicles: {
-                'Carros': [37,38],
-                'Barcos': [39,40,41,45],
+                Carros: [37, 38],
+                Barcos: [39, 40, 41, 45],
             },
             color: '#58b658',
         },
@@ -216,8 +220,8 @@ export default {
         'Barragem',
         'Festival',
         'Sauna',
-        'Arquivos Nacionais'
-     ],
+        'Arquivos Nacionais',
+    ],
     only_alliance_missions: [57, 74],
     transfer_missions: [],
     ranks: {

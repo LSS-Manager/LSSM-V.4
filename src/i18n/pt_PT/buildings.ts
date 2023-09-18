@@ -122,7 +122,7 @@ export default {
         maxBuildings: 'Sem limite',
         maxLevel: 0,
         special:
-            "O ministro das finanças  e o administrador podem expandir a escola de bombeitos usando os creditos do tesouro da aliança.Training course masters and admins can start training courses at association fire- brigade schools.",
+            'O ministro das finanças  e o administrador podem expandir a escola de bombeitos usando os creditos do tesouro da aliança.Training course masters and admins can start training courses at association fire- brigade schools.',
         startClassrooms: 1,
         icon: 'graduation-cap',
     },
@@ -467,7 +467,7 @@ export default {
         maxBuildings: 'Sem limite',
         maxLevel: 0,
         special:
-            "O ministro das finanças  e o administrador podem expandir a escola de polícia usando os creditos do tesouro da aliança.Training course masters and admins can start training courses at association police schools.",
+            'O ministro das finanças  e o administrador podem expandir a escola de polícia usando os creditos do tesouro da aliança.Training course masters and admins can start training courses at association police schools.',
         startClassrooms: 1,
         icon: 'graduation-cap',
     },
