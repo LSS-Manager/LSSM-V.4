@@ -2033,12 +2033,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@primer/octicons@npm:19.7.0":
-  version: 19.7.0
-  resolution: "@primer/octicons@npm:19.7.0"
+"@primer/octicons@npm:19.8.0":
+  version: 19.8.0
+  resolution: "@primer/octicons@npm:19.8.0"
   dependencies:
     object-assign: ^4.1.1
-  checksum: f113b9617bae1a408baf7c936ac686328c0b398c585be5fc524921f2d11ddb301dfabf265d9d9ac44c620f2a61c00716f70a7b956ba88fde55ee4d3cfe761688
+  checksum: fa80e819d725d8829666c80be6eaa52b165b0f34f2d35c18245a8b0d91eeb18f3ad5f555c7e0b7f9ddcc1ac0cf3381d275dbbcad22e741029290fd1be7c81be9
   languageName: node
   linkType: hard
 
@@ -7028,7 +7028,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "lss-manager-v4-docs@workspace:docs/.vuepress"
   dependencies:
-    "@primer/octicons": 19.7.0
+    "@primer/octicons": 19.8.0
     "@vuepress/client": 2.0.0-beta.67
     "@vuepress/plugin-pwa": 2.0.0-beta.67
     "@vuepress/plugin-pwa-popup": 2.0.0-beta.67
