@@ -151,7 +151,12 @@
                 "vehicles": [13]
             },
             {
-                "texts": ["Unità antisommossa", "furgona antisommossa", "Furgoni antisommossa", "Furgone antisommossa"],
+                "texts": [
+                    "Unità antisommossa",
+                    "furgona antisommossa",
+                    "Furgoni antisommossa",
+                    "Furgone antisommossa"
+                ],
                 "vehicles": [14]
             },
             { "texts": ["Unità cinofila antidroga"], "vehicles": [15] },
