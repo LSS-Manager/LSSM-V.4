@@ -1303,15 +1303,10 @@ export default {
                 requiredStorageUpgrades: ['additional_containers_2'],
             },
         },
-        levelcost: [
-            '1. 10.000',
-            '2. 50.000',
-            '3.-5. 100.000',
-        ],
+        levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
         maxBuildings: 'No limit',
         maxLevel: 5,
-        special:
-            '!',
+        special: '!',
         startPersonnel: 10,
         startVehicles: [''],
         schoolingTypes: ['Water Rescue'],

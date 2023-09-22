@@ -1377,7 +1377,9 @@ export default {
         color: '#88ecc4',
         credits: 25_000,
         coins: 15,
-        staff: { min: 1, max: 3,
+        staff: {
+            min: 1,
+            max: 3,
             training: {
                 'Water Rescue': {
                     search_and_rescue_command: {
@@ -1388,7 +1390,8 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [31],
-        special: 'Serves the purpose of a command unit to coordinate SAR missions.',
+        special:
+            'Serves the purpose of a command unit to coordinate SAR missions.',
     },
     86: {
         caption: 'Operational Support Van',
@@ -1410,14 +1413,16 @@ export default {
         possibleBuildings: [31],
         special: '',
         isTrailer: true,
-        tractiveVehicles: [85,86,89,94],
+        tractiveVehicles: [85, 86, 89, 94],
     },
     88: {
         caption: 'SAR Flood Rescue (Trailer)',
         color: '#88ecc4',
         credits: 15_000,
         coins: 15,
-        staff: { min: 0, max: 0,
+        staff: {
+            min: 0,
+            max: 0,
             training: {
                 'Water Rescue': {
                     flood_equipment: {
@@ -1430,14 +1435,16 @@ export default {
         possibleBuildings: [31],
         special: '',
         isTrailer: true,
-        tractiveVehicles: [85,86,89,94],
+        tractiveVehicles: [85, 86, 89, 94],
     },
     89: {
         caption: 'Drone Vehicle (SAR HQ)',
         color: '#88ecc4',
-        credits: 7_000,
+        credits: 7000,
         coins: 10,
-        staff: { min: 1, max: 2,
+        staff: {
+            min: 1,
+            max: 2,
             training: {
                 'Water Rescue': {
                     drone: {
@@ -1456,7 +1463,9 @@ export default {
         color: '#88ecc4',
         credits: 10_000,
         coins: 10,
-        staff: { min: 1, max: 2,
+        staff: {
+            min: 1,
+            max: 2,
             training: {
                 'Fire Station': {
                     education_8: {
@@ -1473,11 +1482,13 @@ export default {
     91: {
         caption: 'Drone Vehicle (Police Station)',
         color: '#88ecc4',
-        credits: 7_000,
+        credits: 7000,
         coins: 10,
-        staff: { min: 1, max: 2,
+        staff: {
+            min: 1,
+            max: 2,
             training: {
-                'Police': {
+                Police: {
                     education_11: {
                         all: true,
                     },
@@ -1507,14 +1518,14 @@ export default {
         coins: 10,
         staff: { min: 1, max: 1 },
         icon: 'car-side',
-        possibleBuildings: [22,31],
+        possibleBuildings: [22, 31],
         equipmentCapacity: 10,
         special: '',
     },
     94: {
         caption: 'RRV',
         color: '#88ecc4',
-        credits: 4_000,
+        credits: 4000,
         coins: 20,
         staff: { min: 1, max: 1 },
         icon: 'car-side',

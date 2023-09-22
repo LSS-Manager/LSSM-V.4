@@ -76,7 +76,7 @@ export default {
             color: '#00ac00',
         },
         'Water Rescue': {
-            buildings: [27, 28, 29, 30,31],
+            buildings: [27, 28, 29, 30, 31],
             color: '#88ecc4',
         },
         'Other': {
@@ -125,7 +125,7 @@ export default {
                 'Flood': [61],
                 'Coastguard Helicopter': [64, 65],
                 'Lifeguard': [66, 67, 68, 69, 70, 71, 72],
-                'SAR': [85,86,87,88,89,90,91,92,93,94],
+                'SAR': [85, 86, 87, 88, 89, 90, 91, 92, 93, 94],
             },
             color: '#88ecc4',
         },
