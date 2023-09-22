@@ -26,14 +26,14 @@
             "elw2_or_ab_elw": "ICCU / ACU",
             "emergency_welfare_value": "Any Crew Welfare Vehicle",
             "fire": "Fire engines",
+            "flood_equipment": "Flood Rescue",
             "fly_car": "Rapid Response Vehicle / General Practitioner",
             "foam": "Foam Units",
             "fustw": "Police car",
-            "flood_equipment": "Flood Rescue",
+            "gw_wasserrettung": "4x4 Units",
             "gwa": "Breathing Apparatus Support Unit",
             "gwgefahrgut": "HazMat Unit or CBRN Vehicle",
             "gwl2wasser": "Water Carrier",
-            "gw_wasserrettung": "4x4 Units",
             "hlf_only": "Rescue Pump",
             "joint_response_unit": "Joint Response Unit",
             "k9": "Any Dog Carrier",
@@ -44,10 +44,10 @@
             "rth_only": "HEMS",
             "rtw": "Ambulance",
             "rw": "Rescue Support Unit or Rescue Pump",
+            "search_and_rescue": "SAR Units",
             "swat_suv": "Armed Response Vehicle (ARV)",
             "water_damage_pump": "Water Pumps",
-            "water_damage_pump_value": "Pump Capacity",
-            "search_and_rescue": "SAR Units"
+            "water_damage_pump_value": "Pump Capacity"
         },
         "headers": {
             "attribute": "Name",
@@ -119,18 +119,15 @@
                 "texts": ["Water Carrier", "Water Carriers"],
                 "vehicles": [6, 26, 36, 41, 50]
             },
+            { "texts": ["Drone", "Drones"], "vehicles": [89, 90, 91] },
             {
-                "texts": ["Drone", "Drones"],
-                "vehicles": [89,90,91]
-            },
-            {
-                "texts": ["Operational Support Van", "Operational Support Vans"],
+                "texts": [
+                    "Operational Support Van",
+                    "Operational Support Vans"
+                ],
                 "vehicles": [86]
             },
-            {
-                "texts": ["Control Van", "Control Vans"],
-                "vehicles": [85]
-            },
+            { "texts": ["Control Van", "Control Vans"], "vehicles": [85] },
             {
                 "texts": [
                     "ICCU or Ambulance Control Unit",

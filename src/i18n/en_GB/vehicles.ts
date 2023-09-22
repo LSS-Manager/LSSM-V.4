@@ -1461,7 +1461,7 @@ export default {
     90: {
         caption: 'Drone Vehicle (Fire Station)',
         color: '#88ecc4',
-        credits: 7_000,
+        credits: 7000,
         coins: 10,
         staff: {
             min: 1,
@@ -1488,7 +1488,7 @@ export default {
             min: 1,
             max: 2,
             training: {
-                'Police': {
+                Police: {
                     drone: {
                         all: true,
                     },
