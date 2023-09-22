@@ -62,7 +62,19 @@
         "title": "Prerequisite | Prerequisites",
         "wasserrettung": "Technical Rescue Extension | Technical Rescue Extensions",
         "water_damage_pump_count": "Water Damage Pump Extension | Water Damage Pump Extensions",
-        "water_rescue_2": "Coastguard Rescue Station | Coastguard Rescue Stations"
+        "water_rescue_2": "Coastguard Rescue Station | Coastguard Rescue Stations",
+        "oneof_lf_rw_dlk": "Fire engines, Rescue Support Vehicles or Aerial Appliance Trucks",
+        "oneof_lf_rw": "Fire engines or Rescue Support Vehicles",
+        "oneof_police_swat": "Police Cars or ARVs",
+        "oneof_drone_police_helicopter": "Police Helicopter or Drone",
+        "oneof_coastal_guard_boat_large_coastal_boat": "ALBs or ILBs",
+        "oneof_lf_riv": "Fire Engines or RIVs",
+        "oneof_elw1_elw_airport": "Fire Officers or Airfield Firefighting Command Vehicles",
+        "oneof_elw2_elw_airport": "ICCU, Ambulance Control Units or Airfield Firefighting Command Vehicles",
+        "oneof_lf_arff": "Fire Engines or Major Foam Tenders",
+        "oneof_dlk_rescue_stairs": "Aerial Appliance Trucks or Rescue Stairs",
+        "oneof_lf_riv_arff": "Fire Engines, RIVs or Major Foam Tenders",
+        "oneof_riv_arff": "RIVs or Major Foam Tenders"
     },
     "prisoners": {
         "max_possible_prisoners": "Maximum Prisoners",

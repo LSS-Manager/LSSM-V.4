@@ -15,10 +15,11 @@
     "arrHover": {
         "arrSpecs": {
             "any_traffic_car": "Any Traffic Car",
-            "coastal_rescue": "Any Coastal Guard Vehicle",
+            "coastal_rescue": "Coastal Rescue, Rope Rescue or Mud Rescue Vehicle",
             "coresponder": "Co-Responder Vehicle",
             "crew_carrier": "Crew Carrier",
             "dlk": "Aerial Appliance Truck",
+            "drone": "Drone",
             "elw": "Fire Officer",
             "elw1_or_elw2": "Fire Officer or ICCU",
             "elw2": "ICCU",
@@ -28,9 +29,11 @@
             "fly_car": "Rapid Response Vehicle / General Practitioner",
             "foam": "Foam Units",
             "fustw": "Police car",
+            "flood_equipment": "Flood Rescue",
             "gwa": "Breathing Apparatus Support Unit",
             "gwgefahrgut": "HazMat Unit or CBRN Vehicle",
             "gwl2wasser": "Water Carrier",
+            "gw_wasserrettung": "4x4 Units",
             "hlf_only": "Rescue Pump",
             "joint_response_unit": "Joint Response Unit",
             "k9": "Any Dog Carrier",
@@ -43,7 +46,8 @@
             "rw": "Rescue Support Unit or Rescue Pump",
             "swat_suv": "Armed Response Vehicle (ARV)",
             "water_damage_pump": "Water Pumps",
-            "water_damage_pump_value": "Pump Capacity"
+            "water_damage_pump_value": "Pump Capacity",
+            "search_and_rescue": "SAR Units"
         },
         "headers": {
             "attribute": "Name",
@@ -114,6 +118,18 @@
             {
                 "texts": ["Water Carrier", "Water Carriers"],
                 "vehicles": [6, 26, 36, 41, 50]
+            },
+            {
+                "texts": ["Drone", "Drones"],
+                "vehicles": [89,90,91]
+            },
+            {
+                "texts": ["Operational Support Van", "Operational Support Vans"],
+                "vehicles": [86]
+            },
+            {
+                "texts": ["Control Van", "Control Vans"],
+                "vehicles": [85]
             },
             {
                 "texts": [

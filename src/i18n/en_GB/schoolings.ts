@@ -41,7 +41,7 @@ export default {
         {
             caption: 'Drone Operator Training',
             duration: '5 Days',
-            staffList: 'Drone Operator Training',
+            staffList: 'Drone Operator',
             key: 'drone',
         },
     ],
@@ -115,7 +115,7 @@ export default {
         {
             caption: 'Drone Operator Training',
             duration: '5 Days',
-            staffList: 'Drone Operator Training',
+            staffList: 'Drone Operator',
             key: 'drone',
         },
     ],
@@ -221,7 +221,7 @@ export default {
         {
             caption: 'Drone Operator Training',
             duration: '3 Days',
-            staffList: 'Drone Operator Training',
+            staffList: 'Drone Operator',
             key: 'drone',
         },
     ],
