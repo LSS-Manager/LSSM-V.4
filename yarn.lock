@@ -2276,12 +2276,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/leaflet@npm:1.9.4":
-  version: 1.9.4
-  resolution: "@types/leaflet@npm:1.9.4"
+"@types/leaflet@npm:1.9.6":
+  version: 1.9.6
+  resolution: "@types/leaflet@npm:1.9.6"
   dependencies:
     "@types/geojson": "*"
-  checksum: ae5b4422b6eb912e6c6910d049f63cb96537eac46af4a897471ab98c642d059a32789f411157b873a5dafdbc9cef3399dc0673c5f64be067eebc530c43783e75
+  checksum: 64776f0ffb005950d4e07f1cccce861307c9c2b6be3151050b83f1c94eb837951856933fed91e8cdfa1ca9fdc72873af27c9a53a7ffe9981097f21373e3a1322
   languageName: node
   linkType: hard
 
@@ -2292,10 +2292,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:4.14.198":
-  version: 4.14.198
-  resolution: "@types/lodash@npm:4.14.198"
-  checksum: b290e4480707151bcec738bca40527915defe52a0d8e26c83685c674163a265e1a88cb2ee56b0fb587a89819d0cd5df86ada836aec3e9c2e4bf516e7d348d524
+"@types/lodash@npm:4.14.199":
+  version: 4.14.199
+  resolution: "@types/lodash@npm:4.14.199"
+  checksum: e68d1fcbbfce953ed87b296a628573f62939227bcda0c934954e862b421e8a34c5e71cad6fea27b9980567909e6a4698f09025692958e36d64ea9ed99ec6fb2e
   languageName: node
   linkType: hard
 
@@ -2379,13 +2379,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/pdfmake@npm:0.2.3":
-  version: 0.2.3
-  resolution: "@types/pdfmake@npm:0.2.3"
+"@types/pdfmake@npm:0.2.4":
+  version: 0.2.4
+  resolution: "@types/pdfmake@npm:0.2.4"
   dependencies:
     "@types/node": "*"
     "@types/pdfkit": "*"
-  checksum: f6e5eb457ef7425119a2ebe1db052c244a67e42b22ad00dbb10b060ddefa23bc4f9ad405f3322d90c334fafd754f8e78b034c3ba5daa146818c4ac24f0b72ec8
+  checksum: e8718f4bcbf9341e713400f49e0d7d14c666226c32315070ddfeed14a1ee6d6f7580408b37c425c59e77b495ae9668e14366f948ef63b882e9bb5e1bc4722632
   languageName: node
   linkType: hard
 
@@ -2423,24 +2423,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/semver@npm:7.5.2, @types/semver@npm:^7.5.0":
+"@types/semver@npm:7.5.3":
+  version: 7.5.3
+  resolution: "@types/semver@npm:7.5.3"
+  checksum: 349fdd1ab6c213bac5c991bac766bd07b8b12e63762462bb058740dcd2eb09c8193d068bb226f134661275f2022976214c0e727a4e5eb83ec1b131127c980d3e
+  languageName: node
+  linkType: hard
+
+"@types/semver@npm:^7.5.0":
   version: 7.5.2
   resolution: "@types/semver@npm:7.5.2"
   checksum: 743aa8a2b58e20b329c19bd2459152cb049d12fafab7279b90ac11e0f268c97efbcb606ea0c681cca03f79015381b40d9b1244349b354270bec3f939ed49f6e9
   languageName: node
   linkType: hard
 
-"@types/showdown@npm:2.0.1":
-  version: 2.0.1
-  resolution: "@types/showdown@npm:2.0.1"
-  checksum: 75078b292d645bb6adbda7d440415fa06f37433225ba097d8f56391fc6f1234beaeb7339baf01c4093b5f1be51fa285f81b32d11055892758294bb63de92fb01
+"@types/showdown@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@types/showdown@npm:2.0.2"
+  checksum: 25c2299c10a5a4d55d2e53ee9541aac37ded3c8973da9b19d806a0033d6e03b6dd310ccfe3a5d78c63e0bc77cd7384bca6aa686f046366701a1ebe653a6c36e0
   languageName: node
   linkType: hard
 
-"@types/simpleheat@npm:0.4.0":
-  version: 0.4.0
-  resolution: "@types/simpleheat@npm:0.4.0"
-  checksum: ed6d50577fb9eade4d996398a9414a0821911ab4ed90bde7ba7e15ad0dd1f39f1e839f8f06064c37fac8be5b1eb15664ea73e069adb591331b382e45e4f3c7a9
+"@types/simpleheat@npm:0.4.1":
+  version: 0.4.1
+  resolution: "@types/simpleheat@npm:0.4.1"
+  checksum: 0ccf79efb5e3a376f3ba3eb262830557ee880675b2e4ee332949059ab0c124ac66e5ff3fc1388915fe4d92b450b4fcfbe075b5f362e7ee0daebebe16758255bf
   languageName: node
   linkType: hard
 
@@ -2488,10 +2495,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/webpack-env@npm:1.18.1":
-  version: 1.18.1
-  resolution: "@types/webpack-env@npm:1.18.1"
-  checksum: 3173c069763e51a96565d602af7e6dac9d772ae4aa6f26cac187cbf599a7f0b88f790b4b050b9dbdb0485daed3061b4a337863f3b8ce66f8a4e51f75ad387c6a
+"@types/webpack-env@npm:1.18.2":
+  version: 1.18.2
+  resolution: "@types/webpack-env@npm:1.18.2"
+  checksum: 883908ade827d35a10efc574fb6f2728a7c520d4296cf1507633ac7457204ccd697bc6c8cadac99bc5d96074a6109c658ebfde59f42ba5ba0fdfffc538892b0f
   languageName: node
   linkType: hard
 
@@ -7058,19 +7065,19 @@ __metadata:
     "@types/i18n-js": 3.8.5
     "@types/jquery": 3.5.19
     "@types/js-yaml": 4.0.6
-    "@types/leaflet": 1.9.4
-    "@types/lodash": 4.14.198
+    "@types/leaflet": 1.9.6
+    "@types/lodash": 4.14.199
     "@types/node": 18.17.19
-    "@types/pdfmake": 0.2.3
+    "@types/pdfmake": 0.2.4
     "@types/prettier": 2.7.3
     "@types/qrcode": 1.5.2
-    "@types/semver": 7.5.2
-    "@types/showdown": 2.0.1
-    "@types/simpleheat": 0.4.0
+    "@types/semver": 7.5.3
+    "@types/showdown": 2.0.2
+    "@types/simpleheat": 0.4.1
     "@types/tampermonkey": 4.20.3
     "@types/ua-parser-js": 0.7.37
     "@types/vue-select": 3.16.2
-    "@types/webpack-env": 1.18.1
+    "@types/webpack-env": 1.18.2
     "@typescript-eslint/eslint-plugin": 6.7.2
     "@typescript-eslint/parser": 6.7.2
     acorn: 8.10.0
