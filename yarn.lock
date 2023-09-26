@@ -2479,12 +2479,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/vue-select@npm:3.16.2":
-  version: 3.16.2
-  resolution: "@types/vue-select@npm:3.16.2"
+"@types/vue-select@npm:3.16.3":
+  version: 3.16.3
+  resolution: "@types/vue-select@npm:3.16.3"
   dependencies:
     vue: ^2.0.0
-  checksum: c181f2e1c4def74a40a6e2f4f10e22ed185bf54336638e885072e3a829039f1bd366e226e5df4f83e0f8b1188ae85292325f215a5a780b1330b872839f004e8c
+  checksum: b59ee7097b3e4b1558c96acb8e905864bed1a9f804a0da1de473f16bd1078bd617ea6dee8b55868ece247a2c8ab1ee6814b664f9d45046201ee6bce06c1456c4
   languageName: node
   linkType: hard
 
@@ -7076,7 +7076,7 @@ __metadata:
     "@types/simpleheat": 0.4.1
     "@types/tampermonkey": 4.20.3
     "@types/ua-parser-js": 0.7.37
-    "@types/vue-select": 3.16.2
+    "@types/vue-select": 3.16.3
     "@types/webpack-env": 1.18.2
     "@typescript-eslint/eslint-plugin": 6.7.2
     "@typescript-eslint/parser": 6.7.2
