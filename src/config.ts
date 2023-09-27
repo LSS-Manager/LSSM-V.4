@@ -3,6 +3,12 @@ import browsers from './generated/browsers.json';
 import type { Config } from '../typings/Config';
 
 const PREFIX = 'lssmv4';
+const PORT_ENV_KEY = 'LSSM_PORT';
+
+export { PORT_ENV_KEY };
+
+const isLocalServer =
+    typeof process !== 'undefined' && PORT_ENV_KEY in process.env;
 
 export default {
     admins: ['de_DE-205976', 'de_DE-675'],
@@ -172,8 +178,12 @@ export default {
     userscript_latest_update: '4.7.0',
     prefix: PREFIX,
     urls: {
-        server: 'https://v4.lss-manager.de/',
-        docs: 'https://docs.lss-manager.de/',
+        server: isLocalServer
+            ? `http://localhost:${process.env[PORT_ENV_KEY]}/`
+            : 'https://v4.lss-manager.de/',
+        docs: isLocalServer
+            ? `http://localhost:${process.env[PORT_ENV_KEY]}/docs/`
+            : 'https://docs.lss-manager.de/',
         statuspage: 'https://status.lss-manager.de/',
         donations: 'https://donate.lss-manager.de/',
         fontAwesomeIconSearch: 'https://fontawesome.com/v6/search?m=free',

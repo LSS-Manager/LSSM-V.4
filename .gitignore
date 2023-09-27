@@ -6,6 +6,7 @@ package-lock.json
 /static/.configs.json
 /static/.check_request.php
 /static/beta.php
+/static/lssm-v4.local.user.js
 /admin/
 /src/userscript.js
 /src/userscript.js.map
