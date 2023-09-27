@@ -87,8 +87,6 @@ $MODE = "development"
 $DEBUG = $false
 
 foreach ($arg in $args) {
-    Write-Host $arg
-    Write-Host ($arg -eq "--full")
     switch ($arg) {
         "--node" {
             $_RUN_STEP_NODE = $true
