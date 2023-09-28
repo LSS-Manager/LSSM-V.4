@@ -244,15 +244,15 @@ if ($_RUN_STEP_NODE) {
     $start_time = now
     print_start_message "[⬆️] Setup Node.js"
 
-    #Some cuts due to the different OS
-    Get-Command "node"
+    #Since windows is so easy with paths, we just check whether the correct version is installed and abort if not
+    Get-Command "node" | out-null
     if (!$?) {
-        Write-Host "Can't find a valid 'node.js' installation. Please check whether the node.exe is in the PATH variable and try again."
+        Write-Host "Can't find a valid node.js installation. Please check that node.exe is in the `$PATH variable and try again."
         exit 1
     }
     else {
         if (([version]$NODE_VERSION).Major -lt ((Get-Command "node").Version.Major)) {
-            Write-Host "Your node version is does not satisfy the required version. Pleas update before continue"
+            Write-Host "Your node version is does not match the required version. Please update node before proceeding"
             exit 1
         }
     }
@@ -372,7 +372,7 @@ if ($_RUN_STEP_ESLINT) {
     $start_time = now
     print_start_message "[🚨] run ESLint"
     enable_debugging
-    yarn eslint ./docs/.vuepress/ ./static/ ./prebuild/ ./build/ ./src/ ./scripts/ ./typings/ --ext .js, .ts, .vue, .md     --no-error-on-unmatched-pattern     --exit-on-fatal-error     --report-unused-disable-directives --cache --cache-strategy content --fix
+    yarn eslint ./docs/.vuepress/ ./static/ ./prebuild/ ./build/ ./src/ ./scripts/ ./typings/ --ext .js, .ts, .vue, .md --no-error-on-unmatched-pattern --exit-on-fatal-error --report-unused-disable-directives --cache --cache-strategy content --fix
     if (!$?) {
         exit 1
     }
