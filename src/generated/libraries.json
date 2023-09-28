@@ -52,22 +52,22 @@
     "@types/leaflet": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/leaflet",
-        "version": "1.9.4"
+        "version": "1.9.6"
     },
     "@types/lodash": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/lodash",
-        "version": "4.14.198"
+        "version": "4.14.199"
     },
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-        "version": "18.17.18"
+        "version": "18.17.19"
     },
     "@types/pdfmake": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/pdfmake",
-        "version": "0.2.3"
+        "version": "0.2.4"
     },
     "@types/prettier": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -82,17 +82,17 @@
     "@types/semver": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/semver",
-        "version": "7.5.2"
+        "version": "7.5.3"
     },
     "@types/showdown": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/showdown",
-        "version": "2.0.1"
+        "version": "2.0.2"
     },
     "@types/simpleheat": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/simpleheat",
-        "version": "0.4.0"
+        "version": "0.4.1"
     },
     "@types/tampermonkey": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -107,20 +107,20 @@
     "@types/vue-select": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/vue-select",
-        "version": "3.16.2"
+        "version": "3.16.3"
     },
     "@types/webpack-env": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/webpack-env",
-        "version": "1.18.1"
+        "version": "1.18.2"
     },
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "6.7.2"
+        "version": "6.7.3"
     },
     "@typescript-eslint/parser": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "6.7.2"
+        "version": "6.7.3"
     },
     "@vuepress/client": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
@@ -195,7 +195,7 @@
         "version": "9.0.0"
     },
     "eslint-import-resolver-typescript": {
-        "version": "3.6.0"
+        "version": "3.6.1"
     },
     "eslint-plugin-compat": {
         "url": "https://github.com/amilajack/eslint-plugin-compat#readme",
@@ -206,7 +206,7 @@
         "version": "2.28.1"
     },
     "eslint-plugin-jsdoc": {
-        "version": "46.8.1"
+        "version": "46.8.2"
     },
     "eslint-plugin-markdownlint": {
         "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",
