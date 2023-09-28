@@ -210,11 +210,11 @@ foreach ($arg in $args) {
 
 # expose the set port (or default port) as environment variable for local server
 if ($_RUN_STEP_LIVE_SERVER) {
-    if (Test-Path variable:_PORT) {
-        $LSSM_PORT = 36551 # because 536551 is LSSM in base 29 but port numbers are 16-bit only so we omit the leading 5
+    if (!(Test-Path variable:port)) {
+        $env:LSSM_PORT = '36551' # because 536551 is LSSM in base 29 but port numbers are 16-bit only so we omit the leading 5
     }
     else {
-        $LSSM_PORT = $_PORT
+        $env:LSSM_PORT = $port
     }
 }
 
@@ -232,10 +232,9 @@ if ($GIT_REPO) {
         $REF = git rev-parse --short HEAD
     }
     else {
-        $REF = (git show-ref --heads --abbrev $GIT_BRANCH).split(" ")[0]
+        $REF = (git show-ref --heads --abbrev $GIT_BRANCH).split(" ")[1]
     }
 }
-
 else {
     $REF = "dev"
 }
@@ -494,7 +493,7 @@ if ($_RUN_STEP_LIVE_SERVER) {
     $start_time = now
     print_start_message "Start test server"
     enable_debugging
-    yarn live-server ./dist/ --port = "$LSSM_PORT" --no-browser
+    yarn live-server ./dist/ --port=$env:LSSM_PORT --no-browser
     disable_debugging
     print_end_message "Start test server" $start_time
 }
