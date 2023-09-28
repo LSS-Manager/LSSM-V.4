@@ -390,6 +390,10 @@ if ($_RUN_STEP_TSC) {
     if (!$?) {
         exit 1
     }
+    yarn ts-node scripts/buildUserscript.ts
+    if (!$?) {
+        exit 1
+    }
     disable_debugging
     print_end_message "[🚨] check TypeScript" $start_time
 }
