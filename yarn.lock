@@ -2237,12 +2237,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jquery@npm:3.5.19":
-  version: 3.5.19
-  resolution: "@types/jquery@npm:3.5.19"
+"@types/jquery@npm:3.5.20":
+  version: 3.5.20
+  resolution: "@types/jquery@npm:3.5.20"
   dependencies:
     "@types/sizzle": "*"
-  checksum: 0298e53a353089e2abae4be2f660b5f2bfb4797464623701c5c2f2c911317b554f1887c2c3d587d0f724d70a3fb5e31907bf7fa5d96df33af07e2842660ef52a
+  checksum: 9bd69faea3d60f52d3029a87b890003042a9dcf4f538c23ac2c11b3bd0e0ccd86b281d5ba3028d1b02df67c69266b8dc0ef0a35696ae174515ecf34523a0287b
   languageName: node
   linkType: hard
 
@@ -2349,10 +2349,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.17.19":
-  version: 18.17.19
-  resolution: "@types/node@npm:18.17.19"
-  checksum: 6ab47127cd7534511aa199550659d56b44e5a6dbec9df054d0cde279926b4d43f0e6438f92c8392b039ab4e2a85aa0f698b95926430aff860e23bfc36c96576c
+"@types/node@npm:18.18.0":
+  version: 18.18.0
+  resolution: "@types/node@npm:18.18.0"
+  checksum: 61bcffa28eb713e7a4c66fd369df603369c3f834a783faeced95fe3e78903faa25f1a704d49e054f41d71b7915eeb066d10a37cc699421fcf5dd267f96ad5808
   languageName: node
   linkType: hard
 
@@ -4017,9 +4017,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001524, caniuse-lite@npm:^1.0.30001538":
-  version: 1.0.30001539
-  resolution: "caniuse-lite@npm:1.0.30001539"
-  checksum: 8595905d6c7234173a4915439fdd69fa2c06b0272d56af63aee0df6114e1ee4727758af160c0db9844055f778e0ea27ed4714facf2e472a2e74d9f567f111f41
+  version: 1.0.30001541
+  resolution: "caniuse-lite@npm:1.0.30001541"
+  checksum: 972f6c223cf4ea2c6821b817b419249285006bbf67ebe415fe58097cf07551e3bae898586736d92f7c40b9f0ac28638dbf760631c23742b780affd0254f44d17
   languageName: node
   linkType: hard
 
@@ -7063,11 +7063,11 @@ __metadata:
     "@fortawesome/vue-fontawesome": 2.0.10
     "@types/he": 1.2.1
     "@types/i18n-js": 3.8.5
-    "@types/jquery": 3.5.19
+    "@types/jquery": 3.5.20
     "@types/js-yaml": 4.0.6
     "@types/leaflet": 1.9.6
     "@types/lodash": 4.14.199
-    "@types/node": 18.17.19
+    "@types/node": 18.18.0
     "@types/pdfmake": 0.2.4
     "@types/prettier": 2.7.3
     "@types/qrcode": 1.5.2
