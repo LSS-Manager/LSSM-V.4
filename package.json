@@ -101,7 +101,7 @@
         "webpack": "5.88.2"
     },
     "engines": {
-        "node": "18.17.1"
+        "node": "18.18.0"
     },
     "packageManager": "yarn@3.6.3",
     "workspaces": [
