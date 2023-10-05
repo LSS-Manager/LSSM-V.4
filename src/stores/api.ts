@@ -354,16 +354,17 @@ export const defineAPIStore = defineStore('api', {
             if (this.debounce.vehicles.timeout)
                 window.clearTimeout(this.debounce.vehicles.timeout);
             this.debounce.vehicles.timeout = window.setTimeout(() => {
-                this.vehicles.forEach(vehicle => {
+                for (const vehicle of this.vehicles) {
                     const update = this.debounce.vehicles.updates.get(
                         vehicle.id
                     );
-                    if (!update) return;
+                    if (!update) continue;
                     vehicle.caption = update.caption;
                     vehicle.fms_show = update.fms_show;
                     vehicle.fms_real = update.fms_real;
                     this.debounce.vehicles.updates.delete(vehicle.id);
-                });
+                    if (this.debounce.vehicles.updates.size === 0) break;
+                }
                 useBroadcastStore()
                     .apiBroadcast('vehicles', {
                         value: this.vehicles,
