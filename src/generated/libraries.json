@@ -42,7 +42,7 @@
     "@types/jquery": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jquery",
-        "version": "3.5.20"
+        "version": "3.5.21"
     },
     "@types/js-yaml": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -67,7 +67,7 @@
     "@types/pdfmake": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/pdfmake",
-        "version": "0.2.4"
+        "version": "0.2.5"
     },
     "@types/prettier": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -188,7 +188,7 @@
     "eslint": {
         "icon": "https://eslint.org/icon-512.png",
         "url": "https://eslint.org",
-        "version": "8.49.0"
+        "version": "8.50.0"
     },
     "eslint-config-prettier": {
         "icon": "https://prettier.io/icon.png",
