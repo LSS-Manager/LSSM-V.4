@@ -94,7 +94,7 @@ export default {
                 'Airport Vehicles': [17],
                 'Boats': [21, 22, 24],
                 'Fire Aviation': [35, 36, 37, 75, 76],
-                'Trailer': [91, 92, 93, 94, 95],
+                'Trailer': [91, 92, 93, 94, 95, 96, 97, 98, 99, 100],
             },
             color: '#ff2d2d',
         },
