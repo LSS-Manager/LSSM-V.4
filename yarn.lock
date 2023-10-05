@@ -2237,12 +2237,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jquery@npm:3.5.20":
-  version: 3.5.20
-  resolution: "@types/jquery@npm:3.5.20"
+"@types/jquery@npm:3.5.21":
+  version: 3.5.21
+  resolution: "@types/jquery@npm:3.5.21"
   dependencies:
     "@types/sizzle": "*"
-  checksum: 9bd69faea3d60f52d3029a87b890003042a9dcf4f538c23ac2c11b3bd0e0ccd86b281d5ba3028d1b02df67c69266b8dc0ef0a35696ae174515ecf34523a0287b
+  checksum: 48cce8892f0292ac68853677d408195436a460ed45445a2da13deddcf21b407b3f896bbf5714f320c8f44666fdff5ceba5c59e873a316486098040404dcf56f4
   languageName: node
   linkType: hard
 
@@ -2379,13 +2379,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/pdfmake@npm:0.2.4":
-  version: 0.2.4
-  resolution: "@types/pdfmake@npm:0.2.4"
+"@types/pdfmake@npm:0.2.5":
+  version: 0.2.5
+  resolution: "@types/pdfmake@npm:0.2.5"
   dependencies:
     "@types/node": "*"
     "@types/pdfkit": "*"
-  checksum: e8718f4bcbf9341e713400f49e0d7d14c666226c32315070ddfeed14a1ee6d6f7580408b37c425c59e77b495ae9668e14366f948ef63b882e9bb5e1bc4722632
+  checksum: 67b954c33667b6f1ae014b60e0c32bfeb0e80257d0ed95bf05c2989f66779d0b29ab4a99f3b0cbe822953873788c2ba15b62a3854759d60d38e323af162e48f5
   languageName: node
   linkType: hard
 
@@ -7056,12 +7056,12 @@ __metadata:
     "@fortawesome/vue-fontawesome": 2.0.10
     "@types/he": 1.2.1
     "@types/i18n-js": 3.8.5
-    "@types/jquery": 3.5.20
+    "@types/jquery": 3.5.21
     "@types/js-yaml": 4.0.6
     "@types/leaflet": 1.9.6
     "@types/lodash": 4.14.199
     "@types/node": 18.18.3
-    "@types/pdfmake": 0.2.4
+    "@types/pdfmake": 0.2.5
     "@types/prettier": 2.7.3
     "@types/qrcode": 1.5.2
     "@types/semver": 7.5.3
