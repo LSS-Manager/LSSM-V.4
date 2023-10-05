@@ -1,174 +1,174 @@
 {
-    "description": "Obtén toda la información importante sobre una misión en la ventana de la misión..",
-    "name": "Ayudante de misiones",
+    "description": "Obtém toda a informação importante sobre uma missão na janela da missão.",
+    "name": "Ajudante de Missões",
     "noVehicleRequirements": {
         "average_min_fire_personnel": {
             "badge": false,
-            "in": "additional",
-            "text": "Media de personal antiincendios mín."
+            "in": "adicional",
+            "text": "Número médio de bombeiros mínimo."
         },
         "foam_needed": {
             "badge": true,
-            "in": "requirements",
+            "in": "requisitos",
             "text": "Espuma necesaria: {n} l"
         },
-        "title": "Requisitos especiales",
+        "title": "Requisitos especiais",
         "water_needed": {
             "badge": true,
-            "in": "requirements",
-            "text": "Agua: {n} l"
+            "in": "requisitos",
+            "text": "Água: {n} l"
         }
     },
     "settings": {
         "chances": {
             "100": {
-                "description": "Muestra probabilidades del 100%",
-                "title": "Muestre explícitamente el 100% de probabilidades. "
+                "description": "Mostra a probabilidade de um veículo, mesmo que seja 100%.",
+                "title": "Mostrar 100% de chance"
             },
             "normal": {
-                "description": "Muestra la probabilidad de que se solicite un vehículo..",
+                "description": "Mostra a probabilidade de um veículo.",
                 "title": "Mostrar probabilidades"
             }
         },
         "credits": {
-            "description": "Indica el ingreso de créditos promedio de una asignación.",
-            "title": "Créditos"
+            "description": "Mostra os ganhos médios que você ganha com esta tarefa.",
+            "title": "Ganho médio"
         },
         "expansions": {
-            "description": "Enumera la posible expansión de esta misión..",
-            "title": "Expansión de misiones"
+            "description": "Mostre a expensão que a missão pode alcançar.",
+            "title": "Expansão da missão"
         },
         "followup": {
-            "description": "Enumera los posibles usos de seguimiento para esta misión.",
-            "title": "Misiones de seguimiento"
+            "description": "Mostra o que a missão pode gerar para as missões de acompanhamento",
+            "title": "Missões de seguimento"
         },
         "generatedBy": {
-            "description": "Muestra a partir de qué tipo de edificio se puede generar esta misión.",
-            "title": "Generado por (tipo de edificio)"
+            "description": "Mostrar a partir de que tipo de edificio se pode gerar esta missão.",
+            "title": "Gerado por (tipo de edifício)"
         },
         "hide_battalion_chief_vehicles": {
-            "description": "Oculta el UMC por completo y muestra solo Vehículo de mando móvil.",
-            "title": "Ocultar UMC"
+            "description": "Oculta o Veículo de Comando por completo e mostra apenas o Veículo de Comando e Comunicações.",
+            "title": "Ocultar Veículos de Comando"
         },
         "hide_on_Krankentransport": {
-            "description": "Hide on patient transfer missions",
-            "title": "Hide on patient transfer missions"
+            "description": "Esconde a informação em missões de transporte de pacientes",
+            "title": "Esconder em missões de transporte de pacientes"
         },
         "hoverTip": {
-            "description": "Información sobre herramientas, por ejemplo, el botón de superposición.",
-            "title": "Información sobre herramientas"
+            "description": "Informação sobre as ferramentas, exemplo, o botão de sobreposição.",
+            "title": "Informação sobre ferramentas"
         },
         "id": {
-            "description": "Muestra la ID de la misión junto al título.",
-            "title": "Misión ID"
+            "description": "Mostra o ID da missão junto ao título.",
+            "title": "Missão ID"
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {
-                "description": "Resta el número de Mando móvil requeridos del UMC y oculta el UMC si el número cae por debajo de 0.",
-                "title": "UMC tasa simple"
+                "description": "Subtrai o número de Veículo de Comando e Comunicações requeridos ao Veículos de Comando e oculta o Veículo de Comando se o número for abaixo de 0.",
+                "title": "Veículos de Comando taxa simples"
             },
             "heavy_rescue_vehicles": {
-                "description": "Resta el número de camiones de bomberos necesarios del FUV y oculta los camiones de bomberos si el número cae por debajo de 0. Esta función está destinada a personas que conducen un sistema de vehículos de rescate puro.",
-                "title": "Tasa simple de FUV"
+                "description": "Subtrai o número de Veículos de Combate a Incêndios necesarios ao Veículos de Desencarceramento e oculta os Veículos de Combate a Incêndios se o númeior for abaixo de 0. Esta função está destinada a pessoas que conduzem um sistema de veículos de resgate puro.",
+                "title": "Taxa simples de Veículos de Desencarceramento"
             }
         },
         "noVehicleRequirements": {
-            "description": "Establezca aquí qué requisitos especiales mostrar, si existen para esa misión.",
-            "title": "Requisitos especiales"
+            "description": "Estabeça aqui que requisitos especiais deve mostrar, se existrir para essa missão.",
+            "title": "Requisitos especiais"
         },
         "optionalAlternatives": {
             "allow_arff_instead_of_lf": {
-                "description": " Indica, si en lugar de un camión de bomberos es posible CBAs en el sitio.",
-                "title": "Mostrar si los CBAs están permitidos como camiones de bomberos"
+                "description": "Indica, se no lugar de Veículos de Combate a Incêndios pode se usar Veículos de Desencarceramento.",
+                "title": "Mostrar se os Veículos de Desencarceramento estão permitidos como Veículos de Combate a Incêndios"
             },
             "allow_rw_instead_of_lf": {
-                "description": "Indica, si en lugar de un camión de bomberos también es posible un Vehiculo BUP o un Vehículo de rescate en el sitio.",
-                "title": "Mostrar Vehículo BUP / Vehículo de rescate en lugar de camiones de bomberos"
+                "description": "Exibe uma mensagem na missão se também pode ser processada com um resgate pesado em vez de um caminhão de bombeiros.",
+                "title": "Mostrar se o Heavy Rescue pode processar a missão"
             }
         },
         "patients": {
             "content": {
-                "description": "Muestra detalles sobre posibles pacientes.",
-                "title": "Detalles sobre posibles pacientes"
+                "description": "Mostra detalhes sobre probilidades de pacientes.",
+                "title": "Detalhes sobre probilidades de pacientes"
             },
             "critical_care": {
-                "description": "Muestra la posible oportunidad de cuidados críticos",
-                "title": "Detalles de las posibles oportunidades críticas"
+                "description": "Mostra a probilidades de cuidados críticos",
+                "title": "Detalhes das probilidades de cuidados críticos"
             },
             "hideWhenNoNeed": {
-                "description": "Oculta los detalles del paciente si no hay más pacientes y los pacientes no aparecen hasta el final de la asignación.",
-                "title": "Muestre los detalles del paciente solo cuando sea necesario"
+                "description": "Oculta os detalhes do paciente se não houver mais pacientes e os pacientes não comparecerem até o final da missão.",
+                "title": "Mostra os detalhes de pacientes apenas quanto necessário"
             },
             "live": {
-                "description": "Muestra en la parte superior del ayudante de la misión cuántos pacientes tiene actualmente la misión.",
+                "description": "Mostra na parte superior do ajudade da missão quantos pacientes tem actualmente a missão.",
                 "title": "Número de pacientes actual"
             },
             "patient_allow_first_responder_chance": {
-                "description": "Muestra cuánto % es suficiente para tratar cualquier vehículo.",
-                "title": "Probabilida del primer respondedor"
+                "description": "Mostra quanto % é neccário SAV.",
+                "title": "Probilidade de SAV"
             },
             "title": {
-                "description": "Muestra el título \"Pacientes\" encima de los detalles sobre posibles pacientes.",
+                "description": "Mostra no título \"Pacientes\" em cima dos detalhes sobre possíveis pacientes.",
                 "title": "Pacientes (Título)"
             }
         },
         "place": {
-            "description": "Muestra junto al título qué PI se requiere para esta misión.",
-            "title": "PI"
+            "description": "Indique no assistente em que POI está a operação.",
+            "title": "POI"
         },
         "prerequisites": {
-            "description": "Muestra los requisitos (por ejemplo, 3 estaciones de rescate y 4 estaciones de bomberos)",
-            "title": "Prerrequisitos"
+            "description": "Mostra os requisitos (por exemplo, 3 Postos AEM e 4 corpos de bombeiros)",
+            "title": "Prerequisitos"
         },
         "prisoners": {
             "content": {
-                "description": "Muestra detalles sobre posibles presos.",
-                "title": "Detalles de posibles presos"
+                "description": "Mostra detalhes sobre possíveis presos.",
+                "title": "Detalhes de possíveis presos"
             },
             "live": {
-                "description": "Muestra en la parte superior del ayudante de la misión cuántos presos tiene actualmente la misión.",
+                "description": "Mostra na parte superior do ajudante da missão quantos presos tem actualmente a missão.",
                 "title": "Número actual de presos"
             },
             "title": {
-                "description": "Muestra el título \"Presos\" encima de los detalles sobre posibles presos.",
+                "description": "Mostra o título \"Presos\" em cima dos detalhes sobre possíveis presos.",
                 "title": "Presos (Título)"
             }
         },
         "title": {
-            "description": "Muestra el nombre de la misión, p. Ej. \"Incendio papelera\" como título.",
-            "title": "Nombre de la misión"
+            "description": "Mostra o nome da missão, p. Exem. \"Icêndio em papeleira\" como título.",
+            "title": "Nome da missão"
         },
         "type": {
-            "description": "Muestra el tipo de número de la misión junto al título.",
+            "description": "Mostra o tipo de número da missão junto ao título.",
             "title": "Tipo de número"
         },
         "vehicles": {
             "content": {
-                "description": "Muestra vehículos necesarios.",
-                "title": "Vehículos necesarios"
+                "description": "Mostra veículos necessários.",
+                "title": "Veículos necessários"
             },
             "patient_additionals": {
-                "description": "Si actualmente hay más de 10 pacientes en el sitio, HEMS se enumera automáticamente al comienzo de los requisitos del vehículo.",
-                "title": "Mencionar HEMS"
+                "description": "Se actualmente já à mais de 10 pacientes no local, Heli INEM adiciona-te autonamicamente como fazendo parte dos requisitos de veículo.",
+                "title": "Mencionar Heli INEM"
             },
             "sort": {
-                "amount": "Número de vehículos necesarios",
-                "caption": "Nombre del requisito",
-                "description": "Defina por qué se deben ordenar los requisitos del vehículo.",
-                "percentage": "Probabilidad",
-                "title": "Clasificación de los requisitos del vehículo"
+                "amount": "Número de veículos necessários",
+                "caption": "Nome de requisitos",
+                "description": "Defina por que se deverá ordenar os requisitos do veículo.",
+                "percentage": "Probabilidade",
+                "title": "Classificação dos requisitos do veículo"
             },
             "sortDesc": {
-                "description": "Clasifica los requisitos del vehículo en orden descendente.",
-                "title": "Vehículos en orden descendente"
+                "description": "Classifica os requisitos do veículo em ordem descendente.",
+                "title": "Veículos em ordem descendente"
             },
             "title": {
-                "description": "Muestra el título \"Vehículos\" encima de los requisitos del vehículo.",
-                "title": "Vehículos (Título)"
+                "description": "Mostra o título \"Veículos\" em cima dos requisitos do veículo.",
+                "title": "Veículos (Título)"
             },
             "xAfterNumber": {
-                "description": "Pone una x detrás de la cantidad de vehículos",
-                "title": "X detrás de la cantidad"
+                "description": "Põe uma x atrás da quantidade de veículos",
+                "title": "X atrás da quantidade"
             }
         }
     }
