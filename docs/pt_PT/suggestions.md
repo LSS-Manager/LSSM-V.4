@@ -1,19 +1,19 @@
 ---
-title: Suggestions 💡
-lang: en_US
+title: Sugestões 💡
+lang: pt_PT
 sidebarDepth: 2
 ---
 
-# Suggestions :bulb:
+# Sugestões :bulb:
 :::tip
-Please think out suggestions as thoroughly as possible before suggesting. This helps us to understand it more efficiently.
+Por favor, pensa nas sugestões de forma meticulosamente antes de sugerires. Isto ajuda-nos a perceber mais eficientemente.
 :::
 
-## via Discord
-On our <discord/> you can make suggestions in the <discord-channel channel="suggestions"/> channel.
+## Através Discord
+No nosso <discord/> podes fazer sugestões no canal <discord-channel channel="sugestões"/>.
 
-## on GitHub
-You may also open an issue on [GitHub][github.issues]. Please check if this suggestion already exists and if so, add to it rather than creating a new one.
+## No GitHub
+Também podes abrir um issue no [GitHub][github.issues]. Por favor, verifique que esta sugestão existe, se sim, adicione um comentário em vez de abrir um issue novo.
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/
