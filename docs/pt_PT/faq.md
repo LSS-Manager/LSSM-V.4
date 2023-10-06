@@ -1,87 +1,87 @@
 ---
 title: FAQ ❓
-lang: en_US
+lang: pt_PT
 sidebarDepth: 3
 ---
 
 # FAQ ❓
 
-## LSS-Manager does not load in my game. What should I do?
+## LSS-Manager não carrega no meu jogo. O que devo fazer?
 
-There are two possibilities:
+Existem duas possibilidades:
 
-### 1. LSS-Manager does not support your game yet
+### 1. LSS-Manager ainda não suporta o teu jogo
 
-LSS-Manager only works in games that it has translations for. We (the LSSM-Team) decided not to add translations for all games, because it would take too much time, and we don't speak most of the languages ourselves.
+LSS-Manager apenas funciona em jogos para os quais possuis traduções. Nós (a equipa LSSM) decidimos não adicionar traduções para todos os jogos, porque levaria muito tempo, e também porque nós não falamos a maioria dos idiomas.
 
-If you want LSSM to work in your game, you can help us by adding the translations. Help with that can be found on our <discord/>. Please also have a look at our [contribution guide][contributing] which guides on how to do translations.
+Se quiseres que o LSSM funcione no teu jogo, podes ajudar-nos a adicionar traduções. Podes encontrar ajuda no nosso <discord/>. Por favor also dê uma olhadela na nossa [Guia de Contribuição][contributing] que explica como fazer traduções.
 
-### 2. There's a bug in LSS-Manager
+### 2. Há um bug no LSS-Manager
 
-In that case, please refer to [report bugs][docs.error_report] or [support][docs.support].
+Nesse caso, por favor refere to [Repotar Bugs][docs.error_report] ou [Suporte][docs.support].
 
-## What does LSS Manager cost?
-LSS-Manager is a free offer - we do not intend to change this.
+## Quanto custa LSS Manager?
+LSS-Manager é de graça - nós não pretendemos mudar isto.
 
-Would you still like to support us financially? Then you are welcome to send us a donation via [OpenCollective][lssm.donations]. We are happy about any support!
+Gostarias de suportar-nos financialmente? Então és bem vindo a enviar uma doação [Aqui][lssm.donations]. Ficamos felizes com qualquer apoio!
 
-:::warning donations
-All donations will only be used to cover our running costs. We have no intention of making a profit and will not distribute any profits.
+:::warning Doações
+Todas as doações serão apenas para cobrir os nossos custos operacionais. Não pretendemos fazer lucro e não iremos distribuir qualquer lucro.
 
-Donations have no direct influence on the development of the LSSM! We will not invest more or less time and there will be no direct benefits for individual users such as premium features. The development of the LSSM will remain on a voluntary basis in our spare time and the use will remain completely free for all users!
+Doações não têm qualquer influencia no desenvolvimentos do LSSM! Não iremos investir mais ou menos tempo e não haverá benefícios para utilizadores individuais como conteúdo premium. O desenvolvimento do LSSM irá se manter de forma voluntária no nosso tempo livre e o uso irá se manter completamente de graça para todos os utilizadores!
 
-Of course, we are happy about any donation, but we would still like to point out that we would like to keep the project running as before even without the donations.
+Claro, ficaremos felizes com qualquer doação, mas também gostariamos to apontar que queremos manter este projeto a desenvolver como antes mesmo sem doações.
 :::
 
-## How can I contribute to LSS Manager?
-The end user can [report bugs][docs.error_report] or [make suggestions][docs.suggestions]. For translations, please refer to our [contribution guide][contributing].
+## Como posso contribuir para LSS Manager?
+O Utilizador pode [Reportar Bugs][docs.error_report] ou [Fazer Sugestões][docs.suggestions]. Para traduções, por favor refira ao nosso [Guia de Contribuição][contributing].
 
-We are currently designing a style guide for developers, so that they too can easily add their own plugins to LSSM. We have tried to keep our code structure clear and understandable. However, adding a plugin does not in any way imply joining the team.
+Neste momento estamos a planear um guia de estilo para os desenvolvedores, para que eles também possam adicionar facilmente os seus próprios plugins ao LSSM. Tentamos manter a nossa estrutura limpa e compreensível. No entanto, adicionar um plugin de maneira nenhuma quer dizer que te juntas à equipa LSSM.
 
-## How do I report bugs?
-Please have a look at our [report bugs][docs.error_report] page.
+## Aonde é que posso reportar bugs?
+Por favor veja [Reportar Bugs][docs.error_report] page.
 
-## Where can I get support?
-Through our support system [here][docs.support].
+## Como posso obter suporte?
+Através do nosso sistema de [Suporte][docs.support].
 
-## How can I submit ideas?
-On the [suggestions][docs.suggestions] page.
+## Aonde envio ideias?
+Nas [Sugestões][docs.suggestions] page.
 
-## Which browsers does LSS Manager work in?
-Only desktop browsers are listed here, as mobile browsers are not officially supported.
+## Em quais navegadores LSS Manager funciona?
+Apenas navegadores de PC estão listados aqui, já que os navegadores móveis não são oficialmente suportados.
 
-Since we want to keep the latest coding standards throughout, a modern and up-to-date browser is necessary and recommended - if only for security reasons, even outside the game.
+Desde que queremos manter os padrões de codificação mais recente, um navegadore moderno e atualizado é recomendado e necessário - mesmo que seja apenas por razões de segurança, mesmo fora do jogo.
 
 <browser-support-table/>
 
-:::danger Internet Explorer and Safari
-These two browsers can be described as the "problem children" of a modern web developer. There are some functions that do not work in them, or require additional code.
+:::danger Internet Explorer e Safari
+Esses dois navegadores podem ser descritos como "crianças problemáticas" de um desenvolvedor de navegador moderno. Existem algumas funções que nao funcionam, ou requrem código adicional.
 
-We don't see the point of doing this everywhere and officially **do not** support these two browsers.
+Não vemos qual é o ponto de fazer isto em todo o lado e oficialmente **não** suportar esses dois navegadores.
 :::
 
-### Using LSSM on a smartphone
-We regularly receive requests asking whether the LSSM can also be used on mobile devices.
+### Usar LSSM no telemóvel
+Regularmente recebemos pedidos a perguntar se o LSSM também pode ser usado nos dispositivos móveis.
 
-The answer is: Yes - through detours - but we do not offer any support for this. Activation is at your own risk.
+A resposta é: Sim - através de desvios - mas não oferecemos qualquer suporte para isto. Ativação é por sua conta e risco.
 
-How does it work?
+Como é que funciona?
 
-1. Install Firefox for Android (Must be at least version 110)
-2. Start Firefox and open the context menu (three dots in the menu bar)
-3. Under "recommended addons" Tampermonkey should now be suggested.
-4. continue with the normal [installation instructions][docs.home]
+1. Istala Firefox para Android (Tem de ser pelos a versão 110)
+2. Inicie Firefox e abra o menu de contexto (três pontos na barra do menu)
+3. Clique em "Extras" e Tampermonker deve estar na lista de recomendados.
+4. Continue com o guia normal [Instruções de Instalação][docs.home]
 
-## I want to share my setup with friends or use it on multiple devices. Is that possible?
-Yes, it is. Just open the [settings][docs.settings] and click `Export`, to download a config-file. `Import` lets you choose a config-file to import the settings.
+## Eu quero partilhar as minhas configurações com os meus amigos ou vários dispositivos. É possível?
+Sim é. Apenas abra as [Configurações][docs.settings] e clique `Exportar`, para fazer download do ficheiro. `Importar` deixa-te escolher um ficheiro para importar as configurações.
 
-## Is there a way to save settings account bound so that you don't have to import them on another device?
-This is not currently supported, but we plan to implement this in the future.
+## Existe alguma forma de guardar as configurações na conta para que então não tenha que importar num outro dispositivo?
+Por enquanto não suportamos isto, mas estamos a planear em implementar isso no futuro.
 
-## Where can I see if the LSSM servers are online?
-Best here: [https://status.lss-manager.de/](https://status.lss-manager.de/)
+## Aonde posso ver se os servidores do LSSM estão online?
+Melhor aqui: [https://status.lss-manager.de/](https://status.lss-manager.de/)
 
-Or in the <discord-channel channel="uptime"/> on our <discord/>
+Ou no <discord-channel channel="tempo de atividade"/> no nosso <discord/>
 
 [contributing]: contributing.md
 

@@ -1,5 +1,5 @@
 ---
-title: Contribuir
+title: Guia de Contribuição
 lang: pt_PT
 sidebarDepth: 2
 ---
@@ -9,21 +9,21 @@ sidebarDepth: 2
 Bem vindo à Guia de contribuição do LSSM!
 
 :::tip Precisas de ajuda?
-Claro, podes pedir suporte através um dos meios mencionados em [Support](./support.md).
+Claro, podes pedir suporte através um dos meios mencionados em [Suporte](./support.md).
 
 Especialmente, no nosso <discord/> há muitos tradutores voluntários que adoram ajudar recém-chegados.
 :::
 
-Se és novo a contribuir para o LSSM, por favor primeiro leia [Introduction][introduction], [Commit a File][commit] e [Creating a Pull Request][pr]!
+Se és novo a contribuir para o LSSM, por favor primeiro leia [Introdução][introduction], [Commit um ficheiro][commit] e [Criar um Pull Request][pr]!
 
 ## General fluxo de trabalho
 
 1. Cria ou atualiza o teu fork
 2. Altera um ficheiro com a ajuda dos nossos guias:
-   * [Translations](./contributing/translations.md)
+   * [Traduções](./contributing/translations.md)
 3. Commit o ficheiro atualizado
-   * por favor primeiro leia [Commit a File][commit]
-4. Quando estiver pronto, cria um Pull Request (PR) com a ajuda de [Creating a Pull Request][pr]
+   * por favor primeiro leia [Commit um ficheiro][commit]
+4. Quando estiver pronto, cria um Pull Request (PR) com a ajuda de [Criar um Pull Request][pr]
    * Se estiveres a planear atualizar vários ficheiros, como um módulo inteiro ou até mais, por favor **não** cries o PR depois do primeiro ficheiros mas assim que quiseres as tuas atualizações live para beta-testers
 
 [introduction]: ./contributing/introduction.md

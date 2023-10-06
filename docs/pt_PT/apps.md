@@ -10,10 +10,10 @@ Nas páginas seguintes vais encontrar a descrição de todos os módulos. Nós t
 
 Se tiveres sugestões, podes enviar para nós como sempre - ou até por as sugestões em pratica.
 
-:::danger módulos que não funcionam no MapKit
+:::danger Módulos que não funcionam no MapKit
 Como descrito na descrição da [Appstore][docs.appstore], existem módulos que infelizmente não são compativéis com o tipo de mapa `MapKit`. Esses módulos são:
 
-<mapkit-modules settings-text="And these settings"/>
+<mapkit-modules settings-text="E estas definições:"/>
 :::
 
 ## LSSM V3 vs. LSSM V4

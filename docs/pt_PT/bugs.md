@@ -10,7 +10,7 @@ sidebarDepth: 2
 Este resumo é atualizado a cada atualização da versão beta do LSSM. Podes sempre encontrar a versão mais recente no nosso [GitHub Issues][github.issues.open]
 :::
 
-<bugs no-bugs="There are no known Bugs currently!"></bugs>
+<bugs no-bugs="Neste momento não há bugs conhecidos!"></bugs>
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/

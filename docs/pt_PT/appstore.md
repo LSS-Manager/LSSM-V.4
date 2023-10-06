@@ -12,7 +12,7 @@ Não podes fechar a appstore com alterações não guardadas
 :::
 
 :::warning Suporte do tipo de mapa "MapKit".
-Existem alguns módulos que não suportam o tipo de mapa MapKit. Isto é porque o MapKit não oferece algumas funcionalidades que os módulos precisam. Podes encontrar uma lista completa dos módulos em [ℹ️ General information on modules][docs.apps].
+Existem alguns módulos que não suportam o tipo de mapa MapKit. Isto é porque o MapKit não oferece algumas funcionalidades que os módulos precisam. Podes encontrar uma lista completa dos módulos em [ℹ️ Informação Geral nos Módulos][docs.apps].
 
 Devido a essas restrições, podes mudar o tipo de mapa para "OpenStreetMap" para teres uma funcionalidade completa.
 :::
