@@ -1,7 +1,7 @@
 import type { SchoolingsBySchool } from 'typings/Schooling';
 
 export default {
-    'Corpod de Bombeiros': [
+    'Corpo de Bombeiros': [
         {
             caption: 'Matérias Perigosas',
             duration: '3 Dias',
@@ -90,51 +90,51 @@ export default {
         },
         {
             caption: 'Operações Especiais',
-            duration: '5 Días',
+            duration: '5 Dias',
             staffList: 'Operações Especiais',
             key: 'swat',
         },
         {
             caption: 'Cinotécnia',
-            duration: '5 Días',
+            duration: '5 Dias',
             staffList: 'Cinotécnia',
             key: 'k9',
         },
         {
             caption: 'Carta de Motociclo',
-            duration: '3 Días',
+            duration: '3 Dias',
             staffList: 'Carta de Motociclo',
             key: 'police_motorcycle',
         },
         {
             caption: 'Corpo/Unidade de Intervenção - Ordem Publica',
-            duration: '2 Días',
+            duration: '2 Dias',
             staffList: 'Corpo/Unidade de Intervenção - Ordem Publica',
             key: 'riot_police',
         },
         {
             caption: 'Comando Avançado',
-            duration: '7 Días',
+            duration: '7 Dias',
             staffList: 'Comando Avançado',
             key: 'riot_police_command',
         },
         {
             caption: 'Controlador de Trânsito',
+            duration: '5 Dias',
             staffList: 'Controlador de Trânsito',
-            duration: '5 Días',
             key: 'traffic_police',
         },
     ],
     'Resgate': [
         {
             caption: 'Suporte Avançado de Vida',
-            duration: '5 Días',
-            staffList: 'Formación en cuidados intensivos',
+            duration: '5 Dias',
+            staffList: 'Suporte Avançado de Vida',
             key: 'critical_care',
         },
         {
             caption: 'Carta de Motociclo',
-            duration: '3 Días',
+            duration: '3 Dias',
             staffList: 'Carta de Motociclo',
             key: 'rapid_response_motorcycle',
         },
@@ -142,19 +142,19 @@ export default {
     'Resgate aquático': [
         {
             caption: 'Polícia Marítima',
-            duration: '5 Días',
+            duration: '5 Dias',
             staffList: 'Polícia Marítima',
             key: 'coastal_rescue',
         },
         {
             caption: 'Grupo de Ações Táticas',
-            duration: '3 Días',
+            duration: '3 Dias',
             staffList: 'Grupo de Ações Táticas',
             key: 'law_enforcement_marine',
         },
         {
             caption: 'Navegação em Oceano',
-            duration: '5 Días',
+            duration: '5 Dias',
             staffList: 'Navegação em Oceano',
             key: 'coastal_ocean_navigation',
         },
