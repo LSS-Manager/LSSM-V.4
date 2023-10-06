@@ -1,36 +1,36 @@
 ---
-title: Report Bugs
-lang: en_US
+title: Reportar Bugs
+lang: pt_PT
 sidebarDepth: 2
 ---
 
-# Report bugs
+# Reportar bugs
 
-## Guidelines
-Here is a small tutorial about how to optimally report a bug.
+## Diretrizes
+Aqui está um pequeno tutorial de como reportar um bug.
 
-Before reporting a bug, check the wiki to see if it is an intended feature, or an already reported bug.
+Antes de reportar um bug, verifique na wiki se é um conteúdo do LSSM, ou se alguém já reportou o bug.
 
 :::tip
-When reporting a bug, describe it in as much detail as possible. The more detailed the report, the faster we can help you.
+Quando reportar um bug, descreva com todo o detalhe possível. Quanto mais detalhado o relatório for, mais depressa podemos ajudar.
 :::
 :::warning
-Please note that we do not officially support; older browsers; mobile browsers; Microsoft Edge; or Internet Explorer.
+Por favor note que nós não suportamos oficialmente; navegadores antigos; navegadores do telemóvel; Microsoft Edge; ou Internet Explorer.
 :::
 
-### 1. Describe Bug
-* Describe the bug. 
-* Provide any and all information that could be important. 
-* Explain what you were doing when the error occurred.
+### 1. Descrever Bug
+* Descreva o bug. 
+* Forneça qualquer e toda a informação que possa ser importante. 
+* Explique o que estavas a fazer quando aconteceu o erro.
 
-### 2. Specify user data
-Please provide your;
-* username or User ID.
-* List of activated modules
-* LSSM Version: Found via clicking on `LSSM V.4` in the top right corner of the game main page, in the first line.
+### 2. Especifique user data
+Por favor forneça o seu;
+* Nome de Utilizador or Utilizador ID.
+* Lista de módulos ativados.
+* Versão LSSM: Podes encontrar a versão ao clicar `LSSM V.4` no canoto superior direito da página principal do jogo, na primeira linha.
 
-### 3. Report problem
-Now you can send us your bug report. To do this, open an issue on [GitHub][github.issues]. Please check if an issue for this bug already exists and then follow it up.
+### 3. Reportar problema
+Agora podes enviar-nos o teu relatório do bug. Para isso, abre um issue no [GitHub][github.issues]. Por favor verifique se um issue para este bug já existe e só então podes continuar.
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/
