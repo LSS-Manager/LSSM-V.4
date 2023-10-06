@@ -1,13 +1,13 @@
 ---
-title: Known Bugs 🐛
-lang: en_US
+title: Bugs Conhecidos 🐛
+lang: pt_PT
 sidebarDepth: 2
 ---
 
-# Known Bugs :bug:
+# Bugs Conhecidos :bug:
 
 :::tip actuality
-This overview is updated with every commit (update) of the beta version of the LSSM. You can always find the most recent version in our [GitHub Issues][github.issues.open]
+Este resumo é atualizado a cada atualização da versão beta do LSSM. Podes sempre encontrar a versão mais recente no nosso [GitHub Issues][github.issues.open]
 :::
 
 <bugs no-bugs="There are no known Bugs currently!"></bugs>
