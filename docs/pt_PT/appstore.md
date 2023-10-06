@@ -1,20 +1,20 @@
 ---
 title: Appstore 🛒
-lang: en_US
+lang: pt_PT
 ---
 
 # Appstore :shopping_cart:
 
-The Appstore is a key element of LSS Manager. Within it, you can activate or deactivate modules individually. A brief description of each module will also be provided in the appstore. Via the small blue `i`, you can open the wiki page directly in-game. 
+A Appstore é o elemento principal do LSS Manager. Dentro dela, podes ativar ou desativar módulos individualmente. Uma breve descrição de cada módulo será oferecida na appstore. Através do pequeno `i` azul, podes directamente abrir a página da wiki no jogo. 
 
-:::tip Changes
-You cannot close the appstore with unsaved changes
+:::tip Alterações
+Não podes fechar a appstore com alterações não guardadas
 :::
 
-:::warning Support of "MapKit" map type.
-There are a few modules which do not support MapKit map type. This is because MapKit does not provide some functionality for modules to work. A complete list of these modules can be found at [ℹ️ General information on modules][docs.apps].
+:::warning Suporte do tipo de mapa "MapKit".
+Existem alguns módulos que não suportam o tipo de mapa MapKit. Isto é porque o MapKit não oferece algumas funcionalidades que os módulos precisam. Podes encontrar uma lista completa dos módulos em [ℹ️ General information on modules][docs.apps].
 
-Due to these Missionchief MapKit restrictions, you can change map type to "OpenStreetMap" for full functionality.
+Devido a essas restrições, podes mudar o tipo de mapa para "OpenStreetMap" para teres uma funcionalidade completa.
 :::
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
