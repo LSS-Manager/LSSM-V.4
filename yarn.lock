@@ -7112,7 +7112,7 @@ __metadata:
     semver: 7.5.4
     showdown: 2.1.0
     simpleheat: 0.4.0
-    terser: 5.19.4
+    terser: 5.21.0
     ts-loader: 9.4.4
     ts-node: 10.9.1
     typescript: 5.2.2
@@ -9402,9 +9402,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"terser@npm:5.19.4":
-  version: 5.19.4
-  resolution: "terser@npm:5.19.4"
+"terser@npm:5.21.0":
+  version: 5.21.0
+  resolution: "terser@npm:5.21.0"
   dependencies:
     "@jridgewell/source-map": ^0.3.3
     acorn: ^8.8.2
@@ -9412,7 +9412,7 @@ __metadata:
     source-map-support: ~0.5.20
   bin:
     terser: bin/terser
-  checksum: 09273ce7d3fbe8fea0ec2603ad1c06cc304838bdac42bbfe77835b0b0b6c4a894054575ca518fe16c95d5c401574a8c703f4fde97da45f1c972ea568e6ecafda
+  checksum: 130f1567af1ffa4ddb067651bb284a01b45b5c83e82b3a072a5ff94b0b00ac35090f89c8714631a4a45972f65187bc149fc7144380611f437e1e3d9e174b136b
   languageName: node
   linkType: hard
 
