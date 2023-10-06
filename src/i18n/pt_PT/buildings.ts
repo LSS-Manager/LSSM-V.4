@@ -88,10 +88,10 @@ export default {
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-        maxBuildings: 'sem limite',
+        maxBuildings: 'Sem limite',
         maxLevel: 39,
         special:
-            'A partir do 24º corpo de bombeiros e adiante, o custo de construção de um novo corpo de bombeiros aumenta segundo a seguinte fórmula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. O preço das moedas é constante!',
+            'A partir do 24º corpo de bombeiros e adiante, o custo de construção de um novo corpo de bombeiros aumenta segundo a seguinte fórmula: <code>100.000+200.000*LOG<sub>2</sub>(Número de quartéis de bombeiros existentes − 22)</code>. O preço das moedas é constante!',
         startPersonnel: 10,
         startVehicles: ['VFCI', 'VLCI'],
         schoolingTypes: ['Corpo de Bombeiros'],
@@ -122,7 +122,7 @@ export default {
         maxBuildings: 'Sem limite',
         maxLevel: 0,
         special:
-            'O ministro das finanças  e o administrador podem expandir a escola de bombeitos usando os creditos do tesouro da aliança.Training course masters and admins can start training courses at association fire- brigade schools.',
+            'O ministro das finanças e o administrador podem expandir a escola de bombeitos usando os creditos do tesouro da aliança. Educadores e administrador podem começar cursos na Escola de Formação de Bombeiros.',
         startClassrooms: 1,
         icon: 'graduation-cap',
     },
@@ -135,21 +135,6 @@ export default {
             credits: [10_000, 50_000, ...Array(37).fill(100_000)],
             coins: [10, 15, ...Array(37).fill(20)],
         },
-        extensions: [
-            {
-                caption: 'Mass Casualty Trailer Extension',
-                credits: 200_000,
-                coins: 25,
-                duration: '7 Dias',
-                isVehicleExtension: true,
-                givesParkingLots: 2,
-                unlocksVehicleTypes: [41, 57, 58],
-                parkingLotReservations: [
-                    [57, 58],
-                    [57, 58],
-                ],
-            },
-        ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
         maxBuildings: 'Sem limite',
         maxLevel: 39,
@@ -161,7 +146,7 @@ export default {
         icon: 'house-medical',
     },
     3: {
-        caption: 'Rescue (EMS) academy',
+        caption: 'Escola de Formação Pré-hospitalar',
         color: '#caa318',
         coins: 50,
         credits: 500_000,
@@ -171,7 +156,7 @@ export default {
         },
         extensions: multiplyExtension(
             {
-                caption: 'Additional classroom',
+                caption: 'Sala de aula adicional',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 Dias',
@@ -184,7 +169,7 @@ export default {
         maxBuildings: 'Sem limite',
         maxLevel: 0,
         special:
-            "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
+            "O ministro das finanças e o administrador podem expandir a escola de bombeitos usando os creditos do tesouro da aliança. Educadores e administrador podem começar cursos na Escola de Formação Pré-hospitalar.",
         startClassrooms: 1,
         icon: 'graduation-cap',
     },
