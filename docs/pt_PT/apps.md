@@ -1,37 +1,37 @@
 ---
-title: ℹ️ General information on modules
-lang: en_US
+title: ℹ️ Informação geral dos módulos
+lang: pt_PT
 sidebarDepth: 2
 ---
 
-# ℹ️ General information on modules
+# ℹ️ Informação geral dos módulos
 
-On the following pages you will find a description of all our modules. We have done our best to keep them as understandable and complete as possible. However, due to the size of LSSM this is not always easy.
+Nas páginas seguintes vais encontrar a descrição de todos os módulos. Nós temos feito o nosso melhor para manter tudo tão compreensível e completo quanto possível. No entanto, devido ao tamanho do LSSM isto não é sempre possível.
 
-If you have suggestions for improvement, you can send them to us as always - or even do it yourself.
+Se tiveres sugestões, podes enviar para nós como sempre - ou até por as sugestões em pratica.
 
-:::danger modules that do not work in Mapkit
-As described in the explanation of the [Appstore][docs.appstore], there are modules which are unfortunately not compatible with the map type `Mapkit`. These are these modules:
+:::módulos que não funcionam no Mapkit
+Como descrito na descrição da [Appstore][docs.appstore], existem módulos que infelizmente não são compativéis com o tipo de mapa `Mapkit`. Esses módulos são:
 
 <mapkit-modules settings-text="And these settings"/>
 :::
 
-## LSSM V.3 vs. LSSM V.4
+## LSSM V3 vs. LSSM V4
 
-Below we have listed the features of V.3 and where you can find them in V.4.
-We want to integrate all the features of V.3 into V.4 in time!
+Em baixo temos listado todo o conteúdo da V3 e aonde podes encontrá-los na V4.
+Queremos integrar todo o conteúdo da V3 na V4!
 
 <v3-v4-comparison-integrated/>
 
-### Modules only in V3
+### Módulos apenas na V3
 
-These Modules will be integrated into V4, but it will still take some time to integrate them.
+Estes módulos serão integrados à V4, mas ainda vai demorar algum tempo a integrá-los.
 
 <v3-v4-comparison-v3only/>
 
-### New Modules in V4
+### Novos módulos na V4
 
-These Modules are new in V4.
+Estes módulos são novos na V4.
 
 <v3-v4-comparison-new/>
 
