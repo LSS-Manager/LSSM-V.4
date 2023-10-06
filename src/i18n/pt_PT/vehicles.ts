@@ -56,7 +56,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         special:
-            'Requer que tenhas pelo menos construído 4 corpos de bombeiros',
+            'Requer que tenhas pelo menos construído 4 Corpos de Bombeiros',
     },
     5: {
         caption: 'ABSC',
@@ -77,7 +77,7 @@ export default {
         possibleBuildings: [0, 18],
         waterTank: 10_000,
         special:
-            'Requer que tenhas pelo menos construído 7 corpos de bombeiros',
+            'Requer que tenhas pelo menos construído 7 Corpos de Bombeiros',
     },
     7: {
         caption: 'VPMA',
@@ -99,7 +99,7 @@ export default {
         possibleBuildings: [0, 18],
         foamTank: 50,
         special:
-            'Requer que tenhas pelo menos construído 11 corpos de bombeiros',
+            'Requer que tenhas pelo menos construído 11 Corpos de Bombeiros',
     },
     8: {
         caption: 'CP',
@@ -138,7 +138,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         special:
-            'Requer que tenhas pelo menos construído 13 corpos de bombeiros',
+            'Requer que tenhas pelo menos construído 13 Corpos de Bombeiros',
     },
     11: {
         caption: 'VUCI',
@@ -170,7 +170,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [6, 19],
         special:
-            'Requer que tenhas pelo menos construído 6 esquadras da polícia.',
+            'Requer que tenhas pelo menos construído 6 Esquadras da Polícia.',
     },
     13: {
         caption: 'EPRI',
@@ -301,6 +301,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [2, 20],
+        special: 'Pode comprar 1 VIC por cada 20 Estações de Ambulâncias'
     },
     21: {
         caption: 'ERAS',
