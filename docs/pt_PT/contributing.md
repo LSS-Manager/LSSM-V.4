@@ -1,30 +1,30 @@
 ---
-title: Contributing
-lang: en_US
+title: Contribuir
+lang: pt_PT
 sidebarDepth: 2
 ---
 
-# Contribution Guide
+# Guia de contribuição
 
-Welcome to the official LSSM Contribution Guide!
+Bem vindo à Guia de contribuição do LSSM!
 
-:::tip Do you need help?
-Of course, you can ask for support via one of the ways mentioned in [Support](./support.md).
+:::tip Precisas de ajuda?
+Claro, podes pedir suporte através um dos meios mencionados em [Support](./support.md).
 
-Especially, on our <discord/> are many volunteer translators who love to help newcomers too.
+Especialmente, no nosso <discord/> há muitos tradutores voluntários que adoram ajudar recém-chegados.
 :::
 
-If you're new to contributing to LSSM, please read [Introduction][introduction], [Commit a File][commit] and [Creating a Pull Request][pr] first!
+Se és novo a contribuir para o LSSM, por favor primeiro leia [Introduction][introduction], [Commit a File][commit] e [Creating a Pull Request][pr]!
 
-## General workflow
+## General fluxo de trabalho
 
-1. Create or update your fork
-2. Change a file with the help of our guides:
+1. Cria ou atualiza o teu fork
+2. Altera um ficheiro com a ajuda dos nossos guias:
    * [Translations](./contributing/translations.md)
-3. Commit the updated file
-   * please read [Commit a File][commit] first
-4. When ready, create a Pull Request (PR) with the help of [Creating a Pull Request][pr]
-   * If you plan to update multiple files, such as a whole module or even more, please **do not** create the PR after the first file but as soon as you want your updates to get live for beta-testers
+3. Commit o ficheiro atualizado
+   * por favor primeiro leia [Commit a File][commit]
+4. Quando estiver pronto, cria um Pull Request (PR) com a ajuda de [Creating a Pull Request][pr]
+   * Se estiveres a planear atualizar vários ficheiros, como um módulo inteiro ou até mais, por favor **não** cries o PR depois do primeiro ficheiros mas assim que quiseres as tuas atualizações live para beta-testers
 
 [introduction]: ./contributing/introduction.md
 [commit]: ./contributing/committing.md
