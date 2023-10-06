@@ -64,7 +64,7 @@ export default {
     modules,
     buildingCategories: {
         Brandweer: {
-            buildings: [0, 4, 17, 22],
+            buildings: [0, 4, 17, 22, 23],
             color: '#ff2d2d',
         },
         Ambulance: {
@@ -94,8 +94,11 @@ export default {
                 ],
                 'Waterongevallen': [33, 36, 49, 50],
                 'Vliegtuigbrandbestrijding': [41, 42, 43, 44],
-                'Haakarmbakken': [26, 27, 29, 32, 45, 51, 61, 69],
+                'Haakarmbakken': [26, 27, 29, 32, 45, 51, 61, 69, 89, 91],
                 'Signalisatie': [81, 82, 83],
+                'STH': [90],
+                'USAR': [92, 93, 94, 95, 96, 97],
+                'Natuurbrandbestrijding': [85, 86, 87, 88],
             },
             color: '#ff2d2d',
         },

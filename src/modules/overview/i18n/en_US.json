@@ -30,6 +30,7 @@
             "ftank": "Foam Tank",
             "maxPersonnel": "maximum personnel",
             "minPersonnel": "minimum personnel",
+            "pumpcap": "Pump capacity GPM",
             "schooling": "Education",
             "special": "Specials",
             "wtank": "Water tank"

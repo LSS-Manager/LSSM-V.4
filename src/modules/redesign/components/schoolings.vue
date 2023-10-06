@@ -30,15 +30,15 @@ export default Vue.extend<
     components: {
         SchoolingsOverview: () =>
             import(
-                /*webpackChunkName: "modules/schoolingOverview/schoolingOverview"*/ '../../schoolingOverview/schoolingOverview.vue'
+                /*webpackChunkName: "modules/schoolingOverview/schoolingOverview"*/ '../../schoolingOverview/SchoolingOverview.vue'
             ),
         OwnSchoolingTabs: () =>
             import(
-                /*webpackChunkName: "modules/schoolingOverview/ownSchoolingTabs"*/ '../../schoolingOverview/components/ownSchoolingTabs.vue'
+                /*webpackChunkName: "modules/schoolingOverview/ownSchoolingTabs"*/ '../../schoolingOverview/components/OwnSchoolingTabs.vue'
             ),
         OpenSchoolingTabs: () =>
             import(
-                /*webpackChunkName: "modules/schoolingOverview/openSchoolingTabs"*/ '../../schoolingOverview/components/openSchoolingTabs.vue'
+                /*webpackChunkName: "modules/schoolingOverview/openSchoolingTabs"*/ '../../schoolingOverview/components/OpenSchoolingTabs.vue'
             ),
     },
     data() {

@@ -15,19 +15,22 @@
     "arrHover": {
         "arrSpecs": {
             "any_traffic_car": "Any Traffic Car",
-            "coastal_rescue": "Any Coastal Guard Vehicle",
+            "coastal_rescue": "Coastal Rescue, Rope Rescue or Mud Rescue Vehicle",
             "coresponder": "Co-Responder Vehicle",
             "crew_carrier": "Crew Carrier",
             "dlk": "Aerial Appliance Truck",
+            "drone": "Drone",
             "elw": "Fire Officer",
             "elw1_or_elw2": "Fire Officer or ICCU",
             "elw2": "ICCU",
             "elw2_or_ab_elw": "ICCU / ACU",
             "emergency_welfare_value": "Any Crew Welfare Vehicle",
             "fire": "Fire engines",
+            "flood_equipment": "Flood Rescue",
             "fly_car": "Rapid Response Vehicle / General Practitioner",
             "foam": "Foam Units",
             "fustw": "Police car",
+            "gw_wasserrettung": "4x4 Units",
             "gwa": "Breathing Apparatus Support Unit",
             "gwgefahrgut": "HazMat Unit or CBRN Vehicle",
             "gwl2wasser": "Water Carrier",
@@ -41,6 +44,7 @@
             "rth_only": "HEMS",
             "rtw": "Ambulance",
             "rw": "Rescue Support Unit or Rescue Pump",
+            "search_and_rescue": "SAR Units",
             "swat_suv": "Armed Response Vehicle (ARV)",
             "water_damage_pump": "Water Pumps",
             "water_damage_pump_value": "Pump Capacity"
@@ -115,6 +119,15 @@
                 "texts": ["Water Carrier", "Water Carriers"],
                 "vehicles": [6, 26, 36, 41, 50]
             },
+            { "texts": ["Drone", "Drones"], "vehicles": [89, 90, 91] },
+            {
+                "texts": [
+                    "Operational Support Van",
+                    "Operational Support Vans"
+                ],
+                "vehicles": [86]
+            },
+            { "texts": ["Control Van", "Control Vans"], "vehicles": [85] },
             {
                 "texts": [
                     "ICCU or Ambulance Control Unit",

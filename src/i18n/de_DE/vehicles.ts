@@ -1491,28 +1491,6 @@ export default {
         special:
             'Kann FuStW in bestimmten Einsätzen ersetzen. Wird auf vorhandene Polizeistellplätze gestellt.',
     },
-    99: {
-        caption: 'LKW 7 Lbw',
-        color: '#36759e',
-        credits: 15_000,
-        coins: 25,
-        staff: {
-            min: 1,
-            max: 3,
-            training: {
-                THW: {
-                    water_damage_pump: {
-                        min: 0,
-                    },
-                    thw_energy_supply: {
-                        min: 0,
-                    },
-                },
-            },
-        },
-        icon: 'truck',
-        possibleBuildings: [9],
-    },
     100: {
         caption: 'MLW 4',
         color: '#36759e',
@@ -1542,7 +1520,7 @@ export default {
         possibleBuildings: [9],
         pumpCapacity: 15_000,
         pumpType: 'sewage',
-        tractiveVehicles: [99, 100, 123],
+        tractiveVehicles: [100, 123],
     },
     102: {
         caption: 'Anh 7',
@@ -1554,7 +1532,7 @@ export default {
         possibleBuildings: [9],
         pumpCapacity: 12_400,
         pumpType: 'sewage',
-        tractiveVehicles: [99, 100, 123],
+        tractiveVehicles: [100, 123],
     },
     103: {
         caption: 'FuStW (DGL)',
@@ -1705,7 +1683,7 @@ export default {
         special:
             'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (LKW 7 Lbw (FGr E), LKW 7 Lbw)',
         isTrailer: true,
-        tractiveVehicles: [99, 122],
+        tractiveVehicles: [122],
         possibleBuildings: [9],
     },
     113: {

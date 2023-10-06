@@ -29,6 +29,7 @@
             "cost": "Price",
             "maxPersonnel": "maximum personnel",
             "minPersonnel": "minimum personnel",
+            "pumpcap": "Pump capacity l/min",
             "schooling": "Education",
             "special": "Specials",
             "wtank": "Water tank"
