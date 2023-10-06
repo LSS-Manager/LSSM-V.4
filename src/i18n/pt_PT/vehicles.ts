@@ -301,7 +301,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [2, 20],
-        special: 'Pode comprar 1 VIC por cada 20 Estações de Ambulâncias'
+        special: 'Pode comprar 1 VIC por cada 20 Estações de Ambulâncias',
     },
     21: {
         caption: 'ERAS',
