@@ -1,6 +1,6 @@
 {
     "name": "lss-manager-v4",
-    "version": "4.7.9+20231005.1220",
+    "version": "4.7.9+20231006.1536",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "quickbuild": "./build/build.sh --quick",
@@ -87,10 +87,10 @@
         "js-yaml": "4.1.0",
         "moment-timezone": "0.5.43",
         "prettier": "3.0.3",
-        "sass": "1.67.0",
+        "sass": "1.69.0",
         "sass-loader": "13.3.2",
         "simpleheat": "0.4.0",
-        "terser": "5.19.4",
+        "terser": "5.21.0",
         "ts-loader": "9.4.4",
         "ts-node": "10.9.1",
         "typescript": "5.2.2",
