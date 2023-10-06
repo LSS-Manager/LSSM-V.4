@@ -15,12 +15,11 @@ export default registerEquipment({
         credits: 7500,
         coins: 20,
     },
-    // yes. There is a typo in the ID 😐️
     fire_rescue: {
         id: 'fire_rescue',
         caption: 'Heavy Rescue Equipment',
         size: 10,
-        credits: 4_000,
+        credits: 4000,
         coins: 10,
     },
     hose: {
@@ -48,14 +47,14 @@ export default registerEquipment({
         id: 'energy_supply',
         caption: 'Energy Generator Equipment',
         size: 20,
-        credits: 5_000,
+        credits: 5000,
         coins: 15,
     },
     foam_carrier: {
         id: 'foam_carrier',
         caption: 'Foam Tank Equipment',
         size: 10,
-        credits: 17000,
+        credits: 17_000,
         coins: 20,
     },
     fire_engine: {

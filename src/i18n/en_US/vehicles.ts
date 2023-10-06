@@ -1513,7 +1513,7 @@ export default {
     96: {
         caption: 'Small Heavy Rescue Trailer',
         color: '#9f1616',
-        credits: 8_000,
+        credits: 8000,
         coins: 15,
         staff: { min: 0, max: 0 },
         icon: 'car-side',
@@ -1533,8 +1533,7 @@ export default {
         possibleBuildings: [0, 13],
         isTrailer: true,
         tractiveVehicles: [41],
-        special:
-            'Needed towing vehicle (Crew cab semi)',
+        special: 'Needed towing vehicle (Crew cab semi)',
     },
     98: {
         caption: 'Small HazMat Trailer',
@@ -1559,20 +1558,18 @@ export default {
         possibleBuildings: [0, 13],
         isTrailer: true,
         tractiveVehicles: [41],
-        special:
-            'Needed towing vehicle (Crew cab semi)',
+        special: 'Needed towing vehicle (Crew cab semi)',
     },
     100: {
         caption: 'Tiller Ladder Trailer',
         color: '#9f1616',
-        credits: 7_000,
+        credits: 7000,
         coins: 15,
         staff: { min: 0, max: 0 },
         icon: 'car-side',
         possibleBuildings: [0, 13],
         isTrailer: true,
         tractiveVehicles: [41],
-        special:
-            'Needed towing vehicle (Crew cab semi)',
+        special: 'Needed towing vehicle (Crew cab semi)',
     },
 } satisfies Record<number, InternalVehicle>;
