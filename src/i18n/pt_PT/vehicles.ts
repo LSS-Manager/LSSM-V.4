@@ -34,7 +34,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         special:
-            'Requere que tenhas pelo menos construído 3 Corpos de Bombeiros',
+            'Requer que tenhas pelo menos construído 3 Corpos de Bombeiros',
     },
     3: {
         caption: 'VCOT',
@@ -45,7 +45,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         special:
-            'Requere que tenhas pelo menos construído 6 Corpos de Bombeiros',
+            'Requer que tenhas pelo menos construído 6 Corpos de Bombeiros',
     },
     4: {
         caption: 'VSAT',
@@ -56,7 +56,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         special:
-            'Requere que tenhas pelo menos construído 4 corpos de bombeiros',
+            'Requer que tenhas pelo menos construído 4 corpos de bombeiros',
     },
     5: {
         caption: 'ABSC',
@@ -77,7 +77,7 @@ export default {
         possibleBuildings: [0, 18],
         waterTank: 10_000,
         special:
-            'Requere que tenhas pelo menos construído 7 corpos de bombeiros',
+            'Requer que tenhas pelo menos construído 7 corpos de bombeiros',
     },
     7: {
         caption: 'VPMA',
@@ -99,7 +99,7 @@ export default {
         possibleBuildings: [0, 18],
         foamTank: 50,
         special:
-            'Requere que tenhas pelo menos construído 11 corpos de bombeiros',
+            'Requer que tenhas pelo menos construído 11 corpos de bombeiros',
     },
     8: {
         caption: 'CP',
@@ -138,7 +138,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         special:
-            'Requere que tenhas pelo menos construído 13 corpos de bombeiros',
+            'Requer que tenhas pelo menos construído 13 corpos de bombeiros',
     },
     11: {
         caption: 'VUCI',
@@ -170,7 +170,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [6, 19],
         special:
-            'Requere que tenhas pelo menos construído 6 esquadras da polícia.',
+            'Requer que tenhas pelo menos construído 6 esquadras da polícia.',
     },
     13: {
         caption: 'EPRI',
@@ -208,7 +208,7 @@ export default {
         staff: { min: 1, max: 2 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        special: 'Requere 5 corpos dos bombeiros. Carrega botijas de ar.',
+        special: 'Requer 5 corpos dos bombeiros. Carrega botijas de ar.',
     },
     16: {
         caption: 'VSAE',
