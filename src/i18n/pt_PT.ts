@@ -14,7 +14,7 @@ const modules = {
         },
     },
     settings: {
-        name: 'Configurações',
+        name: 'Definições',
         save: 'Guardar',
         discard: 'Descartar as alterações',
         reset: 'Restabelecer',
@@ -25,18 +25,18 @@ const modules = {
             title: 'Restabelecer a configuração',
             text: 'Realmente deseja restabelecer a configuração aos seus valores inicais? Isto não se pode desfazer!',
             close: 'Cancelar',
-            total: 'Todos os configurações',
+            total: 'Todas as definições',
             module: 'Só neste módulo',
         },
         resetWarningSetting: {
-            title: 'Restabelecer configurações',
+            title: 'Restabelecer Definições',
             text: 'Quere restablecer esta configuração <b>{setting}</b> do módulo <b>{module}</b> aos seus valores iniciais?',
             close: 'Cancelar',
             reset: 'Restabelecer',
         },
         closeWarning: {
             title: 'Alterações não guardadas',
-            text: 'Fizeste alterações nas configurações que não foram guardadas. Restabelece, descarta ou guarda para fechar as configurações.',
+            text: 'Fizeste alterações nas definições que não foram guardadas. Restabelece, descarta ou guarda para fechar as definições.',
             close: 'Fechar a mensagem',
         },
         changeList: {
