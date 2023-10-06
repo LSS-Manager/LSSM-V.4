@@ -118,7 +118,7 @@
             },
             {
                 "texts": ["platform truck", "platform trucks"],
-                "vehicles": [2, 13]
+                "vehicles": [2, 13, 100]
             },
             {
                 "texts": ["Battalion chief unit", "Battalion chief units"],
@@ -126,7 +126,7 @@
             },
             {
                 "texts": ["Heavy Rescue Vehicle", "Heavy Rescue Vehicles"],
-                "vehicles": [4, 8, 18, 21, 28, 61, 67]
+                "vehicles": [4, 8, 18, 21, 28, 61, 67, 96, 97]
             },
             { "texts": ["Mobile Air"], "vehicles": [6, 92] },
             {
@@ -137,7 +137,7 @@
                 "texts": ["Mobile Command Vehicle", "Mobile Command Vehicles"],
                 "vehicles": [12]
             },
-            { "texts": ["HazMat"], "vehicles": [9, 50] },
+            { "texts": ["HazMat"], "vehicles": [9, 50, 98, 99] },
             {
                 "texts": ["Ambulance", "Ambulances"],
                 "vehicles": [5, 27, 48, 49, 50, 61]
