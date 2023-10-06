@@ -4,7 +4,7 @@ export default {
         text: `Caro LSSM-User,<br>
         infelizmente o nosso LSSM V.4 userscript está desatualizado. Na última versão fizemos alterações ao userscript, que serão importantes nas funcionalidades do LSSM V.4.<br>
         Precisas no mínimo da versão {minVersion}, faz o teu update através de {updateLink}.<br>
-        Por vezes carregar no link do update não funciona(por razões desconhecidadas). Podes fazer o update através do Tampermonkey (carrega no icon do tampermonkey do teu browser, depois "Overview". Na caixa à frente do LSSM userscript e seleciona "Update" como ação.<br>
+        Por vezes carregar no link do update pode não funcionar (por razões desconhecidadas). Podes fazer o update através do Tampermonkey (carrega no icon do tampermonkey do teu browser, depois "Overview". Na caixa à frente do LSSM userscript e seleciona "Update").<br>
         Se não resultar, edita o LSSM Script no Tampermonkey repondo o conteúdo do script pelo conteúdo {bypassLink}.<br>
         Por vezes, o LSSM é instalado várias vezes depois do update. Neste caso desinstala/remove todas as instalções do LSSM V.4 no Tampermonkey e depois reinstala o LSSM V.4.<br><br>
         Melhores cumprimentos,<br>
@@ -38,10 +38,10 @@ If several requests fail in a short time, this could be due to server problems. 
         },
     },
     anniversary: {
-        closeNote: 'Tip: Podes carregar nos balões para fechar!',
+        closeNote: 'Dica: Podes carregar nos balões para fechar!',
     },
     settings: {
-        name: 'General Settings',
+        name: 'Definições Gerais',
         labelInMenu: {
             title: 'Label instead of icon in menu',
             description:
