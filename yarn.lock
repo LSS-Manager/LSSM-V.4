@@ -7107,12 +7107,12 @@ __metadata:
     pinia: 2.1.6
     prettier: 3.0.3
     qrcode: 1.5.3
-    sass: 1.67.0
+    sass: 1.69.0
     sass-loader: 13.3.2
     semver: 7.5.4
     showdown: 2.1.0
     simpleheat: 0.4.0
-    terser: 5.19.4
+    terser: 5.21.0
     ts-loader: 9.4.4
     ts-node: 10.9.1
     typescript: 5.2.2
@@ -8746,16 +8746,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.67.0":
-  version: 1.67.0
-  resolution: "sass@npm:1.67.0"
+"sass@npm:1.69.0":
+  version: 1.69.0
+  resolution: "sass@npm:1.69.0"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
     immutable: ^4.0.0
     source-map-js: ">=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 9e7566e8b7386cf265dddcdb266a023fb5759c5a8f48a11da199c8bf419e5f08f4ff6404d85d6bf5eac01e1f7c7061fdb6b7b65cbfda164e59b0a06b72ac8567
+  checksum: eabea31ea3b1dd529c7eff345c8b6468afe6ab8011bd4f95caa2cffb8fb115cc055ea21de425be6197f7ed22516f5652eccb98d315d592ea152ada553f964b8a
   languageName: node
   linkType: hard
 
@@ -9402,9 +9402,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"terser@npm:5.19.4":
-  version: 5.19.4
-  resolution: "terser@npm:5.19.4"
+"terser@npm:5.21.0":
+  version: 5.21.0
+  resolution: "terser@npm:5.21.0"
   dependencies:
     "@jridgewell/source-map": ^0.3.3
     acorn: ^8.8.2
@@ -9412,7 +9412,7 @@ __metadata:
     source-map-support: ~0.5.20
   bin:
     terser: bin/terser
-  checksum: 09273ce7d3fbe8fea0ec2603ad1c06cc304838bdac42bbfe77835b0b0b6c4a894054575ca518fe16c95d5c401574a8c703f4fde97da45f1c972ea568e6ecafda
+  checksum: 130f1567af1ffa4ddb067651bb284a01b45b5c83e82b3a072a5ff94b0b00ac35090f89c8714631a4a45972f65187bc149fc7144380611f437e1e3d9e174b136b
   languageName: node
   linkType: hard
 
