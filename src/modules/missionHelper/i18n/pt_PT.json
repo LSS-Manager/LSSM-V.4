@@ -1,0 +1,102 @@
+{
+    "diyMission": "Esta missão parece ser uma missão de aliança em grande escala!",
+    "expansions": "Ampliar",
+    "followups": "Missão seguinte | Missões seguintes",
+    "generated_by": "Gerado por",
+    "mission_categories": {
+        "ambulance": "Missão de ambulância",
+        "fire": "Missão de extinção de incêndios",
+        "fire_support_specialization": "Missão de incêndios químicos e industriais (Especialização)",
+        "police": "Missão Policiais",
+        "riot_police_specialization": "Missão da policía antidistúrbios (Especialização)",
+        "title": "Gestão de categorias"
+    },
+    "patients": {
+        "allow_ktw_instead_of_rtw": "Se pode usar uma ABSC em lugar de uma SIV.",
+        "critical_care": "Probabilidade que sejam necessários cuidados intensivos",
+        "helicopter": "Probabilidade de HEMS",
+        "patient_allow_first_responder_chance": "Probabilidade de requerer SAV",
+        "patient_at_end_of_mission": "O paciente apenas aparece no final da operação!",
+        "patient_transport": "Probabilidade de transporte",
+        "possible_patient": "Pacientes máximo",
+        "possible_patient_exact": "exacto {n} paciente | exacto {n} pacientes",
+        "possible_patient_min": "Pacientes mínimo",
+        "specializations": "Especialização",
+        "title": "Pacientes | {n} Paciente | {n} Pacientes"
+    },
+    "prerequisites": {
+        "fire_boat_docks": "Doca de barco de bombeiros | Docas de barcos de bombeiros",
+        "fire_stations": "Corpo de bombeiros | Corpos de bombeiros",
+        "fire_support_count": "Expansões de apoio a incêndios",
+        "max_police_stations": "Esquadras de polícia máximo",
+        "max_rescue_stations": "Posto PEM/AEM máximo",
+        "police_helicopter_stations": "Heliporto da polícia | Heliportos da polícia",
+        "police_stations": "Esquadra da policía | Esquadras da policía",
+        "rescue_stations": "Posto PEM/AEM | Postos PEM/AEM",
+        "title": "Requisitio prévio | Requisitos prévios",
+        "wasserrettung": "Estação de resgate aquático"
+    },
+    "prisoners": {
+        "max_possible_prisoners": "Presos máximo",
+        "title": "Presos | {n} Preso | {n} Presos"
+    },
+    "requirements": {
+        "foam_needed": "Necessidade de espuma (l)",
+        "water_needed": "Necessidade de água (l)"
+    },
+    "subsequent": "Missão subsequente | Missões subsequentes",
+    "tip": {
+        "dragging": "arrastar janela",
+        "maxState": "requisitos máximo on/off",
+        "minified": "minimizar",
+        "overlay": "maximizar",
+        "reload": "recarregar"
+    },
+    "vehicles": {
+        "captions": {
+            "ambulances": "Ambulância | Ambulâncias",
+            "arff": "Defesa Civil",
+            "battalion_chief_vehicles": "Veículo de Comando | Veículos de Comando",
+            "boats": "Barco ligeiro | Barcos ligeiros",
+            "fbi_bomb": "Carrinha de Inativação de Explosivos e Segurança em Subsolo | Carrinhas de Inativação de Explosivos e Segurança em Subsolo",
+            "fbi_drone": "FBI Surveillance Drone | FBI Surveillance Drones",
+            "fbi_investigation": "FBI Investigation Wagon | FBI Investigation Wagons",
+            "fbi_mcc": "FBI Mobile Command Center Vehicle | FBI Mobile Command Center Vehicles",
+            "firetrucks": "Veículo de Combate a Incêndios | Veículos de Combate a Incêndios",
+            "foam": "Veículos Especiais de Combate a Incêndios",
+            "hazmat_vehicles": "Veículo para Matérias Perigosas | Veículos para Matérias Perigosas",
+            "heavy_rescue_vehicles": "Veículo de Desencarceramento | Veículos de Desencarceramento",
+            "helicopter": "Heli INEM",
+            "k9": "Unidade Cinotécnica",
+            "mobile_air_vehicles": "Unidade Autónoma de Ar Respirável | Unidades Autónoma de Ar Respirável",
+            "mobile_command_vehicles": "Veículo de Comando e Comunicações | Veículos de Comando e Comunicações",
+            "platform_trucks": "Veículo Escada | Veículos Escada",
+            "police_cars": "Carro de Patrulha | Carros de Patrulha",
+            "police_helicopters": "Helicópetro da Polícia | Helicópetros da Polícia",
+            "pump": "Moto Bomba",
+            "swat_armored_vehicle": "Corpo de Intervenção",
+            "swat_suv": "Grupo de Operações Especiais",
+            "water_tankers": "Veículo Tanque | Veículos Tanque"
+        },
+        "multifunctionals": {
+            "battalion_chief_vehicles": {
+                "additional_text": "",
+                "reduce_from": "Veículo de Comando"
+            },
+            "heavy_rescue_vehicles": {
+                "additional_text": "em vez disso. {n} Veículos de Desencarceramento",
+                "reduce_from": "Veículos de Combate a Incêndios"
+            }
+        },
+        "optional_alternatives": {
+            "allow_arff_instead_of_lf": {
+                "firetrucks": "Veículo de Combate a Incêndios | Veículos de Combate a Incêndios"
+            },
+            "allow_rw_instead_of_lf": {
+                "firetrucks": "Veículos de Combate a Incêndios ou Veículos de Desencarceramento ou Veículo Urbano de Combate a Incêndios"
+            }
+        },
+        "patient_additionals": { "8": "Viatura de Intervenção em Catástrofes" },
+        "title": "Veículos"
+    }
+}
