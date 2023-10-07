@@ -1,0 +1,32 @@
+{
+    "description": "Com este módulo evitas recarregar o jogo ao clicar em certos butões.",
+    "name": "Botões assíncronos",
+    "settings": {
+        "buildingPersonal": {
+            "description": "Evita recarregar o jogo quando despedes funcionários.",
+            "title": "Despedida de Funcionários"
+        },
+        "buildingTax": {
+            "description": "Evita recarregar o jogo quando defines o custo de celas ou camas hospitalares.",
+            "title": "Absorção de custos de celas e camas"
+        },
+        "deleteARR": {
+            "description": "Evita recarregar o jogo quando apagas uma entrada de RAR.",
+            "title": "Apagar entradas de RAR"
+        },
+        "deleteForumPost": {
+            "description": "Evita recarregar o jogo quando apagas uma publicação no fórum.",
+            "title": "Apagar publicações do fórum"
+        },
+        "memberlistManageUser": {
+            "description": "Evita recarregar o jogo, se expulsares ou mudares os direitos de um membro da aliança.",
+            "title": "Direitos de membros da Aliança"
+        },
+        "missionPrisoners": { "title": "Prisioneiros na página da missão" },
+        "missionReply": { "title": "Respotas no chat da missão" },
+        "switchExtensionState": {
+            "description": "Evita recarregar o jogo quando mudas o estado de uma extensão.",
+            "title": "(Des)Ativar uma Extensão"
+        }
+    }
+}
