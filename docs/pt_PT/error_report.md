@@ -16,22 +16,22 @@ Antes de reportar um erro, verifique na wiki se é um conteúdo do LSSM, ou se a
 Quando reportar um erro, descreva com todo o detalhe possível. Quanto mais detalhado o relatório for, mais depressa podemos ajudar.
 :::
 :::warning
-Por favor, note que nós não suportamos oficialmente; navegadores antigos; navegadores móveis; Microsoft Edge; ou Internet Explorer.
+Por favor, note que nós oficialmente não suportamos navegadores antigos; navegadores móveis; Microsoft Edge; ou Internet Explorer.
 :::
 
 ### 1. Descrever Erro
 * Descreva o erro. 
 * Forneça qualquer e toda a informação que possa ser importante. 
-* Explique o que estava a fazer quando aconteceu o erro.
+* Explique o que estave a fazer quando aconteceu o erro.
 
 ### 2. Especifique dados de utilizador
 Por favor forneça o seu;
-* Nome de Utilizador or ID de Utilizador.
+* Nome de Utilizador ou ID de Utilizador.
 * Lista de módulos ativos.
 * Versão LSSM: Podes encontrar a versão ao clicar `LSSM V.4` no canto superior direito da página principal do jogo, na primeira linha.
 
 ### 3. Reportar problema
-Agora podes enviar o teu relatório do erro. Para isso, abre um issue no [GitHub][github.issues]. Por favor, verifique se um issue para este erro já existe e só então podes continuar.
+Agora podes enviar o teu relatório do erro. Para isso, abre um Issue no [GitHub][github.issues]. Por favor, verifique se algum Issue para este erro já existe e só então podes continuar.
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/

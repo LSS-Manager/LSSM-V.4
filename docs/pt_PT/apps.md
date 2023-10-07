@@ -1,24 +1,24 @@
 ---
-title: ℹ️ Informação geral dos módulos
+title: ℹ️ Resumo dos módulos
 lang: pt_PT
 sidebarDepth: 2
 ---
 
-# ℹ️ Informação geral dos módulos
+# ℹ️ Resumo dos módulos
 
 Nas páginas seguintes vais encontrar a descrição de todos os módulos. Nós temos feito o nosso melhor para manter tudo o quanto compreensível. No entanto, devido ao tamanho do LSSM isto não é sempre possível.
 
-Se tiveres sugestões, podes enviar-nos como sempre - ou até pôr as sugestões em pratica.
+Se tiveres sugestões, podes enviar-nos como sempre - ou até pôr as sugestões em prática.
 
 :::danger Módulos que não funcionam no MapKit
-Como explicado na descrição da [Appstore][docs.appstore], existem módulos que infelizmente não são compatível com o tipo de mapa `MapKit`. Esses módulos são:
+Como explicado na descrição da [Appstore][docs.appstore], existem módulos que infelizmente não são compatível com o mapa `MapKit`. Esses módulos são:
 
 <mapkit-modules settings-text="E estas configurações:"/>
 :::
 
 ## LSSM V3 vs. LSSM V4
 
-Em baixo temos listado todo o conteúdo da V3 e aonde podes encontrá-los na V4. Queremos integrar todo o conteúdo da V3 na V4!
+Em baixo está uma lista com todo o conteúdo da V3 e aonde podes encontrar na V4. Queremos integrar todo o conteúdo da V3 na V4!
 
 <v3-v4-comparison-integrated/>
 

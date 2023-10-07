@@ -1,0 +1,19 @@
+{
+    "description": "Facilita a configuração do PDI com recursos úteis.",
+    "name": "PDI Melhorado",
+    "settings": {
+        "custom_style": { "title": "Estilo personalizado para destaque" },
+        "predefined_style": {
+            "brown": "Castanho",
+            "custom": "Manual",
+            "green": "Verde",
+            "red": "Vermelho",
+            "title": "Cor do Destaque",
+            "white": "Branco"
+        },
+        "shown_types": {
+            "description": "Especifique aqui que tipos de PDI queres ver no mapa. Também podes alterar esta configuração diretamente no menu \"Definir um novo PDI\".",
+            "title": "Tipos de PDI exibidos"
+        }
+    }
+}

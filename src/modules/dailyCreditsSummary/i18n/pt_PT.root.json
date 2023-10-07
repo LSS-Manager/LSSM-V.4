@@ -1,0 +1,10 @@
+{
+    "description": "Sumariza um resumo diária em categorias para que possas ter uma ideia de como ganhaste dinheiro.",
+    "name": "Sumário de Créditos",
+    "settings": {
+        "showAverage": {
+            "description": "Mostra a média de créditos para cada categoria.",
+            "title": "mostrar média"
+        }
+    }
+}

@@ -22,8 +22,8 @@ De momento, LSS Manager consiste em 4 desenvolvedores e 6 suportadores para o no
 
 ### Os desenvolvedores
 
-* Jan *[CEO, Desenvolved Sênior, Arquiteto Sênior]*
-* Sanni *[Verificador de Qualidade, Corretor de errors, Internacionalização]*
+* Jan *[CEO, Desenvolvedor Sênior, Arquiteto Sênior]*
+* Sanni *[Verificador de Qualidade, Corretor de erros, Internacionalização]*
 * Ron31 *[Desenvolvedor]*
 * Crazycake *[Desenvolvedor, Líder Gerende de Infraestrutura]*
 
@@ -45,7 +45,7 @@ De momento, LSS Manager consiste em 4 desenvolvedores e 6 suportadores para o no
     * MPR
 
 ### Tradutores Voluntários <3
-Muito obrigado a todos os nossos tradutores voluntários que nos ajudam com a tradução do jogo para outros idiomas. É claro que, sendo que somos uma pequena equipa de desenvolvedores, não conhecemos todos os idiomas, por isso só fornecemos texto em Alemão e Inglês.
+Muito obrigado a todos os nossos tradutores voluntários que nos ajudam a traduzir o jogo para outros idiomas. É claro que, sendo que somos uma pequena equipa de desenvolvedores, não conhecemos todos os idiomas, por isso só fornecemos texto em Alemão e Inglês.
 
 Para dar algum crédito aos tradutores, criámos uma lista aqui:
 <translators/>
@@ -77,7 +77,7 @@ Cada utilizador dá-nos a motivação para continuar, expandir e melhorar o LSSM
 
 ## Estatísticas
 
-Aqui estão alguns factos e estatísticas interessantes sobre LSSM e fonte de código.
+Aqui estão alguns factos e estatísticas interessantes sobre LSSM.
 
 ### Ficheiros e linhas de código
 

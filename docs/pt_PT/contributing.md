@@ -4,12 +4,12 @@ lang: pt_PT
 sidebarDepth: 2
 ---
 
-# Guia de contribuição
+# Guia de Contribuição
 
-Bem vindo à Guia de contribuição do LSSM!
+Bem vindo à Guia de Contribuição do LSSM!
 
 :::tip Precisas de ajuda?
-Claro, podes pedir suporte através de um dos meios mencionados em [Suporte](./support.md).
+Podes pedir suporte através de um dos meios mencionados em [Suporte](./support.md).
 
 Especialmente, no nosso <discord/> há muitos tradutores voluntários que adoram ajudar novos utilizadores.
 :::
@@ -18,7 +18,7 @@ Se és um contribuidor novo, por favor, primeiro leia [Introdução][introductio
 
 ## Fluxo de trabalho geral
 
-1. Crie ou atualize o teu fork
+1. Crie ou atualize o seu fork
 2. Altera um ficheiro com a ajuda dos nossos guias:
    * [Traduções](./contributing/translations.md)
 3. Commit o ficheiro atualizado

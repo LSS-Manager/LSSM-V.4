@@ -1,0 +1,51 @@
+{
+    "allianceFunds": {
+        "currently": "atualmente",
+        "title": "Fundos da Aliança",
+        "total": "total",
+        "updateNote": "Atualizado a cada 5 minutos."
+    },
+    "coins": { "list": "Protocolo" },
+    "credits": { "daily": "Sumário diário", "overview": "Resumo" },
+    "description": "Mostra informação útil sobre créditos em um menu suspenso na barra de navegação.",
+    "name": "Menu de Créditos",
+    "nextRank": "Próxima posição",
+    "nextRankMissing": "em falta",
+    "settings": {
+        "alerts": {
+            "credits": "",
+            "description": "Assim que alcançares a quantidade de créditos definida, o menu de créditos vai ficar destacado em verde até clicares no menu.",
+            "title": "Objetivos"
+        },
+        "coinsInNavbar": {
+            "description": "Mostra a quantidade de moedas atual em vez do porquinho.",
+            "title": "Moedas em vez do Porquinho"
+        },
+        "creditsInNavbar": {
+            "description": "Mostra a quantidade de créditos atual em vez do porquinho.",
+            "title": "Créditos em vez do Porquinho"
+        },
+        "hideAllianceFunds": {
+            "description": "Não mostre informação sobre os fundos da aliança.",
+            "title": "Esconde Fundos da Aliança"
+        },
+        "highlightSales": {
+            "description": "Destaque moedas em verde se houver uma oferta disponível.",
+            "title": "Destaque Ofertas"
+        },
+        "showAlertProgressBar": {
+            "description": "Mostra uma barra de progresso na barra de navegação a indicar o seu progresso até ao próximo alerta definido.",
+            "title": "Barra de progresso de Objetivos"
+        },
+        "showSales": {
+            "description": "Mostra ofertas de moedas quando estiver disponível.",
+            "title": "Mostra Ofertas"
+        },
+        "showToplistPosition": {
+            "description": "Mostra no menu a posição actual na tabela de classificação.",
+            "title": "Posição na tabela de Classificação"
+        }
+    },
+    "toplistPositionName": "Classificação",
+    "totalEarnedCredits": "Total de créditos ganhos"
+}

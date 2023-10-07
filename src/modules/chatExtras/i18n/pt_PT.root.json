@@ -1,0 +1,50 @@
+{
+    "description": "Adiciona conteúdo interessante ao chat.",
+    "name": "Chat Melhorado",
+    "settings": {
+        "chatTime": {
+            "description": "Modifica o formato da data e hora para o qual definiste.",
+            "title": "Formato de data e hora próprio"
+        },
+        "chatTimeFormat": {
+            "description": "Aqui podes escolher o formato que preferes. Se precisar de ajuda clique <a class=\"lightbox-open\" href=\"{wiki}modules/clock/#configuration\">aqui</a>.",
+            "title": "Formato de data e hora"
+        },
+        "cloneHistoryBtnToHeader": {
+            "description": "Mostra o botão \"Histórico do chat\" no cabeçalho para que não precises de ir até ao fim do chat para aceder ao mesmo.",
+            "title": "Mostra o Histórico do chat no Cabeçalho"
+        },
+        "lightDesignChatHistory": {
+            "description": "Um design leve para o histórico do chat.",
+            "title": "Design leve para o Histórico do Chat"
+        },
+        "mentionIndicator": {
+            "description": "Mostra um pequeno ícone \"@\" na entrada do chat quando estiveres a mencionar alguém.",
+            "title": "Indicador de menção"
+        },
+        "selfHighlight": {
+            "description": "Destaque o seu nome de utilizador no chat com uma cor personalizada.",
+            "title": "Cor Personalizada no Chat"
+        },
+        "selfHighlightColor": {
+            "description": "Personalize a cor de fundo para o seu nome de utilizador no chat.",
+            "title": "Cor Personalizada no Chat: Cor de Fundo"
+        },
+        "selfHighlightCustomTextColor": {
+            "description": "Queres personalizar a cor do texto?",
+            "title": "Cor Personalizada no Chat: Cor de Texto"
+        },
+        "selfHighlightCustomTextColorColor": {
+            "description": "Personalize a cor de texto para o seu nome de utilizador no chat.",
+            "title": "Cor Personalizada no Chat: Cor de Texto"
+        },
+        "userSelection": {
+            "description": "Mostra uma lista de membros da aliança sugeridos quando estiveres a mencionar ou a escrever uma mensagem, permitindo que introduzas o nome de utilizador mais depressa (podes usar as setas e o enter do teclado).",
+            "title": "Selecção de Utilizador"
+        },
+        "whisperIndicator": {
+            "description": "Mostra um pequeno cadeado na entrada do chat quando estiveres a escrever uma mensagem.",
+            "title": "Indicador de Mensagem"
+        }
+    }
+}

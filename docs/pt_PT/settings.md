@@ -10,8 +10,8 @@ As configurações de todos os módulos são gerenciados centralmente nas config
 Ao clicar nos butões `Exportar` e `Importar`, podes guardar as configurações num ficheiro e/ou partilhar com os teus amigos. Num próximo futuro, gostariamos de oferecer a possibilidade de guardar as configurações na conta. Isto quer dizer que as configurações passam a ser guardadas na conta em vez de no dispositivo.
 
 ::: tip Alterações
-Assim que saíres da página de configurações e tiveres guardado as alterações, o jogo vai recarregar para aplicar todas as configurações alteradas mais facilmente.
-Se tiveres alterações não guardadas, irás receber uma notificação quando fechares a página de configurações.
+Assim que saíres da página de configurações e as alterações estiverem guardadas, o jogo vai recarregar para aplicar todas as configurações alteradas mais facilmente.
+Se as alterações não estiverem guardadas, irás receber uma notificação quando fechares a página de configurações.
 :::
 ::: danger Reverter Configurações
 Atenção: Se reverteres as configurações, as mesmas não poderam ser recuperadas sem um ficheiro que tenhas exportado previamente!
@@ -20,7 +20,7 @@ Atenção: Se reverteres as configurações, as mesmas não poderam ser recupera
 
 ## Moment.js
 
-Esta secção fornece alguma informação em como configurar a data/hora nas configurações, por exemplo no módulo [relógio](modules/clock.md).
+Esta secção fornece alguma informação em como configurar a data e hora, por exemplo no módulo [relógio](modules/clock.md).
 
 Nós usamos [Moment.js](https://momentjs.com) para oferecer uma grande seleção de opções. Se quiseres ver o documento original, podes encontrá-lo [aqui](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/).
 

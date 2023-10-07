@@ -1,0 +1,29 @@
+{
+    "default": [
+        { "ids": [0, 11, 15], "name": "Corpo de Bombeiros" },
+        { "ids": [2, 4, 5, 13, 14], "name": "Pré-Hospitalar" },
+        { "ids": [6, 12], "name": "Polícia" },
+        { "ids": [1, 3, 8, 17], "name": "Escola" },
+        { "ids": [7], "name": "Centro de Comando" },
+        { "ids": [16], "name": "Resgate Aquático" },
+        { "ids": [18, 19], "name": "Conjunto de Edifícios" }
+    ],
+    "description": "Personaliza os filtros da lista de edifícios.",
+    "lssmComplex": "LSSM Conjunto de Edifícios",
+    "name": "Lista de Edifícios Customizável",
+    "settings": {
+        "buildings": "Tipos de Edifícios",
+        "contentType": { "labels": ["Texto", "Ícone"], "title": "Texto ou Ícone?" },
+        "filters": {
+            "description": "Podes escolher entre <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">todos os ícones de graça em Font-Awesome</a>. Apenas precisas de escrever o nome do ícone na caixa \"Título (ou Ícone)\". Depois irá aparecer uma visualização do ícone.",
+            "title": "Filtros"
+        },
+        "fixedFilters": {
+            "description": "Mostra os filtros mesmo quando estiveres a verificar a lista de edifícios",
+            "title": "Sempre mostrar filtros"
+        },
+        "icon_style": "Tipo de ícone",
+        "preview": "Visualização",
+        "title": "Título (ou Ícone)"
+    }
+}

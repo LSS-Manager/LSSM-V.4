@@ -8,35 +8,35 @@ sidebarDepth: 2
 
 ## Instruções
 
-Uma pequena ajuda, no qual irá ajudar-te a criar um relatório de suporte.
+Um pequeno guia, no qual irá ajudar-te a criar um relatório de suporte.
 
 :::tip
-Se precisares de assistência, descreva o seu problema com o todos os detalhes possíveis, quando melhor e mais detalhadamente descreveres o teu problema, mais facilmente conseguiremos ajudar.
+Se precisares de assistência, descreva o seu problema com o todos os detalhes possíveis, quanto mais detalhado o seu problema estiver, mais facilmente conseguiremos ajudar.
 :::
 :::warning
-Por favor, note que nós não suportamos oficialmente; navegadores antigos; navegadores móveis; Microsoft Edge; ou Internet Explorer.
+Por favor, note que nós oficialmente não suportamos navegadores antigos; navegadores móveis; Microsoft Edge; ou Internet Explorer.
 :::
 
 ### 1. Formular problema
-Primeiro descrava o seu problema incluindo qualquer informação que possa ser importanto. Explique também o que já tentaste fazer para resolver o problema.
+Primeiro descrava o seu problema incluindo qualquer informação que possa ser importante. Explique também o que já tentaste fazer para resolver o problema.
 
 ### 2. Especifique os dados de utilizador
-Por favor, forneça-nos o seu nome de utilizador e ID de utilizador. Também é util que nos diga os módulos que tiver ativado.
+Por favor, providencie o seu nome de utilizador e ID. Também é util que nos diga os módulos que tenha ativos.
 
 ### 3. Reporte o problema
 Agora podes enviar-nos o seu problema formulado com os dados de utilizador. Use uma das opções listadas em baixo.
 
-## através Discord
+## Através do Discord
 
 No nosso <discord/> podes obter suporte no canal <discord-channel channel="lssm-help"/>.
 
-## no GitHub
+## No GitHub
 
-Também podes abrir um issue no [GitHub][github.issues]. Por favor, confirme aqui se um issue para o teu problema já existe, se já existir então comente no issue.
+Também podes abrir um Issue no [GitHub][github.issues]. Por favor, confirme aqui se um Issue para o seu problema já existe, se sim então comente no Issue.
 
 ## Planeado: Suporte diretamente através do jogo
 
-De forma a podermos dar-te suporte ainda mais rápidamente e facilmente, gostariamos de integrar o nosso próprio chat de suporte. Assim que estiver disponível, poderás aceder através do menu do LSSM no jogo. Iremos fazer o nosso melhor para te ajudar da melhor forma e o mais rápido possível, mas novamente: Quanto mais detalhado o teu problema estiver descrito desde o início, mais facilmente podemos ajudar. 
+De forma a podermos dar suporte ainda mais facilmente e de forma rápida, gostariamos de integrar o nosso próprio chat de suporte. Assim que estiver disponível, poderás aceder através do menu do LSSM no jogo. Iremos fazer o nosso melhor para te ajudar da melhor forma e o mais rápido possível, mas novamente: Quanto mais detalhado o seu problema estiver descrito desde o início, mais facilmente podemos ajudar. 
 
 Assim que o problema estiver resolvido, iremos informá-lhe sobre o mesmo nas notas de lançamento.
 

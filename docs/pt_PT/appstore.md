@@ -5,14 +5,14 @@ lang: pt_PT
 
 # Appstore :shopping_cart:
 
-A Appstore é o elemento principal do LSS Manager. Dentro dela, podes ativar ou desativar módulos individualmente. Uma breve descrição de cada módulo será oferecida na appstore. Através do pequeno `i` azul, podes directamente abrir a página da wiki no jogo. 
+A Appstore é o elemento principal do LSS Manager. Dentro dela, podes ativar ou desativar módulos individualmente tal como encontrar uma pequena descrição para cada módulo. Através do pequeno `i` azul, podes directamente abrir no jogo a página na wiki do módulo. 
 
 :::tip Alterações
-Não podes fechar a appstore com alterações não guardadas
+Não podes fechar a appstore com alterações não guardadas.
 :::
 
-:::warning Suporte do tipo de mapa "MapKit".
-Existem alguns módulos que não suportam o tipo de mapa MapKit. Isto é porque o MapKit não oferece algumas funcionalidades que os módulos precisam. Podes encontrar uma lista completa dos módulos em [ℹ️ Informação Geral nos Módulos][docs.apps].
+:::warning Suporte do mapa "MapKit".
+Existem alguns módulos que não suportam o mapa MapKit. Isto é porque o MapKit não oferece algumas funcionalidades que os módulos precisam. Podes encontrar uma lista completa dos módulos em [ℹ️ Resumo dos Módulos][docs.apps].
 
 Devido a essas restrições, podes mudar o tipo de mapa para "OpenStreetMap" para teres uma funcionalidade completa.
 :::

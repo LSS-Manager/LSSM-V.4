@@ -1,16 +1,16 @@
 ---
-title: Bugs Conhecidos 🐛
+title: Erros Conhecidos 🐛
 lang: pt_PT
 sidebarDepth: 2
 ---
 
-# Bugs Conhecidos :bug:
+# Erros Conhecidos :bug:
 
 :::tip Actualidade
 Este resumo é atualizado a cada atualização da versão beta do LSSM. Podes sempre encontrar a versão mais recente no nosso [GitHub Issues][github.issues.open]
 :::
 
-<bugs no-bugs="Neste momento não há bugs conhecidos!"></bugs>
+<bugs no-bugs="Neste momento não há erros conhecidos!"></bugs>
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/

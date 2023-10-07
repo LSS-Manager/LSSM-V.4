@@ -14,7 +14,7 @@ Ao usar `LSSM` (Leitstellenspiel Manager, userscript para o navegador) o utiliza
 * quantidade de edifícios
 * navegador em utilização
     * versão incluída
-* data/hora da compilação de metadados
+* data e hora da compilação de metadados
 * módulos ativos
 * idioma do jogo
     * incluindo informação da versão do jogo (polícia (se estiver disponível) ou "normal")
@@ -38,7 +38,7 @@ Se o registro de dados não receber uma atualização durante mais de 6 meses, o
 
 As estatísticas seguintes podem ser publicadas pela equipa LSSM:
 
-* número total de registros de telemetria atuais para os seguintes períodos de tempo:
+* número total de registos de telemetria atuais para os seguintes períodos de tempo:
     * últimos 6 meses
     * últimos 30 dias
     * últimos 7 dias
@@ -60,7 +60,7 @@ Inferência para registros individuais **não** é possível através de estast�
 O próprio LSSM não usa ferramentas, bibliotecas, utilitários ou similares, que podem coletar metadados dos utilizadores.
 Com o uso de navegadores e um userscript manager, tal como [Tampermonkey][tampermonkey], é inevitável a compilação de metadados.
 Todas as compilações de dados não são acessíveis ou visíveis pela equipa LSSM e não podem ser prevenido, favorecido ou manipulado pela equipa LSSM.
-Informação sobre a compilação de dados do respectivo software usado pode ser encontradas nas fontes de informação do respectivo software.
+Informação sobre a compilação de dados do respectivo software usado pode ser encontrada nas fontes de informação do respectivo software.
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/

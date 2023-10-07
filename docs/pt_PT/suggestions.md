@@ -7,16 +7,16 @@ sidebarDepth: 2
 # Sugestões :bulb:
 
 :::tip
-Por favor, pensa nas sugestões de forma meticulosamente antes de sugerires. Isto ajuda-nos a perceber mais eficientemente.
+Por favor, pensa nas sugestões de forma meticulosamente antes de sugerires. Isto ajuda-nos a perceber mais efetivamente.
 :::
 
-## Através Discord
+## Através do Discord
 
 No nosso <discord/> podes fazer sugestões no canal <discord-channel channel="suggestions"/>.
 
 ## No GitHub
 
-Também podes abrir um issue no [GitHub][github.issues]. Por favor, verifique que esta sugestão existe, se sim, adicione um comentário em vez de abrir um issue novo.
+Também podes abrir um Issue no [GitHub][github.issues]. Por favor, verifique se a sua sugestão existe, se sim, adicione um comentário em vez de abrir um Issue novo.
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/

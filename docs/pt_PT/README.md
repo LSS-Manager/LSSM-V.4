@@ -14,7 +14,7 @@ sidebarDepth: 2
 
 [Estado do servidor LSSM][lssm.status]
 
-[Estado do jogo online](https://status.lss-manager.de/status/missionchief)
+[Estado do jogo](https://status.lss-manager.de/status/missionchief)
 
 <!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
 
@@ -24,7 +24,7 @@ LSS MANAGER V.4 é uma extensão para [Jogo-Operador112.com][games.self] e outro
 
 Com esta extensão, uma appstore é adicionada ao jogo aonde podes decidir que módulos queres ativar.
 
-Módulos desativados não são carregados no teu navegador para melhorar o desempenho.
+Módulos desativados não são carregados no teu navegador para melhorar o desempenho do jogo.
 
 ## Instalação 📥
 
@@ -35,7 +35,7 @@ Uma tabela com quais navegadores são compatível com LSSM pode ser encontrada e
 ::: tip Usar LSSM no telemóvel
 Não suportamos o uso de LSSM no telemóvel. Enquanto Firefox no telemóvel permite Extras, não garantimos funcionalidade total.
 
-Suporte oficial para nagevadores móveis **não** é de momento planeado.
+De momento **não** planeamos oferecer suporte oficial para nagevadores móveis.
 :::
 
 ### Etapa 1: Instalar Tampermonkey
@@ -46,7 +46,7 @@ Instale a extanção Tampermonkey no seu navegador.
 Para outros navegadores, podes instalar Tampermonker em [tampermonkey.net][tampermonkey].
 
 ::: warning
-Por favor, note que oficialmente não suportamos navegadores antigos, navegadores móveis e Apple Safari. Portanto, o suporte para esses navegadores não será garantida nem provável.
+Por favor, note que oficialmente não suportamos navegadores antigos, navegadores móveis e Apple Safari. Portanto, o suporte para esses navegadores não será garantido nem provável.
 :::
 
 ### Etapa 2: Userscript

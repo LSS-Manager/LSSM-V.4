@@ -1,0 +1,86 @@
+{
+    "description": "Adiciona algumas funções úteis aos seus edifícios.",
+    "name": "Mais Funções para Edifícios",
+    "settings": {
+        "buildingsLeftRight": {
+            "description": "Mostra nos botões \"Próximo Edifício\" e \"Edifício anterior\" quantos edifícios do mesmo tipo tens nas respectivas direções.",
+            "title": "Número de edifícios do mesmo tipo"
+        },
+        "dispatchCenterBuildingFilter": {
+            "description": "Adiciona filtros à lista de edifícios no centro de comando",
+            "title": "Filtros para edifícios no Centro de Comando"
+        },
+        "enhancedPersonnelAssignment": {
+            "description": "Esconde funcionários sem formação adequada para os veículos.",
+            "title": "Melhor atribuição de Funcionários"
+        },
+        "enhanceVehicleList": {
+            "description": "Expande a lista de veículos com mais funções úteis, algumas no qual são ajustáveis.",
+            "title": "Expande a lista de veículos"
+        },
+        "expansions": {
+            "description": "Mostra as expansões de um edifício sem ter que clicar no separador de expansões.",
+            "title": "Exibe expansões diretamente"
+        },
+        "fastDispatchChooser": {
+            "description": "Deixa-te atribuir um centro de comando diretamente de um edifício sem ter que ir às configurações.",
+            "title": "Seleção rápida de um Centro de Comando"
+        },
+        "fmsSwitch": {
+            "description": "Permite-te mudar os status entre 2 e 6 ao clicar no número de status.",
+            "title": "Mudança rápida de Status 2 <=> 6"
+        },
+        "personnelAssignmentBtn": {
+            "description": "Adiciona um botão para atribuir funcionários ao lado do botão \"Editar\"(Caneta). De momento não funciona no centro de comando.",
+            "title": "Botão para atribuição de Funcionários"
+        },
+        "personnelDemands": {
+            "description": "Mostra quantos funcionários são necessários com ocupação mínima e máxima do veículo.",
+            "title": "Requerimentos de Funcionários"
+        },
+        "renewAllStagingAreas": {
+            "description": "Reverter todas as zonas de concentração com apenas um clique de dentro das zonas de concentração.",
+            "title": "Reverter Zonas de Concentração"
+        },
+        "schoolingSummary": {
+            "description": "Mostra na lista de funcionários de um edifício quantos funcionários têm qual formação(ões).",
+            "title": "Sumário de Funcionários"
+        },
+        "schoolsBuildingFilter": {
+            "description": "Filtros úteis para reduzir a lista de edifícios na página de formações.",
+            "title": "Filtros de edifícios para seleção de funcionários"
+        },
+        "startPatrolsShortcut": {
+            "description": "Um atalho para começar patrulhas na página principal sem abrir o centro de comando.",
+            "title": "Começar patrulhas na página principal"
+        },
+        "upgradeConfirmation": {
+            "description": "Pergunta se queres mesmo atualizar o teu edifício.",
+            "title": "Atualização de Edifício"
+        },
+        "vehiclesPersonnelAssigned": {
+            "description": "Mostra quantos funcionários estão atribuídos ao veículo.",
+            "title": "Tripulação Atribuída"
+        },
+        "vehiclesPersonnelColorized": {
+            "description": "Realce o número de funcionários atribuídos em vermelho se for menor que o máximo possível, verde quando atingir o número máximo.",
+            "title": "Cor para funcionários atribuídos"
+        },
+        "vehiclesPersonnelCurrent": {
+            "description": "Mostra quantos funcionários estão dentro do veículo.",
+            "title": "Tripulação Atual"
+        },
+        "vehiclesPersonnelMax": {
+            "description": "Mostra o número máximo de funcionários que cabem no veículo.",
+            "title": "Tripulação Máxima"
+        },
+        "vehicleTypes": {
+            "description": "Mostra o tipo de veículo (e se disponível, a classe do véiculo) numa coluna separada.",
+            "title": "Tipo de Veículo"
+        },
+        "vehicleTypesOnlyOwn": {
+            "description": "Se disponível, apenas mostra a classe do veículo. Se não estiver disponível, irá mostrar a classe normal do veículo.",
+            "title": "Mostra apenas a classe do veículo"
+        }
+    }
+}

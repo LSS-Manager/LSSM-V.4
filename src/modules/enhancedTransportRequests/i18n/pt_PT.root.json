@@ -1,0 +1,14 @@
+{
+    "description": "Melhora a experiencia de pedidos de transporte com alguns recursos interessantes.",
+    "name": "Pedido de Transporte Melhorado",
+    "settings": {
+        "autoClickSuccessBtns": {
+            "description": "Depois de acabar um pedido de transporte, butões como \"Próximo pedido\" e \"Voltar para a missão\" são clicados automáticamente.",
+            "title": "Saltar para o próximo Pedido de Transporte"
+        },
+        "autoOpenTransportRequest": {
+            "description": "Automáticamente abre o primeiro pedido de transporte na missão.",
+            "title": "Abre o primeiro Pedido de Transporte"
+        }
+    }
+}
