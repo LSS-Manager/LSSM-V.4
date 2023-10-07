@@ -41,7 +41,7 @@ Se várias solicitações falharem em um curto espaço de tempo, pode ser por ca
         closeNote: 'Dica: Podes carregar nos balões para fechar!',
     },
     settings: {
-        name: 'Definições Gerais',
+        name: 'Configurações Gerais',
         labelInMenu: {
             title: 'Rótulo em vez de ícone no menu',
             description:
@@ -73,12 +73,12 @@ Se várias solicitações falharem em um curto espaço de tempo, pode ser por ca
         },
         osmDarkTooltip: {
             description:
-                'Esta definição escurece as dicas de contexto no mapa se tiveres o modo escuro ativado.',
+                'Esta configuração escurece as dicas de contexto no mapa se tiveres o modo escuro ativado.',
             title: 'Dicas de contexto escuras no mapa',
         },
         osmDarkControls: {
             description:
-                'Esta definição escurece os butões no mapa se tiveres o modo escuro ativado.',
+                'Esta configuração escurece os butões no mapa se tiveres o modo escuro ativado.',
             title: 'Butões escuros no mapa',
         },
         v3MenuAsSubmenu: {

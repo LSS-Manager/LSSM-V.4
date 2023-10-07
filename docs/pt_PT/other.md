@@ -1,37 +1,39 @@
 ---
-title: Other
-lang: en_US
+title: Mais Informação
+lang: pt_PT
 sidebarDepth: 2
 ---
 
-# Other
+# Mais Informação
 
-Miscellaneous information about LSS Manager.
+Diversas informações sobre LSS Manager.
 
-## License
-[![License](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][license]
+## Licença
 
-LSS Manager is licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)][license].
+[![Licença](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][license]
 
-We have decided to use this license to prevent misuse of our code to violate the Terms and Conditions of the game.
+LSS Manager está licenciado sobre [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)][license].
 
-## The LSSM Team
-Currently, LSS Manager consists of 4 developers and 6 additional supporters for our <discord/>. On Discord our developers are of course also administratively active! We also got a lot of volunteer translators helping us translate LSSM.
+Decidimos usar esta licença para evitar abuso do nosso código para violar os Termos e Condições do jogo.
 
-### The developers
+## A Equipa LSSM
 
-* Jan *[CEO, Senior Developer, Senior Architect]*
-* Sanni *[Quality Check, Bugfixing, Internationalization]*
-* Ron31 *[Developer]*
-* Crazycake *[Developer, Lead Infrastructure manager]*
+De momento, LSS Manager consiste em 4 desenvolvedores e 6 suportadores para o nosso <discord/>. No Discord os nossos desenvolvedores são também obiviamente administrativamente ativos! Nós também temos muitos tradutores voluntários a ajudar-nos a traduzir LSSM.
 
-### The Discord-Team
-**Administration**:
+### Os desenvolvedores
+
+* Jan *[CEO, Desenvolved Sênior, Arquiteto Sênior]*
+* Sanni *[Verificador de Qualidade, Corretor de errors, Internacionalização]*
+* Ron31 *[Desenvolvedor]*
+* Crazycake *[Desenvolvedor, Líder Gerende de Infraestrutura]*
+
+### A Equipa de Discord
+**Administração**:
 
 * lost
 * Aisaka
 
-**Moderation**:
+**Moderação**:
 
 * 🇩🇪
     * Konstantin
@@ -42,45 +44,46 @@ Currently, LSS Manager consists of 4 developers and 6 additional supporters for 
 * 🇳🇱
     * MPR
 
-### volunteer translators <3
-A lot of thanks go to our volunteer translators who help us with the porting into other language versions. Of course, as a small development team, we don't speak all languages, so we only provide the German and English texts.
+### Tradutores Voluntários <3
+Muito obrigado a todos os nossos tradutores voluntários que nos ajudam com a tradução do jogo para outros idiomas. É claro que, sendo que somos uma pequena equipa de desenvolvedores, não conhecemos todos os idiomas, por isso só fornecemos texto em Alemão e Inglês.
 
-To give some credit to the translators we have created a list here:
+Para dar algum crédito aos tradutores, criámos uma lista aqui:
 <translators/>
 
-## Open Source Libraries
-LSSM uses public libraries from third parties
+## Bibliotecas de Código Aberto
 
-A list of which libraries we use can be found directly in the game in the LSSM menu and is kept up to date.
+LSSM usa uma biblioteca pública de fornecedores terceiros
 
-### The XYRALITY Team
-First of all a big thank you goes to the development team of the game. Not only for the game itself, but also for the great help when we have questions.
+Uma lista das bibliotecas que usamos pode ser diretamente encontrada no jogo no menu do LSSM e é mantido atualizada.
 
-But also for the numerous aids that make the development of the LSSM easier for us!
+### A Equipa XYRALITY
+Primeiro de tudo, um grande obrigado à equipa de desenvolvimento do jogo. Não apenas ao jogo em si, mas também pela grande ajuda quando temos perguntas.
 
-### Our Beta Testers
-A small group of users are our Beta Testers, getting LSSM features earlier than the general user to test. We do this so we can identify and rectify problems to make LSSM stable for everyone on release.
+Mas também pelas inúmeras ajudas que tornam o desenvolvimento do LSSM muito mais fácil para nós!
+
+### Os Nossos Testadores Beta
+Um pequeno grupo de utilizadores são os nossos Testadores Beta, obtendo conteúdo LSSM antes dos utilizadores gerais para testar. Nós fazemos isto só para que possamos identificar e resolver problemas para fazer com que o LSSM seja estável para todos os jogadores no lançamento.
 
 :::tip
-Our Beta Testers program is limited, and we will not add users between application phases. When application phases are open, we will announce this, so everyone has a chance, as long as you meet certain conditions.
+O nosso programa de Testadores Beta é limitado, e não iremos adicionar utilizadores entre fases de aplicação. Será anunciado quando as fases de aplicações forem abertas, para que todos os jogadores possam ter uma chance, desde que atenda certas condições.
 :::
 
-### To all who report bugs & make suggestions
-Imagine how long a fault in LSSM would exist for if no one reported it - we would certainly not find it so quickly.
-Thank you also for suggestions that keep coming in. The development of LSSM is strongly influenced by the participation and wishes of its users.
+### Para todos os que reportam erros e fazem sugestões
+Imagine durante quanto tempo um problemma no LSSM poderia existir se ninguém reportar-se o problema - de forma nenhuma iriamos rápidamente encontrar o problema.
+Obrigado também por todas as sugestões que continuam a ser feitas. O desenvolvimento do LSSM é muito influenciado pela participação e sugestões dos utilizadores.
 
-### To every single user
-Each user always gives us the motivation to keep going and to expand and improve LSSM more and more.
+### Para todos os utilizadores
+Cada utilizador dá-nos a motivação para continuar, expandir e melhorar o LSSM.
 
-## Stats
+## Estatísticas
 
-Here are some more or less interesting facts and stats about LSSM and its sourcecode.
+Aqui estão alguns factos e estatísticas interessantes sobre LSSM e fonte de código.
 
-### Files & Lines of code
+### Ficheiros e linhas de código
 
 <stats-cloc/>
 
-### Commits & Changes
+### Commits e Alterações
 
 <stats-git/>
 

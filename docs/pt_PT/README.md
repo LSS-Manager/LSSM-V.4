@@ -1,10 +1,10 @@
 ---
 title: LSS-Manager V.4
-lang: en-US
+lang: pt_PT
 sidebarDepth: 2
 ---
 
-# Wiki 🇺🇸 <Badge :text="'v' + $theme.variables.versions.short"/>
+# Wiki 🇵🇹 <Badge :text="'v' + $theme.variables.versions.short"/>
 
 > stable: *{{ $theme.variables.versions.stable }}* [![Online Status for stable](https://status.lss-manager.de/api/badge/71/status?style=flat&upLabel=online&downLabel=offline)][lssm.status]
 > 
@@ -12,53 +12,53 @@ sidebarDepth: 2
 
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
-[LSSM-Server-Status][lssm.status]
+[Estado do servidor LSSM][lssm.status]
 
-[Game-Online-Status](https://status.lss-manager.de/status/missionchief)
+[Estado do jogo online](https://status.lss-manager.de/status/missionchief)
 
 <!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
 
-## About LSSM
+## Sobre LSSM
 
-LSS MANAGER V.4 is an extension for [Missionchief.com][games.self] and its other language versions.
+LSS MANAGER V.4 é uma extensão para [Jogo-Operador112.com][games.self] e outros idiomas do jogo.
 
-With this extension, an appstore is added to the game, allowing the usage of modules. You can decide which modules to activate.
+Com esta extensão, uma appstore é adicionada ao jogo aonde podes decidir que módulos queres ativar.
 
-Deactivated plugins are not loaded into your browser, for better performance.
+Módulos desativados não são carregados no teu navegador para melhorar o desempenho.
 
+## Instalação 📥
 
-## Installation 📥
-[By using LSSM you agree that we collect metadata.][docs.metadata]
+[Ao usar LSSM aceitas a compilação de metadados.][docs.metadata]
 
-A table with which browsers LSSM is compatible can be found in our [FAQ](faq.md)
+Uma tabela com quais navegadores são compatível com LSSM pode ser encontrada em [FAQ](faq.md)
 
-::: tip Using LSSM on mobile phones
-We do not support using LSSM on mobile. While Firefox on mobile allows add-ons, we do not guarantee functionality.
+::: tip Usar LSSM no telemóvel
+Não suportamos o uso de LSSM no telemóvel. Enquanto Firefox no telemóvel permite Extras, não garantimos funcionalidade total.
 
-Official support of mobile browsers is currently **not** planned.
+Suporte oficial para nagevadores móveis **não** é de momento planeado.
 :::
 
-### Step 1: Install Tampermonkey
-Install Tampermonkey extension into your browser.
+### Etapa 1: Instalar Tampermonkey
+Instale a extanção Tampermonkey no seu navegador.
 
 <tampermonkey-download-table/>
 
-For other browsers you can download Tampermonkey on [tampermonkey.net][tampermonkey].
+Para outros navegadores, podes instalar Tampermonker em [tampermonkey.net][tampermonkey].
 
 ::: warning
-Please note that we do not officially support older browsers, mobile browsers and Apple Safari. Support for these browsers is therefore neither guaranteed nor likely.
+Por favor, note que oficialmente não suportamos navegadores antigos, navegadores móveis e Apple Safari. Portanto, o suporte para esses navegadores não será garantida nem provável.
 :::
 
-### Step 2: Userscript
-If Tampermonkey was successfully installed in your browser, you can either click [here][lssm.userscript] or create a new userscript with the following content:
+### Etapa 2: Userscript
+Se Tampermonkey for instalado no seu navegador com sucesso, podes clicar [aqui][lssm.userscript] ou criar um novo userscript com o seguinte conteúdo:
 
 @[code js](@userscript)
 
-### Step 3: Activate
-The LSSM indicator is a green highlighted text `LSSM V.4`, present in the upper right corner of Missionchief.
-If you cannot find this indicator, click on the tampermonkey icon in your browser and check if the switch for LSS-Manager script is set to `on`.
+### Etapa 3: Ativar
+O indicador LSSM é um ícone presente no canto superior direito do jogo.
+Se não encontrares o ícone, clica no ícone Tampermonkey no teu navegador e confirme se o butão do LSS-Manager script está configarado como `on`.
 
-If you have any problems, feel free to contact [Support][docs.support].
+Se houver algum problema, fique à vontade para contactar [Suporte][docs.support].
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/

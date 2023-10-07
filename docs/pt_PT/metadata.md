@@ -1,66 +1,66 @@
 ---
-title: Metadata
-lang: en_US
+title: Metadados
+lang: pt_PT
 sidebarDepth: 0
 ---
 
-# Collection of user metadata
+# Compilação de metadados do utilizador
 
-By using `LSSM` (Leitstellenspiel Manager, userscript for the browser) the user accepts that metadata will be collected. The following data will be stored:
+Ao usar `LSSM` (Leitstellenspiel Manager, userscript para o navegador) o utilizador aceita a compilação de metadados. Os seguintes dados serão armazenados:
 
-* Unique user ID
-    * Including unique Secret (unique, non-public character string for identification)
-* User name
-* Amount of buildings
-* used browser
-    * including version
-* time of metadata collection
-* enabled modules
-* language version of the game
-    * including information whether police version (if available) or not
-* which map type is activated (OSM or Mapkit)
-* LSSM version
-* LSSM branch (`stable`, `beta` or a preview-branch)
-* version of the installed LSSM userscript
+* ID de utilizador único
+    * incluindo Segredo único (único, sequencia de caracteres não públicados para identificação)
+* nome de utilizador
+* quantidade de edifícios
+* navegador em utilização
+    * versão incluída
+* data/hora da compilação de metadados
+* módulos ativos
+* idioma do jogo
+    * incluindo informação da versão do jogo (polícia (se estiver disponível) ou "normal")
+* que tipo de mapa está ativado (OSM ou MapKit)
+* versão do LSSM
+* versão do LSSM (`stable`, `beta` ou uma versão de visualização)
+* versão do LSSM userscript instalado
 
-This data is used to improve the extension as well as to guide the development of existing or future modules.
-They are also the basis for exciting statistics, which can be published, for example as news (for more information, see [below](#publishing-statistics)).
+Estes dados são usados para melhorar a extensão, tal como guiar o desenvolvimento de existentes e futuros módulos.
+Os dados também são usados como base para estatísticas interessantes, que podem ser publicadas, por exemplo como notícias (para mais informação, veja [em baixo](#Publicação-de-estatísticas)).
 
-**The user can (de-)activate the collection of this data at any time in the [settings][docs.settings].**
+**O utilizador pode (des)ativar a compilação destes dados a qualquer momento nas [configurações][docs.settings].**
 
-**A deletion of already collected data can be requested at any time by sending a message to the developers via one of the ways listed in [support][docs.support] or by sending an informal e-mail to `developer[at]lss-manager.de`.**
+**Podes pedir a eliminação de dados já compilados a qualquer momento ao enviar uma mensagem aos desenvolvedores através de um dos meios listado em [suporte][docs.support] ou ao enviar um e-mail informal para `developer[at]lss-manager.de`.**
 
-Every time the main page of the game is opened, telemetry data (if enabled) is sent to the LSSM server.
-If a data record already exists for the user, it will be overwritten, a history of the individual data will not be saved.
-If a data record has not received an update for more than 6 months, it will be deleted automatically.
+Sempre que a página principal do jogo for aberta, os dados (se ativado) serão enviados para o servidor LSSM.
+Se já exister um registro de dados para o utilizador, os dados serão sobrescritos, o histórico do individual não será guardado.
+Se o registro de dados não receber uma atualização durante mais de 6 meses, os dados serão apagados automáticamente.
 
-## Publishing statistics
+## Publicação de estatísticas
 
-The following telemetry statistics may be published by the LSSM team:
+As estatísticas seguintes podem ser publicadas pela equipa LSSM:
 
-* total number of current telemetry records for the following time periods:
-    * past 6 months
-    * past 30 days
-    * past 7 days
-    * past 24 hours
-    * today's calendar date according to German time
-* number of telemetry entries of users with or without premium account
-* number of telemetry entries per language version
-    * including split into police version and "normal" version, if available
-* number of telemetry entries per browser
-    * including split into major version of browser. I.e. "Firefox 100.3" and "Firefox 100.4" are combined as "Firefox 100".
-* number of telemetry entries per map type
-* number of telemetry entries per LSSM version
-* number of telemetry entries for each of the available modules.
+* número total de registros de telemetria atuais para os seguintes períodos de tempo:
+    * últimos 6 meses
+    * últimos 30 dias
+    * últimos 7 dias
+    * últimas 24 horas
+    * data do calendário do dia de acordo com o horário Alemão
+* número de entradas de telemetria de utilizadores com ou sem conta premium
+* número de entradas de telemetria por idioma
+    * incluindo divisão entre versão "normal" e versão polícia, se disponível
+* número de entradas de telemetria por navegador
+    * incluindo divisão na versão principal do navegador. Por exemplo "Firefox 100.3" e "Firefox 100.4" serão combinados como "Firefox 100" 
+* número de entradas de telemetria por tipo de mapa
+* número de entradas de telemetria por versão LSMM
+* número de entradas de telemetria para cada um dos módulos disponíveis.
 
-Inference to individual records is **not** possible through these statistics.
+Inferência para registros individuais **não** é possível através de estastísticas.
 
-## Collection of metadata by third-party providers
+## Compilação de metadados por fornecedores terceiros
 
-LSSM itself does not use any tools, libraries, utilities or similar, which could collect metadata of the users.
-With the use of a browser and an userscript manager, such as [Tampermonkey][tampermonkey], a collection of metadata of these may not be avoided.
-All of this collected data is not accessible or viewable by the LSSM team and cannot be prevented, favored or manipulated by LSSM.
-Information about the data collection of the respective software used can be found in the information sources of the respective software.
+O próprio LSSM não usa ferramentas, bibliotecas, utilitários ou similares, que podem coletar metadados dos utilizadores.
+Com o uso de navegadores e um userscript manager, tal como [Tampermonkey][tampermonkey], é inevitável a compilação de metadados.
+Todas as compilações de dados não são acessíveis ou visíveis pela equipa LSSM e não podem ser prevenido, favorecido ou manipulado pela equipa LSSM.
+Informação sobre a compilação de dados do respectivo software usado pode ser encontradas nas fontes de informação do respectivo software.
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/

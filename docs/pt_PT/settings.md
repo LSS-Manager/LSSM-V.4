@@ -1,43 +1,42 @@
 ---
-title: Settings ⚙️
-lang: en_US
+title: Configurações ⚙️
+lang: pt_PT
 ---
 
-# Settings ⚙️
+# Configurações ⚙️
 
-The settings of all modules are managed centrally in the settings. Only the settings of active modules can be changed.
+As configurações de todos os módulos são gerenciados centralmente nas configurações. Apenas as configurações de módulos ativos podem ser alteradas.
 
-It is planned to add a possibility to export and import the settings as in `LSSM V.3`.
-In addition, we would like to offer the possibility to save settings profile-bound in the near future. This means that settings are no longer device-bound.
+Ao clicar nos butões `Exportar` e `Importar`, podes guardar as configurações num ficheiro e/ou partilhar com os teus amigos. Num próximo futuro, gostariamos de oferecer a possibilidade de guardar as configurações na conta. Isto quer dizer que as configurações passam a ser guardadas na conta em vez de no dispositivo.
 
-::: tip Changes
-As soon as you exit the settings and have saved changes, the game will reload to easily apply all settings.
-If you have unsaved changes, you can't close the settings, you will get a small hint message.
+::: tip Alterações
+Assim que saíres da página de configurações e tiveres guardado as alterações, o jogo vai recarregar para aplicar todas as configurações alteradas mais facilmente.
+Se tiveres alterações não guardadas, irás receber uma notificação quando fechares a página de configurações.
 :::
-
-::: danger Reset the settings
-Caution: If you reset settings, they cannot be restored without previous export!
+::: danger Reverter Configurações
+Atenção: Se reverteres as configurações, as mesmas não poderam ser recuperadas sem um ficheiro que tenhas exportado previamente!
 :::
 
 
 ## Moment.js
-This section provides some information on how to configure the date-time configs, e.g. in the module [clock](modules/clock.md).
 
-We use [Moment.js](https://momentjs.com) to offer a large selection of configuration. If you wish to see the original documentation you can find that [here](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/).
+Esta secção fornece alguma informação em como configurar a data/hora nas configurações, por exemplo no módulo [relógio](modules/clock.md).
 
-### Live-Editor
-Try your own format here and see a live preview! See information on configuration below.
+Nós usamos [Moment.js](https://momentjs.com) para oferecer uma grande seleção de opções. Se quiseres ver o documento original, podes encontrá-lo [aqui](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/).
+
+### Editor-Live
+Tenta o teu próprio formato aqui e veja uma pré-visualização do resultado! Veja informações sobre configurações em baixo.
 
 <momentjs-preview/>
 
-### Variables
+### Variáveis
 <momentjs-variables/>
 
-### Locale short forms
+### Forma curtas de localidade
 <momentjs-shorts/>
 
-### Normal Text
-If you want to include other text with your clock such as `hour`, simply typing `LTS hour` will not work. That results in `11:13:27 AM 11our`. In order to include text that shouldn't be formatted, surround it in `[]`. `LTS [Hour]` or `LTS [H]our` will both result in `11:13:27 AM Hour` being displayed.
+### Texto Normal
+Se quiseres incluir outro texto com o teu relógio como por exemplo `hora`, simplesmente escrevendo `LTS hora` não irá funcionar pois o resultado será `11:13:27 AM 11ora`. De forma a incluir o texto que não deve ser formatado, encaixe o texto com `[]`. `LTS [Hora]` ou `LTS [H]ora` irá resultar em `11:13:27 AM Hora`.
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/

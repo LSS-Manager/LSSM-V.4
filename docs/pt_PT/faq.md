@@ -1,53 +1,57 @@
 ---
-title: FAQ ❓
+title: Perguntas Frequentes ❓
 lang: pt_PT
 sidebarDepth: 3
 ---
 
-# FAQ ❓
+# Perguntas Frequentes ❓
 
 ## LSS-Manager não carrega no meu jogo. O que devo fazer?
 
 Existem duas possibilidades:
 
 ### 1. LSS-Manager ainda não suporta o teu jogo
+LSS-Manager apenas funciona em jogos para os quais possui traduções. Nós (a equipa LSSM) decidimos não adicionar traduções para todos os jogos, porque levaria muito tempo, e também porque nós não conhecemos a maioria dos idiomas.
 
-LSS-Manager apenas funciona em jogos para os quais possuis traduções. Nós (a equipa LSSM) decidimos não adicionar traduções para todos os jogos, porque levaria muito tempo, e também porque nós não falamos a maioria dos idiomas.
-
-Se quiseres que o LSSM funcione no teu jogo, podes ajudar-nos a adicionar traduções. Podes encontrar ajuda no nosso <discord/>. Por favor also dê uma olhadela na nossa [Guia de Contribuição][contributing] que explica como fazer traduções.
+Se quiseres que o LSSM funcione no teu jogo, podes ajudar-nos a adicionar traduções. Dirija-te ao nosso <discord/> se precisares de ajuda. Por favor, também veja o nosso [Guia de Contribuição][contributing] que explica como fazer traduções.
 
 ### 2. Há um bug no LSS-Manager
-
-Nesse caso, por favor refere to [Repotar Bugs][docs.error_report] ou [Suporte][docs.support].
+Nesse caso, por favor refira-se a [Repotar Bugs][docs.error_report] ou [Suporte][docs.support].
 
 ## Quanto custa LSS Manager?
-LSS-Manager é de graça - nós não pretendemos mudar isto.
 
-Gostarias de suportar-nos financialmente? Então és bem vindo a enviar uma doação [Aqui][lssm.donations]. Ficamos felizes com qualquer apoio!
+LSS-Manager é de graça - não pretendemos mudar isto.
+
+Gostarias de suportar-nos financialmente? Então és bem vindo a enviar uma doação [aqui][lssm.donations]. Ficamos felizes com qualquer apoio!
 
 :::warning Doações
 Todas as doações serão apenas para cobrir os nossos custos operacionais. Não pretendemos fazer lucro e não iremos distribuir qualquer lucro.
 
-Doações não têm qualquer influencia no desenvolvimentos do LSSM! Não iremos investir mais ou menos tempo e não haverá benefícios para utilizadores individuais como conteúdo premium. O desenvolvimento do LSSM irá se manter de forma voluntária no nosso tempo livre e o uso irá se manter completamente de graça para todos os utilizadores!
+Doações não têm qualquer influencia no desenvolvimentos do LSSM! Não iremos investir mais ou menos tempo no projeto e não haverá benefícios para utilizadores individuais como conteúdo premium. O desenvolvimento do LSSM irá se manter de forma voluntária no nosso tempo livre e o uso irá se manter completamente de graça para todos os utilizadores!
 
-Claro, ficaremos felizes com qualquer doação, mas também gostariamos to apontar que queremos manter este projeto a desenvolver como antes mesmo sem doações.
+Claro, ficaremos felizes com qualquer doação, mas também gostariamos apontar que queremos manter este projeto a desenvolver como antes mesmo sem doações.
 :::
 
 ## Como posso contribuir para LSS Manager?
+
 O Utilizador pode [Reportar Bugs][docs.error_report] ou [Fazer Sugestões][docs.suggestions]. Para traduções, por favor refira ao nosso [Guia de Contribuição][contributing].
 
-Neste momento estamos a planear um guia de estilo para os desenvolvedores, para que eles também possam adicionar facilmente os seus próprios plugins ao LSSM. Tentamos manter a nossa estrutura limpa e compreensível. No entanto, adicionar um plugin de maneira nenhuma quer dizer que te juntas à equipa LSSM.
+Neste momento estamos a planear um guia de estilo para os desenvolvedores, para que também possam adicionar facilmente os seus próprios plugins ao LSSM. Tentamos manter a nossa estrutura limpa e compreensível. No entanto, adicionar um plugin de maneira nenhuma quer dizer que te juntarás à equipa LSSM.
 
 ## Aonde é que posso reportar bugs?
-Por favor veja [Reportar Bugs][docs.error_report] page.
+
+Podes encontrar informação na página de [Reportar Bugs][docs.error_report].
 
 ## Como posso obter suporte?
+
 Através do nosso sistema de [Suporte][docs.support].
 
 ## Aonde envio ideias?
-Nas [Sugestões][docs.suggestions] page.
+
+Por favor, veja [Sugestões][docs.suggestions].
 
 ## Em quais navegadores LSS Manager funciona?
+
 Apenas navegadores de PC estão listados aqui, já que os navegadores móveis não são oficialmente suportados.
 
 Desde que queremos manter os padrões de codificação mais recente, um navegadore moderno e atualizado é recomendado e necessário - mesmo que seja apenas por razões de segurança, mesmo fora do jogo.
@@ -55,7 +59,7 @@ Desde que queremos manter os padrões de codificação mais recente, um navegado
 <browser-support-table/>
 
 :::danger Internet Explorer e Safari
-Esses dois navegadores podem ser descritos como "crianças problemáticas" de um desenvolvedor de navegador moderno. Existem algumas funções que nao funcionam, ou requrem código adicional.
+Esses dois navegadores podem ser descritos como "crianças problemáticas" de um desenvolvedor de navegador moderno. Existem algumas funções que nao funcionam, ou requerem código adicional.
 
 Não vemos qual é o ponto de fazer isto em todo o lado e oficialmente **não** suportar esses dois navegadores.
 :::
@@ -67,21 +71,24 @@ A resposta é: Sim - através de desvios - mas não oferecemos qualquer suporte 
 
 Como é que funciona?
 
-1. Istala Firefox para Android (Tem de ser pelos a versão 110)
-2. Inicie Firefox e abra o menu de contexto (três pontos na barra do menu)
-3. Clique em "Extras" e Tampermonker deve estar na lista de recomendados.
+1. Istale Firefox para Android (Tem de ser pelos a versão 110)
+2. Inicie Firefox e abre o menu de contexto (três pontos na barra do menu)
+3. Clique em "Extras" e instale Tampermonker (deve estar na lista de recomendados).
 4. Continue com o guia normal [Instruções de Instalação][docs.home]
 
 ## Eu quero partilhar as minhas configurações com os meus amigos ou vários dispositivos. É possível?
-Sim é. Apenas abra as [Configurações][docs.settings] e clique `Exportar`, para fazer download do ficheiro. `Importar` deixa-te escolher um ficheiro para importar as configurações.
+
+Sim é possível. Apenas abra as [Configurações][docs.settings] e clique `Exportar`, para transferir o ficheiro. `Importar` deixa-te escolher um ficheiro para importar as configurações.
 
 ## Existe alguma forma de guardar as configurações na conta para que então não tenha que importar num outro dispositivo?
-Por enquanto não suportamos isto, mas estamos a planear em implementar isso no futuro.
+
+Por enquanto não suportamos isto, mas estamos a planear em implementar no futuro.
 
 ## Aonde posso ver se os servidores do LSSM estão online?
-Melhor aqui: [https://status.lss-manager.de/](https://status.lss-manager.de/)
 
-Ou no <discord-channel channel="tempo de atividade"/> no nosso <discord/>
+Através deste site: [https://status.lss-manager.de/](https://status.lss-manager.de/)
+
+Ou no canal <discord-channel channel="uptime"/> no nosso <discord/>
 
 [contributing]: contributing.md
 

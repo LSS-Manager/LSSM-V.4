@@ -5,14 +5,17 @@ sidebarDepth: 2
 ---
 
 # Sugestões :bulb:
+
 :::tip
 Por favor, pensa nas sugestões de forma meticulosamente antes de sugerires. Isto ajuda-nos a perceber mais eficientemente.
 :::
 
 ## Através Discord
-No nosso <discord/> podes fazer sugestões no canal <discord-channel channel="sugestões"/>.
+
+No nosso <discord/> podes fazer sugestões no canal <discord-channel channel="suggestions"/>.
 
 ## No GitHub
+
 Também podes abrir um issue no [GitHub][github.issues]. Por favor, verifique que esta sugestão existe, se sim, adicione um comentário em vez de abrir um issue novo.
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->

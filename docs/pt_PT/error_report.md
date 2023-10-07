@@ -1,36 +1,37 @@
 ---
-title: Reportar Bugs
+title: Reportar Erros
 lang: pt_PT
 sidebarDepth: 2
 ---
 
-# Reportar bugs
+# Reportar Erros
 
 ## Diretrizes
-Aqui está um pequeno tutorial de como reportar um bug.
 
-Antes de reportar um bug, verifique na wiki se é um conteúdo do LSSM, ou se alguém já reportou o bug.
+Aqui está um pequeno tutorial de como reportar um erro.
+
+Antes de reportar um erro, verifique na wiki se é um conteúdo do LSSM, ou se alguém já reportou o erro.
 
 :::tip
-Quando reportar um bug, descreva com todo o detalhe possível. Quanto mais detalhado o relatório for, mais depressa podemos ajudar.
+Quando reportar um erro, descreva com todo o detalhe possível. Quanto mais detalhado o relatório for, mais depressa podemos ajudar.
 :::
 :::warning
-Por favor note que nós não suportamos oficialmente; navegadores antigos; navegadores do telemóvel; Microsoft Edge; ou Internet Explorer.
+Por favor, note que nós não suportamos oficialmente; navegadores antigos; navegadores móveis; Microsoft Edge; ou Internet Explorer.
 :::
 
-### 1. Descrever Bug
-* Descreva o bug. 
+### 1. Descrever Erro
+* Descreva o erro. 
 * Forneça qualquer e toda a informação que possa ser importante. 
-* Explique o que estavas a fazer quando aconteceu o erro.
+* Explique o que estava a fazer quando aconteceu o erro.
 
-### 2. Especifique user data
+### 2. Especifique dados de utilizador
 Por favor forneça o seu;
-* Nome de Utilizador or Utilizador ID.
-* Lista de módulos ativados.
-* Versão LSSM: Podes encontrar a versão ao clicar `LSSM V.4` no canoto superior direito da página principal do jogo, na primeira linha.
+* Nome de Utilizador or ID de Utilizador.
+* Lista de módulos ativos.
+* Versão LSSM: Podes encontrar a versão ao clicar `LSSM V.4` no canto superior direito da página principal do jogo, na primeira linha.
 
 ### 3. Reportar problema
-Agora podes enviar-nos o teu relatório do bug. Para isso, abre um issue no [GitHub][github.issues]. Por favor verifique se um issue para este bug já existe e só então podes continuar.
+Agora podes enviar o teu relatório do erro. Para isso, abre um issue no [GitHub][github.issues]. Por favor, verifique se um issue para este erro já existe e só então podes continuar.
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/

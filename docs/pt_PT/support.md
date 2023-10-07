@@ -1,40 +1,44 @@
 ---
-title: Support 👨‍💻
-lang: en_US
+title: Suporte 👨‍💻
+lang: pt_PT
 sidebarDepth: 2
 ---
 
-# Support 👨‍💻
+# Suporte 👨‍💻
 
-## Guideline
-A little aid, which should help you to create a support request.
+## Instruções
+
+Uma pequena ajuda, no qual irá ajudar-te a criar um relatório de suporte.
 
 :::tip
-If you need assistance, describe your problem as precisely as possible. The better and more detailed you describe your problem, the faster and better we can help you.
+Se precisares de assistência, descreva o seu problema com o todos os detalhes possíveis, quando melhor e mais detalhadamente descreveres o teu problema, mais facilmente conseguiremos ajudar.
 :::
 :::warning
-Please note that we do not officially support; older browsers; mobile browsers; Microsoft Edge; or Internet Explorer.
+Por favor, note que nós não suportamos oficialmente; navegadores antigos; navegadores móveis; Microsoft Edge; ou Internet Explorer.
 :::
 
-### 1. Formulate problem
-First describe your problem. Include any information that could be important. Also explain what you have already tried.
+### 1. Formular problema
+Primeiro descrava o seu problema incluindo qualquer informação que possa ser importanto. Explique também o que já tentaste fazer para resolver o problema.
 
-### 2. Specify user data
-Please provide us your username or userId. It is also useful to name the activated modules.
+### 2. Especifique os dados de utilizador
+Por favor, forneça-nos o seu nome de utilizador e ID de utilizador. Também é util que nos diga os módulos que tiver ativado.
 
-### 3. Report problem
-Now you can send us your formulated problem with user data. Use one of the options listed below.
+### 3. Reporte o problema
+Agora podes enviar-nos o seu problema formulado com os dados de utilizador. Use uma das opções listadas em baixo.
 
-## via Discord
-On our <discord/> you can get support in the channel <discord-channel channel="lssm-help"/>.
+## através Discord
 
-## on GitHub
-You may also open an issue on [GitHub][github.issues]. Please check here if an issue for this problem already exists and then follow it up.
+No nosso <discord/> podes obter suporte no canal <discord-channel channel="lssm-help"/>.
 
-## Planned: Support directly in the game
-In order to be able to give you support even faster and easier, we would like to integrate our own support chat. Once it is available, you can reach it via the LSSM menu in the game. We will do our best to help you as good and fast as possible, but again: The more detailed you describe your problem from the beginning, the better we can help you!
+## no GitHub
 
-As soon as it is so far we will of course inform you about it in the release notes :wink:
+Também podes abrir um issue no [GitHub][github.issues]. Por favor, confirme aqui se um issue para o teu problema já existe, se já existir então comente no issue.
+
+## Planeado: Suporte diretamente através do jogo
+
+De forma a podermos dar-te suporte ainda mais rápidamente e facilmente, gostariamos de integrar o nosso próprio chat de suporte. Assim que estiver disponível, poderás aceder através do menu do LSSM no jogo. Iremos fazer o nosso melhor para te ajudar da melhor forma e o mais rápido possível, mas novamente: Quanto mais detalhado o teu problema estiver descrito desde o início, mais facilmente podemos ajudar. 
+
+Assim que o problema estiver resolvido, iremos informá-lhe sobre o mesmo nas notas de lançamento.
 
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/

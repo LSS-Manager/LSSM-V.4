@@ -6,7 +6,7 @@ sidebarDepth: 2
 
 # Bugs Conhecidos :bug:
 
-:::tip actuality
+:::tip Actualidade
 Este resumo é atualizado a cada atualização da versão beta do LSSM. Podes sempre encontrar a versão mais recente no nosso [GitHub Issues][github.issues.open]
 :::
 
