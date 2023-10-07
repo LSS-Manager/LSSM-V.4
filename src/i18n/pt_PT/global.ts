@@ -1,7 +1,7 @@
 export default {
     updateUserscript: {
         title: 'Userscript desatualizado',
-        text: `Caro LSSM-User,<br>
+        text: `Caro LSSM-Utilizador,<br>
         infelizmente o nosso LSSM V.4 userscript está desatualizado. Na última versão fizemos alterações ao userscript, que serão importantes nas funcionalidades do LSSM V.4.<br>
         Precisas no mínimo da versão {minVersion}, faz o teu update através de {updateLink}.<br>
         Por vezes carregar no link do update pode não funcionar (por razões desconhecidadas). Podes fazer o update através do Tampermonkey (carrega no icon do tampermonkey do teu browser, depois "Overview". Na caixa à frente do LSSM userscript e seleciona "Update").<br>
@@ -13,26 +13,26 @@ export default {
     },
     error: {
         title: 'LSS Manager: Erro',
-        msg: 'Se este erro ocorre frequentemente, por favor reporta à equipa LSSM!',
+        msg: 'Se este erro ocorre frequentemente, por favor reporte à equipa LSSM!',
         requestIssue: {
-            title: 'Erroneous request: Status {status}',
+            title: 'Solicitação Errada: Estado {status}',
             text: `Ouch, infelizmente ocorreu um erro com esta solicitação de servidor:<br>
 <b>Estado</b>: <code>{status}</code> <code>{statusText}</code><br>
-<b>URL</b>: <em><code>{method}</code></em> <code>{url}</code><br>
-<b>Feature</b>: <code>{feature}</code><br>
+<b>Link</b>: <em><code>{method}</code></em> <code>{url}</code><br>
+<b>Conteúdo</b>: <code>{feature}</code><br>
 <b>Duração</b>: <code>{duration}ms</code><br>
-<b>User</b>: <code>{uid}</code><br>
-<b>Timestamp</b>: <code>{timestamp}</code>
+<b>Utilizador</b>: <code>{uid}</code><br>
+<b>Data</b>: <code>{timestamp}</code>
 <br>
 Por favor tenta fazer a última ação novamente.<br>
-Se várias solicitações falharem em um curto espaço de tempo, pode ser por cause de problemas de servidor. Por favor tenta novamente mais tarde.`,
+Se várias solicitações falharem em um curto espaço de tempo, pode ser causado por problemas de servidor. Por favor tenta novamente mais tarde.`,
             close: 'Ok',
         },
     },
     warnings: {
         version: {
-            title: 'Versão errada LSS',
-            text: 'Caro utilizador, infelizmente descobrimos que não estás a usar a última versão do LSS Manager. A última versão é {version}, mas estás a usar {curver}. Por favor recarrega o teu jogo sem cache (com Ctrl + F5, em dispositivos Apple command + R), isto deve resolver o bug. Se o erro persistir, por favor reporta à nossa equipa! Se usas a versão antiga não podemos garantir que todas as funcionalidades do LSS-Manager funcionem corretamente.',
+            title: 'Versão LSSM errada',
+            text: 'Caro utilizador, infelizmente descobrimos que não estás a utilizar a última versão do LSS Manager. A última versão é {version}, mas estás a usar {curver}. Por favor, recarrega o teu jogo sem cache (com Ctrl + F5, em dispositivos Apple command + R), isto deve resolver o erro. Se o erro persistir, por favor reporte à nossa equipa! Se usas a versão antiga não podemos garantir que todas as funcionalidades do LSS-Manager funcionem corretamente.',
             close: 'Fechar a mensagem e recarregar (recomendado)',
             abort: 'Fechar a mensagem sem recarregar o jogo',
         },
@@ -49,12 +49,12 @@ Se várias solicitações falharem em um curto espaço de tempo, pode ser por ca
         },
         allowTelemetry: {
             description:
-                'Controla se LSS-Manager pode enviar Data para ajudar a desenvolver esta extenção.',
-            title: 'Permitir Telemetry',
+                'Controle se LSS-Manager pode enviar dados de telemetry para ajudar a desenvolver esta extenção.',
+            title: 'Permitir telemetria',
         },
         branch: {
             description:
-                'Escolhe entre Estável, Beta ou uma versão de visualização. Nota que versões de visualização serão automáticamente apagadas apróximadamente depois da última atualização.',
+                'Escolhe entre Stable, Beta ou uma versão de visualização. Nota que versões de visualização serão automáticamente apagadas apróximadamente 7 dias depois da última atualização.',
             title: 'Escolhe versão',
         },
         iconBg: {
@@ -63,7 +63,7 @@ Se várias solicitações falharem em um curto espaço de tempo, pode ser por ca
         },
         iconBgAsNavBg: {
             description:
-                'Pinte a barra de navegação toda com a mesma cor de fundo do ícone do LSSMColor the whole navbar in the color of LSSM-Icon Background!',
+                'Pinte a barra de navegação toda com a mesma cor de fundo do ícone do LSSM!',
             title: 'Pinte a barra de navegação',
         },
         loadingIndicator: {
@@ -73,12 +73,12 @@ Se várias solicitações falharem em um curto espaço de tempo, pode ser por ca
         },
         osmDarkTooltip: {
             description:
-                'Esta configuração escurece as dicas de contexto no mapa se tiveres o modo escuro ativado.',
+                'Esta configuração escurece as dicas de contexto no mapa se o modo escuro estiver ativo.',
             title: 'Dicas de contexto escuras no mapa',
         },
         osmDarkControls: {
             description:
-                'Esta configuração escurece os butões no mapa se tiveres o modo escuro ativado.',
+                'Esta configuração escurece os butões no mapa se o modo escuro estiver ativo.',
             title: 'Butões escuros no mapa',
         },
         v3MenuAsSubmenu: {
@@ -89,7 +89,7 @@ Se várias solicitações falharem em um curto espaço de tempo, pode ser por ca
         debugMode: {
             title: 'Debug-Mode',
             description:
-                'Um pequno modo debug que mostra dicas úteis na consola do navegador. É recomendado ativá-lo apenas se for pedido pela equipa do LSSM, porque a consola vai ter muitas mensagens.',
+                'Um pequno modo debug que mostra informação útil na consola do navegador. É recomendado ativar apenas se for pedido pela equipa do LSSM, porque a consola vai ter muitas mensagens.',
         },
     },
 };

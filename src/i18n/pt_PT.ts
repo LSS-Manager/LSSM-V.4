@@ -3,11 +3,11 @@ const modules = {
         save: 'Guardar',
         reset: 'Restabelecer',
         noMapkit:
-            '¡Este módulo não funciona com o tipo de mapa "Mapkit" devido às limitações do Mapkit!',
+            '¡Este módulo não funciona com o tipo de mapa "Mapkit" devido a limitações do Mapkit!',
         dev: 'Este módulo continua em desenvolvimento. Ativa-lo pode provocar funcionalidades incompletas e defeituosas!',
         closeWarning: {
             title: 'Alterações não guardadas',
-            text: 'Fizeste alterações na AppStore que não foram guardadas. Reinicia-as ou guarda-as para fechar a AppStore.',
+            text: 'Fizeste alterações na AppStore que não foram guardadas. Restabelece, descarta ou guarda as alterações para fechar a AppStore.',
             abort: 'Cancelar',
             saveAndExit: 'Guardar e Sair',
             exit: 'Sair sem guardar',
@@ -23,21 +23,21 @@ const modules = {
         donate: 'Doar Voluntariamente',
         resetWarning: {
             title: 'Restabelecer a configuração',
-            text: 'Realmente deseja restabelecer a configuração aos seus valores inicais? Isto não se pode desfazer!',
+            text: 'Realmente deseja restabelecer a configuração aos seus valores inicais? Isto não se pode ser recuperado!',
             close: 'Cancelar',
             total: 'Todas as definições',
             module: 'Só neste módulo',
         },
         resetWarningSetting: {
             title: 'Restabelecer Definições',
-            text: 'Quere restablecer esta configuração <b>{setting}</b> do módulo <b>{module}</b> aos seus valores iniciais?',
+            text: 'Quer restablecer esta configuração <b>{setting}</b> do módulo <b>{module}</b> aos seus valores iniciais?',
             close: 'Cancelar',
             reset: 'Restabelecer',
         },
         closeWarning: {
             title: 'Alterações não guardadas',
-            text: 'Fizeste alterações nas definições que não foram guardadas. Restabelece, descarta ou guarda para fechar as definições.',
-            close: 'Fechar a mensagem',
+            text: 'Fizeste alterações nas definições que não foram guardadas. Restabelece, descarta ou guarda as alteraçóes para fechar as definições.',
+            close: 'Fechar mensagem',
         },
         changeList: {
             true: 'On',
@@ -122,7 +122,7 @@ export default {
     mapSearch: 'Procurar localização',
     alliance: 'Aliança',
     premiumNotice:
-        'Esta função amplia uma função premium do jogo e, por isso, só está disponível para jogadores com uma conta premium do jogo!',
+        'Esta função amplia uma função premium do jogo e, por isso, só está disponível para jogadores com conta premium!',
     credits: 'Créditos',
     coins: 'Moedas',
     close: 'Fechar',
