@@ -7,8 +7,7 @@ lang: en_GB
 
 The settings of all modules are managed centrally in the settings. Only the settings of active modules can be changed.
 
-It is planned to add a possibility to export and import the settings as in `LSSM V.3`.
-In addition, we would like to offer the possibility to save settings profile-bound in the near future. This means that settings are no longer device-bound.
+Using the `Export` and `Import` buttons, you can save your settings to a file and/or share them with your friends. In the near future, we would like to offer the possibility to save settings profile-bound. This means that settings are then no longer bound to a device.
 
 ::: tip Changes
 As soon as you exit the settings and have saved changes, the game will reload to easily apply all settings.
