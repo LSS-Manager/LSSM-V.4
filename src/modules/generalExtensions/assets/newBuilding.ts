@@ -1,12 +1,10 @@
 import type { ModuleMainFunction } from 'typings/Module';
 
 export default async (
-    LSSM: Vue,
     saveLastBuildingType: boolean,
     saveLastDispatchCenter: boolean,
     getSetting: Parameters<ModuleMainFunction>[0]['getSetting'],
-    setSetting: Parameters<ModuleMainFunction>[0]['setSetting'],
-    MODULE_ID: string
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting']
 ): Promise<void> => {
     let isBuildingMenu = false;
     let lastBuildingType =
@@ -94,129 +92,133 @@ export default async (
                 }
             }
 
-            form.addEventListener('submit', e => e.preventDefault());
             form.addEventListener('keyup', () => checkFormValidity(form));
 
-            form.addEventListener('click', e => {
-                const btn = (e.target as HTMLElement | null)?.closest(
-                    '.coins_activate, .build_with_credits_step, .alliance_activate'
-                );
-                if (!btn) return;
-                e.preventDefault();
-                btn.removeAttribute('type');
-                if (btn.matches('.coins_activate'))
-                    form.build_with_coins.value = '1';
-                if (btn.matches('.alliance_activate'))
-                    form.build_as_alliance.value = '1';
-                const url = new URL(form.action);
-                (Array.from(form.elements) as HTMLInputElement[]).forEach(
-                    ({ name, value }) => {
-                        if (name === 'commit') return;
-                        url.searchParams.append(name, value);
-                    }
-                );
-                LSSM.$stores.api
-                    .request({
-                        url: '/buildings',
-                        init: {
-                            credentials: 'include',
-                            headers: {
-                                'X-CSRF-Token': form.authenticity_token.value,
-                                'Content-Type':
-                                    'application/x-www-form-urlencoded; charset=UTF-8',
-                                'X-Requested-With': 'XMLHttpRequest',
-                            },
-                            method: 'POST',
-                            mode: 'cors',
-                            body: url.searchParams.toString(),
-                        },
-                        feature: `${MODULE_ID}-newBuilding`,
-                    })
-                    .then(res => res.text())
-                    .then(res => {
-                        const response = document
-                            .createRange()
-                            .createContextualFragment(res);
-                        const successAlert =
-                            response.querySelector<HTMLDivElement>(
-                                '#building_panel_body .alert'
-                            );
-                        if (!successAlert) return;
-                        form.before(successAlert);
-                        btn.setAttribute('type', 'submit');
-                        form['building[name]'].value = '';
-                        form.build_with_coins.removeAttribute('value');
-                        form.build_as_alliance.removeAttribute('value');
+            // Disabled for now as there is an ingame solution for that now.
+            // Will re-enable (and code better) if ingame solution turns out to be shitty
 
-                        const buildingId = parseInt(
-                            successAlert
-                                .querySelector<HTMLAnchorElement>(
-                                    'a.lightbox-open.btn[href^="/buildings/"]'
-                                )
-                                ?.href.match(/\d+\/?$/u)?.[0] ?? '-1'
-                        );
-                        const script = response.querySelector('script');
-                        if (!script) return;
-                        window.buildingMarkerAdd(
-                            JSON.parse(
-                                script.innerHTML.match(
-                                    new RegExp(
-                                        `(?<=buildingMarkerAdd\\(){"id":${buildingId}.*}(?=\\);$)`,
-                                        'm'
-                                    )
-                                )?.[0] ?? '{}'
-                            )
-                        );
-                        window.buildingMarkerBulkContentCacheDraw();
-                        window.building_maps_redraw();
-                        const currentCredits = parseInt(
-                            script.innerHTML.match(
-                                /(?<=creditsUpdate\()\d+(?=\);$)/mu
-                            )?.[0] ?? '-1'
-                        );
-                        window.creditsUpdate(currentCredits);
-                        const currentCoins = parseInt(
-                            script.innerHTML.match(
-                                /(?<=coinsUpdate\()\d+(?=\);$)/mu
-                            )?.[0] ?? '-1'
-                        );
-                        window.coinsUpdate(currentCoins);
-                        form.querySelectorAll<HTMLInputElement>(
-                            '.build_with_credits_step'
-                        ).forEach(creditsBtn => {
-                            const credits = parseInt(
-                                creditsBtn.value
-                                    .match(/\d{1,3}(\.\d{3})*/u)?.[0]
-                                    .replace(/\./u, '') ?? '-1'
-                            );
-                            if (credits <= currentCredits) return;
-                            creditsBtn.classList.replace(
-                                'btn-success',
-                                'btn-danger'
-                            );
-                            creditsBtn.classList.add('disabled');
-                        });
-                        form.querySelectorAll<HTMLInputElement>(
-                            '.coins_activate'
-                        ).forEach(coinsBtn => {
-                            const coins = parseInt(
-                                coinsBtn.value
-                                    .match(/\d{1,3}(\.\d{3})*/u)?.[0]
-                                    .replace(/\./u, '') ?? '-1'
-                            );
-                            if (coins <= currentCoins) return;
-                            coinsBtn.classList.replace(
-                                'btn-success',
-                                'btn-danger'
-                            );
-                            coinsBtn.classList.add('disabled');
-                        });
-                    })
-                    .finally(() => {
-                        btn.setAttribute('type', 'submit');
-                        checkFormValidity(form);
-                    });
-            });
+            // form.addEventListener('submit', e => e.preventDefault());
+            //
+            // form.addEventListener('click', e => {
+            //     const btn = (e.target as HTMLElement | null)?.closest(
+            //         '.coins_activate, .build_with_credits_step, .alliance_activate'
+            //     );
+            //     if (!btn) return;
+            //     e.preventDefault();
+            //     btn.removeAttribute('type');
+            //     if (btn.matches('.coins_activate'))
+            //         form.build_with_coins.value = '1';
+            //     if (btn.matches('.alliance_activate'))
+            //         form.build_as_alliance.value = '1';
+            //     const url = new URL(form.action);
+            //     (Array.from(form.elements) as HTMLInputElement[]).forEach(
+            //         ({ name, value }) => {
+            //             if (name === 'commit') return;
+            //             url.searchParams.append(name, value);
+            //         }
+            //     );
+            //     LSSM.$stores.api
+            //         .request({
+            //             url: '/buildings',
+            //             init: {
+            //                 credentials: 'include',
+            //                 headers: {
+            //                     'X-CSRF-Token': form.authenticity_token.value,
+            //                     'Content-Type':
+            //                         'application/x-www-form-urlencoded; charset=UTF-8',
+            //                     'X-Requested-With': 'XMLHttpRequest',
+            //                 },
+            //                 method: 'POST',
+            //                 mode: 'cors',
+            //                 body: url.searchParams.toString(),
+            //             },
+            //             feature: `${MODULE_ID}-newBuilding`,
+            //         })
+            //         .then(res => res.text())
+            //         .then(res => {
+            //             const response = document
+            //                 .createRange()
+            //                 .createContextualFragment(res);
+            //             const successAlert =
+            //                 response.querySelector<HTMLDivElement>(
+            //                     '#building_panel_body .alert'
+            //                 );
+            //             if (!successAlert) return;
+            //             form.before(successAlert);
+            //             btn.setAttribute('type', 'submit');
+            //             form['building[name]'].value = '';
+            //             form.build_with_coins.removeAttribute('value');
+            //             form.build_as_alliance.removeAttribute('value');
+            //
+            //             const buildingId = parseInt(
+            //                 successAlert
+            //                     .querySelector<HTMLAnchorElement>(
+            //                         'a.lightbox-open.btn[href^="/buildings/"]'
+            //                     )
+            //                     ?.href.match(/\d+\/?$/u)?.[0] ?? '-1'
+            //             );
+            //             const script = response.querySelector('script');
+            //             if (!script) return;
+            //             window.buildingMarkerAdd(
+            //                 JSON.parse(
+            //                     script.innerHTML.match(
+            //                         new RegExp(
+            //                             `(?<=buildingMarkerAdd\\(){"id":${buildingId}.*}(?=\\);$)`,
+            //                             'm'
+            //                         )
+            //                     )?.[0] ?? '{}'
+            //                 )
+            //             );
+            //             window.buildingMarkerBulkContentCacheDraw();
+            //             window.building_maps_redraw();
+            //             const currentCredits = parseInt(
+            //                 script.innerHTML.match(
+            //                     /(?<=creditsUpdate\()\d+(?=\);$)/mu
+            //                 )?.[0] ?? '-1'
+            //             );
+            //             window.creditsUpdate(currentCredits);
+            //             const currentCoins = parseInt(
+            //                 script.innerHTML.match(
+            //                     /(?<=coinsUpdate\()\d+(?=\);$)/mu
+            //                 )?.[0] ?? '-1'
+            //             );
+            //             window.coinsUpdate(currentCoins);
+            //             form.querySelectorAll<HTMLInputElement>(
+            //                 '.build_with_credits_step'
+            //             ).forEach(creditsBtn => {
+            //                 const credits = parseInt(
+            //                     creditsBtn.value
+            //                         .match(/\d{1,3}(\.\d{3})*/u)?.[0]
+            //                         .replace(/\./u, '') ?? '-1'
+            //                 );
+            //                 if (credits <= currentCredits) return;
+            //                 creditsBtn.classList.replace(
+            //                     'btn-success',
+            //                     'btn-danger'
+            //                 );
+            //                 creditsBtn.classList.add('disabled');
+            //             });
+            //             form.querySelectorAll<HTMLInputElement>(
+            //                 '.coins_activate'
+            //             ).forEach(coinsBtn => {
+            //                 const coins = parseInt(
+            //                     coinsBtn.value
+            //                         .match(/\d{1,3}(\.\d{3})*/u)?.[0]
+            //                         .replace(/\./u, '') ?? '-1'
+            //                 );
+            //                 if (coins <= currentCoins) return;
+            //                 coinsBtn.classList.replace(
+            //                     'btn-success',
+            //                     'btn-danger'
+            //                 );
+            //                 coinsBtn.classList.add('disabled');
+            //             });
+            //         })
+            //         .finally(() => {
+            //             btn.setAttribute('type', 'submit');
+            //             checkFormValidity(form);
+            //         });
+            // });
         })
     );
 
