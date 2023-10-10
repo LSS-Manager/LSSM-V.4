@@ -6,7 +6,7 @@ export default {
     },
     categories: {
         allianceMission: {
-            regex: /^\[ALIANÇA\]/u,
+            regex: /^\[Aliança\]/u,
             title: 'Missões da Aliança',
             backgroundColor: '#ff2800',
             textColor: 'white',
@@ -34,19 +34,19 @@ export default {
             textColor: 'black',
         },
         buildings: {
-            regex: /(Edifício Construído|Edifício demolido sem reembolso|Edifício Reembolsado)/u,
+            regex: /(Edifício construído|Edifício demolido sem reembolso|Reembolso de edifício)/u,
             title: 'Edifício Construído/Demolido',
             backgroundColor: '#ed872d',
             textColor: 'black',
         },
         upgradeBuilding: {
-            regex: /(Estação (atualizada(da estação pequena)|construída)|Guarda extendida|Cancelar:|Atualização de Edifícop Reembolsada|Especialização (construída|cancelada))/u,
+            regex: /(Estação (atualizada(da estação pequena)|construída)|Guarda extendida|Cancelar:|Atualização de Edifício Reembolsada|Especialização (construída|cancelada))/u,
             title: 'Estação construída/extendida',
             backgroundColor: '#000080',
             textColor: 'white',
         },
         task: {
-            regex: /Tarefa Completada («.*?»|".*?")/u,
+            regex: /Completou a tarefa («.*?»|".*?")/u,
             title: 'Tarefa Completada',
             backgroundColor: '#bb3385',
             textColor: 'white',
