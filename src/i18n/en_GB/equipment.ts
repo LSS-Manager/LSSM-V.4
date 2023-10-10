@@ -7,5 +7,6 @@ export default registerEquipment({
         size: 10,
         credits: 25_000,
         coins: 15,
+        staff: { min: 0 },
     },
 });
