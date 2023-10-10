@@ -77,6 +77,9 @@ interface BaseVehicle {
     staff: {
         min: number;
         max: number;
+        // does it matter how the staff gets there or does it need to sit on the vehicle / tractive vehicle?
+        // if it doesn't matter, use the amount required, otherwise don't set this
+        trainingAtScene?: number;
         training?: Record<string, Record<string, VehicleSchooling>>;
     };
     icon: IconName;

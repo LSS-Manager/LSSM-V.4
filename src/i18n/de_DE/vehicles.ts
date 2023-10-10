@@ -699,6 +699,7 @@ export default {
         staff: {
             min: 1,
             max: 6,
+            trainingAtScene: 6,
             training: {
                 Feuerwehr: {
                     dekon_p: {
@@ -717,7 +718,18 @@ export default {
         color: '#450707',
         credits: 6000,
         coins: 12,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            trainingAtScene: 6,
+            training: {
+                Feuerwehr: {
+                    dekon_p: {
+                        all: true,
+                    },
+                },
+            },
+        },
         icon: 'square',
         possibleBuildings: [0, 18],
         isTrailer: true,
@@ -899,18 +911,6 @@ export default {
         staff: {
             min: 1,
             max: 6,
-            training: {
-                Feuerwehr: {
-                    gw_wasserrettung: {
-                        min: 0,
-                    },
-                },
-                Rettungsdienst: {
-                    gw_wasserrettung: {
-                        min: 0,
-                    },
-                },
-            },
         },
         icon: 'truck',
         possibleBuildings: [0, 12, 15, 18, 22],
@@ -929,9 +929,22 @@ export default {
         color: '#1b428a',
         credits: 6000,
         coins: 12,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            trainingAtScene: 4,
+            training: {
+                THW: {
+                    gw_wasserrettung: {
+                        all: true,
+                    },
+                },
+            },
+        },
         icon: 'trailer',
         possibleBuildings: [9],
+        isTrailer: true,
+        tractiveVehicles: [65],
         special:
             'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
     },
@@ -940,9 +953,22 @@ export default {
         color: '#245390',
         credits: 6000,
         coins: 12,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            trainingAtScene: 4,
+            training: {
+                THW: {
+                    gw_wasserrettung: {
+                        all: true,
+                    },
+                },
+            },
+        },
         icon: 'trailer',
         possibleBuildings: [9],
+        isTrailer: true,
+        tractiveVehicles: [65],
         special:
             'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
     },
@@ -951,9 +977,22 @@ export default {
         color: '#296497',
         credits: 6000,
         coins: 12,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            trainingAtScene: 4,
+            training: {
+                THW: {
+                    gw_wasserrettung: {
+                        all: true,
+                    },
+                },
+            },
+        },
         icon: 'trailer',
         possibleBuildings: [9],
+        isTrailer: true,
+        tractiveVehicles: [65],
         special:
             'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
     },
@@ -981,9 +1020,27 @@ export default {
         color: '#9ac8a6',
         credits: 6000,
         coins: 12,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            trainingAtScene: 4,
+            training: {
+                Feuerwehr: {
+                    gw_wasserrettung: {
+                        all: true,
+                    },
+                },
+                Rettungsdienst: {
+                    gw_wasserrettung: {
+                        all: true,
+                    },
+                },
+            },
+        },
         icon: 'trailer',
         possibleBuildings: [0, 12, 15, 18, 22],
+        isTrailer: true,
+        tractiveVehicles: [63, 64],
         special:
             'Muss von einem "GW-Wasserrettung" oder einem "GW-Taucher" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
     },
@@ -992,7 +1049,23 @@ export default {
         color: '#bf7f6a',
         credits: 6000,
         coins: 12,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            trainingAtScene: 4,
+            training: {
+                Feuerwehr: {
+                    gw_wasserrettung: {
+                        all: true,
+                    },
+                },
+                Rettungsdienst: {
+                    gw_wasserrettung: {
+                        all: true,
+                    },
+                },
+            },
+        },
         icon: 'square',
         possibleBuildings: [0, 18],
         isTrailer: true,
@@ -1115,7 +1188,16 @@ export default {
         color: '#680101',
         credits: 6000,
         coins: 12,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            trainingAtScene: 1,
+            training: {
+                Feuerwehr: {
+                    gw_gefahrgut: { all: true },
+                },
+            },
+        },
         icon: 'square',
         possibleBuildings: [0, 18],
         isTrailer: true,
@@ -1126,7 +1208,16 @@ export default {
         color: '#bf1111',
         credits: 6000,
         coins: 12,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            trainingAtScene: 1,
+            training: {
+                Feuerwehr: {
+                    elw2: { all: true },
+                },
+            },
+        },
         icon: 'square',
         possibleBuildings: [0, 18],
         isTrailer: true,
@@ -1359,12 +1450,22 @@ export default {
         color: '#131f6e',
         credits: 6000,
         coins: 0,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            training: {
+                THW: {
+                    thw_rescue_dogs: {
+                        all: true,
+                    },
+                },
+            },
+        },
         icon: 'paw',
         possibleBuildings: [9],
-        tractiveVehicles: [93, 124],
+        tractiveVehicles: [93],
         special:
-            'Muss von einem "MTW-O" oder "MTW-OV" an den Einsatzort gezogen werden. Am Einsatzort sind ein "Anh Hund" und ein "Rettungshundefahrzeug" vom Rettungsdienst gleichwertig!',
+            'Muss von einem "MTW-O" an den Einsatzort gezogen werden. Am Einsatzort sind ein "Anh Hund" und ein "Rettungshundefahrzeug" vom Rettungsdienst gleichwertig!',
     },
     93: {
         caption: 'MTW-O',
@@ -1374,13 +1475,6 @@ export default {
         staff: {
             min: 4,
             max: 5,
-            training: {
-                THW: {
-                    thw_rescue_dogs: {
-                        all: true,
-                    },
-                },
-            },
         },
         icon: 'paw',
         possibleBuildings: [9],
@@ -1430,7 +1524,17 @@ export default {
         color: '#0a580c',
         credits: 50_000,
         coins: 10,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            training: {
+                Polizei: {
+                    police_firefighting: {
+                        all: true,
+                    },
+                },
+            },
+        },
         icon: 'fill',
         possibleBuildings: [13],
         special:
@@ -1515,7 +1619,17 @@ export default {
         color: '#36759e',
         credits: 15_000,
         coins: 25,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            training: {
+                THW: {
+                    water_damage_pump: {
+                        min: 1,
+                    },
+                },
+            },
+        },
         icon: 'trailer',
         possibleBuildings: [9],
         pumpCapacity: 15_000,
@@ -1527,7 +1641,17 @@ export default {
         color: '#36759e',
         credits: 15_000,
         coins: 25,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            training: {
+                THW: {
+                    water_damage_pump: {
+                        min: 1,
+                    },
+                },
+            },
+        },
         icon: 'trailer',
         possibleBuildings: [9],
         pumpCapacity: 12_400,
