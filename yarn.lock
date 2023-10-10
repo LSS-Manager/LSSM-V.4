@@ -2349,10 +2349,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.18.3":
-  version: 18.18.3
-  resolution: "@types/node@npm:18.18.3"
-  checksum: ed97a832179e0cfbb93738021fe16d0bc5c0f34bea35269c23c9dd5f0ecc8be93dbe5efd51630189a099b31786a47c1bde115508831a7245613a55c3ad1a7d6b
+"@types/node@npm:18.18.4":
+  version: 18.18.4
+  resolution: "@types/node@npm:18.18.4"
+  checksum: 4901e91c4cc479bb58acbcd79236a97a0ad6db4a53cb1f4ba4cf32af15324c61b16faa6e31c1b09bf538a20feb5f5274239157ce5237f5741db0b9ab71e69c52
   languageName: node
   linkType: hard
 
@@ -2472,12 +2472,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/vue-select@npm:3.16.3":
-  version: 3.16.3
-  resolution: "@types/vue-select@npm:3.16.3"
+"@types/vue-select@npm:3.16.4":
+  version: 3.16.4
+  resolution: "@types/vue-select@npm:3.16.4"
   dependencies:
     vue: ^2.0.0
-  checksum: b59ee7097b3e4b1558c96acb8e905864bed1a9f804a0da1de473f16bd1078bd617ea6dee8b55868ece247a2c8ab1ee6814b664f9d45046201ee6bce06c1456c4
+  checksum: a3f128977093461d8352187a96a1c06f7a8a5d5c3d5fc2f7d117c1df0e05cf2e84186f8147be978c0204c8a42dfce1f29f3f9886d165b956b2db090f3c901d72
   languageName: node
   linkType: hard
 
@@ -4010,9 +4010,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001524, caniuse-lite@npm:^1.0.30001538, caniuse-lite@npm:^1.0.30001541":
-  version: 1.0.30001546
-  resolution: "caniuse-lite@npm:1.0.30001546"
-  checksum: d3ef82f5ee94743002c5b2dd61c84342debcc94b2d5907b64ade3514ecfc4f20bbe86a6bc453fd6436d5fbcf6582e07405d7c2077565675a71c83adc238a11fa
+  version: 1.0.30001547
+  resolution: "caniuse-lite@npm:1.0.30001547"
+  checksum: ec0fc2b46721887f6f4aca1f3902f03d9a1a07416d16a86b7cd4bfba60e7b6b03ab3969659d3ea0158cc2f298972c80215c06c9457eb15c649d7780e8f5e91a7
   languageName: node
   linkType: hard
 
@@ -7058,7 +7058,7 @@ __metadata:
     "@types/js-yaml": 4.0.6
     "@types/leaflet": 1.9.6
     "@types/lodash": 4.14.199
-    "@types/node": 18.18.3
+    "@types/node": 18.18.4
     "@types/pdfmake": 0.2.5
     "@types/prettier": 2.7.3
     "@types/qrcode": 1.5.2
@@ -7067,7 +7067,7 @@ __metadata:
     "@types/simpleheat": 0.4.1
     "@types/tampermonkey": 4.20.3
     "@types/ua-parser-js": 0.7.37
-    "@types/vue-select": 3.16.3
+    "@types/vue-select": 3.16.4
     "@types/webpack-env": 1.18.2
     "@typescript-eslint/eslint-plugin": 6.7.4
     "@typescript-eslint/parser": 6.7.4
