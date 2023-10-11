@@ -220,6 +220,7 @@ export default {
         'Přehrada',
         'Knihovna',
         'Akvárium',
+        'Sauna',
     ],
     only_alliance_missions: [57, 74],
 };

@@ -75,12 +75,10 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
             /* webpackChunkName: "modules/generalExtensions/newBuilding" */ './assets/newBuilding'
         ).then(({ default: newBuilding }) =>
             newBuilding(
-                LSSM,
                 saveLastBuildingType,
                 saveLastDispatchCenter,
                 getSetting,
-                setSetting,
-                MODULE_ID
+                setSetting
             )
         );
     }

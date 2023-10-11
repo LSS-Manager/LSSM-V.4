@@ -12,7 +12,7 @@
         "deleteModal": {
             "btnCancel": "Avbryt",
             "btnConfirm": "Radera",
-            "text": "Vill du radera denna AAO-post?",
+            "text": "Vill du radera denna AAR-post?",
             "title": "Radera?"
         }
     },
