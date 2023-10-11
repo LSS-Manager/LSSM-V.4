@@ -130,9 +130,10 @@
                 "texts": ["Heavy Rescue Vehicle", "Heavy Rescue Vehicles"],
                 "vehicles": [4, 8, 18, 21, 28, 61, 67, 96, 97]
             },
-            { 
+            {
                 "equipment": ["breathing_protection"],
-                "texts": ["Mobile Air"], "vehicles": [6, 92] 
+                "texts": ["Mobile Air"],
+                "vehicles": [6, 92]
             },
             {
                 "equipment": ["hose"],
@@ -143,9 +144,10 @@
                 "texts": ["Mobile Command Vehicle", "Mobile Command Vehicles"],
                 "vehicles": [12]
             },
-            { 
+            {
                 "equipment": ["hazmat"],
-                "texts": ["HazMat"], "vehicles": [9, 50, 98, 99] 
+                "texts": ["HazMat"],
+                "vehicles": [9, 50, 98, 99]
             },
             {
                 "texts": ["Ambulance", "Ambulances"],
@@ -255,9 +257,10 @@
                 ],
                 "vehicles": [62, 63]
             },
-            { 
+            {
                 "equipment": ["foam_carrier"],
-                "texts": ["Foam Tender", "Foam Tenders"], "vehicles": [64, 65]
+                "texts": ["Foam Tender", "Foam Tenders"],
+                "vehicles": [64, 65]
             },
             {
                 "texts": ["Lifeguard Truck", "Lifeguard Trucks"],
@@ -309,9 +312,10 @@
                 "texts": ["Riot Police Trailer", "Riot Police Trailers"],
                 "vehicles": [85]
             },
-            { 
+            {
                 "equipment": ["flood_equipment"],
-                "texts": ["Flood Equipment"], "vehicles": [91] 
+                "texts": ["Flood Equipment"],
+                "vehicles": [91]
             },
             {
                 "equipment": ["energy_supply"],

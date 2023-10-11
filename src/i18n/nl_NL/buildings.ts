@@ -730,10 +730,7 @@ export default {
                 maxExtensionsFunction: (
                     buildingsByType: Record<number, Building[]>
                 ): number =>
-                    Math.floor(
-                        ((buildingsByType[12]?.length ?? 0)) /
-                            10
-                    ),
+                    Math.floor((buildingsByType[12]?.length ?? 0) / 10),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
                 newCells: 10,
