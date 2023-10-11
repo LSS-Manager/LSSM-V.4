@@ -71,7 +71,8 @@ export default {
                 duration: '7 jours',
                 maxExtensionsFunction: (
                     buildingsByType: Record<number, Building[]>
-                ): number => Math.floor((buildingsByType[0]?.length ?? 0) / 10),
+                ): number => Math.floor(((buildingsByType[0]?.length ?? 0) +
+                            (buildingsByType[18]?.length ?? 0)) / 10),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[0][5] ?? 0) < maxExtensions,
                 isVehicleExtension: true,
@@ -136,7 +137,8 @@ export default {
                 duration: '7 jours',
                 maxExtensionsFunction: (
                     buildingsByType: Record<number, Building[]>
-                ): number => Math.floor((buildingsByType[2]?.length ?? 0) / 10),
+                ): number => Math.floor(((buildingsByType[2]?.length ?? 0) +
+                            (buildingsByType[20]?.length ?? 0)) / 10),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[2][0] ?? 0) < maxExtensions,
                 isVehicleExtension: true,
@@ -347,7 +349,8 @@ export default {
                 duration: '7 jours',
                 maxExtensionsFunction: (
                     buildingsByType: Record<number, Building[]>
-                ): number => Math.floor((buildingsByType[6]?.length ?? 0) / 10),
+                ): number => Math.floor(((buildingsByType[6]?.length ?? 0) +
+                            (buildingsByType[19]?.length ?? 0)) / 10),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[6][10] ?? 0) < maxExtensions,
                 isVehicleExtension: true,
@@ -361,7 +364,8 @@ export default {
                 duration: '7 jours',
                 maxExtensionsFunction: (
                     buildingsByType: Record<number, Building[]>
-                ): number => Math.floor((buildingsByType[6]?.length ?? 0) / 10),
+                ): number => Math.floor(((buildingsByType[6]?.length ?? 0) +
+                            (buildingsByType[19]?.length ?? 0)) / 10),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[6][11] ?? 0) < maxExtensions,
                 givesParkingLots: 10,
