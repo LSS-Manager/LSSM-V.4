@@ -250,7 +250,7 @@ if [[ $_RUN_STEP_ENV = true ]]; then
     enable_debugging
     ref="$REF"
     BRANCH="dummy"
-    
+
     if [[ $ref == "refs/heads/master" ]]; then
       BRANCH="stable"
     elif [[ $ref == "refs/heads/dev" ]]; then
@@ -390,6 +390,7 @@ if [[ $_RUN_STEP_LIVE_SERVER = true ]]; then
     start_time=$(now)
     print_start_message "Start test server"
     enable_debugging
+    yarn ts-node-dev --respawn build/index.ts --esModuleInterop &
     yarn live-server ./dist/ --port="$LSSM_PORT" --no-browser
     disable_debugging
     print_end_message "Start test server" "$start_time"
