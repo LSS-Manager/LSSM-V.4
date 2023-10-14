@@ -1,4 +1,4 @@
-import type { InternalBuilding } from 'typings/Building';
+import type { Building, InternalBuilding } from 'typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
@@ -110,7 +110,43 @@ export default {
                 parkingLotReservations: [[84, 84]],
                 isVehicleExtension: true,
             },
+            {
+                caption: 'Large Fire Station',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 Days',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[0]?.length ?? 0) +
+                            (buildingsByType[18]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            },
         ],
+        storageUpgrades: {
+            initial_containers: {
+                caption: 'Drones Initial',
+                additionalStorage: 40,
+                credits: 50_000,
+                coins: 15,
+                duration: '5 Days',
+            },
+            additional_containers_1: {
+                caption: 'Drones Additional',
+                additionalStorage: 40,
+                credits: 100_000,
+                coins: 15,
+                duration: '3 Days',
+                requiredStorageUpgrades: ['initial_containers'],
+            },
+        },
         levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
         maxBuildings: 'No limit',
         maxLevel: 24,
@@ -169,6 +205,25 @@ export default {
                 givesParkingLots: 2,
                 isVehicleExtension: true,
                 parkingLotReservations: [[33], [34]],
+            },
+            {
+                caption: 'Large Ambulance Station',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 Days',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[2]?.length ?? 0) +
+                            (buildingsByType[20]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[2][0] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
@@ -289,6 +344,19 @@ export default {
                 requiredExtensions: [1],
                 cannotDisable: true,
             },
+            {
+                caption: 'Large Hospital',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 Days',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number => Math.floor((buildingsByType[4]?.length ?? 4) / 5),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[4][9] ?? 0) < maxExtensions,
+                newBeds: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: ['1.-20. 19.000 Credits / 11 Coins'],
         maxBuildings: 'No limit',
@@ -391,7 +459,61 @@ export default {
                 parkingLotReservations: [[81, 81]],
                 isVehicleExtension: true,
             },
+            {
+                caption: 'Large Police Station',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 Days',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[6]?.length ?? 0) +
+                            (buildingsByType[19]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][14] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            },
+            {
+                caption: 'Large Prison',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 Days',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[6]?.length ?? 0) +
+                            (buildingsByType[19]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
+                newCells: 10,
+                cannotDisable: true,
+            },
         ],
+        storageUpgrades: {
+            initial_containers: {
+                caption: 'Drones Initial',
+                additionalStorage: 40,
+                credits: 50_000,
+                coins: 15,
+                duration: '5 Days',
+            },
+            additional_containers_1: {
+                caption: 'Drones Additional',
+                additionalStorage: 40,
+                credits: 100_000,
+                coins: 15,
+                duration: '3 Days',
+                requiredStorageUpgrades: ['initial_containers'],
+            },
+        },
         levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
         maxBuildings: 'No limit',
         maxLevel: 19,
@@ -536,6 +658,20 @@ export default {
                 },
                 10
             ),
+            {
+                caption: 'Large Prison',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 Days',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor((buildingsByType[16]?.length ?? 0) / 10),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
+                newCells: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: [],
         maxBuildings: 'No limit',
@@ -546,7 +682,7 @@ export default {
         icon: 'border-all',
     },
     18: {
-        caption: 'Fire station (Small station) ',
+        caption: 'Fire station (Small station)',
         color: '#aa1111',
         coins: 25,
         credits: 50_000,
@@ -642,6 +778,15 @@ export default {
                 isVehicleExtension: true,
             },
         ],
+        storageUpgrades: {
+            initial_containers: {
+                caption: 'Drones Initial',
+                additionalStorage: 40,
+                credits: 50_000,
+                coins: 15,
+                duration: '5 Days',
+            },
+        },
         levelcost: [
             '1. 10.000',
             '2. 50.000',
@@ -717,6 +862,15 @@ export default {
                 isVehicleExtension: true,
             },
         ],
+        storageUpgrades: {
+            initial_containers: {
+                caption: 'Drones Initial',
+                additionalStorage: 40,
+                credits: 50_000,
+                coins: 15,
+                duration: '5 Days',
+            },
+        },
         levelcost: [
             '1. 10.000',
             '2. 50.000',
@@ -810,6 +964,15 @@ export default {
             coins: [],
         },
         extensions: [],
+        storageUpgrades: {
+            initial_containers: {
+                caption: 'Drones Initial',
+                additionalStorage: 40,
+                credits: 50_000,
+                coins: 15,
+                duration: '5 Days',
+            },
+        },
         levelcost: ['not expandable'],
         maxBuildings: 'No limit',
         maxLevel: 0,
@@ -1179,5 +1342,77 @@ export default {
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
         icon: 'helicopter',
+    },
+    31: {
+        caption: 'Search and Rescue HQ',
+        color: '#88ecc4',
+        coins: 50,
+        credits: 100_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(3).fill(100_000)],
+            coins: [10, 15, ...Array(3).fill(20)],
+        },
+        extensions: [
+            {
+                caption: 'SAR Flood Rescue Extension',
+                credits: 100_000,
+                coins: 15,
+                duration: '3 Days',
+                unlocksVehicleTypes: [88],
+                givesParkingLots: 0,
+                isVehicleExtension: true,
+            },
+            {
+                caption: 'SAR Ambulance Extension',
+                credits: 100_000,
+                coins: 15,
+                duration: '3 Days',
+                unlocksVehicleTypes: [94],
+                givesParkingLots: 0,
+                isVehicleExtension: true,
+            },
+        ],
+        storageUpgrades: {
+            initial_containers: {
+                caption: 'Drones Initial',
+                additionalStorage: 40,
+                credits: 50_000,
+                coins: 15,
+                duration: '5 Days',
+            },
+            additional_containers_1: {
+                caption: 'Drones Additional',
+                additionalStorage: 40,
+                credits: 100_000,
+                coins: 12,
+                duration: '3 Days',
+                requiredStorageUpgrades: ['initial_containers'],
+            },
+            additional_containers_2: {
+                caption: 'Drones Additional',
+                additionalStorage: 40,
+                credits: 100_000,
+                coins: 12,
+                duration: '3 Days',
+                requiredStorageUpgrades: ['additional_containers_1'],
+            },
+            additional_containers_3: {
+                caption: 'Drones Additional',
+                additionalStorage: 40,
+                credits: 100_000,
+                coins: 15,
+                duration: '3 Days',
+                requiredStorageUpgrades: ['additional_containers_2'],
+            },
+        },
+        levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
+        maxBuildings: 'No limit',
+        maxLevel: 5,
+        special: '!',
+        startPersonnel: 10,
+        startVehicles: [''],
+        schoolingTypes: ['Water Rescue'],
+        startParkingLots: 1,
+        icon: 'fire-flame-curved',
     },
 } satisfies Record<number, InternalBuilding>;

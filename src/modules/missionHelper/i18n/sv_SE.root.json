@@ -17,6 +17,16 @@
             "in": "requirements",
             "text": "Skum krävs: {n} l"
         },
+        "min_pump_speed": {
+            "badge": true,
+            "in": "requirements",
+            "text": "Min. pumpkapacitet: {n}"
+        },
+        "pump_water_amount": {
+            "badge": true,
+            "in": "additional",
+            "text": "Vatten till pumpen (i liter): {n}"
+        },
         "swat_personnel": {
             "badge": false,
             "in": "additional",

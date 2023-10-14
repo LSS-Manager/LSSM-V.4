@@ -236,6 +236,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0, 18],
+        equipmentCapacity: 10,
         special:
             'Acts as a Incident Command and Control Unit and a Fire Officer. Required once you have built 13 fire stations. A command post for Major Incidents.',
     },
@@ -368,6 +369,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [6, 19, 26],
+        equipmentCapacity: 10,
         special:
             'Acts as a Traffic Car and Incident Response Vehicle. A pursuit vehicle for high speed chases as well as RTCs.',
     },
@@ -1369,5 +1371,165 @@ export default {
         possibleBuildings: [0, 18],
         isTrailer: true,
         tractiveVehicles: [0, 1, 4],
+    },
+    85: {
+        caption: 'Control Van',
+        color: '#88ecc4',
+        credits: 25_000,
+        coins: 15,
+        staff: {
+            min: 1,
+            max: 3,
+            training: {
+                'Water Rescue': {
+                    search_and_rescue_command: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [31],
+        special:
+            'Serves the purpose of a command unit to coordinate SAR missions.',
+    },
+    86: {
+        caption: 'Operational Support Van',
+        color: '#88ecc4',
+        credits: 10_000,
+        coins: 10,
+        staff: { min: 1, max: 3 },
+        icon: 'car-side',
+        possibleBuildings: [31],
+        special: '',
+    },
+    87: {
+        caption: 'Operational Support Trailer',
+        color: '#88ecc4',
+        credits: 10_000,
+        coins: 10,
+        staff: { min: 0, max: 0 },
+        icon: 'car-side',
+        possibleBuildings: [31],
+        special: '',
+        isTrailer: true,
+        tractiveVehicles: [85, 86, 89, 94],
+    },
+    88: {
+        caption: 'SAR Flood Rescue (Trailer)',
+        color: '#88ecc4',
+        credits: 15_000,
+        coins: 15,
+        staff: {
+            min: 0,
+            max: 0,
+            training: {
+                'Water Rescue': {
+                    flood_equipment: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [31],
+        special: '',
+        isTrailer: true,
+        tractiveVehicles: [85, 86, 89, 94],
+    },
+    89: {
+        caption: 'Drone Vehicle (SAR HQ)',
+        color: '#88ecc4',
+        credits: 7000,
+        coins: 10,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                'Water Rescue': {
+                    drone: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [31],
+        equipmentCapacity: 10,
+        special: '',
+    },
+    90: {
+        caption: 'Drone Vehicle (Fire Station)',
+        color: '#88ecc4',
+        credits: 7000,
+        coins: 10,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                'Fire Station': {
+                    drone: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 18],
+        equipmentCapacity: 10,
+        special: '',
+    },
+    91: {
+        caption: 'Drone Vehicle (Police Station)',
+        color: '#88ecc4',
+        credits: 7000,
+        coins: 10,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Police: {
+                    drone: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [6, 19],
+        equipmentCapacity: 10,
+        special: '',
+    },
+    92: {
+        caption: 'Personal SAR Vehicle',
+        color: '#88ecc4',
+        credits: 10_000,
+        coins: 10,
+        staff: { min: 1, max: 1 },
+        icon: 'car-side',
+        possibleBuildings: [22],
+        equipmentCapacity: 10,
+        special: '',
+    },
+    93: {
+        caption: 'SAR 4x4',
+        color: '#88ecc4',
+        credits: 10_000,
+        coins: 10,
+        staff: { min: 1, max: 1 },
+        icon: 'car-side',
+        possibleBuildings: [22, 31],
+        equipmentCapacity: 10,
+        special: '',
+    },
+    94: {
+        caption: 'RRV',
+        color: '#88ecc4',
+        credits: 4000,
+        coins: 20,
+        staff: { min: 1, max: 1 },
+        icon: 'car-side',
+        possibleBuildings: [31],
+        special: '',
     },
 } satisfies Record<number, InternalVehicle>;

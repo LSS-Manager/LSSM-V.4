@@ -205,6 +205,7 @@ export default {
         'Bibliotek',
         'Akvarium',
         'Fängelse',
+        'Bastu',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [169],

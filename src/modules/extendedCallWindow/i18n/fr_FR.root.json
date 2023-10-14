@@ -242,7 +242,16 @@
                 "name": "Maintien de l'Ordre",
                 "vehicleTypes": [39, 40, 41, 42, 43, 44, 45]
             },
-            { "name": "Sauvetage Côtier", "vehicleTypes": [46, 47, 48, 49, 50] }
+            {
+                "name": "Sauvetage Côtier",
+                "vehicleTypes": [46, 47, 48, 49, 50]
+            },
+            {
+                "name": "Sécurité Civile",
+                "vehicleTypes": [
+                    61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73
+                ]
+            }
         ],
         "noCustoms": "catégories de véhicules personnels exclues"
     }

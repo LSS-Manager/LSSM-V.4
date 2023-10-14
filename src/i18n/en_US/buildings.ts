@@ -1,4 +1,4 @@
-import type { InternalBuilding } from 'typings/Building';
+import type { Building, InternalBuilding } from 'typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
@@ -119,7 +119,75 @@ export default {
                     [93, 94],
                 ],
             },
+            {
+                caption: 'Large Fire Station',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 Days',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[0]?.length ?? 0) +
+                            (buildingsByType[13]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            },
         ],
+        storageUpgrades: {
+            initial_containers: {
+                caption: 'Initial Storage Room',
+                additionalStorage: 40,
+                credits: 25_000,
+                coins: 10,
+                duration: '5 Days',
+            },
+            additional_containers_1: {
+                caption: 'Additional Storage Room',
+                additionalStorage: 30,
+                credits: 50_000,
+                coins: 12,
+                duration: '3 Days',
+                requiredStorageUpgrades: ['initial_containers'],
+            },
+            additional_containers_2: {
+                caption: 'Additional Storage Room',
+                additionalStorage: 30,
+                credits: 50_000,
+                coins: 12,
+                duration: '3 Days',
+                requiredStorageUpgrades: ['additional_containers_1'],
+            },
+            additional_containers_3: {
+                caption: 'Additional Storage Room',
+                additionalStorage: 30,
+                credits: 100_000,
+                coins: 15,
+                duration: '3 Days',
+                requiredStorageUpgrades: ['additional_containers_2'],
+            },
+            additional_containers_4: {
+                caption: 'Additional Storage Room',
+                additionalStorage: 30,
+                credits: 100_000,
+                coins: 15,
+                duration: '3 Days',
+                requiredStorageUpgrades: ['additional_containers_3'],
+            },
+            additional_containers_5: {
+                caption: 'Additional Storage Room',
+                additionalStorage: 30,
+                credits: 100_000,
+                coins: 15,
+                duration: '3 Days',
+                requiredStorageUpgrades: ['additional_containers_4'],
+            },
+        },
         levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
         maxBuildings: 'no limit',
         maxLevel: 39,
@@ -230,6 +298,19 @@ export default {
                 requiredExtensions: [1],
                 cannotDisable: true,
             },
+            {
+                caption: 'Large Hospital',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 Days',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number => Math.floor((buildingsByType[2]?.length ?? 2) / 5),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[4][9] ?? 0) < maxExtensions,
+                newBeds: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: ['1.-20. 19.000 Credits / 11 Coins'],
         maxBuildings: 'No limit',
@@ -261,6 +342,25 @@ export default {
                     [57, 58],
                     [57, 58],
                 ],
+            },
+            {
+                caption: 'Large Ambulance Station',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 Days',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[3]?.length ?? 0) +
+                            (buildingsByType[16]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[2][0] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
@@ -410,6 +510,43 @@ export default {
                 unlocksVehicleTypes: [45],
                 parkingLotReservations: [[45]],
             },
+            {
+                caption: 'Large Police Station',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 Days',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[5]?.length ?? 0) +
+                            (buildingsByType[15]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][14] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            },
+            {
+                caption: 'Large Prison',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 Days',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[5]?.length ?? 0) +
+                            (buildingsByType[15]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
+                newCells: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
         maxBuildings: 'no limit',
@@ -549,6 +686,20 @@ export default {
                 },
                 29
             ),
+            {
+                caption: 'Large Prison',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 Days',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor((buildingsByType[10]?.length ?? 0) / 10),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
+                newCells: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: [],
         maxBuildings: 'No limit',
@@ -697,6 +848,31 @@ export default {
                 ],
             },
         ],
+        storageUpgrades: {
+            initial_containers: {
+                caption: 'Initial Storage Room',
+                additionalStorage: 40,
+                credits: 25_000,
+                coins: 10,
+                duration: '5 Days',
+            },
+            additional_containers_1: {
+                caption: 'Additional Storage Room',
+                additionalStorage: 30,
+                credits: 50_000,
+                coins: 12,
+                duration: '3 Days',
+                requiredStorageUpgrades: ['initial_containers'],
+            },
+            additional_containers_2: {
+                caption: 'Additional Storage Room',
+                additionalStorage: 30,
+                credits: 50_000,
+                coins: 12,
+                duration: '3 Days',
+                requiredStorageUpgrades: ['additional_containers_1'],
+            },
+        },
         levelcost: [
             '1. 10.000',
             '2. 50.000',

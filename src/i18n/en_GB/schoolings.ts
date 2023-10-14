@@ -38,6 +38,12 @@ export default {
             staffList: 'High Volume Pump Training',
             key: 'pump',
         },
+        {
+            caption: 'Drone Operator Training',
+            duration: '5 Days',
+            staffList: 'Drone Operator',
+            key: 'drone',
+        },
     ],
     'Police': [
         {
@@ -99,6 +105,18 @@ export default {
             duration: '4 Days',
             staffList: 'Mounted Officers',
             key: 'police_horse',
+        },
+        {
+            caption: 'Police Search Advisor Training',
+            duration: '3 Days',
+            staffList: 'Police Search Advisor Training',
+            key: 'search_and_rescue',
+        },
+        {
+            caption: 'Drone Operator Training',
+            duration: '5 Days',
+            staffList: 'Drone Operator',
+            key: 'drone',
         },
     ],
     'Rescue': [
@@ -187,6 +205,24 @@ export default {
             duration: '3 Days',
             staffList: 'Hovercraft Commander Training',
             key: 'hover_boat_elw',
+        },
+        {
+            caption: 'Coastguard Search Advisor Training',
+            duration: '3 Days',
+            staffList: 'Coastguard Search Advisor Training',
+            key: 'search_and_rescue',
+        },
+        {
+            caption: 'Search Management Training',
+            duration: '3 Days',
+            staffList: 'Search Management Training',
+            key: 'search_and_rescue_command',
+        },
+        {
+            caption: 'Drone Operator Training',
+            duration: '3 Days',
+            staffList: 'Drone Operator',
+            key: 'drone',
         },
     ],
 } satisfies SchoolingsBySchool;
