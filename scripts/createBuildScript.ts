@@ -145,7 +145,8 @@ try {
         .concat([
             {
                 name: 'Start test server',
-                run: `yarn live-server ./dist/ --port="$${PORT_ENV_KEY}" --no-browser`,
+                run: `yarn ts-node-dev --respawn build/index.ts --esModuleInterop &
+                      yarn live-server ./dist/ --port="$${PORT_ENV_KEY}" --no-browser`,
                 id: 'live_server',
             } as Job,
         ]);
