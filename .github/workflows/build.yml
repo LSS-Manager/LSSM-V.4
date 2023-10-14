@@ -96,7 +96,7 @@ jobs:
 
             - name: '[⬆] update browserslist'
               id: browserslist
-              run: npx update-browserslist-db
+              run: npx -y update-browserslist-db
 
             - name: '[🌳] set env variables'
               id: env
