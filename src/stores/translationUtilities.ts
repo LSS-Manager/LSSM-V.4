@@ -77,6 +77,11 @@ const translationStore = defineStore('translationUtilities', {
                 ])
             );
         },
+        equipment: state => {
+            return state.LSSM.$t(
+                'equipment'
+            ) as unknown as InternalEquipments<string>;
+        },
     },
 });
 
