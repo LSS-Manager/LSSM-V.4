@@ -96,7 +96,7 @@ jobs:
 
             - name: '[⬆] update browserslist'
               id: browserslist
-              run: npx -y browserslist@latest --update-db
+              run: npx update-browserslist-db
 
             - name: '[🌳] set env variables'
               id: env
@@ -121,7 +121,7 @@ jobs:
                     BRANCH="${BRANCH//"/"/"-"}"
                   fi
                   # ===END $BRANCH===
-                    
+
                   echo "BRANCH=$BRANCH" >> $GITHUB_ENV
 
             - name: '[⬆] update emojis'
