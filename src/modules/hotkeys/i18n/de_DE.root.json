@@ -60,9 +60,11 @@
             },
             "goto": {
                 "dispatchCenter": "Leitstelle",
+                "edit": "Gebäude bearbeiten",
                 "expand": "Ausbauen",
                 "firstVehicle": "Erstes Fahrzeug öffnen",
                 "hire": "Neue Leute werben",
+                "move": "Gebäude verschieben",
                 "nextBuilding": "Nächstes Gebäude",
                 "personal": "Personal",
                 "previousBuilding": "Vorheriges Gebäude",

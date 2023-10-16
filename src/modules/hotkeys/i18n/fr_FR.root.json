@@ -60,9 +60,11 @@
             },
             "goto": {
                 "dispatchCenter": "Centre de Traitement des Appels",
+                "edit": "Edit building",
                 "expand": "Élargir",
                 "firstVehicle": "Ouvrir le premier véhicule",
                 "hire": "Recruter de nouveaux personnels",
+                "move": "Move building",
                 "nextBuilding": "Bâtiment Suivant",
                 "personal": "Vue d'ensemble du personnel",
                 "previousBuilding": "Bâtiment Précedent",

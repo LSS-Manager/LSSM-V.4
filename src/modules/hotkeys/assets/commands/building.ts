@@ -13,6 +13,8 @@ export default <Scope<Empty, ['goto', 'changeSharing', 'dispatch'], [], true>>{
                 'firstVehicle',
                 'hire',
                 'personal',
+                'edit',
+                'move',
             ]
         >
     >{
@@ -64,8 +66,9 @@ export default <Scope<Empty, ['goto', 'changeSharing', 'dispatch'], [], true>>{
             (previous as HTMLElement).click();
         },
         expand() {
-            const expand =
-                document.querySelector<HTMLAnchorElement>("a[href$='/expand']");
+            const expand = document.querySelector<HTMLAnchorElement>(
+                "a[href^='/buildings/'][href$='/expand']"
+            );
             //No result → Building without expansions
             if (expand == null) return;
 
@@ -73,7 +76,7 @@ export default <Scope<Empty, ['goto', 'changeSharing', 'dispatch'], [], true>>{
         },
         firstVehicle() {
             const firstVehicle = document.querySelector<HTMLAnchorElement>(
-                "td a[href^='/vehicles']"
+                "td a[href^='/buildings/'][href^='/vehicles']"
             );
             //No result → Building without vehicles
             if (firstVehicle == null) return;
@@ -81,8 +84,9 @@ export default <Scope<Empty, ['goto', 'changeSharing', 'dispatch'], [], true>>{
             firstVehicle.click();
         },
         hire() {
-            const hire =
-                document.querySelector<HTMLAnchorElement>("a[href$='/hire']");
+            const hire = document.querySelector<HTMLAnchorElement>(
+                "a[href^='/buildings/'][href$='/hire']"
+            );
             //No result → Building without personal
             if (hire == null) return;
 
@@ -90,12 +94,26 @@ export default <Scope<Empty, ['goto', 'changeSharing', 'dispatch'], [], true>>{
         },
         personal() {
             const personal = document.querySelector<HTMLAnchorElement>(
-                "a[href$='/personals']"
+                "a[href^='/buildings/'][href$='/personals']"
             );
             //No result → Building without personal
             if (personal == null) return;
 
             personal.click();
+        },
+        edit() {
+            document
+                .querySelector<HTMLAnchorElement>(
+                    "a[href^='/buildings/'][href$='/edit']"
+                )
+                ?.click();
+        },
+        move() {
+            document
+                .querySelector<HTMLAnchorElement>(
+                    "a[href^='/buildings/'][href$='/move']"
+                )
+                ?.click();
         },
     },
     changeSharing: <

@@ -60,9 +60,11 @@
             },
             "goto": {
                 "dispatchCenter": "Larmcentral",
+                "edit": "Edit building",
                 "expand": "expanding",
                 "firstVehicle": "open first vehicle",
                 "hire": "Recute new personal",
+                "move": "Move building",
                 "nextBuilding": "Nästa byggnad",
                 "personal": "personal overview",
                 "previousBuilding": "Föregående byggnad",
