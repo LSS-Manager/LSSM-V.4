@@ -127,12 +127,14 @@ export default async (
     settingsBar.addEventListener('change', e => console.log(e));
 
     // a function to create and add a checkbox to the DOM
-    const addCheckbox = (
+    const addCheckbox = async (
         type:
             | 'toggleFittingEquipment'
             | 'toggleFittingPersonnel'
-            | 'toggleFittingTrailers'
-    ) => {
+            | 'toggleFittingTrailers',
+        eventListener: (checkbox: HTMLInputElement) => void
+    ): Promise<HTMLInputElement> => {
+        const settingKey = `enhancedPersonnelAssignment.${type}`;
         const toggleId = LSSM.$stores.root.nodeAttribute(
             `${MODULE_ID}-epa-${type}`,
             true
@@ -152,6 +154,10 @@ export default async (
         const checkbox = document.createElement('input');
         checkbox.setAttribute('type', 'checkbox');
         checkbox.setAttribute('id', toggleId);
+        checkbox.addEventListener('change', () => {
+            setSetting(settingKey, checkbox.checked);
+            eventListener(checkbox);
+        });
 
         label.append(
             checkbox,
@@ -160,19 +166,32 @@ export default async (
         wrapper.append(label);
         settingsBar.append(wrapper);
 
-        return getSetting(`enhancedPersonnelAssignment.${type}`, false).then(
-            checked => {
-                checkbox.checked = checked;
-                checkbox.dispatchEvent(new Event('change'));
-            }
-        );
+        checkbox.checked = await getSetting(settingKey, false);
+        checkbox.dispatchEvent(new Event('change'));
+        return checkbox;
     };
 
     // add the checkboxes to the DOM
-    await addCheckbox('toggleFittingPersonnel');
-    if (schoolingIDs.trailers.size) await addCheckbox('toggleFittingTrailers');
+    const toggleCheckbox = await addCheckbox(
+        'toggleFittingPersonnel',
+        ({ id, checked }) => {
+            settingsBar
+                .querySelectorAll<HTMLInputElement>(`input:not([id="${id}"])`)
+                .forEach(checkbox => {
+                    checkbox.disabled = !checked;
+
+                    checkbox
+                        .closest('div.checkbox')
+                        ?.classList[checked ? 'remove' : 'add']('disabled');
+                });
+        }
+    );
+    if (schoolingIDs.trailers.size)
+        await addCheckbox('toggleFittingTrailers', () => {});
     if (schoolingIDs.equipment.size)
-        await addCheckbox('toggleFittingEquipment');
+        await addCheckbox('toggleFittingEquipment', () => {});
+
+    toggleCheckbox.dispatchEvent(new Event('change'));
 
     console.log(schoolingIDs, getSetting, setSetting, $m);
 };
