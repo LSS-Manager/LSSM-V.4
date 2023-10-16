@@ -58,7 +58,7 @@ export default (
                 `.${wrapperClass} span`
             );
             if (span) {
-                span.textContent = `~ ${
+                span.textContent = `≈ ${
                     missionsById[
                         getMissionTypeFromPanel(missionPanel)
                     ]?.average_credits?.toLocaleString() ?? '–'
