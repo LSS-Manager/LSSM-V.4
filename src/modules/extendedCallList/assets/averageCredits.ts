@@ -46,7 +46,7 @@ export default (
                 span.style.setProperty('color', 'black');
 
             const missionSpecs: Mission | undefined = missionsById[missionType];
-            span.textContent = `~ ${
+            span.textContent = `≈ ${
                 missionSpecs?.average_credits?.toLocaleString() ?? '–'
             }`;
             wrapper.append(span);
