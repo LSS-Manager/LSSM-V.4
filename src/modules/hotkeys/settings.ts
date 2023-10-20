@@ -76,6 +76,8 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         'building.goto.firstVehicle',
         'building.goto.hire',
         'building.goto.personal',
+        'building.goto.edit',
+        'building.goto.move',
         'building.changeSharing.enableSharing',
         'building.changeSharing.disableSharing',
         'building.changeSharing.toggleSharing',

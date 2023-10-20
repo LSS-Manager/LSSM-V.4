@@ -1229,6 +1229,23 @@ export default {
                 unlocksVehicleTypes: [61],
             },
         ],
+        storageUpgrades: {
+            initial_containers: {
+                caption: 'Drones Initial',
+                additionalStorage: 40,
+                credits: 50_000,
+                coins: 15,
+                duration: '5 Days',
+            },
+            additional_containers_1: {
+                caption: 'Drones Additional',
+                additionalStorage: 40,
+                credits: 100_000,
+                coins: 15,
+                duration: '3 Days',
+                requiredStorageUpgrades: ['initial_containers'],
+            },
+        },
         levelcost: ['1-5. 20.000'],
         maxBuildings: 'No limit',
         maxLevel: 5,
