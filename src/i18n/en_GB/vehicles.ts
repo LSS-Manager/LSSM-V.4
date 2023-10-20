@@ -1043,11 +1043,11 @@ export default {
     65: {
         caption: 'Coastguard Rescue Helicopter (Large)',
         color: '#88ecc4',
-        credits: 500_000,
+        credits: 400_000,
         coins: 35,
         staff: {
-            min: 6,
-            max: 6,
+            min: 4,
+            max: 4,
             training: {
                 'Water Rescue': {
                     coastal_rescue_pilot: {

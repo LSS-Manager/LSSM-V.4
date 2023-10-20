@@ -113,6 +113,7 @@
         "vehicle": "Vehicle type",
         "vehiclesByRequirement": [
             {
+                "equipment": ["fire_engine"],
                 "texts": ["firetruck", "firetrucks"],
                 "vehicles": [0, 1, 13, 18, 30, 33, 48]
             },
@@ -125,11 +126,17 @@
                 "vehicles": [3, 12]
             },
             {
+                "equipment": ["fire_rescue"],
                 "texts": ["Heavy Rescue Vehicle", "Heavy Rescue Vehicles"],
                 "vehicles": [4, 8, 18, 21, 28, 61, 67, 96, 97]
             },
-            { "texts": ["Mobile Air"], "vehicles": [6, 92] },
             {
+                "equipment": ["breathing_protection"],
+                "texts": ["Mobile Air"],
+                "vehicles": [6, 92]
+            },
+            {
+                "equipment": ["hose"],
                 "texts": ["Water Tanker", "Water Tankers"],
                 "vehicles": [7, 33, 64, 65, 77, 78]
             },
@@ -137,7 +144,11 @@
                 "texts": ["Mobile Command Vehicle", "Mobile Command Vehicles"],
                 "vehicles": [12]
             },
-            { "texts": ["HazMat"], "vehicles": [9, 50, 98, 99] },
+            {
+                "equipment": ["hazmat"],
+                "texts": ["HazMat"],
+                "vehicles": [9, 50, 98, 99]
+            },
             {
                 "texts": ["Ambulance", "Ambulances"],
                 "vehicles": [5, 27, 48, 49, 50, 61]
@@ -167,6 +178,7 @@
                 "vehicles": [21, 22, 95]
             },
             {
+                "equipment": ["wildfire_engine"],
                 "texts": ["Wildland fire vehicle", "Wildland fire vehicles"],
                 "vehicles": [30, 31, 32, 35, 36, 37, 38, 39, 40]
             },
@@ -245,7 +257,11 @@
                 ],
                 "vehicles": [62, 63]
             },
-            { "texts": ["Foam Tender", "Foam Tenders"], "vehicles": [64, 65] },
+            {
+                "equipment": ["foam_carrier"],
+                "texts": ["Foam Tender", "Foam Tenders"],
+                "vehicles": [64, 65]
+            },
             {
                 "texts": ["Lifeguard Truck", "Lifeguard Trucks"],
                 "vehicles": [66]
@@ -296,12 +312,18 @@
                 "texts": ["Riot Police Trailer", "Riot Police Trailers"],
                 "vehicles": [85]
             },
-            { "texts": ["Flood Equipment"], "vehicles": [91] },
             {
+                "equipment": ["flood_equipment"],
+                "texts": ["Flood Equipment"],
+                "vehicles": [91]
+            },
+            {
+                "equipment": ["energy_supply"],
                 "texts": ["Energy Supplie", "Energy Supplies"],
                 "vehicles": [94]
             },
             {
+                "equipment": ["light_supply"],
                 "texts": [
                     "SES Emergency Lighting Trailer",
                     "SES Emergency Lighting Trailers",
