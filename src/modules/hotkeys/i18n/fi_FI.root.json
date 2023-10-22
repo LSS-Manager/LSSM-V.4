@@ -60,9 +60,11 @@
             },
             "goto": {
                 "dispatchCenter": "hätäkeskus",
+                "edit": "Edit building",
                 "expand": "laajenee",
                 "firstVehicle": "avaa ensimmäinen ajoneuvo",
                 "hire": "Rekrytoi uutta henkilöstöä",
+                "move": "Move building",
                 "nextBuilding": "Seuraava rakennus",
                 "personal": "Henkilöstö",
                 "previousBuilding": "Edellinen rakennus",
