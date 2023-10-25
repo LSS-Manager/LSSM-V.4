@@ -7161,7 +7161,7 @@ __metadata:
     moment: 2.29.4
     showdown: 2.1.0
     simple-git: 3.20.0
-    vue: 3.3.6
+    vue: 3.3.7
     vuepress: 2.0.0-beta.67
     vuepress-plugin-clipboard: 2.1.5
     vuepress-plugin-sitemap2: 2.0.0-beta.239
@@ -10252,25 +10252,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:3.3.6, vue@npm:^3.2.45, vue@npm:^3.3.4":
-  version: 3.3.6
-  resolution: "vue@npm:3.3.6"
-  dependencies:
-    "@vue/compiler-dom": 3.3.6
-    "@vue/compiler-sfc": 3.3.6
-    "@vue/runtime-dom": 3.3.6
-    "@vue/server-renderer": 3.3.6
-    "@vue/shared": 3.3.6
-  peerDependencies:
-    typescript: "*"
-  peerDependenciesMeta:
-    typescript:
-      optional: true
-  checksum: 411a8a4edc01a342ba8ee8ae831da593d4903e5362f3343e7a3a3f7272ec0804d7a8776f9abddc736d615508d4c4dde6cdd9f1b7a256b1bb63c468f1152abc2d
-  languageName: node
-  linkType: hard
-
-"vue@npm:^3.3.6":
+"vue@npm:3.3.7, vue@npm:^3.3.6":
   version: 3.3.7
   resolution: "vue@npm:3.3.7"
   dependencies:
@@ -10285,6 +10267,24 @@ __metadata:
     typescript:
       optional: true
   checksum: 463599d2a521de3a9e6d09d57bfa7a4fe4a96fadf4212c375d34e2547a7c08159138703c096471da9cf4d6c0b15a140dc245e9fbc2904e762067e220d40bdc8f
+  languageName: node
+  linkType: hard
+
+"vue@npm:^3.2.45, vue@npm:^3.3.4":
+  version: 3.3.6
+  resolution: "vue@npm:3.3.6"
+  dependencies:
+    "@vue/compiler-dom": 3.3.6
+    "@vue/compiler-sfc": 3.3.6
+    "@vue/runtime-dom": 3.3.6
+    "@vue/server-renderer": 3.3.6
+    "@vue/shared": 3.3.6
+  peerDependencies:
+    typescript: "*"
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 411a8a4edc01a342ba8ee8ae831da593d4903e5362f3343e7a3a3f7272ec0804d7a8776f9abddc736d615508d4c4dde6cdd9f1b7a256b1bb63c468f1152abc2d
   languageName: node
   linkType: hard
 
