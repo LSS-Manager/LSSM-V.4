@@ -54,7 +54,7 @@
         "@types/js-yaml": "4.0.8",
         "@types/leaflet": "1.9.7",
         "@types/lodash": "4.14.200",
-        "@types/node": "20.8.8",
+        "@types/node": "20.8.9",
         "@types/pdfmake": "0.2.7",
         "@types/prettier": "2.7.3",
         "@types/qrcode": "1.5.4",
