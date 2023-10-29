@@ -1844,4 +1844,81 @@ export default {
         icon: 'truck',
         possibleBuildings: [9],
     },
+    125: {
+        caption: 'MTW-Tr UL',
+        color: '#36759e',
+        credits: 10_000,
+        coins: 15,
+        staff: {
+            min: 4,
+            max: 4,
+            training: {
+                THW: {
+                    thw_drone: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [9],
+    },
+    126: {
+        caption: 'MTF Drohne',
+        color: '#fd090f',
+        credits: 10_000,
+        coins: 15,
+        staff: {
+            min: 4,
+            max: 5,
+            training: {
+                Feuerwehr: {
+                    fire_drone: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [0, 18],
+    },
+    127: {
+        caption: 'GW UAS',
+        color: '#bb5811',
+        credits: 10_000,
+        coins: 15,
+        staff: {
+            min: 4,
+            max: 4,
+            training: {
+                Rettungsdienst: {
+                    seg_drone: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [12],
+    },
+    128: {
+        caption: 'ELW Drohne',
+        color: '#fd090f',
+        credits: 20_000,
+        coins: 25,
+        staff: {
+            min: 4,
+            max: 5,
+            training: {
+                Feuerwehr: {
+                    fire_drone: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [0, 18],
+        special: 'Der ELW Drohne ist ein Einsatzleitwagen 1 und eine Drohneneinheit für die Ortung und Erkundung aus der Luft.',
+    },
 } satisfies Record<number, InternalVehicle>;
