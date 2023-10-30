@@ -61,7 +61,7 @@
         "@types/semver": "7.5.4",
         "@types/showdown": "2.0.3",
         "@types/simpleheat": "0.4.2",
-        "@types/tampermonkey": "4.20.4",
+        "@types/tampermonkey": "5.0.0",
         "@types/ua-parser-js": "0.7.38",
         "@types/vue-select": "3.16.6",
         "@types/webpack-env": "1.18.3",
