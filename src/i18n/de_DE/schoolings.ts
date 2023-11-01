@@ -92,6 +92,12 @@ export default {
             staffList: 'NEA200',
             key: 'energy_supply',
         },
+        {
+            caption: 'Drohnen-Schulung',
+            duration: '3 Tage',
+            staffList: 'Drohnen-Schulung',
+            key: 'fire_drone',
+        },
     ],
     Polizei: [
         {
@@ -216,6 +222,12 @@ export default {
             staffList: 'Intensivpflege',
             key: 'intensiv_care',
         },
+        {
+            caption: 'SEG Drohne',
+            duration: '3 Tage',
+            staffList: 'SEG Drohne',
+            key: 'seg_drone',
+        },
     ],
     THW: [
         {
@@ -265,6 +277,12 @@ export default {
             duration: '7 Tage',
             staffList: 'FGr E',
             key: 'thw_energy_supply',
+        },
+        {
+            caption: 'Trupp Unbemannte Luftfahrtsysteme',
+            duration: '3 Tage',
+            staffList: 'Tr UL',
+            key: 'thw_drone',
         },
     ],
 } satisfies SchoolingsBySchool;

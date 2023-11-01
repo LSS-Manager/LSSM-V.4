@@ -94,7 +94,7 @@ export default {
                 Schlauchwagen: [11, 13, 14, 15, 16],
                 Sonderfahrzeuge: [
                     2, 3, 4, 5, 10, 12, 27, 33, 34, 36, 53, 57, 114, 115, 118,
-                    120,
+                    120, 126, 128
                 ],
                 ['WLF & Abrollbehälter']: [
                     46, 47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
@@ -113,6 +113,7 @@ export default {
                 'KTW': [38],
                 'SEG-Fahrzeuge': [58, 59, 60],
                 'Rettungshundefahrzeuge': [91],
+                'Drohne': [127],
             },
             color: '#ffa500',
         },
@@ -138,6 +139,7 @@ export default {
                 'Schwere Bergung': [109],
                 'Netzersatzanlagen': [112, 122],
                 'MTW-OV': [124],
+                'Tr UL': [125],
             },
             color: '#0000ff',
         },
