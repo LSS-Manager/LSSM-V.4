@@ -118,6 +118,11 @@
             "allow_arff_instead_of_lf": {
                 "firetrucks": "Fire Engine or ULFV | Fire Engine or ULFV"
             },
+            "allow_police_motorcycle_instead_of_fustw": {
+                "additional_text": "of max. {n} Motorcycle |  of max. {n} Motorcycles",
+                "based_on": "police_cars",
+                "line_break": true
+            },
             "allow_rw_instead_of_lf": {
                 "firetrucks": "Fire Engine or Heavy Rescue or Rescue Engine | Fire Engines or Heavy Rescue or Rescue Engine"
             }

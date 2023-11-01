@@ -100,6 +100,10 @@
                 "description": " Indicates, if instead of a firetruck ULFV are possible on site.",
                 "title": "Show if ULFV are allowed as firetrucks"
             },
+            "allow_police_motorcycle_instead_of_fustw": {
+                "description": "Enabling this shows when a motorbike can replace a police car",
+                "title": "Police Motorbike can replace Police Car"
+            },
             "allow_rw_instead_of_lf": {
                 "description": "Indicates, if instead of a Fire Engine also Major Rescue Vehicle or Rescue Pumper is possible on site.",
                 "title": "Show Major Rescue Vehicle / Rescue Pumper instead of firetrucks"

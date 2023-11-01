@@ -62,7 +62,7 @@
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-        "version": "20.8.9"
+        "version": "20.8.10"
     },
     "@types/pdfmake": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -97,7 +97,7 @@
     "@types/tampermonkey": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/tampermonkey",
-        "version": "4.20.4"
+        "version": "5.0.0"
     },
     "@types/ua-parser-js": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -116,11 +116,11 @@
     },
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "6.9.0"
+        "version": "6.9.1"
     },
     "@typescript-eslint/parser": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "6.9.0"
+        "version": "6.9.1"
     },
     "@vuepress/client": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
@@ -150,12 +150,12 @@
     "acorn": {
         "icon": "https://avatars.githubusercontent.com/u/34631683",
         "url": "https://github.com/acornjs/acorn",
-        "version": "8.10.0"
+        "version": "8.11.2"
     },
     "acorn-walk": {
         "icon": "https://avatars.githubusercontent.com/u/34631683",
         "url": "https://github.com/acornjs/acorn",
-        "version": "8.2.0"
+        "version": "8.3.0"
     },
     "all-contributors-cli": {
         "icon": "https://allcontributors.org/img/icons/android-icon-192x192.png",
@@ -229,12 +229,12 @@
     "eslint-plugin-unicorn": {
         "icon": "https://cloud.githubusercontent.com/assets/170270/18659176/1cc373d0-7f33-11e6-890f-0ba35362ee7e.jpg",
         "url": "https://github.com/sindresorhus/eslint-plugin-unicorn",
-        "version": "48.0.1"
+        "version": "49.0.0"
     },
     "eslint-plugin-vue": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://eslint.vuejs.org",
-        "version": "9.18.0"
+        "version": "9.18.1"
     },
     "he": {
         "url": "https://mths.be/he",
@@ -243,7 +243,7 @@
     "highcharts": {
         "icon": "https://wp-assets.highcharts.com/svg/logo2021.svg",
         "url": "http://www.highcharts.com",
-        "version": "11.1.0"
+        "version": "11.2.0"
     },
     "highcharts-vue": {
         "icon": "https://wp-assets.highcharts.com/svg/logo2021.svg",
@@ -331,7 +331,7 @@
     "terser": {
         "icon": "https://terser.org/img/terser-square-logo.png",
         "url": "https://terser.org",
-        "version": "5.22.0"
+        "version": "5.23.0"
     },
     "ts-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -351,7 +351,7 @@
     "ua-parser-js": {
         "icon": "https://faisalman.github.io/ua-parser-js/images/logo.png",
         "url": "https://github.com/faisalman/ua-parser-js",
-        "version": "1.0.36"
+        "version": "1.0.37"
     },
     "url-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -427,7 +427,7 @@
     },
     "vuepress-plugin-sitemap2": {
         "url": "https://plugin-sitemap2.vuejs.press/",
-        "version": "2.0.0-beta.239"
+        "version": "2.0.0-beta.243"
     },
     "webpack": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
