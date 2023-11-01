@@ -1919,6 +1919,7 @@ export default {
         },
         icon: 'truck',
         possibleBuildings: [0, 18],
-        special: 'Der ELW Drohne ist ein Einsatzleitwagen 1 und eine Drohneneinheit für die Ortung und Erkundung aus der Luft.',
+        special:
+            'Der ELW Drohne ist ein Einsatzleitwagen 1 und eine Drohneneinheit für die Ortung und Erkundung aus der Luft.',
     },
 } satisfies Record<number, InternalVehicle>;
