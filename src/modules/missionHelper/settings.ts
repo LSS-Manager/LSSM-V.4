@@ -158,14 +158,12 @@ export default ((MODULE_ID, LSSM, $m) => {
         },
         ...(locale === 'en_US'
             ? {
-                  'optionalAlternatives.oneof_fire_engine_or_fire_rescue': <
-                      Toggle
-                  >{
-                      type: 'toggle',
-                      default: true,
-                      dependsOn: '.vehicles.content',
-                  },
-              }
+                'optionalAlternatives.oneof_fire_engine_or_fire_rescue': <Toggle>{
+                    type: 'toggle',
+                    default: true,
+                    dependsOn: '.vehicles.content',
+                },
+            }
             : null),
         ...(['de_DE', 'en_US', 'nl_NL'].includes(locale)
             ? {
@@ -187,14 +185,12 @@ export default ((MODULE_ID, LSSM, $m) => {
             : null),
         ...(locale === 'en_US'
             ? {
-                  'optionalAlternatives.oneof_fire_engine_or_fire_ladder': <
-                      Toggle
-                  >{
-                      type: 'toggle',
-                      default: true,
-                      dependsOn: '.vehicles.content',
-                  },
-              }
+                'optionalAlternatives.oneof_fire_engine_or_fire_ladder': <Toggle>{
+                    type: 'toggle',
+                    default: true,
+                    dependsOn: '.vehicles.content',
+                },
+            }
             : null),
         ...(locale === 'en_US'
             ? {

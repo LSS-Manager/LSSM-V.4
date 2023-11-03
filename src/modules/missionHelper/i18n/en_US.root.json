@@ -110,6 +110,10 @@
                 "description": " Indicates, if instead of a firetruck arrfs are possible on site.",
                 "title": "Show if arrfs are allowed as firetrucks"
             },
+            "oneof_fire_engine_or_fire_ladder": {
+                "description": "Indicates, if instead of a firetruck also platform trucks is possible on site.",
+                "title": "Show Platform trucks instead of firetrucks"
+            },
             "allow_drone_instead_of_investigation": {
                 "description": "Shows whether an FBI Surveillance Drone can replace an FBI Investigation wagon",
                 "title": "Show drone can replace investigation"
@@ -121,10 +125,6 @@
             "allow_police_motorcycle_instead_of_fustw": {
                 "description": "Enabling this shows when a motorbike can replace a police car",
                 "title": "Police Motorbike can replace Police Car"
-            },
-            "oneof_fire_engine_or_fire_ladder": {
-                "description": "Indicates, if instead of a firetruck also platform trucks is possible on site.",
-                "title": "Show Platform trucks instead of firetrucks"
             },
             "oneof_fire_engine_or_fire_rescue": {
                 "description": "Indicates, if instead of a firetruck also heavy rescue or rescue engine is possible on site.",
