@@ -586,6 +586,12 @@ export default Vue.extend<
                     allow_streifenwagen_instead_of_riot_police_van: false,
                     allow_police_motorcycle_instead_of_fustw: false,
                     max_civil_patrol_replacing_police_cars: false,
+                    oneof_airport_fire_engine_or_fire_engine: false,
+                    oneof_fire_engine_or_fire_ladder: true,
+                    oneof_fire_engine_or_fire_rescue: true,
+                    oneof_fire_engine_or_fire_rescue_or_fire_ladder: true,
+                    oneof_fire_investigation_or_fbi_drone: false,
+                    oneof_police_patrol_or_police_swat: false,
                 },
                 patients: {
                     code_possible: false,
