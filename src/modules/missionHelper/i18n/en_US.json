@@ -49,11 +49,12 @@
         "coastal_rescue_count": "Coastal Rescue Stations",
         "coastal_rescue_small_count": "Lifeguard Posts or Coastal Rescue Stations",
         "dea_count": "DEA Expansion | DEA Expansions",
-        "detention_unit_count": "detention unit extension | detention unit extensions",
+        "detention_unit_count": "Detention unit extension | Detention unit extensions",
         "disaster_response_count": "Disater Response Extension | Disater Response Extensions",
+        "ems_mobile_command": "EMS Mobile Command",
         "federalpolice_stations": "Federal Police Station | Federal Police Stations",
         "fire_aviation_count": "Firefighting Plane Station | Firefighting Plane Stations",
-        "fire_boat_docks": "fire boat dock | fire boat docks",
+        "fire_boat_docks": "Dire boat dock | Dire boat docks",
         "fire_investigation_count": "Fire Marshal's Office | Fire Marshal's Offices",
         "fire_stations": "Fire Station | Fire Stations",
         "fire_support_count": "Foam Extension | Foam Extensions",
@@ -66,9 +67,11 @@
         "police_stations": "Police Station | Police Stations",
         "rescue_boat_docks": "rescue boat dock | rescue boat docks",
         "rescue_stations": "Ambulance Station | Ambulance Stations",
-        "riot_police": "Riot Police Extension | Riot Police Extensionss",
+        "riot_police": "Riot Police Extension | Riot Police Extensions",
+        "search_and_rescue": "USAR",
         "smoke_jumper": "Smoke Jumper Team | SmokeJumper Teams",
         "sniper": "Sharpshooter",
+        "technical_rescue": "Technical Rescuer",
         "title": "Prerequisite | Prerequisites",
         "traffic_control": "Traffic Control",
         "wasserrettung": "Water Rescue Station | Water Rescue Stations",
@@ -173,7 +176,7 @@
             "allow_arff_instead_of_lf": {
                 "firetrucks": "Fire Engine or ARFF | Fire Engine or ARFF"
             },
-            "allow_dlk_instead_of_lf": {
+            "oneof_fire_engine_or_fire_ladder": {
                 "firetrucks": "Fire Engine or Platform truck  | Fire Engines or Platform trucks"
             },
             "allow_drone_instead_of_investigation": {
@@ -184,7 +187,7 @@
                 "based_on": "police_cars",
                 "line_break": true
             },
-            "allow_rw_instead_of_lf": {
+            "oneof_fire_engine_or_fire_rescue": {
                 "firetrucks": "Fire Engine or Heavy Rescue or Rescue Engine | Fire Engines or Heavy Rescue or Rescue Engine"
             }
         },
