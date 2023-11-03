@@ -176,9 +176,6 @@
             "allow_arff_instead_of_lf": {
                 "firetrucks": "Fire Engine or ARFF | Fire Engine or ARFF"
             },
-            "oneof_fire_engine_or_fire_ladder": {
-                "firetrucks": "Fire Engine or Platform truck  | Fire Engines or Platform trucks"
-            },
             "allow_drone_instead_of_investigation": {
                 "investigation": "FBI Surveillance Drone can Replace Investigation wagon"
             },
@@ -186,6 +183,9 @@
                 "additional_text": "of max. {n} Motorcycle |  of max. {n} Motorcycles",
                 "based_on": "police_cars",
                 "line_break": true
+            },
+            "oneof_fire_engine_or_fire_ladder": {
+                "firetrucks": "Fire Engine or Platform truck  | Fire Engines or Platform trucks"
             },
             "oneof_fire_engine_or_fire_rescue": {
                 "firetrucks": "Fire Engine or Heavy Rescue or Rescue Engine | Fire Engines or Heavy Rescue or Rescue Engine"
