@@ -12,7 +12,7 @@
         }
     },
     "arrHighlight": {
-        "removeBeforeParsing": ["(PALOHÄLYTYSJÄRJESTELMÄ)", "[LIITTOUMA]"]
+        "removeBeforeParsing": [" (PALOHÄLYTYSJÄRJESTELMÄ)", " [LIITTOUMA]"]
     },
     "arrHover": {
         "arrSpecs": {
