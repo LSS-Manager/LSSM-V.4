@@ -68,7 +68,7 @@ export default registerEquipment({
     drone: {
         id: 'drone',
         caption: 'Drone',
-        size: 20,
+        size: 15,
         credits: 2000,
         coins: 10,
     },

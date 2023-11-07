@@ -1922,4 +1922,26 @@ export default {
         special:
             'Der ELW Drohne ist ein Einsatzleitwagen 1 und eine Drohneneinheit für die Ortung und Erkundung aus der Luft.',
     },
+    129: {
+        caption: 'ELW2 Drohne',
+        color: '#fd090f',
+        credits: 35_000,
+        coins: 25,
+        staff: {
+            min: 4,
+            max: 6,
+            Feuerwehr: {
+                fire_drone: {
+                    all: true,
+                },
+                elw2: {
+                    all:true,
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [0, 18],
+        special:
+            'Der ELW2 Drohne kombiniert einen Einsatzleitwagen 2 mit einer Drohneneinheit für die Ortung und Erkundung aus der Luft.',
+    },
 } satisfies Record<number, InternalVehicle>;
