@@ -1936,7 +1936,7 @@ export default {
                         all: true,
                     },
                     elw2: {
-                        all:true,
+                        all: true,
                     },
                 },
             },

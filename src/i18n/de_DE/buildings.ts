@@ -38,7 +38,9 @@ export default {
                     duration: '7 Tage',
                     isVehicleExtension: true,
                     givesParkingLots: 1,
-                    unlocksVehicleTypes: [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119],
+                    unlocksVehicleTypes: [
+                        47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
+                    ],
                     parkingLotReservations: [
                         [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119],
                     ],
@@ -62,8 +64,12 @@ export default {
                 duration: '7 Tage',
                 isVehicleExtension: true,
                 givesParkingLots: 1,
-                unlocksVehicleTypes: [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119],
-                parkingLotReservations: [[47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119]],
+                unlocksVehicleTypes: [
+                    47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
+                ],
+                parkingLotReservations: [
+                    [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119],
+                ],
                 cannotDisable: true,
             },
             {
@@ -114,7 +120,9 @@ export default {
                     duration: '7 Tage',
                     isVehicleExtension: true,
                     givesParkingLots: 1,
-                    unlocksVehicleTypes: [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119],
+                    unlocksVehicleTypes: [
+                        47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
+                    ],
                     parkingLotReservations: [
                         [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119],
                     ],
@@ -1263,7 +1271,9 @@ export default {
                     duration: '7 Tage',
                     isVehicleExtension: true,
                     givesParkingLots: 1,
-                    unlocksVehicleTypes: [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119],
+                    unlocksVehicleTypes: [
+                        47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
+                    ],
                     parkingLotReservations: [
                         [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119],
                     ],
