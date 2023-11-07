@@ -1930,12 +1930,14 @@ export default {
         staff: {
             min: 4,
             max: 6,
-            Feuerwehr: {
-                fire_drone: {
-                    all: true,
-                },
-                elw2: {
-                    all:true,
+            training: {
+                Feuerwehr: {
+                    fire_drone: {
+                        all: true,
+                    },
+                    elw2: {
+                        all:true,
+                    },
                 },
             },
         },
