@@ -7111,7 +7111,7 @@ __metadata:
     moment: "npm:2.29.4"
     showdown: "npm:2.1.0"
     simple-git: "npm:3.20.0"
-    vue: "npm:3.3.7"
+    vue: "npm:3.3.8"
     vuepress: "npm:2.0.0-beta.67"
     vuepress-plugin-clipboard: "npm:2.1.5"
     vuepress-plugin-sitemap2: "npm:2.0.0-beta.247"
@@ -10192,35 +10192,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:3.3.7, vue@npm:^3.2.45, vue@npm:^3.3.4":
-  version: 3.3.7
-  resolution: "vue@npm:3.3.7"
-  dependencies:
-    "@vue/compiler-dom": "npm:3.3.7"
-    "@vue/compiler-sfc": "npm:3.3.7"
-    "@vue/runtime-dom": "npm:3.3.7"
-    "@vue/server-renderer": "npm:3.3.7"
-    "@vue/shared": "npm:3.3.7"
-  peerDependencies:
-    typescript: "*"
-  peerDependenciesMeta:
-    typescript:
-      optional: true
-  checksum: f1f06c6057591d47ad69ed147bc3c0d4b941c9e2e2552eaee90b0066451871bc39941b3d73e67a35440c1cb156fbfe79ba5006aa8872a829ba77e5071fe6719e
-  languageName: node
-  linkType: hard
-
-"vue@npm:^2.0.0":
-  version: 2.7.15
-  resolution: "vue@npm:2.7.15"
-  dependencies:
-    "@vue/compiler-sfc": "npm:2.7.15"
-    csstype: "npm:^3.1.0"
-  checksum: 92bc7bcef1a54fe6b98409a7094f7c8b1f4b8fcf52469380f130d0d671d581130b1ef8715f0e95020fc5dbffff7f519a0621206484b3fdee5e6319a76073fb0c
-  languageName: node
-  linkType: hard
-
-"vue@npm:^3.3.8":
+"vue@npm:3.3.8, vue@npm:^3.3.8":
   version: 3.3.8
   resolution: "vue@npm:3.3.8"
   dependencies:
@@ -10235,6 +10207,34 @@ __metadata:
     typescript:
       optional: true
   checksum: f4a3587fac0e48a805b465833e72771ff9d132d3cb1e4ea57bbccc969606664303b6ecd17edc2132ad3f48bf9661a6d973c3b314d08bb36bdd3b220a65488be6
+  languageName: node
+  linkType: hard
+
+"vue@npm:^2.0.0":
+  version: 2.7.15
+  resolution: "vue@npm:2.7.15"
+  dependencies:
+    "@vue/compiler-sfc": "npm:2.7.15"
+    csstype: "npm:^3.1.0"
+  checksum: 92bc7bcef1a54fe6b98409a7094f7c8b1f4b8fcf52469380f130d0d671d581130b1ef8715f0e95020fc5dbffff7f519a0621206484b3fdee5e6319a76073fb0c
+  languageName: node
+  linkType: hard
+
+"vue@npm:^3.2.45, vue@npm:^3.3.4":
+  version: 3.3.7
+  resolution: "vue@npm:3.3.7"
+  dependencies:
+    "@vue/compiler-dom": "npm:3.3.7"
+    "@vue/compiler-sfc": "npm:3.3.7"
+    "@vue/runtime-dom": "npm:3.3.7"
+    "@vue/server-renderer": "npm:3.3.7"
+    "@vue/shared": "npm:3.3.7"
+  peerDependencies:
+    typescript: "*"
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: f1f06c6057591d47ad69ed147bc3c0d4b941c9e2e2552eaee90b0066451871bc39941b3d73e67a35440c1cb156fbfe79ba5006aa8872a829ba77e5071fe6719e
   languageName: node
   linkType: hard
 
