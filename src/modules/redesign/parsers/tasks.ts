@@ -30,7 +30,7 @@ export default <RedesignParser<TasksWindow>>(({ LSSM, doc, $sm }) => ({
             '.panel-heading > div:first-child > div:first-child'
         );
         const name = titleElement?.textContent?.trim() ?? '';
-        const isCollectionTask = !!titleElement?.querySelector('b');
+        const isCollectionTask = !titleElement?.querySelector('b');
         const category =
             name.match(/(?<=^\[).*?(?=\])/u)?.[0] ??
             name.match(
