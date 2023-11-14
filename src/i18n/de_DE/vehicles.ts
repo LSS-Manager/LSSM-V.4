@@ -1874,7 +1874,7 @@ export default {
             training: {
                 Feuerwehr: {
                     fire_drone: {
-                        all: true,
+                        min: 4,
                     },
                 },
             },
