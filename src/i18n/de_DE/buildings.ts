@@ -169,6 +169,21 @@ export default {
                 unlocksVehicleTypes: [114, 115, 116],
             },
             {
+                caption: 'Abrollbehälter-Stellplatz',
+                credits: 100_000,
+                coins: 20,
+                duration: '7 Tage',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                unlocksVehicleTypes: [
+                    47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
+                ],
+                parkingLotReservations: [
+                    [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119],
+                ],
+                cannotDisable: true,
+            },
+            {
                 caption: 'Drohnen-Erweiterung',
                 credits: 150_000,
                 coins: 25,
