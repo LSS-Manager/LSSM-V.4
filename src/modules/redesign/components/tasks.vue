@@ -4,7 +4,7 @@
             {{ lightbox.$sm('title') }}
             <span class="reward_button">
                 <button
-                    class="btn btn-block"
+                    class="btn btn-success"
                     :disabled="!amountOfClaimableTasks"
                     @click="claimAll"
                 >

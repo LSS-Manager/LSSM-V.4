@@ -54,7 +54,7 @@ jobs:
 
             - name: '[⬆] setup Node.js'
               id: node
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
                   node-version: ${{ env.NODE_VERSION }}
 
