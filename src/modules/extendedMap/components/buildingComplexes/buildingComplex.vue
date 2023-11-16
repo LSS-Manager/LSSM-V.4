@@ -1312,8 +1312,8 @@ type MaybeInterface<
 > = Has extends true
     ? HasInterface
     : Has extends false
-    ? HasNotInterface
-    : HasInterface | HasNotInterface;
+      ? HasNotInterface
+      : HasInterface | HasNotInterface;
 
 type AttributedBuildingHasBeds = HasInterface<'hasBeds'> & {
     beds: number;

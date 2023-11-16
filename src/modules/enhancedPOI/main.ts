@@ -219,8 +219,8 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
                         poi === 'all'
                             ? shown_types === poi_types
                             : poi === 'none'
-                            ? !shown_types.length
-                            : shown_types.includes(poi);
+                              ? !shown_types.length
+                              : shown_types.includes(poi);
                     if (poi === 'all') {
                         input.addEventListener('change', () => {
                             if (!input.checked) return;
@@ -270,8 +270,8 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
                         poi === 'all'
                             ? $m('all').toString()
                             : poi === 'none'
-                            ? $m('none').toString()
-                            : poi;
+                              ? $m('none').toString()
+                              : poi;
                     label.prepend(input);
                     wrapper.append(label);
                     return wrapper;

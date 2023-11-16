@@ -40,8 +40,8 @@ export default (
                     customColor
                         ? customColorColor
                         : isBrightColor
-                        ? '#333'
-                        : '#fff'
+                          ? '#333'
+                          : '#fff'
                 } !important`,
             },
         },
