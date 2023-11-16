@@ -55,7 +55,7 @@ If Tampermonkey was successfully installed in your browser, you can either click
 @[code js](@userscript)
 
 ### Step 3: Activate
-The LSSM indicator is a green highlighted text `LSSM V.4`, present in the upper right corner of Missionchief.
+LSSM indicator is the LSSM logo or (if set accordingly in the [settings](settings.md)) a green text `LSSM V.4`.
 If you cannot find this indicator, click on the tampermonkey icon in your browser and check if the switch for LSS-Manager script is set to `on`.
 
 If you have any problems, feel free to contact [Support][docs.support].
