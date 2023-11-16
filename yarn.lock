@@ -1533,7 +1533,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint-community/regexpp@npm:^4.4.0, @eslint-community/regexpp@npm:^4.5.0, @eslint-community/regexpp@npm:^4.5.1, @eslint-community/regexpp@npm:^4.6.1":
+"@eslint-community/regexpp@npm:^4.5.1, @eslint-community/regexpp@npm:^4.6.1, @eslint-community/regexpp@npm:^4.8.0, @eslint-community/regexpp@npm:^4.9.1":
   version: 4.10.0
   resolution: "@eslint-community/regexpp@npm:4.10.0"
   checksum: c5f60ef1f1ea7649fa7af0e80a5a79f64b55a8a8fa5086de4727eb4c86c652aedee407a9c143b8995d2c0b2d75c1222bec9ba5d73dbfc1f314550554f0979ef4
@@ -4259,7 +4259,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"comment-parser@npm:1.4.1, comment-parser@npm:^1.1.2":
+"comment-parser@npm:1.4.1, comment-parser@npm:^1.4.0":
   version: 1.4.1
   resolution: "comment-parser@npm:1.4.1"
   checksum: d6c4be3f5be058f98b24f2d557f745d8fe1cc9eb75bebbdccabd404a0e1ed41563171b16285f593011f8b6a5ec81f564fb1f2121418ac5cbf0f49255bf0840dd
@@ -5079,21 +5079,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-regexp@npm:1.15.0":
-  version: 1.15.0
-  resolution: "eslint-plugin-regexp@npm:1.15.0"
+"eslint-plugin-regexp@npm:2.1.1":
+  version: 2.1.1
+  resolution: "eslint-plugin-regexp@npm:2.1.1"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.2.0"
-    "@eslint-community/regexpp": "npm:^4.4.0"
-    comment-parser: "npm:^1.1.2"
-    grapheme-splitter: "npm:^1.0.4"
-    jsdoctypeparser: "npm:^9.0.0"
-    refa: "npm:^0.11.0"
-    regexp-ast-analysis: "npm:^0.6.0"
-    scslre: "npm:^0.2.0"
+    "@eslint-community/regexpp": "npm:^4.9.1"
+    comment-parser: "npm:^1.4.0"
+    jsdoc-type-pratt-parser: "npm:^4.0.0"
+    refa: "npm:^0.12.1"
+    regexp-ast-analysis: "npm:^0.7.1"
+    scslre: "npm:^0.3.0"
   peerDependencies:
-    eslint: ">=6.0.0"
-  checksum: d9466d3d426085d521a3fd193890f003aa396dfa9039b11109f36a59bc45e1c0d5cbfdc7fe7d4a73812592e03082c522b2475d0264cbd1c4337958a03729928d
+    eslint: ">=8.44.0"
+  checksum: fd13d860d1460bb2f07387d5ebac4eeb4d17f5c440ef4bf5c86f9eda8b4f33b07a09444b15c01ec5463cfcec790f5a8125eee7e1ed30b4ced289c954d3434c23
   languageName: node
   linkType: hard
 
@@ -5838,13 +5837,6 @@ __metadata:
   version: 4.2.11
   resolution: "graceful-fs@npm:4.2.11"
   checksum: 386d011a553e02bc594ac2ca0bd6d9e4c22d7fa8cfbfc448a6d148c59ea881b092db9dbe3547ae4b88e55f1b01f7c4a2ecc53b310c042793e63aa44cf6c257f2
-  languageName: node
-  linkType: hard
-
-"grapheme-splitter@npm:^1.0.4":
-  version: 1.0.4
-  resolution: "grapheme-splitter@npm:1.0.4"
-  checksum: 108415fb07ac913f17040dc336607772fcea68c7f495ef91887edddb0b0f5ff7bc1d1ab181b125ecb2f0505669ef12c9a178a3bbd2dd8e042d8c5f1d7c90331a
   languageName: node
   linkType: hard
 
@@ -6631,19 +6623,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsdoc-type-pratt-parser@npm:~4.0.0":
+"jsdoc-type-pratt-parser@npm:^4.0.0, jsdoc-type-pratt-parser@npm:~4.0.0":
   version: 4.0.0
   resolution: "jsdoc-type-pratt-parser@npm:4.0.0"
   checksum: b23ef7bbbe2f56d72630d1c5a233dc9fecaff399063d373c57bef136908c1b05e723dac107177303c03ccf8d75aa51507510b282aa567600477479c5ea0c36d1
-  languageName: node
-  linkType: hard
-
-"jsdoctypeparser@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "jsdoctypeparser@npm:9.0.0"
-  bin:
-    jsdoctypeparser: bin/jsdoctypeparser
-  checksum: 491c8528905ba230e2ede016b927500acef6da618d5d7ae410c16f73851645bb3a9f245041610046df61369419d97fc7ce58d269b022106d1813648f4295c14e
   languageName: node
   linkType: hard
 
@@ -7050,7 +7033,7 @@ __metadata:
     eslint-plugin-jsdoc: "npm:46.9.0"
     eslint-plugin-markdownlint: "npm:0.5.0"
     eslint-plugin-prettier: "npm:5.0.1"
-    eslint-plugin-regexp: "npm:1.15.0"
+    eslint-plugin-regexp: "npm:2.1.1"
     eslint-plugin-tsdoc: "npm:0.2.17"
     eslint-plugin-unicorn: "npm:49.0.0"
     eslint-plugin-vue: "npm:9.18.1"
@@ -8307,12 +8290,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"refa@npm:^0.11.0":
-  version: 0.11.0
-  resolution: "refa@npm:0.11.0"
+"refa@npm:^0.12.0, refa@npm:^0.12.1":
+  version: 0.12.1
+  resolution: "refa@npm:0.12.1"
   dependencies:
-    "@eslint-community/regexpp": "npm:^4.5.0"
-  checksum: a5a62559d47b3df6cd2d94edfc74b0c815983cf987d768c9999c215f998c38324cfe1eaf66e1dad2dfb0804ac194d8648bd9f210c37d2d1b380744f599e71278
+    "@eslint-community/regexpp": "npm:^4.8.0"
+  checksum: 5c2f3dc5421f73aba44ec3d67bad58f36ff921dc13b0a921e1784c0510cf26be6d4e14010955a71607e67ff23a815f3ac30b337d06b5a2e8914417b67626c900
   languageName: node
   linkType: hard
 
@@ -8355,13 +8338,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"regexp-ast-analysis@npm:^0.6.0":
-  version: 0.6.0
-  resolution: "regexp-ast-analysis@npm:0.6.0"
+"regexp-ast-analysis@npm:^0.7.0, regexp-ast-analysis@npm:^0.7.1":
+  version: 0.7.1
+  resolution: "regexp-ast-analysis@npm:0.7.1"
   dependencies:
-    "@eslint-community/regexpp": "npm:^4.5.0"
-    refa: "npm:^0.11.0"
-  checksum: 3292f888afb763dea20a863a9efa058c6510d0e54d480397ee76bda46a3ad519e818153c80605fa15516c795e1118e18bcba8e8bc4985d251764b0c840f7bdb7
+    "@eslint-community/regexpp": "npm:^4.8.0"
+    refa: "npm:^0.12.1"
+  checksum: 1b0e6d66e1e619b42a0e7f62b4c9983d0ce69d94fc759802c02272cbab8abd2e0d5b94186472de4e7c4baaf5826ca674d3c7c083615e39c4be55d1ff9d12c823
   languageName: node
   linkType: hard
 
@@ -8736,14 +8719,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"scslre@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "scslre@npm:0.2.0"
+"scslre@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "scslre@npm:0.3.0"
   dependencies:
-    "@eslint-community/regexpp": "npm:^4.5.0"
-    refa: "npm:^0.11.0"
-    regexp-ast-analysis: "npm:^0.6.0"
-  checksum: 2315a110e554eb8eff40a2a6dd1a666beb24e3fbb4ad5d828df5a5a89a0a049763b5927905e984edc15106c39e8d69584a158aa65e05e932b08490b4b5c63f8c
+    "@eslint-community/regexpp": "npm:^4.8.0"
+    refa: "npm:^0.12.0"
+    regexp-ast-analysis: "npm:^0.7.0"
+  checksum: 47eb72cf913693b453b7622dfee26871b4c408169874b31b8a1f3de8f41698e6dbacd7565fccc8d24cd2fd30f53c21f16995a7f9072e8b25cd938a6c3a750c3c
   languageName: node
   linkType: hard
 
