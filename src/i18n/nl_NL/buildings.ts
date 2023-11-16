@@ -143,6 +143,25 @@ export default {
                 unlocksVehicleTypes: [90, 91],
                 cannotDisable: true,
             },
+            {
+                caption: 'Grote brandweerkazerne',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 dagen',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[0]?.length ?? 0) +
+                            (buildingsByType[17]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
         maxBuildings: 'Geen limiet',
@@ -266,6 +285,19 @@ export default {
                 cannotDisable: true,
                 requiredExtensions: [1],
             },
+            {
+                caption: 'Groot ziekenhuis',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 Dagen',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number => Math.floor((buildingsByType[2]?.length ?? 2) / 5),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[4][9] ?? 0) < maxExtensions,
+                newBeds: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: ['1.-20. 19.000 Credits / 11 Coins'],
         maxBuildings: 'Geen limiet',
@@ -284,7 +316,27 @@ export default {
             credits: [10_000, 50_000, ...Array(17).fill(100_000)],
             coins: [10, 15, ...Array(17).fill(20)],
         },
-        extensions: [],
+        extensions: [
+            {
+                caption: 'Grote ambulancepost',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 Dagen',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[3]?.length ?? 0) +
+                            (buildingsByType[13]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[2][0] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            },
+        ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
         maxBuildings: 'Geen limiet',
         maxLevel: 19,
@@ -352,8 +404,45 @@ export default {
                 },
                 9
             ),
+            {
+                caption: 'Groot politiebureau',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 Dagen',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[5]?.length ?? 0) +
+                            (buildingsByType[18]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][14] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            },
+            {
+                caption: 'Grote gevangenis',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 Dagen',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[5]?.length ?? 0) +
+                            (buildingsByType[18]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
+                newCells: 10,
+                cannotDisable: true,
+            },
         ],
-        levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
+        levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
         maxBuildings: 'Geen limiet',
         maxLevel: 19,
         special:
@@ -633,6 +722,20 @@ export default {
                 },
                 9
             ),
+            {
+                caption: 'Grote gevangenis',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 Dagen',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor((buildingsByType[12]?.length ?? 0) / 10),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
+                newCells: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: [],
         maxBuildings: 'Geen limiet',

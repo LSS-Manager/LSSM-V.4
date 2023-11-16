@@ -11,7 +11,7 @@
         "deleteModal": {
             "btnCancel": "Cancelar",
             "btnConfirm": "Eliminar",
-            "text": "¿Quiere eliminar esta entrada de AAO?",
+            "text": "¿Quiere eliminar esta entrada de NAR?",
             "title": "¿Eliminar?"
         }
     },

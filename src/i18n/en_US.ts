@@ -251,6 +251,8 @@ export default {
         'Silo',
         'Aquarium',
         'Prison',
+        'Festival',
+        'Sauna',
     ],
     only_alliance_missions: [41, 61, 62, 112],
     transfer_missions: [246],

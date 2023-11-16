@@ -41,7 +41,7 @@ export const defineAPIStore = defineStore('api', {
             debounce: {
                 vehicles: {
                     timeout: null,
-                    updates: [],
+                    updates: new Map(),
                 },
             },
             initialBroadcastUpdateFinished: false,
@@ -346,8 +346,7 @@ export const defineAPIStore = defineStore('api', {
         },
         radioMessage(radioMessage: RadioMessage) {
             if (radioMessage.type !== 'vehicle_fms') return;
-            this.debounce.vehicles.updates.push({
-                vehicleId: radioMessage.id,
+            this.debounce.vehicles.updates.set(radioMessage.id, {
                 caption: radioMessage.caption,
                 fms_show: radioMessage.fms,
                 fms_real: radioMessage.fms_real,
@@ -355,23 +354,16 @@ export const defineAPIStore = defineStore('api', {
             if (this.debounce.vehicles.timeout)
                 window.clearTimeout(this.debounce.vehicles.timeout);
             this.debounce.vehicles.timeout = window.setTimeout(() => {
-                const vehicles = this.vehicles;
-                const updatedIds: number[] = [];
-                let vehicle = this.debounce.vehicles.updates.pop();
-                while (vehicle) {
-                    const { vehicleId, caption, fms_show, fms_real } = vehicle;
-                    if (!updatedIds.includes(vehicleId)) {
-                        const index = vehicles.findIndex(
-                            ({ id }) => id === vehicleId
-                        );
-                        updatedIds.push(vehicleId);
-                        if (index >= 0) {
-                            vehicles[index].caption = caption;
-                            vehicles[index].fms_show = fms_show;
-                            vehicles[index].fms_real = fms_real;
-                        }
-                    }
-                    vehicle = this.debounce.vehicles.updates.pop();
+                for (const vehicle of this.vehicles) {
+                    const update = this.debounce.vehicles.updates.get(
+                        vehicle.id
+                    );
+                    if (!update) continue;
+                    vehicle.caption = update.caption;
+                    vehicle.fms_show = update.fms_show;
+                    vehicle.fms_real = update.fms_real;
+                    this.debounce.vehicles.updates.delete(vehicle.id);
+                    if (this.debounce.vehicles.updates.size === 0) break;
                 }
                 useBroadcastStore()
                     .apiBroadcast('vehicles', {

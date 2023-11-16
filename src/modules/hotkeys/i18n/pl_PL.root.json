@@ -60,9 +60,11 @@
             },
             "goto": {
                 "dispatchCenter": "CPR",
+                "edit": "Edit building",
                 "expand": "Powiększ budynek",
                 "firstVehicle": "Otwórz pierwszy pojazd",
                 "hire": "Zatrudnij nowe osoby",
+                "move": "Move building",
                 "nextBuilding": "Następny budynek",
                 "personal": "Pokaż personel",
                 "previousBuilding": "Poprzedni budynek",

@@ -119,7 +119,11 @@
                 "texts": ["Water Carrier", "Water Carriers"],
                 "vehicles": [6, 26, 36, 41, 50]
             },
-            { "texts": ["Drone", "Drones"], "vehicles": [89, 90, 91] },
+            {
+                "equipment": ["drone"],
+                "texts": ["Drone", "Drones"],
+                "vehicles": [89, 90, 91]
+            },
             {
                 "texts": [
                     "Operational Support Van",

@@ -1,4 +1,4 @@
-import type { InternalBuilding } from 'typings/Building';
+import type { Building, InternalBuilding } from 'typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
@@ -64,6 +64,25 @@ export default {
                 coins: 25,
                 duration: '5 jours',
             },
+            {
+                caption: 'Grande caserne de pompiers',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 jours',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[0]?.length ?? 0) +
+                            (buildingsByType[18]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[0][5] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: ['1. 10 000', '2. 50 000', '3-24. 100 000'],
         maxBuildings: 'Aucune limite',
@@ -114,7 +133,27 @@ export default {
             credits: [10_000, 50_000, ...Array(12).fill(100_000)],
             coins: [10, 15, ...Array(12).fill(20)],
         },
-        extensions: [],
+        extensions: [
+            {
+                caption: "Grande station d'ambulance",
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 jours',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[2]?.length ?? 0) +
+                            (buildingsByType[20]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[2][0] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            },
+        ],
         levelcost: ['1. 10 000', '2. 50 000', '3-14. 100 000'],
         maxBuildings: 'Aucune limite',
         maxLevel: 14,
@@ -234,6 +273,19 @@ export default {
                 requiredExtensions: [1],
                 cannotDisable: true,
             },
+            {
+                caption: 'Grand hôpital',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 jours',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number => Math.floor((buildingsByType[4]?.length ?? 0) / 5),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[4][10] ?? 0) < maxExtensions,
+                newBeds: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: ['1-20. 19 000 crédits / 11 pièces'],
         maxBuildings: 'Aucune limite',
@@ -298,6 +350,45 @@ export default {
                 },
                 9
             ),
+            {
+                caption: 'Grand poste de police',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 jours',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[6]?.length ?? 0) +
+                            (buildingsByType[19]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][10] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            },
+            {
+                caption: 'Grande prison',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 jours',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[6]?.length ?? 0) +
+                            (buildingsByType[19]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][11] ?? 0) < maxExtensions,
+                givesParkingLots: 10,
+                newCells: 10,
+                requiredExtensions: [9],
+                cannotDisable: true,
+            },
         ],
         levelcost: ['1. 10 000', '2. 50 000', '3-14. 100 000'],
         maxBuildings: 'Aucune limite',
@@ -531,6 +622,20 @@ export default {
                 },
                 10
             ),
+            {
+                caption: 'Grande prison',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 jours',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor((buildingsByType[16]?.length ?? 0) / 10),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[16][20] ?? 0) < maxExtensions,
+                newCells: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: [],
         maxBuildings: 'Aucune limite',
