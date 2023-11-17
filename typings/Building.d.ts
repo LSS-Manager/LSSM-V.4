@@ -87,6 +87,7 @@ interface VehicleExtension extends BaseExtension {
     unlocksVehicleTypes?: number[];
     parkingLotReservations?: number[][];
     giftsVehicles?: number[];
+    unlockedVehiclesOnReservedLotsOnly?: boolean;
 }
 
 interface ClassroomExtension extends BaseExtension {
