@@ -228,10 +228,10 @@ export default class HotkeyUtility {
                             a.length > b.length
                                 ? -1
                                 : a.length < b.length
-                                ? 1
-                                : a > b
-                                ? 1
-                                : -1
+                                  ? 1
+                                  : a > b
+                                    ? 1
+                                    : -1
                         )
                         .join('+')
                 ),

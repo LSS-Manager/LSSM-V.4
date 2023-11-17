@@ -16,7 +16,7 @@
                 </button>
                 <span class="reward_button">
                     <button
-                        class="btn btn-block"
+                        class="btn btn-success"
                         :disabled="task.progress !== task.total"
                         @click="$emit('claim')"
                     >
@@ -29,28 +29,52 @@
                 <span v-if="task.isPremiumTask">
                     <font-awesome-icon :icon="faGem"></font-awesome-icon>
                 </span>
-                <div v-if="collapsed">
+            </div>
+            <div class="rewards">
+                <div v-if="task.reward.credits" class="reward">
+                    <img
+                        class="navbar-icon"
+                        src="/images/mc_credits_flat.png"
+                        alt="Credits"
+                    />
+                    <span>
+                        {{ task.reward.credits.toLocaleString() }}&nbsp;{{
+                            $t('credits')
+                        }}
+                    </span>
+                </div>
+                <div v-if="task.reward.coins" class="reward">
+                    <img
+                        class="navbar-icon"
+                        src="/images/mc_coins_flat.png"
+                        alt="Coins"
+                    />
+                    <span>
+                        {{ task.reward.coins.toLocaleString() }}&nbsp;{{
+                            $t('coins')
+                        }}
+                    </span>
+                </div>
+            </div>
+            <div v-if="collapsed" class="progress_value">
+                <div>
                     <span>{{ $sm('end') }}:</span>
                     <span :id="task.countdownId"></span>
                     <span>({{ task.endString }})</span>
                 </div>
-            </div>
-            <div>
-                {{ task.reward }}
-                <div v-if="collapsed" class="progress_value">
+                <span>
                     {{ task.progress.toLocaleString() }} /
                     {{ task.total.toLocaleString() }}
-
-                    <font-awesome-icon
-                        v-if="task.hasNextTask"
-                        :icon="faCircleRight"
-                        :title="$sm('nextTask')"
-                        class="pull-right"
-                    ></font-awesome-icon>
-                </div>
+                </span>
+                &nbsp;
+                <font-awesome-icon
+                    v-if="task.hasNextTask"
+                    :icon="faCircleRight"
+                    :title="$sm('nextTask')"
+                ></font-awesome-icon>
             </div>
         </div>
-        <div class="task_body" v-if="!collapsed">
+        <div class="task_body panel-body" v-if="!collapsed">
             <div class="progress-info">
                 <div>
                     <span>{{ $sm('end') }}:</span>
@@ -165,8 +189,20 @@ export default Vue.extend<
 .task_panel
     width: 100%
 
+    .reward
+        display: inline-flex
+        align-items: center
+        gap: 3px
+        margin-left: 1em
+
     &.claimable
         order: -1
+
+    &:not(.collapsed)
+        .panel-heading,
+        .progress-info
+            display: flex
+            justify-content: space-between
 
     &.collapsed
         width: max-content
@@ -176,10 +212,17 @@ export default Vue.extend<
         .panel-heading
             min-height: unset
 
+            > .rewards,
+            > :has(+ .rewards)
+                display: inline
+
             > *:not(:last-child)
                 margin-right: 1rem
 
             .progress_value
                 display: flex
                 justify-content: space-between
+
+                > span
+                    margin-left: auto
 </style>

@@ -712,8 +712,8 @@ export default Vue.extend<
                     buildingTypes[a].caption < buildingTypes[b].caption
                         ? -1
                         : buildingTypes[a].caption > buildingTypes[b].caption
-                        ? 1
-                        : 0
+                          ? 1
+                          : 0
                 ),
             mapLayerGroups: Object.fromEntries(
                 Object.keys(buildingTypes).map(type => [

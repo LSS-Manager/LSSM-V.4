@@ -72,8 +72,8 @@ const reqIsFulfilled = (req: Requirement) =>
     (typeof req.selected === 'number'
         ? req.selected
         : props.calcMaxStaff
-        ? req.selected.max
-        : req.selected.min);
+          ? req.selected.max
+          : req.selected.min);
 </script>
 
 <style scoped lang="sass">

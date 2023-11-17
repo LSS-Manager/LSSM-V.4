@@ -465,19 +465,19 @@ export default (
                                                   Node.DOCUMENT_POSITION_FOLLOWING
                                                     ? 1
                                                     : position &
-                                                      Node.DOCUMENT_POSITION_PRECEDING
-                                                    ? -1
-                                                    : 0
+                                                        Node.DOCUMENT_POSITION_PRECEDING
+                                                      ? -1
+                                                      : 0
                                                 : valueB - valueA
                                             : valueB === valueA
-                                            ? position &
-                                              Node.DOCUMENT_POSITION_FOLLOWING
-                                                ? -1
-                                                : position &
-                                                  Node.DOCUMENT_POSITION_PRECEDING
-                                                ? 1
-                                                : 0
-                                            : valueA - valueB;
+                                              ? position &
+                                                Node.DOCUMENT_POSITION_FOLLOWING
+                                                  ? -1
+                                                  : position &
+                                                      Node.DOCUMENT_POSITION_PRECEDING
+                                                    ? 1
+                                                    : 0
+                                              : valueA - valueB;
                                     }
                                 )
                                 .map(([mission]) => mission),

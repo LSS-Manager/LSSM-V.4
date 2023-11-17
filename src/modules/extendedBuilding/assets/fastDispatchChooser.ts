@@ -106,10 +106,10 @@ export default async (
                     !a.id
                         ? 1
                         : a.caption < b.caption
-                        ? -1
-                        : a.caption > b.caption
-                        ? 1
-                        : 0
+                          ? -1
+                          : a.caption > b.caption
+                            ? 1
+                            : 0
                 )
                 .forEach(building => {
                     const wrapper = document.createElement('li');

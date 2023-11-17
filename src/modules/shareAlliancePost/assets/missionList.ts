@@ -103,16 +103,16 @@ export default (
             )
                 ? mission.element.querySelectorAll('.patient_progress').length
                 : mission.element
-                      .querySelector<HTMLDivElement>(
-                          '[id^="mission_patient_summary_"]'
-                      )
-                      ?.style.getPropertyValue('display') !== 'none'
-                ? LSSM.$utils.getNumberFromText(
-                      mission.element.querySelector(
-                          '.mission_list_patient_icon + strong'
-                      )?.textContent ?? '0'
-                  )
-                : 0) || '–'
+                        .querySelector<HTMLDivElement>(
+                            '[id^="mission_patient_summary_"]'
+                        )
+                        ?.style.getPropertyValue('display') !== 'none'
+                  ? LSSM.$utils.getNumberFromText(
+                        mission.element.querySelector(
+                            '.mission_list_patient_icon + strong'
+                        )?.textContent ?? '0'
+                    )
+                  : 0) || '–'
         ).toLocaleString(),
         remaining,
         remainingSpecial: remaining,
