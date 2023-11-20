@@ -114,6 +114,7 @@ export default {
                 'SEG-Fahrzeuge': [58, 59, 60],
                 'Rettungshundefahrzeuge': [91],
                 'Drohne': [127],
+                ['BT & VPF']: [130, 131, 132, 133],
             },
             color: '#ffa500',
         },
