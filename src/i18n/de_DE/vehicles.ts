@@ -1970,7 +1970,7 @@ export default {
         special:
             'Der GW-Bt transportiert Betreuungs- und Verpflegungsausstattung und kann als Feldküche zur Versorgung von Einsatzkräften und Betroffenen',
     },
-   131: {
+    131: {
         caption: 'Bt-Kombi',
         color: '#a34100',
         credits: 25_000,

@@ -1085,7 +1085,11 @@ export default {
                 duration: '5 Tage',
                 isVehicleExtension: true,
                 givesParkingLots: 10,
-                parkingLotReservations: [[130, 130, 130],[133, 133,133],[131, 131, 131, 132, 132, 132, 131]],
+                parkingLotReservations: [
+                    [130, 130, 130],
+                    [133, 133, 133],
+                    [131, 131, 131, 132, 132, 132, 131],
+                ],
                 unlocksVehicleTypes: [130, 131, 132, 133],
                 unlockedVehiclesOnReservedLotsOnly: true,
             },
