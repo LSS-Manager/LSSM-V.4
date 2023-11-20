@@ -1957,10 +1957,10 @@ export default {
             training: {
                 Rettungsdienst: {
                     care_service: {
-                        max: 1,
+                        min: 1,
                     },
                     care_service_equipment: {
-                        max: 2,
+                        min: 2,
                     },
                 },
             },
@@ -2018,10 +2018,10 @@ export default {
             training: {
                 Rettungsdienst: {
                     care_service: {
-                        max: 1,
+                        min: 1,
                     },
                     care_service_equipment: {
-                        max: 2,
+                        min: 2,
                     },
                 },
             },
