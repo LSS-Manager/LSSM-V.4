@@ -37,12 +37,12 @@
     "@types/i18n-js": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/i18n-js",
-        "version": "3.8.8"
+        "version": "3.8.9"
     },
     "@types/jquery": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jquery",
-        "version": "3.5.27"
+        "version": "3.5.28"
     },
     "@types/js-yaml": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -57,7 +57,7 @@
     "@types/lodash": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/lodash",
-        "version": "4.14.201"
+        "version": "4.14.202"
     },
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -82,12 +82,12 @@
     "@types/semver": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/semver",
-        "version": "7.5.5"
+        "version": "7.5.6"
     },
     "@types/showdown": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/showdown",
-        "version": "2.0.4"
+        "version": "2.0.5"
     },
     "@types/simpleheat": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
