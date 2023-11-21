@@ -2339,19 +2339,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/i18n-js@npm:3.8.8":
-  version: 3.8.8
-  resolution: "@types/i18n-js@npm:3.8.8"
-  checksum: f09a760b6ce122d419c032fcf845b0c9bb7f642426c46203d6ef61ca90a31e2dc74f9e759f97c39dd9693e56dd4eaefdb1fc5453909bb41cf0839d1a3c4b6d50
+"@types/i18n-js@npm:3.8.9":
+  version: 3.8.9
+  resolution: "@types/i18n-js@npm:3.8.9"
+  checksum: 40d3ef86594e8a438b2565a4498fce515336d08ed11cc67f3ad649a18cc436fc112a887924a4f466f73e742de7d488ac264b44928652e3ab9e8116b9bda34dd5
   languageName: node
   linkType: hard
 
-"@types/jquery@npm:3.5.27":
-  version: 3.5.27
-  resolution: "@types/jquery@npm:3.5.27"
+"@types/jquery@npm:3.5.28":
+  version: 3.5.28
+  resolution: "@types/jquery@npm:3.5.28"
   dependencies:
     "@types/sizzle": "npm:*"
-  checksum: 437b0c8e631446c7e811dd493e7f6f4fdc234f97fc95e3d2722290451dac9203e8400850ee9a53916c06f8d3540e25833ae7eea3eb10edab82fc1aeeaa085f69
+  checksum: 3923776e8ccacb0332d9bb407c8fed3bf85d8dc677419682f9b7124ed9a7b1213a6a2d237c394fb49a2d376984ddbd51cc0abc2823afacab3b1fe9ef7064a3ad
   languageName: node
   linkType: hard
 
@@ -2401,10 +2401,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:4.14.201":
-  version: 4.14.201
-  resolution: "@types/lodash@npm:4.14.201"
-  checksum: 14dc43787296c429433d7d034ed47c5ac24b92217056f80a0e6c990449120b9c9c1058918188945fb88353c0c8333c5c36dccc40c51edbd39b05d2169ab2e0ad
+"@types/lodash@npm:4.14.202":
+  version: 4.14.202
+  resolution: "@types/lodash@npm:4.14.202"
+  checksum: 6064d43c8f454170841bd67c8266cc9069d9e570a72ca63f06bceb484cb4a3ee60c9c1f305c1b9e3a87826049fd41124b8ef265c4dd08b00f6766609c7fe9973
   languageName: node
   linkType: hard
 
@@ -2536,17 +2536,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/semver@npm:7.5.5, @types/semver@npm:^7.5.0":
+"@types/semver@npm:7.5.6":
+  version: 7.5.6
+  resolution: "@types/semver@npm:7.5.6"
+  checksum: 196dc32db5f68cbcde2e6a42bb4aa5cbb100fa2b7bd9c8c82faaaf3e03fbe063e205dbb4f03c7cdf53da2edb70a0d34c9f2e601b54281b377eb8dc1743226acd
+  languageName: node
+  linkType: hard
+
+"@types/semver@npm:^7.5.0":
   version: 7.5.5
   resolution: "@types/semver@npm:7.5.5"
   checksum: bb1b525221d93c9e7b45914af5ed1729a5bfdfa80927d6b02bcb4550ff7015f8c713152c32cb679ffcc79e77c0dda66d1f972ff5ee8d2205336729c51198bb18
   languageName: node
   linkType: hard
 
-"@types/showdown@npm:2.0.4":
-  version: 2.0.4
-  resolution: "@types/showdown@npm:2.0.4"
-  checksum: 4a469b11c74779e19128f335b8b08e3ec76073015a97f39037da0dba97754976ab04a81291e2f1f36013a0e9db8311387ecaef7ef82df1bbc66459398f2a5293
+"@types/showdown@npm:2.0.5":
+  version: 2.0.5
+  resolution: "@types/showdown@npm:2.0.5"
+  checksum: 8ea539ce6128a4bc7842fd52b9207c8a43ec9553467c7ce68346c8fff76b97b9f15d176bf971f7e6523854d392acc242a49d13dcd2319a92b7f3c6079704e552
   languageName: node
   linkType: hard
 
@@ -7092,17 +7099,17 @@ __metadata:
     "@fortawesome/free-solid-svg-icons": "npm:6.4.2"
     "@fortawesome/vue-fontawesome": "npm:2.0.10"
     "@types/he": "npm:1.2.3"
-    "@types/i18n-js": "npm:3.8.8"
-    "@types/jquery": "npm:3.5.27"
+    "@types/i18n-js": "npm:3.8.9"
+    "@types/jquery": "npm:3.5.28"
     "@types/js-yaml": "npm:4.0.9"
     "@types/leaflet": "npm:1.9.8"
-    "@types/lodash": "npm:4.14.201"
+    "@types/lodash": "npm:4.14.202"
     "@types/node": "npm:20.9.3"
     "@types/pdfmake": "npm:0.2.8"
     "@types/prettier": "npm:2.7.3"
     "@types/qrcode": "npm:1.5.5"
-    "@types/semver": "npm:7.5.5"
-    "@types/showdown": "npm:2.0.4"
+    "@types/semver": "npm:7.5.6"
+    "@types/showdown": "npm:2.0.5"
     "@types/simpleheat": "npm:0.4.3"
     "@types/tampermonkey": "npm:5.0.2"
     "@types/ua-parser-js": "npm:0.7.39"
