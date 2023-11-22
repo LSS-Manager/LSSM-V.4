@@ -186,13 +186,16 @@ export default async (
     );
     let trailersCheckbox: HTMLInputElement | undefined;
     let equipmentCheckbox: HTMLInputElement | undefined;
-    if (schoolingIDs.trailers.size)
+    if (schoolingIDs.trailers.size) {
         trailersCheckbox = await addCheckbox('toggleFittingTrailers', () => {});
+        trailersCheckbox.disabled = !toggleCheckbox.checked;
+    }
     if (schoolingIDs.equipment.size) {
         equipmentCheckbox = await addCheckbox(
             'toggleFittingEquipment',
             () => {}
         );
+        equipmentCheckbox.disabled = !toggleCheckbox.checked;
     }
 
     const filterStyle = document.createElement('style');
