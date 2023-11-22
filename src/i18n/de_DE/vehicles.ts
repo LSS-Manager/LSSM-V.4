@@ -1463,6 +1463,7 @@ export default {
         },
         icon: 'paw',
         possibleBuildings: [9],
+        isTrailer: true,
         tractiveVehicles: [93],
         special:
             'Muss von einem "MTW-O" an den Einsatzort gezogen werden. Am Einsatzort sind ein "Anh Hund" und ein "Rettungshundefahrzeug" vom Rettungsdienst gleichwertig!',
@@ -1634,6 +1635,7 @@ export default {
         possibleBuildings: [9],
         pumpCapacity: 15_000,
         pumpType: 'sewage',
+        isTrailer: true,
         tractiveVehicles: [100, 123],
     },
     102: {
@@ -1656,6 +1658,7 @@ export default {
         possibleBuildings: [9],
         pumpCapacity: 12_400,
         pumpType: 'sewage',
+        isTrailer: true,
         tractiveVehicles: [100, 123],
     },
     103: {
