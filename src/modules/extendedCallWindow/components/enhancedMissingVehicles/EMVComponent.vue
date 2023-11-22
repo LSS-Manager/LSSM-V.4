@@ -232,8 +232,8 @@ const alertColor = computed<`alert-${'danger' | 'success'}`>(() => {
                 (typeof req.selected === 'number'
                     ? req.selected
                     : calcMaxStaff.value
-                    ? req.selected.max
-                    : req.selected.min)
+                      ? req.selected.max
+                      : req.selected.min)
         )
     )
         return 'alert-success';

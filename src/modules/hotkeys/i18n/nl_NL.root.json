@@ -60,9 +60,11 @@
             },
             "goto": {
                 "dispatchCenter": "meldkamer",
+                "edit": "Edit building",
                 "expand": "uitbreiden",
                 "firstVehicle": "open eerste voertuig",
                 "hire": "neem nieuwe personeel aan",
+                "move": "Move building",
                 "nextBuilding": "volgend gebouw",
                 "personal": "personeelsoverzicht",
                 "previousBuilding": "vorig gebouw",

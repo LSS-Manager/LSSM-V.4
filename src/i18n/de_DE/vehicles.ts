@@ -1968,4 +1968,191 @@ export default {
         icon: 'truck',
         possibleBuildings: [9],
     },
+    125: {
+        caption: 'MTW-Tr UL',
+        color: '#36759e',
+        credits: 10_000,
+        coins: 15,
+        staff: {
+            min: 4,
+            max: 4,
+            training: {
+                THW: {
+                    thw_drone: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [9],
+    },
+    126: {
+        caption: 'MTF Drohne',
+        color: '#fd090f',
+        credits: 10_000,
+        coins: 15,
+        staff: {
+            min: 4,
+            max: 5,
+            training: {
+                Feuerwehr: {
+                    fire_drone: {
+                        min: 4,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [0, 18],
+    },
+    127: {
+        caption: 'GW UAS',
+        color: '#bb5811',
+        credits: 10_000,
+        coins: 15,
+        staff: {
+            min: 4,
+            max: 4,
+            training: {
+                Rettungsdienst: {
+                    seg_drone: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [12],
+    },
+    128: {
+        caption: 'ELW Drohne',
+        color: '#fd090f',
+        credits: 20_000,
+        coins: 25,
+        staff: {
+            min: 4,
+            max: 5,
+            training: {
+                Feuerwehr: {
+                    fire_drone: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [0, 18],
+        special:
+            'Der ELW Drohne ist ein Einsatzleitwagen 1 und eine Drohneneinheit für die Ortung und Erkundung aus der Luft.',
+    },
+    129: {
+        caption: 'ELW2 Drohne',
+        color: '#fd090f',
+        credits: 35_000,
+        coins: 25,
+        staff: {
+            min: 4,
+            max: 6,
+            training: {
+                Feuerwehr: {
+                    fire_drone: {
+                        all: true,
+                    },
+                    elw2: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [0, 18],
+        special:
+            'Der ELW2 Drohne kombiniert einen Einsatzleitwagen 2 mit einer Drohneneinheit für die Ortung und Erkundung aus der Luft.',
+    },
+    130: {
+        caption: 'GW-Bt',
+        color: '#a34100',
+        credits: 35_000,
+        coins: 25,
+        staff: {
+            min: 3,
+            max: 3,
+            training: {
+                Rettungsdienst: {
+                    care_service: {
+                        min: 1,
+                    },
+                    care_service_equipment: {
+                        min: 2,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [12],
+        special:
+            'Der GW-Bt transportiert Betreuungs- und Verpflegungsausstattung und kann als Feldküche zur Versorgung von Einsatzkräften und Betroffenen',
+    },
+    131: {
+        caption: 'Bt-Kombi',
+        color: '#a34100',
+        credits: 25_000,
+        coins: 15,
+        staff: {
+            min: 1,
+            max: 9,
+            training: {
+                Rettungsdienst: {
+                    care_service: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [12],
+        special:
+            'Der Bt-Kombi transportiert Betreuungsdienstler zur Versorgung von Einsatzkräften und Betroffenen zu Einsätzen.',
+    },
+    132: {
+        caption: 'FKH',
+        color: '#a34100',
+        credits: 20_000,
+        coins: 15,
+        staff: {
+            min: 0,
+            max: 0,
+        },
+        icon: 'car-side',
+        possibleBuildings: [12],
+        isTrailer: true,
+        tractiveVehicles: [133],
+        special:
+            'Der FKH kann als Feldküche zur Versorgung von Einsatzkräften und Betroffenen eingesetzt werden und ist Teil der Betreuungs- und Verpflegungsausstattung.',
+    },
+    133: {
+        caption: 'Bt LKW',
+        color: '#a34100',
+        credits: 15_000,
+        coins: 15,
+        staff: {
+            min: 3,
+            max: 3,
+            training: {
+                Rettungsdienst: {
+                    care_service: {
+                        min: 1,
+                    },
+                    care_service_equipment: {
+                        min: 2,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [12],
+        special:
+            'Der Bt LKW transportiert Betreuungs- und Verpflegungsausstattung ohne Feldküche und muss mit einem FKH kombiniert werden',
+    },
 } satisfies Record<number, InternalVehicle>;

@@ -122,6 +122,10 @@
                 "description": "Shows whether a BLS can be used instead of an ALS.",
                 "title": "BLS instead of ALS"
             },
+            "allow_police_motorcycle_instead_of_fustw": {
+                "description": "Enabling this shows when a motorbike can replace a police car",
+                "title": "Police Motorbike can replace Police Car"
+            },
             "allow_rw_instead_of_lf": {
                 "description": "Indicates, if instead of a firetruck also heavy rescue or rescue engine is possible on site.",
                 "title": "Show Heavy Rescue / rescue engine instead of firetrucks"

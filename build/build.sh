@@ -217,7 +217,7 @@ if [[ $_RUN_STEP_BROWSERSLIST = true ]]; then
     start_time=$(now)
     print_start_message "[⬆] update browserslist"
     enable_debugging
-    npx -y browserslist@latest --update-db
+    npx -y update-browserslist-db
     disable_debugging
     print_end_message "[⬆] update browserslist" "$start_time"
 fi

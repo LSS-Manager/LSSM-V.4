@@ -1,6 +1,7 @@
 import type { Schooling } from 'typings/Schooling';
 import type VueI18n from 'vue-i18n';
 import type { InternalBuilding, ResolvedBuildingCategory } from '../Building';
+import type { InternalEquipment, InternalEquipments } from 'typings/Equipment';
 import type { InternalVehicle, ResolvedVehicleCategory } from 'typings/Vehicle';
 
 type ResolvedSchooling = Pick<
@@ -59,6 +60,18 @@ export interface Overview {
             category: number;
         };
     };
+    equipment: InternalEquipments<string>;
+    equipmentTab: {
+        head: Record<
+            string,
+            {
+                title: string;
+            }
+        >;
+        search: string;
+        sort: keyof InternalEquipment<string>;
+        sortDir: string;
+    };
     currentType: number;
 }
 
@@ -69,6 +82,8 @@ export interface OverviewComputed {
     currentSchoolings: ResolvedSchooling[];
     schoolingsFiltered: ResolvedSchooling[];
     schoolingsSorted: ResolvedSchooling[];
+    equipmentFiltered: InternalEquipment<string>[];
+    equipmentSorted: InternalEquipment<string>[];
     vehicleTypes: InternalVehicle[];
 }
 
@@ -82,6 +97,7 @@ export interface OverviewMethods {
     setSortBuildings(type: keyof InternalBuilding): void;
     setSortVehicles(type: keyof InternalVehicle): void;
     setSortSchoolings(type: keyof ResolvedSchooling): void;
+    setSortEquipment(type: keyof InternalEquipment<string>): void;
     setVehicleCategory(_: unknown, group: number): void;
     setVehicleGroup(_: unknown, group: number): void;
     setBuildingCategory(_: unknown, group: number): void;

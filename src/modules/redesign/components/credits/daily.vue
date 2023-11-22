@@ -39,8 +39,8 @@
                         sum.total > 0
                             ? 'success'
                             : sum.total < 0
-                            ? 'danger'
-                            : ''
+                              ? 'danger'
+                              : ''
                     }`"
                     >{{
                         (sum.total > 0 ? '+' : '') + sum.total.toLocaleString()
@@ -145,8 +145,8 @@
                         entry.total > 0
                             ? 'success'
                             : entry.total < 0
-                            ? 'danger'
-                            : ''
+                              ? 'danger'
+                              : ''
                     }`)
                 "
                 :sum="
@@ -174,8 +174,8 @@
                             shown_sum.total > 0
                                 ? 'success'
                                 : shown_sum.total < 0
-                                ? 'danger'
-                                : ''
+                                  ? 'danger'
+                                  : ''
                         }`)
                     "
                 >

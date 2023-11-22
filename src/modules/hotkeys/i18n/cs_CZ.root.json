@@ -59,9 +59,11 @@
             },
             "goto": {
                 "dispatchCenter": "dispatch center",
+                "edit": "Edit building",
                 "expand": "expanding",
                 "firstVehicle": "open first vehicle",
                 "hire": "Recute new personal",
+                "move": "Move building",
                 "nextBuilding": "Next Building",
                 "personal": "personal overview",
                 "previousBuilding": "Previous building",

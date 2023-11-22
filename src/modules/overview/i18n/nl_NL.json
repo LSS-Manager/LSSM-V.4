@@ -3,6 +3,7 @@
     "schoolings": { "all": "alle", "min": "min. {n}x" },
     "tabs": {
         "buildings": "Gebouwen",
+        "equipment": "Equipment",
         "schoolings": "Opleidingen",
         "vehicles": "Voertuigen"
     },
@@ -17,6 +18,11 @@
             "special": "Specials",
             "startPersonnel": "Start Personeel",
             "startVehicles": "Mogelijke start voertuigen"
+        },
+        "equipment": {
+            "caption": "Equipment",
+            "cost": "Price",
+            "size": "Size"
         },
         "schoolings": {
             "caption": "Opleidingsnaam",

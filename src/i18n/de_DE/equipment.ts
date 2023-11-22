@@ -102,4 +102,11 @@ export default registerEquipment({
         coins: 12,
         staff: { min: 2 },
     },
+    drone: {
+        id: 'drone',
+        caption: 'RC-Modul: Drohne',
+        size: 15,
+        credits: 2000,
+        coins: 10,
+    },
 });
