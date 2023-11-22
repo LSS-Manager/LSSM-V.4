@@ -108,5 +108,11 @@ export default registerEquipment({
         size: 15,
         credits: 2000,
         coins: 10,
+        staff: {
+            min: 4,
+            training: {
+                Feuerwehr: 'fire_drone',
+            },
+        },
     },
 });

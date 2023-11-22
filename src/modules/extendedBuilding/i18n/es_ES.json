@@ -1,6 +1,8 @@
 {
     "enhancedPersonnelAssignment": {
-        "toggleFittingPersonnel": "Ocultar personal sin información adecuada"
+        "toggleFittingEquipment": "Include training for possible equipment",
+        "toggleFittingPersonnel": "Ocultar personal sin información adecuada",
+        "toggleFittingTrailers": "Include training for possible trailers and pods"
     },
     "expansions": { "notBuild": "Aún no construido" },
     "fastDispatchChooser": { "noDispatch": "Sin centralita" },

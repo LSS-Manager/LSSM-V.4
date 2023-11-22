@@ -1,3 +1,4 @@
+import type { InternalEquipment } from 'typings/Equipment';
 import type { InternalVehicle } from 'typings/Vehicle';
 import type { $m, ModuleMainFunction } from 'typings/Module';
 
@@ -124,8 +125,6 @@ export default async (
         .querySelector<HTMLDivElement>('.vehicles-education-filter-box')
         ?.append(settingsBar);
 
-    settingsBar.addEventListener('change', e => console.log(e));
-
     // a function to create and add a checkbox to the DOM
     const addCheckbox = async (
         type:
@@ -167,7 +166,6 @@ export default async (
         settingsBar.append(wrapper);
 
         checkbox.checked = await getSetting(settingKey, false);
-        checkbox.dispatchEvent(new Event('change'));
         return checkbox;
     };
 
@@ -186,12 +184,52 @@ export default async (
                 });
         }
     );
+    let trailersCheckbox: HTMLInputElement | undefined;
+    let equipmentCheckbox: HTMLInputElement | undefined;
     if (schoolingIDs.trailers.size)
-        await addCheckbox('toggleFittingTrailers', () => {});
-    if (schoolingIDs.equipment.size)
-        await addCheckbox('toggleFittingEquipment', () => {});
+        trailersCheckbox = await addCheckbox('toggleFittingTrailers', () => {});
+    if (schoolingIDs.equipment.size) {
+        equipmentCheckbox = await addCheckbox(
+            'toggleFittingEquipment',
+            () => {}
+        );
+    }
 
-    toggleCheckbox.dispatchEvent(new Event('change'));
+    const filterStyle = document.createElement('style');
+    document.body.append(filterStyle);
 
-    console.log(schoolingIDs, getSetting, setSetting, $m);
+    const getSchoolingSelector = (schoolingIDs: Set<string>) =>
+        Array.from(schoolingIDs)
+            .flatMap(id => [
+                `[data-filterable-by*=${JSON.stringify(id)}]`,
+                `:has([data-education-key=${JSON.stringify(id)}])`,
+            ])
+            .join(',');
+
+    const updateFilters = () => {
+        if (!toggleCheckbox.checked) {
+            filterStyle.textContent = '';
+            return;
+        }
+
+        const schoolings = new Set<string>();
+        schoolingIDs.self.forEach(id => schoolings.add(id));
+        if (trailersCheckbox?.checked)
+            schoolingIDs.trailers.forEach(id => schoolings.add(id));
+        if (equipmentCheckbox?.checked)
+            schoolingIDs.equipment.forEach(id => schoolings.add(id));
+
+        if (schoolings.size) {
+            filterStyle.textContent = `
+#personal_table tbody tr:not(:where(${getSchoolingSelector(schoolings)})) {
+    display: none;
+}`;
+        } else {
+            filterStyle.textContent = '';
+        }
+    };
+
+    settingsBar.addEventListener('change', updateFilters);
+
+    updateFilters();
 };

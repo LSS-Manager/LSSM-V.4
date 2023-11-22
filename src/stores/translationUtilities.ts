@@ -4,6 +4,7 @@ import { defineStore } from 'pinia';
 
 import type { IconName } from '@fortawesome/free-solid-svg-icons';
 import type { InternalBuilding } from 'typings/Building';
+import type { InternalEquipments } from 'typings/Equipment';
 import type { InternalVehicle } from 'typings/Vehicle';
 
 const translationStore = defineStore('translationUtilities', {
