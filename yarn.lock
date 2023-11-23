@@ -2346,12 +2346,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jquery@npm:3.5.28":
-  version: 3.5.28
-  resolution: "@types/jquery@npm:3.5.28"
+"@types/jquery@npm:3.5.29":
+  version: 3.5.29
+  resolution: "@types/jquery@npm:3.5.29"
   dependencies:
     "@types/sizzle": "npm:*"
-  checksum: 3923776e8ccacb0332d9bb407c8fed3bf85d8dc677419682f9b7124ed9a7b1213a6a2d237c394fb49a2d376984ddbd51cc0abc2823afacab3b1fe9ef7064a3ad
+  checksum: 17409b551956c54d641264895790b9e63a2179bacdabe2a87d5f8f2baebe2f16625d111b17b1441cdffbf9e059e683bb25bf04ba6ea56b36e39ea50cc77f5b8c
   languageName: node
   linkType: hard
 
@@ -2550,10 +2550,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/showdown@npm:2.0.5":
-  version: 2.0.5
-  resolution: "@types/showdown@npm:2.0.5"
-  checksum: 8ea539ce6128a4bc7842fd52b9207c8a43ec9553467c7ce68346c8fff76b97b9f15d176bf971f7e6523854d392acc242a49d13dcd2319a92b7f3c6079704e552
+"@types/showdown@npm:2.0.6":
+  version: 2.0.6
+  resolution: "@types/showdown@npm:2.0.6"
+  checksum: 7136e47a9f0b871e74d8f17afcd99bca3d356f9fd81ee4ddb5361beb41be11d6d5705b86cf8f44796b6ca61caa5c4ff408029b772e436f6a1f9021bb73f36f95
   languageName: node
   linkType: hard
 
@@ -2592,12 +2592,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/vue-select@npm:3.16.7":
-  version: 3.16.7
-  resolution: "@types/vue-select@npm:3.16.7"
+"@types/vue-select@npm:3.16.8":
+  version: 3.16.8
+  resolution: "@types/vue-select@npm:3.16.8"
   dependencies:
     vue: "npm:^2.0.0"
-  checksum: 97b729bf449786272250d14c92c6d89aaeb46e03fc794ae8d55fdeeb0db75a03d3fa6faea540e8300b601a0b94ae62b356ea8d9967f52798f6731c7b125a0ddf
+  checksum: e31e8b6339c975e63051ba0ddcb77dac2ea043e78f5e8d9c444bb509c9f901831c480bc4fa6091874a51487356cffae788943f3cde73d4dd0d7bc13c19817374
   languageName: node
   linkType: hard
 
@@ -7100,7 +7100,7 @@ __metadata:
     "@fortawesome/vue-fontawesome": "npm:2.0.10"
     "@types/he": "npm:1.2.3"
     "@types/i18n-js": "npm:3.8.9"
-    "@types/jquery": "npm:3.5.28"
+    "@types/jquery": "npm:3.5.29"
     "@types/js-yaml": "npm:4.0.9"
     "@types/leaflet": "npm:1.9.8"
     "@types/lodash": "npm:4.14.202"
@@ -7109,11 +7109,11 @@ __metadata:
     "@types/prettier": "npm:2.7.3"
     "@types/qrcode": "npm:1.5.5"
     "@types/semver": "npm:7.5.6"
-    "@types/showdown": "npm:2.0.5"
+    "@types/showdown": "npm:2.0.6"
     "@types/simpleheat": "npm:0.4.3"
     "@types/tampermonkey": "npm:5.0.2"
     "@types/ua-parser-js": "npm:0.7.39"
-    "@types/vue-select": "npm:3.16.7"
+    "@types/vue-select": "npm:3.16.8"
     "@types/webpack-env": "npm:1.18.4"
     "@typescript-eslint/eslint-plugin": "npm:6.12.0"
     "@typescript-eslint/parser": "npm:6.12.0"
