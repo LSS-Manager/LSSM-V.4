@@ -421,6 +421,15 @@ onMounted(() => {
         characterData: true,
     });
 
+    const allTable = document.querySelector('#vehicle_show_table_all');
+    if (allTable) {
+        amountObserver.observe(allTable, {
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['data-equipment-types'],
+        });
+    }
+
     observeHandler();
 });
 </script>
