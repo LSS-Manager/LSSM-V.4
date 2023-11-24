@@ -24,11 +24,11 @@ export type GroupTranslation = Record<
 
 /*
 1. get selected vehicles
-    * if vehicle does have equipment => store
+    * if vehicle does have equipment => store ✅
     * if vehicle is a trailer (do not store tractors twice)
         * if vehicle has a definite tractor or only one vehicle type can pull it => store
         * if we can calculate a definite tractor => store
-    * if vehicle can fulfill a staff requirement
+    * if vehicle can fulfill a staff requirement ✅
         * get min and max from API or core translations => store
 2. update selected vehicles for each requirement ✅
 3. update selected for other requirements
@@ -82,6 +82,43 @@ export default (
             })),
             other: new Array(requirements.other.length).fill(0),
         };
+        const increaseSelected = <Type extends number | string>(
+            type: Type,
+            id: Type,
+            getStaff: (id: Type) => {
+                min: number;
+                max: number;
+            } = () => ({
+                min: 0,
+                max: 0,
+            })
+        ) => {
+            const reqs =
+                typeof type === 'number'
+                    ? missingRequirements.requirementsForVehicle[type]
+                    : missingRequirements.requirementsForEquipment[
+                          type.toString()
+                      ];
+            groups.forEach(
+                group =>
+                    reqs?.[group]?.forEach(requirement => {
+                        selected[group] ??= [];
+                        // that is a weird workaround but otherwise TS complains
+                        if (group === 'staff') {
+                            selected[group][requirement] ??= {
+                                min: 0,
+                                max: 0,
+                            };
+                            const { min, max } = getStaff(id);
+                            selected[group][requirement].min += min;
+                            selected[group][requirement].max += max;
+                        } else {
+                            selected[group][requirement] ??= 0;
+                            selected[group][requirement]++;
+                        }
+                    })
+            );
+        };
 
         [
             ...vehicleList.querySelectorAll<HTMLInputElement>(
@@ -98,27 +135,13 @@ export default (
             if (vehicleType < 0 || vehicleID < 0) return;
 
             // increase selected of all requirements that can be fulfilled by this vehicle by 1
-            groups.forEach(
-                group =>
-                    missingRequirements.requirementsForVehicle[vehicleType]?.[
-                        group
-                    ]?.forEach(requirement => {
-                        selected[group] ??= [];
-                        // that is a weird workaround but otherwise TS complains
-                        if (group === 'staff') {
-                            selected[group][requirement] ??= {
-                                min: 0,
-                                max: 0,
-                            };
-                            const { min, max } = getVehicleStaff(vehicleID);
-                            selected[group][requirement].min += min;
-                            selected[group][requirement].max += max;
-                        } else {
-                            selected[group][requirement] ??= 0;
-                            selected[group][requirement]++;
-                        }
-                    })
-            );
+            increaseSelected(vehicleType, vehicleID, getVehicleStaff);
+
+            // get selected equipment for this vehicle
+            (checkbox.dataset.equipmentTypes ?? '')
+                .split(',')
+                .filter(Boolean)
+                .forEach(equipment => increaseSelected(equipment, ''));
         });
 
         // update selected for each requirement

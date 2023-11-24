@@ -202,7 +202,20 @@ export default async ({
         }).observe(vehicleAmountElement, {
             childList: true,
             characterData: true,
+            attributes: true,
         });
+
+        const allTable = document.querySelector('#vehicle_show_table_all');
+        if (allTable && missingRequirementsListHandler) {
+            new MutationObserver(missingRequirementsListHandler).observe(
+                allTable,
+                {
+                    subtree: true,
+                    attributes: true,
+                    attributeFilter: ['data-equipment-types'],
+                }
+            );
+        }
     }
 
     const missionName =
