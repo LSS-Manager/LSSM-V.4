@@ -75,15 +75,20 @@ export default async ({
         .querySelectorAll('.mission_patient')
         .length.toLocaleString();
 
-    const remainingVehicles =
-        (
-            document
-                .querySelector<HTMLDivElement>('#missing_text')
-                ?.textContent?.trim() ??
+    const missingTextEl =
+        document.querySelector<HTMLDivElement>('#missing_text') ??
+        document.createElement('div');
+    // that comes from emv
+    if (!missingTextEl.id) {
+        missingTextEl.innerHTML =
             document.querySelector<HTMLDivElement>(`#${PREFIX}-missing_text`)
-                ?.dataset.rawText ??
-            '–'
-        )
+                ?.dataset.rawHtml ?? '–';
+    }
+
+    const remainingVehicles =
+        missingTextEl
+            .querySelector('div[data-requirement-type="vehicles"]')
+            ?.textContent?.trim()
             .replace(/^.*?:/u, '')
             .trim() ?? '–';
     const address = he.decode(
@@ -153,7 +158,7 @@ export default async ({
             if (!missingRequirements) {
                 missingRequirements = missingRequirementsFn(
                     LSSM,
-                    remainingVehicles,
+                    missingTextEl,
                     missionType,
                     emv$m(false)
                 );
@@ -163,15 +168,16 @@ export default async ({
                 missingRequirementsListHandler =
                     getMissingRequirementsListHandler(
                         LSSM,
-                        missingRequirements.missingRequirements,
-                        missingRequirements.missingRequirements,
+                        missingRequirements,
+                        missingRequirements.requirements,
                         missionType,
-                        (requirement, value) => {
-                            const req =
-                                missingRequirements?.missingRequirements.find(
-                                    ({ vehicle }) =>
-                                        requirement.vehicle === vehicle
-                                );
+                        (requirement, value, group) => {
+                            const req = missingRequirements?.requirements[
+                                group
+                            ].find(
+                                ({ requirement: req }) =>
+                                    requirement.requirement === req
+                            );
                             if (req) req.selected = value;
                         },
                         emv$m()
@@ -223,26 +229,24 @@ export default async ({
             if (!missingRequirements) {
                 missingRequirements = missingRequirementsFn(
                     LSSM,
-                    remainingVehicles,
+                    missingTextEl,
                     missionType,
                     emv$m(false)
                 );
             }
             return (
-                missingRequirements?.missingRequirements
-                    .map(({ vehicle, total, missing, selected }) => ({
-                        vehicle,
+                missingRequirements?.requirements.vehicles
+                    .map(({ requirement, missing, driving, selected }) => ({
+                        requirement,
                         remaining:
-                            total ??
                             (typeof selected === 'number'
-                                ? missing - selected
-                                : missing - selected.max) ??
-                            0,
+                                ? missing - driving - selected
+                                : missing - driving - selected.max) ?? 0,
                     }))
                     .filter(({ remaining }) => remaining > 0)
                     .map(
-                        ({ vehicle, remaining }) =>
-                            `${remaining.toLocaleString()} ${vehicle}`
+                        ({ requirement, remaining }) =>
+                            `${remaining.toLocaleString()} ${requirement}`
                     )
                     .join(', ') ??
                 remainingVehicles ??
