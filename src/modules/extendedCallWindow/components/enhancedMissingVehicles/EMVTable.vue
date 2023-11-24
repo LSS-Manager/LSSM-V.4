@@ -10,23 +10,36 @@
     >
         <tr
             v-for="requirement in missingRequirements"
-            :key="requirement.vehicle"
+            :key="requirement.requirement"
             :class="{
                 overRequirement: reqIsFulfilled(requirement),
             }"
         >
             <td>
-                <b>{{ requirement.vehicle }}</b>
+                <b>{{ requirement.requirement }}</b>
             </td>
             <td>{{ requirement.missing.toLocaleString() }}</td>
             <td>{{ (requirement.driving || 0).toLocaleString() }}</td>
-            <td v-if="requirement.hasOwnProperty('total')">
-                {{ requirement.total.toLocaleString() }}
+            <td>
+                {{
+                    (requirement.missing - requirement.driving).toLocaleString()
+                }}
             </td>
-            <td v-else>{{ requirement.missing.toLocaleString() }}</td>
-            <td v-if="requirement.selected.hasOwnProperty('min')">
-                {{ (requirement.selected.min || 0).toLocaleString() }} -
-                {{ (requirement.selected.max || 0).toLocaleString() }}
+            <td v-if="typeof requirement.selected !== 'number'">
+                <!-- yeah, for some reason TS does not get that number check above -->
+                {{
+                    (typeof requirement.selected !== 'number'
+                        ? requirement.selected.min
+                        : 0
+                    ).toLocaleString()
+                }}
+                -
+                {{
+                    (typeof requirement.selected !== 'number'
+                        ? requirement.selected.max
+                        : 0
+                    ).toLocaleString()
+                }}
             </td>
             <td v-else>
                 {{ (requirement.selected || 0).toLocaleString() }}
@@ -41,25 +54,25 @@ import { computed } from 'vue';
 import EnhancedTable from '../../../../components/EnhancedTable.vue';
 import { useI18nModule } from '../../../../i18n';
 
-import type { Requirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
+import type { MissionRequirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
 
 type Column = (typeof columns)[number]['key'];
 
 const { $m } = useI18nModule('extendedCallWindow');
 
 const columns = [
-    { key: 'vehicle' },
+    { key: 'requirement' },
     { key: 'missing' },
     { key: 'driving' },
     { key: 'total' },
     { key: 'selected' },
 ] as const;
 const $cols = computed(
-    () => $m('enhancedMissingVehicles') as Record<Column, string>
+    () => $m('enhancedMissingVehicles') as unknown as Record<Column, string>
 );
 
 const props = defineProps<{
-    missingRequirements: Requirement[];
+    missingRequirements: MissionRequirement[];
     sort: Column;
     sortDir: 'asc' | 'desc';
     calcMaxStaff: boolean;
@@ -67,8 +80,8 @@ const props = defineProps<{
 
 const $emit = defineEmits<{ (event: 'sort', key: Column): void }>();
 
-const reqIsFulfilled = (req: Requirement) =>
-    (req.hasOwnProperty('total') ? req.total : req.missing) <=
+const reqIsFulfilled = (req: MissionRequirement) =>
+    req.missing - req.driving <=
     (typeof req.selected === 'number'
         ? req.selected
         : props.calcMaxStaff
