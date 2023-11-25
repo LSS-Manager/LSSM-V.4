@@ -6,7 +6,10 @@ export const groups = ['vehicles', 'staff', 'other'] as const;
 Object.seal(groups);
 
 export type Group = (typeof groups)[number];
-export type MissingRequirements = ReturnType<typeof getMissingRequirements>;
+export type MissingRequirements = Exclude<
+    ReturnType<typeof getMissingRequirements>,
+    undefined
+>;
 
 const getMissingRequirements = (
     LSSM: Vue,
@@ -14,6 +17,8 @@ const getMissingRequirements = (
     missionType: string,
     $m: $m
 ) => {
+    if (!missingDialog.textContent?.trim()) return;
+
     const getRequirementTexts = (req: Group) => {
         const typeAttribute = req === 'staff' ? 'personnel' : req;
 
@@ -118,12 +123,11 @@ const getMissingRequirements = (
                     bar: type,
                 });
             });
-            return;
         }
 
         // on some languages, some preprocessing is needed because
         // a vehicle requirement may be written as "Need x VehicleType" but we don't want the "Need" part
-        if (group === 'vehicles') {
+        if (group === 'vehicles' || group === 'other') {
             const vehiclePreprocessor = $m(
                 'enhancedMissingVehicles.vehiclePreprocessor'
             ) as Record<string, string> | string;
@@ -142,7 +146,9 @@ const getMissingRequirements = (
         // get all requirements for this group
         const groupReqs = $m(
             `enhancedMissingVehicles.${
-                group === 'vehicles' ? 'vehiclesByRequirement' : group
+                group === 'vehicles' || group === 'other'
+                    ? 'vehiclesByRequirement'
+                    : group
             }`
         ) as unknown as GroupTranslation | string;
         // there is no translation for this group

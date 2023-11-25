@@ -405,9 +405,7 @@ onMounted(() => {
         LSSM,
         props,
         requirements.value,
-        LSSM.$utils.getMissionTypeInMissionWindow(),
-        (requirement, value) => (requirement.selected = value),
-        $m
+        (requirement, value) => (requirement.selected = value)
     );
 
     const amountElement = document.querySelector('#vehicle_amount');

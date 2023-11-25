@@ -170,7 +170,6 @@ export default async ({
                         LSSM,
                         missingRequirements,
                         missingRequirements.requirements,
-                        missionType,
                         (requirement, value, group) => {
                             const req = missingRequirements?.requirements[
                                 group
@@ -179,8 +178,7 @@ export default async ({
                                     requirement.requirement === req
                             );
                             if (req) req.selected = value;
-                        },
-                        emv$m()
+                        }
                     );
             }
             missingRequirementsListHandler?.();
