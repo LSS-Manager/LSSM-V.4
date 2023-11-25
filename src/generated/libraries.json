@@ -42,7 +42,7 @@
     "@types/jquery": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jquery",
-        "version": "3.5.28"
+        "version": "3.5.29"
     },
     "@types/js-yaml": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -62,7 +62,7 @@
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-        "version": "20.9.3"
+        "version": "20.9.5"
     },
     "@types/pdfmake": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -87,7 +87,7 @@
     "@types/showdown": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/showdown",
-        "version": "2.0.5"
+        "version": "2.0.6"
     },
     "@types/simpleheat": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -107,7 +107,7 @@
     "@types/vue-select": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/vue-select",
-        "version": "3.16.7"
+        "version": "3.16.8"
     },
     "@types/webpack-env": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
