@@ -4,7 +4,6 @@ import type { $m, ModuleMainFunction } from 'typings/Module';
 
 export default (
     LSSM: Vue,
-    MODULE_ID: string,
     getSetting: Parameters<ModuleMainFunction>[0]['getSetting'],
     $m: $m
 ): void => {

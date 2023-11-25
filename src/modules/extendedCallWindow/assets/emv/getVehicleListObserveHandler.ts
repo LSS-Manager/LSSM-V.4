@@ -4,7 +4,6 @@ import {
     type MissingRequirements,
 } from './getMissingRequirements';
 
-import type { $m } from 'typings/Module';
 import type { Mission } from 'typings/Mission';
 import type { MissionRequirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
 
@@ -22,29 +21,15 @@ export type GroupTranslation = Record<
     }
 >;
 
-/*
-1. get selected vehicles
-    * if vehicle does have equipment => store ✅
-    * if vehicle is a trailer (do not store tractors twice)
-        * if vehicle has a definite tractor or only one vehicle type can pull it => store
-        * if we can calculate a definite tractor => store
-    * if vehicle can fulfill a staff requirement ✅
-        * get min and max from API or core translations => store
-2. update selected vehicles for each requirement ✅
-3. update selected for other requirements
- */
-
 export default (
     LSSM: Vue,
     missingRequirements: MissingRequirements,
     requirements: MissingRequirements['requirements'],
-    missionType: string,
     setSelected: (
         requirement: MissionRequirement,
         value: number | { min: number; max: number },
         group: Group
-    ) => void,
-    $m: $m
+    ) => void
 ) => {
     const vehicleList = document.querySelector<HTMLTableSectionElement>(
         '#vehicle_show_table_body_all'
@@ -55,12 +40,36 @@ export default (
 
     const vehicleTypes = LSSM.$stores.translations.vehicles;
 
-    console.log(requirements, missionType, setSelected, $m, vehicleTypes);
+    const reqsByTractives: Record<number, Record<Group, Set<number>>> = {};
+    Object.entries(vehicleTypes).forEach(([id, vehicle]) => {
+        if (!('tractiveVehicles' in vehicle)) return undefined;
+        const allReqs: Record<Group, Set<number>> = {
+            vehicles: new Set<number>(),
+            staff: new Set<number>(),
+            other: new Set<number>(),
+        };
+        groups.forEach(group => {
+            allReqs[group] =
+                missingRequirements.requirementsForVehicle[
+                    vehicle.tractiveVehicles[0]
+                ]?.[group] ?? new Set<number>();
+            vehicle.tractiveVehicles.slice(1).forEach(tractiveVehicle => {
+                const reqs =
+                    missingRequirements.requirementsForVehicle[
+                        tractiveVehicle
+                    ]?.[group] ?? new Set<number>();
+                allReqs[group].forEach(req => {
+                    if (!reqs.has(req)) allReqs[group]?.delete(req);
+                });
+            });
+        });
+        reqsByTractives[parseInt(id)] = allReqs;
+    });
 
     const getVehicleStaff = (
         vehicleId: number
     ): { min: number; max: number } => {
-        const vehicle = LSSM.$stores.api.vehicles.find(v => v.id === vehicleId);
+        const vehicle = LSSM.$stores.api.vehiclesById[vehicleId];
         if (!vehicle) return { min: 0, max: 0 };
         return {
             min: vehicleTypes[vehicle.vehicle_type]?.staff.min ?? 0,
@@ -82,6 +91,11 @@ export default (
             })),
             other: new Array(requirements.other.length).fill(0),
         };
+
+        const trailerTypesWithTractiveNeeded: Record<number, number> = {};
+
+        const selectedVehicles = new Set<number>();
+
         const increaseSelected = <Type extends number | string>(
             type: Type,
             id: Type,
@@ -134,6 +148,8 @@ export default (
             const vehicleID = parseInt(checkbox.getAttribute('value') ?? '-1');
             if (vehicleType < 0 || vehicleID < 0) return;
 
+            selectedVehicles.add(vehicleID);
+
             // increase selected of all requirements that can be fulfilled by this vehicle by 1
             increaseSelected(vehicleType, vehicleID, getVehicleStaff);
 
@@ -142,13 +158,67 @@ export default (
                 .split(',')
                 .filter(Boolean)
                 .forEach(equipment => increaseSelected(equipment, ''));
+
+            // find tractive vehicle for this vehicle
+            const tractiveVehicleId = parseInt(
+                checkbox.getAttribute('tractive_vehicle_id') ?? '-1'
+            );
+            const tractiveVehicle =
+                LSSM.$stores.api.vehiclesById[tractiveVehicleId];
+            // tractive vehicle is explicitly set
+            if (
+                tractiveVehicle &&
+                checkbox.getAttribute('tractive_random') === '0'
+            ) {
+                if (!selectedVehicles.has(tractiveVehicleId)) {
+                    increaseSelected(
+                        tractiveVehicle.vehicle_type,
+                        tractiveVehicleId,
+                        getVehicleStaff
+                    );
+                }
+            } else {
+                trailerTypesWithTractiveNeeded[vehicleType] ??= 0;
+                trailerTypesWithTractiveNeeded[vehicleType]++;
+            }
         });
 
         // update selected for each requirement
-        groups.forEach(group =>
+        groups.forEach(group => {
+            // process possible trailers
+            Object.entries(trailerTypesWithTractiveNeeded).forEach(
+                ([trailerType, amount]) =>
+                    reqsByTractives[parseInt(trailerType)]?.[group]?.forEach(
+                        req => {
+                            const value = selected[group][req];
+                            if (typeof value !== 'number') return;
+                            selected[group][req] = Math.max(value, amount);
+                        }
+                    )
+            );
+
+            // update requirements by previously determined selected vehicles
             selected[group].forEach((value, i) =>
                 setSelected(requirements[group][i], value, group)
-            )
-        );
+            );
+
+            // update progress bar requirements
+            missingRequirements.requirements[group].forEach(
+                (requirement, i) => {
+                    if (!('bar' in requirement)) return;
+                    setSelected(
+                        requirements[group][i],
+                        LSSM.$utils.getNumberFromText(
+                            document.querySelector(
+                                `[id^="mission_${requirement.bar}_holder"] [class*="mission_water_bar_selected_"]`
+                            )?.textContent ?? '',
+                            false,
+                            0
+                        ),
+                        group
+                    );
+                }
+            );
+        });
     };
 };

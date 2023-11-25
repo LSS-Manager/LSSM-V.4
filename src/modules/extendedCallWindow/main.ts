@@ -170,7 +170,7 @@ export default <ModuleMainFunction>(async ({
     if (await getSetting('enhancedMissingVehicles')) {
         import(
             /* webpackChunkName: "modules/extendedCallWindow/enhancedMissingVehicles" */ './assets/enhancedMissingVehicles'
-        ).then(({ default: emv }) => emv(LSSM, MODULE_ID, getSetting, $m));
+        ).then(({ default: emv }) => emv(LSSM, getSetting, $m));
     }
     if (await getSetting('patientSummary')) {
         import(
