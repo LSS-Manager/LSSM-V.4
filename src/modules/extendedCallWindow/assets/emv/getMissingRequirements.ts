@@ -157,12 +157,9 @@ const getMissingRequirements = (
         const addRequirementToVehicles = (vehicles: number[]) => {
             const requirementIndex = requirements[group].length;
             vehicles.forEach(vehicleType => {
-                if (!requirementsForVehicle[vehicleType])
-                    requirementsForVehicle[vehicleType] = {};
-                if (!requirementsForVehicle[vehicleType][group]) {
-                    requirementsForVehicle[vehicleType][group] =
-                        new Set<number>();
-                }
+                requirementsForVehicle[vehicleType] ??= {};
+                requirementsForVehicle[vehicleType][group] ??=
+                    new Set<number>();
                 requirementsForVehicle[vehicleType][group]?.add(
                     requirementIndex
                 );
@@ -181,12 +178,9 @@ const getMissingRequirements = (
 
             addRequirementToVehicles(Object.values(groupReq.vehicles));
             Object.values(groupReq.equipment ?? {}).forEach(equipment => {
-                if (!requirementsForEquipment[equipment])
-                    requirementsForEquipment[equipment] = {};
-                if (!requirementsForEquipment[equipment][group]) {
-                    requirementsForEquipment[equipment][group] =
-                        new Set<number>();
-                }
+                requirementsForEquipment[equipment] ??= {};
+                requirementsForEquipment[equipment][group] ??=
+                    new Set<number>();
                 requirementsForEquipment[equipment][group]?.add(
                     requirements[group].length
                 );

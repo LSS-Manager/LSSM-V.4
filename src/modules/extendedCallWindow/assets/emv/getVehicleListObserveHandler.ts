@@ -49,10 +49,11 @@ export default (
             other: new Set<number>(),
         };
         groups.forEach(group => {
-            allReqs[group] =
+            allReqs[group] = new Set<number>(
                 missingRequirements.requirementsForVehicle[
                     vehicle.tractiveVehicles[0]
-                ]?.[group] ?? new Set<number>();
+                ]?.[group] ?? new Set()
+            );
             vehicle.tractiveVehicles.slice(1).forEach(tractiveVehicle => {
                 const reqs =
                     missingRequirements.requirementsForVehicle[
