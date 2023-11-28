@@ -165,8 +165,8 @@
             },
             { "texts": ["RIV", "RIVs"], "vehicles": [44] },
             { "texts": ["Emergency Stairs"], "vehicles": [45] },
-            { "texts": ["MVR Quad", "MVR Quads"], "vehicles": [38] },
-            { "texts": ["MVR Boat", "MVR Boats"], "vehicles": [39] },
+            { "texts": ["VMR Vehicle", "VMR Vehicles"], "vehicles": [38] },
+            { "texts": ["VMR Boat", "VMR Boats"], "vehicles": [39] },
             {
                 "texts": [
                     "SES Search and Rescue Trailer",

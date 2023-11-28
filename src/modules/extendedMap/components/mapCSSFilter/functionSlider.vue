@@ -91,8 +91,8 @@ export default Vue.extend<
                 return this.value === -1
                     ? this.slider?.default ?? -1
                     : Number.isNaN(this.value)
-                    ? this.min ?? this.max ?? 0
-                    : this.value;
+                      ? this.min ?? this.max ?? 0
+                      : this.value;
             },
             set(value) {
                 this.$emit(
@@ -100,8 +100,8 @@ export default Vue.extend<
                     this.updateValue === -1
                         ? this.slider?.default ?? -1
                         : Number.isNaN(value)
-                        ? this.min ?? this.max ?? 0
-                        : value
+                          ? this.min ?? this.max ?? 0
+                          : value
                 );
             },
         },

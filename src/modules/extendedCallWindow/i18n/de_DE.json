@@ -25,13 +25,17 @@
             "abl2wasser_only": "AB-Schlauch",
             "arff": "Flugfeldlöschfahrzeug",
             "boot": "Boote (Allgemein)",
+            "care_service_equipment": "Betreuungs- und Verpflegungsausstattung",
             "dekon_p": "Dekon-P oder AB-Dekon-P",
             "dlk": "Drehleitern",
             "dlk_or_tm50": "DLK oder TM 50",
+            "drone": "Beliebige Drohneneinheit",
             "elw": "Einsatzleitfahrzeuge 1",
+            "elw1_or_elw_drone": "ELW1 oder ELW Drohne",
             "elw1_or_elw2": "ELW 1, ELW 2 oder AB-Einsatzleitung",
             "elw2": "Einsatzleitfahrzeuge 2",
             "elw2_or_ab_elw": "ELW 2 oder AB-Einsatzleitung",
+            "elw2_or_elw2_drone": "ELW2 oder ELW2 Drohne",
             "energy_supply": "NEA50",
             "energy_supply_2": "NEA200",
             "fire": "Löschfahrzeuge oder Tanklöschfahrzeuge",
@@ -149,7 +153,7 @@
                     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
                     17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 30, 33, 34, 36,
                     37, 46, 53, 57, 75, 76, 83, 84, 85, 86, 87, 88, 89, 90, 104,
-                    105, 106, 107, 114, 118, 120, 121
+                    105, 106, 107, 114, 118, 120, 121, 126, 128, 129
                 ]
             },
             {
@@ -195,7 +199,15 @@
                 "texts": ["Außenlastbehälter", "Außenlastbehälter (allgemein)"],
                 "vehicles": [96]
             },
+            {
+                "texts": [
+                    "Betreuungs- und Verpflegungsausstattung",
+                    "Betreuungs- und Verpflegungsausstattungen"
+                ],
+                "vehicles": [130, 132]
+            },
             { "texts": ["Boot", "Boote"], "vehicles": [66, 67, 68, 70, 71] },
+            { "texts": ["Bt-Kombi", "Bt-Kombis"], "vehicles": [131] },
             { "texts": ["DHuFüKw"], "vehicles": [94] },
             {
                 "equipment": ["decon"],
@@ -207,8 +219,8 @@
                 "vehicles": [2, 85]
             },
             { "texts": ["ELW 1 (SEG)"], "vehicles": [59] },
-            { "texts": ["ELW 1"], "vehicles": [3, 34, 78] },
-            { "texts": ["ELW 2"], "vehicles": [34, 78] },
+            { "texts": ["ELW 1"], "vehicles": [3, 34, 78, 128] },
+            { "texts": ["ELW 2"], "vehicles": [34, 78, 129] },
             {
                 "texts": ["Fahrzeug des THW (MzKW oder GKW)"],
                 "vehicles": [39, 41]
@@ -340,7 +352,12 @@
             { "texts": ["NEA50"], "vehicles": [110, 111, 112, 113] },
             { "texts": ["NEA200"], "vehicles": [112, 113] },
             { "texts": ["MzGW SB"], "vehicles": [109] },
-            { "texts": ["Lüfter"], "vehicles": [114, 115, 116] }
+            { "texts": ["Lüfter"], "vehicles": [114, 115, 116] },
+            {
+                "equipment": ["drone"],
+                "texts": ["Drohneneinheit", "Drohneneinheiten"],
+                "vehicles": [125, 126, 127, 128, 129]
+            }
         ],
         "water": "l. Wasser"
     },

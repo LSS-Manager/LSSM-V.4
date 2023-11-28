@@ -93,13 +93,13 @@ const parse_filter = (
         side.type === 'string'
             ? side.value
             : side.type === 'number'
-            ? parseInt(side.value)
-            : side.type === 'boolean'
-            ? !!side.value
-            : (parser(
-                  cloneDeep(filter),
-                  [tree.base, ...tree.attributes].join('.')
-              ) as ObjectTree);
+              ? parseInt(side.value)
+              : side.type === 'boolean'
+                ? !!side.value
+                : (parser(
+                      cloneDeep(filter),
+                      [tree.base, ...tree.attributes].join('.')
+                  ) as ObjectTree);
     let sideObject = (
         typeof oneside === 'string' ||
         typeof oneside === 'number' ||

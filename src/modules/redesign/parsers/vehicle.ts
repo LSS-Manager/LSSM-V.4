@@ -437,8 +437,8 @@ export default <RedesignParser<VehicleWindow>>(({
                         state: alarmEl?.classList.contains('btn-success')
                             ? 'success'
                             : alarmEl?.classList.contains('btn-warning')
-                            ? 'warning'
-                            : 'danger',
+                              ? 'warning'
+                              : 'danger',
                     } as Hospital;
                 })
                 .filter(removeUndefined);
@@ -485,8 +485,8 @@ export default <RedesignParser<VehicleWindow>>(({
                     state: cell.classList.contains('btn-success')
                         ? 'success'
                         : cell.classList.contains('btn-warning')
-                        ? 'warning'
-                        : 'danger',
+                          ? 'warning'
+                          : 'danger',
                     freeCells: parseInt(infos?.groups?.free ?? '-1'),
                     distance: infos?.groups?.distance ?? '-1km',
                     tax:
@@ -573,8 +573,8 @@ export default <RedesignParser<VehicleWindow>>(({
                             state: alarmEl?.classList.contains('btn-success')
                                 ? 'success'
                                 : alarmEl?.classList.contains('btn-warning')
-                                ? 'warning'
-                                : 'danger',
+                                  ? 'warning'
+                                  : 'danger',
                         } as ShoreStation;
                     })
                     .filter(removeUndefined);
@@ -612,8 +612,8 @@ export default <RedesignParser<VehicleWindow>>(({
                     state: station.classList.contains('btn-success')
                         ? 'success'
                         : station.classList.contains('btn-warning')
-                        ? 'warning'
-                        : 'danger',
+                          ? 'warning'
+                          : 'danger',
                     distance: infos?.groups?.distance ?? '-1km',
                     home: id === vehicle.building.id,
                 };

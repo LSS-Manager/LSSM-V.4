@@ -54,16 +54,16 @@ const getModifiedMessage = (
             (mission.querySelector('[id^="mission_patients_"] [id^="patient_"]')
                 ? mission.querySelectorAll('.patient_progress').length
                 : mission
-                      .querySelector<HTMLDivElement>(
-                          '[id^="mission_patient_summary_"]'
-                      )
-                      ?.style.getPropertyValue('display') !== 'none'
-                ? LSSM.$utils.getNumberFromText(
-                      mission.querySelector(
-                          '.mission_list_patient_icon + strong'
-                      )?.textContent ?? '0'
-                  )
-                : 0) || '–'
+                        .querySelector<HTMLDivElement>(
+                            '[id^="mission_patient_summary_"]'
+                        )
+                        ?.style.getPropertyValue('display') !== 'none'
+                  ? LSSM.$utils.getNumberFromText(
+                        mission.querySelector(
+                            '.mission_list_patient_icon + strong'
+                        )?.textContent ?? '0'
+                    )
+                  : 0) || '–'
         ).toLocaleString(),
         remaining,
         remainingSpecial: remaining,

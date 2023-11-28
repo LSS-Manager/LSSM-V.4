@@ -233,10 +233,10 @@ export default Vue.extend<
             !a.id
                 ? 1
                 : a.caption < b.caption
-                ? -1
-                : a.caption > b.caption
-                ? 1
-                : 0
+                  ? -1
+                  : a.caption > b.caption
+                    ? 1
+                    : 0
         );
         const bedBuildings: Building[] = [];
         const bedBuildingsType = useTranslationStore().bedBuildings;
