@@ -2451,21 +2451,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
+"@types/node@npm:*, @types/node@npm:20.10.0":
   version: 20.10.0
   resolution: "@types/node@npm:20.10.0"
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: f379e57d9d28cb5f3d8eab943de0c54a0ca2f95ee356e1fe2a1a4fa718b740103ae522c50ce107cffd52c3642ef3244cfc55bf5369081dd6c48369c8587b21ae
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:20.9.5":
-  version: 20.9.5
-  resolution: "@types/node@npm:20.9.5"
-  dependencies:
-    undici-types: "npm:~5.26.4"
-  checksum: 54b722195e3292d8b14b9aaac971044bf4f2e6d7263c2942fd088213216443878f47c3df441a0722a228cf823ea64c1a5923b362ea5db41f044b7f30ed140bce
   languageName: node
   linkType: hard
 
@@ -7095,7 +7086,7 @@ __metadata:
     "@types/js-yaml": "npm:4.0.9"
     "@types/leaflet": "npm:1.9.8"
     "@types/lodash": "npm:4.14.202"
-    "@types/node": "npm:20.9.5"
+    "@types/node": "npm:20.10.0"
     "@types/pdfmake": "npm:0.2.8"
     "@types/prettier": "npm:2.7.3"
     "@types/qrcode": "npm:1.5.5"
