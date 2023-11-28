@@ -3,6 +3,7 @@
     "schoolings": { "all": "all", "min": "min. {n}x" },
     "tabs": {
         "buildings": "Byggnader",
+        "equipment": "Equipment",
         "schoolings": "Kurser",
         "vehicles": "Fordon"
     },
@@ -17,6 +18,11 @@
             "special": "Special",
             "startPersonnel": "Start personal",
             "startVehicles": "Möjliga startfordon"
+        },
+        "equipment": {
+            "caption": "Equipment",
+            "cost": "Price",
+            "size": "Size"
         },
         "schoolings": {
             "caption": "Kursnamn",

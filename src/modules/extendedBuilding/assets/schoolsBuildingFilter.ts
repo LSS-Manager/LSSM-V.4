@@ -60,14 +60,16 @@ export default async (LSSM: Vue) => {
     const vehicleAllOption = document.createElement('option');
     vehicleAllOption.value = '*';
     vehicleTypeFilter.append(vehicleAllOption);
+    const vehicleTypeCaption = (vehicleType: number) =>
+        vehicleTypes[vehicleType]?.caption ?? `🦄 [${vehicleType}]`;
     Array.from(new Set(buildings.flatMap(({ vehicleTypes }) => vehicleTypes)))
         .sort((a, b) =>
-            vehicleTypes[a].caption.localeCompare(vehicleTypes[b].caption)
+            vehicleTypeCaption(a).localeCompare(vehicleTypeCaption(b))
         )
         .forEach(vehicleType => {
             const option = document.createElement('option');
             option.value = vehicleType.toString();
-            option.textContent = vehicleTypes[vehicleType].caption;
+            option.textContent = vehicleTypeCaption(vehicleType);
             vehicleTypeFilter.append(option);
         });
 
@@ -75,14 +77,16 @@ export default async (LSSM: Vue) => {
     const buildingAllOption = document.createElement('option');
     buildingAllOption.value = '*';
     buildingTypeFilter.append(buildingAllOption);
+    const buildingTypeCaption = (buildingType: number) =>
+        buildingTypes[buildingType]?.caption ?? `🌈 [${buildingType}]`;
     Array.from(new Set(buildings.map(({ buildingType }) => buildingType)))
         .sort((a, b) =>
-            buildingTypes[a].caption.localeCompare(buildingTypes[b].caption)
+            buildingTypeCaption(a).localeCompare(buildingTypeCaption(b))
         )
         .forEach(buildingType => {
             const option = document.createElement('option');
             option.value = buildingType.toString();
-            option.textContent = buildingTypes[buildingType].caption;
+            option.textContent = buildingTypeCaption(buildingType);
             buildingTypeFilter.append(option);
         });
 

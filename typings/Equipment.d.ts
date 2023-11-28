@@ -1,4 +1,4 @@
-interface InternalEquipment<ID extends string> {
+export interface InternalEquipment<ID extends string> {
     id: ID;
     caption: string;
     size: number;
@@ -6,6 +6,6 @@ interface InternalEquipment<ID extends string> {
     coins: number;
 }
 
-type InternalEquipments<IDs extends string> = {
+export type InternalEquipments<IDs extends string> = {
     readonly [ID in IDs]: InternalEquipment<ID>;
 };
