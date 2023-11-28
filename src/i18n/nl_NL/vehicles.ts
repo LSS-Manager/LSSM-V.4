@@ -619,13 +619,24 @@ export default {
             'Haakarmvoertuig benodigd. Deze haakarmbak zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 25%',
     },
     46: {
-        caption: 'DM Noodhulp',
+        caption: 'DM-Politie',
         color: '#0008e7',
         credits: 2500,
         coins: 18,
-        staff: { min: 1, max: 1 },
+        staff: {
+            min: 1,
+            max: 1,
+            training: {
+                Politie: {
+                    police_motorcycle: {
+                        all: true,
+                    },
+                },
+            },
+        },
         icon: 'motorcycle',
         possibleBuildings: [5, 18],
+        special: 'Benodigd vanaf 10 politiebureaus!',
     },
     47: {
         caption: 'DA Hondengeleider',
@@ -1484,5 +1495,43 @@ export default {
         },
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
+    },
+    98: {
+        caption: 'SIV-P',
+        color: '#0d0d73',
+        credits: 35_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Politie: {
+                    traffic_police: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [5, 18],
+    },
+    99: {
+        caption: 'DB-VOA',
+        color: '#0d0d73',
+        credits: 50_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Politie: {
+                    traffic_inspector: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [5, 18],
     },
 } satisfies Record<number, InternalVehicle>;
