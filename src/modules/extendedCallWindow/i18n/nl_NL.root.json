@@ -237,7 +237,7 @@
                 "name": "Ambulance",
                 "vehicleTypes": [16, 52, 57, 30, 23, 37, 38, 63]
             },
-            { "name": "Politie Noodhulp", "vehicleTypes": [22, 25, 46, 59] },
+            { "name": "Politie Noodhulp", "vehicleTypes": [22, 25, 46, 59, 98, 99] },
             {
                 "name": "Politie overig",
                 "vehicleTypes": [

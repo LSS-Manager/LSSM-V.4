@@ -111,7 +111,7 @@ export default {
         },
         Politie: {
             vehicles: {
-                'Noodhulp': [22, 25, 46, 59],
+                'Noodhulp': [22, 25, 59],
                 'Mobiele Eenheid': [39, 40, 64],
                 'Hondengeleider': [47, 48],
                 'Politiehelikopter': [28],
@@ -120,6 +120,7 @@ export default {
                 'Arrestantenvervoer': [58],
                 'Biketeam': [60],
                 'Paarden': [73, 74, 75],
+                'Dienst Infra': [46, 98, 99],
             },
             color: '#00ac00',
         },
