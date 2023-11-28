@@ -124,7 +124,10 @@
                 "vehicles": [0, 1, 6, 7, 8, 9, 12, 14, 15, 17, 50, 62]
             },
             {
-                "texts": ["Tankautospuit (Terreinvaardig)", "Tankautospuiten (Terreinvaardig)"],
+                "texts": [
+                    "Tankautospuit (Terreinvaardig)",
+                    "Tankautospuiten (Terreinvaardig)"
+                ],
                 "vehicles": [6, 7, 8, 12, 14, 15]
             },
             { "texts": ["Redvoertuig", "Redvoertuigen"], "vehicles": [2, 18] },
@@ -276,7 +279,10 @@
                 "vehicles": [80]
             },
             { "texts": ["FBO Heli", "FBO Helis"], "vehicles": [85] },
-            { "texts": ["FBO-Helicopter", "FBO-Helicopters"], "vehicles": [85] },
+            {
+                "texts": ["FBO-Helicopter", "FBO-Helicopters"],
+                "vehicles": [85]
+            },
             { "texts": ["DA-LA-NB", "DA-LA-NBs"], "vehicles": [87] },
             {
                 "texts": [
