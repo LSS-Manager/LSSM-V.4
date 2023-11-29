@@ -1290,16 +1290,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:7.20.7":
-  version: 7.20.7
-  resolution: "@babel/runtime@npm:7.20.7"
-  dependencies:
-    regenerator-runtime: "npm:^0.13.11"
-  checksum: 60ff1a1452d0f88b766211604610b92d5e063d7024150b6dab87af238e2a6634c01eff4add9e14b4335ced966640af34196ee4cd63a0c181c2d4edd387795c0f
-  languageName: node
-  linkType: hard
-
-"@babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4":
+"@babel/runtime@npm:7.23.4, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4":
   version: 7.23.4
   resolution: "@babel/runtime@npm:7.23.4"
   dependencies:
@@ -3972,16 +3963,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"broadcast-channel@npm:4.20.2":
-  version: 4.20.2
-  resolution: "broadcast-channel@npm:4.20.2"
+"broadcast-channel@npm:7.0.0":
+  version: 7.0.0
+  resolution: "broadcast-channel@npm:7.0.0"
   dependencies:
-    "@babel/runtime": "npm:7.20.7"
-    oblivious-set: "npm:1.1.1"
+    "@babel/runtime": "npm:7.23.4"
+    oblivious-set: "npm:1.4.0"
     p-queue: "npm:6.6.2"
-    rimraf: "npm:3.0.2"
     unload: "npm:2.4.1"
-  checksum: 92da276ad673fa1f28942800612cbcb3cd66328a44d97b922c420dd1812502ed72ebefb6f0b70455f3fdd448d7b30056ab030b5dff9ec51c06a148416ce03c3c
+  checksum: 5cf04d2e4d2920f955d39b382efc32be0cf2f265bf07e0770d50c4d0691c7bf02613cc9b334132b874dc092b0db6b9fc463c4c7883be1ce3d2588c9388cae54f
   languageName: node
   linkType: hard
 
@@ -7102,7 +7092,7 @@ __metadata:
     acorn: "npm:8.11.2"
     acorn-walk: "npm:8.3.0"
     all-contributors-cli: "npm:6.26.1"
-    broadcast-channel: "npm:4.20.2"
+    broadcast-channel: "npm:7.0.0"
     copy-dir: "npm:1.3.0"
     css-loader: "npm:6.8.1"
     emoji-toolkit: "npm:8.0.0"
@@ -7751,10 +7741,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"oblivious-set@npm:1.1.1":
-  version: 1.1.1
-  resolution: "oblivious-set@npm:1.1.1"
-  checksum: ef78ed5f011c7d01056dddc908845d6e7086cdde534cb6014df6f114433890f9a1f5500bf92e9b1c404b432d21e9a835ba95327a03304efb5c0d864fa466938f
+"oblivious-set@npm:1.4.0":
+  version: 1.4.0
+  resolution: "oblivious-set@npm:1.4.0"
+  checksum: 92fc4e0ed3e4e5a120f17e32964dc40671549704474aee94656ea8978837d8539d6e1655cc0ad42500315583eec41097fe38b58acd138ad8068a8083d0db2773
   languageName: node
   linkType: hard
 
@@ -8396,13 +8386,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"regenerator-runtime@npm:^0.13.11":
-  version: 0.13.11
-  resolution: "regenerator-runtime@npm:0.13.11"
-  checksum: 12b069dc774001fbb0014f6a28f11c09ebfe3c0d984d88c9bced77fdb6fedbacbca434d24da9ae9371bfbf23f754869307fb51a4c98a8b8b18e5ef748677ca24
-  languageName: node
-  linkType: hard
-
 "regenerator-runtime@npm:^0.14.0":
   version: 0.14.0
   resolution: "regenerator-runtime@npm:0.14.0"
@@ -8621,7 +8604,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:3.0.2, rimraf@npm:^3.0.2":
+"rimraf@npm:^3.0.2":
   version: 3.0.2
   resolution: "rimraf@npm:3.0.2"
   dependencies:
