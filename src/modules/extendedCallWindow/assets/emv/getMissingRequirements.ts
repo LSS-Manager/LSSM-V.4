@@ -32,7 +32,11 @@ const getMissingRequirements = (
             reqEl.querySelector<HTMLElement>('b')?.textContent?.trim() ?? '';
         // all requirements as a continuous string
         const reqText =
-            reqEl.textContent?.trim()?.replace(infoText, '').trim() ?? '';
+            reqEl.textContent
+                ?.trim()
+                ?.replace(infoText, '')
+                .trim()
+                .replace(/\s/gu, ' ') ?? '';
         // raw: will not change, remaining: processed requirements will be removed
         return { infoText, raw: reqText, remaining: reqText };
     };
