@@ -547,8 +547,8 @@ export default async ({
                                         )
                                             ? '#mission_alarm_btn'
                                             : missionsSorted
-                                            ? `.${sortedMissionClass}`
-                                            : '#alert_next_btn'
+                                              ? `.${sortedMissionClass}`
+                                              : '#alert_next_btn'
                                     )
                                     ?.click()
                         );

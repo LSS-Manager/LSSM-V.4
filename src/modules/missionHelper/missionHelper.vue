@@ -1023,11 +1023,11 @@ export default Vue.extend<
                             ? 1
                             : -1
                         : (aVehicle[this.settings.vehicles.sort] || 0) >
-                          (bVehicle[this.settings.vehicles.sort] || 0)
-                        ? this.settings.vehicles.sortDesc
-                            ? -1
-                            : 1
-                        : 0
+                            (bVehicle[this.settings.vehicles.sort] || 0)
+                          ? this.settings.vehicles.sortDesc
+                              ? -1
+                              : 1
+                          : 0
                 )
                 .forEach(
                     ([type, vehicle]) => (vehiclesFiltered[type] = vehicle)
