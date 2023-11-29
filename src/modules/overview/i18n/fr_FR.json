@@ -3,7 +3,7 @@
     "schoolings": { "all": "tout", "min": "min. {n}x" },
     "tabs": {
         "buildings": "Bâtiments",
-        "equipment": "Equipment",
+        "equipment": "Equipement",
         "schoolings": "Formations",
         "vehicles": "Véhicules"
     },
@@ -20,9 +20,9 @@
             "startVehicles": "Véhicules de départ"
         },
         "equipment": {
-            "caption": "Equipment",
-            "cost": "Price",
-            "size": "Size"
+            "caption": "Equipement",
+            "cost": "Prix",
+            "size": "Taille"
         },
         "schoolings": {
             "caption": "Nom de la formation",
