@@ -1,6 +1,6 @@
 {
     "name": "lss-manager-v4",
-    "version": "4.7.10+20231128.1532",
+    "version": "4.7.10+20231129.0548",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "quickbuild": "./build/build.sh --quick",
@@ -15,10 +15,10 @@
         "postinstall": "husky install"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "6.4.2",
-        "@fortawesome/fontawesome-svg-core": "6.4.2",
-        "@fortawesome/free-regular-svg-icons": "6.4.2",
-        "@fortawesome/free-solid-svg-icons": "6.4.2",
+        "@fortawesome/fontawesome-free": "6.5.0",
+        "@fortawesome/fontawesome-svg-core": "6.5.0",
+        "@fortawesome/free-regular-svg-icons": "6.5.0",
+        "@fortawesome/free-solid-svg-icons": "6.5.0",
         "@fortawesome/vue-fontawesome": "2.0.10",
         "acorn": "8.11.2",
         "acorn-walk": "8.3.0",
@@ -65,8 +65,8 @@
         "@types/ua-parser-js": "0.7.39",
         "@types/vue-select": "3.16.8",
         "@types/webpack-env": "1.18.4",
-        "@typescript-eslint/eslint-plugin": "6.13.0",
-        "@typescript-eslint/parser": "6.13.0",
+        "@typescript-eslint/eslint-plugin": "6.13.1",
+        "@typescript-eslint/parser": "6.13.1",
         "all-contributors-cli": "6.26.1",
         "copy-dir": "1.3.0",
         "css-loader": "6.8.1",
