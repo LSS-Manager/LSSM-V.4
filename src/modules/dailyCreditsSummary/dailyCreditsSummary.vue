@@ -107,8 +107,8 @@
                                 type.total > 0
                                     ? 'success'
                                     : type.total < 0
-                                    ? 'danger'
-                                    : ''
+                                      ? 'danger'
+                                      : ''
                             }`"
                         >
                             {{ type.total.toLocaleString() }}
@@ -118,8 +118,8 @@
                                 type.total > 0
                                     ? 'success'
                                     : type.total < 0
-                                    ? 'danger'
-                                    : ''
+                                      ? 'danger'
+                                      : ''
                             }`"
                         >
                             {{

@@ -1,6 +1,11 @@
-import type { $m } from 'typings/Module';
+import {
+    type Group,
+    groups,
+    type MissingRequirements,
+} from './getMissingRequirements';
+
 import type { Mission } from 'typings/Mission';
-import type { Requirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
+import type { MissionRequirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
 
 // VueI18n returns lists as objects...
 export type GroupTranslation = Record<
@@ -18,132 +23,117 @@ export type GroupTranslation = Record<
 
 export default (
     LSSM: Vue,
-    missingRequirements: Requirement[],
-    requirements: Requirement[],
-    missionType: string,
+    missingRequirements: MissingRequirements,
+    requirements: MissingRequirements['requirements'],
     setSelected: (
-        requirement: Requirement,
-        value: number | { min: number; max: number }
-    ) => void,
-    $m: $m
+        requirement: MissionRequirement,
+        value: number | { min: number; max: number },
+        group: Group
+    ) => void
 ) => {
     const vehicleList = document.querySelector<HTMLTableSectionElement>(
         '#vehicle_show_table_body_all'
     );
     const occupiedList = document.querySelector<HTMLDivElement>('#occupied');
 
-    const vehicleTypes = LSSM.$stores.translations.vehicles;
-
     if (!vehicleList || !occupiedList) return;
 
-    const getRequirementsByIDs = (translations: GroupTranslation) => {
-        const requirements: Record<number, Requirement[]> = {};
+    const vehicleTypes = LSSM.$stores.translations.vehicles;
 
-        Object.values(translations).forEach(
-            ({ texts, vehicles, conditionalVehicles }) => {
-                const requirement = missingRequirements.find(({ vehicle }) =>
-                    Object.values(texts)
-                        .map(t => t.toLowerCase())
-                        .includes(vehicle.toLowerCase())
-                );
-                if (requirement) {
-                    const vehicleTypes = Object.values(vehicles);
-                    Object.entries(conditionalVehicles ?? {}).forEach(
-                        ([condition, vehicles]) => {
-                            if (
-                                LSSM.$stores.api.missions[missionType]
-                                    ?.additional[condition]
-                            )
-                                vehicleTypes.push(...Object.values(vehicles));
-                        }
-                    );
-                    vehicleTypes.forEach(vehicle => {
-                        if (!requirements.hasOwnProperty(vehicle))
-                            requirements[vehicle] = [];
-                        requirements[vehicle].push(requirement);
-                    });
-                }
-            }
-        );
-        return requirements;
-    };
-
-    const getRequirementsByEquipment = (translations: GroupTranslation) => {
-        const requirements: Record<string, Requirement[]> = {};
-
-        Object.values(translations).forEach(({ texts, equipment }) => {
-            const requirement = missingRequirements.find(({ vehicle }) =>
-                Object.values(texts)
-                    .map(t => t.toLowerCase())
-                    .includes(vehicle.toLowerCase())
+    const reqsByTractives: Record<number, Record<Group, Set<number>>> = {};
+    Object.entries(vehicleTypes).forEach(([id, vehicle]) => {
+        if (!('tractiveVehicles' in vehicle)) return undefined;
+        const allReqs: Record<Group, Set<number>> = {
+            vehicles: new Set<number>(),
+            staff: new Set<number>(),
+            other: new Set<number>(),
+        };
+        groups.forEach(group => {
+            allReqs[group] = new Set<number>(
+                missingRequirements.requirementsForVehicle[
+                    vehicle.tractiveVehicles[0]
+                ]?.[group] ?? new Set()
             );
-            if (requirement) {
-                Object.values(equipment ?? {}).forEach(eq => {
-                    if (!requirements.hasOwnProperty(eq)) requirements[eq] = [];
-                    requirements[eq].push(requirement);
+            vehicle.tractiveVehicles.slice(1).forEach(tractiveVehicle => {
+                const reqs =
+                    missingRequirements.requirementsForVehicle[
+                        tractiveVehicle
+                    ]?.[group] ?? new Set<number>();
+                allReqs[group].forEach(req => {
+                    if (!reqs.has(req)) allReqs[group]?.delete(req);
                 });
-            }
+            });
         });
-        return requirements;
+        reqsByTractives[parseInt(id)] = allReqs;
+    });
+
+    const getVehicleStaff = (
+        vehicleId: number
+    ): { min: number; max: number } => {
+        const vehicle = LSSM.$stores.api.vehiclesById[vehicleId];
+        if (!vehicle) return { min: 0, max: 0 };
+        return {
+            min: vehicleTypes[vehicle.vehicle_type]?.staff.min ?? 0,
+            max:
+                vehicle.max_personnel_override ??
+                vehicleTypes[vehicle.vehicle_type]?.staff.max ??
+                0,
+        };
     };
-
-    const getSpecialRequirement = (requirement: string) =>
-        requirements.find(({ vehicle }) =>
-            vehicle.match(
-                new RegExp(
-                    $m(requirement)
-                        .toString()
-                        .replace(/^\/|\/[ADJUgimux]*$/gu, '')
-                )
-            )
-        );
-
-    const vbrTranslation = $m('vehiclesByRequirement') as unknown as
-        | GroupTranslation
-        | string;
-    const requirementsByVehicleID =
-        typeof vbrTranslation === 'string'
-            ? {}
-            : getRequirementsByIDs(vbrTranslation);
-    const requirementsByEquipment =
-        typeof vbrTranslation === 'string'
-            ? {}
-            : getRequirementsByEquipment(vbrTranslation);
-    const staffTranslation = $m('staff') as unknown as
-        | GroupTranslation
-        | string;
-    const staffByVehicleID =
-        typeof staffTranslation === 'string'
-            ? {}
-            : getRequirementsByIDs(staffTranslation);
-
-    const towingVehicles = $m('towingVehicles') as unknown as Record<
-        number,
-        Record<number, number>
-    >;
-
-    const specialRequirementList = ['water', 'foam', 'pump'];
-
-    const specialRequirements: Record<string, Requirement> = Object.fromEntries(
-        specialRequirementList
-            .map(req => [req, getSpecialRequirement(req)])
-            .filter(([, req]) => req)
-    );
-
-    const getProgressBarSelected = (requirement: string) =>
-        LSSM.$utils.getNumberFromText(
-            document.querySelector<HTMLDivElement>(
-                `[id^="mission_${requirement}_holder_"] div[class*="mission_water_bar_selected"]`
-            )?.textContent ?? '',
-            false,
-            0
-        );
 
     return () => {
-        const selectedVehicles: Record<number, number[]> = {};
-        const selectedEquipment: Record<string, number> = {};
-        const definiteTractives: Record<number, number> = {};
-        const possibleTractives: Record<number, number> = {};
+        const selected: Record<'staff', { min: number; max: number }[]> &
+            Record<Exclude<Group, 'staff'>, number[]> = {
+            vehicles: new Array(requirements.vehicles.length).fill(0),
+            // this workaround is required otherwise all elements would only be references to the same object
+            staff: new Array(requirements.staff.length).fill(0).map(() => ({
+                min: 0,
+                max: 0,
+            })),
+            other: new Array(requirements.other.length).fill(0),
+        };
+
+        const trailerTypesWithTractiveNeeded: Record<number, number> = {};
+
+        const selectedVehicles = new Set<number>();
+
+        const increaseSelected = <Type extends number | string>(
+            type: Type,
+            id: Type,
+            getStaff: (id: Type) => {
+                min: number;
+                max: number;
+            } = () => ({
+                min: 0,
+                max: 0,
+            })
+        ) => {
+            const reqs =
+                typeof type === 'number'
+                    ? missingRequirements.requirementsForVehicle[type]
+                    : missingRequirements.requirementsForEquipment[
+                          type.toString()
+                      ];
+            groups.forEach(
+                group =>
+                    reqs?.[group]?.forEach(requirement => {
+                        selected[group] ??= [];
+                        // that is a weird workaround but otherwise TS complains
+                        if (group === 'staff') {
+                            selected[group][requirement] ??= {
+                                min: 0,
+                                max: 0,
+                            };
+                            const { min, max } = getStaff(id);
+                            selected[group][requirement].min += min;
+                            selected[group][requirement].max += max;
+                        } else {
+                            selected[group][requirement] ??= 0;
+                            selected[group][requirement]++;
+                        }
+                    })
+            );
+        };
 
         [
             ...vehicleList.querySelectorAll<HTMLInputElement>(
@@ -159,123 +149,77 @@ export default (
             const vehicleID = parseInt(checkbox.getAttribute('value') ?? '-1');
             if (vehicleType < 0 || vehicleID < 0) return;
 
-            if (!selectedVehicles.hasOwnProperty(vehicleType))
-                selectedVehicles[vehicleType] = [];
-            selectedVehicles[vehicleType].push(vehicleID);
+            selectedVehicles.add(vehicleID);
 
+            // increase selected of all requirements that can be fulfilled by this vehicle by 1
+            increaseSelected(vehicleType, vehicleID, getVehicleStaff);
+
+            // get selected equipment for this vehicle
             (checkbox.dataset.equipmentTypes ?? '')
                 .split(',')
-                .forEach(equipment => {
-                    if (!selectedEquipment.hasOwnProperty(equipment))
-                        selectedEquipment[equipment] = 0;
-                    selectedEquipment[equipment]++;
-                });
+                .filter(Boolean)
+                .forEach(equipment => increaseSelected(equipment, ''));
 
-            const tractiveVehicleID = checkbox.getAttribute(
-                'tractive_vehicle_id'
+            // find tractive vehicle for this vehicle
+            const tractiveVehicleId = parseInt(
+                checkbox.getAttribute('tractive_vehicle_id') ?? '-1'
             );
-            let tractiveCounted = false;
+            const tractiveVehicle =
+                LSSM.$stores.api.vehiclesById[tractiveVehicleId];
+            // tractive vehicle is explicitly set
             if (
-                tractiveVehicleID &&
-                checkbox.getAttribute('tractive_random') === '0' &&
-                tractiveVehicleID !== '0'
+                tractiveVehicle &&
+                checkbox.getAttribute('tractive_random') === '0'
             ) {
-                const tractive =
-                    LSSM.$stores.api.vehiclesById[parseInt(tractiveVehicleID)];
-                const tractiveType = tractive.vehicle_type;
-                if (tractive) {
-                    if (!selectedVehicles.hasOwnProperty(tractiveType))
-                        selectedVehicles[tractiveType] = [];
-                    selectedVehicles[tractiveType].push(
-                        parseInt(tractiveVehicleID)
+                if (!selectedVehicles.has(tractiveVehicleId)) {
+                    increaseSelected(
+                        tractiveVehicle.vehicle_type,
+                        tractiveVehicleId,
+                        getVehicleStaff
                     );
-                    if (!definiteTractives.hasOwnProperty(tractiveType))
-                        definiteTractives[tractiveType] = 0;
-                    definiteTractives[tractiveType]++;
-                    tractiveCounted = true;
                 }
-            }
-            if (
-                !tractiveCounted &&
-                towingVehicles.hasOwnProperty(vehicleType)
-            ) {
-                const tractiveType = towingVehicles[vehicleType][0];
-                if (!possibleTractives.hasOwnProperty(tractiveType))
-                    possibleTractives[tractiveType] = 0;
-                possibleTractives[tractiveType]++;
+            } else {
+                trailerTypesWithTractiveNeeded[vehicleType] ??= 0;
+                trailerTypesWithTractiveNeeded[vehicleType]++;
             }
         });
 
-        requirements.forEach(requirement =>
-            setSelected(
-                requirement,
-                typeof requirement.selected === 'number'
-                    ? 0
-                    : { min: 0, max: 0 }
-            )
-        );
-
-        Object.entries(possibleTractives).forEach(([tractiveType, amount]) => {
-            const type = parseInt(tractiveType);
-            if (!selectedVehicles.hasOwnProperty(type))
-                selectedVehicles[type] = [];
-            while (
-                selectedVehicles[type].length <
-                amount + (definiteTractives[type] ?? 0)
-            )
-                selectedVehicles[type].push(selectedVehicles[type].length * -1);
-        });
-        Object.entries(selectedVehicles).forEach(([vehicleType, vehicles]) => {
-            const vehicleIds = [...new Set(vehicles)];
-
-            requirementsByVehicleID[parseInt(vehicleType)]?.forEach(
-                requirement =>
-                    setSelected(
-                        requirement,
-                        typeof requirement.selected === 'number'
-                            ? requirement.selected + vehicleIds.length
-                            : requirement.selected
+        // update selected for each requirement
+        groups.forEach(group => {
+            // process possible trailers
+            Object.entries(trailerTypesWithTractiveNeeded).forEach(
+                ([trailerType, amount]) =>
+                    reqsByTractives[parseInt(trailerType)]?.[group]?.forEach(
+                        req => {
+                            const value = selected[group][req];
+                            if (typeof value !== 'number') return;
+                            selected[group][req] = Math.max(value, amount);
+                        }
                     )
             );
 
-            const type = vehicleTypes[parseInt(vehicleType)];
+            // update requirements by previously determined selected vehicles
+            selected[group].forEach((value, i) =>
+                setSelected(requirements[group][i], value, group)
+            );
 
-            staffByVehicleID[parseInt(vehicleType)]?.forEach(requirement => {
-                setSelected(
-                    requirement,
-                    typeof requirement.selected === 'number'
-                        ? requirement.selected + 1
-                        : {
-                              min:
-                                  requirement.selected.min +
-                                  type.staff.min * vehicleIds.length,
-                              max:
-                                  requirement.selected.max +
-                                  vehicleIds
-                                      .map(
-                                          id =>
-                                              LSSM.$stores.api.vehiclesById[id]
-                                                  ?.max_personnel_override ??
-                                              type.staff.max
-                                      )
-                                      .reduce((a, b) => a + b, 0),
-                          }
-                );
-            });
-        });
-        Object.entries(selectedEquipment).forEach(
-            ([equipment, amount]) =>
-                requirementsByEquipment[equipment]?.forEach(requirement =>
+            // update progress bar requirements
+            missingRequirements.requirements[group].forEach(
+                (requirement, i) => {
+                    if (!('bar' in requirement)) return;
                     setSelected(
-                        requirement,
-                        typeof requirement.selected === 'number'
-                            ? requirement.selected + amount
-                            : requirement.selected
-                    )
-                )
-        );
-        Object.entries(specialRequirements).forEach(([key, requirement]) =>
-            setSelected(requirement, getProgressBarSelected(key))
-        );
+                        requirements[group][i],
+                        LSSM.$utils.getNumberFromText(
+                            document.querySelector(
+                                `[id^="mission_${requirement.bar}_holder"] [class*="mission_water_bar_selected_"]`
+                            )?.textContent ?? '',
+                            false,
+                            0
+                        ),
+                        group
+                    );
+                }
+            );
+        });
     };
 };

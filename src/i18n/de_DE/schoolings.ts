@@ -228,6 +228,18 @@ export default {
             staffList: 'SEG Drohne',
             key: 'seg_drone',
         },
+        {
+            caption: 'Betreuungsdienst',
+            duration: '3 Tage',
+            staffList: 'Betreuungshelfer',
+            key: 'care_service',
+        },
+        {
+            caption: 'Verpflegungshelfer',
+            duration: '3 Tage',
+            staffList: 'Verpflegungshelfer',
+            key: 'care_service_equipment',
+        },
     ],
     THW: [
         {

@@ -3,6 +3,7 @@
     "schoolings": { "all": "kaikki", "min": "min. {n}x" },
     "tabs": {
         "buildings": "Rakennukset",
+        "equipment": "Equipment",
         "schoolings": "Kurssit",
         "vehicles": "Ajoneuvot"
     },
@@ -17,6 +18,11 @@
             "special": "Muuta",
             "startPersonnel": "Aloitus työntekijä määrä",
             "startVehicles": "Mahdollinen aloitusajoneuvo"
+        },
+        "equipment": {
+            "caption": "Equipment",
+            "cost": "Price",
+            "size": "Size"
         },
         "schoolings": {
             "caption": "Kurssin nimi",
