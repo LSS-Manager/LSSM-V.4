@@ -1079,7 +1079,7 @@ export default {
                 unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
-                caption: 'Betreuungs- und Verpflegungsdiensten',
+                caption: 'Betreuungs- und Verpflegungsdienst',
                 credits: 200_000,
                 coins: 25,
                 duration: '5 Tage',
