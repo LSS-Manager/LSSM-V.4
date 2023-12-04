@@ -199,7 +199,15 @@
                 "texts": ["Außenlastbehälter", "Außenlastbehälter (allgemein)"],
                 "vehicles": [96]
             },
+            {
+                "texts": [
+                    "Betreuungs- und Verpflegungsausstattung",
+                    "Betreuungs- und Verpflegungsausstattungen"
+                ],
+                "vehicles": [130, 132]
+            },
             { "texts": ["Boot", "Boote"], "vehicles": [66, 67, 68, 70, 71] },
+            { "texts": ["Bt-Kombi", "Bt-Kombis"], "vehicles": [131] },
             { "texts": ["DHuFüKw"], "vehicles": [94] },
             {
                 "equipment": ["decon"],
@@ -325,7 +333,8 @@
             {
                 "equipment": ["hose_water"],
                 "texts": [
-                    "Schlauchwagen (GW-L2 Wasser, SW 1000, SW 2000 oder Ähnliches)"
+                    "Schlauchwagen (GW-L2 Wasser, SW 1000, SW 2000 oder Ähnliches)",
+                    "Schlauchwagen (GW-L2 Wasser oder SW)"
                 ],
                 "vehicles": [11, 13, 14, 15, 16, 62, 101, 102]
             },

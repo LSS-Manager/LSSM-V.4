@@ -73,6 +73,12 @@ export default {
             key: 'polizeihubschrauber',
         },
         {
+            caption: "Formation d'intervention d'élite",
+            duration: '3 jours',
+            staffList: "unité d'elite",
+            key: 'swat',
+        },
+        {
             caption: 'Maître chien',
             duration: '5 jours',
             staffList: 'Brigade canine',
@@ -101,6 +107,18 @@ export default {
             duration: '7 jours',
             staffList: 'Armurier',
             key: 'riot_police_equipment',
+        },
+        {
+            caption: "Formation de médecin d'intervention",
+            duration: '5 jours',
+            staffList: "médecin d'intervention",
+            key: 'swat_physician',
+        },
+        {
+            caption: 'Formation de négociateur',
+            duration: '5 jours',
+            staffList: 'négociateur',
+            key: 'swat_negotiation',
         },
     ],
     'Secours nautique': [

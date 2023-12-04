@@ -22,7 +22,7 @@ export default {
         },
         extensions: [
             {
-                caption: 'Rettungsdienst-Erweiterung',
+                caption: 'Rettungsdienst',
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Tage',
@@ -50,7 +50,7 @@ export default {
                 5
             ),
             {
-                caption: 'Wasserrettungs-Erweiterung',
+                caption: 'Wasserrettung',
                 credits: 400_000,
                 coins: 25,
                 duration: '7 Tage',
@@ -75,7 +75,7 @@ export default {
                 unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
-                caption: 'Flughafen-Erweiterung',
+                caption: 'Flughafenfeuerwehr',
                 credits: 300_000,
                 coins: 25,
                 duration: '7 Tage',
@@ -142,7 +142,7 @@ export default {
                 unlocksVehicleTypes: [83, 84, 85, 86],
             },
             {
-                caption: 'NEA50-Erweiterung',
+                caption: 'Netzersatzanlage 50',
                 credits: 100_000,
                 coins: 20,
                 duration: '5 Tage',
@@ -151,7 +151,7 @@ export default {
                 unlocksVehicleTypes: [111],
             },
             {
-                caption: 'NEA200-Erweiterung',
+                caption: 'Netzersatzanlage 200',
                 credits: 200_000,
                 coins: 25,
                 duration: '7 Tage',
@@ -163,7 +163,7 @@ export default {
                 unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
-                caption: 'Lüfter-Erweiterung',
+                caption: 'Großlüfter',
                 credits: 75_000,
                 coins: 15,
                 duration: '5 Tage',
@@ -188,7 +188,7 @@ export default {
                 unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
-                caption: 'Drohnen-Erweiterung',
+                caption: 'Drohneneinheit',
                 credits: 150_000,
                 coins: 25,
                 duration: '5 Tage',
@@ -544,7 +544,7 @@ export default {
                 parkingLotReservations: [[94]],
             },
             {
-                caption: 'Kriminalpolizei-Erweiterung',
+                caption: 'Kriminalpolizei',
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Tage',
@@ -553,7 +553,7 @@ export default {
                 unlocksVehicleTypes: [98],
             },
             {
-                caption: 'Dienstgruppenleitung-Erweiterung',
+                caption: 'Dienstgruppenleitung',
                 credits: 200_000,
                 coins: 25,
                 duration: '7 Tage',
@@ -1042,7 +1042,7 @@ export default {
                 unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
-                caption: 'Wasserrettungs-Erweiterung',
+                caption: 'Wasserrettung',
                 coins: 25,
                 credits: 500_000,
                 duration: '7 Tage',
@@ -1079,7 +1079,7 @@ export default {
                 unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
-                caption: 'Betreuungs- und Verpflegungsdienst-Erweiterungen',
+                caption: 'Betreuungs- und Verpflegungsdienst',
                 credits: 200_000,
                 coins: 25,
                 duration: '5 Tage',
@@ -1331,7 +1331,7 @@ export default {
         },
         extensions: [
             {
-                caption: 'Rettungsdienst-Erweiterung',
+                caption: 'Rettungsdienst',
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Tage',
@@ -1359,7 +1359,7 @@ export default {
                 2
             ),
             {
-                caption: 'Wasserrettungs-Erweiterung',
+                caption: 'Wasserrettung',
                 credits: 400_000,
                 coins: 25,
                 duration: '7 Tage',
@@ -1368,7 +1368,7 @@ export default {
                 unlocksVehicleTypes: [64, 63, 70],
             },
             {
-                caption: 'Flughafen-Erweiterung',
+                caption: 'Flughafenfeuerwehr',
                 credits: 300_000,
                 coins: 25,
                 duration: '7 Tage',
@@ -1398,7 +1398,7 @@ export default {
                 unlocksVehicleTypes: [83, 84, 85, 86],
             },
             {
-                caption: 'NEA50-Erweiterung',
+                caption: 'Netzersatzanlage 50',
                 credits: 100_000,
                 coins: 20,
                 duration: '5 Tage',
@@ -1407,7 +1407,7 @@ export default {
                 unlocksVehicleTypes: [111],
             },
             {
-                caption: 'Lüfter-Erweiterung',
+                caption: 'Großlüfter',
                 credits: 75_000,
                 coins: 15,
                 duration: '5 Tage',
@@ -1416,7 +1416,7 @@ export default {
                 unlocksVehicleTypes: [114, 115, 116],
             },
             {
-                caption: 'Drohnen-Erweiterung',
+                caption: 'Drohneneinheit',
                 credits: 150_000,
                 coins: 25,
                 duration: '5 Tage',
@@ -1518,7 +1518,7 @@ export default {
                 parkingLotReservations: [[94]],
             },
             {
-                caption: 'Kriminalpolizei-Erweiterung',
+                caption: 'Kriminalpolizei',
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Tage',
@@ -1527,7 +1527,7 @@ export default {
                 unlocksVehicleTypes: [98],
             },
             {
-                caption: 'Dienstgruppenleitung-Erweiterung',
+                caption: 'Dienstgruppenleitung',
                 credits: 200_000,
                 coins: 25,
                 duration: '7 Tage',

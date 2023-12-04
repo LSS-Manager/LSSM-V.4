@@ -1,238 +1,274 @@
 import type { $m } from 'typings/Module';
 import type { GroupTranslation } from './getVehicleListObserveHandler';
-import type { Requirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
+import type { MissionRequirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
 
-export default (
+export const groups = ['vehicles', 'staff', 'other'] as const;
+Object.seal(groups);
+
+export type Group = (typeof groups)[number];
+export type MissingRequirements = Exclude<
+    ReturnType<typeof getMissingRequirements>,
+    undefined
+>;
+
+const getMissingRequirements = (
     LSSM: Vue,
-    missingDialogContent: string,
+    missingDialog: HTMLDivElement,
     missionType: string,
     $m: $m
 ) => {
-    let missingRequirementsText = missingDialogContent
-        ?.trim()
-        .replace(/(^[^:]*:)|(\.$)/gu, '')
-        .trim();
-    if (!missingRequirementsText) return;
+    if (!missingDialog.textContent?.trim()) return;
 
-    const vehiclePreprocessor = $m(
-        'enhancedMissingVehicles.vehiclePreprocessor'
-    ) as Record<string, string> | string;
+    const getRequirementTexts = (req: Group) => {
+        const typeAttribute = req === 'staff' ? 'personnel' : req;
 
-    if (typeof vehiclePreprocessor !== 'string') {
-        Object.entries(vehiclePreprocessor).forEach(
-            ([reg, replace]) =>
-                (missingRequirementsText = missingRequirementsText.replace(
-                    new RegExp(reg, 'gu'),
-                    replace
-                ))
+        const reqEl = missingDialog.querySelector<HTMLDivElement>(
+            `[data-requirement-type="${typeAttribute}"]`
         );
-    }
+        if (!reqEl) return null;
 
-    const water = $m('enhancedMissingVehicles.water').toString();
-    const foam = $m('enhancedMissingVehicles.foam').toString();
-    const pumping = $m('enhancedMissingVehicles.pump').toString();
+        // the text in the bold part
+        const infoText =
+            reqEl.querySelector<HTMLElement>('b')?.textContent?.trim() ?? '';
+        // all requirements as a continuous string
+        const reqText =
+            reqEl.textContent
+                ?.trim()
+                ?.replace(infoText, '')
+                .trim()
+                .replace(/\s/gu, ' ') ?? '';
+        // raw: will not change, remaining: processed requirements will be removed
+        return { infoText, raw: reqText, remaining: reqText };
+    };
 
-    const vehicleGroupTranslation = $m(
-        'enhancedMissingVehicles.vehiclesByRequirement'
-    ) as unknown as GroupTranslation | string;
-    const staffGroupTranslation = $m(
-        'enhancedMissingVehicles.staff'
-    ) as unknown as GroupTranslation | string;
-    const vehicleGroups =
-        typeof vehicleGroupTranslation === 'string'
-            ? []
-            : Object.values(vehicleGroupTranslation);
-    const staffGroups =
-        typeof staffGroupTranslation === 'string'
-            ? []
-            : Object.values(staffGroupTranslation);
+    const requirementTexts = {
+        vehicles: getRequirementTexts('vehicles'),
+        staff: getRequirementTexts('staff'),
+        other: getRequirementTexts('other'),
+    } satisfies Record<Group, ReturnType<typeof getRequirementTexts>>;
+
+    const requirements: Record<Group, MissionRequirement[]> = {
+        vehicles: [],
+        staff: [],
+        other: [],
+    };
+
+    const requirementsForVehicle: Record<
+        number,
+        Partial<Record<Group, Set<number>>>
+    > = {};
+    const requirementsForEquipment: Record<
+        string,
+        Partial<Record<Group, Set<number>>>
+    > = {};
 
     const numRegex = '\\d{1,3}(([,.]|\\s)?\\d{3})*x?';
-    const groupsRegex = [
-        ...vehicleGroups.flatMap(({ texts }) => Object.values(texts)),
-        ...staffGroups.flatMap(({ texts }) => Object.values(texts)),
-    ]
-        .map(r => LSSM.$utils.escapeRegex(r))
-        .join('|');
-    const innerRegex = `${LSSM.$utils.escapeRegex(
-        water
-    )}|${LSSM.$utils.escapeRegex(foam)}|${LSSM.$utils.escapeRegex(
-        pumping
-    )}|${groupsRegex}`;
+    const getRequirementRegex = (text: string[] | string) => {
+        const textRegex = Array.isArray(text)
+            ? text.map(LSSM.$utils.escapeRegex).join('|')
+            : LSSM.$utils.escapeRegex(text);
+        // detects requirements in the forms "x VehicleType" and "VehicleType: x"
+        return new RegExp(
+            `((${numRegex}\\s+(${textRegex}))|(${textRegex}):\\s*${numRegex})(?=[,.]|$)`,
+            'gi'
+        );
+    };
 
-    const requirementRegex = new RegExp(
-        `((${numRegex}\\s+(${innerRegex}))|(${innerRegex}):\\s*${numRegex})(?=[,.]|$)`,
-        'gi'
-    );
-    const missingRequirementMatches =
-        missingRequirementsText.match(requirementRegex);
-    const staffPrefix = $m('enhancedMissingVehicles.staffPrefix') as unknown as
-        | Record<number, string>
-        | string;
-    const extras = missingRequirementsText
-        .replace(requirementRegex, '')
-        .replace(/^[.:]/u, '')
-        .trim()
-        .replace(
-            new RegExp(
-                Object.values(
-                    typeof staffPrefix === 'string' ? {} : staffPrefix
-                )
-                    .map(p => LSSM.$utils.escapeRegex(p))
-                    .join('|'),
-                'g'
-            ),
-            ''
-        )
-        .replace(/(, )+/gu, ', ')
-        .trim()
-        .replace(/(^[,.] ?)|([,.] ?$)/gu, '')
-        .trim();
-    if (!missingRequirementMatches) return;
-    const missingRequirements = missingRequirementMatches.map(req => {
-        const requirement = req.trim();
-        const isColonMode = !!requirement.match(/^.*:\s*\d+$/u);
-        const vehicle = requirement
-            .trim()
-            .replace(isColonMode ? /:\s*\d+$/u : /^\d+x?/u, '')
-            .trim();
+    const splitMissingFromVehicle = (req: string) => {
+        const isColonMode = !!req.match(/^.*:\s*\d+$/u);
         return {
+            vehicle: req
+                .replace(isColonMode ? /:\s*\d+$/u : /^\d+x?/u, '')
+                .trim(),
             missing: parseInt(
-                requirement.match(isColonMode ? /\d+$/u : /^\d+/u)?.[0] || '0'
+                req.match(isColonMode ? /\d+$/u : /^\d+/u)?.[0] || '0'
             ),
-            vehicle,
-            selected: Object.values(staffGroups).some(({ texts }) =>
-                Object.values(texts).includes(vehicle)
-            )
-                ? { min: 0, max: 0 }
-                : 0,
         };
-    }) as Requirement[];
-    const drivingTable = document.querySelector(
-        '#mission_vehicle_driving tbody'
-    );
-    if (drivingTable) {
-        missingRequirements.forEach(requirement => {
-            const isWater = requirement.vehicle === water;
-            const isFoam = requirement.vehicle === foam;
-            const isPumping = requirement.vehicle === pumping;
-            if (isWater) {
-                requirement.driving = LSSM.$utils.getNumberFromText(
-                    document.querySelector<HTMLDivElement>(
-                        '[id^="mission_water_holder_"] div.progress-bar-mission-window-water.progress-bar-warning'
-                    )?.textContent ?? '',
-                    false,
-                    0
-                );
-            } else if (isFoam) {
-                requirement.driving = LSSM.$utils.getNumberFromText(
-                    document.querySelector<HTMLDivElement>(
-                        '[id^="mission_foam_holder_"] div.progress-bar-mission-window-water.progress-bar-warning'
-                    )?.textContent ?? '',
-                    false,
-                    0
-                );
-            } else if (isPumping) {
-                requirement.driving = LSSM.$utils.getNumberFromText(
-                    document.querySelector<HTMLDivElement>(
-                        '[id^="mission_pump_holder_"] div.progress-bar-mission-window-water.progress-bar-warning'
-                    )?.textContent ?? '',
-                    false,
-                    0
-                );
-            } else {
-                const vehicleGroupRequirement = vehicleGroups.findIndex(
-                    ({ texts }) =>
-                        Object.values(texts)
-                            .map(t => t.toLowerCase())
-                            .includes(requirement.vehicle.toLowerCase())
-                );
+    };
 
-                const staffGroupRequirement = staffGroups.findIndex(
-                    ({ texts }) =>
-                        Object.values(texts)
-                            .map(t => t.toLowerCase())
-                            .includes(requirement.vehicle.toLowerCase())
+    groups.forEach(group => {
+        const reqTextGroup = requirementTexts[group];
+        if (!reqTextGroup) return;
+
+        // other requirements are handled differently (progress bars)
+        if (group === 'other') {
+            (['water', 'foam', 'pump'] as const).forEach(type => {
+                const translation = $m(
+                    `enhancedMissingVehicles.${type}`
+                ).toString();
+                const typeRegex = getRequirementRegex(translation);
+                const match = reqTextGroup.remaining.match(typeRegex)?.[0];
+                if (!match) return;
+
+                // we have a match! remove the match from the remaining text and get values from the progress bar
+                const progressBar = document.querySelector<HTMLDivElement>(
+                    `[id^="mission_${type}_holder"]`
                 );
+                if (!progressBar) return;
+                const getProgressValue = (
+                    type: 'driving' | 'missing' | 'selected'
+                ) =>
+                    LSSM.$utils.getNumberFromText(
+                        progressBar.querySelector(
+                            `[class*="mission_water_bar_${type}_"]`
+                        )?.textContent ?? '',
+                        false,
+                        0
+                    );
+                reqTextGroup.remaining = reqTextGroup.remaining.replace(
+                    match,
+                    ''
+                );
+                requirements.other.push({
+                    requirement: splitMissingFromVehicle(match.trim()).vehicle,
+                    missing: getProgressValue('missing'),
+                    driving: getProgressValue('driving'),
+                    selected: getProgressValue('selected'),
+                    bar: type,
+                });
+            });
+        }
 
-                if (staffGroupRequirement >= 0) {
-                    const vehicleTypes: number[] = Object.values(
-                        staffGroups[staffGroupRequirement].vehicles
-                    );
-                    Object.entries(
-                        staffGroups[staffGroupRequirement]
-                            .conditionalVehicles ?? {}
-                    ).forEach(([condition, vehicles]) => {
-                        if (
-                            LSSM.$stores.api.missions[missionType]?.additional[
-                                condition
-                            ]
-                        )
-                            vehicleTypes.push(...Object.values(vehicles));
-                    });
-                    let drivingStaff = 0;
-                    drivingTable
-                        .querySelectorAll<HTMLTableRowElement>('tbody tr')
-                        .forEach(vehicle => {
-                            const vehicleType = parseInt(
-                                vehicle
-                                    .querySelector('[vehicle_type_id]')
-                                    ?.getAttribute('vehicle_type_id') ?? '-1'
-                            );
-                            if (vehicleTypes.includes(vehicleType)) {
-                                drivingStaff += parseInt(
-                                    vehicle
-                                        .querySelector('td:nth-of-type(5)')
-                                        ?.getAttribute('sortvalue') ?? '0'
-                                );
-                            }
-                        });
-                    requirement.driving = drivingStaff;
-                } else {
-                    if (vehicleGroupRequirement < 0) {
-                        requirement.vehicle = '';
-                        return;
-                    }
-                    const vehicleTypes: number[] = Object.values(
-                        vehicleGroups[vehicleGroupRequirement].vehicles
-                    );
-                    const equipment = Object.values(
-                        vehicleGroups[vehicleGroupRequirement].equipment ?? {}
-                    );
-                    Object.entries(
-                        vehicleGroups[vehicleGroupRequirement]
-                            .conditionalVehicles ?? {}
-                    ).forEach(([condition, vehicles]) => {
-                        if (
-                            LSSM.$stores.api.missions[missionType]?.additional[
-                                condition
-                            ]
-                        )
-                            vehicleTypes.push(...Object.values(vehicles));
-                    });
-
-                    const selectors = vehicleTypes
-                        .map(
-                            vehicleType => `[vehicle_type_id="${vehicleType}"]`
-                        )
-                        .concat(
-                            ...equipment.map(
-                                e => `[data-equipment-type="${e}"]`
-                            )
+        // on some languages, some preprocessing is needed because
+        // a vehicle requirement may be written as "Need x VehicleType" but we don't want the "Need" part
+        if (group === 'vehicles' || group === 'other') {
+            const vehiclePreprocessor = $m(
+                'enhancedMissingVehicles.vehiclePreprocessor'
+            ) as Record<string, string> | string;
+            if (typeof vehiclePreprocessor !== 'string') {
+                Object.entries(vehiclePreprocessor).forEach(
+                    ([reg, replace]) => {
+                        reqTextGroup.remaining.replace(
+                            new RegExp(reg, 'gu'),
+                            replace
                         );
-
-                    requirement.driving = drivingTable.querySelectorAll(
-                        selectors.join(',')
-                    ).length;
-                }
+                    }
+                );
             }
-            requirement.total = requirement.missing - requirement.driving;
+        }
+
+        // get all requirements for this group
+        const groupReqs = $m(
+            `enhancedMissingVehicles.${
+                group === 'vehicles' || group === 'other'
+                    ? 'vehiclesByRequirement'
+                    : group
+            }`
+        ) as unknown as GroupTranslation | string;
+        // there is no translation for this group
+        if (typeof groupReqs === 'string') return;
+
+        const addRequirementToVehicles = (vehicles: number[]) => {
+            const requirementIndex = requirements[group].length;
+            vehicles.forEach(vehicleType => {
+                requirementsForVehicle[vehicleType] ??= {};
+                requirementsForVehicle[vehicleType][group] ??=
+                    new Set<number>();
+                requirementsForVehicle[vehicleType][group]?.add(
+                    requirementIndex
+                );
+            });
+        };
+
+        // for each group item, check if it is in the remaining text
+        Object.values(groupReqs).forEach(groupReq => {
+            const reqRegex = getRequirementRegex(Object.values(groupReq.texts));
+            const match = reqTextGroup.remaining.match(reqRegex)?.[0];
+            if (!match) return;
+
+            // we have a match! remove the match from the remaining text and parse missing
+            reqTextGroup.remaining = reqTextGroup.remaining.replace(match, '');
+            const { vehicle, missing } = splitMissingFromVehicle(match.trim());
+
+            addRequirementToVehicles(Object.values(groupReq.vehicles));
+            Object.values(groupReq.equipment ?? {}).forEach(equipment => {
+                requirementsForEquipment[equipment] ??= {};
+                requirementsForEquipment[equipment][group] ??=
+                    new Set<number>();
+                requirementsForEquipment[equipment][group]?.add(
+                    requirements[group].length
+                );
+            });
+
+            Object.entries(groupReq.conditionalVehicles ?? {}).forEach(
+                ([condition, vehicles]) => {
+                    if (
+                        LSSM.$stores.api.missions[missionType]?.additional[
+                            condition
+                        ]
+                    )
+                        addRequirementToVehicles(Object.values(vehicles));
+                }
+            );
+
+            requirements[group].push({
+                requirement: vehicle,
+                missing,
+                driving: 0,
+                selected: group === 'staff' ? { min: 0, max: 0 } : 0,
+                additional: groupReq,
+            });
         });
-    }
+    });
+
+    // clean up the remaining texts (remove unnecessary commas and trim)
+    groups.forEach(group => {
+        const reqTextGroup = requirementTexts[group];
+        if (!reqTextGroup) return;
+        reqTextGroup.remaining = reqTextGroup.remaining
+            .replace(/,\s*(?=,|$)/gmu, '') // commas with no text after them
+            .replace(/^,\s*/gmu, '') // leading comma
+            .trim();
+    });
+
+    // iterate over the table of vehicles en route and update the driving information accordingly
+    document
+        .querySelectorAll<HTMLTableRowElement>(
+            '#mission_vehicle_driving tbody tr'
+        )
+        .forEach(row => {
+            const vehicleType = parseInt(
+                row
+                    .querySelector('[vehicle_type_id]')
+                    ?.getAttribute('vehicle_type_id') ?? '-1'
+            );
+            if (vehicleType >= 0) {
+                groups.forEach(group => {
+                    let amount = 1;
+                    if (group === 'staff') {
+                        amount = parseInt(
+                            row
+                                .querySelector('td:nth-of-type(5)')
+                                ?.getAttribute('sortvalue') ?? '-1'
+                        );
+                    }
+                    if (amount <= 0) return;
+                    requirementsForVehicle[vehicleType]?.[group]?.forEach(
+                        req => (requirements[group][req].driving += amount)
+                    );
+                });
+            }
+
+            row.querySelectorAll<HTMLSpanElement>(
+                '[data-equipment-type]'
+            ).forEach(equipment => {
+                const equipmentType = equipment.dataset.equipmentType;
+                if (!equipmentType) return;
+                groups.forEach(
+                    group =>
+                        requirementsForEquipment[equipmentType]?.[
+                            group
+                        ]?.forEach(req => requirements[group][req].driving++)
+                );
+            });
+        });
 
     return {
-        missingRequirements: missingRequirements.filter(req => !!req.vehicle),
-        extras,
-        missingText: missingDialogContent,
+        requirements,
+        requirementTexts,
+        requirementsForVehicle,
+        requirementsForEquipment,
     };
 };
+
+export default getMissingRequirements;

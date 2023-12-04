@@ -571,6 +571,8 @@ export default {
         icon: 'snowplow',
         possibleBuildings: [9],
         special: 'Muss vom "LKW K 9" zum Einsatz gezogen werden',
+        isTrailer: true,
+        tractiveVehicles: [42],
     },
     44: {
         caption: 'Anh DLE',
@@ -582,6 +584,8 @@ export default {
         possibleBuildings: [9],
         special:
             'Muss von einem "GKW", "MzGW (FGr N)", "MTW-TZ" oder "MLW 5" zum Einsatz gezogen werden.',
+        isTrailer: true,
+        tractiveVehicles: [39, 40, 41, 45],
     },
     45: {
         caption: 'MLW 5',
