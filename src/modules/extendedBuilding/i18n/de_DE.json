@@ -1,6 +1,8 @@
 {
     "enhancedPersonnelAssignment": {
-        "toggleFittingPersonnel": "Personal ohne passende Ausbildung ausblenden"
+        "toggleFittingEquipment": "Ausbildungen für mögliche Ausrüstung einbeziehen",
+        "toggleFittingPersonnel": "Personal ohne passende Ausbildung ausblenden",
+        "toggleFittingTrailers": "Ausbildungen für mögliche Anhänger und AB einbeziehen"
     },
     "expansions": { "notBuild": "Noch nicht gebaut" },
     "fastDispatchChooser": { "noDispatch": "Keine Leitstelle" },

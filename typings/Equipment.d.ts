@@ -4,6 +4,10 @@ export interface InternalEquipment<ID extends string> {
     size: number;
     credits: number;
     coins: number;
+    staff: {
+        min: number;
+        training?: Record<string, string>;
+    };
 }
 
 export type InternalEquipments<IDs extends string> = {

@@ -1,6 +1,8 @@
 {
     "enhancedPersonnelAssignment": {
-        "toggleFittingPersonnel": "Skjul personell uten relevant utdanning"
+        "toggleFittingEquipment": "Include training for possible equipment",
+        "toggleFittingPersonnel": "Skjul personell uten relevant utdanning",
+        "toggleFittingTrailers": "Include training for possible trailers and pods"
     },
     "expansions": { "notBuild": "Ikke bygget ennå" },
     "fastDispatchChooser": { "noDispatch": "Ingen nødsentral" },

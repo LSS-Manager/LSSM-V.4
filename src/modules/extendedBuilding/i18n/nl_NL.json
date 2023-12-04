@@ -1,6 +1,8 @@
 {
     "enhancedPersonnelAssignment": {
-        "toggleFittingPersonnel": "Verberg personeel zonder juiste opleiding"
+        "toggleFittingEquipment": "Include training for possible equipment",
+        "toggleFittingPersonnel": "Verberg personeel zonder juiste opleiding",
+        "toggleFittingTrailers": "Include training for possible trailers and pods"
     },
     "expansions": { "notBuild": "Nog niet gebouwd" },
     "fastDispatchChooser": { "noDispatch": "Geen meldkamer" },

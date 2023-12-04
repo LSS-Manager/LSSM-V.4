@@ -7,6 +7,7 @@ export default registerEquipment({
         size: 10,
         credits: 3500,
         coins: 15,
+        staff: { min: 3 },
     },
     flood_equipment: {
         id: 'flood_equipment',
@@ -14,6 +15,7 @@ export default registerEquipment({
         size: 10,
         credits: 7500,
         coins: 20,
+        staff: { min: 3 },
     },
     fire_rescue: {
         id: 'fire_rescue',
@@ -21,6 +23,7 @@ export default registerEquipment({
         size: 10,
         credits: 4000,
         coins: 10,
+        staff: { min: 3 },
     },
     hose: {
         id: 'hose',
@@ -28,6 +31,7 @@ export default registerEquipment({
         size: 20,
         credits: 8500,
         coins: 20,
+        staff: { min: 0 },
     },
     light_supply: {
         id: 'light_supply',
@@ -35,6 +39,7 @@ export default registerEquipment({
         size: 20,
         credits: 5000,
         coins: 15,
+        staff: { min: 3 },
     },
     hazmat: {
         id: 'hazmat',
@@ -42,6 +47,7 @@ export default registerEquipment({
         size: 20,
         credits: 11_000,
         coins: 15,
+        staff: { min: 3, training: { 'Fire Station': 'gw_gefahrgut' } },
     },
     energy_supply: {
         id: 'energy_supply',
@@ -49,6 +55,7 @@ export default registerEquipment({
         size: 20,
         credits: 5000,
         coins: 15,
+        staff: { min: 3 },
     },
     foam_carrier: {
         id: 'foam_carrier',
@@ -56,6 +63,7 @@ export default registerEquipment({
         size: 10,
         credits: 17_000,
         coins: 20,
+        staff: { min: 0 },
     },
     fire_engine: {
         id: 'fire_engine',
@@ -63,6 +71,7 @@ export default registerEquipment({
         size: 10,
         credits: 2500,
         coins: 10,
+        staff: { min: 0 },
     },
     wildfire_engine: {
         id: 'wildfire_engine',
@@ -70,6 +79,7 @@ export default registerEquipment({
         size: 10,
         credits: 2500,
         coins: 10,
+        staff: { min: 3 },
     },
     search_and_rescue: {
         id: 'search_and_rescue',
@@ -77,6 +87,7 @@ export default registerEquipment({
         size: 10,
         credits: 5000,
         coins: 15,
+        staff: { min: 3, training: { 'Fire Station': 'search_and_rescue' } },
     },
     technical_rescue: {
         id: 'technical_rescue',
@@ -84,5 +95,6 @@ export default registerEquipment({
         size: 10,
         credits: 5000,
         coins: 15,
+        staff: { min: 3, training: { 'Fire Station': 'technical_rescue' } },
     },
 });
