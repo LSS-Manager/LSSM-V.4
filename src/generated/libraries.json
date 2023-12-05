@@ -219,7 +219,7 @@
     },
     "eslint-plugin-regexp": {
         "url": "https://github.com/ota-meshi/eslint-plugin-regexp#readme",
-        "version": "2.1.1"
+        "version": "2.1.2"
     },
     "eslint-plugin-tsdoc": {
         "icon": "https://tsdoc.org/images/site/favicon.ico",
