@@ -819,7 +819,7 @@ export default {
                 unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
-                caption: 'Ortsverbands-Manschaftstransportwagen',
+                caption: 'Ortsverbands-Mannschaftstransportwagen',
                 credits: 50_000,
                 coins: 15,
                 duration: '3 Tage',
