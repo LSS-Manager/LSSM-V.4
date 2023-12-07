@@ -7076,7 +7076,7 @@ __metadata:
     vue: "npm:3.3.10"
     vuepress: "npm:2.0.0-rc.0"
     vuepress-plugin-clipboard: "npm:2.1.5"
-    vuepress-plugin-sitemap2: "npm:2.0.0-rc.1"
+    vuepress-plugin-sitemap2: "npm:2.0.0-rc.2"
   languageName: unknown
   linkType: soft
 
@@ -10252,14 +10252,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vuepress-plugin-sitemap2@npm:2.0.0-rc.1":
-  version: 2.0.0-rc.1
-  resolution: "vuepress-plugin-sitemap2@npm:2.0.0-rc.1"
+"vuepress-plugin-sitemap2@npm:2.0.0-rc.2":
+  version: 2.0.0-rc.2
+  resolution: "vuepress-plugin-sitemap2@npm:2.0.0-rc.2"
   dependencies:
     "@vuepress/shared": "npm:2.0.0-rc.0"
     "@vuepress/utils": "npm:2.0.0-rc.0"
     sitemap: "npm:^7.1.1"
-    vuepress-shared: "npm:2.0.0-rc.1"
+    vuepress-shared: "npm:2.0.0-rc.2"
   peerDependencies:
     vuepress: 2.0.0-rc.0
     vuepress-vite: 2.0.0-rc.0
@@ -10271,13 +10271,13 @@ __metadata:
       optional: true
     vuepress-webpack:
       optional: true
-  checksum: 7834e010560dbf4aa7b6ad059674e8dd3619cdf46931826f1a67c5eb286541df121b8642fe31a3c2a6cfad10c53ac0c4e3c7891774105ef86fa30a3d9d56d918
+  checksum: cd64b5c89bc0360b81dc5c22fd2afb3a91921b5f6b7f5fc3ef7b67197eb684a0a199bf52055e854a64b2d8739e40c1cd4446b35f2f679d3aa14d52c496e4f780
   languageName: node
   linkType: hard
 
-"vuepress-shared@npm:2.0.0-rc.1":
-  version: 2.0.0-rc.1
-  resolution: "vuepress-shared@npm:2.0.0-rc.1"
+"vuepress-shared@npm:2.0.0-rc.2":
+  version: 2.0.0-rc.2
+  resolution: "vuepress-shared@npm:2.0.0-rc.2"
   dependencies:
     "@vuepress/client": "npm:2.0.0-rc.0"
     "@vuepress/shared": "npm:2.0.0-rc.0"
@@ -10303,7 +10303,7 @@ __metadata:
       optional: true
     vuepress-webpack:
       optional: true
-  checksum: 6866b51203587be87df78c0ec998b8e4a5fc28783026a44c77a095458070eaaa7db3e31f7c3eb037f0737a96fa4a4a6205dbd023656bdbeb81087c646441c9f2
+  checksum: b1e9a1521806573836f879cb6a37f2eef154038d7f8a64f7a5cf7ebf67d736953ef2e81b9785fedc823d2ecc0f657a245d9499dd80eb0f930f267138531275a8
   languageName: node
   linkType: hard
 
