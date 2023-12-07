@@ -119,10 +119,11 @@ const getMissingRequirements = (
                     match,
                     ''
                 );
+                const driving = getProgressValue('driving');
                 requirements.other.push({
                     requirement: splitMissingFromVehicle(match.trim()).vehicle,
-                    missing: getProgressValue('missing'),
-                    driving: getProgressValue('driving'),
+                    missing: getProgressValue('missing') + driving,
+                    driving,
                     selected: getProgressValue('selected'),
                     bar: type,
                 });
