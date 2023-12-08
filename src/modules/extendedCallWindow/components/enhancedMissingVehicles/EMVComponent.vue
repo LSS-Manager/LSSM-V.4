@@ -43,7 +43,9 @@
         </template>
         <div class="clearfix"></div>
 
-        <template v-if="textMode"></template>
+        <template
+            v-if="textMode || missingRequirementsSorted.length === 0"
+        ></template>
         <!-- one column -->
         <div v-else-if="overlay || pushedRight">
             <e-m-v-table
