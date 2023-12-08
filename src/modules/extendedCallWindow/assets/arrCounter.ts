@@ -141,7 +141,7 @@ export default async (
     }
 
     let resetBtnHolder = document.querySelector<HTMLDivElement>(
-        '#container_navbar_alarm .navbar-right'
+        '#navbar-right-help-button'
     );
 
     if (!resetBtnHolder) {

@@ -420,9 +420,6 @@ export default async ({
                 ?.click();
         });
     } else {
-        const navbar = document.querySelector<HTMLDivElement>(
-            '#container_navbar_alarm .navbar-header'
-        );
         const btnGroup = document.createElement('div');
         btnGroup.classList.add('btn-group');
 
@@ -556,6 +553,10 @@ export default async ({
             )
         );
 
-        navbar?.append(btnGroup);
+        document
+            .querySelector<HTMLDivElement>(
+                '#container_navbar_alarm .navbar-header'
+            )
+            ?.after(btnGroup);
     }
 };
