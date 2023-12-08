@@ -557,6 +557,6 @@ export default async ({
             .querySelector<HTMLDivElement>(
                 '#container_navbar_alarm .navbar-header'
             )
-            ?.after(btnGroup);
+            ?.append(btnGroup);
     }
 };
