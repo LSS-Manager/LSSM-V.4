@@ -1,6 +1,10 @@
 <template>
     <div>
-        <div class="head" :class="{ shown: showHead, fixed: scrolledOver }">
+        <div
+            ref="head"
+            class="head"
+            :class="{ shown: showHead && headHasChildren, fixed: scrolledOver }"
+        >
             <slot name="head"></slot>
             <label class="pull-right" v-if="!noSearch">
                 <input
@@ -15,6 +19,7 @@
             </label>
         </div>
         <button
+            v-if="headHasChildren"
             class="btn btn-default toggle-head-btn"
             :class="{ hidden: !scrolledOver }"
             @click.prevent="showHead = !showHead"
@@ -68,6 +73,7 @@ const { $t } = useI18n();
 
 const searchField = ref<HTMLInputElement>();
 const table = ref<HTMLTableElement>();
+const head = ref<HTMLDivElement>();
 
 const scrolledOver = ref<boolean>(false);
 const showHead = ref<boolean>(true);
@@ -104,6 +110,17 @@ const searchInputPlaceholder = computed(
 
 const sortIcon = computed(() =>
     props.sortDir === 'asc' ? faSortDown : faSortUp
+);
+
+const headHasChildren = computed(
+    () =>
+        Array.from(head.value?.childNodes ?? []).filter(n => {
+            if (n.nodeType === Node.COMMENT_NODE) return false;
+            return !(
+                n.nodeType === Node.TEXT_NODE &&
+                (n.textContent?.trim().length ?? 0) === 0
+            );
+        }).length
 );
 
 const colTitle = (col: Column<ColumnKey, boolean>) =>
