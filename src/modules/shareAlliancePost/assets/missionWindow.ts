@@ -421,7 +421,7 @@ export default async ({
         });
     } else {
         const btnGroup = document.createElement('div');
-        btnGroup.classList.add('btn-group');
+        btnGroup.classList.add('btn-group', 'flex-row', 'flex-nowrap');
 
         const phoneIcon = createIcon('phone-alt', 'fas', 'fa-fw');
         const shareIcon = createIcon('share-alt', 'fas', 'fa-fw');
@@ -430,13 +430,14 @@ export default async ({
 
         const alarmSharePostGroup = document.createElement('div');
         alarmSharePostGroup.classList.add('btn-group', 'dropup');
+        alarmSharePostGroup.style.setProperty('margin-right', '0');
         alarmSharePostGroup.id = LSSM.$stores.root.nodeAttribute(
             `${MODULE_ID}_alarm-share-post`,
             true
         );
         const alarmSharePostBtn = btn.cloneNode(true) as HTMLButtonElement;
-        alarmSharePostBtn.classList.add('btn', 'btn-success', 'btn-sm');
         alarmSharePostBtn.style.setProperty('font-size', '100%');
+        alarmSharePostBtn.classList.add('btn', 'btn-success', 'btn-sm');
         alarmSharePostBtn.innerHTML = '';
         alarmSharePostBtn.append(phoneIcon, shareIcon, commentIcon);
         const alarmSharePostDropdown = dropdown.cloneNode(
@@ -553,10 +554,10 @@ export default async ({
             )
         );
 
-        document
-            .querySelector<HTMLDivElement>(
-                '#container_navbar_alarm .navbar-header'
-            )
-            ?.append(btnGroup);
+        Array.from(
+            document.querySelectorAll('.flex-row:has(~ #navbar-alarm-spacer)')
+        )
+            .at(-1)
+            ?.after(btnGroup);
     }
 };

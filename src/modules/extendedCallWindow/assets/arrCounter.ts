@@ -154,9 +154,7 @@ export default async (
         );
         resetBtnHolder.id = 'navbar-right-help-button';
         document
-            .querySelector<HTMLElement>(
-                '#container_navbar_alarm .container-fluid'
-            )
+            .querySelector<HTMLElement>('#container_navbar_alarm')
             ?.append(resetBtnHolder);
     }
     document
