@@ -810,8 +810,8 @@ export default {
     56: {
         caption: 'VPCE',
         color: '#225CB5',
-        credits: 5000,
-        coins: 12,
+        credits: 10_000,
+        coins: 10,
         staff: { min: 2, max: 3 },
         icon: 'car-side',
         possibleBuildings: [0],
@@ -983,6 +983,9 @@ export default {
                     bomb_dronee: {
                         all: true,
                     },
+                    fbi_bomb_tech: {
+                        all: true,
+                    },
                 },
             },
         },
@@ -993,8 +996,8 @@ export default {
     66: {
         caption: 'VTPSC',
         color: '#225CB5',
-        credits: 14_200,
-        coins: 15,
+        credits: 10_000,
+        coins: 10,
         staff: {
             min: 1,
             max: 9,
@@ -1012,8 +1015,8 @@ export default {
     67: {
         caption: 'CESD',
         color: '#225CB5',
-        credits: 300_000,
-        coins: 30,
+        credits: 14_200,
+        coins: 15,
         staff: {
             min: 2,
             max: 2,
@@ -1035,7 +1038,7 @@ export default {
         credits: 19_200,
         coins: 20,
         staff: {
-            min: 4,
+            min: 2,
             max: 4,
             training: {
                 'Secours nautique': {
@@ -1071,11 +1074,13 @@ export default {
             max: 0,
         },
         icon: 'car-side',
+        pumpCapacity: 1000,
+        pumpType: 'fire',
         possibleBuildings: [27],
         special: 'Remorqueuse nécessaire (VPCE)',
     },
     71: {
-        caption: 'MPI',
+        caption: 'UPM',
         color: '#225CB5',
         credits: 14_200,
         coins: 15,
@@ -1084,14 +1089,16 @@ export default {
             max: 0,
         },
         icon: 'car-side',
+        pumpCapacity: 9000,
+        pumpType: 'fire',
         possibleBuildings: [27],
         special: 'Remorqueuse nécessaire (VPCE)',
     },
     72: {
         caption: 'UFR',
         color: '#225CB5',
-        credits: 14_200,
-        coins: 15,
+        credits: 25_600,
+        coins: 20,
         staff: {
             min: 2,
             max: 2,
@@ -1111,5 +1118,65 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [27],
+    },
+    74: {
+        caption: 'Fortress 200',
+        color: '#225CB5',
+        credits: 10_000,
+        coins: 10,
+        staff: {
+            min: 6,
+            max: 6,
+            training: {
+                'Poste de police': {
+                    swat_physician: {
+                        min: 1,
+                    },
+                    swat: {
+                        min: 5,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [28],
+    },
+    75: {
+        caption: 'Sherpa Light APC',
+        color: '#225CB5',
+        credits: 21_000,
+        coins: 15,
+        staff: {
+            min: 4,
+            max: 6,
+            training: {
+                'Poste de police': {
+                    swat: {
+                        min: 4,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [28],
+    },
+    76: {
+        caption: 'VDN',
+        color: '#225CB5',
+        credits: 14_000,
+        coins: 15,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                'Poste de police': {
+                    swat_negotiation: {
+                        min: 1,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [28],
     },
 } satisfies Record<number, InternalVehicle>;

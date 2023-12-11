@@ -22,7 +22,7 @@ export default {
         },
         extensions: [
             {
-                caption: 'Rettungsdienst-Erweiterung',
+                caption: 'Rettungsdienst',
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Tage',
@@ -45,11 +45,12 @@ export default {
                         [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119],
                     ],
                     cannotDisable: true,
+                    unlockedVehiclesOnReservedLotsOnly: true,
                 },
                 5
             ),
             {
-                caption: 'Wasserrettungs-Erweiterung',
+                caption: 'Wasserrettung',
                 credits: 400_000,
                 coins: 25,
                 duration: '7 Tage',
@@ -71,9 +72,10 @@ export default {
                     [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119],
                 ],
                 cannotDisable: true,
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
-                caption: 'Flughafen-Erweiterung',
+                caption: 'Flughafenfeuerwehr',
                 credits: 300_000,
                 coins: 25,
                 duration: '7 Tage',
@@ -140,7 +142,7 @@ export default {
                 unlocksVehicleTypes: [83, 84, 85, 86],
             },
             {
-                caption: 'NEA50-Erweiterung',
+                caption: 'Netzersatzanlage 50',
                 credits: 100_000,
                 coins: 20,
                 duration: '5 Tage',
@@ -149,7 +151,7 @@ export default {
                 unlocksVehicleTypes: [111],
             },
             {
-                caption: 'NEA200-Erweiterung',
+                caption: 'Netzersatzanlage 200',
                 credits: 200_000,
                 coins: 25,
                 duration: '7 Tage',
@@ -158,9 +160,10 @@ export default {
                 givesParkingLots: 1,
                 parkingLotReservations: [[113]],
                 unlocksVehicleTypes: [113],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
-                caption: 'Lüfter-Erweiterung',
+                caption: 'Großlüfter',
                 credits: 75_000,
                 coins: 15,
                 duration: '5 Tage',
@@ -182,9 +185,10 @@ export default {
                     [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119],
                 ],
                 cannotDisable: true,
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
-                caption: 'Drohnen-Erweiterung',
+                caption: 'Drohneneinheit',
                 credits: 150_000,
                 coins: 25,
                 duration: '5 Tage',
@@ -540,15 +544,16 @@ export default {
                 parkingLotReservations: [[94]],
             },
             {
-                caption: 'Kriminalpolizei-Erweiterung',
+                caption: 'Kriminalpolizei',
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Tage',
+                isVehicleExtension: true,
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [98],
             },
             {
-                caption: 'Dienstgruppenleitung-Erweiterung',
+                caption: 'Dienstgruppenleitung',
                 credits: 200_000,
                 coins: 25,
                 duration: '7 Tage',
@@ -607,6 +612,7 @@ export default {
                 cannotDisable: true,
                 unlocksVehicleTypes: [52],
                 parkingLotReservations: [[52]],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
@@ -689,6 +695,7 @@ export default {
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [41, 110],
                 parkingLotReservations: [[41], [110]],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: '1. Technischer Zug: Zugtrupp',
@@ -699,6 +706,7 @@ export default {
                 givesParkingLots: 1,
                 unlocksVehicleTypes: [40],
                 parkingLotReservations: [[40]],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: 'Fachgruppe Räumen',
@@ -710,6 +718,7 @@ export default {
                 unlocksVehicleTypes: [42, 43, 44, 45],
                 parkingLotReservations: [[42], [43], [44], [45]],
                 requiredExtensions: [0, 1],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: 'Fachgruppe Wassergefahren',
@@ -721,6 +730,7 @@ export default {
                 unlocksVehicleTypes: [65, 66, 67, 68, 69],
                 parkingLotReservations: [[65], [66], [67], [68], [69]],
                 requiredExtensions: [0, 1],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: '2. Technischer Zug - Bergungsgruppe',
@@ -732,6 +742,7 @@ export default {
                 unlocksVehicleTypes: [39],
                 parkingLotReservations: [[39]],
                 requiredExtensions: [0, 1],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption:
@@ -744,6 +755,7 @@ export default {
                 unlocksVehicleTypes: [41, 110],
                 parkingLotReservations: [[41], [110]],
                 requiredExtensions: [4],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: '2. Technischer Zug: Zugtrupp',
@@ -755,6 +767,7 @@ export default {
                 unlocksVehicleTypes: [40],
                 parkingLotReservations: [[40]],
                 requiredExtensions: [4],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: 'Fachgruppe Ortung',
@@ -767,6 +780,7 @@ export default {
                 parkingLotReservations: [[92], [93]],
                 giftsVehicles: [92, 93],
                 requiredExtensions: [0, 1],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: 'Fachgruppe Wasserschaden/Pumpen',
@@ -778,6 +792,7 @@ export default {
                 unlocksVehicleTypes: [100, 101, 102, 123],
                 parkingLotReservations: [[123], [100], [101], [102]],
                 requiredExtensions: [0, 1],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: 'Fachgruppe Schwere Bergung',
@@ -789,6 +804,7 @@ export default {
                 unlocksVehicleTypes: [109],
                 parkingLotReservations: [[109]],
                 requiredExtensions: [0, 1],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: 'Fachgruppe Elektroversorgung',
@@ -800,9 +816,10 @@ export default {
                 unlocksVehicleTypes: [112, 122],
                 parkingLotReservations: [[122], [112]],
                 requiredExtensions: [0, 1],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
-                caption: 'Ortsverbands-Manschaftstransportwagen',
+                caption: 'Ortsverbands-Mannschaftstransportwagen',
                 credits: 50_000,
                 coins: 15,
                 duration: '3 Tage',
@@ -810,6 +827,7 @@ export default {
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [124],
                 parkingLotReservations: [[124], [124]],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: 'Trupp Unbemannte Luftfahrtsysteme',
@@ -821,6 +839,7 @@ export default {
                 parkingLotReservations: [[125]],
                 unlocksVehicleTypes: [125],
                 requiredExtensions: [0, 1],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
         ],
         levelcost: [],
@@ -883,6 +902,7 @@ export default {
                 givesParkingLots: 4,
                 unlocksVehicleTypes: [35, 50],
                 parkingLotReservations: [[35], [50], [50], [50]],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: '3. Zug der 1. Hundertschaft',
@@ -894,6 +914,7 @@ export default {
                 unlocksVehicleTypes: [35, 50, 51],
                 parkingLotReservations: [[35], [50], [50], [50], [51]],
                 requiredExtensions: [0],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: 'Sonderfahrzeug: Gefangenenkraftwagen',
@@ -905,6 +926,7 @@ export default {
                 unlocksVehicleTypes: [52],
                 parkingLotReservations: [[52]],
                 requiredExtensions: [1],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: 'Technischer Zug: Wasserwerfer',
@@ -915,6 +937,7 @@ export default {
                 givesParkingLots: 4,
                 unlocksVehicleTypes: [35, 72],
                 parkingLotReservations: [[35], [72], [72], [72]],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: 'SEK: 1. Zug',
@@ -925,6 +948,7 @@ export default {
                 givesParkingLots: 5,
                 unlocksVehicleTypes: [51, 79, 80],
                 parkingLotReservations: [[51], [79], [79], [79], [80]],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: 'SEK: 2. Zug',
@@ -936,6 +960,7 @@ export default {
                 unlocksVehicleTypes: [51, 79, 80],
                 parkingLotReservations: [[51], [79], [79], [79], [80]],
                 requiredExtensions: [4],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: 'MEK: 1. Zug',
@@ -946,6 +971,7 @@ export default {
                 givesParkingLots: 5,
                 unlocksVehicleTypes: [51, 81, 82],
                 parkingLotReservations: [[51], [81], [81], [81], [82]],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: 'MEK: 2. Zug',
@@ -957,6 +983,7 @@ export default {
                 unlocksVehicleTypes: [51, 81, 82],
                 parkingLotReservations: [[51], [81], [81], [81], [82]],
                 requiredExtensions: [6],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: 'Diensthundestaffel',
@@ -967,6 +994,7 @@ export default {
                 givesParkingLots: 3,
                 unlocksVehicleTypes: [94],
                 parkingLotReservations: [[94], [94], [94]],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
         ],
         levelcost: ['Keine Ausbaustufen möglich'],
@@ -1000,6 +1028,7 @@ export default {
                 givesParkingLots: 1,
                 unlocksVehicleTypes: [59],
                 parkingLotReservations: [[59]],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: 'Sanitätsdienst',
@@ -1010,9 +1039,10 @@ export default {
                 givesParkingLots: 4,
                 unlocksVehicleTypes: [28, 58, 60],
                 parkingLotReservations: [[28], [58], [58], [60]],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
-                caption: 'Wasserrettungs-Erweiterung',
+                caption: 'Wasserrettung',
                 coins: 25,
                 credits: 500_000,
                 duration: '7 Tage',
@@ -1024,6 +1054,7 @@ export default {
                     [63, 64, 70],
                     [63, 64, 70],
                 ],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: 'Rettungshundestaffel',
@@ -1034,6 +1065,7 @@ export default {
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [91],
                 parkingLotReservations: [[91], [91]],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: 'SEG Drohne',
@@ -1044,9 +1076,10 @@ export default {
                 givesParkingLots: 1,
                 parkingLotReservations: [[127]],
                 unlocksVehicleTypes: [127],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
-                caption: 'Betreuungs- und Verpflegungsdienst-Erweiterungen',
+                caption: 'Betreuungs- und Verpflegungsdienst',
                 credits: 200_000,
                 coins: 25,
                 duration: '5 Tage',
@@ -1065,6 +1098,7 @@ export default {
                     [133],
                 ],
                 unlocksVehicleTypes: [130, 131, 132, 133],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
         ],
         levelcost: [],
@@ -1089,7 +1123,7 @@ export default {
         },
         extensions: [
             {
-                caption: 'Außenlastbehälter-Erweiterung',
+                caption: 'Außenlastbehälter',
                 credits: 200_000,
                 coins: 15,
                 duration: '3 Tage',
@@ -1098,6 +1132,7 @@ export default {
                 givesParkingLotsPerLevel: 1,
                 unlocksVehicleTypes: [96],
                 parkingLotReservations: [[96]],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
         ],
         levelcost: ['1.-7. 1.000.000 Credits / 50 Coins'],
@@ -1226,6 +1261,7 @@ export default {
                 givesParkingLots: 5,
                 unlocksVehicleTypes: [51, 79, 80],
                 parkingLotReservations: [[51], [79], [79], [79], [80]],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: 'SEK: 2. Zug',
@@ -1236,6 +1272,7 @@ export default {
                 givesParkingLots: 5,
                 unlocksVehicleTypes: [51, 79, 80],
                 parkingLotReservations: [[51], [79], [79], [79], [80]],
+                unlockedVehiclesOnReservedLotsOnly: true,
                 requiredExtensions: [0],
             },
             {
@@ -1247,6 +1284,7 @@ export default {
                 givesParkingLots: 5,
                 unlocksVehicleTypes: [51, 81, 82],
                 parkingLotReservations: [[51], [81], [81], [81], [82]],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: 'MEK: 2. Zug',
@@ -1258,6 +1296,7 @@ export default {
                 unlocksVehicleTypes: [51, 81, 82],
                 parkingLotReservations: [[51], [81], [81], [81], [82]],
                 requiredExtensions: [2],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
                 caption: 'Diensthundestaffel',
@@ -1268,6 +1307,7 @@ export default {
                 givesParkingLots: 3,
                 unlocksVehicleTypes: [94],
                 parkingLotReservations: [[94], [94], [94]],
+                unlockedVehiclesOnReservedLotsOnly: true,
             },
         ],
         levelcost: ['Keine Ausbaustufen möglich'],
@@ -1291,7 +1331,7 @@ export default {
         },
         extensions: [
             {
-                caption: 'Rettungsdienst-Erweiterung',
+                caption: 'Rettungsdienst',
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Tage',
@@ -1314,11 +1354,12 @@ export default {
                         [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119],
                     ],
                     cannotDisable: true,
+                    unlockedVehiclesOnReservedLotsOnly: true,
                 },
                 2
             ),
             {
-                caption: 'Wasserrettungs-Erweiterung',
+                caption: 'Wasserrettung',
                 credits: 400_000,
                 coins: 25,
                 duration: '7 Tage',
@@ -1327,7 +1368,7 @@ export default {
                 unlocksVehicleTypes: [64, 63, 70],
             },
             {
-                caption: 'Flughafen-Erweiterung',
+                caption: 'Flughafenfeuerwehr',
                 credits: 300_000,
                 coins: 25,
                 duration: '7 Tage',
@@ -1357,7 +1398,7 @@ export default {
                 unlocksVehicleTypes: [83, 84, 85, 86],
             },
             {
-                caption: 'NEA50-Erweiterung',
+                caption: 'Netzersatzanlage 50',
                 credits: 100_000,
                 coins: 20,
                 duration: '5 Tage',
@@ -1366,7 +1407,7 @@ export default {
                 unlocksVehicleTypes: [111],
             },
             {
-                caption: 'Lüfter-Erweiterung',
+                caption: 'Großlüfter',
                 credits: 75_000,
                 coins: 15,
                 duration: '5 Tage',
@@ -1375,7 +1416,7 @@ export default {
                 unlocksVehicleTypes: [114, 115, 116],
             },
             {
-                caption: 'Drohnen-Erweiterung',
+                caption: 'Drohneneinheit',
                 credits: 150_000,
                 coins: 25,
                 duration: '5 Tage',
@@ -1477,15 +1518,16 @@ export default {
                 parkingLotReservations: [[94]],
             },
             {
-                caption: 'Kriminalpolizei-Erweiterung',
+                caption: 'Kriminalpolizei',
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Tage',
+                isVehicleExtension: true,
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [98],
             },
             {
-                caption: 'Dienstgruppenleitung-Erweiterung',
+                caption: 'Dienstgruppenleitung',
                 credits: 200_000,
                 coins: 25,
                 duration: '7 Tage',

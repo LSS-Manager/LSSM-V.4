@@ -288,6 +288,43 @@
                     </tab>
                 </tabs>
             </tab>
+            <tab
+                :title="$m('tabs.equipment')"
+                v-if="Object.keys($t('equipment')).length"
+            >
+                <enhanced-table
+                    :head="equipmentTab.head"
+                    :table-attrs="{ class: 'table table-striped' }"
+                    @sort="setSortEquipment"
+                    :sort="equipmentTab.sort"
+                    :sort-dir="equipmentTab.sortDir"
+                    :search="equipmentTab.search"
+                    @search="s => (equipmentTab['search'] = s)"
+                >
+                    <tr
+                        v-for="equipment in equipmentSorted"
+                        :key="equipment.id"
+                    >
+                        <td v-for="(_, attr) in equipmentTab.head" :key="attr">
+                            <span v-if="attr === 'credits'">
+                                {{
+                                    equipment.hasOwnProperty('credits')
+                                        ? equipment.credits.toLocaleString()
+                                        : NaN
+                                }}
+                                Credits /
+                                {{
+                                    equipment.hasOwnProperty('coins')
+                                        ? equipment.coins.toLocaleString()
+                                        : NaN
+                                }}
+                                Coins
+                            </span>
+                            <span v-else>{{ equipment[attr] }}</span>
+                        </td>
+                    </tr>
+                </enhanced-table> </tab
+            >setSortEquipment
         </tabs>
     </lightbox>
 </template>
@@ -300,6 +337,7 @@ import { useRootStore } from '@stores/index';
 import { useTranslationStore } from '@stores/translationUtilities';
 
 import type { DefaultProps } from 'vue/types/options';
+import type { InternalEquipments } from 'typings/Equipment';
 import type { Schooling } from 'typings/Schooling';
 import type {
     BuildingCategory,
@@ -579,6 +617,19 @@ export default Vue.extend<
                     category: 0,
                 },
             },
+            equipment: this.$t(
+                'equipment'
+            ) as unknown as InternalEquipments<string>,
+            equipmentTab: {
+                head: {
+                    caption: { title: this.$m('titles.equipment.caption') },
+                    credits: { title: this.$m('titles.equipment.cost') },
+                    size: { title: this.$m('titles.equipment.size') },
+                },
+                search: '',
+                sort: 'caption',
+                sortDir: 'asc',
+            },
             currentType: 0,
         } as Overview;
     },
@@ -668,6 +719,21 @@ export default Vue.extend<
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },
+        equipmentFiltered() {
+            return Object.values(this.equipment).filter(equipment =>
+                JSON.stringify(Object.values(equipment))
+                    .toLowerCase()
+                    .match(this.equipmentTab.search.toLowerCase())
+            );
+        },
+        equipmentSorted() {
+            return this.equipmentFiltered.toSorted((a, b) => {
+                const modifier = this.equipmentTab.sortDir === 'desc' ? -1 : 1;
+                const f = a[this.equipmentTab.sort] || '';
+                const s = b[this.equipmentTab.sort] || '';
+                return f < s ? -1 * modifier : f > s ? modifier : 0;
+            });
+        },
     },
     methods: {
         $m(key, args) {
@@ -712,6 +778,14 @@ export default Vue.extend<
         },
         setSchoolingCategory(_, category) {
             this.schoolingsTab.current.category = category;
+        },
+        setSortEquipment(type) {
+            if (this.equipmentTab.sort === type) {
+                return (this.equipmentTab.sortDir =
+                    this.equipmentTab.sortDir === 'asc' ? 'desc' : 'asc');
+            }
+            this.equipmentTab.sort = type;
+            this.equipmentTab.sortDir = 'asc';
         },
         setType(_, type) {
             this.currentType = type;

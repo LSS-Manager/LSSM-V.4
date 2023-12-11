@@ -47,6 +47,9 @@ const getMissingRequirements = (
         other: getRequirementTexts('other'),
     } satisfies Record<Group, ReturnType<typeof getRequirementTexts>>;
 
+    // there are no texts at all, so don't do anything
+    if (Object.values(requirementTexts).every(text => !text)) return;
+
     const requirements: Record<Group, MissionRequirement[]> = {
         vehicles: [],
         staff: [],
@@ -119,10 +122,11 @@ const getMissingRequirements = (
                     match,
                     ''
                 );
+                const driving = getProgressValue('driving');
                 requirements.other.push({
                     requirement: splitMissingFromVehicle(match.trim()).vehicle,
-                    missing: getProgressValue('missing'),
-                    driving: getProgressValue('driving'),
+                    missing: getProgressValue('missing') + driving,
+                    driving,
                     selected: getProgressValue('selected'),
                     bar: type,
                 });

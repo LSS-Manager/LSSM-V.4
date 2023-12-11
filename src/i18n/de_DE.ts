@@ -275,6 +275,7 @@ export default {
             1_000_000_000: 'Stv. Landesbrandmeister(in)',
             2_000_000_000: 'Landesbrandmeister(in)',
             5_000_000_000: 'Ehrenmitglied',
+            10_000_000_000: 'Stv. Bundesbranddirektor(in)',
         },
         policechief: {
             0: 'Polizeimeisteranwärter(in)',
@@ -291,7 +292,8 @@ export default {
             500_000_000: 'Leitende(r) Polizeidirektor(in)',
             1_000_000_000: 'Direktor(in) der Bundespolizei',
             2_000_000_000: 'Präsident(in) der Bundespolizeidirektion',
-            5_000_000_000: 'Präsident(in) der Bundespolizei',
+            5_000_000_000: 'Vizepräsident(in) der Bundespolizei',
+            10_000_000_000: 'Präsident(in) der Bundespolizei',
         },
     },
 };

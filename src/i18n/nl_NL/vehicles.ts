@@ -621,8 +621,8 @@ export default {
     46: {
         caption: 'DM-Politie',
         color: '#0008e7',
-        credits: 2500,
-        coins: 18,
+        credits: 15_000,
+        coins: 10,
         staff: {
             min: 1,
             max: 1,

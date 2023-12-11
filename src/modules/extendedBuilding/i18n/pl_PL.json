@@ -1,6 +1,8 @@
 {
     "enhancedPersonnelAssignment": {
-        "toggleFittingPersonnel": "Ukryj personel bez odpowiedniego przeszkolenia"
+        "toggleFittingEquipment": "Include training for possible equipment",
+        "toggleFittingPersonnel": "Ukryj personel bez odpowiedniego przeszkolenia",
+        "toggleFittingTrailers": "Include training for possible trailers and pods"
     },
     "expansions": { "notBuild": "Jeszcze nie zbudowano" },
     "fastDispatchChooser": { "noDispatch": "Brak CPR" },

@@ -1,6 +1,8 @@
 {
     "enhancedPersonnelAssignment": {
-        "toggleFittingPersonnel": "Cacher les employés sans la formation demandée"
+        "toggleFittingEquipment": "Include training for possible equipment",
+        "toggleFittingPersonnel": "Cacher les employés sans la formation demandée",
+        "toggleFittingTrailers": "Include training for possible trailers and pods"
     },
     "expansions": { "notBuild": "Pas encore construit" },
     "fastDispatchChooser": { "noDispatch": "Sans CTA" },

@@ -3,6 +3,7 @@
     "schoolings": { "all": "alle", "min": "min. {n}x" },
     "tabs": {
         "buildings": "Bygninger",
+        "equipment": "Equipment",
         "schoolings": "Utdanninger",
         "vehicles": "Kjøretøy"
     },
@@ -17,6 +18,11 @@
             "special": "Spesiell",
             "startPersonnel": "Start personell",
             "startVehicles": "Mulige startbiler"
+        },
+        "equipment": {
+            "caption": "Equipment",
+            "cost": "Price",
+            "size": "Size"
         },
         "schoolings": {
             "caption": "Kursnavn",

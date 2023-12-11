@@ -168,19 +168,19 @@ export default {
         },
         {
             caption: 'Chauffeur Dienst Infra',
-            duration: '5 Dagen',
+            duration: '4 Dagen',
             staffList: 'Chauffeur Dienst Infra',
             key: 'traffic_police',
         },
         {
             caption: 'Verkeersongevallen Analist',
-            duration: '5 Dagen',
+            duration: '7 Dagen',
             staffList: 'Verkeersongevallen Analist',
             key: 'traffic_inspector',
         },
         {
             caption: 'Motoragent',
-            duration: '5 Dagen',
+            duration: '2 Dagen',
             staffList: 'Motoragent',
             key: 'police_motorcycle',
         },

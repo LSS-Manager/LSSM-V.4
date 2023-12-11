@@ -111,7 +111,7 @@ export default {
         },
         Politie: {
             vehicles: {
-                'Noodhulp': [22, 25, 59],
+                'Noodhulp': [22, 25, 46, 59],
                 'Mobiele Eenheid': [39, 40, 64],
                 'Hondengeleider': [47, 48],
                 'Politiehelikopter': [28],

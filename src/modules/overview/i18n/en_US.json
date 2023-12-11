@@ -3,6 +3,7 @@
     "schoolings": { "all": "all", "min": "min. {n}x" },
     "tabs": {
         "buildings": "Buildings",
+        "equipment": "Equipment",
         "schoolings": "Courses",
         "vehicles": "Vehicles"
     },
@@ -17,6 +18,11 @@
             "special": "Specials",
             "startPersonnel": "Start Personnel",
             "startVehicles": "Possible starting vehicles"
+        },
+        "equipment": {
+            "caption": "Equipment",
+            "cost": "Price",
+            "size": "Size"
         },
         "schoolings": {
             "caption": "Course name",
