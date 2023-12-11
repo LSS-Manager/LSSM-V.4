@@ -554,10 +554,28 @@ export default async ({
             )
         );
 
-        Array.from(
-            document.querySelectorAll('.flex-row:has(~ #navbar-alarm-spacer)')
-        )
-            .at(-1)
-            ?.after(btnGroup);
+        if (CSS.supports('selector(*:has(*))')) {
+            Array.from(
+                document.querySelectorAll(
+                    '.flex-row:has(~ #navbar-alarm-spacer)'
+                )
+            )
+                .at(-1)
+                ?.after(btnGroup);
+        } else {
+            const flexRows = Array.from(
+                document.querySelectorAll<HTMLDivElement>(
+                    '#container_navbar_alarm .flex-row'
+                )
+            );
+            let i = 0;
+            for (const flexRow of flexRows) {
+                if (flexRow.matches('#navbar-alarm-spacer ~ .flex-row')) {
+                    flexRows[i - 1]?.after(btnGroup);
+                    continue;
+                }
+                i++;
+            }
+        }
     }
 };
