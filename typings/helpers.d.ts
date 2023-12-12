@@ -197,6 +197,7 @@ declare module 'vue/types/vue' {
                 countdown: number,
                 initialCall?: boolean
             ): void;
+            getScrollParent(element: HTMLElement): HTMLElement | null;
             highChartsDarkMode: Highcharts.Options;
         };
         $appstore: CombinedVueInstance<
