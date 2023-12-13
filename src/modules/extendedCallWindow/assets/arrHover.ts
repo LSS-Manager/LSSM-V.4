@@ -12,10 +12,7 @@ export default (
 
     if (!ARRContainer) return;
 
-    const ARRSpecTranslations = $m(`arrHover.arrSpecs`) as unknown as Record<
-        string,
-        string
-    >;
+    const ARRSpecTranslations = Object.fromEntries(window.aao_types);
 
     const infoBox = document.createElement('div');
     infoBox.id = LSSM.$stores.root.nodeAttribute(

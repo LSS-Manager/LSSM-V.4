@@ -103,6 +103,7 @@ declare global {
             back(): void;
             clear(): void;
         };
+        aao_types: [string, string][];
         pressedKeys?: Record<number, boolean>; // in missions window
         lightboxOpen(link: string): void;
         successfullMessage(html: string): void;
