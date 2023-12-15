@@ -203,7 +203,7 @@
     },
     "eslint-plugin-import": {
         "url": "https://github.com/import-js/eslint-plugin-import",
-        "version": "2.29.0"
+        "version": "2.29.1"
     },
     "eslint-plugin-jsdoc": {
         "version": "46.9.0"
