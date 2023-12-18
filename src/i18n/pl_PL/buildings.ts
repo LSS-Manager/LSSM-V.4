@@ -90,6 +90,7 @@ export default {
         ],
         startParkingLots: 1,
         schoolingTypes: ['Posterunek straży pożarnej'],
+        schools: [1],
         icon: 'fire-flame-curved',
     },
     1: {
@@ -139,6 +140,7 @@ export default {
         startVehicles: ['Ambulans P'],
         startParkingLots: 1,
         schoolingTypes: ['Ratownictwo'],
+        schools: [3],
         icon: 'house-medical',
     },
     3: {
@@ -282,6 +284,7 @@ export default {
                 : Math.floor(buildingsAmountTotal / 25),
         startParkingLots: 1,
         schoolingTypes: ['Ratownictwo'],
+        schools: [3],
         icon: 'circle-h',
     },
     6: {
@@ -366,6 +369,7 @@ export default {
         startParkingLots: 1,
         startCells: 0,
         schoolingTypes: ['Policja'],
+        schools: [8],
         icon: 'building-shield',
     },
     7: {
@@ -448,6 +452,7 @@ export default {
         startParkingLots: 5,
         special: '',
         schoolingTypes: ['Policja'],
+        schools: [8],
         icon: 'shield-halved',
     },
     13: {
@@ -473,6 +478,7 @@ export default {
                 : Math.floor(buildingsAmountTotal / 25),
         startParkingLots: 1,
         schoolingTypes: ['Policja'],
+        schools: [8],
         icon: 'helicopter',
     },
     14: {
@@ -513,6 +519,7 @@ export default {
         startVehicles: ['S.WOPR'],
         startParkingLots: 1,
         schoolingTypes: ['Ratownictwo'],
+        schools: [3],
         icon: 'person-swimming',
     },
     16: {
@@ -644,6 +651,7 @@ export default {
         ],
         startParkingLots: 1,
         schoolingTypes: ['Posterunek straży pożarnej'],
+        schools: [1],
         icon: 'fire-flame-curved',
     },
     19: {
@@ -730,6 +738,7 @@ export default {
         startParkingLots: 1,
         startCells: 0,
         schoolingTypes: ['Policja'],
+        schools: [8],
         icon: 'building-shield',
     },
     20: {
@@ -755,6 +764,7 @@ export default {
         startVehicles: ['Ambulans P'],
         startParkingLots: 1,
         schoolingTypes: ['Ratownictwo'],
+        schools: [3],
         icon: 'house-medical',
     },
     21: {
@@ -775,6 +785,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        schools: [],
         icon: 'poo',
     },
     22: {
@@ -795,6 +806,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        schools: [],
         icon: 'poo',
     },
     23: {
@@ -815,6 +827,7 @@ export default {
         startVehicles: ['Samochód SM'],
         startParkingLots: 1,
         schoolingTypes: ['Policja'],
+        schools: [8],
         icon: 'shield-halved',
     },
 } satisfies Record<number, InternalBuilding>;

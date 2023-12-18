@@ -276,6 +276,7 @@ export default {
             '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenführer(in)" => Baukosten 20.000 höher)',
         ],
         schoolingTypes: ['Feuerwehr'],
+        schools: [2],
         icon: 'fire-flame-curved',
     },
     1: {
@@ -345,6 +346,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['RTW'],
         schoolingTypes: ['Rettungsdienst'],
+        schools: [3],
         icon: 'house-medical',
     },
     3: {
@@ -497,6 +499,7 @@ export default {
         startParkingLots: 1,
         startVehicles: [],
         schoolingTypes: ['Rettungsdienst'],
+        schools: [3],
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
                 ? 4
@@ -625,6 +628,7 @@ export default {
         startCells: 0,
         startVehicles: ['FuStW'],
         schoolingTypes: ['Polizei'],
+        schools: [8],
         icon: 'building-shield',
     },
     7: {
@@ -852,6 +856,7 @@ export default {
         startVehicles: ['GKW'],
         startParkingLotReservations: [[39]],
         schoolingTypes: ['THW'],
+        schools: [10],
         icon: 'gear',
     },
     10: {
@@ -1007,6 +1012,7 @@ export default {
         startParkingLotReservations: [[35], [50], [50], [50]],
         startVehicles: [],
         schoolingTypes: ['Polizei'],
+        schools: [8],
         icon: 'shield-halved',
     },
     12: {
@@ -1110,6 +1116,7 @@ export default {
         startVehicles: ['KTW Typ B'],
         startParkingLotReservations: [[58]],
         schoolingTypes: ['Rettungsdienst'],
+        schools: [3],
         icon: 'house-medical-flag',
     },
     13: {
@@ -1144,6 +1151,7 @@ export default {
         startParkingLots: 1,
         startVehicles: [],
         schoolingTypes: ['Polizei'],
+        schools: [8],
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
                 ? 4
@@ -1188,6 +1196,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['GW-Wasserrettung'],
         schoolingTypes: ['Rettungsdienst'],
+        schools: [3],
         icon: 'person-swimming',
     },
     16: {
@@ -1318,6 +1327,7 @@ export default {
         startParkingLots: 0,
         startVehicles: [],
         schoolingTypes: ['Polizei'],
+        schools: [8],
         icon: 'shield-halved',
     },
     18: {
@@ -1477,6 +1487,7 @@ export default {
             '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenführer(in)" => Baukosten 15.000 höher)',
         ],
         schoolingTypes: ['Feuerwehr'],
+        schools: [1],
         icon: 'fire-flame-curved',
     },
     19: {
@@ -1562,6 +1573,7 @@ export default {
         startCells: 0,
         startVehicles: ['FuStW'],
         schoolingTypes: ['Polizei'],
+        schools: [8],
         icon: 'building-shield',
     },
     20: {
@@ -1587,6 +1599,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['RTW'],
         schoolingTypes: ['Rettungsdienst'],
+        schools: [3],
         icon: 'house-medical',
     },
     21: {
@@ -1607,6 +1620,7 @@ export default {
         startParkingLots: 2,
         startVehicles: ['Rettungshundefahrzeug'],
         schoolingTypes: ['Rettungsdienst'],
+        schools: [3],
         icon: 'paw',
     },
     22: {
@@ -1627,6 +1641,7 @@ export default {
         startParkingLots: 0,
         startVehicles: [''],
         schoolingTypes: [],
+        schools: [],
         icon: 'poo',
     },
     23: {
@@ -1647,6 +1662,7 @@ export default {
         startParkingLots: 0,
         startVehicles: [''],
         schoolingTypes: [],
+        schools: [],
         icon: 'poo',
     },
 } satisfies Record<number, InternalBuilding>;

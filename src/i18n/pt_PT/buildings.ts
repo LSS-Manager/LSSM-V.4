@@ -95,6 +95,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['VFCI', 'VLCI'],
         schoolingTypes: ['Corpo de Bombeiros'],
+        schools: [1],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -158,6 +159,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['ABSC'],
         schoolingTypes: ['Escola de Formação Pré-hospitalar'],
+        schools: [3],
         icon: 'house-medical',
     },
     3: {
@@ -295,6 +297,7 @@ export default {
         startPersonnel: 0,
         startVehicles: [],
         schoolingTypes: ['Rescue'],
+        schools: [3],
         startParkingLots: 1,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
@@ -420,6 +423,7 @@ export default {
         startPersonnel: 2,
         startVehicles: ['Carro de Patrulha'],
         schoolingTypes: ['Polícia'],
+        schools: [8],
         startParkingLots: 1,
         startCells: 0,
         icon: 'building-shield',
@@ -640,6 +644,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
         schoolingTypes: ['Fire Station'],
+        schools: [1],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -752,6 +757,7 @@ export default {
         startPersonnel: 2,
         startVehicles: ['Patrol Car'],
         schoolingTypes: ['Police'],
+        schools: [8],
         startCells: 0,
         startParkingLots: 1,
         icon: 'building-shield',
@@ -793,6 +799,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['ALS Ambulance'],
         schoolingTypes: ['Rescue'],
+        schools: [3],
         icon: 'house-medical',
     },
     21: {
@@ -823,6 +830,7 @@ export default {
         parkingLotsPerLevel: 0,
         startVehicles: ['None. You can buy a max. 2 Vehicles'],
         schoolingTypes: ['Rescue'],
+        schools: [3],
         icon: 'staff-snake',
     },
     22: {
@@ -843,6 +851,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        schools: [],
         icon: 'poo',
     },
     23: {
@@ -863,6 +872,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        schools: [],
         icon: 'poo',
     },
     24: {
@@ -938,6 +948,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['Water drop helicopter'],
         schoolingTypes: ['Fire Station'],
+        schools: [1],
         icon: 'plane',
     },
     25: {
@@ -957,6 +968,7 @@ export default {
         startPersonnel: 5,
         startVehicles: [],
         schoolingTypes: ['Water Rescue School'],
+        schools: [26],
         startParkingLots: 1,
         icon: 'life-ring',
     },

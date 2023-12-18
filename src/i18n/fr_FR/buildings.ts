@@ -92,6 +92,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['FPT', 'FPTL', 'FPTSR', 'CCRL', 'CCRM', 'CCRSR'],
         schoolingTypes: ['Centre de secours'],
+        schools: [1],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -161,6 +162,7 @@ export default {
         startPersonnel: 3,
         startVehicles: ['ASSU'],
         schoolingTypes: ['Secours'],
+        schools: [3],
         startParkingLots: 1,
         icon: 'house-medical',
     },
@@ -313,6 +315,7 @@ export default {
         startPersonnel: 0,
         startVehicles: [],
         schoolingTypes: ['Secours'],
+        schools: [3],
         startParkingLots: 1,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
@@ -396,6 +399,7 @@ export default {
         startPersonnel: 2,
         startVehicles: ['Véhicule de patrouille'],
         schoolingTypes: ['Poste de police'],
+        schools: [8],
         startParkingLots: 1,
         startCells: 0,
         special: '',
@@ -533,6 +537,7 @@ export default {
             [45],
         ],
         schoolingTypes: ['Poste de police'],
+        schools: [8],
         special: '',
         icon: 'shield-halved',
     },
@@ -554,6 +559,7 @@ export default {
         startPersonnel: 3,
         startVehicles: [],
         schoolingTypes: ['Poste de police'],
+        schools: [8],
         startParkingLots: 1,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
@@ -696,6 +702,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['FPT', 'FPTL', 'FPTSR', 'CCRL', 'CCRM', 'CCRSR'],
         schoolingTypes: ['Centre de secours'],
+        schools: [1],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -742,6 +749,7 @@ export default {
         startCells: 0,
         startVehicles: ['Véhicule de patrouille'],
         schoolingTypes: ['Poste de police'],
+        schools: [8],
         icon: 'building-shield',
     },
     20: {
@@ -766,6 +774,7 @@ export default {
         startPersonnel: 3,
         startVehicles: ['ASSU'],
         schoolingTypes: ['Secours'],
+        schools: [3],
         startParkingLots: 1,
         icon: 'house-medical',
     },
@@ -786,6 +795,7 @@ export default {
         startPersonnel: 0,
         startVehicles: [''],
         schoolingTypes: [],
+        schools: [],
         startParkingLots: 0,
         icon: 'poo',
     },
@@ -806,6 +816,7 @@ export default {
         startPersonnel: 0,
         startVehicles: [''],
         schoolingTypes: [],
+        schools: [],
         startParkingLots: 0,
         icon: 'poo',
     },
@@ -841,6 +852,7 @@ export default {
         startParkingLots: 1,
         startVehicles: [''],
         schoolingTypes: ['Secours nautique'],
+        schools: [25],
         icon: 'building-shield',
     },
     24: {
@@ -875,6 +887,7 @@ export default {
         startParkingLots: 1,
         startVehicles: [''],
         schoolingTypes: ['Secours nautique'],
+        schools: [25],
         icon: 'building-shield',
     },
     25: {
@@ -1060,6 +1073,7 @@ export default {
         startParkingLots: 0,
         startVehicles: [''],
         schoolingTypes: ['Secours nautique'],
+        schools: [25],
         icon: 'building-shield',
     },
     27: {
@@ -1139,6 +1153,7 @@ export default {
         startParkingLots: 1,
         startVehicles: [''],
         schoolingTypes: ['Secours nautique'],
+        schools: [25],
         icon: 'building-shield',
     },
     28: {
@@ -1190,6 +1205,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['Fortress 200'],
         schoolingTypes: ['Secours nautique'],
+        schools: [25],
         icon: 'building-shield',
     },
 } satisfies Record<number, InternalBuilding>;

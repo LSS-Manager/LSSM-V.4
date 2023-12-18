@@ -75,6 +75,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['ABP, APS'],
         schoolingTypes: ['Caserma dei vigili del fuoco'],
+        schools: [1],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -135,6 +136,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['Ambulanza BLSD'],
         schoolingTypes: ['Soccorso'],
+        schools: [3],
         icon: 'house-medical',
     },
     3: {
@@ -328,6 +330,7 @@ export default {
         startPersonnel: 0,
         startVehicles: [],
         schoolingTypes: ['Soccorso'],
+        schools: [3],
         startParkingLots: 1,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
@@ -394,6 +397,7 @@ export default {
         startPersonnel: 2,
         startVehicles: ['Volante'],
         schoolingTypes: ['Polizia'],
+        schools: [8],
         startParkingLots: 1,
         startCells: 0,
         icon: 'building-shield',
@@ -463,6 +467,7 @@ export default {
         startPersonnel: 3,
         startVehicles: [],
         schoolingTypes: ['Polizia'],
+        schools: [8],
         startParkingLots: 1,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
@@ -506,6 +511,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['Pickup SAF'],
         schoolingTypes: ['Soccorso'],
+        schools: [3],
         startParkingLots: 1,
         icon: 'person-swimming',
     },
@@ -627,6 +633,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['ABP', 'APS'],
         schoolingTypes: ['Caserma dei vigili del fuoco'],
+        schools: [2],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -691,6 +698,7 @@ export default {
         startPersonnel: 2,
         startVehicles: ['Volante'],
         schoolingTypes: ['Polizia'],
+        schools: [8],
         startParkingLots: 1,
         icon: 'building-shield',
     },
@@ -727,6 +735,7 @@ export default {
         startPersonnel: 3,
         startVehicles: ['Ambulanza BLSD'],
         schoolingTypes: ['Soccorso'],
+        schools: [3],
         startParkingLots: 1,
         icon: 'house-medical',
     },
@@ -746,6 +755,7 @@ export default {
         startPersonnel: 4,
         startVehicles: ['Volante Finanza'],
         schoolingTypes: ['Polizia'],
+        schools: [8],
         startParkingLots: 1,
         special: '',
         icon: 'circle-dollar-to-slot',
@@ -768,6 +778,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        schools: [],
         icon: 'poo',
     },
     23: {
@@ -788,6 +799,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        schools: [],
         icon: 'poo',
     },
     24: {
@@ -806,6 +818,7 @@ export default {
         startPersonnel: 2,
         startVehicles: ['Elicottero Antincendio'],
         schoolingTypes: ['Caserma dei vigili del fuoco'],
+        schools: [2],
         startParkingLots: 1,
         special: '',
         icon: 'plane',

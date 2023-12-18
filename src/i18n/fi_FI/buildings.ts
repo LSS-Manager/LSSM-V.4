@@ -60,6 +60,7 @@ export default {
             '(Pelastusauton (lisää hintaa 14 000) ja Säiliösammutusauton (lisää hintaa 15 900) voidaan ostaa arvosta "Kapteeni" alkaen )',
         ],
         schoolingTypes: ['Paloasema'],
+        schools: [1],
         icon: 'fire',
     },
     1: {
@@ -108,6 +109,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['Hoitotason Ambulanssi'],
         schoolingTypes: ['Pelastustoimi'],
+        schools: [3],
         icon: 'truck-medical',
     },
     3: {
@@ -244,6 +246,7 @@ export default {
         startVehicles: [],
         startParkingLots: 1,
         schoolingTypes: ['Pelastustoimi'],
+        schools: [3],
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
                 ? 4
@@ -305,6 +308,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['Partioauto'],
         schoolingTypes: ['Poliisi'],
+        schools: [8],
         icon: 'shield-halved',
     },
     7: {
@@ -372,6 +376,7 @@ export default {
         startVehicles: [],
         startParkingLots: 1,
         schoolingTypes: ['Poliisi'],
+        schools: [8],
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
                 ? 4
@@ -444,6 +449,7 @@ export default {
             '(Pelastusauton (lisää hintaa 14 000) ja Säiliösammutusauton (lisää hintaa 15 900) voidaan ostaa arvosta',
         ],
         schoolingTypes: ['Paloasema'],
+        schools: [1],
         icon: 'fire',
     },
     19: {
@@ -490,6 +496,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['Partioauto'],
         schoolingTypes: ['Poliisi'],
+        schools: [8],
         icon: 'shield-halved',
     },
     20: {
@@ -510,6 +517,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['Hoitotason ambulanssi'],
         schoolingTypes: ['Pelastustoimi'],
+        schools: [3],
         icon: 'truck-medical',
     },
     23: {
@@ -530,6 +538,7 @@ export default {
         startParkingLots: 1,
         startVehicles: [],
         schoolingTypes: ['Poliisi'],
+        schools: [8],
         icon: 'ship',
     },
     24: {
@@ -550,6 +559,7 @@ export default {
         startParkingLots: 0,
         startVehicles: [],
         schoolingTypes: ['Poliisi'],
+        schools: [8],
         icon: 'helicopter',
     },
 } satisfies Record<number, InternalBuilding>;

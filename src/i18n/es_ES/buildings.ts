@@ -42,6 +42,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['Camión BUP', 'Camión BUL', 'Vehículo de rescate'],
         schoolingTypes: ['Parque de bomberos'],
+        schools: [1],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -97,6 +98,7 @@ export default {
         startPersonnel: 0,
         startVehicles: ['Ambulancia'],
         schoolingTypes: ['Rescate'],
+        schools: [3],
         startParkingLots: 1,
         icon: 'house-medical',
     },
@@ -228,6 +230,7 @@ export default {
         startPersonnel: 0,
         startVehicles: [],
         schoolingTypes: ['Rescate'],
+        schools: [3],
         startParkingLots: 1,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
@@ -275,6 +278,7 @@ export default {
         startCells: 0,
         startVehicles: ['Coche patrulla'],
         schoolingTypes: ['Policía'],
+        schools: [8],
         icon: 'building-shield',
     },
     7: {
@@ -342,6 +346,7 @@ export default {
         startPersonnel: 3,
         startVehicles: [],
         schoolingTypes: ['Policía'],
+        schools: [8],
         startParkingLots: 1,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
@@ -442,6 +447,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['Camión BUP', 'Camión BUL', 'Vehículo de rescate'],
         schoolingTypes: ['Parque de bomberos'],
+        schools: [1],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -485,6 +491,7 @@ export default {
         startPersonnel: 2,
         startVehicles: ['Coche patrulla'],
         schoolingTypes: ['Policía'],
+        schools: [8],
         startParkingLots: 1,
         startCells: 0,
         icon: 'building-shield',
@@ -518,6 +525,7 @@ export default {
         startPersonnel: 3,
         startVehicles: ['Ambulancia'],
         schoolingTypes: ['Rescate'],
+        schools: [3],
         startParkingLots: 1,
         icon: 'house-medical',
     },
@@ -539,6 +547,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        schools: [],
         icon: 'poo',
     },
     22: {
@@ -559,6 +568,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        schools: [],
         icon: 'poo',
     },
 } satisfies Record<number, InternalBuilding>;
