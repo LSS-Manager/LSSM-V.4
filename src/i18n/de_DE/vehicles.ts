@@ -1557,7 +1557,7 @@ export default {
             max: 3,
             training: {
                 Feuerwehr: {
-                    intensiv_care: {
+                    intensive_care: {
                         min: 2,
                     },
                     notarzt: {
@@ -1565,7 +1565,7 @@ export default {
                     },
                 },
                 Rettungsdienst: {
-                    intensiv_care: {
+                    intensive_care: {
                         min: 2,
                     },
                     notarzt: {

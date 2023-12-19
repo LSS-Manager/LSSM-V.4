@@ -84,7 +84,7 @@ export default {
             caption: 'Intensivpflege',
             duration: '3 Tage',
             staffList: 'Intensivpflege',
-            key: 'intensiv_care',
+            key: 'intensive_care',
         },
         {
             caption: 'NEA200 Fortbildung',
@@ -220,7 +220,7 @@ export default {
             caption: 'Intensivpflege',
             duration: '3 Tage',
             staffList: 'Intensivpflege',
-            key: 'intensiv_care',
+            key: 'intensive_care',
         },
         {
             caption: 'SEG Drohne',
