@@ -12,7 +12,7 @@
 		"moment": "2.29.4",
 		"showdown": "2.1.0",
 		"simple-git": "3.21.0",
-		"vue": "3.3.12",
+		"vue": "3.3.13",
 		"vuepress": "2.0.0-rc.0",
 		"vuepress-plugin-clipboard": "2.1.5",
 		"vuepress-plugin-sitemap2": "2.0.0-rc.5"
