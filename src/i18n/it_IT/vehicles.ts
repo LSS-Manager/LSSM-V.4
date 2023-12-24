@@ -609,8 +609,8 @@ export default {
     42: {
         caption: 'Auto della polizia locale',
         color: '#0a2bff',
-        credits: -1,
-        coins: -1,
+        credits: 5_000,
+        coins: 10,
         staff: { min: 1, max: 2 },
         icon: 'car-side',
         possibleBuildings: [25],
@@ -618,8 +618,8 @@ export default {
     43: {
         caption: 'Furgone Polizia Locale',
         color: '#0a2bff',
-        credits: -1,
-        coins: -1,
+        credits: 10_000,
+        coins: 10,
         staff: { min: 1, max: 2 },
         icon: 'car-side',
         possibleBuildings: [25],
@@ -627,8 +627,8 @@ export default {
     44: {
         caption: 'Moto della Polizia Locale',
         color: '#0a2bff',
-        credits: -1,
-        coins: -1,
+        credits: 2_500,
+        coins: 10,
         staff: { min: 1, max: 2 },
         icon: 'car-side',
         possibleBuildings: [25],
@@ -636,8 +636,8 @@ export default {
     45: {
         caption: 'Unità Cinofila della Polizia Locale',
         color: '#0a2bff',
-        credits: -1,
-        coins: -1,
+        credits: 7_000,
+        coins: 25,
         staff: { min: 1, max: 2 },
         icon: 'car-side',
         possibleBuildings: [25],
@@ -688,7 +688,7 @@ export default {
         possibleBuildings: [28],
     },
     51: {
-        caption: 'Motovedetta d'Altura',
+        caption: 'Motovedetta d Altura',
         color: '#0a2bff',
         credits: -1,
         coins: -1,
