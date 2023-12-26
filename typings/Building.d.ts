@@ -148,6 +148,7 @@ interface HospitalBuilding extends BaseBuilding {
 
 interface SchoolBuilding extends BaseBuilding {
     startClassrooms: number;
+    school: string;
 }
 
 interface DispatchCenterBuilding extends BaseBuilding {

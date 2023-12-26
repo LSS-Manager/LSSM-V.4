@@ -84,6 +84,7 @@ export default {
         special:
             'Finansministre og admins kan (utvide) brannvesenskoler ved hjelp av kreditter fra foreningens statskasse. Kurs og mestere på kurs kan starte opplæringskurs på brannskolen.',
         startClassrooms: 1,
+        school: 'Brannstasjon',
         icon: 'graduation-cap',
     },
     2: {
@@ -140,6 +141,7 @@ export default {
         special:
             'Finansministre og administratorer kan (utvide) alliansepoliti skoler ved hjelp av kreditter fra alliansekassen.',
         startClassrooms: 1,
+        school: 'Redning',
         icon: 'graduation-cap',
     },
     4: {
@@ -338,6 +340,7 @@ export default {
         special:
             'Finansministre og administratorer kan (utvide) alliansepoliti skoler ved hjelp av kreditter fra alliansekassen.',
         startClassrooms: 1,
+        school: 'Politi',
         icon: 'graduation-cap',
     },
     13: {

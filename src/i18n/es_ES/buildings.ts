@@ -72,6 +72,7 @@ export default {
         special:
             'Los ministros y administradores de finanzas pueden (expandir) las escuelas del departamento de bomberos con la ayuda de créditos de la tesorería de la asociación. Los maestros y administradores de cursos de capacitación pueden comenzar cursos de capacitación en las escuelas del cuerpo de bomberos de la asociación.',
         startClassrooms: 1,
+        school: 'Paquete de bomberos',
         icon: 'graduation-cap',
     },
     2: {
@@ -128,6 +129,7 @@ export default {
         special:
             'Los ministros y administradores de finanzas pueden (expandir) las escuelas del departamento de bomberos con la ayuda de créditos de la tesorería de la asociación. Los maestros y administradores de cursos de capacitación pueden comenzar cursos de capacitación en las escuelas del cuerpo de bomberos de la asociación.',
         startClassrooms: 1,
+        school: 'Rescate',
         icon: 'graduation-cap',
     },
     4: {
@@ -326,6 +328,7 @@ export default {
         special:
             'Los ministros y administradores de finanzas pueden (expandir) las escuelas de policía de la alianza con la ayuda de créditos de la tesorería de la alianza. Los maestros y administradores de cursos de formación pueden comenzar cursos de formación en las escuelas de policía de la alianza.',
         startClassrooms: 1,
+        school: 'Ppolicía',
         icon: 'graduation-cap',
     },
     13: {
