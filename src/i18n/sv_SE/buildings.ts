@@ -84,6 +84,7 @@ export default {
         special:
             'CFO och administratörer kan förbättra byggnaden genom Alliance Bank. <br> Utbildningsledare och administratörer kan initiera utbildningar.',
         startClassrooms: 1,
+        school: 'Brandstation',
         icon: 'graduation-cap',
     },
     2: {
@@ -140,6 +141,7 @@ export default {
         special:
             'CFO och administratörer kan förbättra byggnaden genom Alliance Bank. <br> Utbildningsledare och administratörer kan initiera utbildningar.',
         startClassrooms: 1,
+        school: 'Rädda',
         icon: 'graduation-cap',
     },
     4: {
@@ -366,6 +368,7 @@ export default {
         special:
             'Finansministrar och administratörer kan (utöka) föreningspolisskolor med hjälp av poäng från föreningens finans. Kursmästare och administratörer kan starta kurser på föreningens polisskolor.',
         startClassrooms: 1,
+        school: 'Polis',
         icon: 'graduation-cap',
     },
     13: {

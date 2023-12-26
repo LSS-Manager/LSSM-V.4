@@ -105,6 +105,7 @@ export default {
         special:
             "L'amministratore Finanziario dell'alleanza può costruire ed espandere le accademie usando i fondi dell'Alleanza, L'educatore dell'alleanza può aprire i corsi all'interno dell'accademia",
         startClassrooms: 1,
+        school: 'Caserma dei vigili del fuoco',
         icon: 'graduation-cap',
     },
     2: {
@@ -165,6 +166,7 @@ export default {
         special:
             "L'amministratore Finanziario dell'alleanza può costruire ed espandere le accademie usando i fondi dell'Alleanza, l'educatore dell'alleanza può aprire i corsi all'interno dell'accademia",
         startClassrooms: 1,
+        school: 'Soccorso',
         icon: 'graduation-cap',
     },
     4: {
@@ -447,6 +449,7 @@ export default {
         special:
             "L'amministratore Finanziario dell'alleanza può costruire ed espandere le accademie usando i fondi dell'Alleanza, L'educatore dell'alleanza può aprire i corsi all'interno dell'accademia",
         startClassrooms: 1,
+        school: 'Polizia',
         icon: 'graduation-cap',
     },
     13: {

@@ -304,6 +304,7 @@ export default {
         maxBuildings: 'Keine Grenze',
         maxLevel: 0,
         startClassrooms: 1,
+        school: 'Feuerwehr',
         special:
             'Finanzminister und Admins können Verbands-Feuerwehrschulen mit Hilfe von Credits aus der Verbandskasse (aus-)bauen. Lehrgangsmeister und Admins können Lehrgänge an Verbands-Feuerwehrschulen starten.',
         icon: 'graduation-cap',
@@ -376,6 +377,7 @@ export default {
         special:
             'Finanzminister und Admins können Verbands-Rettungsschulen mit Hilfe von Credits aus der Verbandskasse (aus-)bauen. Lehrgangsmeister und Admins können Lehrgänge an Verbands-Rettungsschulen starten.',
         startClassrooms: 1,
+        school: 'Rettungsdienst',
         icon: 'graduation-cap',
     },
     4: {
@@ -677,6 +679,7 @@ export default {
         special:
             'Finanzminister und Admins können Verbands-Polizeischulen mit Hilfe von Credits aus der Verbandskasse (aus-)bauen. Lehrgangsmeister und Admins können Lehrgänge an Verbands-Polizeischulen starten.',
         startClassrooms: 1,
+        school: 'Polizei',
         icon: 'graduation-cap',
     },
     9: {
@@ -886,6 +889,7 @@ export default {
         special:
             'Finanzminister und Admins können Verbands-THW-Schulen mit Hilfe von Credits aus der Verbandskasse (aus-)bauen. Lehrgangsmeister und Admins können Lehrgänge an Verbands-THW-Schulen starten.',
         startClassrooms: 1,
+        school: 'THW',
         icon: 'graduation-cap',
     },
     11: {

@@ -89,6 +89,7 @@ export default {
         maxLevel: 0,
         special: '',
         startClassrooms: 1,
+        school: 'Paloasema',
         icon: 'graduation-cap',
     },
     2: {
@@ -138,6 +139,7 @@ export default {
         maxLevel: 0,
         special: '',
         startClassrooms: 1,
+        school: 'Pelastustoimi',
         icon: 'graduation-cap',
     },
     4: {
@@ -356,6 +358,7 @@ export default {
         maxLevel: 0,
         special: '',
         startClassrooms: 1,
+        school: 'Poliisi',
         icon: 'graduation-cap',
     },
     13: {

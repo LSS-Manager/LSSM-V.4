@@ -375,6 +375,7 @@ export default {
         special:
             'Penningmeesters en Admins kunnen de Team Brandweeracademie met behulp van de credits van de Teamkas uitbreiden.',
         startClassrooms: 1,
+        school: 'Brandweer',
         icon: 'graduation-cap',
     },
     5: {
@@ -511,6 +512,7 @@ export default {
         special:
             'Penningmeesters en Admins kunnen de Team Universiteiten geneeskunde met behulp van de credits van de Teamkas uitbreiden.',
         startClassrooms: 1,
+        school: 'Ambulance',
         icon: 'graduation-cap',
     },
     8: {
@@ -539,6 +541,7 @@ export default {
         special:
             'Penningmeesters en Admins kunnen de Team Politieacademie met behulp van de credits van de Teamkas uitbreiden.',
         startClassrooms: 1,
+        school: 'Politie',
         icon: 'graduation-cap',
     },
     9: {
@@ -1144,6 +1147,7 @@ export default {
         special:
             'Penningmeesters en Admins kunnen de Team SAR academie met behulp van de credits van de Teamkas uitbreiden.',
         startClassrooms: 1,
+        school: 'Waterredding',
         icon: 'graduation-cap',
     },
     21: {

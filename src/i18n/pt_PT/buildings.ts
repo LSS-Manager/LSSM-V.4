@@ -125,6 +125,7 @@ export default {
         special:
             'O ministro das finanças  e o administrador podem expandir a escola de bombeitos usando os creditos do tesouro da aliança.Training course masters and admins can start training courses at association fire- brigade schools.',
         startClassrooms: 1,
+        school: 'Corpod de Bombeiros',
         icon: 'graduation-cap',
     },
     2: {
@@ -188,6 +189,7 @@ export default {
         special:
             "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
         startClassrooms: 1,
+        school: 'Resgate',
         icon: 'graduation-cap',
     },
     4: {
@@ -473,6 +475,7 @@ export default {
         special:
             'O ministro das finanças  e o administrador podem expandir a escola de polícia usando os creditos do tesouro da aliança.Training course masters and admins can start training courses at association police schools.',
         startClassrooms: 1,
+        school: 'Policia',
         icon: 'graduation-cap',
     },
     14: {
@@ -998,6 +1001,7 @@ export default {
         special:
             "Finance ministers and admins can (expand) Coastal Rescue schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association Coastal Rescue School.",
         startClassrooms: 1,
+        school: 'Resgate aquático',
         icon: 'graduation-cap',
     },
 } satisfies Record<number, InternalBuilding>;
