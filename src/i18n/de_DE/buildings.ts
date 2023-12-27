@@ -683,7 +683,7 @@ export default {
         icon: 'graduation-cap',
     },
     9: {
-        caption: 'THW-Ortsverband',
+        caption: 'THW',
         color: '#000f76',
         coins: 35,
         credits: 200_000,
