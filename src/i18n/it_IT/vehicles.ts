@@ -609,7 +609,7 @@ export default {
     42: {
         caption: 'Auto della polizia locale',
         color: '#0a2bff',
-        credits: 5_000,
+        credits: 5000,
         coins: 10,
         staff: { min: 1, max: 2 },
         icon: 'car-side',
@@ -627,7 +627,7 @@ export default {
     44: {
         caption: 'Moto della Polizia Locale',
         color: '#0a2bff',
-        credits: 2_500,
+        credits: 2500,
         coins: 10,
         staff: { min: 1, max: 2 },
         icon: 'car-side',
@@ -636,7 +636,7 @@ export default {
     45: {
         caption: 'Unità Cinofila della Polizia Locale',
         color: '#0a2bff',
-        credits: 7_000,
+        credits: 7000,
         coins: 25,
         staff: { min: 1, max: 2 },
         icon: 'car-side',
