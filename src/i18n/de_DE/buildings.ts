@@ -276,7 +276,7 @@ export default {
             '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenführer(in)" => Baukosten 20.000 höher)',
         ],
         schoolingTypes: ['Feuerwehr'],
-        schools: [2],
+        schools: [1],
         icon: 'fire-flame-curved',
     },
     1: {
