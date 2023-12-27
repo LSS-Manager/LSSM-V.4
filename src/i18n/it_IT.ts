@@ -1,7 +1,7 @@
 const modules = {
     appstore: {
-        save: 'Save',
-        reset: 'Reset',
+        save: 'Salva',
+        reset: 'Resetta',
         noMapkit:
             'Questo modulo non funziona con il tipo di mappa "Mapkit" dovuto ad alcune limitazioni di Mapkit ',
         dev: "Questo modulo è attualmente ancora in fase di sviluppo. L'attivazione può portare a funzioni incomplete e difettose!",

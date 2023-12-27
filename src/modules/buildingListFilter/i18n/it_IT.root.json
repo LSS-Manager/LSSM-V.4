@@ -20,8 +20,8 @@
             "title": "Filtro lista edificio"
         },
         "fixedFilters": {
-            "description": "Shows filters even when scrolling through the list of buildings",
-            "title": "Always show filters"
+            "description": "Mostra i filtri anche scorrendo l'elenco degli edifici",
+            "title": "Mostra sempre i filtri"
         },
         "icon_style": "Tipo Icona",
         "preview": "Anteprima",
