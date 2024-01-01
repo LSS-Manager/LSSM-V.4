@@ -3533,16 +3533,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn@npm:8.11.2":
-  version: 8.11.2
-  resolution: "acorn@npm:8.11.2"
-  bin:
-    acorn: bin/acorn
-  checksum: a3ed76c761b75ec54b1ec3068fb7f113a182e95aea7f322f65098c2958d232e3d211cb6dac35ff9c647024b63714bc528a26d54a925d1fef2c25585b4c8e4017
-  languageName: node
-  linkType: hard
-
-"acorn@npm:^8.4.1, acorn@npm:^8.7.1, acorn@npm:^8.8.2, acorn@npm:^8.9.0":
+"acorn@npm:8.11.3, acorn@npm:^8.4.1, acorn@npm:^8.7.1, acorn@npm:^8.8.2, acorn@npm:^8.9.0":
   version: 8.11.3
   resolution: "acorn@npm:8.11.3"
   bin:
@@ -6978,7 +6969,7 @@ __metadata:
     "@types/webpack-env": "npm:1.18.4"
     "@typescript-eslint/eslint-plugin": "npm:6.16.0"
     "@typescript-eslint/parser": "npm:6.16.0"
-    acorn: "npm:8.11.2"
+    acorn: "npm:8.11.3"
     acorn-walk: "npm:8.3.1"
     all-contributors-cli: "npm:6.26.1"
     broadcast-channel: "npm:4.20.2"
