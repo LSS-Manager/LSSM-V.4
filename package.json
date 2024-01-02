@@ -85,7 +85,7 @@
         "html-loader": "4.2.0",
         "husky": "8.0.3",
         "js-yaml": "4.1.0",
-        "moment-timezone": "0.5.43",
+        "moment-timezone": "0.5.44",
         "prettier": "3.1.1",
         "sass": "1.69.5",
         "sass-loader": "13.3.3",
