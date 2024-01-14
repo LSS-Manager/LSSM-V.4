@@ -114,24 +114,23 @@ export default (
                     : missingRequirements.requirementsForEquipment[
                           type.toString()
                       ];
-            groups.forEach(
-                group =>
-                    reqs?.[group]?.forEach(requirement => {
-                        selected[group] ??= [];
-                        // that is a weird workaround but otherwise TS complains
-                        if (group === 'staff') {
-                            selected[group][requirement] ??= {
-                                min: 0,
-                                max: 0,
-                            };
-                            const { min, max } = getStaff(id);
-                            selected[group][requirement].min += min;
-                            selected[group][requirement].max += max;
-                        } else {
-                            selected[group][requirement] ??= 0;
-                            selected[group][requirement]++;
-                        }
-                    })
+            groups.forEach(group =>
+                reqs?.[group]?.forEach(requirement => {
+                    selected[group] ??= [];
+                    // that is a weird workaround but otherwise TS complains
+                    if (group === 'staff') {
+                        selected[group][requirement] ??= {
+                            min: 0,
+                            max: 0,
+                        };
+                        const { min, max } = getStaff(id);
+                        selected[group][requirement].min += min;
+                        selected[group][requirement].max += max;
+                    } else {
+                        selected[group][requirement] ??= 0;
+                        selected[group][requirement]++;
+                    }
+                })
             );
         };
 

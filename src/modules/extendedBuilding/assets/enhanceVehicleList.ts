@@ -150,8 +150,9 @@ export default async (
                             'disabled'
                         );
                         vehicleTypeNode.textContent =
-                            internalVehicleTypes[storedVehicle.vehicle_type]
-                                ?.caption;
+                            internalVehicleTypes[
+                                storedVehicle.vehicle_type
+                            ]?.caption;
                         typeWrapper.append(vehicleTypeNode);
                     }
                     if (storedVehicle.vehicle_type_caption) {

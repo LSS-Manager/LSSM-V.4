@@ -258,11 +258,10 @@ const getMissingRequirements = (
             ).forEach(equipment => {
                 const equipmentType = equipment.dataset.equipmentType;
                 if (!equipmentType) return;
-                groups.forEach(
-                    group =>
-                        requirementsForEquipment[equipmentType]?.[
-                            group
-                        ]?.forEach(req => requirements[group][req].driving++)
+                groups.forEach(group =>
+                    requirementsForEquipment[equipmentType]?.[group]?.forEach(
+                        req => requirements[group][req].driving++
+                    )
                 );
             });
         });

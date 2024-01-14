@@ -3095,12 +3095,11 @@ export default Vue.extend<
                                             node =>
                                                 node.nodeType === Node.TEXT_NODE
                                         )
-                                        .map(
-                                            node =>
-                                                node.textContent
-                                                    ?.trim()
-                                                    .replace(/^-|\.$/gu, '')
-                                                    .trim()
+                                        .map(node =>
+                                            node.textContent
+                                                ?.trim()
+                                                .replace(/^-|\.$/gu, '')
+                                                .trim()
                                         )
                                         .join(' ');
                                     const buildingId = parseInt(
