@@ -5184,20 +5184,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-vue@npm:9.19.2":
-  version: 9.19.2
-  resolution: "eslint-plugin-vue@npm:9.19.2"
+"eslint-plugin-vue@npm:9.20.1":
+  version: 9.20.1
+  resolution: "eslint-plugin-vue@npm:9.20.1"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.4.0"
     natural-compare: "npm:^1.4.0"
     nth-check: "npm:^2.1.1"
     postcss-selector-parser: "npm:^6.0.13"
     semver: "npm:^7.5.4"
-    vue-eslint-parser: "npm:^9.3.1"
+    vue-eslint-parser: "npm:^9.4.0"
     xml-name-validator: "npm:^4.0.0"
   peerDependencies:
     eslint: ^6.2.0 || ^7.0.0 || ^8.0.0
-  checksum: b48c24c6aedcc690b4cf2432df08da62fba6f7f24f3a561d7a2592329c2c947d01ba51b49b2a256f65735dcea4f73b44cbffc0c373fec461f49f5a02a078561e
+  checksum: 97c75d8ac0351c6e7d7edb364af176ab1890e5bf8eeb525b9379f0ed88205d889c4297b107d1b196dc45ed14c1b9ccdb7fe9890c6fccd33d9b5aa00502882afa
   languageName: node
   linkType: hard
 
@@ -6995,7 +6995,7 @@ __metadata:
     eslint-plugin-regexp: "npm:2.2.0"
     eslint-plugin-tsdoc: "npm:0.2.17"
     eslint-plugin-unicorn: "npm:50.0.1"
-    eslint-plugin-vue: "npm:9.19.2"
+    eslint-plugin-vue: "npm:9.20.1"
     he: "npm:1.2.0"
     highcharts: "npm:11.2.0"
     highcharts-vue: "npm:1.4.3"
@@ -9873,7 +9873,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-eslint-parser@npm:^9.3.1":
+"vue-eslint-parser@npm:^9.4.0":
   version: 9.4.0
   resolution: "vue-eslint-parser@npm:9.4.0"
   dependencies:
