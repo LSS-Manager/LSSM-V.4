@@ -87,7 +87,7 @@
         "js-yaml": "4.1.0",
         "moment-timezone": "0.5.44",
         "prettier": "3.2.4",
-        "sass": "1.69.7",
+        "sass": "1.70.0",
         "sass-loader": "13.3.3",
         "simpleheat": "0.4.0",
         "terser": "5.26.0",
