@@ -915,6 +915,18 @@ export default {
         staff: {
             min: 1,
             max: 6,
+            training: {
+                Feuerwehr: {
+                    gw_wasserrettung: {
+                        min: 0,
+                    },
+                },
+                Rettungsdienst: {
+                    gw_wasserrettung: {
+                        min: 0,
+                    },
+                },
+            },
         },
         icon: 'truck',
         possibleBuildings: [0, 12, 15, 18, 22],
