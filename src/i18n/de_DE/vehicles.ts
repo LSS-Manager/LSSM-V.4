@@ -918,12 +918,12 @@ export default {
             training: {
                 Feuerwehr: {
                     gw_wasserrettung: {
-                        min: 0,
+                        all: true,
                     },
                 },
                 Rettungsdienst: {
                     gw_wasserrettung: {
-                        min: 0,
+                        all: true,
                     },
                 },
             },
