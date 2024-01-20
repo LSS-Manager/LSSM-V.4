@@ -106,8 +106,11 @@ export default class HotkeyUtility {
         const target = event.target as HTMLElement | null;
         if (
             this.recording ||
-            ['INPUT', 'SELECT', 'TEXTAREA'].includes(target?.tagName ?? '') ||
-            target?.isContentEditable
+            target?.isContentEditable ||
+            target instanceof HTMLSelectElement ||
+            target instanceof HTMLTextAreaElement ||
+            (target instanceof HTMLInputElement &&
+                !['checkbox'].includes(target?.type))
         )
             return;
         this.handleKey(event);
