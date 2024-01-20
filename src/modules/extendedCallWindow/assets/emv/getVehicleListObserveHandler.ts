@@ -191,8 +191,11 @@ export default (
                     reqsByTractives[parseInt(trailerType)]?.[group]?.forEach(
                         req => {
                             const value = selected[group][req];
-                            if (typeof value !== 'number') return;
-                            selected[group][req] = Math.max(value, amount);
+                            if (
+                                typeof value === 'number' &&
+                                typeof amount === 'number'
+                            )
+                                selected[group][req] = value + amount;
                         }
                     )
             );
