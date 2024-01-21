@@ -1556,6 +1556,7 @@ export default {
         possibleBuildings: [13],
         special:
             'Der Polizeihelikopter ist das Trägerfahrzeug hier von. Der Helikopter brauch min. 2 Ausgebildete Kräfte mit der Ausbildung "Brandbekämpfung"',
+        waterTank: 1000,
         isTrailer: true,
         tractiveVehicles: [61],
     },
@@ -1651,6 +1652,7 @@ export default {
         possibleBuildings: [9],
         pumpCapacity: 15_000,
         pumpType: 'sewage',
+        waterBonus: 25,
         isTrailer: true,
         tractiveVehicles: [100, 123],
     },
@@ -1674,6 +1676,7 @@ export default {
         possibleBuildings: [9],
         pumpCapacity: 12_400,
         pumpType: 'sewage',
+        waterBonus: 25,
         isTrailer: true,
         tractiveVehicles: [100, 123],
     },

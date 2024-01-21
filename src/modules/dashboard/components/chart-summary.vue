@@ -51,6 +51,24 @@
                 <div class="alert alert-info">
                     {{ $sm('vehicles.tip') }}
                 </div>
+                <template v-if="waterInVersion">
+                    |
+                    <b
+                        >{{ $sm('vehicles.water') }}:
+                        {{ water.toLocaleString() }} ({{
+                            $sm('vehicles.waterWithBonus')
+                        }}: {{ waterWithBonus.toLocaleString() }})
+                    </b>
+                </template>
+                <template v-if="foamInVersion">
+                    |
+                    <b
+                        >{{ $sm('vehicles.foam') }}:
+                        {{ foam.toLocaleString() }} ({{
+                            $sm('vehicles.foamWithBonus')
+                        }}: {{ foamWithBonus.toLocaleString() }})
+                    </b>
+                </template>
             </div>
             <div class="panel-body sunburst-grid">
                 <div
@@ -171,6 +189,26 @@ export default Vue.extend<
             vehiclesByBuilding: apiStore.vehiclesByBuilding,
             buildingsAsColumn: false,
             settingsStore: useSettingsStore(),
+            waterByType: Object.fromEntries(
+                Object.entries(internalVehicleTypes)
+                    .filter(([, v]) => v.waterTank)
+                    .map(([index, { waterTank }]) => [index, waterTank])
+            ),
+            waterBonusByType: Object.fromEntries(
+                Object.entries(internalVehicleTypes)
+                    .filter(([, v]) => v.waterBonus)
+                    .map(([index, { waterBonus }]) => [index, waterBonus])
+            ),
+            foamByType: Object.fromEntries(
+                Object.entries(internalVehicleTypes)
+                    .filter(([, v]) => v.foamTank)
+                    .map(([index, { foamTank }]) => [index, foamTank])
+            ),
+            foamBonusByType: Object.fromEntries(
+                Object.entries(internalVehicleTypes)
+                    .filter(([, v]) => v.foamBonus)
+                    .map(([index, { foamBonus }]) => [index, foamBonus])
+            ),
         } as ChartSummary;
     },
     computed: {
@@ -182,6 +220,60 @@ export default Vue.extend<
         }),
         maxMissions() {
             return window.mission_count_max;
+        },
+        waterInVersion() {
+            return Object.keys(this.waterByType).length > 0;
+        },
+        water() {
+            return Object.entries(this.vehicles).reduce(
+                (a, [type, { length }]) =>
+                    a +
+                    length * (this.waterByType[parseInt(type.toString())] ?? 0),
+                0
+            );
+        },
+        waterWithBonus() {
+            return (
+                (this.water *
+                    (100 +
+                        Object.entries(this.vehicles).reduce(
+                            (a, [type, { length }]) =>
+                                a +
+                                length *
+                                    (this.waterBonusByType[
+                                        parseInt(type.toString())
+                                    ] ?? 0),
+                            0
+                        ))) /
+                100
+            );
+        },
+        foamInVersion() {
+            return Object.keys(this.foamByType).length > 0;
+        },
+        foam() {
+            return Object.entries(this.vehicles).reduce(
+                (a, [type, { length }]) =>
+                    a +
+                    length * (this.foamByType[parseInt(type.toString())] ?? 0),
+                0
+            );
+        },
+        foamWithBonus() {
+            return (
+                (this.foam *
+                    (100 +
+                        Object.entries(this.vehicles).reduce(
+                            (a, [type, { length }]) =>
+                                a +
+                                length *
+                                    (this.foamBonusByType[
+                                        parseInt(type.toString())
+                                    ] ?? 0),
+                            0
+                        ))) /
+                100
+            );
         },
     },
     mounted() {

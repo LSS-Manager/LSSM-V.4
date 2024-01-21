@@ -27,8 +27,13 @@
         "maxMissions": { "title": "Maximum meldingen" },
         "vehicles": {
             "empty": "Je hebt nog geen voertuigen in de categorie {category}!",
+            "foam": "Foam",
+            "foamWithBonus": "incl. Bonus",
+            "liquidUnit": "L.",
             "tip": "Klik op een groep van voertuigtypes om alleen die groep te zien.",
-            "title": "Voertuigen"
+            "title": "Voertuigen",
+            "water": "Water",
+            "waterWithBonus": "incl. Bonus"
         }
     },
     "dispatchcenter-view": {

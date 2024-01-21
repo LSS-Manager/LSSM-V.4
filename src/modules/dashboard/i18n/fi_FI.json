@@ -27,8 +27,13 @@
         "maxMissions": { "title": "Maximum missions" },
         "vehicles": {
             "empty": "Sinulla ei ole vielä kategoriassa {category} ajoneuvoja!",
+            "foam": "Foam",
+            "foamWithBonus": "incl. Bonus",
+            "liquidUnit": "L.",
             "tip": "Napsauta ajoneuvotyyppien ryhmää näyttääksesi vain tämän ryhmän.",
-            "title": "Ajoneuvot"
+            "title": "Ajoneuvot",
+            "water": "Water",
+            "waterWithBonus": "incl. Bonus"
         }
     },
     "dispatchcenter-view": {

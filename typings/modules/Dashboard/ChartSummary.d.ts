@@ -17,6 +17,10 @@ export interface ChartSummary {
     vehiclesByBuilding: Record<string, Vehicle[]>;
     buildingsAsColumn: boolean;
     settingsStore: ReturnType<typeof useSettingsStore>;
+    waterByType: Record<number, number>;
+    waterBonusByType: Record<number, number>;
+    foamByType: Record<number, number>;
+    foamBonusByType: Record<number, number>;
 }
 
 export interface ChartSummaryMethods {
@@ -29,4 +33,10 @@ export interface ChartSummaryMethods {
 export interface ChartSummaryComputed {
     personalCount: number;
     maxMissions: number;
+    waterInVersion: boolean;
+    water: number;
+    waterWithBonus: number;
+    foamInVersion: boolean;
+    foam: number;
+    foamWithBonus: number;
 }
