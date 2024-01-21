@@ -55,18 +55,26 @@
                     |
                     <b
                         >{{ $sm('vehicles.water') }}:
-                        {{ water.toLocaleString() }} ({{
-                            $sm('vehicles.waterWithBonus')
-                        }}: {{ waterWithBonus.toLocaleString() }})
+                        {{ water.toLocaleString() }}&nbsp;{{
+                            $sm('vehicles.liquidUnit')
+                        }}
+                        ({{ $sm('vehicles.waterWithBonus') }}:
+                        {{ waterWithBonus.toLocaleString() }}&nbsp;{{
+                            $sm('vehicles.liquidUnit')
+                        }})
                     </b>
                 </template>
                 <template v-if="foamInVersion">
                     |
                     <b
                         >{{ $sm('vehicles.foam') }}:
-                        {{ foam.toLocaleString() }} ({{
-                            $sm('vehicles.foamWithBonus')
-                        }}: {{ foamWithBonus.toLocaleString() }})
+                        {{ foam.toLocaleString() }}&nbsp;{{
+                            $sm('vehicles.liquidUnit')
+                        }}
+                        ({{ $sm('vehicles.foamWithBonus') }}:
+                        {{ foamWithBonus.toLocaleString() }}&nbsp;{{
+                            $sm('vehicles.liquidUnit')
+                        }})
                     </b>
                 </template>
             </div>
