@@ -4,9 +4,9 @@
         <notifications
             v-for="group in notificationStore.groups"
             :key="group"
-            :group="group.replace(' ', '_')"
+            :group="group"
             :position="group"
-            :class="group.replace('_', ' ')"
+            :class="group"
         >
             <template slot="body" slot-scope="props">
                 <div

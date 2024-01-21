@@ -2,7 +2,16 @@ import type Vue from 'vue';
 
 import { defineStore } from 'pinia';
 
-import type { AddListener, CreateEvent } from 'typings/store/event/Actions';
+export interface CreateEvent {
+    name: string;
+    detail?: unknown;
+    init?: EventInit;
+}
+
+export interface AddListener {
+    name: string;
+    listener(event: Event): void;
+}
 
 const defineEventStore = defineStore('event', () => {
     const getEventName = (name: string) =>
