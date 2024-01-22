@@ -82,7 +82,7 @@
         "eslint-plugin-tsdoc": "0.2.17",
         "eslint-plugin-unicorn": "50.0.1",
         "eslint-plugin-vue": "9.20.1",
-        "html-loader": "4.2.0",
+        "html-loader": "5.0.0",
         "husky": "8.0.3",
         "js-yaml": "4.1.0",
         "moment-timezone": "0.5.44",
