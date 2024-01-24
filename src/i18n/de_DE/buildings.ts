@@ -1724,6 +1724,6 @@ export default {
         startVehicles: [],
         schoolingTypes: ['Polizei'],
         schools: [8],
-        icon: 'house-medical',
+        icon: 'horse',
     },
 } satisfies Record<number, InternalBuilding>;

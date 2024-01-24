@@ -72,7 +72,7 @@ export default {
             color: '#ffa500',
         },
         Polizei: {
-            buildings: [6, 8, 11, 13, 17, 19],
+            buildings: [6, 8, 11, 13, 17, 19, 24],
             color: '#00ac00',
         },
         THW: {
