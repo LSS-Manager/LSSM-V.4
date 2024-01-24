@@ -126,6 +126,7 @@ export default {
                 'SEK': [79, 80],
                 'MEK': [81, 82],
                 'Diensthunde': [94],
+                ['Reiterstaffel']: [134, 135, 136, 137],
             },
             color: '#00ac00',
         },
