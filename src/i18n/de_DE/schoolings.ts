@@ -166,6 +166,12 @@ export default {
             staffList: 'Dienstgruppenleitung',
             key: 'police_service_group_leader',
         },
+        {
+            caption: 'Reiterstaffel',
+            duration: '3 Tage',
+            staffList: 'Reiterstaffel',
+            key: 'police_horse',
+        },
     ],
     Rettungsdienst: [
         {

@@ -2177,4 +2177,81 @@ export default {
         special:
             'Der Bt LKW transportiert Betreuungs- und Verpflegungsausstattung ohne Feldküche und muss mit einem FKH kombiniert werden',
     },
+    134: {
+        caption: 'Pferdetransporter klein',
+        color: '#835243',
+        credits: 20_000,
+        coins: 20,
+        staff: {
+            min: 2,
+            max: 4,
+            training: {
+                Polizei: {
+                    police_horse: {
+                        min: 2,
+                    },
+                },
+            },
+        },
+        icon: 'horse',
+        possibleBuildings: [11, 24],
+        special: 'Transportiert 2 Pferde',
+    },
+    135: {
+        caption: 'Pferdetransporter groß',
+        color: '#835243',
+        credits: 120_000,
+        coins: 25,
+        staff: {
+            min: 2,
+            max: 2,
+            trainingAtScene: 4,
+            training: {
+                Polizei: {
+                    police_horse: {
+                        min: 0,
+                    },
+                },
+            },
+        },
+        icon: 'horse',
+        possibleBuildings: [11, 24],
+        special: 'Transportiert 4 Pferde',
+    },
+    136: {
+        caption: 'Anh Pferdetransport',
+        color: '#835243',
+        credits: 15_000,
+        coins: 15,
+        staff: {
+            min: 0,
+            max: 0,
+            trainingAtScene: 2,
+            training: {
+                Polizei: {
+                    police_horse: {
+                        min: 0,
+                    },
+                },
+            },
+        },
+        icon: 'horse',
+        possibleBuildings: [11, 24],
+        isTrailer: true,
+        tractiveVehicles: [134, 135, 137],
+        special: 'Transportiert 2 Pferde',
+    },
+    137: {
+        caption: 'Zugfahrzeug Pferdetransport',
+        color: '#835243',
+        credits: 5000,
+        coins: 10,
+        staff: {
+            min: 1,
+            max: 6,
+        },
+        icon: 'horse',
+        possibleBuildings: [11, 24],
+        special: 'Kann den Anh Pferdetransport ziehen.',
+    },
 } satisfies Record<number, InternalVehicle>;
