@@ -26,9 +26,10 @@ export default (LSSM: Vue, yellowBorder: number, redBorder: boolean): void => {
     if (yellowBorder && moment().diff(generationDate, 'hours') >= yellowBorder)
         generationDateNode.style.border = 'yellow 1px solid';
 
-    const nextDeletion = moment();
-    if (moment().hours() > 3) nextDeletion.add(1, 'd');
-    nextDeletion.hours(3).minutes(0);
+    // missions get deleted from 2am UTC onwards, so if we are after 2am UTC, we need to add 1 day for next deletion
+    const nextDeletion = moment.utc();
+    if (moment().hours() >= 2) nextDeletion.add(1, 'd');
+    nextDeletion.hours(2).minutes(0);
 
     if (redBorder && generationDate.isBefore(nextDeletion.subtract(1, 'd')))
         generationDateNode.style.border = 'red 1px solid';
