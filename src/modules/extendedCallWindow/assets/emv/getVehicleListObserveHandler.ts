@@ -18,6 +18,7 @@ export type GroupTranslation = Record<
             keyof Mission['additional'],
             Record<number, number>
         >;
+        factors?: Record<`${number | string}`, number>;
     }
 >;
 
@@ -128,7 +129,17 @@ export default (
                         selected[group][requirement].max += max;
                     } else {
                         selected[group][requirement] ??= 0;
-                        selected[group][requirement]++;
+                        const reqItem = requirements[group][requirement];
+                        if (
+                            (group === 'vehicles' || group === 'other') &&
+                            'additional' in reqItem
+                        ) {
+                            selected[group][requirement] +=
+                                reqItem.additional.factors?.[type.toString()] ??
+                                1;
+                        } else {
+                            selected[group][requirement]++;
+                        }
                     }
                 })
             );
