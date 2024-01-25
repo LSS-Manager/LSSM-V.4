@@ -11,8 +11,8 @@
         "eslint:fix": "./build/build.sh --eslint",
         "check-tsc": "./build/build.sh --tsc",
         "pre-commit": "./build/build.sh --pre-commit",
-        "prepare": "husky install",
-        "postinstall": "husky install"
+        "prepare": "husky",
+        "postinstall": "husky"
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "6.5.1",
@@ -83,7 +83,7 @@
         "eslint-plugin-unicorn": "50.0.1",
         "eslint-plugin-vue": "9.20.1",
         "html-loader": "5.0.0",
-        "husky": "8.0.3",
+        "husky": "9.0.2",
         "js-yaml": "4.1.0",
         "moment-timezone": "0.5.44",
         "prettier": "3.2.4",
