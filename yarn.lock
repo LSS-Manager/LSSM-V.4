@@ -3320,7 +3320,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/core@npm:^10.6.1, @vueuse/core@npm:^10.7.1":
+"@vueuse/core@npm:^10.6.1, @vueuse/core@npm:^10.7.2":
   version: 10.7.2
   resolution: "@vueuse/core@npm:10.7.2"
   dependencies:
@@ -6949,7 +6949,7 @@ __metadata:
     vue: "npm:3.4.15"
     vuepress: "npm:2.0.0-rc.0"
     vuepress-plugin-clipboard: "npm:2.1.5"
-    vuepress-plugin-sitemap2: "npm:2.0.0-rc.11"
+    vuepress-plugin-sitemap2: "npm:2.0.0-rc.13"
   languageName: unknown
   linkType: soft
 
@@ -10045,7 +10045,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:3.4.15, vue@npm:^3.2.45, vue@npm:^3.3.8, vue@npm:^3.4.3":
+"vue@npm:3.4.15, vue@npm:^3.2.45, vue@npm:^3.3.8, vue@npm:^3.4.15":
   version: 3.4.15
   resolution: "vue@npm:3.4.15"
   dependencies:
@@ -10075,14 +10075,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vuepress-plugin-sitemap2@npm:2.0.0-rc.11":
-  version: 2.0.0-rc.11
-  resolution: "vuepress-plugin-sitemap2@npm:2.0.0-rc.11"
+"vuepress-plugin-sitemap2@npm:2.0.0-rc.13":
+  version: 2.0.0-rc.13
+  resolution: "vuepress-plugin-sitemap2@npm:2.0.0-rc.13"
   dependencies:
     "@vuepress/shared": "npm:2.0.0-rc.0"
     "@vuepress/utils": "npm:2.0.0-rc.0"
     sitemap: "npm:^7.1.1"
-    vuepress-shared: "npm:2.0.0-rc.11"
+    vuepress-shared: "npm:2.0.0-rc.13"
   peerDependencies:
     vuepress: 2.0.0-rc.0
     vuepress-vite: 2.0.0-rc.0
@@ -10094,18 +10094,18 @@ __metadata:
       optional: true
     vuepress-webpack:
       optional: true
-  checksum: 440ebd1fdefc3a5214f67a39e9a965cfb86c1a6ad22fc2a965e582d0d44587e4d2f27d0c1fb3897166a2feb19e0bcdc36de85feebdde223b7daf0d1192f149c6
+  checksum: 33f3837ce1459c469b802172538938f283f79533e4d7541c469f629398a6badf22a581188aae291feea118b618ffb9edd0ad4b644b48d8d2a5571845e2fffc71
   languageName: node
   linkType: hard
 
-"vuepress-shared@npm:2.0.0-rc.11":
-  version: 2.0.0-rc.11
-  resolution: "vuepress-shared@npm:2.0.0-rc.11"
+"vuepress-shared@npm:2.0.0-rc.13":
+  version: 2.0.0-rc.13
+  resolution: "vuepress-shared@npm:2.0.0-rc.13"
   dependencies:
     "@vuepress/client": "npm:2.0.0-rc.0"
     "@vuepress/shared": "npm:2.0.0-rc.0"
     "@vuepress/utils": "npm:2.0.0-rc.0"
-    "@vueuse/core": "npm:^10.7.1"
+    "@vueuse/core": "npm:^10.7.2"
     cheerio: "npm:1.0.0-rc.12"
     dayjs: "npm:^1.11.10"
     execa: "npm:^8.0.1"
@@ -10113,7 +10113,7 @@ __metadata:
     gray-matter: "npm:^4.0.3"
     semver: "npm:^7.5.4"
     striptags: "npm:^3.2.0"
-    vue: "npm:^3.4.3"
+    vue: "npm:^3.4.15"
     vue-router: "npm:^4.2.5"
   peerDependencies:
     vuepress: 2.0.0-rc.0
@@ -10126,7 +10126,7 @@ __metadata:
       optional: true
     vuepress-webpack:
       optional: true
-  checksum: 3a0d55b206adcb403691fb442ee22f706b1153aed39cf807c8df18b4c04aecdb9583e39302a4bf25d45a8f59ee8335606eb576993de623227d1ea84c3de273a9
+  checksum: b1307bf8c05f0f4d86bdc83d0a9c81ab5eb17d7e72fbabb1f346e44d4fbef26f34cf1ce8be739ab4400f2cb20d3968a866d3802c0729870fbd865d88da4eddd5
   languageName: node
   linkType: hard
 
