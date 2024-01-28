@@ -6,8 +6,8 @@
         <div class="awards awards-grid">
             <div
                 class="panel panel-default"
-                v-for="award in awards.awards"
-                :key="award.caption"
+                v-for="(award, index) in awards.awards"
+                :key="index"
             >
                 <div class="panel-heading">
                     <span

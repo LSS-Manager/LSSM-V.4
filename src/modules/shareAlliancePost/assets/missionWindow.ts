@@ -536,19 +536,18 @@ export default async ({
                                     }
                                 })
                         )
-                        .then(
-                            () =>
-                                document
-                                    .querySelector<HTMLAnchorElement>(
-                                        liElement.closest(
-                                            `#${alarmSharePostGroup.id}`
-                                        )
-                                            ? '#mission_alarm_btn'
-                                            : missionsSorted
-                                              ? `.${sortedMissionClass}`
-                                              : '#alert_next_btn'
+                        .then(() =>
+                            document
+                                .querySelector<HTMLAnchorElement>(
+                                    liElement.closest(
+                                        `#${alarmSharePostGroup.id}`
                                     )
-                                    ?.click()
+                                        ? '#mission_alarm_btn'
+                                        : missionsSorted
+                                          ? `.${sortedMissionClass}`
+                                          : '#alert_next_btn'
+                                )
+                                ?.click()
                         );
                 }
             )

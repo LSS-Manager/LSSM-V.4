@@ -148,6 +148,7 @@ interface HospitalBuilding extends BaseBuilding {
 
 interface SchoolBuilding extends BaseBuilding {
     startClassrooms: number;
+    school: string;
 }
 
 interface DispatchCenterBuilding extends BaseBuilding {
@@ -162,6 +163,7 @@ type CanHaveVehiclesBuilding<
     BaseBuildingType extends BaseBuilding | InternalBuilding,
 > = BaseBuildingType & {
     schoolingTypes: string[];
+    schools: number[];
     startPersonnel: number;
     startVehicles: string[];
     startParkingLots: number;

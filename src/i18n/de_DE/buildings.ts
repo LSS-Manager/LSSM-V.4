@@ -276,6 +276,7 @@ export default {
             '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenführer(in)" => Baukosten 20.000 höher)',
         ],
         schoolingTypes: ['Feuerwehr'],
+        schools: [1],
         icon: 'fire-flame-curved',
     },
     1: {
@@ -303,6 +304,7 @@ export default {
         maxBuildings: 'Keine Grenze',
         maxLevel: 0,
         startClassrooms: 1,
+        school: 'Feuerwehr',
         special:
             'Finanzminister und Admins können Verbands-Feuerwehrschulen mit Hilfe von Credits aus der Verbandskasse (aus-)bauen. Lehrgangsmeister und Admins können Lehrgänge an Verbands-Feuerwehrschulen starten.',
         icon: 'graduation-cap',
@@ -345,6 +347,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['RTW'],
         schoolingTypes: ['Rettungsdienst'],
+        schools: [3],
         icon: 'house-medical',
     },
     3: {
@@ -374,6 +377,7 @@ export default {
         special:
             'Finanzminister und Admins können Verbands-Rettungsschulen mit Hilfe von Credits aus der Verbandskasse (aus-)bauen. Lehrgangsmeister und Admins können Lehrgänge an Verbands-Rettungsschulen starten.',
         startClassrooms: 1,
+        school: 'Rettungsdienst',
         icon: 'graduation-cap',
     },
     4: {
@@ -497,6 +501,7 @@ export default {
         startParkingLots: 1,
         startVehicles: [],
         schoolingTypes: ['Rettungsdienst'],
+        schools: [3],
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
                 ? 4
@@ -625,6 +630,7 @@ export default {
         startCells: 0,
         startVehicles: ['FuStW'],
         schoolingTypes: ['Polizei'],
+        schools: [8],
         icon: 'building-shield',
     },
     7: {
@@ -673,10 +679,11 @@ export default {
         special:
             'Finanzminister und Admins können Verbands-Polizeischulen mit Hilfe von Credits aus der Verbandskasse (aus-)bauen. Lehrgangsmeister und Admins können Lehrgänge an Verbands-Polizeischulen starten.',
         startClassrooms: 1,
+        school: 'Polizei',
         icon: 'graduation-cap',
     },
     9: {
-        caption: 'THW-Ortsverband',
+        caption: 'THW',
         color: '#000f76',
         coins: 35,
         credits: 200_000,
@@ -852,6 +859,7 @@ export default {
         startVehicles: ['GKW'],
         startParkingLotReservations: [[39]],
         schoolingTypes: ['THW'],
+        schools: [10],
         icon: 'gear',
     },
     10: {
@@ -881,6 +889,7 @@ export default {
         special:
             'Finanzminister und Admins können Verbands-THW-Schulen mit Hilfe von Credits aus der Verbandskasse (aus-)bauen. Lehrgangsmeister und Admins können Lehrgänge an Verbands-THW-Schulen starten.',
         startClassrooms: 1,
+        school: 'THW',
         icon: 'graduation-cap',
     },
     11: {
@@ -996,6 +1005,22 @@ export default {
                 parkingLotReservations: [[94], [94], [94]],
                 unlockedVehiclesOnReservedLotsOnly: true,
             },
+            {
+                caption: 'Reiterstaffel',
+                credits: 300_000,
+                coins: 25,
+                duration: '5 Tage',
+                isVehicleExtension: true,
+                parkingLotReservations: [
+                    [134, 135, 136],
+                    [134, 135, 136],
+                    [134, 135, 136],
+                    [137],
+                    [137],
+                    [137],
+                ],
+                givesParkingLots: 6,
+            },
         ],
         levelcost: ['Keine Ausbaustufen möglich'],
         maxBuildings: 'Keine Grenze',
@@ -1007,6 +1032,7 @@ export default {
         startParkingLotReservations: [[35], [50], [50], [50]],
         startVehicles: [],
         schoolingTypes: ['Polizei'],
+        schools: [8],
         icon: 'shield-halved',
     },
     12: {
@@ -1110,6 +1136,7 @@ export default {
         startVehicles: ['KTW Typ B'],
         startParkingLotReservations: [[58]],
         schoolingTypes: ['Rettungsdienst'],
+        schools: [3],
         icon: 'house-medical-flag',
     },
     13: {
@@ -1144,6 +1171,7 @@ export default {
         startParkingLots: 1,
         startVehicles: [],
         schoolingTypes: ['Polizei'],
+        schools: [8],
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
                 ? 4
@@ -1188,6 +1216,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['GW-Wasserrettung'],
         schoolingTypes: ['Rettungsdienst'],
+        schools: [3],
         icon: 'person-swimming',
     },
     16: {
@@ -1318,6 +1347,7 @@ export default {
         startParkingLots: 0,
         startVehicles: [],
         schoolingTypes: ['Polizei'],
+        schools: [8],
         icon: 'shield-halved',
     },
     18: {
@@ -1477,6 +1507,7 @@ export default {
             '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenführer(in)" => Baukosten 15.000 höher)',
         ],
         schoolingTypes: ['Feuerwehr'],
+        schools: [1],
         icon: 'fire-flame-curved',
     },
     19: {
@@ -1562,6 +1593,7 @@ export default {
         startCells: 0,
         startVehicles: ['FuStW'],
         schoolingTypes: ['Polizei'],
+        schools: [8],
         icon: 'building-shield',
     },
     20: {
@@ -1587,6 +1619,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['RTW'],
         schoolingTypes: ['Rettungsdienst'],
+        schools: [3],
         icon: 'house-medical',
     },
     21: {
@@ -1607,6 +1640,7 @@ export default {
         startParkingLots: 2,
         startVehicles: ['Rettungshundefahrzeug'],
         schoolingTypes: ['Rettungsdienst'],
+        schools: [3],
         icon: 'paw',
     },
     22: {
@@ -1627,6 +1661,7 @@ export default {
         startParkingLots: 0,
         startVehicles: [''],
         schoolingTypes: [],
+        schools: [],
         icon: 'poo',
     },
     23: {
@@ -1647,6 +1682,48 @@ export default {
         startParkingLots: 0,
         startVehicles: [''],
         schoolingTypes: [],
+        schools: [],
         icon: 'poo',
+    },
+    24: {
+        caption: 'Reiterstaffel',
+        color: '#227722',
+        coins: 50,
+        credits: 300_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
+        extensions: [
+            ...multiplyExtension(
+                {
+                    caption: 'Reiterstaffel',
+                    credits: 300_000,
+                    coins: 25,
+                    duration: '5 Tage',
+                    isVehicleExtension: true,
+                    parkingLotReservations: [
+                        [134, 135, 136],
+                        [134, 135, 136],
+                        [134, 135, 136],
+                        [137],
+                        [137],
+                        [137],
+                    ],
+                    givesParkingLots: 6,
+                },
+                6
+            ),
+        ],
+        levelcost: ['Keine Ausbaustufen möglich'],
+        maxBuildings: 'Keine Grenze',
+        maxLevel: 0,
+        special: '',
+        startPersonnel: 8,
+        startParkingLots: 6,
+        startVehicles: [],
+        schoolingTypes: ['Polizei'],
+        schools: [8],
+        icon: 'horse',
     },
 } satisfies Record<number, InternalBuilding>;

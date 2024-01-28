@@ -155,6 +155,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['Water Ladder', 'Light 4X4 Pump (L4P)'],
         schoolingTypes: ['Fire Station'],
+        schools: [1],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -184,6 +185,7 @@ export default {
         special:
             "Finance Admins and admins can (expand) fire department schools with the help of credits from the association's funds. Alliance Educators and admins can start training courses at association fire- brigade schools.",
         startClassrooms: 1,
+        school: 'Fire',
         icon: 'graduation-cap',
     },
     2: {
@@ -234,6 +236,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['Ambulance'],
         schoolingTypes: ['Rescue'],
+        schools: [3],
         icon: 'house-medical',
     },
     3: {
@@ -262,6 +265,7 @@ export default {
         special:
             "Finance Admins and admins can (expand) association rescue schools with the help of credits from the association's funds. Alliance Educators and admins can start training courses at association rescue schools.",
         startClassrooms: 1,
+        school: 'Rescue',
         icon: 'graduation-cap',
     },
     4: {
@@ -385,6 +389,7 @@ export default {
         startVehicles: [],
         startParkingLots: 1,
         schoolingTypes: ['Rescue'],
+        schools: [3],
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
                 ? 4
@@ -522,6 +527,7 @@ export default {
         startPersonnel: 2,
         startVehicles: ['Incident response vehicle'],
         schoolingTypes: ['Police'],
+        schools: [8],
         startParkingLots: 1,
         startCells: 0,
         icon: 'building-shield',
@@ -572,6 +578,7 @@ export default {
         special:
             "Finance Admins and admins can (expand) association police schools with the help of credits from the association's Funds. Alliance Educators and admins can start training courses at association police schools.",
         startClassrooms: 1,
+        school: 'Police',
         icon: 'graduation-cap',
     },
     13: {
@@ -592,6 +599,7 @@ export default {
         startPersonnel: 3,
         startVehicles: [],
         schoolingTypes: ['Police'],
+        schools: [8],
         startParkingLots: 1,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
@@ -800,6 +808,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['Water Ladder', 'Light 4X4 Pump (L4P)'],
         schoolingTypes: ['Fire Station'],
+        schools: [1],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -884,6 +893,7 @@ export default {
         startPersonnel: 2,
         startVehicles: ['Incident response vehicle'],
         schoolingTypes: ['Police'],
+        schools: [8],
         startParkingLots: 1,
         startCells: 0,
         icon: 'building-shield',
@@ -921,6 +931,7 @@ export default {
         startPersonnel: 3,
         startVehicles: ['Ambulance'],
         schoolingTypes: ['Rescue'],
+        schools: [3],
         startParkingLots: 1,
         icon: 'house-medical',
     },
@@ -949,6 +960,7 @@ export default {
         startPersonnel: 0,
         startVehicles: ['None. You can buy a max of 2 Vehicles'],
         schoolingTypes: ['Rescue'],
+        schools: [3],
         startParkingLots: 2,
         startBeds: 5,
         parkingLotsPerLevel: 0,
@@ -981,6 +993,7 @@ export default {
         startPersonnel: 1,
         startVehicles: [''],
         schoolingTypes: ['Rescue', 'Police', 'Fire'],
+        schools: [2, 3, 8],
         startParkingLots: 1,
         icon: 'house-flag',
     },
@@ -1001,6 +1014,7 @@ export default {
         startPersonnel: 0,
         startVehicles: [''],
         schoolingTypes: [],
+        schools: [],
         startParkingLots: 0,
         icon: 'poo',
     },
@@ -1021,6 +1035,7 @@ export default {
         startPersonnel: 0,
         startVehicles: [''],
         schoolingTypes: [],
+        schools: [],
         startParkingLots: 0,
         icon: 'poo',
     },
@@ -1062,6 +1077,7 @@ export default {
         startPersonnel: 10,
         startVehicles: [],
         schoolingTypes: ['Rescue'],
+        schools: [3],
         startParkingLots: 5,
         icon: 'biohazard',
     },
@@ -1146,6 +1162,7 @@ export default {
         startPersonnel: 20,
         startVehicles: [],
         schoolingTypes: ['Police'],
+        schools: [8],
         startParkingLots: 10,
         startCells: 0,
         parkingLotsPerLevel: 2,
@@ -1196,6 +1213,7 @@ export default {
         startPersonnel: 5,
         startVehicles: [''],
         schoolingTypes: ['Water Rescue'],
+        schools: [29],
         startParkingLots: 1,
         parkingLotsPerLevel: 1,
         icon: 'staff-snake',
@@ -1253,6 +1271,7 @@ export default {
         startPersonnel: 4,
         startVehicles: [''],
         schoolingTypes: ['Water Rescue'],
+        schools: [29],
         startParkingLots: 1,
         parkingLotsPerLevel: 1,
         icon: 'staff-snake',
@@ -1283,6 +1302,7 @@ export default {
         special:
             "Finance Admins and admins can (expand) association Lifeboat College with the help of credits from the association's Funds. Alliance Educators and admins can start training courses at association Lifeboat College.",
         startClassrooms: 1,
+        school: 'Water Rescue',
         icon: 'graduation-cap',
     },
     30: {
@@ -1353,6 +1373,7 @@ export default {
         startPersonnel: 1,
         startVehicles: [],
         schoolingTypes: ['Water Rescue'],
+        schools: [29],
         startParkingLots: 1,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
@@ -1429,6 +1450,7 @@ export default {
         startPersonnel: 10,
         startVehicles: [''],
         schoolingTypes: ['Water Rescue'],
+        schools: [29],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },

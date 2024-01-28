@@ -72,7 +72,7 @@ export default {
             color: '#ffa500',
         },
         Polizei: {
-            buildings: [6, 8, 11, 13, 17, 19],
+            buildings: [6, 8, 11, 13, 17, 19, 24],
             color: '#00ac00',
         },
         THW: {
@@ -126,6 +126,7 @@ export default {
                 'SEK': [79, 80],
                 'MEK': [81, 82],
                 'Diensthunde': [94],
+                ['Reiterstaffel']: [134, 135, 136, 137],
             },
             color: '#00ac00',
         },

@@ -34,7 +34,7 @@ Bei jedem Aufruf der Hauptseite des Spiels werden die Telemetrie-Daten (falls ak
 Ist bereits ein Datensatz für den Nutzer vorhanden, so wird dieser überschrieben, ein Verlauf der Einzeldaten wird nicht gespeichert.
 Hat ein Datensatz für mehr als 6 Monate keine Aktualisierung erhalten, so wird dieser automatisch gelöscht.
 
-# Veröffentlichung von Statistiken
+## Veröffentlichung von Statistiken
 
 Folgende Statistiken der Telemetrie können durch das LSSM-Team veröffentlicht werden:
 

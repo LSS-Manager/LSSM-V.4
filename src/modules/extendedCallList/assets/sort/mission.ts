@@ -31,8 +31,9 @@ export default async (
     });
 
     const insertPoint =
-        document.querySelector<HTMLDivElement>('#mission_alarm_btn')
-            ?.parentElement;
+        document.querySelector<HTMLDivElement>(
+            '#mission_alarm_btn'
+        )?.parentElement;
     if (!insertPoint) return;
 
     const flashStorageKey = LSSM.$stores.root.nodeAttribute(

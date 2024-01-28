@@ -7,83 +7,77 @@ import type { InternalBuilding } from 'typings/Building';
 import type { InternalEquipments } from 'typings/Equipment';
 import type { InternalVehicle } from 'typings/Vehicle';
 
-const translationStore = defineStore('translationUtilities', {
-    state: () => ({
-        LSSM: window[PREFIX] as Vue,
-    }),
-    getters: {
-        buildings: state =>
-            state.LSSM.$t('buildings') as unknown as Record<
-                number,
-                InternalBuilding
-            >,
-        vehicles: state =>
-            state.LSSM.$t('vehicles') as unknown as Record<
-                number,
-                InternalVehicle
-            >,
-        vehicleBuildings(): number[] {
-            return Object.entries(this.buildings)
-                .filter(([, building]) => 'startVehicles' in building)
-                .map(([id]) => parseInt(id.toString()));
-        },
-        dispatchCenterBuildings(): number[] {
-            return Object.entries(this.buildings)
-                .filter(
-                    ([, building]) =>
-                        'isDispatchCenter' in building &&
-                        building.isDispatchCenter
-                )
-                .map(([id]) => parseInt(id.toString()));
-        },
-        stagingAreaBuildings(): number[] {
-            return Object.entries(this.buildings)
-                .filter(
-                    ([, building]) =>
-                        'isStagingArea' in building && building.isStagingArea
-                )
-                .map(([id]) => parseInt(id.toString()));
-        },
-        cellBuildings(): number[] {
-            return Object.entries(this.buildings)
-                .filter(([, building]) => 'startCells' in building)
-                .map(([id]) => parseInt(id.toString()));
-        },
-        bedBuildings(): number[] {
-            return Object.entries(this.buildings)
-                .filter(([, building]) => 'startBeds' in building)
-                .map(([id]) => parseInt(id.toString()));
-        },
-        cellExtensions(): string[] {
-            return this.cellBuildings.flatMap(building =>
-                this.buildings[building].extensions
-                    .map((extension, index) =>
-                        extension && 'newCells' in extension
-                            ? `${building}_${index}`
-                            : ''
-                    )
-                    .filter(e => !!e)
-            );
-        },
-        classroomBuildings(): number[] {
-            return Object.entries(this.buildings)
-                .filter(([, building]) => 'startClassrooms' in building)
-                .map(([id]) => parseInt(id.toString()));
-        },
-        buildingIcons(): Record<number, IconName> {
-            return Object.fromEntries(
-                Object.entries(this.buildings).map(([id, { icon }]) => [
-                    id,
-                    icon,
-                ])
-            );
-        },
-        equipment: state => {
-            return state.LSSM.$t(
-                'equipment'
-            ) as unknown as InternalEquipments<string>;
-        },
-    },
+const translationStore = defineStore('translationUtilities', () => {
+    const LSSM = window[PREFIX] as Vue;
+
+    const buildings = LSSM.$t('buildings') as unknown as Record<
+        number,
+        InternalBuilding
+    >;
+    const vehicles = LSSM.$t('vehicles') as unknown as Record<
+        number,
+        InternalVehicle
+    >;
+    const equipment = LSSM.$t(
+        'equipment'
+    ) as unknown as InternalEquipments<string>;
+
+    const vehicleBuildings = Object.entries(buildings)
+        .filter(([, building]) => 'startVehicles' in building)
+        .map(([id]) => parseInt(id.toString()));
+
+    const dispatchCenterBuildings = Object.entries(buildings)
+        .filter(
+            ([, building]) =>
+                'isDispatchCenter' in building && building.isDispatchCenter
+        )
+        .map(([id]) => parseInt(id.toString()));
+
+    const stagingAreaBuildings = Object.entries(buildings)
+        .filter(
+            ([, building]) =>
+                'isStagingArea' in building && building.isStagingArea
+        )
+        .map(([id]) => parseInt(id.toString()));
+
+    const bedBuildings = Object.entries(buildings)
+        .filter(([, building]) => 'startBeds' in building)
+        .map(([id]) => parseInt(id.toString()));
+
+    const cellBuildings = Object.entries(buildings)
+        .filter(([, building]) => 'startCells' in building)
+        .map(([id]) => parseInt(id.toString()));
+    const cellExtensions = cellBuildings.flatMap(building =>
+        buildings[building].extensions
+            .map((extension, index) =>
+                extension && 'newCells' in extension
+                    ? `${building}_${index}`
+                    : ''
+            )
+            .filter(e => !!e)
+    );
+
+    const classroomBuildings = Object.entries(buildings)
+        .filter(([, building]) => 'startClassrooms' in building)
+        .map(([id]) => parseInt(id.toString()));
+
+    const buildingIcons: Record<number, IconName> = Object.fromEntries(
+        Object.entries(buildings).map(([id, { icon }]) => [id, icon])
+    );
+
+    return {
+        buildings,
+        vehicles,
+        equipment,
+        vehicleBuildings,
+        dispatchCenterBuildings,
+        stagingAreaBuildings,
+        bedBuildings,
+        cellBuildings,
+        cellExtensions,
+        classroomBuildings,
+        buildingIcons,
+    };
 });
 
 export const useTranslationStore: () => ReturnType<

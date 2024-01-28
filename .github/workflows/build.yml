@@ -79,7 +79,7 @@ jobs:
               run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
             - name: '[💽] restore cache'
-              uses: actions/cache@v3
+              uses: actions/cache@v4
               id: yarn_cache
               with:
                   path: |
@@ -203,7 +203,7 @@ jobs:
             - name: '[☁️] upload artifact'
               id: artifact
               if: ${{ success() || failure() }}
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                   name: LSSM_V4-${{ github.sha }}
                   path: dist.zip
