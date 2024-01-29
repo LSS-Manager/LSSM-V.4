@@ -206,7 +206,7 @@
         "version": "2.29.1"
     },
     "eslint-plugin-jsdoc": {
-        "version": "48.0.3"
+        "version": "48.0.4"
     },
     "eslint-plugin-markdownlint": {
         "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",
