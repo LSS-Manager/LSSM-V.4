@@ -108,7 +108,7 @@
                 "vehicles": [2, 85]
             },
             { "texts": ["ELW 1 (SEG)"], "vehicles": [59] },
-            { "texts": ["ELW 1"], "vehicles": [3, 34, 78, 128] },
+            { "texts": ["ELW 1"], "vehicles": [3, 34, 78, 128, 129] },
             { "texts": ["ELW 2"], "vehicles": [34, 78, 129] },
             {
                 "texts": ["Fahrzeug des THW (MzKW oder GKW)"],
