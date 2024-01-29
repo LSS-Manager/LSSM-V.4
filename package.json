@@ -5,6 +5,7 @@
     "scripts": {
         "quickbuild": "./build/build.sh --quick",
         "dev": "./build/build.sh --full",
+        "dev:serve": "ws -d dist --https -p 8080 --hostname localhost",
         "build": "./build/build.sh --full --production",
         "docs": "./build/build.sh --docs",
         "format": "./build/build.sh --format",
@@ -85,6 +86,7 @@
         "html-loader": "5.0.0",
         "husky": "9.0.6",
         "js-yaml": "4.1.0",
+        "local-web-server": "5.3.1",
         "moment-timezone": "0.5.44",
         "prettier": "3.2.4",
         "sass": "1.70.0",
