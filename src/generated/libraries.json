@@ -266,6 +266,9 @@
         "url": "https://github.com/Leaflet/Leaflet.heat",
         "version": "0.2.0"
     },
+    "local-web-server": {
+        "version": "5.3.1"
+    },
     "localforage": {
         "url": "https://github.com/localForage/localForage",
         "version": "1.10.0"
