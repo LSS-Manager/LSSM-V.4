@@ -83,6 +83,7 @@ export default (
                                       `/${lang}/contributing/committing`,
                                       `/${lang}/contributing/prs`,
                                       `/${lang}/contributing/translations`,
+                                      `/${lang}/contributing/development`,
                                   ],
                               },
                           ]
