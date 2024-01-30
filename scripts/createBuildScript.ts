@@ -182,7 +182,7 @@ ${Object.entries(shortcuts)
     shift
 done`,
         `# expose the set port (or default port) as environment variable for local server
-if [[ $${getStepName('live_server')} = true ]]; then
+if [[ $${getStepName('serve')} = true ]]; then
     if [[ -z "$_PORT" ]]; then
         export ${PORT_ENV_KEY}=36551 # because 536551 is LSSM in base 29 but port numbers are 16-bit only so we omit the leading 5
     else
