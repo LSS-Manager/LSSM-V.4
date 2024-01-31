@@ -122,30 +122,38 @@
         "icon": "https://typescript-eslint.io/img/typescript.svg",
         "version": "6.19.1"
     },
+    "@vuepress/bundler-vite": {
+        "url": "https://github.com/vuepress",
+        "version": "2.0.0-rc.2"
+    },
     "@vuepress/client": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-rc.0"
+        "version": "2.0.0-rc.2"
     },
     "@vuepress/plugin-pwa": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-rc.0"
+        "version": "2.0.0-rc.3"
     },
     "@vuepress/plugin-pwa-popup": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-rc.0"
+        "version": "2.0.0-rc.3"
     },
     "@vuepress/plugin-register-components": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-rc.0"
+        "version": "2.0.0-rc.3"
     },
     "@vuepress/plugin-search": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-rc.0"
+        "version": "2.0.0-rc.3"
+    },
+    "@vuepress/theme-default": {
+        "url": "https://github.com/vuepress",
+        "version": "2.0.0-rc.3"
     },
     "acorn": {
         "icon": "https://avatars.githubusercontent.com/u/34631683",
@@ -421,16 +429,11 @@
     "vuepress": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-rc.0"
-    },
-    "vuepress-plugin-clipboard": {
-        "icon": "https://vuepress.qbb.sh/hero.png",
-        "url": "https://vuepress.qbb.sh/clipboard",
-        "version": "2.1.5"
+        "version": "2.0.0-rc.2"
     },
     "vuepress-plugin-sitemap2": {
         "url": "https://plugin-sitemap2.vuejs.press/",
-        "version": "2.0.0-rc.13"
+        "version": "2.0.0-rc.16"
     },
     "webpack": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
