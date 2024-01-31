@@ -7657,7 +7657,7 @@ __metadata:
     vue: "npm:3.4.15"
     vuepress: "npm:2.0.0-rc.0"
     vuepress-plugin-clipboard: "npm:2.1.5"
-    vuepress-plugin-sitemap2: "npm:2.0.0-rc.13"
+    vuepress-plugin-sitemap2: "npm:2.0.0-rc.16"
   languageName: unknown
   linkType: soft
 
@@ -11319,36 +11319,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vuepress-plugin-sitemap2@npm:2.0.0-rc.13":
-  version: 2.0.0-rc.13
-  resolution: "vuepress-plugin-sitemap2@npm:2.0.0-rc.13"
+"vuepress-plugin-sitemap2@npm:2.0.0-rc.16":
+  version: 2.0.0-rc.16
+  resolution: "vuepress-plugin-sitemap2@npm:2.0.0-rc.16"
   dependencies:
-    "@vuepress/shared": "npm:2.0.0-rc.0"
-    "@vuepress/utils": "npm:2.0.0-rc.0"
     sitemap: "npm:^7.1.1"
-    vuepress-shared: "npm:2.0.0-rc.13"
+    vuepress-shared: "npm:2.0.0-rc.16"
   peerDependencies:
-    vuepress: 2.0.0-rc.0
-    vuepress-vite: 2.0.0-rc.0
-    vuepress-webpack: 2.0.0-rc.0
-  peerDependenciesMeta:
-    vuepress:
-      optional: true
-    vuepress-vite:
-      optional: true
-    vuepress-webpack:
-      optional: true
-  checksum: 33f3837ce1459c469b802172538938f283f79533e4d7541c469f629398a6badf22a581188aae291feea118b618ffb9edd0ad4b644b48d8d2a5571845e2fffc71
+    vuepress: 2.0.0-rc.2
+  checksum: 103f13ddd2195832e8712af463687e578fe135d3eda646b22da5f4336b53b05401ae435cb6931fbd734efb3cf3ca11984ea73b3826df8020e9a2df7d1bf08e5c
   languageName: node
   linkType: hard
 
-"vuepress-shared@npm:2.0.0-rc.13":
-  version: 2.0.0-rc.13
-  resolution: "vuepress-shared@npm:2.0.0-rc.13"
+"vuepress-shared@npm:2.0.0-rc.16":
+  version: 2.0.0-rc.16
+  resolution: "vuepress-shared@npm:2.0.0-rc.16"
   dependencies:
-    "@vuepress/client": "npm:2.0.0-rc.0"
-    "@vuepress/shared": "npm:2.0.0-rc.0"
-    "@vuepress/utils": "npm:2.0.0-rc.0"
     "@vueuse/core": "npm:^10.7.2"
     cheerio: "npm:1.0.0-rc.12"
     dayjs: "npm:^1.11.10"
@@ -11360,17 +11346,8 @@ __metadata:
     vue: "npm:^3.4.15"
     vue-router: "npm:^4.2.5"
   peerDependencies:
-    vuepress: 2.0.0-rc.0
-    vuepress-vite: 2.0.0-rc.0
-    vuepress-webpack: 2.0.0-rc.0
-  peerDependenciesMeta:
-    vuepress:
-      optional: true
-    vuepress-vite:
-      optional: true
-    vuepress-webpack:
-      optional: true
-  checksum: b1307bf8c05f0f4d86bdc83d0a9c81ab5eb17d7e72fbabb1f346e44d4fbef26f34cf1ce8be739ab4400f2cb20d3968a866d3802c0729870fbd865d88da4eddd5
+    vuepress: 2.0.0-rc.2
+  checksum: e00e00939cc56a4f1a70d98463167547b0a6f78aae250fae35309353dde27359f0e0f43a2a681c63908fe79ed283f676d160c124b410bc210861f46e081fdec8
   languageName: node
   linkType: hard
 
