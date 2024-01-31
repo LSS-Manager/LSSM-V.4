@@ -1,13 +1,16 @@
 import fs from 'fs';
 import path from 'path';
 
-import pluginClipboard from 'vuepress-plugin-clipboard';
+import { defaultTheme } from '@vuepress/theme-default';
+import { defineUserConfig } from 'vuepress';
+// TODO: Wait for an update of vuepress-plugin-clipboard that uses a newer vuepress version
+// import pluginClipboard from 'vuepress-plugin-clipboard';
 import pluginRegisterComponents from '@vuepress/plugin-register-components';
 import pluginSearch from '@vuepress/plugin-search';
 import { pwaPlugin } from '@vuepress/plugin-pwa';
 import { pwaPopupPlugin } from '@vuepress/plugin-pwa-popup';
 import { sitemapPlugin } from 'vuepress-plugin-sitemap2';
-import { defaultTheme, defineUserConfig } from 'vuepress';
+import { viteBundler } from '@vuepress/bundler-vite';
 
 import childProcess from './utils/childProcess';
 import config from '../../src/config';
@@ -191,6 +194,7 @@ const __VAR__ = {
 } as DocsVar;
 
 export default defineUserConfig({
+    bundler: viteBundler(),
     // site config
     base: BASE,
     lang: 'en-US',
@@ -309,7 +313,7 @@ export default defineUserConfig({
             hostname: DOCS_URL.toString(),
             changefreq: 'always',
         }),
-        pluginClipboard({ align: 'top', staticIcon: true }),
+        // pluginClipboard({ align: 'top', staticIcon: true }),
         pluginSearch({ locales: localeConfigs.searchConfigs }),
         pluginRegisterComponents({
             components: {
