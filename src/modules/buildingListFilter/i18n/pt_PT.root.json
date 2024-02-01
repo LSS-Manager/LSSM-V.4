@@ -13,7 +13,10 @@
     "name": "Lista de Edifícios Customizável",
     "settings": {
         "buildings": "Tipos de Edifícios",
-        "contentType": { "labels": ["Texto", "Ícone"], "title": "Texto ou Ícone?" },
+        "contentType": {
+            "labels": ["Texto", "Ícone"],
+            "title": "Texto ou Ícone?"
+        },
         "filters": {
             "description": "Podes escolher entre <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">todos os ícones de graça em Font-Awesome</a>. Apenas precisas de escrever o nome do ícone na caixa \"Título (ou Ícone)\". Depois irá aparecer uma visualização do ícone.",
             "title": "Filtros"

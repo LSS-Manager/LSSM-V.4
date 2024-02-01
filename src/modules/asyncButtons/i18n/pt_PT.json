@@ -7,10 +7,7 @@
             "title": "Despedir?"
         }
     },
-    "buildings": {
-        "active": "Em serviço",
-        "nonactive": "Fora de serviço"
-    },
+    "buildings": { "active": "Em serviço", "nonactive": "Fora de serviço" },
     "deleteARR": {
         "deleteModal": {
             "btnCancel": "Cancelar",

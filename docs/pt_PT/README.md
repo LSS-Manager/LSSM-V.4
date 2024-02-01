@@ -1,6 +1,6 @@
 ---
 title: LSS-Manager V.4
-lang: pt_PT
+lang: pt-PT
 sidebarDepth: 2
 ---
 
@@ -12,9 +12,9 @@ sidebarDepth: 2
 
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
-[Estado do servidor LSSM][lssm.status]
+[LSSM-Server-Status][lssm.status]
 
-[Estado do jogo](https://status.lss-manager.de/status/missionchief)
+[Game-Online-Status](https://status.lss-manager.de/status/missionchief)
 
 <!-- Do NOT edit anything above this line! Any edits will be removed as content is auto generated! -->
 
@@ -66,18 +66,18 @@ Se houver algum problema, fique à vontade para contactar [Suporte][docs.support
 [lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
-[docs.home]: /en_US/
-[docs.apps]: /en_US/apps.md
-[docs.appstore]: /en_US/appstore.md
-[docs.bugs]: /en_US/bugs.md
-[docs.error_report]: /en_US/error_report.md
-[docs.faq]: /en_US/faq.md
-[docs.metadata]: /en_US/metadata.md
-[docs.other]: /en_US/other.md
-[docs.settings]: /en_US/settings.md
-[docs.suggestions]: /en_US/suggestions.md
-[docs.support]: /en_US/support.md
-[games.self]: https://missionchief.com
+[docs.home]: /pt_PT/
+[docs.apps]: /pt_PT/apps.md
+[docs.appstore]: /pt_PT/appstore.md
+[docs.bugs]: /pt_PT/bugs.md
+[docs.error_report]: /pt_PT/error_report.md
+[docs.faq]: /pt_PT/faq.md
+[docs.metadata]: /pt_PT/metadata.md
+[docs.other]: /pt_PT/other.md
+[docs.settings]: /pt_PT/settings.md
+[docs.suggestions]: /pt_PT/suggestions.md
+[docs.support]: /pt_PT/support.md
+[games.self]: https://jogo-operador112.com
 [tampermonkey]: https://tampermonkey.net/
 [github]: https://github.com/LSS-Manager/LSSM-V.4
 [github.issues]: https://github.com/LSS-Manager/LSSM-V.4/issues

@@ -8,7 +8,9 @@
         "additional": "Valores entre parêntesis exclui veículos em Status 6.",
         "demand": "Funcionários necessários"
     },
-    "renewAllStagingAreas": { "title": "Reverter todas as Zonas de Concentração" },
+    "renewAllStagingAreas": {
+        "title": "Reverter todas as Zonas de Concentração"
+    },
     "schoolingSummary": {
         "all": "Todas as combinações",
         "amount": "Quantidade",

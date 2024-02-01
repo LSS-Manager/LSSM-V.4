@@ -210,7 +210,8 @@ export default {
         staff: { min: 1, max: 2 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        special: 'Requer que tenhas pelo menos construído 5 corpos dos bombeiros.',
+        special:
+            'Requer que tenhas pelo menos construído 5 corpos dos bombeiros.',
     },
     16: {
         caption: 'VSAE',
