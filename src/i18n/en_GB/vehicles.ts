@@ -1374,13 +1374,12 @@ export default {
         },
         icon: 'car-side',
         special:
-            'Needed towing vehicle (Water Ladder, Light 4X4 Pump (L4P), Rescue Support Unit (RSU))',
+            'Needed towing vehicle (Water Ladder, Light 4X4 Pump (L4P), Rescue Support Unit (RSU)), Pumps Water out of any flooded location',
         pumpCapacity: 4000,
         pumpType: 'fire',
         possibleBuildings: [0, 18],
         isTrailer: true,
         tractiveVehicles: [0, 1, 4],
-        special: 'Pumps Water out of any flooded location',
     },
     85: {
         caption: 'Control Van',
