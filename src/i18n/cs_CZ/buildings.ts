@@ -68,6 +68,7 @@ export default {
         startVehicles: ['CAS 20', 'CAS 30'],
         startParkingLots: 1,
         schoolingTypes: ['Školní a výcvikové zařízení HZS'],
+        schools: [1],
         icon: 'fire-flame-curved',
     },
     1: {
@@ -94,6 +95,7 @@ export default {
         maxBuildings: 'No limit',
         maxLevel: 0,
         startClassrooms: 1,
+        school: '',
         special:
             "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire- brigade schools.",
         icon: 'graduation-cap',
@@ -136,6 +138,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['RZP'],
         schoolingTypes: ['Zdravotnická akademie'],
+        schools: [3],
         icon: 'house-medical',
     },
     3: {
@@ -162,6 +165,7 @@ export default {
         maxBuildings: 'No limit',
         maxLevel: 0,
         startClassrooms: 1,
+        school: '',
         special:
             "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire- brigade schools.",
         icon: 'graduation-cap',
@@ -284,6 +288,7 @@ export default {
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
         schoolingTypes: ['Zdravotnická akademie'],
+        schools: [3],
         icon: 'circle-h',
     },
     6: {
@@ -355,6 +360,7 @@ export default {
         startCells: 0,
         startVehicles: ['Policejní automobil'],
         schoolingTypes: ['Policejní Akademie'],
+        schools: [8],
         icon: 'building-shield',
     },
     7: {
@@ -400,6 +406,7 @@ export default {
         maxBuildings: 'No limit',
         maxLevel: 0,
         startClassrooms: 1,
+        school: '',
         special:
             "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
         icon: 'graduation-cap',
@@ -427,6 +434,7 @@ export default {
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
         schoolingTypes: ['Policejní Akademies'],
+        schools: [8],
         icon: 'helicopter',
     },
     14: {
@@ -466,6 +474,7 @@ export default {
         startVehicles: [],
         startParkingLots: 1,
         schoolingTypes: ['Školící středisko VZS ČČK'],
+        schools: [3],
         icon: 'person-swimming',
     },
     16: {
@@ -520,6 +529,7 @@ export default {
         startVehicles: ['CAS 20', 'CAS 30'],
         startParkingLots: 1,
         schoolingTypes: ['Školní a výcvikové zařízení HZS'],
+        schools: [2],
         icon: 'fire-flame-curved',
     },
     19: {
@@ -546,6 +556,7 @@ export default {
         startVehicles: ['Policejní automobil'],
         startParkingLots: 1,
         schoolingTypes: ['Policejní Akademie'],
+        schools: [8],
         icon: 'building-shield',
     },
     20: {
@@ -571,6 +582,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['RZP'],
         schoolingTypes: ['Zdravotnická akademie'],
+        schools: [3],
         icon: 'house-medical',
     },
     21: {
@@ -591,6 +603,7 @@ export default {
         startVehicles: ['Vozidlo pyrotechnika PČR'],
         startParkingLots: 2,
         schoolingTypes: ['Policejní Akademie'],
+        schools: [8],
         icon: 'explosion',
     },
     22: {
@@ -619,6 +632,7 @@ export default {
         special:
             "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
         startClassrooms: 1,
+        school: '',
         icon: 'graduation-cap',
     },
 } satisfies Record<number, InternalBuilding>;

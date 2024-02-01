@@ -120,6 +120,7 @@ export default {
                 'Arrestantenvervoer': [58],
                 'Biketeam': [60],
                 'Paarden': [73, 74, 75],
+                'Dienst Infra': [46, 98, 99],
             },
             color: '#00ac00',
         },

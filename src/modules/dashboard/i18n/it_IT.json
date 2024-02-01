@@ -27,8 +27,13 @@
         "maxMissions": { "title": "Maximum missions" },
         "vehicles": {
             "empty": "Non hai ancora nessun veicolo in questa categoria {category} !",
+            "foam": "Foam",
+            "foamWithBonus": "incl. Bonus",
+            "liquidUnit": "L.",
             "tip": "Clicca su un gruppo di tipi di veicolo per vedere solo questo gruppo.",
-            "title": "Veicoli"
+            "title": "Veicoli",
+            "water": "Water",
+            "waterWithBonus": "incl. Bonus"
         }
     },
     "dispatchcenter-view": {

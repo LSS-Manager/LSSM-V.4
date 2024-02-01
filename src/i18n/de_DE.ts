@@ -72,7 +72,7 @@ export default {
             color: '#ffa500',
         },
         Polizei: {
-            buildings: [6, 8, 11, 13, 17, 19],
+            buildings: [6, 8, 11, 13, 17, 19, 24],
             color: '#00ac00',
         },
         THW: {
@@ -114,6 +114,7 @@ export default {
                 'SEG-Fahrzeuge': [58, 59, 60],
                 'Rettungshundefahrzeuge': [91],
                 'Drohne': [127],
+                ['BT & VPF']: [130, 131, 132, 133],
             },
             color: '#ffa500',
         },
@@ -125,6 +126,7 @@ export default {
                 'SEK': [79, 80],
                 'MEK': [81, 82],
                 'Diensthunde': [94],
+                ['Reiterstaffel']: [134, 135, 136, 137],
             },
             color: '#00ac00',
         },
@@ -274,6 +276,7 @@ export default {
             1_000_000_000: 'Stv. Landesbrandmeister(in)',
             2_000_000_000: 'Landesbrandmeister(in)',
             5_000_000_000: 'Ehrenmitglied',
+            10_000_000_000: 'Stv. Bundesbranddirektor(in)',
         },
         policechief: {
             0: 'Polizeimeisteranwärter(in)',
@@ -290,7 +293,8 @@ export default {
             500_000_000: 'Leitende(r) Polizeidirektor(in)',
             1_000_000_000: 'Direktor(in) der Bundespolizei',
             2_000_000_000: 'Präsident(in) der Bundespolizeidirektion',
-            5_000_000_000: 'Präsident(in) der Bundespolizei',
+            5_000_000_000: 'Vizepräsident(in) der Bundespolizei',
+            10_000_000_000: 'Präsident(in) der Bundespolizei',
         },
     },
 };

@@ -11,39 +11,39 @@
             "title": "Formato della data e dell'ora."
         },
         "cloneHistoryBtnToHeader": {
-            "description": "Shows the button for chat-history in the header so that you don't have to scroll down he chat to access it.",
-            "title": "Show Chat-History in Header"
+            "description": "Mostra il pulsante per la cronologia chat nell'intestazione in modo che tu non debba scorrere verso il basso la chat per accedervi.",
+            "title": "Mostra cronologia chat nell'intestazione"
         },
         "lightDesignChatHistory": {
-            "description": "A light design of the chat-history",
-            "title": "Chat-history light design"
+            "description": "Un design leggero della cronologia della chat",
+            "title": "Progettazione delle luci della cronologia chat"
         },
         "mentionIndicator": {
-            "description": "Shows a small @-icon in the chat input when you're about to mention someone",
-            "title": "Mentioning indicator"
+            "description": "Mostra una piccola @-icon nell'input della chat quando stai per menzionare qualcuno",
+            "title": "Indicatore menzione"
         },
         "selfHighlight": {
-            "description": "highlights your username in the chat with a custom color",
-            "title": "custom color in chat"
+            "description": "Evidenzia il tuo nome utente nella chat con un colore personalizzato",
+            "title": "Colore personalizzato in chat"
         },
         "selfHighlightColor": {
-            "description": "choose here, which color your username should be highlighted in",
-            "title": "custom color in chat: background color"
+            "description": "scegli qui il colore con cui evidenziare il tuo nome utente",
+            "title": "colore personalizzato in chat: colore di sfondo"
         },
         "selfHighlightCustomTextColor": {
-            "description": "Do you want to use a custom text color?",
-            "title": "custom color in chat: custom text color"
+            "description": "Vuoi utilizzare un colore di testo personalizzato?",
+            "title": "Colore personalizzato in chat: colore del testo personalizzato"
         },
         "selfHighlightCustomTextColorColor": {
-            "title": "custom color in chat: custom text color"
+            "title": "colore personalizzato in chat: colore del testo personalizzato"
         },
         "userSelection": {
-            "description": "Displays a suggestion list of alliance members when whispering or mentioning, allowing them to be quickly inserted into the chat input field (keyboard control with arrow keys & enter is supported).",
-            "title": "User Selection"
+            "description": "Visualizza un elenco di suggerimenti dei membri dell'alleanza quando sussurrano o menzionano, consentendo loro di essere rapidamente inseriti nel campo di input della chat (è supportato il controllo da tastiera con tasti freccia e invio).",
+            "title": "Selezione utente"
         },
         "whisperIndicator": {
-            "description": "Shows a small lock icon in the chat input when you're currently whispering",
-            "title": "Whisper indicator"
+            "description": "Mostra una piccola icona a forma di lucchetto nell'input della chat quando stai sussurrando",
+            "title": "Indicatore sussurro"
         }
     }
 }

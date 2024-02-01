@@ -103,6 +103,7 @@ declare global {
             back(): void;
             clear(): void;
         };
+        aao_types: [string, string][];
         pressedKeys?: Record<number, boolean>; // in missions window
         lightboxOpen(link: string): void;
         successfullMessage(html: string): void;
@@ -197,6 +198,7 @@ declare module 'vue/types/vue' {
                 countdown: number,
                 initialCall?: boolean
             ): void;
+            getScrollParent(element: HTMLElement): HTMLElement | null;
             highChartsDarkMode: Highcharts.Options;
         };
         $appstore: CombinedVueInstance<

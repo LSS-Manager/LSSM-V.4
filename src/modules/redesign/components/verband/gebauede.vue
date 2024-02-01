@@ -22,9 +22,34 @@
                     schooling: { title: '', noSort: true },
                 }"
                 :table-attrs="{ class: 'table table-striped' }"
-                no-search
+                :search="search"
+                @search="s => (search = s)"
             >
-                <tr v-for="gebauede in gebauede.buildings" :key="gebauede.id">
+                <template v-slot:head>
+                    <div class="filters">
+                        <template
+                            v-for="type in buildingTypesSorted.filter(
+                                type => buildingTypesAmount[type] > 0
+                            )"
+                        >
+                            <span
+                                class="label"
+                                :class="`label-${
+                                    hiddenFilters.has(type)
+                                        ? 'danger'
+                                        : 'success'
+                                }`"
+                                :key="type"
+                                @click="toggleFilter(type)"
+                                @dblclick="onlyFilter(type)"
+                            >
+                                {{ buildingTypes[type].caption }}:
+                                {{ buildingTypesAmount[type].toLocaleString() }}
+                            </span>
+                        </template>
+                    </div>
+                </template>
+                <tr v-for="gebauede in filteredBuildings" :key="gebauede.id">
                     <td>
                         <font-awesome-icon
                             class="map-locator"
@@ -92,6 +117,7 @@ import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons/faMapMarkedAlt
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { RedesignSubComponent } from 'typings/modules/Redesign';
+import type { VerbandGebaeudeWindow } from '../../parsers/verband/gebauede';
 import type { FeatureGroup, Marker } from 'leaflet';
 
 type Component = RedesignSubComponent<
@@ -101,6 +127,19 @@ type Component = RedesignSubComponent<
         faMapMarkedAlt: IconDefinition;
         markers: Marker[];
         markerFeatureGroup: FeatureGroup;
+        search: string;
+        buildingTypes: Vue['$stores']['translations']['buildings'];
+        buildingTypesSorted: number[];
+        hiddenFilters: Set<number>;
+    },
+    {
+        toggleFilter(type: number): void;
+        onlyFilter(type: number): void;
+    },
+    {
+        filteredBuildings: VerbandGebaeudeWindow['buildings'];
+        allianceBuildings: Vue['$stores']['api']['allianceBuildingsById'];
+        buildingTypesAmount: Record<number, number>;
     }
 >;
 
@@ -126,6 +165,16 @@ export default Vue.extend<
             faMapMarkedAlt,
             markers: [],
             markerFeatureGroup: window.L.featureGroup(),
+            search: '',
+            buildingTypes: this.lightbox.translationStore.buildings,
+            buildingTypesSorted: Object.entries(
+                this.lightbox.translationStore.buildings
+            )
+                .sort(([, { caption: a }], [, { caption: b }]) =>
+                    a.localeCompare(b)
+                )
+                .map(([id]) => parseInt(id)),
+            hiddenFilters: new Set<number>(),
         };
     },
     props: {
@@ -158,6 +207,54 @@ export default Vue.extend<
             required: true,
         },
     },
+    computed: {
+        filteredBuildings() {
+            if (this.search || this.hiddenFilters.size) {
+                return this.gebauede.buildings.filter(
+                    ({ name, id }) =>
+                        name
+                            .toLowerCase()
+                            .includes(this.search.toLowerCase()) &&
+                        (this.hiddenFilters.size
+                            ? !this.hiddenFilters.has(
+                                  this.allianceBuildings[id]?.building_type
+                              )
+                            : true)
+                );
+            } else {
+                return this.gebauede.buildings;
+            }
+        },
+        allianceBuildings() {
+            return this.lightbox.apiStore.allianceBuildingsById;
+        },
+        buildingTypesAmount() {
+            const amounts: Record<number, number> = {};
+            this.gebauede.buildings.forEach(({ id }) => {
+                const building_type = this.allianceBuildings[id]?.building_type;
+                if (!building_type) return;
+                amounts[building_type] ??= 0;
+                amounts[building_type]++;
+            });
+            return amounts;
+        },
+    },
+    methods: {
+        toggleFilter(type) {
+            if (this.hiddenFilters.has(type)) this.hiddenFilters.delete(type);
+            else this.hiddenFilters.add(type);
+
+            // workaround on Vue2
+            this.hiddenFilters = new Set(this.hiddenFilters);
+        },
+        onlyFilter(type) {
+            this.hiddenFilters.clear();
+            this.hiddenFilters.add(type);
+
+            // workaround on Vue2
+            this.hiddenFilters = new Set(this.hiddenFilters);
+        },
+    },
     watch: {
         gebauede() {
             this.lightbox.finishLoading('verband/gebauede-updated-data');
@@ -180,6 +277,9 @@ export default Vue.extend<
             );
         });
         this.markerFeatureGroup = window.L.featureGroup(this.markers);
+        this.lightbox.apiStore.getAllianceBuildings(
+            'redesign/verband/gebaeude'
+        );
     },
     mounted() {
         this.lightbox.finishLoading('verband/gebauede-mounted');
@@ -196,6 +296,17 @@ export default Vue.extend<
 .row
     margin-left: 0
     margin-right: 0
+
+.filters
+    width: 100%
+    display: flex
+    flex-flow: row wrap
+    justify-content: space-between
+
+    span
+        margin-left: 5px
+        margin-right: 5px
+        cursor: pointer
 
 .map-locator
   cursor: pointer

@@ -42,6 +42,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['Camión BUP', 'Camión BUL', 'Vehículo de rescate'],
         schoolingTypes: ['Parque de bomberos'],
+        schools: [1],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -71,6 +72,7 @@ export default {
         special:
             'Los ministros y administradores de finanzas pueden (expandir) las escuelas del departamento de bomberos con la ayuda de créditos de la tesorería de la asociación. Los maestros y administradores de cursos de capacitación pueden comenzar cursos de capacitación en las escuelas del cuerpo de bomberos de la asociación.',
         startClassrooms: 1,
+        school: 'Paquete de bomberos',
         icon: 'graduation-cap',
     },
     2: {
@@ -97,6 +99,7 @@ export default {
         startPersonnel: 0,
         startVehicles: ['Ambulancia'],
         schoolingTypes: ['Rescate'],
+        schools: [3],
         startParkingLots: 1,
         icon: 'house-medical',
     },
@@ -126,6 +129,7 @@ export default {
         special:
             'Los ministros y administradores de finanzas pueden (expandir) las escuelas del departamento de bomberos con la ayuda de créditos de la tesorería de la asociación. Los maestros y administradores de cursos de capacitación pueden comenzar cursos de capacitación en las escuelas del cuerpo de bomberos de la asociación.',
         startClassrooms: 1,
+        school: 'Rescate',
         icon: 'graduation-cap',
     },
     4: {
@@ -228,6 +232,7 @@ export default {
         startPersonnel: 0,
         startVehicles: [],
         schoolingTypes: ['Rescate'],
+        schools: [3],
         startParkingLots: 1,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
@@ -275,6 +280,7 @@ export default {
         startCells: 0,
         startVehicles: ['Coche patrulla'],
         schoolingTypes: ['Policía'],
+        schools: [8],
         icon: 'building-shield',
     },
     7: {
@@ -322,6 +328,7 @@ export default {
         special:
             'Los ministros y administradores de finanzas pueden (expandir) las escuelas de policía de la alianza con la ayuda de créditos de la tesorería de la alianza. Los maestros y administradores de cursos de formación pueden comenzar cursos de formación en las escuelas de policía de la alianza.',
         startClassrooms: 1,
+        school: 'Ppolicía',
         icon: 'graduation-cap',
     },
     13: {
@@ -342,6 +349,7 @@ export default {
         startPersonnel: 3,
         startVehicles: [],
         schoolingTypes: ['Policía'],
+        schools: [8],
         startParkingLots: 1,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
@@ -442,6 +450,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['Camión BUP', 'Camión BUL', 'Vehículo de rescate'],
         schoolingTypes: ['Parque de bomberos'],
+        schools: [1],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -485,6 +494,7 @@ export default {
         startPersonnel: 2,
         startVehicles: ['Coche patrulla'],
         schoolingTypes: ['Policía'],
+        schools: [8],
         startParkingLots: 1,
         startCells: 0,
         icon: 'building-shield',
@@ -518,6 +528,7 @@ export default {
         startPersonnel: 3,
         startVehicles: ['Ambulancia'],
         schoolingTypes: ['Rescate'],
+        schools: [3],
         startParkingLots: 1,
         icon: 'house-medical',
     },
@@ -539,6 +550,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        schools: [],
         icon: 'poo',
     },
     22: {
@@ -559,6 +571,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        schools: [],
         icon: 'poo',
     },
 } satisfies Record<number, InternalBuilding>;

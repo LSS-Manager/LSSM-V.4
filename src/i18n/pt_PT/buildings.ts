@@ -94,7 +94,8 @@ export default {
             'A partir do 24º corpo de bombeiros e adiante, o custo de construção de um novo corpo de bombeiros aumenta segundo a seguinte fórmula: <code>(100.000+200.000*LOG<sub>2</sub>(Número de corpo de bombeiros existentes − 22))</code>. O preço das moedas é constante!',
         startPersonnel: 10,
         startVehicles: ['VFCI', 'VLCI'],
-        schoolingTypes: ['Escola de Formação de Bombeiros'],
+        schoolingTypes: ['Corpo de Bombeiros'],
+        schools: [1],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -124,6 +125,7 @@ export default {
         special:
             'Ministros das finanças e administradores podem expandir a escola de formação de bombeiros usando os creditos do tesouro da aliança. Educadores e administrador podem começar cursos na escola de formação de bombeiros.',
         startClassrooms: 1,
+        school: 'Corpod de Bombeiros',
         icon: 'graduation-cap',
     },
     2: {
@@ -143,7 +145,8 @@ export default {
         startPersonnel: 3,
         startParkingLots: 1,
         startVehicles: ['ABSC'],
-        schoolingTypes: ['Escola de Formação Pré-Hospitalar'],
+        schoolingTypes: ['Escola de Formação Pré-hospitalar'],
+        schools: [3],
         icon: 'house-medical',
     },
     3: {
@@ -172,6 +175,7 @@ export default {
         special:
             "Ministros das finanças e administradores podem expandir a escola de formação pré-hospitalar usando os créditos do tesouro da aliança. Educadores e administrador podem começar cursos na escola de formação pré-hospitalar.",
         startClassrooms: 1,
+        school: 'Resgate',
         icon: 'graduation-cap',
     },
     4: {
@@ -281,6 +285,7 @@ export default {
         startPersonnel: 1,
         startVehicles: [],
         schoolingTypes: ['Escola de Formação Pré-Hospitalar'],
+        schools: [3,
         startParkingLots: 1,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
@@ -371,8 +376,9 @@ export default {
         special:
             'A partir da 24º esquadra de polícia e adiante, o custo de construção de uma nova esquadra de polícia aumenta segundo a seguinte fórmula: <code>(100.000+200.000*LOG<sub>2</sub>(Número de esquadra de polícia existentes − 22))</code>. O preço das moedas é constante!',
         startPersonnel: 2,
-        startVehicles: ['CP'],
-        schoolingTypes: ['Escola Prática de Polícia'],
+        startVehicles: ['Carro de Patrulha'],
+        schoolingTypes: ['Polícia'],
+        schools: [8],
         startParkingLots: 1,
         startCells: 0,
         icon: 'building-shield',
@@ -422,6 +428,7 @@ export default {
         special:
             'Ministros das finanças e administradores podem expandir a escola prática de polícia usando os créditos do tesouro da aliança. Educadores e administrador podem começar cursos na escola prática de polícia.',
         startClassrooms: 1,
+        school: 'Policia',
         icon: 'graduation-cap',
     },
     9: {
@@ -561,6 +568,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['VFCI', 'VLCI'],
         schoolingTypes: ['Escola de Formação de Bombeiros'],
+        schools: [1],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -640,7 +648,8 @@ export default {
             'A partir da 24º esquadra de polícia e adiante, o custo de construção de uma nova esquadra de polícia aumenta segundo a seguinte fórmula: <code>(50.000+100.000*LOG<sub>2</sub>(Número de esquadra de polícia existentes − 22))</code>. O preço das moedas é constante!',
         startPersonnel: 2,
         startVehicles: ['CP'],
-        schoolingTypes: ['Escola Prática de Polícia'],
+        schoolingTypes: ['Escola Prática de Polícia']],
+        schools: [8],
         startCells: 0,
         startParkingLots: 1,
         icon: 'building-shield',
@@ -667,7 +676,8 @@ export default {
         startPersonnel: 3,
         startParkingLots: 1,
         startVehicles: ['ABSC'],
-        schoolingTypes: ['Escola de Formação Pré-Hospitalar'],
+        schoolingTypes: ['Escola de Formação Pré-Hospitalar''],
+        schools: [3],
         icon: 'house-medical',
     },
     14: {
@@ -702,6 +712,10 @@ export default {
     },
     15: {
         caption: 'Centro de Meios Aéreos Florestais',
+        startVehicles: ['None. You can buy a max. 2 Vehicles'],
+        schoolingTypes: ['Rescue'],
+        schools: [3],
+        icon: 'staff-snake',
         color: '#ce312b',
         coins: 50,
         credits: 1_500_000,
@@ -718,6 +732,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['HEBL'],
         schoolingTypes: ['Escola de Formação de Bombeiros'],
+        schools: [1],
         icon: 'plane',
     },
     16: {
@@ -737,6 +752,7 @@ export default {
         startPersonnel: 5,
         startVehicles: [],
         schoolingTypes: ['Academia Naval'],
+        schools: [26],
         startParkingLots: 1,
         icon: 'life-ring',
     },
@@ -766,6 +782,7 @@ export default {
         special:
             "Ministros das finanças e administradores podem expandir a academia naval usando os créditos do tesouro da aliança. Educadores e administrador podem começar cursos na academia naval.",
         startClassrooms: 1,
+        school: 'Resgate aquático',
         icon: 'graduation-cap',
     },
     18: {
@@ -806,6 +823,48 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        icon: 'poo',
+    },
+    22: {
+        caption: 'Large complex',
+        color: '#4d2304',
+        coins: -1,
+        credits: -1,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
+        extensions: [],
+        levelcost: ['Too Expensive'],
+        maxBuildings: 'No Limit',
+        maxLevel: 5,
+        special: "TOO EXPENSIVE, DON'T BUY IT, DON'T EXPAND IT",
+        startPersonnel: 0,
+        startVehicles: [''],
+        startParkingLots: 0,
+        schoolingTypes: [],
+        schools: [],
+        icon: 'poo',
+    },
+    23: {
+        caption: 'Small complex',
+        color: '#6e3408',
+        coins: -1,
+        credits: -1,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
+        extensions: [],
+        levelcost: ['Too Expensive'],
+        maxBuildings: 'No Limit',
+        maxLevel: 5,
+        special: "TOO EXPENSIVE, DON'T BUY IT, DON'T EXPAND IT",
+        startPersonnel: 0,
+        startVehicles: [''],
+        startParkingLots: 0,
+        schoolingTypes: [],
+        schools: [],
         icon: 'poo',
     },
 } satisfies Record<number, InternalBuilding>;

@@ -75,15 +75,20 @@ export default async ({
         .querySelectorAll('.mission_patient')
         .length.toLocaleString();
 
-    const remainingVehicles =
-        (
-            document
-                .querySelector<HTMLDivElement>('#missing_text')
-                ?.textContent?.trim() ??
+    const missingTextEl =
+        document.querySelector<HTMLDivElement>('#missing_text') ??
+        document.createElement('div');
+    // that comes from emv
+    if (!missingTextEl.id) {
+        missingTextEl.innerHTML =
             document.querySelector<HTMLDivElement>(`#${PREFIX}-missing_text`)
-                ?.dataset.rawText ??
-            '–'
-        )
+                ?.dataset.rawHtml ?? '–';
+    }
+
+    const remainingVehicles =
+        missingTextEl
+            .querySelector('div[data-requirement-type="vehicles"]')
+            ?.textContent?.trim()
             .replace(/^.*?:/u, '')
             .trim() ?? '–';
     const address = he.decode(
@@ -153,7 +158,7 @@ export default async ({
             if (!missingRequirements) {
                 missingRequirements = missingRequirementsFn(
                     LSSM,
-                    remainingVehicles,
+                    missingTextEl,
                     missionType,
                     emv$m(false)
                 );
@@ -163,18 +168,17 @@ export default async ({
                 missingRequirementsListHandler =
                     getMissingRequirementsListHandler(
                         LSSM,
-                        missingRequirements.missingRequirements,
-                        missingRequirements.missingRequirements,
-                        missionType,
-                        (requirement, value) => {
-                            const req =
-                                missingRequirements?.missingRequirements.find(
-                                    ({ vehicle }) =>
-                                        requirement.vehicle === vehicle
-                                );
+                        missingRequirements,
+                        missingRequirements.requirements,
+                        (requirement, value, group) => {
+                            const req = missingRequirements?.requirements[
+                                group
+                            ].find(
+                                ({ requirement: req }) =>
+                                    requirement.requirement === req
+                            );
                             if (req) req.selected = value;
-                        },
-                        emv$m()
+                        }
                     );
             }
             missingRequirementsListHandler?.();
@@ -196,7 +200,20 @@ export default async ({
         }).observe(vehicleAmountElement, {
             childList: true,
             characterData: true,
+            attributes: true,
         });
+
+        const allTable = document.querySelector('#vehicle_show_table_all');
+        if (allTable && missingRequirementsListHandler) {
+            new MutationObserver(missingRequirementsListHandler).observe(
+                allTable,
+                {
+                    subtree: true,
+                    attributes: true,
+                    attributeFilter: ['data-equipment-types'],
+                }
+            );
+        }
     }
 
     const missionName =
@@ -223,26 +240,24 @@ export default async ({
             if (!missingRequirements) {
                 missingRequirements = missingRequirementsFn(
                     LSSM,
-                    remainingVehicles,
+                    missingTextEl,
                     missionType,
                     emv$m(false)
                 );
             }
             return (
-                missingRequirements?.missingRequirements
-                    .map(({ vehicle, total, missing, selected }) => ({
-                        vehicle,
+                missingRequirements?.requirements.vehicles
+                    .map(({ requirement, missing, driving, selected }) => ({
+                        requirement,
                         remaining:
-                            total ??
                             (typeof selected === 'number'
-                                ? missing - selected
-                                : missing - selected.max) ??
-                            0,
+                                ? missing - driving - selected
+                                : missing - driving - selected.max) ?? 0,
                     }))
                     .filter(({ remaining }) => remaining > 0)
                     .map(
-                        ({ vehicle, remaining }) =>
-                            `${remaining.toLocaleString()} ${vehicle}`
+                        ({ requirement, remaining }) =>
+                            `${remaining.toLocaleString()} ${requirement}`
                     )
                     .join(', ') ??
                 remainingVehicles ??
@@ -405,11 +420,8 @@ export default async ({
                 ?.click();
         });
     } else {
-        const navbar = document.querySelector<HTMLDivElement>(
-            '#container_navbar_alarm .navbar-header'
-        );
         const btnGroup = document.createElement('div');
-        btnGroup.classList.add('btn-group');
+        btnGroup.classList.add('btn-group', 'flex-row', 'flex-nowrap');
 
         const phoneIcon = createIcon('phone-alt', 'fas', 'fa-fw');
         const shareIcon = createIcon('share-alt', 'fas', 'fa-fw');
@@ -418,13 +430,14 @@ export default async ({
 
         const alarmSharePostGroup = document.createElement('div');
         alarmSharePostGroup.classList.add('btn-group', 'dropup');
+        alarmSharePostGroup.style.setProperty('margin-right', '0');
         alarmSharePostGroup.id = LSSM.$stores.root.nodeAttribute(
             `${MODULE_ID}_alarm-share-post`,
             true
         );
         const alarmSharePostBtn = btn.cloneNode(true) as HTMLButtonElement;
-        alarmSharePostBtn.classList.add('btn', 'btn-success', 'btn-sm');
         alarmSharePostBtn.style.setProperty('font-size', '100%');
+        alarmSharePostBtn.classList.add('btn', 'btn-success', 'btn-sm');
         alarmSharePostBtn.innerHTML = '';
         alarmSharePostBtn.append(phoneIcon, shareIcon, commentIcon);
         const alarmSharePostDropdown = dropdown.cloneNode(
@@ -523,24 +536,45 @@ export default async ({
                                     }
                                 })
                         )
-                        .then(
-                            () =>
-                                document
-                                    .querySelector<HTMLAnchorElement>(
-                                        liElement.closest(
-                                            `#${alarmSharePostGroup.id}`
-                                        )
-                                            ? '#mission_alarm_btn'
-                                            : missionsSorted
-                                              ? `.${sortedMissionClass}`
-                                              : '#alert_next_btn'
+                        .then(() =>
+                            document
+                                .querySelector<HTMLAnchorElement>(
+                                    liElement.closest(
+                                        `#${alarmSharePostGroup.id}`
                                     )
-                                    ?.click()
+                                        ? '#mission_alarm_btn'
+                                        : missionsSorted
+                                          ? `.${sortedMissionClass}`
+                                          : '#alert_next_btn'
+                                )
+                                ?.click()
                         );
                 }
             )
         );
 
-        navbar?.append(btnGroup);
+        if (CSS.supports('selector(*:has(*))')) {
+            Array.from(
+                document.querySelectorAll(
+                    '.flex-row:has(~ #navbar-alarm-spacer)'
+                )
+            )
+                .at(-1)
+                ?.after(btnGroup);
+        } else {
+            const flexRows = Array.from(
+                document.querySelectorAll<HTMLDivElement>(
+                    '#container_navbar_alarm .flex-row'
+                )
+            );
+            let i = 0;
+            for (const flexRow of flexRows) {
+                if (flexRow.matches('#navbar-alarm-spacer ~ .flex-row')) {
+                    flexRows[i - 1]?.after(btnGroup);
+                    continue;
+                }
+                i++;
+            }
+        }
     }
 };

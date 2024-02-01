@@ -30,10 +30,11 @@ export default async (
         return true;
     });
 
-    const navHeader = document.querySelector<HTMLDivElement>(
-        '#container_navbar_alarm .navbar-header'
-    );
-    if (!navHeader) return;
+    const insertPoint =
+        document.querySelector<HTMLDivElement>(
+            '#mission_alarm_btn'
+        )?.parentElement;
+    if (!insertPoint) return;
 
     const flashStorageKey = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}_sort_mission-flash-msg`
@@ -299,5 +300,5 @@ export default async (
         }
     }
 
-    navHeader.prepend(toggleWrapper);
+    insertPoint.before(toggleWrapper);
 };

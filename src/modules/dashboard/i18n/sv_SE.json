@@ -27,8 +27,13 @@
         "maxMissions": { "title": "Maximum missions" },
         "vehicles": {
             "empty": "Du har inga fordon i kategorin {kategori} än!",
+            "foam": "Foam",
+            "foamWithBonus": "incl. Bonus",
+            "liquidUnit": "L.",
             "tip": "Klicka på en grupp fordonstyper för att endast visa den här gruppen.",
-            "title": "Fordon"
+            "title": "Fordon",
+            "water": "Water",
+            "waterWithBonus": "incl. Bonus"
         }
     },
     "dispatchcenter-view": {

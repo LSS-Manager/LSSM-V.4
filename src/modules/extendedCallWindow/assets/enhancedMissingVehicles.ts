@@ -4,7 +4,6 @@ import type { $m, ModuleMainFunction } from 'typings/Module';
 
 export default (
     LSSM: Vue,
-    MODULE_ID: string,
     getSetting: Parameters<ModuleMainFunction>[0]['getSetting'],
     $m: $m
 ): void => {
@@ -14,10 +13,10 @@ export default (
 
     import(
         /* webpackChunkName: "modules/extendedCallWindow/enhancedMissingVehicles/getMissingRequirements"*/ './emv/getMissingRequirements'
-    ).then(({ default: getReqs }) => {
-        const props = getReqs(
+    ).then(({ default: getMissingRequirements }) => {
+        const props = getMissingRequirements(
             LSSM,
-            missingDialog.textContent ?? '',
+            missingDialog,
             LSSM.$utils.getMissionTypeInMissionWindow(),
             $m
         );

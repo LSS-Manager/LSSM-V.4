@@ -85,6 +85,8 @@
             "light_supply": "SES Emergency Lighting Trailer | SES Emergency Lighting Trailers",
             "mobile_air_vehicles": "BASU Unit | BASU Units",
             "mobile_command_vehicles": "Mobile Command Vehicle or SES Mobile Command Vehicle | Mobile Command Vehicles or SES Mobile Command Vehicles",
+            "oneof_fire_engine_or_airport_fire_engine_large": "Fire Engine or ULFV Crash Tender | Fire Engines or ULFV Crash Tenders",
+            "oneof_fire_engine_or_fire_rescue": "Fire Engines or Rescue Unit | Fire Engines or Rescue Units",
             "platform_trucks": "Ladder Platform Truck | Ladder Platform Trucks",
             "police_cars": "Police Car | Police Cars",
             "police_helicopters": "Police Helicopter | Police Helicopters",

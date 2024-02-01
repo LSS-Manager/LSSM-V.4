@@ -15,21 +15,20 @@ export default (LSSM: Vue, yellowBorder: number, redBorder: boolean): void => {
     if (!general_info) return;
 
     const generationDateNode = document.createElement('span');
-    generationDateNode.innerHTML = `&nbsp;|&nbsp;<i class="fas fa-history"></i>&nbsp;${generationDate.fromNow()} (${generationDate.calendar()})`;
+    generationDateNode.innerHTML = `<i class="fas fa-history"></i>&nbsp;${generationDate.fromNow()} (${generationDate.calendar()})`;
     document
         .querySelector<HTMLElement>('#mission_general_info > small')
-        ?.append(generationDateNode);
+        ?.append('\xa0|\xa0', generationDateNode);
 
-    generationDateNode.style.paddingLeft = '2px';
-    generationDateNode.style.paddingRight = '2px';
+    generationDateNode.style.setProperty('padding', '0 2px');
 
     if (yellowBorder && moment().diff(generationDate, 'hours') >= yellowBorder)
         generationDateNode.style.border = 'yellow 1px solid';
 
-    const nextDeletion = moment();
-    if (moment().hours() > 3) nextDeletion.add(1, 'd');
-    nextDeletion.hours(3).minutes(0);
+    // missions get deleted from 2am UTC onwards
+    const lastUTC2am = moment.utc().hours(2).minutes(0).seconds(0);
+    if (moment.utc().isBefore(lastUTC2am)) lastUTC2am.subtract(1, 'd');
 
-    if (redBorder && generationDate.isBefore(nextDeletion.subtract(1, 'd')))
+    if (redBorder && generationDate.isBefore(lastUTC2am))
         generationDateNode.style.border = 'red 1px solid';
 };

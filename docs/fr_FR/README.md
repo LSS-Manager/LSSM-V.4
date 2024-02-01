@@ -55,7 +55,7 @@ Si Tampermonkey a été installé avec succès dans votre navigateur, vous pouve
 @[code js](@userscript)
 
 ### Étape 3 : Activation
-L'indicateur LSSM est un texte surligné en vert `LSSM V.4`.
+L'indicateur LSSM est le logo LSSM ou (si réglé en conséquence dans les [settings](settings.md)) un texte vert `LSSM V.4`.
 
 Un clic sur l'indicateur ouvre un petit menu qui vous permet d'accéder à l'[Appstore][docs.appstore] et aux [paramètres][docs.settings]. Dans les paramètres, seuls les modules que vous avez activés apparaissent, vous devez donc d'abord visiter l'AppStore !
 

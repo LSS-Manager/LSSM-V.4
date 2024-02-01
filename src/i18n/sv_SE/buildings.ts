@@ -54,6 +54,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['BAS 1 - Släckbil', 'BAS 2 - Släckbil'],
         schoolingTypes: ['Brandstation'],
+        schools: [1],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -83,6 +84,7 @@ export default {
         special:
             'CFO och administratörer kan förbättra byggnaden genom Alliance Bank. <br> Utbildningsledare och administratörer kan initiera utbildningar.',
         startClassrooms: 1,
+        school: 'Brandstation',
         icon: 'graduation-cap',
     },
     2: {
@@ -109,6 +111,7 @@ export default {
         startPersonnel: 3,
         startVehicles: ['Ambulans'],
         schoolingTypes: ['Rädda'],
+        schools: [3],
         startParkingLots: 1,
         icon: 'house-medical',
     },
@@ -138,6 +141,7 @@ export default {
         special:
             'CFO och administratörer kan förbättra byggnaden genom Alliance Bank. <br> Utbildningsledare och administratörer kan initiera utbildningar.',
         startClassrooms: 1,
+        school: 'Rädda',
         icon: 'graduation-cap',
     },
     4: {
@@ -239,6 +243,7 @@ export default {
         startPersonnel: 0,
         startVehicles: [],
         schoolingTypes: ['Rädda'],
+        schools: [3],
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
                 ? 4
@@ -312,6 +317,7 @@ export default {
         startPersonnel: 2,
         startVehicles: ['Radiobil'],
         schoolingTypes: ['Polis'],
+        schools: [8],
         startParkingLots: 1,
         startCells: 0,
         special: '',
@@ -362,6 +368,7 @@ export default {
         special:
             'Finansministrar och administratörer kan (utöka) föreningspolisskolor med hjälp av poäng från föreningens finans. Kursmästare och administratörer kan starta kurser på föreningens polisskolor.',
         startClassrooms: 1,
+        school: 'Polis',
         icon: 'graduation-cap',
     },
     13: {
@@ -382,6 +389,7 @@ export default {
         startPersonnel: 0,
         startVehicles: [],
         schoolingTypes: ['Polis'],
+        schools: [8],
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
                 ? 4
@@ -505,6 +513,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['BAS 1 - Släckbil', 'BAS 2 - Släckbil'],
         schoolingTypes: ['Brandstation'],
+        schools: [2],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -578,6 +587,7 @@ export default {
         startPersonnel: 2,
         startVehicles: ['Radiobil'],
         schoolingTypes: ['Polis'],
+        schools: [8],
         startParkingLots: 1,
         icon: 'building-shield',
     },
@@ -610,6 +620,7 @@ export default {
         startPersonnel: 3,
         startVehicles: ['Ambulans'],
         schoolingTypes: ['Räddar'],
+        schools: [3],
         startParkingLots: 1,
         icon: 'house-medical',
     },
@@ -630,6 +641,7 @@ export default {
         startPersonnel: 2,
         startVehicles: ['Brandhelikopter'],
         schoolingTypes: ['Brandstation'],
+        schools: [2],
         startParkingLots: 1,
         icon: 'helicopter',
     },
@@ -650,6 +662,7 @@ export default {
         startPersonnel: 0,
         startVehicles: [''],
         schoolingTypes: [],
+        schools: [],
         startParkingLots: 0,
         icon: 'poo',
     },
@@ -670,6 +683,7 @@ export default {
         startPersonnel: 0,
         startVehicles: [''],
         schoolingTypes: [],
+        schools: [],
         startParkingLots: 0,
         icon: 'poo',
     },

@@ -148,6 +148,23 @@ export default (Vue: VueConstructor): void => {
                 1000
             );
         },
+        getScrollParent(element: HTMLElement): HTMLElement | null {
+            if (!element || !(element instanceof HTMLElement)) return null;
+            const overflowY =
+                window.getComputedStyle(element).overflowY || 'visible';
+            if (
+                !overflowY.includes('hidden') &&
+                !overflowY.includes('visible') &&
+                element.scrollHeight >= element.clientHeight
+            )
+                return element;
+
+            return (
+                this.getScrollParent(element.parentElement) ||
+                document.scrollingElement ||
+                document.body
+            );
+        },
         highChartsDarkMode: {
             chart: {
                 backgroundColor: 'transparent',

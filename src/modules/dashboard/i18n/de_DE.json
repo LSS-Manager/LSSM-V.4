@@ -27,8 +27,13 @@
         "maxMissions": { "title": "Maximale Einsätze" },
         "vehicles": {
             "empty": "Du hast in der Kategorie {category} noch keine Fahrzeuge!",
+            "foam": "Schaummenge",
+            "foamWithBonus": "inkl. Bonus",
+            "liquidUnit": "Liter",
             "tip": "Klicke auf eine Gruppe von Fahrzeugtypen, um nur diese Gruppe anzuzeigen.",
-            "title": "Fahrzeuge"
+            "title": "Fahrzeuge",
+            "water": "Wassermenge",
+            "waterWithBonus": "inkl. Bonus"
         }
     },
     "dispatchcenter-view": {

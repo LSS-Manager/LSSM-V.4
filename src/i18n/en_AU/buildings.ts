@@ -76,6 +76,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['Pumper', 'Medium Tanker', ' Heavy Tanker'],
         schoolingTypes: ['Fire Station'],
+        schools: [1],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -103,6 +104,7 @@ export default {
         maxBuildings: 'No limit',
         maxLevel: 0,
         startClassrooms: 1,
+        school: 'Fire Station',
         special:
             "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire-brigade schools.",
         icon: 'graduation-cap',
@@ -145,6 +147,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['Ambulance'],
         schoolingTypes: ['Rescue'],
+        schools: [3],
         icon: 'house-medical',
     },
     3: {
@@ -171,6 +174,7 @@ export default {
         maxBuildings: 'No limit',
         maxLevel: 0,
         startClassrooms: 1,
+        school: 'Rescue',
         special:
             "Finance ministers and admins can (expand) Paramedic Training Centre with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire-brigade schools.",
         icon: 'graduation-cap',
@@ -296,6 +300,7 @@ export default {
         startPersonnel: 0,
         startVehicles: [],
         schoolingTypes: ['Rescue'],
+        schools: [3],
         startParkingLots: 1,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
@@ -406,6 +411,7 @@ export default {
         startPersonnel: 2,
         startVehicles: ['Police Car'],
         schoolingTypes: ['Police'],
+        schools: [8],
         startParkingLots: 1,
         startCells: 0,
         icon: 'building-shield',
@@ -455,6 +461,7 @@ export default {
         special:
             "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
         startClassrooms: 1,
+        school: 'Police',
         icon: 'graduation-cap',
     },
     13: {
@@ -476,6 +483,7 @@ export default {
         startVehicles: [],
         startParkingLots: 1,
         schoolingTypes: ['Police'],
+        schools: [8],
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
                 ? 4
@@ -543,6 +551,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['SES Vehicle'],
         schoolingTypes: ['SES & Water Rescue'],
+        schools: [25],
         startParkingLots: 1,
         icon: 'person-swimming',
     },
@@ -651,6 +660,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['Pumper', 'Medium Tanker', ' Heavy Tanker'],
         schoolingTypes: ['Fire Station'],
+        schools: [1],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -712,6 +722,7 @@ export default {
         startPersonnel: 2,
         startVehicles: ['Police Car'],
         schoolingTypes: ['Police'],
+        schools: [8],
         startParkingLots: 1,
         startCells: 0,
         icon: 'building-shield',
@@ -738,6 +749,7 @@ export default {
         startPersonnel: 3,
         startVehicles: ['Ambulance'],
         schoolingTypes: ['Rescue'],
+        schools: [3],
         startParkingLots: 1,
         icon: 'house-medical',
     },
@@ -759,6 +771,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        schools: [],
         icon: 'poo',
     },
     22: {
@@ -779,6 +792,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        schools: [],
         icon: 'poo',
     },
     23: {
@@ -799,6 +813,7 @@ export default {
         startPersonnel: 2,
         startVehicles: ['Fire Helicopter'],
         schoolingTypes: ['Fire Station'],
+        schools: [1],
         startParkingLots: 0,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
@@ -823,6 +838,7 @@ export default {
         startPersonnel: 5,
         startVehicles: [''],
         schoolingTypes: ['SES & Water Rescue'],
+        schools: [25],
         startParkingLots: 1,
         icon: 'person-swimming',
     },
@@ -850,6 +866,7 @@ export default {
         maxBuildings: 'No limit',
         maxLevel: 0,
         startClassrooms: 1,
+        school: 'SES & Water Rescue',
         special:
             "Finance ministers and admins can (expand) Water Rescue Academy with the help of credits from the association's treasury.Training course masters and admins can start training courses at association Water Rescue Academys.",
         icon: 'graduation-cap',

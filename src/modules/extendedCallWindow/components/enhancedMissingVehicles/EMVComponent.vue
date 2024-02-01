@@ -2,7 +2,7 @@
     <div
         class="alert alert-missing-vehicles"
         :class="[{ overlay, minified }, alertColor]"
-        :data-raw-text="missingText.trim()"
+        :data-raw-html="rawHTML.trim()"
         ref="alert"
     >
         <template v-for="icon in icons">
@@ -26,12 +26,26 @@
         </template>
 
         <div v-if="textMode">
-            {{ missingText }}
+            <div v-for="(req, index) in requirementTexts" :key="index">
+                <template v-if="req">
+                    <b>{{ req.infoText }}</b>
+                    {{ req.raw }}
+                </template>
+            </div>
         </div>
-        <div v-else-if="extras">{{ extras }}</div>
+        <template v-else-if="hasUnparsedReqs">
+            <div v-for="(req, index) in requirementTexts" :key="index">
+                <template v-if="req && req.remaining">
+                    <b>{{ req.infoText }}</b>
+                    {{ req.remaining }}
+                </template>
+            </div>
+        </template>
         <div class="clearfix"></div>
 
-        <template v-if="textMode"></template>
+        <template
+            v-if="textMode || missingRequirementsSorted.length === 0"
+        ></template>
         <!-- one column -->
         <div v-else-if="overlay || pushedRight">
             <e-m-v-table
@@ -76,14 +90,10 @@
 </template>
 
 <script setup lang="ts">
-import {
-    computed,
-    onBeforeMount,
-    onMounted,
-    ref,
-    type Ref,
-    type UnwrapRef,
-} from 'vue';
+import type Vue from 'vue';
+// as we cannot alias default export with type annotation
+// eslint-disable-next-line no-duplicate-imports
+import { computed, onBeforeMount, onMounted, ref, type UnwrapRef } from 'vue';
 
 import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons/faAngleDoubleDown';
 import { faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons/faAngleDoubleLeft';
@@ -95,15 +105,32 @@ import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
 import { faParagraph } from '@fortawesome/free-solid-svg-icons/faParagraph';
 import { faTable } from '@fortawesome/free-solid-svg-icons/faTable';
 import { useSettingsStore } from '@stores/settings';
-// import { useAPIStore } from '@stores/api';
-// import { useRootStore } from '@stores/index';
 
 import EMVTable from './EMVTable.vue';
 import { useI18nModule } from '../../../../i18n';
 import vehicleListObserveHandler from '../../assets/emv/getVehicleListObserveHandler';
 
+import type { Group } from '../../assets/emv/getMissingRequirements';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import type { Requirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
+import type { MissionRequirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
+
+// Vue 2.7 does not support dynamic types for defineProps
+// once we use Vue 3.3+, we can import from getMissingRequirements
+// this means, we have to manually define the types here
+interface RequirementTexts {
+    infoText: string;
+    raw: string;
+    remaining: string;
+}
+interface MissingRequirements {
+    requirements: Record<Group, MissionRequirement[]>;
+    requirementTexts: Record<Group, RequirementTexts | null>;
+    requirementsForVehicle: Record<number, Partial<Record<Group, Set<number>>>>;
+    requirementsForEquipment: Record<
+        string,
+        Partial<Record<Group, Set<number>>>
+    >;
+}
 
 interface Icon {
     condition?: boolean;
@@ -133,8 +160,8 @@ const settingsStore = useSettingsStore();
 
 const alert = ref<HTMLDivElement>();
 
-const sort = ref<'driving' | 'missing' | 'selected' | 'total' | 'vehicle'>(
-    'vehicle'
+const sort = ref<'driving' | 'missing' | 'requirement' | 'selected' | 'total'>(
+    'requirement'
 );
 const sortDir = ref<'asc' | 'desc'>('asc');
 
@@ -226,57 +253,78 @@ const getIconTitle = (icon: Icon) => $m(`tip.${icon.key}`).toString();
 
 const alertColor = computed<`alert-${'danger' | 'success'}`>(() => {
     if (
-        props.missingRequirements.every(
-            req =>
-                (req.total ?? req.missing) <=
-                (typeof req.selected === 'number'
-                    ? req.selected
-                    : calcMaxStaff.value
-                      ? req.selected.max
-                      : req.selected.min)
+        Object.values(requirements.value).every(reqs =>
+            reqs.every(
+                req =>
+                    req.missing - req.driving <=
+                    (typeof req.selected === 'number'
+                        ? req.selected
+                        : calcMaxStaff.value
+                          ? req.selected.max
+                          : req.selected.min)
+            )
         )
     )
         return 'alert-success';
     return 'alert-danger';
 });
 
-const props = defineProps<{
-    missingRequirements: Requirement[];
-    extras: string;
-    missingText: string;
-}>();
+const rawHTML = computed<string>(() => {
+    return Object.entries(props.requirementTexts)
+        .filter(
+            <S,>(value: [string, null] | [string, S]): value is [string, S] =>
+                !!value[1]
+        )
+        .map(
+            ([type, requirement]) =>
+                `<div data-requirement-type="${type}"><b>${requirement?.infoText}</b> ${requirement?.raw}</div>`
+        )
+        .join('\n');
+});
 
-const requirements = ref<Requirement[]>(props.missingRequirements) as Ref<
-    Requirement[]
->;
+const hasUnparsedReqs = computed<boolean>(() =>
+    Object.values(props.requirementTexts)
+        .filter(<S,>(value: S | null): value is S => !!value)
+        .some(req => req.remaining.length)
+);
+
+const props = defineProps<MissingRequirements>();
+
+const requirements = ref<Record<Group, MissionRequirement[]>>(
+    props.requirements
+);
 
 const missingRequirementsSorted = computed(() =>
-    requirements.value.toSorted((a, b) => {
-        let modifier = 1;
-        if (sortDir.value === 'desc') modifier = -1;
+    Object.values(requirements.value)
+        .flat()
+        .sort((a, b) => {
+            let modifier = 1;
+            if (sortDir.value === 'desc') modifier = -1;
 
-        const sortBy = sort.value;
+            const sortBy = sort.value;
 
-        if (sortBy === 'vehicle')
-            return modifier * a[sortBy].localeCompare(b[sortBy]);
-        let left = a[sortBy];
-        let right = b[sortBy];
+            if (sortBy === 'requirement')
+                return modifier * a[sortBy].localeCompare(b[sortBy]);
+            if (sortBy === 'total') {
+                return (
+                    modifier * (a.missing - a.driving - (b.missing - b.driving))
+                );
+            }
+            let left = a[sortBy];
+            let right = b[sortBy];
 
-        if (sortBy === 'total') {
-            if (typeof left !== 'number') left = a.missing;
-            if (typeof right !== 'number') right = b.missing;
-        }
+            if (typeof left !== 'number' && 'min' in (left ?? {}))
+                left = left?.min;
+            if (typeof right !== 'number' && 'min' in (right ?? {}))
+                right = right?.min;
 
-        if (typeof left !== 'number' && 'min' in left) left = left.min;
-        if (typeof right !== 'number' && 'min' in right) right = right.min;
+            if (!left) left = 0;
+            if (!right) right = 0;
 
-        if (!left) left = 0;
-        if (!right) right = 0;
-
-        if (left < right) return -1 * modifier;
-        if (left > right) return modifier;
-        return 0;
-    })
+            if (left < right) return -1 * modifier;
+            if (left > right) return modifier;
+            return 0;
+        })
 );
 
 const dragging = (e: MouseEvent) => {
@@ -312,7 +360,7 @@ const setSort = (key: Column) => {
 };
 
 const getSetting = <T = boolean,>(settingId: string): Promise<T> =>
-    settingsStore.getSetting({
+    settingsStore.getSetting<T>({
         moduleId: 'extendedCallWindow',
         settingId,
     });
@@ -354,14 +402,12 @@ onBeforeMount(() => {
     });
 });
 onMounted(() => {
-    const LSSM = window[PREFIX];
+    const LSSM = window[PREFIX] as Vue;
     const observeHandler = vehicleListObserveHandler(
         LSSM,
-        props.missingRequirements,
+        props,
         requirements.value,
-        LSSM.$utils.getMissionTypeInMissionWindow(),
-        (requirement, value) => (requirement.selected = value),
-        $m
+        (requirement, value) => (requirement.selected = value)
     );
 
     const amountElement = document.querySelector('#vehicle_amount');
@@ -374,6 +420,15 @@ onMounted(() => {
         childList: true,
         characterData: true,
     });
+
+    const allTable = document.querySelector('#vehicle_show_table_all');
+    if (allTable) {
+        amountObserver.observe(allTable, {
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['data-equipment-types'],
+        });
+    }
 
     observeHandler();
 });

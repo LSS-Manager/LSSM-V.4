@@ -3,6 +3,8 @@ import path from 'path';
 
 import yaml from 'js-yaml';
 
+import { PORT_ENV_KEY } from '../src/config';
+
 interface Workflow {
     jobs: {
         build: {
@@ -13,7 +15,7 @@ interface Workflow {
 
 type Job = Workflow['jobs']['build']['steps'][0];
 
-const excludedSteps = [
+const excludeFromImport = [
     'get_node_yarn_versions',
     'yarn_cache_dir',
     'generate_token',
@@ -23,9 +25,20 @@ const excludedSteps = [
     'import_gpg',
     'git_push',
 ];
+const excludeFromFullBuild = ['serve'];
 const shortcuts = {
     'dependencies': ['yarn_setup', 'versions', 'yarn_install', 'browserslist'],
     'quick': ['env', 'format', 'eslint', 'tsc', 'webpack'],
+    'local': [
+        'yarn_setup',
+        'versions', //not required, just for debugging
+        'yarn_install',
+        'env',
+        'tsc',
+        'userscript',
+        'webpack',
+        'serve',
+    ],
     'pre-commit': ['format', 'eslint', 'tsc'],
     'full': [],
 };
@@ -122,11 +135,19 @@ try {
                 'enable_debugging',
             id: 'node',
         } as Job,
-    ].concat(
-        workflow.jobs.build.steps.filter(
-            step => step.run && !excludedSteps.includes(step.id ?? '')
+    ]
+        .concat(
+            workflow.jobs.build.steps.filter(
+                step => step.run && !excludeFromImport.includes(step.id ?? '')
+            )
         )
-    );
+        .concat([
+            {
+                name: 'Start test server',
+                run: `ws -d ./dist/ --https --port="$${PORT_ENV_KEY}" --hostname localhost & echo "webserver moved to background. Get it back with 'fg'"`,
+                id: 'serve',
+            } as Job,
+        ]);
     const stepIds = steps.map(step => step.id ?? '');
 
     script.push(
@@ -142,13 +163,17 @@ ${stepIds.map(id => `        --${id}) ${getStepName(id)}=true ;;`).join('\n')}
 ${Object.entries(shortcuts)
     .map(
         ([shortcut, steps]) => `        --${shortcut})
-          ${(shortcut === 'full' ? stepIds : steps)
+          ${(shortcut === 'full'
+              ? stepIds.filter(step => !excludeFromFullBuild.includes(step))
+              : steps
+          )
               .map(step => `${getStepName(step)}=true`)
               .join('\n          ')} ;;`
     )
     .join('\n')}
         -p | --production) MODE="production" ;;
         --debug) DEBUG=true ;;
+        --port) shift; _PORT=$1 ;;
         -?*)
           echo "Unknown option: $1"
           exit 1 ;;
@@ -156,6 +181,14 @@ ${Object.entries(shortcuts)
     esac
     shift
 done`,
+        `# expose the set port (or default port) as environment variable for local server
+if [[ $${getStepName('serve')} = true ]]; then
+    if [[ -z "$_PORT" ]]; then
+        export ${PORT_ENV_KEY}=36551 # because 536551 is LSSM in base 29 but port numbers are 16-bit only so we omit the leading 5
+    else
+        export ${PORT_ENV_KEY}=$_PORT
+    fi
+fi`,
         'total_start_time=$(now)',
         `NODE_VERSION=$(grep '"node":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/\\^v//g' | tr -d '[:space:]')
 YARN_VERSION=$(grep '"packageManager":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')
