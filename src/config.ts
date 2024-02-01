@@ -179,10 +179,10 @@ export default {
     prefix: PREFIX,
     urls: {
         server: isLocalServer
-            ? `http://localhost:${process.env[PORT_ENV_KEY]}/`
+            ? `https://localhost:${process.env[PORT_ENV_KEY]}/`
             : 'https://v4.lss-manager.de/',
         docs: isLocalServer
-            ? `http://localhost:${process.env[PORT_ENV_KEY]}/docs/`
+            ? `https://localhost:${process.env[PORT_ENV_KEY]}/docs/`
             : 'https://docs.lss-manager.de/',
         statuspage: 'https://status.lss-manager.de/',
         donations: 'https://donate.lss-manager.de/',

@@ -25,7 +25,7 @@ const excludeFromImport = [
     'import_gpg',
     'git_push',
 ];
-const excludeFromFullBuild = ['live_server'];
+const excludeFromFullBuild = ['serve'];
 const shortcuts = {
     'dependencies': ['yarn_setup', 'versions', 'yarn_install', 'browserslist'],
     'quick': ['env', 'format', 'eslint', 'tsc', 'webpack'],
@@ -37,7 +37,7 @@ const shortcuts = {
         'tsc',
         'userscript',
         'webpack',
-        'live_server',
+        'serve',
     ],
     'pre-commit': ['format', 'eslint', 'tsc'],
     'full': [],
@@ -140,13 +140,12 @@ try {
             workflow.jobs.build.steps.filter(
                 step => step.run && !excludeFromImport.includes(step.id ?? '')
             )
-            //To make sure that the test server started as latest call
         )
         .concat([
             {
                 name: 'Start test server',
-                run: `yarn live-server ./dist/ --port="$${PORT_ENV_KEY}" --no-browser`,
-                id: 'live_server',
+                run: `ws -d ./dist/ --https --port="$${PORT_ENV_KEY}" --hostname localhost & echo "webserver moved to background. Get it back with 'fg'"`,
+                id: 'serve',
             } as Job,
         ]);
     const stepIds = steps.map(step => step.id ?? '');
@@ -183,7 +182,7 @@ ${Object.entries(shortcuts)
     shift
 done`,
         `# expose the set port (or default port) as environment variable for local server
-if [[ $${getStepName('live_server')} = true ]]; then
+if [[ $${getStepName('serve')} = true ]]; then
     if [[ -z "$_PORT" ]]; then
         export ${PORT_ENV_KEY}=36551 # because 536551 is LSSM in base 29 but port numbers are 16-bit only so we omit the leading 5
     else

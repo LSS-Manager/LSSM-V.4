@@ -69,7 +69,7 @@ _RUN_STEP_PREBUILD=false
 _RUN_STEP_WEBPACK=false
 _RUN_STEP_DOCS=false
 _RUN_STEP_GIT_DIFF=false
-_RUN_STEP_LIVE_SERVER=false
+_RUN_STEP_SERVE=false
 MODE="development"
 DEBUG=false
 
@@ -92,7 +92,7 @@ while :; do
         --webpack) _RUN_STEP_WEBPACK=true ;;
         --docs) _RUN_STEP_DOCS=true ;;
         --git_diff) _RUN_STEP_GIT_DIFF=true ;;
-        --live_server) _RUN_STEP_LIVE_SERVER=true ;;
+        --serve) _RUN_STEP_SERVE=true ;;
         --dependencies)
           _RUN_STEP_YARN_SETUP=true
           _RUN_STEP_VERSIONS=true
@@ -112,7 +112,7 @@ while :; do
           _RUN_STEP_TSC=true
           _RUN_STEP_USERSCRIPT=true
           _RUN_STEP_WEBPACK=true
-          _RUN_STEP_LIVE_SERVER=true ;;
+          _RUN_STEP_SERVE=true ;;
         --pre-commit)
           _RUN_STEP_FORMAT=true
           _RUN_STEP_ESLINT=true
@@ -147,7 +147,7 @@ while :; do
 done
 
 # expose the set port (or default port) as environment variable for local server
-if [[ $_RUN_STEP_LIVE_SERVER = true ]]; then
+if [[ $_RUN_STEP_SERVE = true ]]; then
     if [[ -z "$_PORT" ]]; then
         export LSSM_PORT=36551 # because 536551 is LSSM in base 29 but port numbers are 16-bit only so we omit the leading 5
     else
@@ -386,11 +386,11 @@ if [[ $_RUN_STEP_GIT_DIFF = true ]] && [[ $GIT_REPO = true ]]; then
 fi
 
 # Start test server
-if [[ $_RUN_STEP_LIVE_SERVER = true ]]; then
+if [[ $_RUN_STEP_SERVE = true ]]; then
     start_time=$(now)
     print_start_message "Start test server"
     enable_debugging
-    yarn live-server ./dist/ --port="$LSSM_PORT" --no-browser
+    ws -d ./dist/ --https --port="$LSSM_PORT" --hostname localhost & echo "webserver moved to background. Get it back with 'fg'"
     disable_debugging
     print_end_message "Start test server" "$start_time"
 fi
