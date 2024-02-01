@@ -153,7 +153,7 @@
     },
     "@vuepress/theme-default": {
         "url": "https://github.com/vuepress",
-        "version": "2.0.0-rc.5"
+        "version": "2.0.0-rc.6"
     },
     "acorn": {
         "icon": "https://avatars.githubusercontent.com/u/34631683",
