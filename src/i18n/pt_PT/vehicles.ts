@@ -34,7 +34,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         special:
-            'Requere que tenhas pelo menos construído 3 Corpos de Bombeiros',
+            'Requer que tenhas pelo menos construído 3 Corpos de Bombeiros',
     },
     3: {
         caption: 'VCOT',
@@ -45,7 +45,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         special:
-            'Requere que tenhas pelo menos construído 6 Corpos de Bombeiros',
+            'Requer que tenhas pelo menos construído 6 Corpos de Bombeiros',
     },
     4: {
         caption: 'VSAT',
@@ -56,7 +56,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         special:
-            'Requere que tenhas pelo menos construído 4 corpos de bombeiros',
+            'Requer que tenhas pelo menos construído 4 Corpos de Bombeiros',
     },
     5: {
         caption: 'ABSC',
@@ -77,7 +77,7 @@ export default {
         possibleBuildings: [0, 18],
         waterTank: 10_000,
         special:
-            'Requere que tenhas pelo menos construído 7 corpos de bombeiros',
+            'Requer que tenhas pelo menos construído 7 Corpos de Bombeiros',
     },
     7: {
         caption: 'VPMA',
@@ -99,7 +99,7 @@ export default {
         possibleBuildings: [0, 18],
         foamTank: 50,
         special:
-            'Requere que tenhas pelo menos construído 11 corpos de bombeiros',
+            'Requer que tenhas pelo menos construído 11 Corpos de Bombeiros',
     },
     8: {
         caption: 'CP',
@@ -138,7 +138,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         special:
-            'Requere que tenhas pelo menos construído 13 corpos de bombeiros',
+            'Requer que tenhas pelo menos construído 13 Corpos de Bombeiros',
     },
     11: {
         caption: 'VUCI',
@@ -149,7 +149,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         special:
-            'Para comprar com créditos reque o nível: Adjunto Distrital, <br>Membros com nível mais baixo podem comprar este veículos por 25 Moedas. <br>Quint acts as a Platform Truck and a Fire Truck.',
+            'Para comprar com créditos requer a posição: Adjunto Distrital, <br>Membros com posições mais baixo podem comprar este veículo por 25 Moedas.',
     },
     12: {
         caption: 'UEP/UI - CIEXSS',
@@ -170,7 +170,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [6, 19],
         special:
-            'Requere que tenhas pelo menos construído 6 esquadras da polícia.',
+            'Requer que tenhas pelo menos construído 6 Esquadras da Polícia.',
     },
     13: {
         caption: 'EPRI',
@@ -199,6 +199,8 @@ export default {
         staff: { min: 1, max: 2 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
+        special:
+            'Para comprar com créditos requer a posição: Adjunto Distrital, <br>Membros com posições mais baixo podem comprar este veículo por 25 Moedas.',
     },
     15: {
         caption: 'UAAR',
@@ -208,7 +210,7 @@ export default {
         staff: { min: 1, max: 2 },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        special: 'Requere 5 corpos dos bombeiros. Carrega botijas de ar.',
+        special: 'Requer que tenhas pelo menos construído 5 corpos dos bombeiros.',
     },
     16: {
         caption: 'VSAE',
@@ -229,7 +231,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         special:
-            'Required once you have built 4 Corpos de Bombeiross. A big lorry with specialist rescue equipment, useful for Road Traffic Collisions.',
+            'Requer que tenhas pelo menos construído 14 corpos dos bombeiros. Para comprar com créditos requer a posição: Adjunto Distrital, <br>Membros com posições mais baixo podem comprar este veículo por 25 Moedas.',
     },
     17: {
         caption: 'VMER',
@@ -249,8 +251,6 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [2, 20, 21],
-        special:
-            'Acts as a Rapid Response Vehicle and a Primary Response Vehicle. Responds to the most serious of calls, where lives are in serious danger.',
     },
     18: {
         caption: 'SIV',
@@ -270,8 +270,6 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [2, 20, 21],
-        special:
-            'Acts as a Rapid Response Vehicle and a Secondary Response Vehicle. Responds to the most serious of calls, where lives are in serious danger.',
     },
     19: {
         caption: 'Mota INEM',
@@ -291,8 +289,6 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [2, 20, 21],
-        special:
-            'Can only be placed at the Home Response Location. A Ambulance Rapid Response Vehicle but staffed with volunteers',
     },
     20: {
         caption: 'VIC',
@@ -305,8 +301,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [2, 20],
-        special:
-            'You can buy 1 Mass Casualty Equipment for every 20 ambulance stations (respectively 15 with premium account). It is required for missions that can spawn with over 30 patients. Requires Mass Casualty Extension.',
+        special: 'Pode comprar 1 VIC por cada 20 Estações de Ambulâncias',
     },
     21: {
         caption: 'ERAS',
@@ -366,8 +361,6 @@ export default {
         possibleBuildings: [0, 18],
         isTrailer: true,
         tractiveVehicles: [22],
-        special:
-            "Dozer Trailer that can be towed with the Crew cap semi. Requires Heavy Machinery Operating and Truck Driver's License trained personnel to operate.<br> The dozer trailer cannot be assigned personnel, <br>either assign your trained personnel to the towing vehicle, or assign them to a separate unit en route.",
     },
     24: {
         caption: 'VTTF',
@@ -531,7 +524,6 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [6, 19],
-        special: 'Required from 6 Police stations',
     },
     34: {
         caption: 'UT/UNT',
@@ -551,8 +543,6 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [6, 19],
-        special:
-            'Acts as a Traffic Car and Incident Response Vehicle. A pursuit vehicle for high speed chases as well as RTCs.',
     },
     35: {
         caption: 'Ciclopatrulha',
@@ -687,8 +677,6 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        special:
-            'Combines the Heavy Rescue Vehicle/Utility Vehicle with an integrated boat.<br> No need for a boat trailer.',
     },
     43: {
         caption: 'VOPE',
@@ -745,8 +733,6 @@ export default {
         possibleBuildings: [0, 18, 25],
         isTrailer: true,
         tractiveVehicles: [37, 38, 42, 43, 33],
-        special:
-            'Needed towing vehicle (Lifeguard Truck, Lifeguard Rescue, Lifeguard Supervisor, Utility unit, Battalion chief unit, Type 2 fire engine)',
     },
     46: {
         caption: 'VIM',

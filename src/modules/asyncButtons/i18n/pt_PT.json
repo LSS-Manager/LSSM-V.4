@@ -1,0 +1,50 @@
+{
+    "buildingPersonal": {
+        "deleteModal": {
+            "btnCancel": "Cancelar",
+            "btnConfirm": "Despedir",
+            "text": "Tem a certeza que pretende despedir este funcionário?",
+            "title": "Despedir?"
+        }
+    },
+    "buildings": {
+        "active": "Em serviço",
+        "nonactive": "Fora de serviço"
+    },
+    "deleteARR": {
+        "deleteModal": {
+            "btnCancel": "Cancelar",
+            "btnConfirm": "Remover",
+            "text": "Pretende remover esta entrada de RAR?",
+            "title": "Remover?"
+        }
+    },
+    "forumPost": {
+        "deleteModal": {
+            "btnCancel": "Cancelar",
+            "btnConfirm": "Apagar",
+            "text": "Pretende apagar esta publicação?",
+            "title": "Apagar?"
+        }
+    },
+    "memberlistManageUser": {
+        "hide": "Fechar",
+        "kickModal": {
+            "btnCancel": "Cancelar",
+            "btnConfirm": "Expulsar",
+            "text": "Pretende mesmo expulsar este jogador?",
+            "title": "Expulsar?"
+        },
+        "set": "definir",
+        "unset": "remover"
+    },
+    "memberlistRoles": {
+        "admin": "Administrador da aliança",
+        "aufsichtsrat": "Registro de ações de moderação",
+        "coadmin": "Coadministrador da aliança",
+        "finance": "Finanças da aliança",
+        "schooling": "Educador da aliança",
+        "sprechwunsch_admin": "Pedido de transporte - Administrador",
+        "staff": "Equipa da Aliança"
+    }
+}

@@ -1,0 +1,37 @@
+{
+    "enhancedPersonnelAssignment": {
+        "toggleFittingPersonnel": "Esconde funcionários sem educação adequada"
+    },
+    "expansions": { "notBuild": "Por construir" },
+    "fastDispatchChooser": { "noDispatch": "Sem Centro de Comando" },
+    "personnelDemands": {
+        "additional": "Valores entre parêntesis exclui veículos em Status 6.",
+        "demand": "Funcionários necessários"
+    },
+    "renewAllStagingAreas": { "title": "Reverter todas as Zonas de Concentração" },
+    "schoolingSummary": {
+        "all": "Todas as combinações",
+        "amount": "Quantidade",
+        "bound": "Anexado",
+        "each": "Cada Formação",
+        "max": "máximo atualmente necessário",
+        "min": "mínimo atualmente necessário",
+        "noSchooling": "Sem Formação",
+        "schooling": "Formação",
+        "title": "Resumo de Funcionários"
+    },
+    "startPatrols": { "duration": "1 hora | {n} horas", "title": "Patrulhas" },
+    "upgradeConfirmation": {
+        "modal": {
+            "btnCancel": "Cancelar",
+            "btnConfirm": "Confirmar",
+            "text": "Queres mesmo atualizar este edifício??",
+            "title": "Atualizar edifício?"
+        }
+    },
+    "vehiclePersonnel": {
+        "vehiclesPersonnelAssigned": "atribuído",
+        "vehiclesPersonnelCurrent": "atual",
+        "vehiclesPersonnelMax": "máx."
+    }
+}
