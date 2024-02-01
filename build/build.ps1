@@ -82,7 +82,7 @@ $_RUN_STEP_PREBUILD = $false
 $_RUN_STEP_WEBPACK = $false
 $_RUN_STEP_DOCS = $false
 $_RUN_STEP_GIT_DIFF = $false
-$_RUN_STEP_LIVE_SERVER = $false
+$_RUN_STEP_SERVE = $false
 $MODE = "development"
 $DEBUG = $false
 
@@ -139,8 +139,8 @@ foreach ($arg in $args) {
         "--git_diff" {
             $_RUN_STEP_GIT_DIFF = $true
         }
-        "--live_server" {
-            $_RUN_STEP_LIVE_SERVER = $true
+        "--serve" {
+            $_RUN_STEP_SERVE = $true
         }
         "--dependencies" {
             $_RUN_STEP_YARN_SETUP = $true
@@ -163,7 +163,7 @@ foreach ($arg in $args) {
             $_RUN_STEP_TSC = $true
             $_RUN_STEP_USERSCRIPT = $true
             $_RUN_STEP_WEBPACK = $true
-            $_RUN_STEP_LIVE_SERVER = $true
+            $_RUN_STEP_SERVE = $true
         }
         "--pre-commit" {
             $_RUN_STEP_FORMAT = $true
@@ -209,8 +209,9 @@ foreach ($arg in $args) {
 }
 
 # expose the set port (or default port) as environment variable for local server
-if ($_RUN_STEP_LIVE_SERVER) {
+if ($_RUN_STEP_SERVE) {
     if (!(Test-Path variable:port)) {
+        Write-Host "Default Port"
         $env:LSSM_PORT = '36551' # because 536551 is LSSM in base 29 but port numbers are 16-bit only so we omit the leading 5
     }
     else {
@@ -489,11 +490,11 @@ if ($_RUN_STEP_GIT_DIFF -and $GIT_REPO) {
 }
 
 # Start test server
-if ($_RUN_STEP_LIVE_SERVER) {
+if ($_RUN_STEP_SERVE) {
     $start_time = now
     print_start_message "Start test server"
     enable_debugging
-    yarn live-server ./dist/ --port=$env:LSSM_PORT --no-browser
+    ws -d .\dist\ --https --port="$env:LSSM_PORT" --hostname localhost
     disable_debugging
     print_end_message "Start test server" $start_time
 }
