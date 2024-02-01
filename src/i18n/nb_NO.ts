@@ -213,6 +213,7 @@ export default {
         'Demning',
         'Bibliotek',
         'Akvarium',
+        'Badstue',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [306, 307],

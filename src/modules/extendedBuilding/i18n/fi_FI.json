@@ -1,6 +1,8 @@
 {
     "enhancedPersonnelAssignment": {
-        "toggleFittingPersonnel": "Piilottaa henkilöstöä ilman asianmukaista koulutusta"
+        "toggleFittingEquipment": "Include training for possible equipment",
+        "toggleFittingPersonnel": "Piilottaa henkilöstöä ilman asianmukaista koulutusta",
+        "toggleFittingTrailers": "Include training for possible trailers and pods"
     },
     "expansions": { "notBuild": "Ei vielä rakennettu" },
     "fastDispatchChooser": { "noDispatch": "Ei hätäkeskusta" },

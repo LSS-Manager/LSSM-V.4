@@ -16,8 +16,8 @@
                             entry.total > 0
                                 ? 'success'
                                 : entry.total < 0
-                                ? 'danger'
-                                : ''
+                                  ? 'danger'
+                                  : ''
                         }`)
                     "
                 >

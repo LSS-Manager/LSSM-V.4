@@ -1,0 +1,175 @@
+{
+    "description": "Obtém toda a informação importante sobre uma missão na janela da missão.",
+    "name": "Ajudante de Missões",
+    "noVehicleRequirements": {
+        "average_min_fire_personnel": {
+            "badge": false,
+            "in": "adicional",
+            "text": "Número médio de bombeiros mínimo."
+        },
+        "foam_needed": {
+            "badge": true,
+            "in": "requisitos",
+            "text": "Espuma necesaria: {n} l"
+        },
+        "title": "Requisitos especiais",
+        "water_needed": {
+            "badge": true,
+            "in": "requisitos",
+            "text": "Água: {n} l"
+        }
+    },
+    "settings": {
+        "chances": {
+            "100": {
+                "description": "Mostra a probabilidade de um veículo, mesmo que seja 100%.",
+                "title": "Mostrar 100% de chance"
+            },
+            "normal": {
+                "description": "Mostra a probabilidade de um veículo.",
+                "title": "Mostrar probabilidades"
+            }
+        },
+        "credits": {
+            "description": "Mostra os ganhos médios que você ganha com esta tarefa.",
+            "title": "Ganho médio"
+        },
+        "expansions": {
+            "description": "Mostre a expensão que a missão pode alcançar.",
+            "title": "Expansão da missão"
+        },
+        "followup": {
+            "description": "Mostra o que a missão pode gerar para as missões de acompanhamento",
+            "title": "Missões de seguimento"
+        },
+        "generatedBy": {
+            "description": "Mostrar a partir de que tipo de edificio se pode gerar esta missão.",
+            "title": "Gerado por (tipo de edifício)"
+        },
+        "hide_battalion_chief_vehicles": {
+            "description": "Oculta o Veículo de Comando por completo e mostra apenas o Veículo de Comando e Comunicações.",
+            "title": "Ocultar Veículos de Comando"
+        },
+        "hide_on_Krankentransport": {
+            "description": "Esconde a informação em missões de transporte de pacientes",
+            "title": "Esconder em missões de transporte de pacientes"
+        },
+        "hoverTip": {
+            "description": "Informação sobre as ferramentas, exemplo, o botão de sobreposição.",
+            "title": "Informação sobre ferramentas"
+        },
+        "id": {
+            "description": "Mostra o ID da missão junto ao título.",
+            "title": "Missão ID"
+        },
+        "multifunctionals": {
+            "battalion_chief_vehicles": {
+                "description": "Subtrai o número de Veículo de Comando e Comunicações requeridos ao Veículos de Comando e oculta o Veículo de Comando se o número for abaixo de 0.",
+                "title": "Veículos de Comando taxa simples"
+            },
+            "heavy_rescue_vehicles": {
+                "description": "Subtrai o número de Veículos de Combate a Incêndios necesarios ao Veículos de Desencarceramento e oculta os Veículos de Combate a Incêndios se o númeior for abaixo de 0. Esta função está destinada a pessoas que conduzem um sistema de veículos de resgate puro.",
+                "title": "Taxa simples de Veículos de Desencarceramento"
+            }
+        },
+        "noVehicleRequirements": {
+            "description": "Estabeça aqui que requisitos especiais deve mostrar, se existrir para essa missão.",
+            "title": "Requisitos especiais"
+        },
+        "optionalAlternatives": {
+            "allow_arff_instead_of_lf": {
+                "description": "Indica, se no lugar de Veículos de Combate a Incêndios pode se usar Veículos de Desencarceramento.",
+                "title": "Mostrar se os Veículos de Desencarceramento estão permitidos como Veículos de Combate a Incêndios"
+            },
+            "allow_rw_instead_of_lf": {
+                "description": "Exibe uma mensagem na missão se também pode ser processada com um resgate pesado em vez de um caminhão de bombeiros.",
+                "title": "Mostrar se o Heavy Rescue pode processar a missão"
+            }
+        },
+        "patients": {
+            "content": {
+                "description": "Mostra detalhes sobre probilidades de pacientes.",
+                "title": "Detalhes sobre probilidades de pacientes"
+            },
+            "critical_care": {
+                "description": "Mostra a probilidades de cuidados críticos",
+                "title": "Detalhes das probilidades de cuidados críticos"
+            },
+            "hideWhenNoNeed": {
+                "description": "Oculta os detalhes do paciente se não houver mais pacientes e os pacientes não comparecerem até o final da missão.",
+                "title": "Mostra os detalhes de pacientes apenas quanto necessário"
+            },
+            "live": {
+                "description": "Mostra na parte superior do ajudade da missão quantos pacientes tem actualmente a missão.",
+                "title": "Número de pacientes actual"
+            },
+            "patient_allow_first_responder_chance": {
+                "description": "Mostra quanto % é neccário SAV.",
+                "title": "Probilidade de SAV"
+            },
+            "title": {
+                "description": "Mostra no título \"Pacientes\" em cima dos detalhes sobre possíveis pacientes.",
+                "title": "Pacientes (Título)"
+            }
+        },
+        "place": {
+            "description": "Indique no assistente em que POI está a operação.",
+            "title": "POI"
+        },
+        "prerequisites": {
+            "description": "Mostra os requisitos (por exemplo, 3 Postos AEM e 4 corpos de bombeiros)",
+            "title": "Prerequisitos"
+        },
+        "prisoners": {
+            "content": {
+                "description": "Mostra detalhes sobre possíveis presos.",
+                "title": "Detalhes de possíveis presos"
+            },
+            "live": {
+                "description": "Mostra na parte superior do ajudante da missão quantos presos tem actualmente a missão.",
+                "title": "Número actual de presos"
+            },
+            "title": {
+                "description": "Mostra o título \"Presos\" em cima dos detalhes sobre possíveis presos.",
+                "title": "Presos (Título)"
+            }
+        },
+        "title": {
+            "description": "Mostra o nome da missão, p. Exem. \"Icêndio em papeleira\" como título.",
+            "title": "Nome da missão"
+        },
+        "type": {
+            "description": "Mostra o tipo de número da missão junto ao título.",
+            "title": "Tipo de número"
+        },
+        "vehicles": {
+            "content": {
+                "description": "Mostra veículos necessários.",
+                "title": "Veículos necessários"
+            },
+            "patient_additionals": {
+                "description": "Se actualmente já à mais de 10 pacientes no local, Heli INEM adiciona-te autonamicamente como fazendo parte dos requisitos de veículo.",
+                "title": "Mencionar Heli INEM"
+            },
+            "sort": {
+                "amount": "Número de veículos necessários",
+                "caption": "Nome de requisitos",
+                "description": "Defina por que se deverá ordenar os requisitos do veículo.",
+                "percentage": "Probabilidade",
+                "title": "Classificação dos requisitos do veículo"
+            },
+            "sortDesc": {
+                "description": "Classifica os requisitos do veículo em ordem descendente.",
+                "title": "Veículos em ordem descendente"
+            },
+            "title": {
+                "description": "Mostra o título \"Veículos\" em cima dos requisitos do veículo.",
+                "title": "Veículos (Título)"
+            },
+            "xAfterNumber": {
+                "description": "Põe uma x atrás da quantidade de veículos",
+                "title": "X atrás da quantidade"
+            }
+        }
+    }
+}

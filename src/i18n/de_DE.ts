@@ -72,7 +72,7 @@ export default {
             color: '#ffa500',
         },
         Polizei: {
-            buildings: [6, 8, 11, 13, 17, 19],
+            buildings: [6, 8, 11, 13, 17, 19, 24],
             color: '#00ac00',
         },
         THW: {
@@ -94,7 +94,7 @@ export default {
                 Schlauchwagen: [11, 13, 14, 15, 16],
                 Sonderfahrzeuge: [
                     2, 3, 4, 5, 10, 12, 27, 33, 34, 36, 53, 57, 114, 115, 118,
-                    120,
+                    120, 126, 128, 129,
                 ],
                 ['WLF & Abrollbehälter']: [
                     46, 47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
@@ -113,6 +113,8 @@ export default {
                 'KTW': [38],
                 'SEG-Fahrzeuge': [58, 59, 60],
                 'Rettungshundefahrzeuge': [91],
+                'Drohne': [127],
+                ['BT & VPF']: [130, 131, 132, 133],
             },
             color: '#ffa500',
         },
@@ -124,6 +126,7 @@ export default {
                 'SEK': [79, 80],
                 'MEK': [81, 82],
                 'Diensthunde': [94],
+                ['Reiterstaffel']: [134, 135, 136, 137],
             },
             color: '#00ac00',
         },
@@ -138,6 +141,7 @@ export default {
                 'Schwere Bergung': [109],
                 'Netzersatzanlagen': [112, 122],
                 'MTW-OV': [124],
+                'Tr UL': [125],
             },
             color: '#0000ff',
         },
@@ -251,6 +255,7 @@ export default {
         'Moor',
         'Hüttenwerk',
         'Kraftwerk',
+        'Werksgelände',
     ],
     only_alliance_missions: [41, 43, 59, 75, 99, 207, 221, 222, 256, 350],
     transfer_missions: [147, 613],
@@ -271,6 +276,7 @@ export default {
             1_000_000_000: 'Stv. Landesbrandmeister(in)',
             2_000_000_000: 'Landesbrandmeister(in)',
             5_000_000_000: 'Ehrenmitglied',
+            10_000_000_000: 'Stv. Bundesbranddirektor(in)',
         },
         policechief: {
             0: 'Polizeimeisteranwärter(in)',
@@ -287,7 +293,8 @@ export default {
             500_000_000: 'Leitende(r) Polizeidirektor(in)',
             1_000_000_000: 'Direktor(in) der Bundespolizei',
             2_000_000_000: 'Präsident(in) der Bundespolizeidirektion',
-            5_000_000_000: 'Präsident(in) der Bundespolizei',
+            5_000_000_000: 'Vizepräsident(in) der Bundespolizei',
+            10_000_000_000: 'Präsident(in) der Bundespolizei',
         },
     },
 };

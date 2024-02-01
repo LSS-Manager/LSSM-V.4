@@ -54,16 +54,16 @@ const getModifiedMessage = (
             (mission.querySelector('[id^="mission_patients_"] [id^="patient_"]')
                 ? mission.querySelectorAll('.patient_progress').length
                 : mission
-                      .querySelector<HTMLDivElement>(
-                          '[id^="mission_patient_summary_"]'
-                      )
-                      ?.style.getPropertyValue('display') !== 'none'
-                ? LSSM.$utils.getNumberFromText(
-                      mission.querySelector(
-                          '.mission_list_patient_icon + strong'
-                      )?.textContent ?? '0'
-                  )
-                : 0) || '–'
+                        .querySelector<HTMLDivElement>(
+                            '[id^="mission_patient_summary_"]'
+                        )
+                        ?.style.getPropertyValue('display') !== 'none'
+                  ? LSSM.$utils.getNumberFromText(
+                        mission.querySelector(
+                            '.mission_list_patient_icon + strong'
+                        )?.textContent ?? '0'
+                    )
+                  : 0) || '–'
         ).toLocaleString(),
         remaining,
         remainingSpecial: remaining,
@@ -143,58 +143,121 @@ export default async ({
         document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
             ?.content ?? '';
 
-    let replyMessage = '';
-    let postInChat = false;
+    const replyMessage: Record<string, string> = { '': '' };
+    const postInChat: Record<string, boolean> = { '': false };
 
     let isLSAMenu = false;
-    let replyInProgress = false;
+    const replyInProgress = new Set<string | -1>();
+
+    const observedGroups = new Set<string>();
 
     const observer = new MutationObserver(mutations =>
         mutations.forEach(mutation => {
-            const form = (
-                mutation.target as HTMLElement
-            ).querySelector<HTMLFormElement>(
+            const target = mutation.target;
+            if (!(target instanceof HTMLElement)) return;
+            const form = target.querySelector<HTMLFormElement>(
                 '#new_mission_position[action="/missionAllianceCreate"]'
             );
             if (!form) {
                 isLSAMenu = false;
-                const successBtn = (
-                    mutation.target as HTMLElement
-                ).querySelector<HTMLAnchorElement>(
+                const successBtn = target.querySelector<HTMLAnchorElement>(
                     '.alert.alert-success a[href^="/missions/"]'
                 );
-                if (successBtn && replyMessage && !replyInProgress) {
-                    const missionId =
-                        successBtn
-                            .getAttribute('href')
-                            ?.match(/(?<=\/missions\/)\d+(?=\/?$)/u)?.[0] ?? -1;
+
+                const sendForMission = (
+                    missionId: string | -1,
+                    missionGroup = ''
+                ) => {
                     const missionElement =
                         document.querySelector<HTMLDivElement>(
                             `#mission_${missionId}`
                         );
-                    if (!missionElement) return;
-                    const missionsById = LSSM.$stores.api.missions;
-                    replyInProgress = true;
-                    sendReply(
-                        LSSM,
-                        missionId,
-                        getModifiedMessage(
-                            replyMessage,
+                    if (replyInProgress.has(missionId)) return;
+
+                    replyInProgress.add(missionId);
+                    const doTheSendStuff = (el = missionElement) => {
+                        if (!el) return;
+                        const missionsById = LSSM.$stores.api.missions;
+                        sendReply(
                             LSSM,
-                            missionElement,
                             missionId,
-                            missionsById[
-                                missionElement.getAttribute(
-                                    'mission_type_id'
-                                ) ?? '-1'
-                            ]
-                        ),
-                        postInChat,
-                        authToken
-                    ).then(() => {
-                        replyMessage = '';
-                        replyInProgress = false;
-                    });
+                            getModifiedMessage(
+                                replyMessage[missionGroup],
+                                LSSM,
+                                el,
+                                missionId,
+                                missionsById[
+                                    el.getAttribute('mission_type_id') ?? '-1'
+                                ]
+                            ),
+                            postInChat[missionGroup],
+                            authToken
+                        ).then(() => {
+                            if (missionGroup === '') replyMessage[''] = '';
+                            replyInProgress.delete(missionId);
+                        });
+                    };
+
+                    if (missionElement) {
+                        doTheSendStuff();
+                    } else {
+                        LSSM.$stores.root.hook({
+                            event: 'missionMarkerAdd',
+                            post: true,
+                            callback(mission: Mission) {
+                                if (
+                                    mission.id.toString() ===
+                                    missionId.toString()
+                                ) {
+                                    doTheSendStuff(
+                                        document.querySelector<HTMLDivElement>(
+                                            `#mission_${missionId}`
+                                        )
+                                    );
+                                }
+                            },
+                        });
+                    }
+                };
+
+                if (successBtn && replyMessage['']) {
+                    const missionId =
+                        successBtn
+                            .getAttribute('href')
+                            ?.match(/(?<=\/missions\/)\d+(?=\/?$)/u)?.[0] ?? -1;
+                    sendForMission(missionId);
+                }
+
+                const multipleMissionsCreated =
+                    target.querySelector<HTMLSpanElement>(
+                        '#custom_missions_created'
+                    );
+                const missionGroup =
+                    multipleMissionsCreated?.dataset.missionGroupIdentifier;
+
+                if (missionGroup) {
+                    if (!observedGroups.has(missionGroup)) {
+                        // .toString and Boolean to avoid reference issues
+                        replyMessage[missionGroup] =
+                            replyMessage[''].toString();
+                        replyMessage[''] = '';
+                        postInChat[missionGroup] = Boolean(postInChat['']);
+                        postInChat[''] = false;
+
+                        LSSM.$stores.root.hook({
+                            event: 'associate_mission_with_group',
+                            post: true,
+                            callback(missionId: number, groupId: string) {
+                                if (groupId === missionGroup) {
+                                    sendForMission(
+                                        missionId.toString(),
+                                        missionGroup
+                                    );
+                                }
+                            },
+                        });
+                        observedGroups.add(missionGroup);
+                    }
                 }
 
                 return;
@@ -228,7 +291,7 @@ export default async ({
             previewInput.classList.add('form-control');
             previewInput.addEventListener(
                 'input',
-                () => (replyMessage = previewInput.value)
+                () => (replyMessage[''] = previewInput.value)
             );
 
             const chatWrapper = document.createElement('label');
@@ -251,7 +314,7 @@ export default async ({
             });
             chatInput.addEventListener(
                 'change',
-                () => (postInChat = chatInput.checked)
+                () => (postInChat[''] = chatInput.checked)
             );
 
             previewGroup.append(btnSpan, previewInput, chatWrapper);
@@ -292,10 +355,10 @@ export default async ({
                 if (!(target instanceof HTMLElement)) return;
                 const li = target.closest('li');
                 if (li) {
-                    replyMessage = li.dataset.message ?? '';
-                    previewInput.value = replyMessage;
-                    postInChat = li.dataset.post === 'true';
-                    chatInput.checked = postInChat;
+                    replyMessage[''] = li.dataset.message ?? '';
+                    previewInput.value = replyMessage[''];
+                    postInChat[''] = li.dataset.post === 'true';
+                    chatInput.checked = postInChat[''];
                 }
             });
             dropdownBtn.after(dropdownMenu);

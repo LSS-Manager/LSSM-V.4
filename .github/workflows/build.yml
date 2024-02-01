@@ -54,7 +54,7 @@ jobs:
 
             - name: '[⬆] setup Node.js'
               id: node
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
                   node-version: ${{ env.NODE_VERSION }}
 
@@ -79,7 +79,7 @@ jobs:
               run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
             - name: '[💽] restore cache'
-              uses: actions/cache@v3
+              uses: actions/cache@v4
               id: yarn_cache
               with:
                   path: |
@@ -96,7 +96,7 @@ jobs:
 
             - name: '[⬆] update browserslist'
               id: browserslist
-              run: npx -y browserslist@latest --update-db
+              run: npx -y update-browserslist-db
 
             - name: '[🌳] set env variables'
               id: env
@@ -121,7 +121,7 @@ jobs:
                     BRANCH="${BRANCH//"/"/"-"}"
                   fi
                   # ===END $BRANCH===
-                    
+
                   echo "BRANCH=$BRANCH" >> $GITHUB_ENV
 
             - name: '[⬆] update emojis'
@@ -205,7 +205,7 @@ jobs:
             - name: '[☁️] upload artifact'
               id: artifact
               if: ${{ success() || failure() }}
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                   name: LSSM_V4-${{ github.sha }}
                   path: dist.zip
@@ -238,7 +238,7 @@ jobs:
             - name: '[📤] push to git'
               id: git_push
               if: ${{ success() && github.repository_owner == 'LSS-Manager' && (inputs.ref == 'refs/heads/master' || (inputs.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
-              uses: stefanzweifel/git-auto-commit-action@v4
+              uses: stefanzweifel/git-auto-commit-action@v5
               env:
                   SSH_AUTH_SOCK: /tmp/ssh_agent.sock
               with:

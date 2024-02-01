@@ -13,28 +13,6 @@
     },
     "arrHighlight": { "removeBeforeParsing": "" },
     "arrHover": {
-        "arrSpecs": {
-            "dlk": "Camión AE",
-            "elw": "Unidad de Mando y Comunicaciones (UMC)",
-            "elw2": "Unidad de mando móvil",
-            "fire": "Camiones de bomberos",
-            "fly_car": "VIR",
-            "fly_car_any": "VIR / Médico de cabecera",
-            "fustw": "Coche patrulla",
-            "gwa": "Unidad aérea",
-            "gwgefahrgut": "Hazmat (TPP)",
-            "gwl2wasser": "Camión cisterna (BNP)",
-            "hlf_only": "Vehículo de rescate",
-            "k9": "Unidad Canina",
-            "kdow_orgl": "Unidad logística de AMV",
-            "ktw": "Ambulancia SVB",
-            "polizeihubschrauber": "Helicóptero de Policía",
-            "rth_only": "HEMS",
-            "rtw": "UVI móvil",
-            "rw": "Furgones de Útiles Varios (FUV)",
-            "swat_armored_vehicle": "Unidad Antidisturbios",
-            "swat_suv": "Unidad GEO"
-        },
         "headers": {
             "attribute": "Nombre",
             "free": "Gratis",

@@ -1,4 +1,4 @@
-import type { InternalBuilding } from 'typings/Building';
+import type { Building, InternalBuilding } from 'typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
@@ -39,6 +39,25 @@ export default {
                 coins: 10,
                 duration: '3 dny',
             },
+            {
+                caption: 'Velká požární stanice',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 dny',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[0]?.length ?? 0) +
+                            (buildingsByType[18]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
         maxBuildings: 'No limit',
@@ -49,6 +68,7 @@ export default {
         startVehicles: ['CAS 20', 'CAS 30'],
         startParkingLots: 1,
         schoolingTypes: ['Školní a výcvikové zařízení HZS'],
+        schools: [1],
         icon: 'fire-flame-curved',
     },
     1: {
@@ -75,6 +95,7 @@ export default {
         maxBuildings: 'No limit',
         maxLevel: 0,
         startClassrooms: 1,
+        school: '',
         special:
             "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire- brigade schools.",
         icon: 'graduation-cap',
@@ -88,7 +109,27 @@ export default {
             credits: [10_000, 50_000, ...Array(37).fill(100_000)],
             coins: [10, 15, ...Array(37).fill(20)],
         },
-        extensions: [],
+        extensions: [
+            {
+                caption: 'Velká stanice záchranné služby',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 dny',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[2]?.length ?? 0) +
+                            (buildingsByType[20]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[2][0] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            },
+        ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
         maxBuildings: 'No limit',
         maxLevel: 14,
@@ -97,6 +138,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['RZP'],
         schoolingTypes: ['Zdravotnická akademie'],
+        schools: [3],
         icon: 'house-medical',
     },
     3: {
@@ -123,6 +165,7 @@ export default {
         maxBuildings: 'No limit',
         maxLevel: 0,
         startClassrooms: 1,
+        school: '',
         special:
             "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire- brigade schools.",
         icon: 'graduation-cap',
@@ -200,6 +243,19 @@ export default {
                 duration: '7 dní',
                 cannotDisable: true,
             },
+            {
+                caption: 'Velká nemocnice',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 dni',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number => Math.floor((buildingsByType[4]?.length ?? 4) / 5),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[4][9] ?? 0) < maxExtensions,
+                newBeds: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: ['1.-20. 19.000 Credits / 11 Coins'],
         maxBuildings: 'No limit',
@@ -232,6 +288,7 @@ export default {
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
         schoolingTypes: ['Zdravotnická akademie'],
+        schools: [3],
         icon: 'circle-h',
     },
     6: {
@@ -255,6 +312,43 @@ export default {
                 },
                 10
             ),
+            {
+                caption: 'Velká policejní stanice',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 dni',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[6]?.length ?? 0) +
+                            (buildingsByType[19]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][14] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            },
+            {
+                caption: 'Velké vězení',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 dni',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[6]?.length ?? 0) +
+                            (buildingsByType[19]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
+                newCells: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
         maxBuildings: 'No limit',
@@ -266,6 +360,7 @@ export default {
         startCells: 0,
         startVehicles: ['Policejní automobil'],
         schoolingTypes: ['Policejní Akademie'],
+        schools: [8],
         icon: 'building-shield',
     },
     7: {
@@ -311,6 +406,7 @@ export default {
         maxBuildings: 'No limit',
         maxLevel: 0,
         startClassrooms: 1,
+        school: '',
         special:
             "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
         icon: 'graduation-cap',
@@ -338,6 +434,7 @@ export default {
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
         schoolingTypes: ['Policejní Akademies'],
+        schools: [8],
         icon: 'helicopter',
     },
     14: {
@@ -377,6 +474,7 @@ export default {
         startVehicles: [],
         startParkingLots: 1,
         schoolingTypes: ['Školící středisko VZS ČČK'],
+        schools: [3],
         icon: 'person-swimming',
     },
     16: {
@@ -431,6 +529,7 @@ export default {
         startVehicles: ['CAS 20', 'CAS 30'],
         startParkingLots: 1,
         schoolingTypes: ['Školní a výcvikové zařízení HZS'],
+        schools: [2],
         icon: 'fire-flame-curved',
     },
     19: {
@@ -457,6 +556,7 @@ export default {
         startVehicles: ['Policejní automobil'],
         startParkingLots: 1,
         schoolingTypes: ['Policejní Akademie'],
+        schools: [8],
         icon: 'building-shield',
     },
     20: {
@@ -482,6 +582,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['RZP'],
         schoolingTypes: ['Zdravotnická akademie'],
+        schools: [3],
         icon: 'house-medical',
     },
     21: {
@@ -502,6 +603,7 @@ export default {
         startVehicles: ['Vozidlo pyrotechnika PČR'],
         startParkingLots: 2,
         schoolingTypes: ['Policejní Akademie'],
+        schools: [8],
         icon: 'explosion',
     },
     22: {
@@ -530,6 +632,7 @@ export default {
         special:
             "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
         startClassrooms: 1,
+        school: '',
         icon: 'graduation-cap',
     },
 } satisfies Record<number, InternalBuilding>;

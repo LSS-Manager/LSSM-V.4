@@ -36,8 +36,8 @@ export default (async ({
         )
             ? 'dispatch'
             : document.querySelector<HTMLDivElement>('#schooling_running')
-            ? 'schooling'
-            : 'building';
+              ? 'schooling'
+              : 'building';
 
         const path = window.location.pathname.split('/').filter(s => !!s);
         const buildingId = parseInt(path.at(-1) ?? '-1');

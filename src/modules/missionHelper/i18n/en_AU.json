@@ -68,7 +68,7 @@
             "battalion_chief_vehicles": "Support Vehicle | Support Vehicles",
             "boats": "Boat | Boats",
             "brush_truck": "Brush Truck | Brush Trucks",
-            "coastal_rescue": "MVR Quad | MVR Quads",
+            "coastal_rescue": "VMR Vehicle | VMR Vehicles",
             "communication_repeater": "SES Comms Repeater Trailer | SES Comms Repeater Trailers",
             "elw_water_rescue": "SES FOV | SES FOVs",
             "energy_supply": "SES Solar/Wind Power Trailer | SES Solar/Wind Power Trailers",
@@ -81,10 +81,12 @@
             "helicopter": "Air Ambulance | Air Ambulances",
             "k9": "K-9 Unit | K-9 Units",
             "kdow_orgl": "Paramedic Supervisor | Paramedic Supervisors",
-            "large_coastal_boat": "MVR Boat | MVR Boats",
+            "large_coastal_boat": "VMR Boat | VMR Boats",
             "light_supply": "SES Emergency Lighting Trailer | SES Emergency Lighting Trailers",
             "mobile_air_vehicles": "BASU Unit | BASU Units",
             "mobile_command_vehicles": "Mobile Command Vehicle or SES Mobile Command Vehicle | Mobile Command Vehicles or SES Mobile Command Vehicles",
+            "oneof_fire_engine_or_airport_fire_engine_large": "Fire Engine or ULFV Crash Tender | Fire Engines or ULFV Crash Tenders",
+            "oneof_fire_engine_or_fire_rescue": "Fire Engines or Rescue Unit | Fire Engines or Rescue Units",
             "platform_trucks": "Ladder Platform Truck | Ladder Platform Trucks",
             "police_cars": "Police Car | Police Cars",
             "police_helicopters": "Police Helicopter | Police Helicopters",
@@ -117,6 +119,11 @@
         "optional_alternatives": {
             "allow_arff_instead_of_lf": {
                 "firetrucks": "Fire Engine or ULFV | Fire Engine or ULFV"
+            },
+            "allow_police_motorcycle_instead_of_fustw": {
+                "additional_text": "of max. {n} Motorcycle |  of max. {n} Motorcycles",
+                "based_on": "police_cars",
+                "line_break": true
             },
             "allow_rw_instead_of_lf": {
                 "firetrucks": "Fire Engine or Heavy Rescue or Rescue Engine | Fire Engines or Heavy Rescue or Rescue Engine"

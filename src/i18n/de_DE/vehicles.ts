@@ -571,6 +571,8 @@ export default {
         icon: 'snowplow',
         possibleBuildings: [9],
         special: 'Muss vom "LKW K 9" zum Einsatz gezogen werden',
+        isTrailer: true,
+        tractiveVehicles: [42],
     },
     44: {
         caption: 'Anh DLE',
@@ -582,6 +584,8 @@ export default {
         possibleBuildings: [9],
         special:
             'Muss von einem "GKW", "MzGW (FGr N)", "MTW-TZ" oder "MLW 5" zum Einsatz gezogen werden.',
+        isTrailer: true,
+        tractiveVehicles: [39, 40, 41, 45],
     },
     45: {
         caption: 'MLW 5',
@@ -699,6 +703,7 @@ export default {
         staff: {
             min: 1,
             max: 6,
+            trainingAtScene: 6,
             training: {
                 Feuerwehr: {
                     dekon_p: {
@@ -717,7 +722,18 @@ export default {
         color: '#450707',
         credits: 6000,
         coins: 12,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            trainingAtScene: 6,
+            training: {
+                Feuerwehr: {
+                    dekon_p: {
+                        all: true,
+                    },
+                },
+            },
+        },
         icon: 'square',
         possibleBuildings: [0, 18],
         isTrailer: true,
@@ -902,12 +918,12 @@ export default {
             training: {
                 Feuerwehr: {
                     gw_wasserrettung: {
-                        min: 0,
+                        all: true,
                     },
                 },
                 Rettungsdienst: {
                     gw_wasserrettung: {
-                        min: 0,
+                        all: true,
                     },
                 },
             },
@@ -929,9 +945,22 @@ export default {
         color: '#1b428a',
         credits: 6000,
         coins: 12,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            trainingAtScene: 4,
+            training: {
+                THW: {
+                    gw_wasserrettung: {
+                        all: true,
+                    },
+                },
+            },
+        },
         icon: 'trailer',
         possibleBuildings: [9],
+        isTrailer: true,
+        tractiveVehicles: [65],
         special:
             'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
     },
@@ -940,9 +969,22 @@ export default {
         color: '#245390',
         credits: 6000,
         coins: 12,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            trainingAtScene: 4,
+            training: {
+                THW: {
+                    gw_wasserrettung: {
+                        all: true,
+                    },
+                },
+            },
+        },
         icon: 'trailer',
         possibleBuildings: [9],
+        isTrailer: true,
+        tractiveVehicles: [65],
         special:
             'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
     },
@@ -951,9 +993,22 @@ export default {
         color: '#296497',
         credits: 6000,
         coins: 12,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            trainingAtScene: 4,
+            training: {
+                THW: {
+                    gw_wasserrettung: {
+                        all: true,
+                    },
+                },
+            },
+        },
         icon: 'trailer',
         possibleBuildings: [9],
+        isTrailer: true,
+        tractiveVehicles: [65],
         special:
             'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
     },
@@ -981,9 +1036,27 @@ export default {
         color: '#9ac8a6',
         credits: 6000,
         coins: 12,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            trainingAtScene: 4,
+            training: {
+                Feuerwehr: {
+                    gw_wasserrettung: {
+                        all: true,
+                    },
+                },
+                Rettungsdienst: {
+                    gw_wasserrettung: {
+                        all: true,
+                    },
+                },
+            },
+        },
         icon: 'trailer',
         possibleBuildings: [0, 12, 15, 18, 22],
+        isTrailer: true,
+        tractiveVehicles: [63, 64],
         special:
             'Muss von einem "GW-Wasserrettung" oder einem "GW-Taucher" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
     },
@@ -992,7 +1065,23 @@ export default {
         color: '#bf7f6a',
         credits: 6000,
         coins: 12,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            trainingAtScene: 4,
+            training: {
+                Feuerwehr: {
+                    gw_wasserrettung: {
+                        all: true,
+                    },
+                },
+                Rettungsdienst: {
+                    gw_wasserrettung: {
+                        all: true,
+                    },
+                },
+            },
+        },
         icon: 'square',
         possibleBuildings: [0, 18],
         isTrailer: true,
@@ -1115,7 +1204,16 @@ export default {
         color: '#680101',
         credits: 6000,
         coins: 12,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            trainingAtScene: 1,
+            training: {
+                Feuerwehr: {
+                    gw_gefahrgut: { all: true },
+                },
+            },
+        },
         icon: 'square',
         possibleBuildings: [0, 18],
         isTrailer: true,
@@ -1126,7 +1224,16 @@ export default {
         color: '#bf1111',
         credits: 6000,
         coins: 12,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            trainingAtScene: 1,
+            training: {
+                Feuerwehr: {
+                    elw2: { all: true },
+                },
+            },
+        },
         icon: 'square',
         possibleBuildings: [0, 18],
         isTrailer: true,
@@ -1359,12 +1466,23 @@ export default {
         color: '#131f6e',
         credits: 6000,
         coins: 0,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            training: {
+                THW: {
+                    thw_rescue_dogs: {
+                        all: true,
+                    },
+                },
+            },
+        },
         icon: 'paw',
         possibleBuildings: [9],
-        tractiveVehicles: [93, 124],
+        isTrailer: true,
+        tractiveVehicles: [93],
         special:
-            'Muss von einem "MTW-O" oder "MTW-OV" an den Einsatzort gezogen werden. Am Einsatzort sind ein "Anh Hund" und ein "Rettungshundefahrzeug" vom Rettungsdienst gleichwertig!',
+            'Muss von einem "MTW-O" an den Einsatzort gezogen werden. Am Einsatzort sind ein "Anh Hund" und ein "Rettungshundefahrzeug" vom Rettungsdienst gleichwertig!',
     },
     93: {
         caption: 'MTW-O',
@@ -1374,13 +1492,6 @@ export default {
         staff: {
             min: 4,
             max: 5,
-            training: {
-                THW: {
-                    thw_rescue_dogs: {
-                        all: true,
-                    },
-                },
-            },
         },
         icon: 'paw',
         possibleBuildings: [9],
@@ -1430,11 +1541,22 @@ export default {
         color: '#0a580c',
         credits: 50_000,
         coins: 10,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            training: {
+                Polizei: {
+                    police_firefighting: {
+                        all: true,
+                    },
+                },
+            },
+        },
         icon: 'fill',
         possibleBuildings: [13],
         special:
             'Der Polizeihelikopter ist das Trägerfahrzeug hier von. Der Helikopter brauch min. 2 Ausgebildete Kräfte mit der Ausbildung "Brandbekämpfung"',
+        waterTank: 1000,
         isTrailer: true,
         tractiveVehicles: [61],
     },
@@ -1448,7 +1570,7 @@ export default {
             max: 3,
             training: {
                 Feuerwehr: {
-                    intensiv_care: {
+                    intensive_care: {
                         min: 2,
                     },
                     notarzt: {
@@ -1456,7 +1578,7 @@ export default {
                     },
                 },
                 Rettungsdienst: {
-                    intensiv_care: {
+                    intensive_care: {
                         min: 2,
                     },
                     notarzt: {
@@ -1515,11 +1637,23 @@ export default {
         color: '#36759e',
         credits: 15_000,
         coins: 25,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            training: {
+                THW: {
+                    water_damage_pump: {
+                        min: 1,
+                    },
+                },
+            },
+        },
         icon: 'trailer',
         possibleBuildings: [9],
         pumpCapacity: 15_000,
         pumpType: 'sewage',
+        waterBonus: 25,
+        isTrailer: true,
         tractiveVehicles: [100, 123],
     },
     102: {
@@ -1527,11 +1661,23 @@ export default {
         color: '#36759e',
         credits: 15_000,
         coins: 25,
-        staff: { min: 0, max: 0 },
+        staff: {
+            min: 0,
+            max: 0,
+            training: {
+                THW: {
+                    water_damage_pump: {
+                        min: 1,
+                    },
+                },
+            },
+        },
         icon: 'trailer',
         possibleBuildings: [9],
         pumpCapacity: 12_400,
         pumpType: 'sewage',
+        waterBonus: 25,
+        isTrailer: true,
         tractiveVehicles: [100, 123],
     },
     103: {
@@ -1843,5 +1989,269 @@ export default {
         },
         icon: 'truck',
         possibleBuildings: [9],
+    },
+    125: {
+        caption: 'MTW-Tr UL',
+        color: '#36759e',
+        credits: 10_000,
+        coins: 15,
+        staff: {
+            min: 4,
+            max: 4,
+            training: {
+                THW: {
+                    thw_drone: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [9],
+    },
+    126: {
+        caption: 'MTF Drohne',
+        color: '#fd090f',
+        credits: 10_000,
+        coins: 15,
+        staff: {
+            min: 4,
+            max: 5,
+            training: {
+                Feuerwehr: {
+                    fire_drone: {
+                        min: 4,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [0, 18],
+    },
+    127: {
+        caption: 'GW UAS',
+        color: '#bb5811',
+        credits: 10_000,
+        coins: 15,
+        staff: {
+            min: 4,
+            max: 4,
+            training: {
+                Rettungsdienst: {
+                    seg_drone: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [12],
+    },
+    128: {
+        caption: 'ELW Drohne',
+        color: '#fd090f',
+        credits: 20_000,
+        coins: 25,
+        staff: {
+            min: 4,
+            max: 5,
+            training: {
+                Feuerwehr: {
+                    fire_drone: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [0, 18],
+        special:
+            'Der ELW Drohne ist ein Einsatzleitwagen 1 und eine Drohneneinheit für die Ortung und Erkundung aus der Luft.',
+    },
+    129: {
+        caption: 'ELW2 Drohne',
+        color: '#fd090f',
+        credits: 35_000,
+        coins: 25,
+        staff: {
+            min: 4,
+            max: 6,
+            training: {
+                Feuerwehr: {
+                    fire_drone: {
+                        all: true,
+                    },
+                    elw2: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [0, 18],
+        special:
+            'Der ELW2 Drohne kombiniert einen Einsatzleitwagen 2 mit einer Drohneneinheit für die Ortung und Erkundung aus der Luft.',
+    },
+    130: {
+        caption: 'GW-Bt',
+        color: '#a34100',
+        credits: 35_000,
+        coins: 25,
+        staff: {
+            min: 3,
+            max: 3,
+            training: {
+                Rettungsdienst: {
+                    care_service: {
+                        min: 1,
+                    },
+                    care_service_equipment: {
+                        min: 2,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [12],
+        special:
+            'Der GW-Bt transportiert Betreuungs- und Verpflegungsausstattung und kann als Feldküche zur Versorgung von Einsatzkräften und Betroffenen',
+    },
+    131: {
+        caption: 'Bt-Kombi',
+        color: '#a34100',
+        credits: 25_000,
+        coins: 15,
+        staff: {
+            min: 1,
+            max: 9,
+            training: {
+                Rettungsdienst: {
+                    care_service: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [12],
+        special:
+            'Der Bt-Kombi transportiert Betreuungsdienstler zur Versorgung von Einsatzkräften und Betroffenen zu Einsätzen.',
+    },
+    132: {
+        caption: 'FKH',
+        color: '#a34100',
+        credits: 20_000,
+        coins: 15,
+        staff: {
+            min: 0,
+            max: 0,
+        },
+        icon: 'car-side',
+        possibleBuildings: [12],
+        isTrailer: true,
+        tractiveVehicles: [133],
+        special:
+            'Der FKH kann als Feldküche zur Versorgung von Einsatzkräften und Betroffenen eingesetzt werden und ist Teil der Betreuungs- und Verpflegungsausstattung.',
+    },
+    133: {
+        caption: 'Bt LKW',
+        color: '#a34100',
+        credits: 15_000,
+        coins: 15,
+        staff: {
+            min: 3,
+            max: 3,
+            training: {
+                Rettungsdienst: {
+                    care_service: {
+                        min: 1,
+                    },
+                    care_service_equipment: {
+                        min: 2,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [12],
+        special:
+            'Der Bt LKW transportiert Betreuungs- und Verpflegungsausstattung ohne Feldküche und muss mit einem FKH kombiniert werden',
+    },
+    134: {
+        caption: 'Pferdetransporter klein',
+        color: '#835243',
+        credits: 20_000,
+        coins: 20,
+        staff: {
+            min: 2,
+            max: 4,
+            training: {
+                Polizei: {
+                    police_horse: {
+                        min: 2,
+                    },
+                },
+            },
+        },
+        icon: 'horse',
+        possibleBuildings: [11, 24],
+        special: 'Transportiert 2 Pferde',
+    },
+    135: {
+        caption: 'Pferdetransporter groß',
+        color: '#835243',
+        credits: 120_000,
+        coins: 25,
+        staff: {
+            min: 2,
+            max: 2,
+            trainingAtScene: 4,
+            training: {
+                Polizei: {
+                    police_horse: {
+                        min: 0,
+                    },
+                },
+            },
+        },
+        icon: 'horse',
+        possibleBuildings: [11, 24],
+        special: 'Transportiert 4 Pferde',
+    },
+    136: {
+        caption: 'Anh Pferdetransport',
+        color: '#835243',
+        credits: 15_000,
+        coins: 15,
+        staff: {
+            min: 0,
+            max: 0,
+            trainingAtScene: 2,
+            training: {
+                Polizei: {
+                    police_horse: {
+                        min: 0,
+                    },
+                },
+            },
+        },
+        icon: 'horse',
+        possibleBuildings: [11, 24],
+        isTrailer: true,
+        tractiveVehicles: [134, 135, 137],
+        special: 'Transportiert 2 Pferde',
+    },
+    137: {
+        caption: 'Zugfahrzeug Pferdetransport',
+        color: '#835243',
+        credits: 5000,
+        coins: 10,
+        staff: {
+            min: 1,
+            max: 6,
+        },
+        icon: 'horse',
+        possibleBuildings: [11, 24],
+        special: 'Kann den Anh Pferdetransport ziehen.',
     },
 } satisfies Record<number, InternalVehicle>;

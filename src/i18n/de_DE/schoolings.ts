@@ -3,28 +3,10 @@ import type { SchoolingsBySchool } from 'typings/Schooling';
 export default {
     Feuerwehr: [
         {
-            caption: 'Dekon-P Lehrgang',
+            caption: 'GW-Messtechnik Lehrgang',
             duration: '3 Tage',
-            staffList: 'Dekon-P',
-            key: 'dekon_p',
-        },
-        {
-            caption: 'ELW 2 Lehrgang',
-            duration: '7 Tage',
-            staffList: 'ELW 2',
-            key: 'elw2',
-        },
-        {
-            caption: 'Feuerwehrkran Lehrgang',
-            duration: '3 Tage',
-            staffList: 'Feuerwehrkran',
-            key: 'fwk',
-        },
-        {
-            caption: 'Flugfeldlöschfahrzeug-Ausbildung',
-            duration: '7 Tage',
-            staffList: 'Flugfeldlöschfahrzeug',
-            key: 'arff',
+            staffList: 'GW-Messtechnik',
+            key: 'gw_messtechnik',
         },
         {
             caption: 'GW-Gefahrgut Lehrgang',
@@ -33,16 +15,34 @@ export default {
             key: 'gw_gefahrgut',
         },
         {
-            caption: 'GW-Messtechnik Lehrgang',
-            duration: '3 Tage',
-            staffList: 'GW-Messtechnik',
-            key: 'gw_messtechnik',
+            caption: 'Höhenrettung Lehrgang',
+            duration: '4 Tage',
+            staffList: 'GW-Höhenrettung',
+            key: 'gw_hoehenrettung',
         },
         {
-            caption: 'GW-Taucher Lehrgang',
-            duration: '5 Tage',
-            staffList: 'GW-Taucher',
-            key: 'gw_taucher',
+            caption: 'ELW 2 Lehrgang',
+            duration: '7 Tage',
+            staffList: 'ELW 2',
+            key: 'elw2',
+        },
+        {
+            caption: 'Wechsellader Lehrgang',
+            duration: '2 Tage',
+            staffList: 'Wechsellader',
+            key: 'wechsellader',
+        },
+        {
+            caption: 'Dekon-P Lehrgang',
+            duration: '3 Tage',
+            staffList: 'Dekon-P',
+            key: 'dekon_p',
+        },
+        {
+            caption: 'Feuerwehrkran Lehrgang',
+            duration: '3 Tage',
+            staffList: 'Feuerwehrkran',
+            key: 'fwk',
         },
         {
             caption: 'GW-Wasserrettung Lehrgang',
@@ -51,10 +51,10 @@ export default {
             key: 'gw_wasserrettung',
         },
         {
-            caption: 'Höhenrettung Lehrgang',
-            duration: '4 Tage',
-            staffList: 'GW-Höhenrettung',
-            key: 'gw_hoehenrettung',
+            caption: 'GW-Taucher Lehrgang',
+            duration: '5 Tage',
+            staffList: 'GW-Taucher',
+            key: 'gw_taucher',
         },
         {
             caption: 'Notarzt-Ausbildung',
@@ -63,16 +63,16 @@ export default {
             key: 'notarzt',
         },
         {
+            caption: 'Flugfeldlöschfahrzeug-Ausbildung',
+            duration: '7 Tage',
+            staffList: 'Flugfeldlöschfahrzeug',
+            key: 'arff',
+        },
+        {
             caption: 'Rettungstreppen-Ausbildung',
             duration: '2 Tage',
             staffList: 'Rettungstreppe',
             key: 'rettungstreppe',
-        },
-        {
-            caption: 'Wechsellader Lehrgang',
-            duration: '2 Tage',
-            staffList: 'Wechsellader',
-            key: 'wechsellader',
         },
         {
             caption: 'Werkfeuerwehr-Ausbildung',
@@ -84,7 +84,7 @@ export default {
             caption: 'Intensivpflege',
             duration: '3 Tage',
             staffList: 'Intensivpflege',
-            key: 'intensiv_care',
+            key: 'intensive_care',
         },
         {
             caption: 'NEA200 Fortbildung',
@@ -92,13 +92,19 @@ export default {
             staffList: 'NEA200',
             key: 'energy_supply',
         },
+        {
+            caption: 'Drohnen-Schulung',
+            duration: '3 Tage',
+            staffList: 'Drohnen-Schulung',
+            key: 'fire_drone',
+        },
     ],
     Polizei: [
         {
-            caption: 'Hundeführer (Schutzhund)',
+            caption: 'Zugführer (leBefKw)',
             duration: '7 Tage',
-            staffList: 'Hundeführer (Schutzhund)',
-            key: 'k9',
+            staffList: 'Zugführer (leBefKw)',
+            key: 'police_einsatzleiter',
         },
         {
             caption: 'Hundertschaftsführer (FüKw)',
@@ -107,34 +113,10 @@ export default {
             key: 'police_fukw',
         },
         {
-            caption: 'MEK',
-            duration: '7 Tage',
-            staffList: 'MEK',
-            key: 'police_mek',
-        },
-        {
-            caption: 'Brandbekämpfung',
-            duration: '3 Tage',
-            staffList: 'Brandbekämpfung',
-            key: 'police_firefighting',
-        },
-        {
-            caption: 'Motorradstaffel',
-            duration: '3 Tage',
-            staffList: 'Motorradstaffel',
-            key: 'police_motorcycle',
-        },
-        {
             caption: 'Polizeihubschrauber',
             duration: '7 Tage',
             staffList: 'Polizeihubschrauber',
             key: 'polizeihubschrauber',
-        },
-        {
-            caption: 'SEK',
-            duration: '7 Tage',
-            staffList: 'SEK',
-            key: 'police_sek',
         },
         {
             caption: 'Wasserwerfer',
@@ -143,10 +125,34 @@ export default {
             key: 'police_wasserwerfer',
         },
         {
-            caption: 'Zugführer (leBefKw)',
+            caption: 'SEK',
             duration: '7 Tage',
-            staffList: 'Zugführer (leBefKw)',
-            key: 'police_einsatzleiter',
+            staffList: 'SEK',
+            key: 'police_sek',
+        },
+        {
+            caption: 'MEK',
+            duration: '7 Tage',
+            staffList: 'MEK',
+            key: 'police_mek',
+        },
+        {
+            caption: 'Hundeführer (Schutzhund)',
+            duration: '7 Tage',
+            staffList: 'Hundeführer (Schutzhund)',
+            key: 'k9',
+        },
+        {
+            caption: 'Motorradstaffel',
+            duration: '3 Tage',
+            staffList: 'Motorradstaffel',
+            key: 'police_motorcycle',
+        },
+        {
+            caption: 'Brandbekämpfung',
+            duration: '3 Tage',
+            staffList: 'Brandbekämpfung',
+            key: 'police_firefighting',
         },
         {
             caption: 'Kriminalpolizei',
@@ -160,26 +166,14 @@ export default {
             staffList: 'Dienstgruppenleitung',
             key: 'police_service_group_leader',
         },
+        {
+            caption: 'Reiterstaffel',
+            duration: '3 Tage',
+            staffList: 'Reiterstaffel',
+            key: 'police_horse',
+        },
     ],
     Rettungsdienst: [
-        {
-            caption: 'GW-Taucher Lehrgang',
-            duration: '5 Tage',
-            staffList: 'GW-Taucher',
-            key: 'gw_taucher',
-        },
-        {
-            caption: 'GW-Wasserrettung Lehrgang',
-            duration: '3 Tage',
-            staffList: 'GW-Wasserrettung',
-            key: 'gw_wasserrettung',
-        },
-        {
-            caption: 'LNA-Ausbildung',
-            duration: '9 Tage',
-            staffList: 'LNA',
-            key: 'lna',
-        },
         {
             caption: 'Notarzt-Ausbildung',
             duration: '7 Tage',
@@ -187,10 +181,10 @@ export default {
             key: 'notarzt',
         },
         {
-            caption: 'Rettungshundeführer (SEG)',
-            duration: '5 Tage',
-            staffList: 'Rettungshundeführer (SEG)',
-            key: 'seg_rescue_dogs',
+            caption: 'LNA-Ausbildung',
+            duration: '9 Tage',
+            staffList: 'LNA',
+            key: 'lna',
         },
         {
             caption: 'OrgL-Ausbildung',
@@ -211,18 +205,54 @@ export default {
             key: 'seg_gw_san',
         },
         {
+            caption: 'GW-Wasserrettung Lehrgang',
+            duration: '3 Tage',
+            staffList: 'GW-Wasserrettung',
+            key: 'gw_wasserrettung',
+        },
+        {
+            caption: 'GW-Taucher Lehrgang',
+            duration: '5 Tage',
+            staffList: 'GW-Taucher',
+            key: 'gw_taucher',
+        },
+        {
+            caption: 'Rettungshundeführer (SEG)',
+            duration: '5 Tage',
+            staffList: 'Rettungshundeführer (SEG)',
+            key: 'seg_rescue_dogs',
+        },
+        {
             caption: 'Intensivpflege',
             duration: '3 Tage',
             staffList: 'Intensivpflege',
-            key: 'intensiv_care',
+            key: 'intensive_care',
+        },
+        {
+            caption: 'SEG Drohne',
+            duration: '3 Tage',
+            staffList: 'SEG Drohne',
+            key: 'seg_drone',
+        },
+        {
+            caption: 'Betreuungsdienst',
+            duration: '3 Tage',
+            staffList: 'Betreuungshelfer',
+            key: 'care_service',
+        },
+        {
+            caption: 'Verpflegungshelfer',
+            duration: '3 Tage',
+            staffList: 'Verpflegungshelfer',
+            key: 'care_service_equipment',
         },
     ],
     THW: [
         {
-            caption: 'Fachgruppe Bergungstaucher',
-            duration: '5 Tage',
-            staffList: 'GW-Taucher',
-            key: 'gw_taucher',
+            caption: 'Zugtrupp',
+            duration: '7 Tage',
+            staffList: 'Zugtrupp',
+            key: 'thw_zugtrupp',
         },
         {
             caption: 'Fachgruppe Räumen',
@@ -231,22 +261,22 @@ export default {
             key: 'thw_raumen',
         },
         {
-            caption: 'Fachgruppe Rettungshundeführer',
-            duration: '5 Tage',
-            staffList: 'Rettungshundeführer (THW)',
-            key: 'thw_rescue_dogs',
-        },
-        {
             caption: 'Fachgruppe Wassergefahren',
             duration: '3 Tage',
             staffList: 'GW-Wasserrettung',
             key: 'gw_wasserrettung',
         },
         {
-            caption: 'Zugtrupp',
-            duration: '7 Tage',
-            staffList: 'Zugtrupp',
-            key: 'thw_zugtrupp',
+            caption: 'Fachgruppe Bergungstaucher',
+            duration: '5 Tage',
+            staffList: 'GW-Taucher',
+            key: 'gw_taucher',
+        },
+        {
+            caption: 'Fachgruppe Rettungshundeführer',
+            duration: '5 Tage',
+            staffList: 'Rettungshundeführer (THW)',
+            key: 'thw_rescue_dogs',
         },
         {
             caption: 'Fachgruppe Wasserschaden/Pumpen',
@@ -265,6 +295,12 @@ export default {
             duration: '7 Tage',
             staffList: 'FGr E',
             key: 'thw_energy_supply',
+        },
+        {
+            caption: 'Trupp Unbemannte Luftfahrtsysteme',
+            duration: '3 Tage',
+            staffList: 'Tr UL',
+            key: 'thw_drone',
         },
     ],
 } satisfies SchoolingsBySchool;

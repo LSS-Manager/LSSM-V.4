@@ -13,61 +13,6 @@
     },
     "arrHighlight": { "removeBeforeParsing": "" },
     "arrHover": {
-        "arrSpecs": {
-            "ab_atemschutz_only": "Adembeschermingshaakarmbak",
-            "abl2wasser_only": "Watertransportsysteem-haakarmbak",
-            "ambulance_or_rapid_responder": "Ambulance of Rapid Responder",
-            "any_traffic_unit": "Signalisatie Voertuig (DA-RWS, DA-SIG of DM-RWS)",
-            "arff": "Crashtender",
-            "at_c": "AT-Commandant",
-            "at_m": "AT-Materiaalwagen",
-            "at_o": "AT-Operator",
-            "bike_police": "DB-Bike",
-            "boot": "WOA of BA-RB",
-            "brush_truck": "Terreinvaardige Tankautospuit",
-            "dlk": "Redvoertuig",
-            "elw": "Officier van Dienst Brandweer",
-            "elw_airport": "Airport Fire Officer / On Scene Commander",
-            "elw2": "Hoofdofficier van Dienst - Brandweer",
-            "elw3": "Commandovoertuig of haakarmbak",
-            "fire": "Tankautospuit",
-            "fly_car": "Rapid Responder",
-            "fly_car_any": "OVDG-RR of Rapid Responder",
-            "foam": "Schuimblusvoertuig",
-            "foam_amount": "SVM (in Liters)",
-            "fustw": "Politie Noodhulp",
-            "fustw_or_police_motorcycle": "Politie Noodhulp of Dienstmotor Noodhulp",
-            "gefkw": "DB-AV",
-            "grukw": "ME Flexbus",
-            "gw_taucher": "Waterongevallenvoertuig",
-            "gw_wasserrettung": "Strandvoertuig (DAT-RB of KHV)",
-            "gwa": "Adembeschermingsvoertuig of haakarmbak",
-            "gwgefahrgut": "Adviseur Gevaarlijke Stoffen",
-            "gwl2wasser": "Slangenwagen / Watertankwagen of Watertransportsysteem-haakarmbak",
-            "gwl2wasser_only": "Alleen Slangenwagen / Watertankwagen",
-            "gwmesstechnik": "Dienstbus Verkenningseenheid Brandweer",
-            "hondengeleider": "Hondengeleider",
-            "kdow_orgl": "Officier van Dienst Geneeskunde",
-            "kdow_orgl_any": "OVD-G of OVDG-RR",
-            "ktw": "Zorgambulance",
-            "lebefkw": "ME Commandovoertuig",
-            "mtw": "Dienstauto / Dienstbus brandweer",
-            "nef": "MMT-Auto of Lifeliner",
-            "nef_only": "MMT-Auto",
-            "ovd_p": "Officier van Dienst - Politie",
-            "police_car_3": "NH-O",
-            "police_horse": "VW-BB of BB-A",
-            "police_motorcycle": "Dienstmotor Noodhulp",
-            "polizeihubschrauber": "Politiehelikopter",
-            "pump": "Motorspuitaanhangwagen",
-            "rth_only": "Lifeliner",
-            "rtw": "Ambulance",
-            "rw": "HV of TS-HV",
-            "rw_only": "Hulpverleningsvoertuig",
-            "search_and_rescue": "Dienstvoertuig USAR",
-            "spokesman": "Voorlichters",
-            "wasser_amount": "Water (in Liters)"
-        },
         "headers": {
             "attribute": "Naam",
             "free": "Vrij",
@@ -122,6 +67,13 @@
             {
                 "texts": ["Tankautospuit", "Tankautospuiten"],
                 "vehicles": [0, 1, 6, 7, 8, 9, 12, 14, 15, 17, 50, 62]
+            },
+            {
+                "texts": [
+                    "Tankautospuit (Terreinvaardig)",
+                    "Tankautospuiten (Terreinvaardig)"
+                ],
+                "vehicles": [6, 7, 8, 12, 14, 15]
             },
             { "texts": ["Redvoertuig", "Redvoertuigen"], "vehicles": [2, 18] },
             {
@@ -213,6 +165,9 @@
                 "vehicles": [16, 52, 57, 63]
             },
             { "texts": ["Biketeam", "Biketeams"], "vehicles": [60] },
+            { "texts": ["SIV-P of DM-P"], "vehicles": [46, 98] },
+            { "texts": ["DM-P"], "vehicles": [46] },
+            { "texts": ["DB-VOA,"], "vehicles": [99] },
             {
                 "texts": ["Aanhoudingseenheden", "Aanhoudingseenheid"],
                 "vehicles": [64]
@@ -269,6 +224,10 @@
                 "vehicles": [80]
             },
             { "texts": ["FBO Heli", "FBO Helis"], "vehicles": [85] },
+            {
+                "texts": ["FBO-Helicopter", "FBO-Helicopters"],
+                "vehicles": [85]
+            },
             { "texts": ["DA-LA-NB", "DA-LA-NBs"], "vehicles": [87] },
             {
                 "texts": [

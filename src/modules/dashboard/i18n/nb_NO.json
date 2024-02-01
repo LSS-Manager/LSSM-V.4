@@ -26,8 +26,13 @@
         "maxMissions": { "title": "Maximum missions" },
         "vehicles": {
             "empty": "Du har ingen kjøretøy i kategorien {category} ennå!",
+            "foam": "Foam",
+            "foamWithBonus": "incl. Bonus",
+            "liquidUnit": "L.",
             "tip": "Klikk på en gruppe kjøretøytyper for å vise kun denne gruppen.",
-            "title": "Kjøretøy"
+            "title": "Kjøretøy",
+            "water": "Water",
+            "waterWithBonus": "incl. Bonus"
         }
     },
     "dispatchcenter-view": {

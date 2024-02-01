@@ -1,4 +1,4 @@
-import type { InternalBuilding } from 'typings/Building';
+import type { Building, InternalBuilding } from 'typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
@@ -64,6 +64,25 @@ export default {
                 coins: 25,
                 duration: '5 jours',
             },
+            {
+                caption: 'Grande caserne de pompiers',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 jours',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[0]?.length ?? 0) +
+                            (buildingsByType[18]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[0][5] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: ['1. 10 000', '2. 50 000', '3-24. 100 000'],
         maxBuildings: 'Aucune limite',
@@ -73,6 +92,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['FPT', 'FPTL', 'FPTSR', 'CCRL', 'CCRM', 'CCRSR'],
         schoolingTypes: ['Centre de secours'],
+        schools: [1],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -103,6 +123,7 @@ export default {
         special:
             "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.Les chefs de formation et les administrateurs peuvent lancer des formations.",
         startClassrooms: 1,
+        school: 'Centre de secours',
         icon: 'graduation-cap',
     },
     2: {
@@ -114,7 +135,27 @@ export default {
             credits: [10_000, 50_000, ...Array(12).fill(100_000)],
             coins: [10, 15, ...Array(12).fill(20)],
         },
-        extensions: [],
+        extensions: [
+            {
+                caption: "Grande station d'ambulance",
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 jours',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[2]?.length ?? 0) +
+                            (buildingsByType[20]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[2][0] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            },
+        ],
         levelcost: ['1. 10 000', '2. 50 000', '3-14. 100 000'],
         maxBuildings: 'Aucune limite',
         maxLevel: 14,
@@ -122,6 +163,7 @@ export default {
         startPersonnel: 3,
         startVehicles: ['ASSU'],
         schoolingTypes: ['Secours'],
+        schools: [3],
         startParkingLots: 1,
         icon: 'house-medical',
     },
@@ -152,6 +194,7 @@ export default {
         special:
             "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.Les chefs de formation et les administrateurs peuvent lancer des formations.",
         startClassrooms: 1,
+        school: 'Secours',
         icon: 'graduation-cap',
     },
     4: {
@@ -234,6 +277,19 @@ export default {
                 requiredExtensions: [1],
                 cannotDisable: true,
             },
+            {
+                caption: 'Grand hôpital',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 jours',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number => Math.floor((buildingsByType[4]?.length ?? 0) / 5),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[4][10] ?? 0) < maxExtensions,
+                newBeds: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: ['1-20. 19 000 crédits / 11 pièces'],
         maxBuildings: 'Aucune limite',
@@ -261,6 +317,7 @@ export default {
         startPersonnel: 0,
         startVehicles: [],
         schoolingTypes: ['Secours'],
+        schools: [3],
         startParkingLots: 1,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
@@ -298,6 +355,45 @@ export default {
                 },
                 9
             ),
+            {
+                caption: 'Grand poste de police',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 jours',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[6]?.length ?? 0) +
+                            (buildingsByType[19]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][10] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            },
+            {
+                caption: 'Grande prison',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 jours',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[6]?.length ?? 0) +
+                            (buildingsByType[19]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][11] ?? 0) < maxExtensions,
+                givesParkingLots: 10,
+                newCells: 10,
+                requiredExtensions: [9],
+                cannotDisable: true,
+            },
         ],
         levelcost: ['1. 10 000', '2. 50 000', '3-14. 100 000'],
         maxBuildings: 'Aucune limite',
@@ -305,6 +401,7 @@ export default {
         startPersonnel: 2,
         startVehicles: ['Véhicule de patrouille'],
         schoolingTypes: ['Poste de police'],
+        schools: [8],
         startParkingLots: 1,
         startCells: 0,
         special: '',
@@ -356,6 +453,7 @@ export default {
         special:
             "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.Les chefs de formation et les administrateurs peuvent lancer des formations.",
         startClassrooms: 1,
+        school: 'Poste de police',
         icon: 'graduation-cap',
     },
     11: {
@@ -442,6 +540,7 @@ export default {
             [45],
         ],
         schoolingTypes: ['Poste de police'],
+        schools: [8],
         special: '',
         icon: 'shield-halved',
     },
@@ -463,6 +562,7 @@ export default {
         startPersonnel: 3,
         startVehicles: [],
         schoolingTypes: ['Poste de police'],
+        schools: [8],
         startParkingLots: 1,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
@@ -531,6 +631,20 @@ export default {
                 },
                 10
             ),
+            {
+                caption: 'Grande prison',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 jours',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor((buildingsByType[16]?.length ?? 0) / 10),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[16][20] ?? 0) < maxExtensions,
+                newCells: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: [],
         maxBuildings: 'Aucune limite',
@@ -591,6 +705,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['FPT', 'FPTL', 'FPTSR', 'CCRL', 'CCRM', 'CCRSR'],
         schoolingTypes: ['Centre de secours'],
+        schools: [1],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -637,6 +752,7 @@ export default {
         startCells: 0,
         startVehicles: ['Véhicule de patrouille'],
         schoolingTypes: ['Poste de police'],
+        schools: [8],
         icon: 'building-shield',
     },
     20: {
@@ -661,6 +777,7 @@ export default {
         startPersonnel: 3,
         startVehicles: ['ASSU'],
         schoolingTypes: ['Secours'],
+        schools: [3],
         startParkingLots: 1,
         icon: 'house-medical',
     },
@@ -681,6 +798,7 @@ export default {
         startPersonnel: 0,
         startVehicles: [''],
         schoolingTypes: [],
+        schools: [],
         startParkingLots: 0,
         icon: 'poo',
     },
@@ -701,6 +819,7 @@ export default {
         startPersonnel: 0,
         startVehicles: [''],
         schoolingTypes: [],
+        schools: [],
         startParkingLots: 0,
         icon: 'poo',
     },
@@ -736,6 +855,7 @@ export default {
         startParkingLots: 1,
         startVehicles: [''],
         schoolingTypes: ['Secours nautique'],
+        schools: [25],
         icon: 'building-shield',
     },
     24: {
@@ -770,6 +890,7 @@ export default {
         startParkingLots: 1,
         startVehicles: [''],
         schoolingTypes: ['Secours nautique'],
+        schools: [25],
         icon: 'building-shield',
     },
     25: {
@@ -797,6 +918,7 @@ export default {
         maxBuildings: 'Aucune limite',
         maxLevel: 0,
         startClassrooms: 1,
+        school: 'Secours nautique',
         special: '',
         icon: 'building-shield',
     },
@@ -955,6 +1077,7 @@ export default {
         startParkingLots: 0,
         startVehicles: [''],
         schoolingTypes: ['Secours nautique'],
+        schools: [25],
         icon: 'building-shield',
     },
     27: {
@@ -1034,6 +1157,59 @@ export default {
         startParkingLots: 1,
         startVehicles: [''],
         schoolingTypes: ['Secours nautique'],
+        schools: [25],
+        icon: 'building-shield',
+    },
+    28: {
+        caption: 'GIGN',
+        color: '#116611',
+        coins: 50,
+        credits: 500_000,
+        levelPrices: {
+            credits: [
+                10_000,
+                25_000,
+                50_000,
+                75_000,
+                ...Array(5).fill(100_000),
+            ],
+            coins: [5, 10, 10, 15, ...Array(5).fill(20)],
+        },
+        extensions: [
+            {
+                caption: "Équipements d'assaut",
+                credits: 200_000,
+                coins: 25,
+                duration: '5 jours',
+                isVehicleExtension: true,
+                givesParkingLots: 2,
+                parkingLotReservations: [[39], [39]],
+            },
+            {
+                caption: 'Négociateur',
+                credits: 200_000,
+                coins: 25,
+                duration: '5 jours',
+                isVehicleExtension: true,
+                givesParkingLots: 2,
+                parkingLotReservations: [[39], [39]],
+            },
+        ],
+        levelcost: [
+            '1. 10 000',
+            '2. 25 000',
+            '3. 45 000',
+            '4. 75 000',
+            '5-9. 100 000',
+        ],
+        maxBuildings: 'Aucune limite',
+        maxLevel: 9,
+        special: '',
+        startPersonnel: 6,
+        startParkingLots: 1,
+        startVehicles: ['Fortress 200'],
+        schoolingTypes: ['Secours nautique'],
+        schools: [25],
         icon: 'building-shield',
     },
 } satisfies Record<number, InternalBuilding>;

@@ -1,4 +1,4 @@
-import type { InternalBuilding } from 'typings/Building';
+import type { Building, InternalBuilding } from 'typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
@@ -48,6 +48,25 @@ export default {
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [43, 44, 45],
             },
+            {
+                caption: 'Large Fire Station',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 Days',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[0]?.length ?? 0) +
+                            (buildingsByType[18]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
         maxBuildings: 'No limit',
@@ -57,6 +76,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['Pumper', 'Medium Tanker', ' Heavy Tanker'],
         schoolingTypes: ['Fire Station'],
+        schools: [1],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -84,6 +104,7 @@ export default {
         maxBuildings: 'No limit',
         maxLevel: 0,
         startClassrooms: 1,
+        school: 'Fire Station',
         special:
             "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire-brigade schools.",
         icon: 'graduation-cap',
@@ -97,7 +118,27 @@ export default {
             credits: [10_000, 50_000, ...Array(14).fill(100_000)],
             coins: [10, 15, ...Array(14).fill(20)],
         },
-        extensions: [],
+        extensions: [
+            {
+                caption: 'Large Ambulance Station',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 Days',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[2]?.length ?? 0) +
+                            (buildingsByType[20]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[2][0] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            },
+        ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
         maxBuildings: 'No limit',
         maxLevel: 16,
@@ -106,6 +147,7 @@ export default {
         startParkingLots: 1,
         startVehicles: ['Ambulance'],
         schoolingTypes: ['Rescue'],
+        schools: [3],
         icon: 'house-medical',
     },
     3: {
@@ -132,6 +174,7 @@ export default {
         maxBuildings: 'No limit',
         maxLevel: 0,
         startClassrooms: 1,
+        school: 'Rescue',
         special:
             "Finance ministers and admins can (expand) Paramedic Training Centre with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire-brigade schools.",
         icon: 'graduation-cap',
@@ -217,6 +260,19 @@ export default {
                 cannotDisable: true,
                 requiredExtensions: [1],
             },
+            {
+                caption: 'Large Hospital',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 Days',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number => Math.floor((buildingsByType[4]?.length ?? 4) / 5),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[4][9] ?? 0) < maxExtensions,
+                newBeds: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: ['1.-20. 19.000 Credits / 11 Coins'],
         maxBuildings: 'No limit',
@@ -244,6 +300,7 @@ export default {
         startPersonnel: 0,
         startVehicles: [],
         schoolingTypes: ['Rescue'],
+        schools: [3],
         startParkingLots: 1,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
@@ -308,6 +365,43 @@ export default {
                 givesParkingLots: 2,
                 parkingLotReservations: [[38], [38]],
             },
+            {
+                caption: 'Large Police Station',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 Days',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[6]?.length ?? 0) +
+                            (buildingsByType[19]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][14] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            },
+            {
+                caption: 'Large Prison',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 Days',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[6]?.length ?? 0) +
+                            (buildingsByType[19]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
+                newCells: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
         maxBuildings: 'No limit',
@@ -317,6 +411,7 @@ export default {
         startPersonnel: 2,
         startVehicles: ['Police Car'],
         schoolingTypes: ['Police'],
+        schools: [8],
         startParkingLots: 1,
         startCells: 0,
         icon: 'building-shield',
@@ -366,6 +461,7 @@ export default {
         special:
             "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
         startClassrooms: 1,
+        school: 'Police',
         icon: 'graduation-cap',
     },
     13: {
@@ -387,6 +483,7 @@ export default {
         startVehicles: [],
         startParkingLots: 1,
         schoolingTypes: ['Police'],
+        schools: [8],
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
                 ? 4
@@ -454,6 +551,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['SES Vehicle'],
         schoolingTypes: ['SES & Water Rescue'],
+        schools: [25],
         startParkingLots: 1,
         icon: 'person-swimming',
     },
@@ -497,6 +595,20 @@ export default {
                 },
                 10
             ),
+            {
+                caption: 'Large Prison',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 Days',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor((buildingsByType[16]?.length ?? 0) / 10),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
+                newCells: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: [],
         maxBuildings: 'No limit',
@@ -548,6 +660,7 @@ export default {
         startPersonnel: 10,
         startVehicles: ['Pumper', 'Medium Tanker', ' Heavy Tanker'],
         schoolingTypes: ['Fire Station'],
+        schools: [1],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -609,6 +722,7 @@ export default {
         startPersonnel: 2,
         startVehicles: ['Police Car'],
         schoolingTypes: ['Police'],
+        schools: [8],
         startParkingLots: 1,
         startCells: 0,
         icon: 'building-shield',
@@ -635,6 +749,7 @@ export default {
         startPersonnel: 3,
         startVehicles: ['Ambulance'],
         schoolingTypes: ['Rescue'],
+        schools: [3],
         startParkingLots: 1,
         icon: 'house-medical',
     },
@@ -656,6 +771,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        schools: [],
         icon: 'poo',
     },
     22: {
@@ -676,6 +792,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        schools: [],
         icon: 'poo',
     },
     23: {
@@ -696,6 +813,7 @@ export default {
         startPersonnel: 2,
         startVehicles: ['Fire Helicopter'],
         schoolingTypes: ['Fire Station'],
+        schools: [1],
         startParkingLots: 0,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
@@ -720,6 +838,7 @@ export default {
         startPersonnel: 5,
         startVehicles: [''],
         schoolingTypes: ['SES & Water Rescue'],
+        schools: [25],
         startParkingLots: 1,
         icon: 'person-swimming',
     },
@@ -747,6 +866,7 @@ export default {
         maxBuildings: 'No limit',
         maxLevel: 0,
         startClassrooms: 1,
+        school: 'SES & Water Rescue',
         special:
             "Finance ministers and admins can (expand) Water Rescue Academy with the help of credits from the association's treasury.Training course masters and admins can start training courses at association Water Rescue Academys.",
         icon: 'graduation-cap',

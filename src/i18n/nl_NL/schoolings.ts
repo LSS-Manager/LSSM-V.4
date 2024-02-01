@@ -166,6 +166,24 @@ export default {
             staffList: 'Waterwerper',
             key: 'police_wasserwerfer',
         },
+        {
+            caption: 'Chauffeur Dienst Infra',
+            duration: '4 Dagen',
+            staffList: 'Chauffeur Dienst Infra',
+            key: 'traffic_police',
+        },
+        {
+            caption: 'Verkeersongevallen Analist',
+            duration: '7 Dagen',
+            staffList: 'Verkeersongevallen Analist',
+            key: 'traffic_inspector',
+        },
+        {
+            caption: 'Motoragent',
+            duration: '2 Dagen',
+            staffList: 'Motoragent',
+            key: 'police_motorcycle',
+        },
     ],
     Ambulance: [
         {

@@ -42,12 +42,14 @@ export interface APIState extends StorageAPIs {
     debounce: {
         vehicles: {
             timeout: number | null;
-            updates: {
-                vehicleId: number;
-                caption: string;
-                fms_show: number;
-                fms_real: number;
-            }[];
+            updates: Map<
+                number, // represents the vehicleID
+                {
+                    caption: string;
+                    fms_show: number;
+                    fms_real: number;
+                }
+            >;
         };
     };
     initialBroadcastUpdateFinished: boolean;

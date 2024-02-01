@@ -116,6 +116,18 @@ export default {
             staffList: 'Traffic Control Training',
             key: 'traffic_control',
         },
+        {
+            caption: 'Search and Rescue Training',
+            duration: '4 Days',
+            staffList: 'Search and Rescue Training',
+            key: 'search_and_rescue',
+        },
+        {
+            caption: 'Technical Rescue Training',
+            duration: '4 Days',
+            staffList: 'Technical Rescue Training',
+            key: 'technical_rescue',
+        },
     ],
     'Police': [
         {

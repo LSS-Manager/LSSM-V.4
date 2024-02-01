@@ -141,23 +141,16 @@ export default async (
     }
 
     let resetBtnHolder = document.querySelector<HTMLDivElement>(
-        '#container_navbar_alarm .navbar-right'
+        '#navbar-right-help-button'
     );
 
     if (!resetBtnHolder) {
         resetBtnHolder = document.createElement('div');
-        resetBtnHolder.classList.add(
-            'nav',
-            'navbar-nav',
-            'navbar-right',
-            'hidden-xs'
-        );
+        resetBtnHolder.classList.add('flex-row', 'flex-nowrap', 'hidden-xs');
         resetBtnHolder.id = 'navbar-right-help-button';
         document
-            .querySelector<HTMLElement>(
-                '#container_navbar_alarm .container-fluid'
-            )
-            ?.append(resetBtnHolder);
+            .querySelector<HTMLElement>('#navbar-alarm-spacer')
+            ?.parentElement?.append(resetBtnHolder);
     }
     document
         .querySelector<HTMLDivElement>('#navbar-right-help-button')

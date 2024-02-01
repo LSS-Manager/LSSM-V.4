@@ -6,6 +6,8 @@
  * @file - This is the only method in this file.
  * @param LSSM - The current local LSSM instance.
  */
+import faAt from '@fortawesome/fontawesome-free/svgs/solid/at.svg';
+
 import type { User } from 'typings/api/AllianceInfo';
 
 export default (LSSM: Vue) => {
@@ -77,6 +79,13 @@ export default (LSSM: Vue) => {
             selectorText: `.${popupClass} .list-group-item[data-choice][data-online="true"]::before`,
             style: {
                 'background-image': 'url("/images/user_green.png")',
+            },
+        },
+        // show a special @ icon if it's not a user but a special mention
+        {
+            selectorText: `.${popupClass} .list-group-item[data-choice][data-is-special-mention="true"]::before`,
+            style: {
+                'background-image': `url("${faAt}")`,
             },
         },
     ]);
@@ -213,12 +222,34 @@ export default (LSSM: Vue) => {
             (a, b) => b.relevance - a.relevance
         );
 
+        if (['a', 'al', 'all'].includes(username)) {
+            filteredUsersSorted.unshift({
+                name: '@all',
+                online: false,
+                relevance: 0,
+            });
+        }
+        if (['a', 'ad', 'adm', 'admi', 'admin'].includes(username)) {
+            filteredUsersSorted.unshift({
+                name: '@admin',
+                online: false,
+                relevance: 0,
+            });
+        }
+
         for (let i = 0; i < amountOfShownUsers; i++) {
-            if (i >= filteredUsersSorted.length)
+            if (i >= filteredUsersSorted.length) {
                 choiceElements[i].dataset.choice = '';
-            else choiceElements[i].dataset.choice = filteredUsersSorted[i].name;
+            } else {
+                choiceElements[i].dataset.choice = filteredUsersSorted[
+                    i
+                ].name.replace(/^@/u, '');
+            }
             choiceElements[i].dataset.online = Boolean(
                 filteredUsersSorted[i]?.online ?? false
+            ).toString();
+            choiceElements[i].dataset.isSpecialMention = Boolean(
+                filteredUsersSorted[i]?.name.startsWith('@')
             ).toString();
         }
     };

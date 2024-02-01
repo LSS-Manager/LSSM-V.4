@@ -87,6 +87,7 @@ interface VehicleExtension extends BaseExtension {
     unlocksVehicleTypes?: number[];
     parkingLotReservations?: number[][];
     giftsVehicles?: number[];
+    unlockedVehiclesOnReservedLotsOnly?: boolean;
 }
 
 interface ClassroomExtension extends BaseExtension {
@@ -147,6 +148,7 @@ interface HospitalBuilding extends BaseBuilding {
 
 interface SchoolBuilding extends BaseBuilding {
     startClassrooms: number;
+    school: string;
 }
 
 interface DispatchCenterBuilding extends BaseBuilding {
@@ -161,6 +163,7 @@ type CanHaveVehiclesBuilding<
     BaseBuildingType extends BaseBuilding | InternalBuilding,
 > = BaseBuildingType & {
     schoolingTypes: string[];
+    schools: number[];
     startPersonnel: number;
     startVehicles: string[];
     startParkingLots: number;

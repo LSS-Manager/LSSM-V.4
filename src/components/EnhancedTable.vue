@@ -1,6 +1,10 @@
 <template>
     <div>
-        <div class="head" :class="{ shown: showHead, fixed: scrolledOver }">
+        <div
+            ref="head"
+            class="head"
+            :class="{ shown: showHead && headHasChildren, fixed: scrolledOver }"
+        >
             <slot name="head"></slot>
             <label class="pull-right" v-if="!noSearch">
                 <input
@@ -15,6 +19,7 @@
             </label>
         </div>
         <button
+            v-if="headHasChildren"
             class="btn btn-default toggle-head-btn"
             :class="{ hidden: !scrolledOver }"
             @click.prevent="showHead = !showHead"
@@ -53,7 +58,9 @@
 </template>
 
 <script setup lang="ts" generic="ColumnKey extends string = string">
-import { computed, nextTick, onMounted, ref } from 'vue';
+import type Vue from 'vue';
+// eslint-disable-next-line no-duplicate-imports
+import { computed, nextTick, onMounted, ref, watch } from 'vue';
 
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons/faSlidersH';
 import { faSort } from '@fortawesome/free-solid-svg-icons/faSort';
@@ -68,11 +75,14 @@ const { $t } = useI18n();
 
 const searchField = ref<HTMLInputElement>();
 const table = ref<HTMLTableElement>();
+const head = ref<HTMLDivElement>();
 
 const scrolledOver = ref<boolean>(false);
 const showHead = ref<boolean>(true);
 
 const tableRight = ref<string>('0px');
+const headHeight = ref<string>('0px');
+const scrollParentTop = ref<string>('0px');
 
 const props = withDefaults(
     defineProps<{
@@ -106,6 +116,17 @@ const sortIcon = computed(() =>
     props.sortDir === 'asc' ? faSortDown : faSortUp
 );
 
+const headHasChildren = computed(
+    () =>
+        Array.from(head.value?.childNodes ?? []).filter(n => {
+            if (n.nodeType === Node.COMMENT_NODE) return false;
+            return !(
+                n.nodeType === Node.TEXT_NODE &&
+                (n.textContent?.trim().length ?? 0) === 0
+            );
+        }).length
+);
+
 const colTitle = (col: Column<ColumnKey, boolean>) =>
     props.columnTranslations[col.key] ?? col.title;
 const titleAttr = (col: Column<ColumnKey, boolean>) =>
@@ -120,14 +141,30 @@ const $emit = defineEmits<{
 const updateSearch = () =>
     $emit('search', searchField.value?.value.trim() ?? '');
 
-onMounted(() => {
-    document.addEventListener('scroll', () => {
+watch(table, (t, old) => {
+    if (old || !t) return;
+    const scrollParent = (window[PREFIX] as Vue).$utils.getScrollParent(t);
+    if (!scrollParent) return;
+    scrollParent.addEventListener('scroll', () => {
         const clientRect = table.value?.getBoundingClientRect();
-        scrolledOver.value =
-            (clientRect?.top ?? 0) < 0 && (clientRect?.bottom ?? 0) > 0;
-        tableRight.value = `${clientRect?.right ?? 0}px`;
-    });
+        const parentRect = scrollParent.getBoundingClientRect();
+        const headRect = head.value?.getBoundingClientRect();
 
+        const unFixedHeadHeight = head.value?.classList.contains('fixed')
+            ? parseFloat(headHeight.value)
+            : headRect?.height ?? 0;
+
+        const top = parentRect.top - unFixedHeadHeight;
+
+        scrolledOver.value =
+            (clientRect?.top ?? 0) <= top && (clientRect?.bottom ?? 0) > top;
+        tableRight.value = `${clientRect?.right ?? 0}px`;
+        headHeight.value = `${unFixedHeadHeight}px`;
+        scrollParentTop.value = `${parentRect.top}px`;
+    });
+});
+
+onMounted(() => {
     if (!props.sort) $emit('sort', props.columns[0].key);
 
     nextTick(() => $emit('mounted'));
@@ -136,9 +173,12 @@ onMounted(() => {
 
 <style scoped lang="sass">
 $table-right: v-bind(tableRight)
-$right-end: calc(100vw - $table-right + 1rem)
-$btn-width: 34px
+$head-height: v-bind(headHeight)
+$scroll-parent-top: v-bind(scrollParentTop)
 $padding: .5rem
+$btn-width: 40px
+$right-end: calc(100vw - $table-right + $padding)
+$fixed-top: calc($scroll-parent-top + $padding)
 
 thead
     position: sticky
@@ -157,19 +197,24 @@ thead
         padding: $padding
         border-radius: 15px
         position: fixed
-        top: 1rem
+        top: $fixed-top
         z-index: 1
-        right: calc($right-end + $btn-width)
+        right: calc($right-end + $btn-width + $padding)
 
         &:not(.shown)
             display: none
+
+        ~ table
+            margin-top: $head-height
 
     > *
         margin-left: 1rem
 
 .toggle-head-btn
+    min-width: $btn-width
+    max-width: $btn-width
     position: fixed
-    top: 1rem + $padding
+    top: $fixed-top
     z-index: 1
     right: $right-end
 </style>

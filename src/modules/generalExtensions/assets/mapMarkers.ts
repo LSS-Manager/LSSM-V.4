@@ -12,6 +12,10 @@ export default async (
         'map-history-btn',
         true
     );
+    const historyContainerId = LSSM.$stores.root.nodeAttribute(
+        'map-history-container',
+        true
+    );
     const historyListId = LSSM.$stores.root.nodeAttribute(
         'map-history-list',
         true
@@ -20,38 +24,58 @@ export default async (
         'map-history-pin-btn',
         true
     );
+    const addBtnId = LSSM.$stores.root.nodeAttribute(
+        'map-history-add-btn',
+        true
+    );
 
     LSSM.$stores.root.addStyles([
         {
-            selectorText: `#${historyListId}`,
+            selectorText: `#${historyContainerId}`,
             style: {
                 'display': 'none',
-                'background-color': '#fff',
-                'width': 'max-content',
-                'list-style': 'none',
-                'padding': '1ch',
-                'transform': 'rotate(180deg)',
-                'position': 'absolute',
                 'z-index': 1,
+                'width': 'max-content',
+                'position': 'absolute',
             },
         },
         {
-            selectorText: `#${historyBtnId}:hover #${historyListId}, #${historyListId}.pinned`,
+            selectorText: `#${historyListId}`,
+            style: {
+                'background-color': '#fff',
+                'width': 'max-content',
+                'list-style': 'none',
+                'padding': '1em',
+                'max-height': '100%',
+                'overflow-y': 'auto',
+                'overflow-x': 'hidden',
+                'cursor': 'pointer',
+            },
+        },
+        {
+            selectorText: `#${historyBtnId}:hover #${historyContainerId}, #${historyContainerId}.pinned`,
             style: {
                 display: 'block',
-                cursor: 'pointer',
             },
         },
         {
             selectorText: `#${pinBtnId}`,
             style: {
                 position: 'absolute',
-                right: '-1em',
-                bottom: '-1em',
+                left: '-1em',
+                top: '-1em',
             },
         },
         {
-            selectorText: `#${historyBtnId} #${historyListId} li, #${historyListId}.pinned #${pinBtnId}`,
+            selectorText: `#${addBtnId}`,
+            style: {
+                position: 'absolute',
+                right: '-1em',
+                top: '-1em',
+            },
+        },
+        {
+            selectorText: `#${historyContainerId}.pinned #${pinBtnId}`,
             style: {
                 transform: 'rotate(180deg)',
             },
@@ -80,24 +104,33 @@ export default async (
     historyIcon.classList.add('fas', 'fa-history');
     historyBtn.append(historyIcon);
 
+    const historyContainer = document.createElement('div');
+    historyContainer.id = historyContainerId;
+
     const historyList = document.createElement('ul');
     historyList.id = historyListId;
+
+    historyList.addEventListener('wheel', e => e.stopPropagation());
+    historyList.addEventListener('drag', e => e.stopPropagation());
 
     const pinBtn = document.createElement('button');
     pinBtn.classList.add('btn', 'btn-xs');
     if (await getSetting<boolean>('mapMarkerPinned'))
-        historyList.classList.add('pinned');
+        historyContainer.classList.add('pinned');
     pinBtn.id = pinBtnId;
     const pinIcon = document.createElement('i');
     pinIcon.classList.add('fas', 'fa-thumbtack');
     pinBtn.addEventListener('click', () => {
-        historyList.classList.toggle('pinned');
-        setSetting('mapMarkerPinned', historyList.classList.contains('pinned'));
+        historyContainer.classList.toggle('pinned');
+        setSetting(
+            'mapMarkerPinned',
+            historyContainer.classList.contains('pinned')
+        );
     });
     pinBtn.append(pinIcon);
 
-    historyList.prepend(pinBtn);
-    historyBtn.append(historyList);
+    historyContainer.append(pinBtn, historyList);
+    historyBtn.append(historyContainer);
 
     let currentPreviewTimeout = null as number | null;
     let currentAddressTimeout = null as number | null;
@@ -202,19 +235,20 @@ export default async (
             historyEntry.append(historyEditBtn, saveBtn);
         }
 
-        historyList.append(historyEntry);
+        historyList.prepend(historyEntry);
     };
 
     const ownMarkers =
         (await getSetting<typeof history>('savedOwnMapMarkers')) ?? [];
 
     if (ownMapMarkers) {
-        const historyAddWrapper = document.createElement('button');
-        historyAddWrapper.classList.add('btn', 'btn-success', 'btn-xs');
-        const historyAddBtn = document.createElement('i');
-        historyAddBtn.classList.add('fas', 'fa-plus');
+        const historyAddBtn = document.createElement('button');
+        historyAddBtn.classList.add('btn', 'btn-success', 'btn-xs');
+        const historyAddIcon = document.createElement('i');
+        historyAddIcon.classList.add('fas', 'fa-plus');
+        historyAddBtn.id = addBtnId;
 
-        historyAddWrapper.addEventListener('click', () => {
+        historyAddBtn.addEventListener('click', () => {
             const center = window.map.getCenter();
             const entry = {
                 lat: center.lat,
@@ -229,8 +263,8 @@ export default async (
             updateHistoryList();
         });
 
-        historyAddWrapper.append(historyAddBtn);
-        historyList.append(historyAddWrapper);
+        historyAddBtn.append(historyAddIcon);
+        historyContainer.append(historyAddBtn);
 
         ownMarkers.forEach(marker => {
             history.push(marker);
@@ -254,10 +288,26 @@ export default async (
             });
     };
 
+    const updateHistoryListHeight = () => {
+        const mapBottom =
+            document.querySelector('map')?.getBoundingClientRect().bottom ??
+            620;
+        const listTop = historyList.getBoundingClientRect().top;
+
+        historyList.style.setProperty(
+            'max-height',
+            `${mapBottom - listTop - 10}px`
+        );
+    };
+
     historyBtn.addEventListener('mouseenter', () => {
         current = window.map.getCenter();
         currentZoom = window.map.getZoom();
+
+        updateHistoryListHeight();
     });
+
+    updateHistoryListHeight();
 
     historyList.addEventListener('mouseover', e => {
         const target = (e.target as HTMLElement).closest('li');

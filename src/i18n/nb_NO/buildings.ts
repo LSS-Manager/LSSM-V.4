@@ -55,6 +55,7 @@ export default {
         startVehicles: ['Mannskapsbil', 'Lett mannskapsbil'],
         startParkingLots: 1,
         schoolingTypes: ['Brannstasjon'],
+        schools: [1],
         icon: 'fire-flame-curved',
     },
     1: {
@@ -83,6 +84,7 @@ export default {
         special:
             'Finansministre og admins kan (utvide) brannvesenskoler ved hjelp av kreditter fra foreningens statskasse. Kurs og mestere på kurs kan starte opplæringskurs på brannskolen.',
         startClassrooms: 1,
+        school: 'Brannstasjon',
         icon: 'graduation-cap',
     },
     2: {
@@ -110,6 +112,7 @@ export default {
         startVehicles: ['Ambulanse'],
         startParkingLots: 1,
         schoolingTypes: ['Redning'],
+        schools: [3],
         icon: 'house-medical',
     },
     3: {
@@ -138,6 +141,7 @@ export default {
         special:
             'Finansministre og administratorer kan (utvide) alliansepoliti skoler ved hjelp av kreditter fra alliansekassen.',
         startClassrooms: 1,
+        school: 'Redning',
         icon: 'graduation-cap',
     },
     4: {
@@ -244,6 +248,7 @@ export default {
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
         schoolingTypes: ['Redning'],
+        schools: [3],
         startParkingLots: 1,
         icon: 'circle-h',
     },
@@ -287,6 +292,7 @@ export default {
         startParkingLots: 1,
         startCells: 0,
         schoolingTypes: ['Politi'],
+        schools: [8],
         icon: 'building-shield',
     },
     7: {
@@ -334,6 +340,7 @@ export default {
         special:
             'Finansministre og administratorer kan (utvide) alliansepoliti skoler ved hjelp av kreditter fra alliansekassen.',
         startClassrooms: 1,
+        school: 'Politi',
         icon: 'graduation-cap',
     },
     13: {
@@ -358,6 +365,7 @@ export default {
                 ? 4
                 : Math.floor(buildingsAmountTotal / 25),
         schoolingTypes: ['Politi'],
+        schools: [8],
         startParkingLots: 1,
         icon: 'helicopter',
     },
@@ -467,6 +475,7 @@ export default {
         startVehicles: ['Mannskapsbil', 'Lett mannskapsbil'],
         startParkingLots: 1,
         schoolingTypes: ['Brannstasjon'],
+        schools: [2],
         icon: 'fire-flame-curved',
     },
     19: {
@@ -511,6 +520,7 @@ export default {
         startParkingLots: 1,
         startCells: 0,
         schoolingTypes: ['Politi'],
+        schools: [8],
         icon: 'building-shield',
     },
     20: {
@@ -543,6 +553,7 @@ export default {
         startVehicles: ['Ambulanse'],
         startParkingLots: 1,
         schoolingTypes: ['Redning'],
+        schools: [3],
         icon: 'house-medical',
     },
     21: {
@@ -592,6 +603,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        schools: [],
         icon: 'poo',
     },
     23: {
@@ -612,6 +624,7 @@ export default {
         startVehicles: [''],
         startParkingLots: 0,
         schoolingTypes: [],
+        schools: [],
         icon: 'poo',
     },
     25: {
@@ -637,6 +650,7 @@ export default {
                 : Math.floor(buildingsAmountTotal / 25),
         startParkingLots: 1,
         schoolingTypes: ['Brannstasjon'],
+        schools: [2],
         icon: 'helicopter',
     },
 } satisfies Record<number, InternalBuilding>;

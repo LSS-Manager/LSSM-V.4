@@ -1,4 +1,5 @@
-import type { Schooling } from 'typings/Schooling';
+import type { InternalEquipment } from 'typings/Equipment';
+import type { InternalVehicle } from 'typings/Vehicle';
 import type { $m, ModuleMainFunction } from 'typings/Module';
 
 export default async (
@@ -8,132 +9,230 @@ export default async (
     setSetting: Parameters<ModuleMainFunction>[0]['setSetting'],
     $m: $m
 ): Promise<void> => {
-    await LSSM.$stores.api.getBuildings(
-        `${MODULE_ID}-enhancedPersonnelAssignment`
-    );
-    await LSSM.$stores.api.getVehicles(
-        `${MODULE_ID}-enhancedPersonnelAssignment`
-    );
-
-    const personnel = Array.from(
-        document.querySelectorAll<HTMLTableRowElement>(
-            '#personal_table tbody tr'
-        )
-    );
-
+    // extract the vehicle ID out of the URL
     const vehicleId = parseInt(
         window.location.pathname.match(/\d+(?=\/zuweisung)/u)?.[0] || '-1'
     );
 
-    const vehicle =
-        LSSM.$stores.api.vehiclesById[vehicleId] ??
-        (await LSSM.$stores.api.getVehicle(
-            vehicleId,
-            `${MODULE_ID}-enhancedPersonnelAssignment`
-        ));
-    const vehicleTypes = LSSM.$stores.translations.vehicles;
+    // Fetch the current state of the vehicle and its building
+    const vehicle = await LSSM.$stores.api.getVehicle(
+        vehicleId,
+        `${MODULE_ID}-enhancedPersonnelAssignment`
+    );
+    const building = await LSSM.$stores.api.getBuilding(
+        vehicle.building_id,
+        `${MODULE_ID}-enhancedPersonnelAssignment`
+    );
 
-    if (vehicleId < 0 || !vehicle) return;
+    const vehicleType =
+        LSSM.$stores.translations.vehicles[vehicle.vehicle_type];
 
+    // find the schooling types of the building
     const buildingType =
-        LSSM.$stores.translations.buildings[
-            LSSM.$stores.api.buildings.find(
-                ({ id }) => id === vehicle.building_id
-            )?.building_type ?? -1
-        ];
+        LSSM.$stores.translations.buildings[building.building_type];
+    const schoolTypes =
+        'schoolingTypes' in buildingType ? buildingType.schoolingTypes : [];
 
-    const schools =
-        'schoolingTypes' in buildingType ? buildingType.schoolingTypes : null;
+    // if there are no schooling types, we don't need to do anything and can abort here
+    if (!schoolTypes.length) return;
 
-    if (!schools) return;
+    const schoolingIDs: Record<
+        'equipment' | 'self' | 'trailers',
+        Set<string>
+    > = {
+        self: new Set<string>(),
+        trailers: new Set<string>(),
+        equipment: new Set<string>(),
+    };
 
-    const schoolingsByKey = Object.fromEntries(
-        schools.map(school => [
-            school,
-            Object.fromEntries(
-                (
-                    LSSM.$t('schoolings') as unknown as Record<
-                        string,
-                        Schooling[]
-                    >
-                )[school].map(({ key, staffList, caption }) => [
-                    key,
-                    { staffList, caption },
-                ])
-            ),
-        ])
-    );
+    const findSchoolingIDs = (
+        type: InternalEquipment<string> | InternalVehicle
+    ): Set<string> => {
+        if (typeof type.staff.training === 'undefined')
+            return new Set<string>();
 
-    const hasSchooling = vehicleTypes[vehicle.vehicle_type].staff.training;
-
-    const fittingRows: HTMLTableRowElement[] = hasSchooling ? [] : personnel;
-    if (hasSchooling) {
-        schools.forEach(school => {
-            const schoolings = Object.keys(
-                vehicleTypes[vehicle.vehicle_type].staff.training?.[school] ??
-                    {}
-            );
-            schoolings.forEach(schoolingKey => {
-                const { staffList, caption } =
-                    schoolingsByKey[school][schoolingKey];
-                personnel.forEach(row => {
-                    if (
-                        (row.textContent?.match(
-                            LSSM.$utils.escapeRegex(staffList)
-                        ) ||
-                            row.textContent?.match(
-                                LSSM.$utils.escapeRegex(caption)
-                            )) &&
-                        !fittingRows.includes(row)
+        // if the type has an ID, we can assume that it is an equipment
+        if ('id' in type) {
+            return new Set(
+                schoolTypes
+                    .flatMap(
+                        schoolType => type.staff.training?.[schoolType] ?? ''
                     )
-                        fittingRows.push(row);
-                });
-            });
+                    .filter(Boolean)
+            );
+        }
+        // otherwise it is a vehicle
+        return new Set(
+            schoolTypes.flatMap(schoolType =>
+                Object.keys(type.staff.training?.[schoolType] ?? {})
+            )
+        );
+    };
+
+    const findEquipmentsSchoolingIds = (vehicleType: InternalVehicle) => {
+        const ids = new Set<string>();
+        Object.values(LSSM.$stores.translations.equipment)
+            .filter(
+                equipment =>
+                    equipment.size <= (vehicleType.equipmentCapacity ?? 0)
+            )
+            .map(findSchoolingIDs)
+            .forEach(idSet => idSet.forEach(id => ids.add(id)));
+        return ids;
+    };
+
+    // find the schooling IDs of the vehicle
+    findSchoolingIDs(vehicleType).forEach(id => schoolingIDs.self.add(id));
+    // find the schooling IDs of the vehicle's trailers
+    Object.values(LSSM.$stores.translations.vehicles)
+        .filter(
+            iterVehicle =>
+                iterVehicle.isTrailer &&
+                iterVehicle.tractiveVehicles.includes(vehicle.vehicle_type)
+        )
+        .forEach(trailer => {
+            // trailers staff
+            findSchoolingIDs(trailer).forEach(id =>
+                schoolingIDs.trailers.add(id)
+            );
+            // equipment of this trailer
+            findEquipmentsSchoolingIds(trailer).forEach(id =>
+                schoolingIDs.equipment.add(id)
+            );
         });
+    // find the schooling IDs of the vehicle's equipment
+    if (vehicleType.equipmentCapacity) {
+        findEquipmentsSchoolingIds(vehicleType).forEach(id =>
+            schoolingIDs.equipment.add(id)
+        );
     }
-    const nonFittingRows = personnel.filter(row => !fittingRows.includes(row));
 
-    const toggleId = LSSM.$stores.root.nodeAttribute(
-        'toggle-fitting-personnel',
-        true
-    );
-    const checkboxSetting = await getSetting(
-        'enhancedPersonnelAssignmentCheckbox'
-    );
+    // there aren't any schoolings for this vehicle => abort
+    if (
+        !schoolingIDs.self.size &&
+        !schoolingIDs.trailers.size &&
+        !schoolingIDs.equipment.size
+    )
+        return;
 
+    // add a settings bar to the DOM
     const settingsBar = document.createElement('form');
     settingsBar.classList.add('form-group');
     settingsBar.style.setProperty('display', 'inline-block');
-    settingsBar.style.setProperty('margin-left', '1em');
-    const toggleFittingWrapper = document.createElement('div');
-    toggleFittingWrapper.classList.add('checkbox');
-    const toggleFittingLabel = document.createElement('label');
-    toggleFittingLabel.setAttribute('for', toggleId);
-    toggleFittingLabel.classList.add('checkbox');
-    const toggleFittingInput = document.createElement('input');
-    toggleFittingInput.type = 'checkbox';
-    toggleFittingInput.id = toggleId;
-    toggleFittingLabel.append(
-        toggleFittingInput,
-        $m('enhancedPersonnelAssignment.toggleFittingPersonnel').toString()
-    );
-    toggleFittingInput.checked = checkboxSetting;
-    toggleFittingWrapper.append(toggleFittingLabel);
-    settingsBar.append(toggleFittingWrapper);
-    if (checkboxSetting) {
-        const mode = toggleFittingInput.checked ? 'add' : 'remove';
-        nonFittingRows.forEach(row => row.classList[mode]('hidden'));
-    }
-    toggleFittingInput.addEventListener('change', () => {
-        const mode = toggleFittingInput.checked ? 'add' : 'remove';
-        nonFittingRows.forEach(row => row.classList[mode]('hidden'));
-        setSetting(
-            'enhancedPersonnelAssignmentCheckbox',
-            toggleFittingInput.checked
-        );
-    });
+    settingsBar.style.setProperty('margin', '0');
 
     document
         .querySelector<HTMLDivElement>('.vehicles-education-filter-box')
         ?.append(settingsBar);
+
+    // a function to create and add a checkbox to the DOM
+    const addCheckbox = async (
+        type:
+            | 'toggleFittingEquipment'
+            | 'toggleFittingPersonnel'
+            | 'toggleFittingTrailers',
+        eventListener: (checkbox: HTMLInputElement) => void
+    ): Promise<HTMLInputElement> => {
+        const settingKey = `enhancedPersonnelAssignment.${type}`;
+        const toggleId = LSSM.$stores.root.nodeAttribute(
+            `${MODULE_ID}-epa-${type}`,
+            true
+        );
+
+        const wrapper = document.createElement('div');
+        wrapper.classList.add('checkbox');
+        wrapper.style.setProperty('margin', '0');
+        wrapper.style.setProperty('margin-left', '1em');
+        wrapper.style.setProperty('display', 'inline-block');
+
+        const label = document.createElement('label');
+        label.classList.add('checkbox');
+        label.style.setProperty('margin', '0');
+        label.setAttribute('for', toggleId);
+
+        const checkbox = document.createElement('input');
+        checkbox.setAttribute('type', 'checkbox');
+        checkbox.setAttribute('id', toggleId);
+        checkbox.addEventListener('change', () => {
+            setSetting(settingKey, checkbox.checked);
+            eventListener(checkbox);
+        });
+
+        label.append(
+            checkbox,
+            $m(`enhancedPersonnelAssignment.${type}`).toString()
+        );
+        wrapper.append(label);
+        settingsBar.append(wrapper);
+
+        checkbox.checked = await getSetting(settingKey, false);
+        return checkbox;
+    };
+
+    // add the checkboxes to the DOM
+    const toggleCheckbox = await addCheckbox(
+        'toggleFittingPersonnel',
+        ({ id, checked }) => {
+            settingsBar
+                .querySelectorAll<HTMLInputElement>(`input:not([id="${id}"])`)
+                .forEach(checkbox => {
+                    checkbox.disabled = !checked;
+
+                    checkbox
+                        .closest('div.checkbox')
+                        ?.classList[checked ? 'remove' : 'add']('disabled');
+                });
+        }
+    );
+    let trailersCheckbox: HTMLInputElement | undefined;
+    let equipmentCheckbox: HTMLInputElement | undefined;
+    if (schoolingIDs.trailers.size) {
+        trailersCheckbox = await addCheckbox('toggleFittingTrailers', () => {});
+        trailersCheckbox.disabled = !toggleCheckbox.checked;
+    }
+    if (schoolingIDs.equipment.size) {
+        equipmentCheckbox = await addCheckbox(
+            'toggleFittingEquipment',
+            () => {}
+        );
+        equipmentCheckbox.disabled = !toggleCheckbox.checked;
+    }
+
+    const filterStyle = document.createElement('style');
+    document.body.append(filterStyle);
+
+    const getSchoolingSelector = (schoolingIDs: Set<string>) =>
+        Array.from(schoolingIDs)
+            .flatMap(id => [
+                `[data-filterable-by*=${JSON.stringify(id)}]`,
+                `:has([data-education-key=${JSON.stringify(id)}])`,
+            ])
+            .join(',');
+
+    const updateFilters = () => {
+        if (!toggleCheckbox.checked) {
+            filterStyle.textContent = '';
+            return;
+        }
+
+        const schoolings = new Set<string>();
+        schoolingIDs.self.forEach(id => schoolings.add(id));
+        if (trailersCheckbox?.checked)
+            schoolingIDs.trailers.forEach(id => schoolings.add(id));
+        if (equipmentCheckbox?.checked)
+            schoolingIDs.equipment.forEach(id => schoolings.add(id));
+
+        if (schoolings.size) {
+            filterStyle.textContent = `
+#personal_table tbody tr:not(:where(${getSchoolingSelector(schoolings)})) {
+    display: none;
+}`;
+        } else {
+            filterStyle.textContent = '';
+        }
+    };
+
+    settingsBar.addEventListener('change', updateFilters);
+
+    updateFilters();
 };

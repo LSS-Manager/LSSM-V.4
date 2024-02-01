@@ -53,11 +53,12 @@ export default (LSSM: Vue, MODULE_ID: string, btnVehicles: string[]): void => {
         e.stopImmediatePropagation();
     });
 
-    const btnGroup = document.createElement('div');
-    btnGroup.classList.add('btn-group', 'dropup');
-    btnGroup.append(btn, table);
+    const holder = document.createElement('div');
+    holder.classList.add('dropup');
+    holder.append(btn, table);
+    holder.style.setProperty('display', 'inline-block');
 
-    $(btnGroup).on('shown.bs.dropdown', () => {
+    $(holder).on('shown.bs.dropdown', () => {
         table.style.setProperty(
             'max-height',
             `calc(100vh - ${Math.ceil(
@@ -66,7 +67,7 @@ export default (LSSM: Vue, MODULE_ID: string, btnVehicles: string[]): void => {
         );
     });
 
-    document.querySelector('.navbar-header')?.after(btnGroup);
+    document.querySelector('#navbar-alarm-spacer')?.before(holder);
 
     LSSM.$stores.root.addStyle({
         selectorText: `#${table.id} tr:nth-child(1) td`,

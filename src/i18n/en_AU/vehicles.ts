@@ -572,7 +572,7 @@ export default {
         possibleBuildings: [6, 19],
     },
     38: {
-        caption: 'VMR Quad',
+        caption: 'VMR Vehicle',
         color: '#22997d',
         credits: 5000,
         coins: 10,

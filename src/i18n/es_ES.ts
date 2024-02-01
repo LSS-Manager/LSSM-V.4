@@ -197,6 +197,7 @@ export default {
         'La biblioteca',
         'Acuario',
         'Prisión',
+        'Sauna',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [],

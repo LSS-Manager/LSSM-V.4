@@ -143,6 +143,25 @@ export default {
                 unlocksVehicleTypes: [90, 91],
                 cannotDisable: true,
             },
+            {
+                caption: 'Grote brandweerkazerne',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 dagen',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[0]?.length ?? 0) +
+                            (buildingsByType[17]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
         maxBuildings: 'Geen limiet',
@@ -163,6 +182,7 @@ export default {
             'TS 6/7',
         ],
         schoolingTypes: ['Brandweer'],
+        schools: [4],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -266,6 +286,19 @@ export default {
                 cannotDisable: true,
                 requiredExtensions: [1],
             },
+            {
+                caption: 'Groot ziekenhuis',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 Dagen',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number => Math.floor((buildingsByType[2]?.length ?? 2) / 5),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[4][9] ?? 0) < maxExtensions,
+                newBeds: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: ['1.-20. 19.000 Credits / 11 Coins'],
         maxBuildings: 'Geen limiet',
@@ -284,7 +317,27 @@ export default {
             credits: [10_000, 50_000, ...Array(17).fill(100_000)],
             coins: [10, 15, ...Array(17).fill(20)],
         },
-        extensions: [],
+        extensions: [
+            {
+                caption: 'Grote ambulancepost',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 Dagen',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[3]?.length ?? 0) +
+                            (buildingsByType[13]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[2][0] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            },
+        ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
         maxBuildings: 'Geen limiet',
         maxLevel: 19,
@@ -292,6 +345,7 @@ export default {
         startPersonnel: 3,
         startVehicles: ['Ambulance'],
         schoolingTypes: ['Ambulance'],
+        schools: [7],
         startParkingLots: 1,
         icon: 'house-medical',
     },
@@ -321,6 +375,7 @@ export default {
         special:
             'Penningmeesters en Admins kunnen de Team Brandweeracademie met behulp van de credits van de Teamkas uitbreiden.',
         startClassrooms: 1,
+        school: 'Brandweer',
         icon: 'graduation-cap',
     },
     5: {
@@ -352,8 +407,52 @@ export default {
                 },
                 9
             ),
+            {
+                caption: 'Groot politiebureau',
+                credits: 1_000_000,
+                coins: 50,
+                duration: '7 Dagen',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[5]?.length ?? 0) +
+                            (buildingsByType[18]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][14] ?? 0) < maxExtensions,
+                isVehicleExtension: true,
+                givesParkingLots: 10,
+                cannotDisable: true,
+            },
+            {
+                caption: 'Grote gevangenis',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 Dagen',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor(
+                        ((buildingsByType[5]?.length ?? 0) +
+                            (buildingsByType[18]?.length ?? 0)) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
+                newCells: 10,
+                cannotDisable: true,
+            },
+            {
+                caption: 'LE - Dienst Infrastructuur',
+                credits: 100_000,
+                coins: 15,
+                duration: '5 Dagen',
+                cannotDisable: true,
+            },
         ],
-        levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
+        levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
         maxBuildings: 'Geen limiet',
         maxLevel: 19,
         special:
@@ -361,6 +460,7 @@ export default {
         startPersonnel: 2,
         startVehicles: ['DA Noodhulp'],
         schoolingTypes: ['Politie'],
+        schools: [8],
         startParkingLots: 1,
         startCells: 0,
         icon: 'building-shield',
@@ -382,6 +482,7 @@ export default {
         startPersonnel: 3,
         startVehicles: [],
         schoolingTypes: ['Ambulance'],
+        schools: [7],
         startParkingLots: 1,
         icon: 'circle-h',
     },
@@ -411,6 +512,7 @@ export default {
         special:
             'Penningmeesters en Admins kunnen de Team Universiteiten geneeskunde met behulp van de credits van de Teamkas uitbreiden.',
         startClassrooms: 1,
+        school: 'Ambulance',
         icon: 'graduation-cap',
     },
     8: {
@@ -439,6 +541,7 @@ export default {
         special:
             'Penningmeesters en Admins kunnen de Team Politieacademie met behulp van de credits van de Teamkas uitbreiden.',
         startClassrooms: 1,
+        school: 'Politie',
         icon: 'graduation-cap',
     },
     9: {
@@ -459,6 +562,7 @@ export default {
         startPersonnel: 0,
         startVehicles: [],
         schoolingTypes: ['Politie'],
+        schools: [8],
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             buildingsAmountTotal < 125
                 ? 4
@@ -600,6 +704,7 @@ export default {
         startPersonnel: 1,
         startVehicles: ['Officier van Dienst - Politie'],
         schoolingTypes: ['Politie'],
+        schools: [8],
         startParkingLots: 1,
         startParkingLotReservations: [[35]],
         icon: 'shield-halved',
@@ -633,6 +738,20 @@ export default {
                 },
                 9
             ),
+            {
+                caption: 'Grote gevangenis',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 Dagen',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor((buildingsByType[12]?.length ?? 0) / 10),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
+                newCells: 10,
+                cannotDisable: true,
+            },
         ],
         levelcost: [],
         maxBuildings: 'Geen limiet',
@@ -659,6 +778,7 @@ export default {
         startPersonnel: 3,
         startVehicles: ['Ambulance'],
         schoolingTypes: ['Ambulance'],
+        schools: [7],
         startParkingLots: 1,
         icon: 'house-medical',
     },
@@ -680,6 +800,7 @@ export default {
         startPersonnel: 0,
         startVehicles: [],
         schoolingTypes: [],
+        schools: [],
         startParkingLots: 0,
         icon: 'poo',
     },
@@ -701,6 +822,7 @@ export default {
         startPersonnel: 0,
         startVehicles: [],
         schoolingTypes: [],
+        schools: [],
         startParkingLots: 0,
         icon: 'poo',
     },
@@ -754,6 +876,7 @@ export default {
         startPersonnel: 4,
         startVehicles: [],
         schoolingTypes: ['Waterredding'],
+        schools: [20],
         startParkingLots: 1,
         icon: 'person-swimming',
     },
@@ -897,6 +1020,7 @@ export default {
             'TS 6/7',
         ],
         schoolingTypes: ['Brandweer'],
+        schools: [4],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -926,6 +1050,13 @@ export default {
                 newCells: 1,
                 cannotDisable: true,
             },
+            {
+                caption: 'LE - Dienst Infrastructuur',
+                credits: 100_000,
+                coins: 15,
+                duration: '5 Dagen',
+                cannotDisable: true,
+            },
         ],
         levelcost: [
             '1. 10.000',
@@ -940,6 +1071,7 @@ export default {
         startPersonnel: 2,
         startVehicles: ['DA Noodhulp'],
         schoolingTypes: ['Politie'],
+        schools: [8],
         startParkingLots: 1,
         startCells: 0,
         icon: 'building-shield',
@@ -985,6 +1117,7 @@ export default {
         startPersonnel: 5,
         startVehicles: [],
         schoolingTypes: ['Waterredding'],
+        schools: [20],
         startParkingLots: 1,
         icon: 'person-swimming',
     },
@@ -1014,6 +1147,7 @@ export default {
         special:
             'Penningmeesters en Admins kunnen de Team SAR academie met behulp van de credits van de Teamkas uitbreiden.',
         startClassrooms: 1,
+        school: 'Waterredding',
         icon: 'graduation-cap',
     },
     21: {
@@ -1066,6 +1200,7 @@ export default {
         startPersonnel: 2,
         startVehicles: [],
         schoolingTypes: ['Waterredding'],
+        schools: [20],
         startParkingLots: 0,
         icon: 'spaghetti-monster-flying',
     },
@@ -1086,6 +1221,7 @@ export default {
         startPersonnel: 0,
         startVehicles: [],
         schoolingTypes: ['Brandweer'],
+        schools: [4],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },
@@ -1106,6 +1242,7 @@ export default {
         startPersonnel: 2,
         startVehicles: [],
         schoolingTypes: ['Brandweer'],
+        schools: [4],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },

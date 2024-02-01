@@ -13,38 +13,6 @@
     },
     "arrHighlight": { "removeBeforeParsing": "" },
     "arrHover": {
-        "arrSpecs": {
-            "any_traffic_car": "Any Traffic Car",
-            "coastal_rescue": "Any Coastal Guard Vehicle",
-            "coresponder": "Co-Responder Vehicle",
-            "crew_carrier": "Crew Carrier",
-            "dlk": "Aerial Appliance Truck",
-            "elw": "Fire Officer",
-            "elw1_or_elw2": "Fire Officer or ICCU",
-            "elw2": "ICCU",
-            "elw2_or_ab_elw": "ICCU / ACU",
-            "emergency_welfare_value": "Any Crew Welfare Vehicle",
-            "fire": "Fire engines",
-            "fly_car": "Rapid Response Vehicle / General Practitioner",
-            "foam": "Foam Units",
-            "fustw": "Police car",
-            "gwa": "Breathing Apparatus Support Unit",
-            "gwgefahrgut": "HazMat Unit or CBRN Vehicle",
-            "gwl2wasser": "Water Carrier",
-            "hlf_only": "Rescue Pump",
-            "joint_response_unit": "Joint Response Unit",
-            "k9": "Any Dog Carrier",
-            "kdow_orgl": "OTL",
-            "kdow_orgl_any": "OTL / Ambulance Officer",
-            "lf_only": "Water Ladder or L4P",
-            "polizeihubschrauber": "Police helicopter",
-            "rth_only": "HEMS",
-            "rtw": "Ambulance",
-            "rw": "Rescue Support Unit or Rescue Pump",
-            "swat_suv": "Armed Response Vehicle (ARV)",
-            "water_damage_pump": "Water Pumps",
-            "water_damage_pump_value": "Pump Capacity"
-        },
         "headers": {
             "attribute": "Name",
             "free": "Free",
@@ -115,6 +83,19 @@
                 "texts": ["Water Carrier", "Water Carriers"],
                 "vehicles": [6, 26, 36, 41, 50]
             },
+            {
+                "equipment": ["drone"],
+                "texts": ["Drone", "Drones"],
+                "vehicles": [89, 90, 91]
+            },
+            {
+                "texts": [
+                    "Operational Support Van",
+                    "Operational Support Vans"
+                ],
+                "vehicles": [86]
+            },
+            { "texts": ["Control Van", "Control Vans"], "vehicles": [85] },
             {
                 "texts": [
                     "ICCU or Ambulance Control Unit",

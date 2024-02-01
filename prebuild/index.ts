@@ -1,6 +1,7 @@
 import buildAPI from './api';
 import collectFAIconNames from './collectFAIconNames';
 import copyStatic from './copyStatic';
+import downloadMissions from './downloadMissions';
 import { emptyFolder } from './emptyDir';
 import getLibraries from './getLibraries';
 import setVersion from './setVersion';
@@ -22,6 +23,7 @@ const timeWrap = async (name: string, fn: () => Promise<unknown> | unknown) => {
     await timeWrap('setVersion', setVersion);
     await timeWrap('update latest browser versions', updateBrowserVersions);
     await timeWrap('emptyDir', () => emptyFolder('./dist'));
+    await timeWrap('downloadMissions', downloadMissions);
     await timeWrap('copyStatic', copyStatic);
     await timeWrap('build API', buildAPI);
     await timeWrap('Collect Third-Party Libraries', getLibraries);
