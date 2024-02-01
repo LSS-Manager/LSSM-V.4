@@ -250,7 +250,7 @@ if [[ $_RUN_STEP_ENV = true ]]; then
     enable_debugging
     ref="$REF"
     BRANCH="dummy"
-
+    
     if [[ $ref == "refs/heads/master" ]]; then
       BRANCH="stable"
     elif [[ $ref == "refs/heads/dev" ]]; then
@@ -390,7 +390,7 @@ if [[ $_RUN_STEP_SERVE = true ]]; then
     start_time=$(now)
     print_start_message "Start test server"
     enable_debugging
-    ws -d ./dist/ --https --port="$LSSM_PORT" --hostname localhost & echo "Process id of ws: ${$!}"
+    ws -d ./dist/ --https --port="$LSSM_PORT" --hostname localhost & echo "webserver moved to background. Get it back with 'fg'"
     disable_debugging
     print_end_message "Start test server" "$start_time"
 fi

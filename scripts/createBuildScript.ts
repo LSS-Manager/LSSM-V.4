@@ -144,7 +144,7 @@ try {
         .concat([
             {
                 name: 'Start test server',
-                run: `ws -d ./dist/ --https --port="$${PORT_ENV_KEY}" --hostname localhost`,
+                run: `ws -d ./dist/ --https --port="$${PORT_ENV_KEY}" --hostname localhost & echo "webserver moved to background. Get it back with 'fg'"`,
                 id: 'serve',
             } as Job,
         ]);
