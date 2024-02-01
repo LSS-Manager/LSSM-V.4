@@ -1,5 +1,4 @@
 import buildAPI from './api';
-import buildUserscript from './buildUserscript';
 import collectFAIconNames from './collectFAIconNames';
 import copyStatic from './copyStatic';
 import downloadMissions from './downloadMissions';
@@ -23,7 +22,6 @@ const timeWrap = async (name: string, fn: () => Promise<unknown> | unknown) => {
 
     await timeWrap('setVersion', setVersion);
     await timeWrap('update latest browser versions', updateBrowserVersions);
-    await timeWrap('buildUserscript', buildUserscript);
     await timeWrap('emptyDir', () => emptyFolder('./dist'));
     await timeWrap('downloadMissions', downloadMissions);
     await timeWrap('copyStatic', copyStatic);

@@ -157,7 +157,9 @@ jobs:
 
             - name: '[📜] build userscript'
               id: userscript
-              run: yarn tsc --pretty --project "src/tsconfig.userscript.json" || exit 1
+              run: |
+                  yarn tsc --pretty --project "src/tsconfig.userscript.json" || exit 1
+                  yarn ts-node scripts/buildUserscript.ts || exit 1
 
             - name: '[📜] build buildscript'
               id: buildscript
