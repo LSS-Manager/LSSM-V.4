@@ -722,9 +722,10 @@ export default Vue.extend<
     },
     mounted() {
         this.settingsStore
-            .getModule<{ clickableLinks: boolean; showImg: boolean }>(
-                'generalExtensions'
-            )
+            .getModule<{
+                clickableLinks: boolean;
+                showImg: boolean;
+            }>('generalExtensions')
             .then(({ clickableLinks, showImg }) => {
                 this.clickableLinks.enabled = clickableLinks;
                 this.clickableLinks.pictures = showImg;

@@ -1,6 +1,6 @@
 ---
 title: Commit a file
-lang: en_GB
+lang: en_US
 sidebarDepth: 2
 ---
 

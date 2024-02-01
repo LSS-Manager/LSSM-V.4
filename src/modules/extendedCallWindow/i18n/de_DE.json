@@ -108,7 +108,7 @@
                 "vehicles": [2, 85]
             },
             { "texts": ["ELW 1 (SEG)"], "vehicles": [59] },
-            { "texts": ["ELW 1"], "vehicles": [3, 34, 78, 128] },
+            { "texts": ["ELW 1"], "vehicles": [3, 34, 78, 128, 129] },
             { "texts": ["ELW 2"], "vehicles": [34, 78, 129] },
             {
                 "texts": ["Fahrzeug des THW (MzKW oder GKW)"],
@@ -195,6 +195,11 @@
             {
                 "texts": ["Polizeimotorrad", "Polizeimotorräder"],
                 "vehicles": [95]
+            },
+            {
+                "factors": { "134": 2, "135": 4, "136": 2 },
+                "texts": ["Polizeipferd", "Polizeipferde"],
+                "vehicles": [134, 135, 136]
             },
             {
                 "texts": ["RTW oder KTW oder KTW-B"],

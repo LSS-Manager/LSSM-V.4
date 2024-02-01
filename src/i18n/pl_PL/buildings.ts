@@ -120,6 +120,7 @@ export default {
         special:
             'Administratorzy Finansów sojuszu mogą rozbudować szkołę z finansów sojuszu. Administratorzy Edukacji mogą rozpoczynać szkolenia',
         startClassrooms: 1,
+        school: 'Posterunek straży pożarnej',
         icon: 'graduation-cap',
     },
     2: {
@@ -170,6 +171,7 @@ export default {
         special:
             'Administratorzy Finansów sojuszu mogą rozbudować szkołę z finansów sojuszu. Administratorzy Edukacji mogą rozpoczynać szkolenia',
         startClassrooms: 1,
+        school: 'Ratownictwo',
         icon: 'graduation-cap',
     },
     4: {
@@ -419,6 +421,7 @@ export default {
         special:
             'Administratorzy Finansów sojuszu mogą rozbudować szkołę z finansów sojuszu. Administratorzy Edukacji mogą rozpoczynać szkolenia',
         startClassrooms: 1,
+        school: 'Policja',
         icon: 'graduation-cap',
     },
     11: {

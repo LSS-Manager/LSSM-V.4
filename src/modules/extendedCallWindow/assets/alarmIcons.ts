@@ -62,11 +62,10 @@ export default (
                                 .map(t => t.toString())
                                 .includes(vType)
                         )
-                        .forEach(
-                            ({ icon }) =>
-                                alarmBtn
-                                    .querySelector(`.svg-inline--fa.fa-${icon}`)
-                                    ?.classList.remove('hidden')
+                        .forEach(({ icon }) =>
+                            alarmBtn
+                                .querySelector(`.svg-inline--fa.fa-${icon}`)
+                                ?.classList.remove('hidden')
                         )
                 );
         });

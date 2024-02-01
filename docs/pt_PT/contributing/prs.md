@@ -1,6 +1,6 @@
 ---
 title: Creating a PullRequest
-lang: en_GB
+lang: en_US
 sidebarDepth: 2
 ---
 

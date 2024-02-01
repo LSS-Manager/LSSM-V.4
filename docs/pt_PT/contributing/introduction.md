@@ -1,6 +1,6 @@
 ---
 title: Introduction
-lang: en_GB
+lang: en_US
 sidebarDepth: 2
 ---
 

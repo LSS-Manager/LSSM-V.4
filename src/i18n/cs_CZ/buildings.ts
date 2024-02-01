@@ -95,6 +95,7 @@ export default {
         maxBuildings: 'No limit',
         maxLevel: 0,
         startClassrooms: 1,
+        school: '',
         special:
             "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire- brigade schools.",
         icon: 'graduation-cap',
@@ -164,6 +165,7 @@ export default {
         maxBuildings: 'No limit',
         maxLevel: 0,
         startClassrooms: 1,
+        school: '',
         special:
             "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire- brigade schools.",
         icon: 'graduation-cap',
@@ -404,6 +406,7 @@ export default {
         maxBuildings: 'No limit',
         maxLevel: 0,
         startClassrooms: 1,
+        school: '',
         special:
             "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
         icon: 'graduation-cap',
@@ -629,6 +632,7 @@ export default {
         special:
             "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
         startClassrooms: 1,
+        school: '',
         icon: 'graduation-cap',
     },
 } satisfies Record<number, InternalBuilding>;

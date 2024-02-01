@@ -123,6 +123,7 @@ export default {
         special:
             "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.Les chefs de formation et les administrateurs peuvent lancer des formations.",
         startClassrooms: 1,
+        school: 'Centre de secours',
         icon: 'graduation-cap',
     },
     2: {
@@ -193,6 +194,7 @@ export default {
         special:
             "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.Les chefs de formation et les administrateurs peuvent lancer des formations.",
         startClassrooms: 1,
+        school: 'Secours',
         icon: 'graduation-cap',
     },
     4: {
@@ -451,6 +453,7 @@ export default {
         special:
             "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.Les chefs de formation et les administrateurs peuvent lancer des formations.",
         startClassrooms: 1,
+        school: 'Poste de police',
         icon: 'graduation-cap',
     },
     11: {
@@ -915,6 +918,7 @@ export default {
         maxBuildings: 'Aucune limite',
         maxLevel: 0,
         startClassrooms: 1,
+        school: 'Secours nautique',
         special: '',
         icon: 'building-shield',
     },

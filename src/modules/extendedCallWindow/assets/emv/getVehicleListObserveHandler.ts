@@ -18,6 +18,7 @@ export type GroupTranslation = Record<
             keyof Mission['additional'],
             Record<number, number>
         >;
+        factors?: Record<`${number | string}`, number>;
     }
 >;
 
@@ -114,24 +115,33 @@ export default (
                     : missingRequirements.requirementsForEquipment[
                           type.toString()
                       ];
-            groups.forEach(
-                group =>
-                    reqs?.[group]?.forEach(requirement => {
-                        selected[group] ??= [];
-                        // that is a weird workaround but otherwise TS complains
-                        if (group === 'staff') {
-                            selected[group][requirement] ??= {
-                                min: 0,
-                                max: 0,
-                            };
-                            const { min, max } = getStaff(id);
-                            selected[group][requirement].min += min;
-                            selected[group][requirement].max += max;
+            groups.forEach(group =>
+                reqs?.[group]?.forEach(requirement => {
+                    selected[group] ??= [];
+                    // that is a weird workaround but otherwise TS complains
+                    if (group === 'staff') {
+                        selected[group][requirement] ??= {
+                            min: 0,
+                            max: 0,
+                        };
+                        const { min, max } = getStaff(id);
+                        selected[group][requirement].min += min;
+                        selected[group][requirement].max += max;
+                    } else {
+                        selected[group][requirement] ??= 0;
+                        const reqItem = requirements[group][requirement];
+                        if (
+                            (group === 'vehicles' || group === 'other') &&
+                            'additional' in reqItem
+                        ) {
+                            selected[group][requirement] +=
+                                reqItem.additional.factors?.[type.toString()] ??
+                                1;
                         } else {
-                            selected[group][requirement] ??= 0;
                             selected[group][requirement]++;
                         }
-                    })
+                    }
+                })
             );
         };
 
@@ -192,8 +202,11 @@ export default (
                     reqsByTractives[parseInt(trailerType)]?.[group]?.forEach(
                         req => {
                             const value = selected[group][req];
-                            if (typeof value !== 'number') return;
-                            selected[group][req] = Math.max(value, amount);
+                            if (
+                                typeof value === 'number' &&
+                                typeof amount === 'number'
+                            )
+                                selected[group][req] = value + amount;
                         }
                     )
             );

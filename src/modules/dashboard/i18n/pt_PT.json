@@ -1,0 +1,76 @@
+{
+    "building-list": {
+        "actions": "",
+        "beds": "camas",
+        "bedsFree": "camas livres",
+        "caption": "Nome",
+        "current": "Número (ativo)",
+        "fastDispatchChooser": { "noDispatch": "Sem centro de comando" },
+        "type": "Tipo",
+        "unavailable": "Em construção"
+    },
+    "building-types": {
+        "building": "Edifícios",
+        "current": "Número (ativo)",
+        "extension": "Expansão",
+        "maximum": "Máximo possível",
+        "title": "Todos {type}",
+        "unavailable": "Em construção"
+    },
+    "chart-summaries": {
+        "buildings": {
+            "columnchart": "Usar gráfico de barras",
+            "personal_count": "Funcionários",
+            "tip": "Clica nas categorias (por exemplo, Corpo de Bombeiros ou Polícia) para enlargar o tipo de edifício atribuído a esta categoria. Se clicares no tipo de edifício, podes ver quantos veículos de cada tipo estão estacionados nesse tipo de edifício. Desta forma podes rápidamente encontrar quantos veículos de cada tipo estão estacionados na esquadra de polícia e quantas esquadras de polícia tens.",
+            "title": "Edifícios"
+        },
+        "maxMissions": { "title": "Máximo de missões" },
+        "vehicles": {
+            "empty": "Ainda não tens veículos na categoria {category}.",
+            "tip": "Clica num grupo de veículos para visualizar apenas este grupo.",
+            "title": "Veículos"
+        }
+    },
+    "dispatchcenter-view": {
+        "building-selection": "Adicionar edifícios:",
+        "manage": {
+            "newBoard": "Novo quadro",
+            "title": "Gerenciar Quadros",
+            "titles": {
+                "buildings": {
+                    "bold": "Seleção do tipo de edifício",
+                    "small": "mostrar apenas edifícios deste tipo para seleção"
+                },
+                "dispatch": {
+                    "bold": "Seleção do Centro de Comando",
+                    "small": "mostrar apenas edifícios deste centro de comando para seleção"
+                },
+                "name": "Nome do quadro"
+            }
+        },
+        "no-buildings": "Não foram encontrados edifícios. Se for preciso, adjuste os filtros para este quadro no separador \"Gerenciar Quadros\"."
+    },
+    "tabs": {
+        "building-types": "Resumo de Edifícios",
+        "chart-summary": "Sumário",
+        "dispatchcenter-view": "Visualização do Centro de Comando",
+        "vehicle-types": "Resumo de Veículos"
+    },
+    "vehicle-list": {
+        "actions": "",
+        "building": "Edifício",
+        "caption": "Nome",
+        "fms": "CS",
+        "target": "Destinação",
+        "type": "Tipo"
+    },
+    "vehicle-types": {
+        "chart": "Sumário de Status",
+        "status": "Status",
+        "statuses": [1, 2, 3, 4, 5, 6, 7, 9],
+        "sum": "Total",
+        "title": "Todos(as) {type} | Todos(as) {type} em status {n} | Todos(as) {type} em status {n}",
+        "type": "Tipo de veículo",
+        "vehicles": "Veículos"
+    }
+}

@@ -1,7 +1,7 @@
 import type {
-    NotificationsState,
+    NotificationPosition,
     NotificationType,
-} from 'typings/store/notifications/State';
+} from '@stores/notifications';
 
 export interface NotificationSetting {
     events: string[];
@@ -9,5 +9,5 @@ export interface NotificationSetting {
     duration: number;
     ingame: boolean;
     desktop: boolean;
-    position: NotificationsState['groups'][0];
+    position: NotificationPosition;
 }

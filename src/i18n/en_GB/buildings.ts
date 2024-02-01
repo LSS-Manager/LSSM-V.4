@@ -185,6 +185,7 @@ export default {
         special:
             "Finance Admins and admins can (expand) fire department schools with the help of credits from the association's funds. Alliance Educators and admins can start training courses at association fire- brigade schools.",
         startClassrooms: 1,
+        school: 'Fire',
         icon: 'graduation-cap',
     },
     2: {
@@ -264,6 +265,7 @@ export default {
         special:
             "Finance Admins and admins can (expand) association rescue schools with the help of credits from the association's funds. Alliance Educators and admins can start training courses at association rescue schools.",
         startClassrooms: 1,
+        school: 'Rescue',
         icon: 'graduation-cap',
     },
     4: {
@@ -576,6 +578,7 @@ export default {
         special:
             "Finance Admins and admins can (expand) association police schools with the help of credits from the association's Funds. Alliance Educators and admins can start training courses at association police schools.",
         startClassrooms: 1,
+        school: 'Police',
         icon: 'graduation-cap',
     },
     13: {
@@ -1299,6 +1302,7 @@ export default {
         special:
             "Finance Admins and admins can (expand) association Lifeboat College with the help of credits from the association's Funds. Alliance Educators and admins can start training courses at association Lifeboat College.",
         startClassrooms: 1,
+        school: 'Water Rescue',
         icon: 'graduation-cap',
     },
     30: {

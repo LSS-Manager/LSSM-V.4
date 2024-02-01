@@ -401,6 +401,7 @@ export default {
         special:
             "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire- brigade schools.",
         startClassrooms: 1,
+        school: 'fire',
         icon: 'graduation-cap',
     },
     5: {
@@ -615,6 +616,7 @@ export default {
         special:
             "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
         startClassrooms: 1,
+        school: 'police',
         icon: 'graduation-cap',
     },
     8: {
@@ -1224,6 +1226,7 @@ export default {
         special:
             "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
         startClassrooms: 1,
+        school: 'Rescue',
         icon: 'graduation-cap',
     },
     20: {
@@ -1336,6 +1339,7 @@ export default {
         special:
             "Finance ministers and admins can (expand) Coastal Rescue schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association Coastal Rescue School.",
         startClassrooms: 1,
+        school: 'Water Rescue School',
         icon: 'graduation-cap',
     },
     25: {

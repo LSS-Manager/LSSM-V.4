@@ -31,8 +31,8 @@
             "text": "Vuoi veramente espellere questo giocatore?",
             "title": "Espellere?"
         },
-        "set": "set",
-        "unset": "remove"
+        "set": "Imposta",
+        "unset": "Rimuovi"
     },
     "memberlistRoles": {
         "admin": "Admin alleanza",
