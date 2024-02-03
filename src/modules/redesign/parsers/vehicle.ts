@@ -383,18 +383,21 @@ export default <RedesignParser<VehicleWindow>>(({
     const transportRequestTypes = [
         'patient',
         'prisoner',
-        'prisoner-header',
         'trailer',
         'patient-intermediate',
         'prisoner-intermediate',
     ];
 
-    const transportRequestType =
+    const rawTransportRequestType =
         doc.querySelector<HTMLDivElement>(
             `[data-transport-request="true"]:where(${transportRequestTypes
                 .map(type => `[data-transport-request-type="${type}"]`)
                 .join(',')})`
         )?.dataset.transportRequestType ?? '';
+
+    const transportRequestType =
+        { 'prisoner-header': 'prisoner' }[rawTransportRequestType] ??
+        rawTransportRequestType;
 
     // workaround to have a safe type checking and assertion
     const isTransportRequest = (
@@ -465,10 +468,7 @@ export default <RedesignParser<VehicleWindow>>(({
                     .length,
                 releasable: !!doc.querySelector('a[href$="/patient/-1"]'),
             };
-        } else if (
-            transportRequestType === 'prisoner' ||
-            transportRequestType === 'prisoner-header'
-        ) {
+        } else if (transportRequestType === 'prisoner') {
             const ownCells: Cell[] = [];
             const allianceCells: Cell[] = [];
             let list: Cell['list'] = 'own';
