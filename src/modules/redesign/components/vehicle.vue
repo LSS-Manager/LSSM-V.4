@@ -95,6 +95,7 @@
                                     [
                                         'patient',
                                         'prisoner',
+                                        'prisoner-header',
                                         'patient-intermediate',
                                         'prisoner-intermediate',
                                     ].includes(vehicle.transportRequestType) &&
@@ -287,7 +288,15 @@
                 </div>
             </div>
             <!-- table with missions/hospitals/cells/towing-vehicles/... -->
-            <div v-if="vehicle.windowType !== 'empty'">
+            <div
+                v-if="
+                    !(
+                        vehicle.windowType === 'empty' ||
+                        (vehicle.windowType === 'transportRequest' &&
+                            vehicle.transportRequestType === 'prisoner-header')
+                    )
+                "
+            >
                 <tabs
                     v-if="lists.length"
                     :on-select="setList"
@@ -744,6 +753,18 @@ export default Vue.extend<
                     list: '*',
                     showEach: 0,
                 },
+                prisonerHeader: {
+                    filter: {
+                        distance: 0,
+                        freeCells: 0,
+                        tax: 50,
+                    },
+                    sort: 'distance',
+                    sortDir: 'asc',
+                    disableReleaseConfirmation: false,
+                    list: '*',
+                    showEach: 0,
+                },
                 trailer: {
                     filter: {
                         distance: 0,
@@ -965,6 +986,7 @@ export default Vue.extend<
                             ...this.vehicle.buildings.alliance,
                         ];
                     case 'prisoner':
+                    case 'prisoner-header':
                         return [
                             ...this.vehicle.cells.own,
                             ...this.vehicle.cells.alliance,
@@ -1482,7 +1504,8 @@ export default Vue.extend<
                 type !== 'patient' &&
                 type !== 'prisoner' &&
                 type !== 'patientIntermediate' &&
-                type !== 'prisonerIntermediate'
+                type !== 'prisonerIntermediate' &&
+                type !== 'prisonerHeader'
             )
                 return;
 
@@ -1492,6 +1515,7 @@ export default Vue.extend<
                     patientIntermediate: 'patient',
                     prisoner: 'prisoner',
                     prisonerIntermediate: 'prisoner',
+                    prisonerHeader: 'prisoner',
                 } as Record<typeof type, 'patient' | 'prisoner'>
             )[type];
 

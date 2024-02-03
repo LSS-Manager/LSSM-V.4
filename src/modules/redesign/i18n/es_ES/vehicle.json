@@ -114,6 +114,7 @@
     "release_patient": "Dar de alta al paciente",
     "release_patient-intermediate": "Dar de alta al paciente",
     "release_prisoner": "Liberar presos",
+    "release_prisoner-header": "Liberar presos",
     "release_prisoner-intermediate": "Liberar presos",
     "staff": {
         "name": "Nombre",

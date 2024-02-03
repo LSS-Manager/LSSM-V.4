@@ -110,6 +110,7 @@ export type TransportRequestWindow = BaseVehicleWindow & {
     transportRequestType:
         | 'patient-intermediate'
         | 'patient'
+        | 'prisoner-header'
         | 'prisoner-intermediate'
         | 'prisoner'
         | 'trailer';
@@ -134,18 +135,18 @@ export type TransportRequestWindow = BaseVehicleWindow & {
               releasable: boolean;
           }
         | {
-              transportRequestType: 'prisoner-intermediate';
-              buildings: {
-                  own: ShoreStation[];
-                  alliance: ShoreStation[];
+              transportRequestType: 'prisoner-header' | 'prisoner';
+              cells: {
+                  own: Cell[];
+                  alliance: Cell[];
               };
               releasable: boolean;
           }
         | {
-              transportRequestType: 'prisoner';
-              cells: {
-                  own: Cell[];
-                  alliance: Cell[];
+              transportRequestType: 'prisoner-intermediate';
+              buildings: {
+                  own: ShoreStation[];
+                  alliance: ShoreStation[];
               };
               releasable: boolean;
           }
@@ -382,6 +383,7 @@ export default <RedesignParser<VehicleWindow>>(({
     const transportRequestTypes = [
         'patient',
         'prisoner',
+        'prisoner-header',
         'trailer',
         'patient-intermediate',
         'prisoner-intermediate',
@@ -463,7 +465,10 @@ export default <RedesignParser<VehicleWindow>>(({
                     .length,
                 releasable: !!doc.querySelector('a[href$="/patient/-1"]'),
             };
-        } else if (transportRequestType === 'prisoner') {
+        } else if (
+            transportRequestType === 'prisoner' ||
+            transportRequestType === 'prisoner-header'
+        ) {
             const ownCells: Cell[] = [];
             const allianceCells: Cell[] = [];
             let list: Cell['list'] = 'own';
