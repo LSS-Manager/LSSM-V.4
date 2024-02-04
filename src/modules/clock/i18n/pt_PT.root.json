@@ -1,0 +1,27 @@
+{
+    "description": "Mostra um relógio configurável em vários locais conforme necessário.",
+    "localTime": "hora local",
+    "name": "Relógio",
+    "settings": {
+        "displayNav": {
+            "description": "Seleciona o canto esquerdo a seguir ao logo do jogo como posição para o relógio.",
+            "title": "Mostrar relógio na barra de navegação"
+        },
+        "displayOverlay": {
+            "description": "O relógio pode ser movido e deve estar em frente de todos os elementos.",
+            "title": "Mostrar relógio em modo sobreposição"
+        },
+        "navFormat": {
+            "description": "Aqui podes configurar o formato do relógio. Clique <a class=\"lightbox-open\" href=\"{wiki}settings.html#moment-js\">aqui</a> para mais informação sobre como configurar.",
+            "title": "Formato do relógio na barra de navegação"
+        },
+        "overlayFormat": {
+            "description": "Aqui podes configurar o formato do relógio. Clique <a class=\"lightbox-open\" href=\"{wiki}settings.html#moment-js\">aqui</a> para mais informação sobre como configurar.",
+            "title": "Formato do relógio em modo sobreposição"
+        },
+        "timeZone": {
+            "description": "Aqui podes escolher a hora local do relógio(s).",
+            "title": "Hora Local"
+        }
+    }
+}

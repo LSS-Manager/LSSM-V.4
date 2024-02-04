@@ -72,6 +72,19 @@ interface Types {
             showEach: number;
         };
     };
+    prisonerHeader: {
+        item: Cell;
+        filter: {
+            distance: number;
+            freeCells: number;
+            tax: number;
+        };
+        sort: 'caption' | 'distance' | 'freeCells' | 'list' | 'tax';
+        additional: {
+            disableReleaseConfirmation: boolean;
+            showEach: number;
+        };
+    };
     trailer: {
         item: TowingVehicle;
         filter: {
