@@ -1,0 +1,52 @@
+{
+    "action": {
+        "rename": "Umbenennen in: {caption}",
+        "rename_all": "Alle Fahrzeuge umbenennen"
+    },
+    "description": "Benenne Gebäude und Fahrzeuge nach deinem System oder nach einem Standard um.",
+    "name": "Namens-Schema",
+    "settings": {
+        "buildingAliases": {
+            "alias": "Alias-Bezeichnung",
+            "description": "Hier kannst du für jeden Gebäudetyp ein Alias definieren. Dieser Alias wird dann im Template für <code>buildingAlias</code> verwendet.<br>Wenn du hier nichts einträgst, wird die Standard-Bezeichnung des Gebäudetyps verwendet.",
+            "title": "Aliase für Gebäudetypen",
+            "type": "Gebäudetyp"
+        },
+        "buildingTemplates": {
+            "description": "Hier kannst du für jedes Gebäude ein eigenes Template definieren. Die verfügbaren Platzhalter findest du im <a class=\"lightbox-open\" href=\"{wiki}modules/{MODULE_ID}/variables.html\">Wiki</a>.",
+            "template": "Template",
+            "title": "Gebäudespezifische Templates",
+            "type": "Gebäudetyp"
+        },
+        "defaultBuildingTemplate": {
+            "defaultValue": "{{buildingAlias}} {{buildingTypeIndex}}",
+            "description": "Dieses Template wird für alle Gebäude verwendet, für die kein spezifisches Template definiert wurde.",
+            "title": "Standard Template für Gebäude"
+        },
+        "defaultUnitTemplate": {
+            "defaultValue": "{{unitAlias}} {{unitTypeIndex:building}}",
+            "description": "Dieses Template wird für alle Einheiten verwendet, für die kein spezifisches Template definiert wurde.",
+            "title": "Standard Template für Einheiten"
+        },
+        "excludeBuildings": {
+            "description": "Hier kannst du Gebäude ausschließen, die nicht umbenannt werden sollen.",
+            "title": "Gebäude ausschließen"
+        },
+        "excludeUnits": {
+            "description": "Hier kannst du Einheiten ausschließen, die nicht umbenannt werden sollen.",
+            "title": "Einheiten ausschließen"
+        },
+        "unitAliases": {
+            "alias": "Alias-Bezeichnung",
+            "description": "Hier kannst du für jeden Einheitentypen ein Alias definieren. Dieser Alias wird dann im Template für <code>unitAlias</code> verwendet.<br>Wenn du hier nichts einträgst, wird die Standard-Bezeichnung des Einheitentyps verwendet.",
+            "title": "Aliase für Einheitentypen",
+            "type": "Einheitentyp"
+        },
+        "unitTemplates": {
+            "description": "Hier kannst du für jede Einheit ein eigenes Template definieren. Die verfügbaren Platzhalter findest du in der Hilfe.",
+            "template": "Template",
+            "title": "Einheitenspezifische Templates",
+            "type": "Einheitentyp"
+        }
+    }
+}
