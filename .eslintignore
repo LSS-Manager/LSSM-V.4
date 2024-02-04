@@ -15,4 +15,3 @@ src/config.js
 static/fontawesome_*.min.js
 
 src/modules/support/*
-src/modules/renameFz/*
