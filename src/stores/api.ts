@@ -106,6 +106,25 @@ export const defineAPIStore = defineStore('api', {
             });
             return buildings;
         },
+        vehiclesByDispatchCenter: (state): Record<number, Vehicle[]> => {
+            const dispatchCenters: Record<number, Vehicle[]> = {};
+            state.buildings.forEach(building => {
+                const dispatchId = building.leitstelle_building_id;
+
+                // do not process dispatch centers
+                if (!dispatchId) return;
+
+                if (!dispatchCenters.hasOwnProperty(dispatchId))
+                    dispatchCenters[dispatchId] = [];
+
+                state.vehicles
+                    .filter(v => v.building_id === building.id)
+                    .forEach(vehicle => {
+                        dispatchCenters[dispatchId].push(vehicle);
+                    });
+            });
+            return dispatchCenters;
+        },
         participatedMissions(state): number[] {
             return Array.from(
                 new Set([
@@ -139,6 +158,20 @@ export const defineAPIStore = defineStore('api', {
                 types[building.building_type].push(building);
             });
             return types;
+        },
+        buildingsByDispatchCenter: (state): Record<number, Building[]> => {
+            const dispatchCenters: Record<number, Building[]> = {};
+            state.buildings.forEach(building => {
+                const dispatchId = building.leitstelle_building_id;
+
+                // do not process dispatch centers
+                if (!dispatchId) return;
+
+                if (!dispatchCenters.hasOwnProperty(dispatchId))
+                    dispatchCenters[dispatchId] = [];
+                dispatchCenters[dispatchId].push(building);
+            });
+            return dispatchCenters;
         },
         buildingsByCategory() {
             const LSSM = window[PREFIX] as Vue;
