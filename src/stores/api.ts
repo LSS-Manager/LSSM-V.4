@@ -108,20 +108,26 @@ export const defineAPIStore = defineStore('api', {
         },
         vehiclesByDispatchCenter: (state): Record<number, Vehicle[]> => {
             const dispatchCenters: Record<number, Vehicle[]> = {};
-            state.buildings.forEach(building => {
-                const dispatchId = building.leitstelle_building_id;
+            const buildingDispatchCache: Record<number, number> = {};
 
-                // do not process dispatch centers
-                if (!dispatchId) return;
+            const resolveDispatchId = (buildingId: number): number => {
+                const building = state.buildings.find(
+                    building => building.id === buildingId
+                );
+
+                // we group buildings without dispatch center as -1
+                return building?.leitstelle_building_id ?? -1;
+            };
+
+            state.vehicles.forEach(vehicle => {
+                const dispatchId = (buildingDispatchCache[
+                    vehicle.building_id
+                ] ??= resolveDispatchId(vehicle.building_id));
 
                 if (!dispatchCenters.hasOwnProperty(dispatchId))
                     dispatchCenters[dispatchId] = [];
 
-                state.vehicles
-                    .filter(v => v.building_id === building.id)
-                    .forEach(vehicle => {
-                        dispatchCenters[dispatchId].push(vehicle);
-                    });
+                dispatchCenters[dispatchId].push(vehicle);
             });
             return dispatchCenters;
         },
