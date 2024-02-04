@@ -168,10 +168,7 @@ export const defineAPIStore = defineStore('api', {
         buildingsByDispatchCenter: (state): Record<number, Building[]> => {
             const dispatchCenters: Record<number, Building[]> = {};
             state.buildings.forEach(building => {
-                const dispatchId = building.leitstelle_building_id;
-
-                // do not process dispatch centers
-                if (!dispatchId) return;
+                const dispatchId = building.leitstelle_building_id ?? -1;
 
                 if (!dispatchCenters.hasOwnProperty(dispatchId))
                     dispatchCenters[dispatchId] = [];
