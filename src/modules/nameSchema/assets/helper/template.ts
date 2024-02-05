@@ -30,8 +30,13 @@ const argsToOptions = (args: unknown[], keys: string[]) => {
 };
 
 export default class TemplateHelper {
-    private defaultVehicleTemplate: string = '';
     private buildingAliases: AliasedInternalBuilding[] = [];
+    private buildingTypeTemplates: {
+        enabled: boolean;
+        value: { type: string; template: string }[];
+    } = { enabled: false, value: [] };
+    private defaultBuildingTemplate: string = '';
+    private defaultVehicleTemplate: string = '';
     private vehicleTypeAliases: AliasedInternalVehicle[] = [];
     private vehicleTypeTemplates: {
         enabled: boolean;
@@ -78,7 +83,9 @@ export default class TemplateHelper {
                 const options = {
                     padding: 1,
                     start: 1,
-                    groupBy: 'buildingVehicleType',
+                    groupBy: this.isInputVehicle(input)
+                        ? 'buildingVehicleType'
+                        : 'dispatch',
                     ...argsToOptions(args, ['padding', 'start', 'groupBy']),
                 };
 
@@ -89,8 +96,8 @@ export default class TemplateHelper {
                         ];
 
                     return this.numberVehicle(building, input, options);
-                } else {
-                    throw new Error('Numbering buildings is not yet supported');
+                } else if (this.isInputBuilding(input)) {
+                    return this.numberBuilding(input, options);
                 }
             },
             raw: true,
@@ -105,6 +112,14 @@ export default class TemplateHelper {
             await LSSM.$stores.settings.getSetting<string>({
                 moduleId: MODULE_ID,
                 settingId: 'defaultVehicleTemplate',
+                defaultValue: '',
+            });
+
+        // get the default vehicle template
+        this.defaultBuildingTemplate =
+            await LSSM.$stores.settings.getSetting<string>({
+                moduleId: MODULE_ID,
+                settingId: 'defaultBuildingTemplate',
                 defaultValue: '',
             });
 
@@ -181,6 +196,19 @@ export default class TemplateHelper {
                 value: [],
             },
         });
+
+        // get the user-defined building-type templates
+        this.buildingTypeTemplates = await LSSM.$stores.settings.getSetting<{
+            enabled: boolean;
+            value: { type: string; template: string }[];
+        }>({
+            moduleId: MODULE_ID,
+            settingId: 'buildingTemplates',
+            defaultValue: {
+                enabled: false,
+                value: [],
+            },
+        });
     }
 
     public getNewVehicleName(building: Building, vehicle: Vehicle) {
@@ -218,6 +246,31 @@ export default class TemplateHelper {
         }).replace(/\s{2,}/u, ' ');
     }
 
+    public getNewBuildingName(building: Building) {
+        // get the specific template for this vehicle type or use the default template
+        let vehicleTemplate = this.defaultBuildingTemplate;
+        if (this.buildingTypeTemplates.enabled) {
+            vehicleTemplate =
+                this.buildingTypeTemplates.value.find(
+                    ({ type }) => Number(type) === building.building_type
+                )?.template ?? this.defaultBuildingTemplate;
+        }
+
+        const buildingAlias = this.buildingAliases.find(
+            a => a.id === building.building_type
+        );
+
+        return this.render(vehicleTemplate, {
+            building: {
+                ...building,
+                alias:
+                    buildingAlias?.alias ??
+                    buildingAlias?.caption ??
+                    building.caption,
+            } as AliasedBuilding,
+        }).replace(/\s{2,}/u, ' ');
+    }
+
     private render(
         template: string,
         {
@@ -252,6 +305,13 @@ export default class TemplateHelper {
             !!input &&
             input.hasOwnProperty('id') &&
             input.hasOwnProperty('vehicle_type')
+        );
+    }
+    private isInputBuilding(input: unknown): input is Building {
+        return (
+            !!input &&
+            input.hasOwnProperty('id') &&
+            input.hasOwnProperty('building_type')
         );
     }
 
@@ -306,5 +366,46 @@ export default class TemplateHelper {
 
         // arabic with optional padding
         return (vehicleIndex + 1).toString().padStart(params.padding, '0');
+    }
+    private numberBuilding(
+        building: Building,
+        params: {
+            padding: number;
+            start: number;
+            groupBy: string;
+        }
+    ): string {
+        const api: ReturnType<typeof defineAPIStore> =
+            this.moduleParameters.LSSM.$stores.api;
+
+        let buildingsInGroup: Building[] = [];
+
+        buildingsInGroup = api.buildings;
+        if (params.groupBy === 'dispatch' && building.leitstelle_building_id) {
+            buildingsInGroup =
+                api.buildingsByDispatchCenter[building.leitstelle_building_id];
+        } else if (
+            params.groupBy === 'dispatchBuildingType' &&
+            building.leitstelle_building_id
+        ) {
+            buildingsInGroup = api.buildingsByDispatchCenter[
+                building.leitstelle_building_id
+            ].filter(b => b.building_type === building.building_type);
+        } else if (params.groupBy === 'buildingType') {
+            buildingsInGroup = api.buildings.filter(
+                b => b.building_type === building.building_type
+            );
+        }
+
+        // sort ascending by id to have a stable order
+        buildingsInGroup.sort((a, b) => a.id - b.id);
+
+        const buildingIndex =
+            buildingsInGroup.findIndex(b => b.id === building.id) +
+            params.start -
+            1;
+
+        // arabic with optional padding
+        return (buildingIndex + 1).toString().padStart(params.padding, '0');
     }
 }

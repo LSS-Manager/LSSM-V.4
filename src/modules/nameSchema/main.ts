@@ -27,6 +27,15 @@ export default <ModuleMainFunction>(async moduleParams => {
                 ).default,
         ],
         [
+            /^\/buildings\/\d+\/edit$/u,
+            async () =>
+                (
+                    await import(
+                        /* webpackChunkName: "modules/nameSchema/pom/building_edit" */ './assets/pom/building_edit'
+                    )
+                ).default,
+        ],
+        [
             /^\/vehicles\/\d+$/u,
             async () =>
                 (

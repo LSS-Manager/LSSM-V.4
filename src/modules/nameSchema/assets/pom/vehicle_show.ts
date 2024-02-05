@@ -43,7 +43,7 @@ export default class VehicleShowPageObject extends VehicleBasePageObject {
             button.querySelector('.btn-icon')?.classList.add('fa-spin');
 
             try {
-                await this.renameHelper?.renameVehicle(
+                await this.renameHelper!.renameVehicle(
                     this._currentVehicle.id,
                     newVehicleName
                 );

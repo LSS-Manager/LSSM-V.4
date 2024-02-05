@@ -1,8 +1,8 @@
+import BuildingBasePageObject from './building_base';
 import ExclusionHelper from '../helper/exclusion';
 import TemplateHelper from '../helper/template';
-import VehicleBasePageObject from './vehicle_base';
 
-export default class VehicleEditPageObject extends VehicleBasePageObject {
+export default class BuildingEditPageObject extends BuildingBasePageObject {
     private exclusionHelper?: ExclusionHelper;
     private templateHelper?: TemplateHelper;
 
@@ -18,28 +18,27 @@ export default class VehicleEditPageObject extends VehicleBasePageObject {
 
     private async augmentForm() {
         const inputContainer = document.querySelector(
-            '.vehicle_caption > div:not(.control-label)'
+            '.input-group:has(#building_name)'
         );
         if (!inputContainer) return;
 
-        const newVehicleName = this.templateHelper!.getNewVehicleName(
-            this._currentBuilding,
-            this._currentVehicle
+        const newBuildingName = this.templateHelper!.getNewBuildingName(
+            this._currentBuilding
         );
 
         const { $m } = this.moduleParams;
         const button = this.injectButton(inputContainer);
         button.title = String(
             $m('action.rename', {
-                caption: newVehicleName,
+                caption: newBuildingName,
             })
         );
         button.addEventListener('click', () => {
             const inputControl =
-                document.querySelector<HTMLInputElement>('#vehicle_caption');
+                document.querySelector<HTMLInputElement>('#building_name');
 
             if (inputControl) {
-                inputControl.value = newVehicleName;
+                inputControl.value = newBuildingName;
                 inputControl.dispatchEvent(
                     new Event('input', { bubbles: true })
                 );
@@ -48,12 +47,6 @@ export default class VehicleEditPageObject extends VehicleBasePageObject {
     }
 
     private injectButton(inputContainer: Element) {
-        const inputGroup = document.createElement('div');
-        inputGroup.classList.add('input-group');
-
-        inputContainer.childNodes.forEach(node => inputGroup.append(node));
-        inputContainer.append(inputGroup);
-
         const setNameButton = document.createElement('span');
         setNameButton.classList.add(
             'input-group-addon',
@@ -70,7 +63,7 @@ export default class VehicleEditPageObject extends VehicleBasePageObject {
         );
 
         setNameButton.append(buttonIcon);
-        inputGroup.append(setNameButton);
+        inputContainer.append(setNameButton);
 
         return setNameButton;
     }
