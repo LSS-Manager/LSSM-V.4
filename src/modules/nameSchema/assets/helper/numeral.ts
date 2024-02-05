@@ -54,10 +54,11 @@ export const convertNumberToAlpha = (num: number): string => {
  * Convert a number to ICAO alphabet word.
  * @param num - Number to convert.
  * @returns ICAO alphabet word.
+ * @see https://de.wikipedia.org/wiki/ICAO-Alphabet
  */
 export const convertNumberToICAOAlpha = (num: number): string => {
     const alphabet = [
-        'Alpha',
+        'Alfa',
         'Bravo',
         'Charlie',
         'Delta',
@@ -80,7 +81,7 @@ export const convertNumberToICAOAlpha = (num: number): string => {
         'Uniform',
         'Victor',
         'Whiskey',
-        'X-ray',
+        'X-Ray',
         'Yankee',
         'Zulu',
     ];
