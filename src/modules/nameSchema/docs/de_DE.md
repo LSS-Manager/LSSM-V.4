@@ -7,12 +7,12 @@ Es stehen die Objekte `vehicle` und `building` zur Verfügung, die Informationen
 Die Basis-Struktur der beiden Objekte entspricht der Struktur der Interfaces [`Vehicle`](https://github.com/LSS-Manager/LSSM-V.4/blob/dev/typings/Vehicle.d.ts) und [`Building`](https://github.com/LSS-Manager/LSSM-V.4/blob/dev/typings/Building.d.ts).
 Es kann somit auf alle Eigenschaften der beiden Objekte zugegriffen werden. Darüber hinaus sind einige zusätzliche Eigenschaften verfügbar, die in der folgenden Tabelle aufgeführt sind.
 
-| Variable               | Beschreibung                                                                           | Verwendbar in Templates für |
-|------------------------|----------------------------------------------------------------------------------------|-----------------------------|
-| `{{vehicle.type}}`     | Typ des Fahrzeugs (z.B. `LF 20/01`).                                                   | Fahrzeuge                   |
-| `{{vehicle.alias}}`    | Alias-Bezeichnung des Fahrzeuges (vgl. Aliase), ansonsten identisch zu `vehicle.type`. | Fahrzeuge                   |
-| `{{building.type}}`    | Typ des Fahrzeugs (z.B. `Feuerwehrschule`)                                             | Fahrzeuge, Gebäude          |
-| `{{building.alias}}`   | Alias-Bezeichnung des Gebäudes (vgl. Aliase), ansonsten identisch zu `building.type`.  | Fahrzeuge, Gebäude          |
+| Variable             | Beschreibung                                                                           | Verwendbar in Templates für |
+|----------------------|----------------------------------------------------------------------------------------|-----------------------------|
+| `{{vehicle.type}}`   | Typ des Fahrzeugs (z.B. `LF 20/01`).                                                   | Fahrzeuge                   |
+| `{{vehicle.alias}}`  | Alias-Bezeichnung des Fahrzeuges (vgl. Aliase), ansonsten identisch zu `vehicle.type`. | Fahrzeuge                   |
+| `{{building.type}}`  | Typ des Gebäudes (z.B. `Feuerwehrschule`)                                              | Fahrzeuge, Gebäude          |
+| `{{building.alias}}` | Alias-Bezeichnung des Gebäudes (vgl. Aliase), ansonsten identisch zu `building.type`.  | Fahrzeuge, Gebäude          |
 
 ## Filter
 
