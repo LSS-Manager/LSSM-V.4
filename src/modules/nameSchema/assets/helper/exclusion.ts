@@ -2,7 +2,7 @@ import type { ModuleMainFunction } from 'typings/Module';
 
 export default class ExclusionHelper {
     private excludedBuildings: string[] = [];
-    private excludedUnits: string[] = [];
+    private excludedVehicles: string[] = [];
 
     constructor(
         private readonly moduleParams: Parameters<ModuleMainFunction>[0]
@@ -22,9 +22,9 @@ export default class ExclusionHelper {
             defaultValue: [],
         });
 
-        this.excludedUnits = await settings.getSetting<string[]>({
+        this.excludedVehicles = await settings.getSetting<string[]>({
             moduleId,
-            settingId: 'excludeUnits',
+            settingId: 'excludeVehicles',
             defaultValue: [],
         });
     }
@@ -34,6 +34,6 @@ export default class ExclusionHelper {
     }
 
     public isVehicleTypeExcluded(typeId: number) {
-        return this.excludedUnits.some(id => Number(id) === typeId);
+        return this.excludedVehicles.some(id => Number(id) === typeId);
     }
 }

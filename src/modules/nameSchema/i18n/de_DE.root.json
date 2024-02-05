@@ -23,8 +23,8 @@
             "description": "Dieses Template wird für alle Gebäude verwendet, für die kein spezifisches Template definiert wurde.",
             "title": "Standard Template für Gebäude"
         },
-        "defaultUnitTemplate": {
-            "defaultValue": "{{unitAlias}} {{unitTypeIndex:building}}",
+        "defaultVehicleTemplate": {
+            "defaultValue": "{{ vehicle.alias }} {{ vehicle | index: groupBy: \"buildingVehicleType\" }}",
             "description": "Dieses Template wird für alle Einheiten verwendet, für die kein spezifisches Template definiert wurde.",
             "title": "Standard Template für Einheiten"
         },
@@ -32,17 +32,17 @@
             "description": "Hier kannst du Gebäude ausschließen, die nicht umbenannt werden sollen.",
             "title": "Gebäude ausschließen"
         },
-        "excludeUnits": {
+        "excludeVehicles": {
             "description": "Hier kannst du Einheiten ausschließen, die nicht umbenannt werden sollen.",
             "title": "Einheiten ausschließen"
         },
-        "unitAliases": {
+        "vehicleAliases": {
             "alias": "Alias-Bezeichnung",
-            "description": "Hier kannst du für jeden Einheitentypen ein Alias definieren. Dieser Alias wird dann im Template für <code>unitAlias</code> verwendet.<br>Wenn du hier nichts einträgst, wird die Standard-Bezeichnung des Einheitentyps verwendet.",
+            "description": "Hier kannst du für jeden Einheitentypen ein Alias definieren. Dieser Alias wird dann im Template für <code>{{ vehicle.alias }}</code> verwendet.<br>Wenn du hier nichts einträgst, wird die Standard-Bezeichnung des Einheitentyps verwendet.",
             "title": "Aliase für Einheitentypen",
             "type": "Einheitentyp"
         },
-        "unitTemplates": {
+        "vehicleTemplates": {
             "description": "Hier kannst du für jede Einheit ein eigenes Template definieren. Die verfügbaren Platzhalter findest du in der Hilfe.",
             "template": "Template",
             "title": "Einheitenspezifische Templates",

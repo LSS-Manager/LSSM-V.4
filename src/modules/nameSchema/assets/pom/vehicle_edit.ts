@@ -25,7 +25,7 @@ export default class VehicleEditPageObject extends VehicleBasePageObject {
         );
         if (!inputContainer) return;
 
-        const newUnitName = this.templateHelper!.getNewUnitName(
+        const newVehicleName = this.templateHelper!.getNewVehicleName(
             this._currentBuilding,
             this._currentVehicle
         );
@@ -34,7 +34,7 @@ export default class VehicleEditPageObject extends VehicleBasePageObject {
         const button = this.injectButton(inputContainer);
         button.title = String(
             $m('action.rename', {
-                caption: newUnitName,
+                caption: newVehicleName,
             })
         );
         button.addEventListener('click', () => {
@@ -42,7 +42,7 @@ export default class VehicleEditPageObject extends VehicleBasePageObject {
                 document.querySelector<HTMLInputElement>('#vehicle_caption');
 
             if (inputControl) {
-                inputControl.value = newUnitName;
+                inputControl.value = newVehicleName;
                 inputControl.dispatchEvent(
                     new Event('input', { bubbles: true })
                 );

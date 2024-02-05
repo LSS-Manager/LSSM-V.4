@@ -1,3 +1,3 @@
 # Name Schema
 
-Provides bulk-renaming of units and buildings.
+Provides bulk-renaming of vehicles and buildings.

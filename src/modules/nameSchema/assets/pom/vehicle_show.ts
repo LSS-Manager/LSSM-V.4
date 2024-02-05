@@ -23,19 +23,19 @@ export default class VehicleShowPageObject extends VehicleBasePageObject {
         const titleTag = document.querySelector('h1');
         if (!titleTag) return;
 
-        const newUnitName = this.templateHelper!.getNewUnitName(
+        const newVehicleName = this.templateHelper!.getNewVehicleName(
             this._currentBuilding,
             this._currentVehicle
         );
 
         // hide button if new name is the same as the current name
-        if (newUnitName === this._currentVehicle.caption) return;
+        if (newVehicleName === this._currentVehicle.caption) return;
 
         const { $m } = this.moduleParams;
         const button = this.injectButton(titleTag);
         button.title = String(
             $m('action.rename', {
-                caption: newUnitName,
+                caption: newVehicleName,
             })
         );
         button.addEventListener('click', async () => {
@@ -45,10 +45,10 @@ export default class VehicleShowPageObject extends VehicleBasePageObject {
             try {
                 await this.renameHelper?.renameVehicle(
                     this._currentVehicle.id,
-                    newUnitName
+                    newVehicleName
                 );
                 button.classList.replace('btn-default', 'btn-success');
-                titleTag.textContent = newUnitName;
+                titleTag.textContent = newVehicleName;
 
                 window.setTimeout(() => {
                     button.remove();

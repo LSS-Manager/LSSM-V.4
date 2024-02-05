@@ -129,7 +129,7 @@ export default class BuildingShowPageObject extends PageObject {
 
                     return {
                         ...vehicle,
-                        newCaption: this.templateHelper!.getNewUnitName(
+                        newCaption: this.templateHelper!.getNewVehicleName(
                             building!,
                             vehicle
                         ),

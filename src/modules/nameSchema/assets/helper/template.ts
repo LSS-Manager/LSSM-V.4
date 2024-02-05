@@ -28,10 +28,10 @@ const argsToOptions = (args: unknown[], keys: string[]) => {
 };
 
 export default class TemplateHelper {
-    private defaultUnitTemplate: string = '';
+    private defaultVehicleTemplate: string = '';
     private buildingAliases: AliasedInternalBuilding[] = [];
-    private unitTypeAliases: AliasedInternalVehicle[] = [];
-    private unitTypeTemplates: {
+    private vehicleTypeAliases: AliasedInternalVehicle[] = [];
+    private vehicleTypeTemplates: {
         enabled: boolean;
         value: { type: string; template: string }[];
     } = { enabled: false, value: [] };
@@ -68,7 +68,7 @@ export default class TemplateHelper {
                 const options = {
                     padding: 1,
                     start: 1,
-                    groupBy: 'buildingUnitType',
+                    groupBy: 'buildingVehicleType',
                     ...argsToOptions(args, ['padding', 'start', 'groupBy']),
                 };
 
@@ -78,7 +78,7 @@ export default class TemplateHelper {
                             input.building_id
                         ];
 
-                    return this.numberUnit(building, input, options);
+                    return this.numberVehicle(building, input, options);
                 } else {
                     throw new Error('Numbering buildings is not yet supported');
                 }
@@ -90,11 +90,11 @@ export default class TemplateHelper {
     public async init() {
         const { LSSM, MODULE_ID } = this.moduleParameters;
 
-        // get the default unit template
-        this.defaultUnitTemplate =
+        // get the default vehicle template
+        this.defaultVehicleTemplate =
             await LSSM.$stores.settings.getSetting<string>({
                 moduleId: MODULE_ID,
-                settingId: 'defaultUnitTemplate',
+                settingId: 'defaultVehicleTemplate',
                 defaultValue: '',
             });
 
@@ -129,26 +129,26 @@ export default class TemplateHelper {
             };
         });
 
-        const unitAliasesSetting = await LSSM.$stores.settings.getSetting<{
+        const vehicleAliasesSetting = await LSSM.$stores.settings.getSetting<{
             enabled: boolean;
             value: { type: string; alias: string }[];
         }>({
             moduleId: MODULE_ID,
-            settingId: 'unitAliases',
+            settingId: 'vehicleAliases',
             defaultValue: {
                 enabled: false,
                 value: [],
             },
         });
 
-        this.unitTypeAliases = Object.entries(
+        this.vehicleTypeAliases = Object.entries(
             LSSM.$stores.translations.vehicles
         ).map(([id, type]) => {
             let alias = type.caption;
 
-            if (unitAliasesSetting.enabled) {
+            if (vehicleAliasesSetting.enabled) {
                 alias =
-                    unitAliasesSetting.value.find(({ type: t }) => t === id)
+                    vehicleAliasesSetting.value.find(({ type: t }) => t === id)
                         ?.alias ?? type.caption;
             }
 
@@ -159,13 +159,13 @@ export default class TemplateHelper {
             };
         });
 
-        // get the user-defined unit-type templates
-        this.unitTypeTemplates = await LSSM.$stores.settings.getSetting<{
+        // get the user-defined vehicle-type templates
+        this.vehicleTypeTemplates = await LSSM.$stores.settings.getSetting<{
             enabled: boolean;
             value: { type: string; template: string }[];
         }>({
             moduleId: MODULE_ID,
-            settingId: 'unitTemplates',
+            settingId: 'vehicleTemplates',
             defaultValue: {
                 enabled: false,
                 value: [],
@@ -173,24 +173,24 @@ export default class TemplateHelper {
         });
     }
 
-    public getNewUnitName(building: Building, vehicle: Vehicle) {
-        // get the specific template for this unit type or use the default template
-        let unitTemplate = this.defaultUnitTemplate;
-        if (this.unitTypeTemplates.enabled) {
-            unitTemplate =
-                this.unitTypeTemplates.value.find(
+    public getNewVehicleName(building: Building, vehicle: Vehicle) {
+        // get the specific template for this vehicle type or use the default template
+        let vehicleTemplate = this.defaultVehicleTemplate;
+        if (this.vehicleTypeTemplates.enabled) {
+            vehicleTemplate =
+                this.vehicleTypeTemplates.value.find(
                     ({ type }) => Number(type) === vehicle.vehicle_type
-                )?.template ?? this.defaultUnitTemplate;
+                )?.template ?? this.defaultVehicleTemplate;
         }
 
         const buildingAlias = this.buildingAliases.find(
             a => a.id === building.building_type
         );
-        const unitAlias = this.unitTypeAliases.find(
+        const vehicleAlias = this.vehicleTypeAliases.find(
             a => a.id === vehicle.vehicle_type
         );
 
-        return this.render(unitTemplate, {
+        return this.render(vehicleTemplate, {
             building: {
                 ...building,
                 alias:
@@ -201,7 +201,9 @@ export default class TemplateHelper {
             vehicle: {
                 ...vehicle,
                 alias:
-                    unitAlias?.alias ?? unitAlias?.caption ?? vehicle.caption,
+                    vehicleAlias?.alias ??
+                    vehicleAlias?.caption ??
+                    vehicle.caption,
             } as AliasedVehicle,
         });
     }
@@ -243,7 +245,7 @@ export default class TemplateHelper {
         );
     }
 
-    private numberUnit(
+    private numberVehicle(
         building: Building,
         vehicle: Vehicle,
         params: {
@@ -266,17 +268,17 @@ export default class TemplateHelper {
             vehiclesInGroup =
                 api.vehiclesByDispatchCenter[building.leitstelle_building_id];
         } else if (
-            params.groupBy === 'dispatchUnitType' &&
+            params.groupBy === 'dispatchVehicleType' &&
             building.leitstelle_building_id
         ) {
             vehiclesInGroup = api.vehiclesByDispatchCenter[
                 building.leitstelle_building_id
             ].filter(v => v.vehicle_type === vehicle.vehicle_type);
-        } else if (params.groupBy === 'unitType') {
+        } else if (params.groupBy === 'vehicleType') {
             vehiclesInGroup = api.vehicles.filter(
                 v => v.vehicle_type === vehicle.vehicle_type
             );
-        } else if (params.groupBy === 'buildingUnitType') {
+        } else if (params.groupBy === 'buildingVehicleType') {
             vehiclesInGroup = api.vehiclesByBuilding[building.id].filter(
                 v => v.vehicle_type === vehicle.vehicle_type
             );

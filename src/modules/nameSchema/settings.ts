@@ -22,7 +22,7 @@ const settings: ModuleSettingFunction = async (
             return { id, label: copy.caption };
         })
         .toSorted((a, b) => a.label.localeCompare(b.label));
-    const unitTypes = Object.entries(LSSM.$stores.translations.vehicles)
+    const vehicleTypes = Object.entries(LSSM.$stores.translations.vehicles)
         .map(([id, type]) => {
             const copy = Object.freeze({ ...type });
             return { id, label: copy.caption };
@@ -56,14 +56,14 @@ const settings: ModuleSettingFunction = async (
             values: buildingTypes.map(u => u.id),
             default: [],
         },
-        defaultUnitTemplate: <Textarea>{
+        defaultVehicleTemplate: <Textarea>{
             type: 'textarea',
-            default: $m('settings.defaultUnitTemplate.defaultValue'),
+            default: $m('settings.defaultVehicleTemplate.defaultValue'),
         },
-        excludeUnits: <Omit<MultiSelect, 'isDisabled' | 'value'>>{
+        excludeVehicles: <Omit<MultiSelect, 'isDisabled' | 'value'>>{
             type: 'multiSelect',
-            labels: unitTypes.map(u => u.label),
-            values: unitTypes.map(u => u.id),
+            labels: vehicleTypes.map(u => u.label),
+            values: vehicleTypes.map(u => u.id),
             default: [],
         },
         buildingTemplates: <Omit<AppendableList, 'isDisabled' | 'value'>>{
@@ -136,24 +136,26 @@ const settings: ModuleSettingFunction = async (
             orderable: false,
             disableable: true,
         },
-        unitTemplates: <Omit<AppendableList, 'isDisabled' | 'value'>>{
+        vehicleTemplates: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: [],
             listItem: [
                 <AppendableListSetting<Select>>{
                     name: 'type',
-                    title: $m('settings.unitTemplates.type'),
+                    title: $m('settings.vehicleTemplates.type'),
                     size: 2,
                     setting: {
                         type: 'select',
-                        labels: unitTypes.map(unitType => unitType.label),
-                        values: unitTypes.map(unitType => unitType.id),
+                        labels: vehicleTypes.map(
+                            vehicleType => vehicleType.label
+                        ),
+                        values: vehicleTypes.map(vehicleType => vehicleType.id),
                     },
                     unique: uniqueField('type'),
                 },
                 <AppendableListSetting<Text>>{
                     name: 'template',
-                    title: $m('settings.unitTemplates.template'),
+                    title: $m('settings.vehicleTemplates.template'),
                     size: 6,
                     setting: {
                         type: 'text',
@@ -167,24 +169,26 @@ const settings: ModuleSettingFunction = async (
             orderable: false,
             disableable: true,
         },
-        unitAliases: <Omit<AppendableList, 'isDisabled' | 'value'>>{
+        vehicleAliases: <Omit<AppendableList, 'isDisabled' | 'value'>>{
             type: 'appendable-list',
             default: [],
             listItem: [
                 <AppendableListSetting<Select>>{
                     name: 'type',
-                    title: $m('settings.unitAliases.type'),
+                    title: $m('settings.vehicleAliases.type'),
                     size: 2,
                     setting: {
                         type: 'select',
-                        labels: unitTypes.map(unitType => unitType.label),
-                        values: unitTypes.map(unitType => unitType.id),
+                        labels: vehicleTypes.map(
+                            vehicleType => vehicleType.label
+                        ),
+                        values: vehicleTypes.map(vehicleType => vehicleType.id),
                     },
                     unique: uniqueField('type'),
                 },
                 <AppendableListSetting<Text>>{
                     name: 'alias',
-                    title: $m('settings.unitAliases.alias'),
+                    title: $m('settings.vehicleAliases.alias'),
                     size: 4,
                     setting: {
                         type: 'text',
