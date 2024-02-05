@@ -1,65 +1,79 @@
-# Namens-Schemata
+# Namens-Schema
 
 ## Variablen
 
-| Variable              | Beschreibung                                                                         | Verwendbar in Templates für |
-|-----------------------|--------------------------------------------------------------------------------------|-----------------------------|
-| `{{unitId}}`          | ID der Einheit, z.B. `78020362`                                                      | Einheiten                   |
-| `{{unitType}}`        | Typ der Einheit (z.B. `LF 20/01`).                                                   | Einheiten                   |
-| `{{unitTypeCustom}}`  | Benutzerdefinierte Fahrzeugklasse.                                                   | Einheiten                   |
-| `{{unitAlias}}`       | Alias-Bezeichnung der Einheit (vgl. Aliase), ansonsten identisch zu `unitType`.      | Einheiten                   |
-| `{{unitIndex}}`       | Aufsteigende Nummerierung des Fahrzeugs. Parametrisierung möglich.                   | Einheiten                   |
-| `{{buildingId}}`      | ID des Gebäudes, z.B. `11221784`                                                     | Einheiten, Gebäude          |
-| `{{buildingType}}`    | Typ  der Einheit (z.B. `Feuerwehrschule`)                                            | Einheiten, Gebäude          |
-| `{{buildingAlias}}`   | Alias-Bezeichnung des Gebäudes (vgl. Aliase), ansonsten identisch zu `buildingType`. | Einheiten, Gebäude          |
-| `{{buildingIndex}}`   | Aufsteigende Nummerierung des Gebäudes. Parametrisierung möglich.                    | Einheiten, Gebäude          |
-| `{{buildingCaption}}` | Name des Gebäudes                                                                    | Einheiten                   |
+Es stehen die Objekte `vehicle` und `building` zur Verfügung, die Informationen über das Fahrzeug bzw. das Gebäude (im Falle eines Fahrzeugs des zugeordneten) enthalten.
 
-### Parametrisierung
+Die Basis-Struktur der beiden Objekte entspricht der Struktur der Interfaces [`Vehicle`](https://github.com/LSS-Manager/LSSM-V.4/blob/dev/typings/Vehicle.d.ts) und [`Building`](https://github.com/LSS-Manager/LSSM-V.4/blob/dev/typings/Building.d.ts).
+Es kann somit auf alle Eigenschaften der beiden Objekte zugegriffen werden. Darüber hinaus sind einige zusätzliche Eigenschaften verfügbar, die in der folgenden Tabelle aufgeführt sind.
 
-Die Variablen `{{unitIndex}}` und `{{buildingIndex}}` unterstützen weitere Parameter, um die Art der Nummerierung zu beeinflussen.
+| Variable               | Beschreibung                                                                           | Verwendbar in Templates für |
+|------------------------|----------------------------------------------------------------------------------------|-----------------------------|
+| `{{vehicle.type}}`     | Typ des Fahrzeugs (z.B. `LF 20/01`).                                                   | Fahrzeuge                   |
+| `{{vehicle.alias}}`    | Alias-Bezeichnung des Fahrzeuges (vgl. Aliase), ansonsten identisch zu `vehicle.type`. | Fahrzeuge                   |
+| `{{building.type}}`    | Typ des Fahrzeugs (z.B. `Feuerwehrschule`)                                             | Fahrzeuge, Gebäude          |
+| `{{building.alias}}`   | Alias-Bezeichnung des Gebäudes (vgl. Aliase), ansonsten identisch zu `building.type`.  | Fahrzeuge, Gebäude          |
 
-Das Format ist `{{unitIndex:<padding>?:<start>?:<numeral system>?:<group>?}}` mit folgender Bedeutung:
+## Filter
 
-| Parameter        | Bedeutung                                                                                                                              | Beispiel                           | Standard   |
-|------------------|----------------------------------------------------------------------------------------------------------------------------------------|------------------------------------|------------|
-| `padding`        | Anzahl der Stellen, die die Nummerierung haben soll. Führende Nullen werden hinzugefügt. Nur sinnvoll mit der Verwendung von `arabic`. | `{{unitIndex:2}}` ergibt `01`      | `0`        |
-| `start`          | Startwert der Nummerierung.                                                                                                            | `{{unitIndex::10}}` ergibt `10`    | `1`        |
-| `numeral system` | System, in dem die Nummerierung erfolgen soll.                                                                                         | `{{unitIndex:::roman}}` ergibt `I` | `arabic`   |
-| `group`          | Gruppierung der Fahrzeuge für die Nummerierung.                                                                                        | `{{unitIndex::::dispatch}}`        | `building` |
+### `index`
+Auf den Objekten `vehicle` und `building` steht der `index`-Filter zur Verfügung, der eine Nummerierung für Fahrzeuge und Gebäude bereitstellt.
 
-#### `unitIndex`
+```liquid
+{{ vehicle | index }}
+{{ building | index }}
+```
 
-| Template                 | Ergebnis              |
-|--------------------------|-----------------------|
-| `{{unitIndex}}`          | `1`, `2`, `3`, ...    |
-| `{{unitIndex:2}}`        | `01`, `02`, `03`, ... |
-| `{{unitIndex::10}}`      | `10`, `11`, `12`, ... |
-| `{{unitIndex:::roman}}`  | `I`, `II`, `III`, ... |
-| `{{unitIndex:2:8}}`      | `08`, `09`, `10`, ... |
-| `{{unitIndex::5:roman}}` | `V`, `VI`, `VII`, ... |
-| `{{unitIndex::5:alpha}}` | `V`, `VI`, `VII`, ... |
+Es können Parameter übergeben werden, um die Nummerierung zu beeinflussen:
 
-#### `numeral system`
+```liquid
+{# Padding auf 2 Stellen, Start bei 10, Gruppieren nach Leitstelle #}
+{{ vehicle | index: padding:2, start:10, groupBy:"dispatch" }}
 
-Alle Systeme außer `arabic` unterstützen die Suffixe `-lower` und `-upper` für Klein- und Großschreibung (z.B. `roman-lower`).
+{# Padding auf 3 Stellen, keine Gruppierung #}
+{{ building | index: padding:3, groupBy:"none" }}
 
-| Wert     | Beschreibung                     | Beispiel                         |
+{# Kurzform: alle Parameter müssen übergeben werden! #}
+{{ vehicle | index: 2, 10, "dispatch" }}
+{{ building | index: 3, 1, "none" }}
+```
+
+#### Filterparameter
+
+| Parameter | Bedeutung                                                                                | Beispiel                                        | Standard              |
+|-----------|------------------------------------------------------------------------------------------|-------------------------------------------------|-----------------------|
+| `padding` | Anzahl der Stellen, die die Nummerierung haben soll. Führende Nullen werden hinzugefügt. | `{{ vehicle \| index: padding:2 }}` ergibt `01` | `0`                   |
+| `start`   | Startwert der Nummerierung.                                                              | `{{ vehicle \| index: start: 10 }}` ergibt `10` | `1`                   |
+| `groupBy` | Gruppierung der Fahrzeuge für die Nummerierung.                                          | `{{ vehicle \| index:  groupBy:"dispatch" }}`   | `buildingVehicleType` |
+
+Mögliche Werte für `groupBy`:
+
+| Wert                  | Gruppieren nach                                                   | Verwendbar in Templates für |
+|-----------------------|-------------------------------------------------------------------|-----------------------------|
+| `none`                | Ohne Gruppierung, Fahrzeuge werden global durchnummeriert.        | Fahrzeuge, Gebäuden         |
+| `building`            | Gruppierung pro Gebäude.                                          | Fahrzeuge                   |
+| `vehicleType`         | Gruppierung global nach Fahrzeugtyp.                              | Fahrzeuge                   |
+| `dispatch`            | Gruppierung nach Leitstelle                                       | Fahrzeuge, Gebäuden         |
+| `buildingVehicleType` | Kombinierte Gruppierung nach Gebäude und Fahrzeugtyps. (Standard) | Fahrzeuge                   |
+| `dispatchVehicleType` | Kombinierte Gruppierung nach Leitstelle und Fahrzeugtyps.         | Fahrzeuge                   |
+
+### Weitere Filter
+
+Es stehen alle [Standard LiquidJS-Filter](https://liquidjs.com/filters/overview.html) zur Verfügung.
+
+Um eine Zahl in ein anderes Format zu konvertieren, können folgende Filter verwendet werden.
+
+| Filter   | Beschreibung                     | Beispiel-Ausgabe                 |
 |----------|----------------------------------|----------------------------------|
-| `arabic` | Arabische Zahlen (Standard)      | `1`, `2`, `3`, ...               |
 | `roman`  | Römische Zahlen                  | `I`, `II`, `III`, ...            |
 | `alpha`  | Buchstaben                       | `A`, `B`, `C`, ...               |
 | `greek`  | Griechische Buchstaben (max. 23) | `Alpha`, `Beta`, `Gamma`, ...    |
 | `icao`   | ICAO-Phonetic (max. 25)          | `Alpha`, `Bravo`, `Charlie`, ... |
 | `emoji`  | Emoji Ziffern                    | 0️⃣, 1️⃣2️⃣3️⃣, 6️⃣6️⃣6️⃣, ...   |
 
-#### `group`
+Beispiel zur Verwendung mit Fahrzeugnummerierungen:
 
-| Wert               | Gruppieren nach                                                       | Verwendbar in Templates für |
-|--------------------|-----------------------------------------------------------------------|-----------------------------|
-| `none`             | Ohne Gruppierung, Fahrzeuge werden global durchnummeriert (Standard). | Einheiten, Gebäuden         |
-| `building`         | Gruppierung pro Gebäude.                                              | Einheiten                   |
-| `unitType`         | Gruppierung global nach Einheitentyp.                                 | Einheiten                   |
-| `dispatch`         | Gruppierung nach Leitstelle                                           | Einheiten, Gebäuden         |
-| `buildingUnitType` | Kombinierte Gruppierung nach Gebäude und Einheitentyp.                | Einheiten                   |
-| `dispatchUnitType` | Kombinierte Gruppierung nach Leitstelle und Einheitentyp.             | Einheiten                   |
+```liquid
+{{ vehicle | index | roman }}
+{{ vehicle | index | alpha | downcase }}
+```
