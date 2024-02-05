@@ -298,7 +298,7 @@
     "moment-timezone": {
         "icon": "https://momentjs.com/static/img/moment-timezone-favicon.png",
         "url": "http://momentjs.com/timezone/",
-        "version": "0.5.44"
+        "version": "0.5.45"
     },
     "pinia": {
         "icon": "https://pinia.vuejs.org/logo.svg",
@@ -308,7 +308,7 @@
     "prettier": {
         "icon": "https://prettier.io/icon.png",
         "url": "https://prettier.io",
-        "version": "3.2.4"
+        "version": "3.2.5"
     },
     "qrcode": {
         "url": "http://github.com/soldair/node-qrcode",

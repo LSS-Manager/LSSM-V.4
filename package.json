@@ -1,6 +1,6 @@
 {
     "name": "lss-manager-v4",
-    "version": "4.7.12+20240202.1305",
+    "version": "4.7.12+20240205.0652",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "quickbuild": "./build/build.sh --quick",
@@ -87,8 +87,8 @@
         "husky": "9.0.10",
         "js-yaml": "4.1.0",
         "local-web-server": "5.3.1",
-        "moment-timezone": "0.5.44",
-        "prettier": "3.2.4",
+        "moment-timezone": "0.5.45",
+        "prettier": "3.2.5",
         "sass": "1.70.0",
         "sass-loader": "14.0.0",
         "simpleheat": "0.4.0",
