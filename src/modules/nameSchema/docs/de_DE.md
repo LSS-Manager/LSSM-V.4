@@ -63,13 +63,15 @@ Es stehen alle [Standard LiquidJS-Filter](https://liquidjs.com/filters/overview.
 
 Um eine Zahl in ein anderes Format zu konvertieren, können folgende Filter verwendet werden.
 
-| Filter   | Beschreibung                     | Beispiel-Ausgabe                 |
-|----------|----------------------------------|----------------------------------|
-| `roman`  | Römische Zahlen                  | `I`, `II`, `III`, ...            |
-| `alpha`  | Buchstaben                       | `A`, `B`, `C`, ...               |
-| `greek`  | Griechische Buchstaben (max. 23) | `Alpha`, `Beta`, `Gamma`, ...    |
-| `icao`   | ICAO-Phonetic (max. 25)          | `Alpha`, `Bravo`, `Charlie`, ... |
-| `emoji`  | Emoji Ziffern                    | 0️⃣, 1️⃣2️⃣3️⃣, 6️⃣6️⃣6️⃣, ...   |
+| Filter              | Beschreibung                                    | Beispiel-Ausgabe                          |
+|---------------------|-------------------------------------------------|-------------------------------------------|
+| `roman`             | Römische Zahlen                                 | `I`, `II`, `III`, ...                     |
+| `alpha`             | Buchstaben                                      | `A`, `B`, `C`, ...                        |
+| `greek`             | Griechische Buchstaben (max. 23)                | `Alpha`, `Beta`, `Gamma`, ...             |
+| `icao`              | ICAO-Phonetic (max. 25)                         | `Alpha`, `Bravo`, `Charlie`, ...          |
+| `emoji`             | Emoji Ziffern                                   | 0️⃣, 1️⃣2️⃣3️⃣, 6️⃣6️⃣6️⃣, ...            |
+| `german-phonetic`   | Deutsche postalische Buchstabiertafel von 1950  | `Anton`, ..., `Kaufmann`, ... `Zacharias` |
+| `austrian-phonetic` | Österreichische Buchstabiertafel (ÖNORM A 1081) | `Anton`, ..., `Konrad`, ... `Zürich`      |
 
 Beispiel zur Verwendung mit Fahrzeugnummerierungen:
 

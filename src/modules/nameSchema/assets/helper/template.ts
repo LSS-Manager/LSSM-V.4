@@ -2,6 +2,8 @@ import { Liquid } from 'liquidjs';
 
 import {
     convertNumberToAlpha,
+    convertNumberToAustrianPhonetic,
+    convertNumberToGermanPhonetic,
     convertNumberToGreek,
     convertNumberToICAOAlpha,
     convertNumberToRoman,
@@ -63,6 +65,14 @@ export default class TemplateHelper {
         this.engine.registerFilter('greek', convertNumberToGreek);
         this.engine.registerFilter('icao', convertNumberToICAOAlpha);
         this.engine.registerFilter('emoji', convertStringNumberToEmoji);
+        this.engine.registerFilter(
+            'german-phonetic',
+            convertNumberToGermanPhonetic
+        );
+        this.engine.registerFilter(
+            'austrian-phonetic',
+            convertNumberToAustrianPhonetic
+        );
         this.engine.registerFilter('index', {
             handler: (input: unknown, ...args: unknown[]) => {
                 const options = {

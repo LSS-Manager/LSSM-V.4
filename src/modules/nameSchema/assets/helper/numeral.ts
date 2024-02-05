@@ -137,3 +137,80 @@ export const convertStringNumberToEmoji = (string: string): string => {
 
     return str;
 };
+
+/**
+ * Convert a number to a german phonetic alphabet word.
+ * @param num - Number to convert.
+ * @returns German phonetic alphabet word.
+ * @see https://de.wikipedia.org/wiki/Buchstabiertafel
+ */
+export const convertNumberToGermanPhonetic = (num: number): string => {
+    const alphabet = [
+        'Anton',
+        'Berta',
+        'Cäsar',
+        'Dora',
+        'Emil',
+        'Friedrich',
+        'Gustav',
+        'Heinrich',
+        'Ida',
+        'Julius',
+        'Kaufmann',
+        'Ludwig',
+        'Martha',
+        'Nordpol',
+        'Otto',
+        'Paula',
+        'Quelle',
+        'Richard',
+        'Samuel',
+        'Theodor',
+        'Ulrich',
+        'Viktor',
+        'Wilhelm',
+        'Xanthippe',
+        'Ypsilon',
+        'Zacharias',
+    ];
+
+    return alphabet[(num - 1) % alphabet.length];
+};
+
+/**
+ * Convert a number to an austrian phonetic alphabet word.
+ * @param num - Number to convert.
+ * @returns Austrian phonetic alphabet word.
+ * @see https://de.wikipedia.org/wiki/Buchstabiertafel
+ */
+export const convertNumberToAustrianPhonetic = (num: number): string => {
+    const alphabet = [
+        'Anton',
+        'Berta',
+        'Cäsar',
+        'Dora',
+        'Emil',
+        'Friedrich',
+        'Gustav',
+        'Heinrich',
+        'Ida',
+        'Julius',
+        'Konrad',
+        'Ludwig',
+        'Martha',
+        'Nordpol',
+        'Otto',
+        'Paula',
+        'Richard',
+        'Siegfried',
+        'Theodor',
+        'Ulrich',
+        'Viktor',
+        'Wilhelm',
+        'Xaver',
+        'Ypsilon',
+        'Zürich',
+    ];
+
+    return alphabet[(num - 1) % alphabet.length];
+};
