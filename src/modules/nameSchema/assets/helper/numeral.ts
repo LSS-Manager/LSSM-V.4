@@ -44,7 +44,7 @@ export const convertNumberToAlpha = (num: number): string => {
     do {
         const q = rest % 26;
         rest = Math.floor(rest / 26);
-        str = String.fromCharCode(65 + q) + str;
+        str = String.fromCharCode(64 + q) + str;
     } while (rest > 0);
 
     return str;
@@ -84,7 +84,7 @@ export const convertNumberToICAOAlpha = (num: number): string => {
         'Yankee',
         'Zulu',
     ];
-    return alphabet[num % alphabet.length];
+    return alphabet[(num - 1) % alphabet.length];
 };
 
 /**
@@ -119,7 +119,7 @@ export const convertNumberToGreek = (num: number): string => {
         'Psi',
         'Omega',
     ];
-    return alphabet[num % alphabet.length];
+    return alphabet[(num - 1) % alphabet.length];
 };
 
 /**

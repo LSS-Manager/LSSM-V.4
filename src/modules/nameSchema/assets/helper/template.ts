@@ -1,3 +1,5 @@
+import { Liquid } from 'liquidjs';
+
 import {
     convertNumberToAlpha,
     convertNumberToGreek,
@@ -17,8 +19,13 @@ import type {
     AliasedVehicle,
 } from './types';
 
-const unitIndexMatcher =
-    /\{\{\s*unitIndex(?::(?<padding>\d+)?(?::(?<start>\d+)?(?::(?<system>(?:alpha|arabic|emoji|greek|icao|roman)(?:-(?:lower|upper)(?:case)?)?)?(?::(?<group>building|buildingUnitType|dispatch|dispatchUnitType|none|unitType)?)?)?)?)?\s*\}\}/gu;
+const argsToOptions = (args: unknown[], keys: string[]) => {
+    const allElementsAreArrays = args.every(Array.isArray);
+
+    if (allElementsAreArrays) return Object.fromEntries(args);
+
+    return Object.fromEntries(args.map((arg, i) => [keys[i], arg]));
+};
 
 export default class TemplateHelper {
     private defaultUnitTemplate: string = '';
@@ -28,10 +35,57 @@ export default class TemplateHelper {
         enabled: boolean;
         value: { type: string; template: string }[];
     } = { enabled: false, value: [] };
+    private engine = new Liquid({
+        cache: true,
+
+        // remove duplicate whitespace
+        greedy: true,
+
+        // disable filesystem access
+        dynamicPartials: false,
+        relativeReference: false,
+        fs: {
+            existsSync: () => false,
+            exists: () => Promise.resolve(false),
+            readFile: () => Promise.resolve(''),
+            readFileSync: () => '',
+            resolve: () => '',
+            contains: () => false,
+            fallback: () => undefined,
+        },
+    });
 
     constructor(
         private readonly moduleParameters: Parameters<ModuleMainFunction>[0]
-    ) {}
+    ) {
+        this.engine.registerFilter('roman', convertNumberToRoman);
+        this.engine.registerFilter('alpha', convertNumberToAlpha);
+        this.engine.registerFilter('greek', convertNumberToGreek);
+        this.engine.registerFilter('icao', convertNumberToICAOAlpha);
+        this.engine.registerFilter('emoji', convertStringNumberToEmoji);
+        this.engine.registerFilter('index', {
+            handler: (input: unknown, ...args: unknown[]) => {
+                const options = {
+                    padding: 1,
+                    start: 1,
+                    groupBy: 'buildingUnitType',
+                    ...argsToOptions(args, ['padding', 'start', 'groupBy']),
+                };
+
+                if (this.isInputVehicle(input)) {
+                    const building =
+                        this.moduleParameters.LSSM.$stores.api.buildingsById[
+                            input.building_id
+                        ];
+
+                    return this.numberUnit(building, input, options);
+                } else {
+                    throw new Error('Numbering buildings is not yet supported');
+                }
+            },
+            raw: true,
+        });
+    }
 
     public async init() {
         const { LSSM, MODULE_ID } = this.moduleParameters;
@@ -136,7 +190,7 @@ export default class TemplateHelper {
             a => a.id === vehicle.vehicle_type
         );
 
-        return this.fillTemplate(unitTemplate, {
+        return this.render(unitTemplate, {
             building: {
                 ...building,
                 alias:
@@ -152,7 +206,7 @@ export default class TemplateHelper {
         });
     }
 
-    private fillTemplate(
+    private render(
         template: string,
         {
             building,
@@ -160,72 +214,42 @@ export default class TemplateHelper {
         }: { building: AliasedBuilding; vehicle?: AliasedVehicle }
     ): string {
         const { LSSM } = this.moduleParameters;
-        let result = template;
-
-        const replacementVariables: Map<
-            RegExp | string,
-            string | ((substring: string) => string)
-        > = new Map();
-
-        // construct the replacement variables
-        replacementVariables.set('buildingId', String(building.id));
-        replacementVariables.set(
-            'buildingType',
-            LSSM.$stores.translations.buildings[building.building_type].caption
-        );
-        replacementVariables.set('buildingAlias', building.alias);
+        const replacementVariables: Record<string, unknown> = {
+            building: {
+                ...building,
+                type: LSSM.$stores.translations.buildings[
+                    building.building_type
+                ].caption,
+            },
+        };
 
         // if a vehicle is given, add the vehicle-specific replacement variables
         if (vehicle) {
-            replacementVariables.set('buildingCaption', building.caption);
-
-            replacementVariables.set('unitId', String(vehicle.id));
-            replacementVariables.set(
-                'unitType',
-                LSSM.$stores.translations.vehicles[vehicle.vehicle_type].caption
-            );
-            replacementVariables.set(
-                'unitTypeCustom',
-                vehicle.vehicle_type_caption ?? ''
-            );
-            replacementVariables.set('unitAlias', vehicle.alias);
-            replacementVariables.set(unitIndexMatcher, matchedString => {
-                const match = unitIndexMatcher.exec(matchedString);
-                // reset regex
-                unitIndexMatcher.lastIndex = 0;
-
-                return this.numberUnit(building, vehicle, {
-                    padding: Number(match?.groups?.padding ?? 0),
-                    start: Number(match?.groups?.start ?? 1),
-                    system: match?.groups?.system ?? 'arabic',
-                    group: match?.groups?.group ?? 'building',
-                });
-            });
+            replacementVariables['vehicle'] = {
+                ...vehicle,
+                type: LSSM.$stores.translations.vehicles[vehicle.vehicle_type]
+                    .caption,
+            };
         }
 
-        replacementVariables.forEach((replacement, key) => {
-            const search =
-                typeof key === 'string'
-                    ? new RegExp(`\\{\\{\\s*${key}\\s*\\}\\}`, 'gu')
-                    : key;
+        return this.engine.parseAndRenderSync(template, replacementVariables);
+    }
 
-            // typescript type quirk
-            if (typeof replacement === 'function')
-                result = result.replace(search, replacement);
-            else result = result.replace(search, replacement);
-        });
-
-        return result;
+    private isInputVehicle(input: unknown): input is Vehicle {
+        return (
+            !!input &&
+            input.hasOwnProperty('id') &&
+            input.hasOwnProperty('vehicle_type')
+        );
     }
 
     private numberUnit(
-        building: AliasedBuilding,
+        building: Building,
         vehicle: Vehicle,
         params: {
             padding: number;
-            system: string;
             start: number;
-            group: string;
+            groupBy: string;
         }
     ): string {
         const api: ReturnType<typeof defineAPIStore> =
@@ -233,30 +257,30 @@ export default class TemplateHelper {
 
         let vehiclesInGroup: Vehicle[] = [];
 
-        if (params.group === 'building') {
+        if (params.groupBy === 'building') {
             vehiclesInGroup = api.vehiclesByBuilding[building.id];
         } else if (
-            params.group === 'dispatch' &&
+            params.groupBy === 'dispatch' &&
             building.leitstelle_building_id
         ) {
             vehiclesInGroup =
                 api.vehiclesByDispatchCenter[building.leitstelle_building_id];
         } else if (
-            params.group === 'dispatchUnitType' &&
+            params.groupBy === 'dispatchUnitType' &&
             building.leitstelle_building_id
         ) {
             vehiclesInGroup = api.vehiclesByDispatchCenter[
                 building.leitstelle_building_id
             ].filter(v => v.vehicle_type === vehicle.vehicle_type);
-        } else if (params.group === 'unitType') {
+        } else if (params.groupBy === 'unitType') {
             vehiclesInGroup = api.vehicles.filter(
                 v => v.vehicle_type === vehicle.vehicle_type
             );
-        } else if (params.group === 'buildingUnitType') {
+        } else if (params.groupBy === 'buildingUnitType') {
             vehiclesInGroup = api.vehiclesByBuilding[building.id].filter(
                 v => v.vehicle_type === vehicle.vehicle_type
             );
-        } else if (params.group === 'none') {
+        } else if (params.groupBy === 'none') {
             vehiclesInGroup = api.vehicles;
         }
 
@@ -268,13 +292,6 @@ export default class TemplateHelper {
             params.start -
             1;
 
-        const modifier = params.system.match(/^-(lower|upper)(?:case)?$/u)?.[1];
-        const modifierFn = (str: string) => {
-            if (modifier === 'lower') return str.toLowerCase();
-            if (modifier === 'upper') return str.toUpperCase();
-            return str;
-        };
-
         const padStringLeft = (
             str: string,
             length: number,
@@ -285,26 +302,7 @@ export default class TemplateHelper {
             );
         };
 
-        switch (params.system) {
-            case 'alpha':
-                return modifierFn(convertNumberToAlpha(vehicleIndex + 1));
-            case 'roman':
-                return modifierFn(convertNumberToRoman(vehicleIndex));
-            case 'icao':
-                return modifierFn(convertNumberToICAOAlpha(vehicleIndex));
-            case 'greek':
-                return modifierFn(convertNumberToGreek(vehicleIndex));
-            case 'emoji':
-                return convertStringNumberToEmoji(
-                    padStringLeft((vehicleIndex + 1).toString(), params.padding)
-                );
-
-            // arabic with optional padding
-            default:
-                return padStringLeft(
-                    (vehicleIndex + 1).toString(),
-                    params.padding
-                );
-        }
+        // arabic with optional padding
+        return padStringLeft((vehicleIndex + 1).toString(), params.padding);
     }
 }

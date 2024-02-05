@@ -29,6 +29,7 @@
         "highcharts": "11.3.0",
         "highcharts-vue": "1.4.3",
         "leaflet.heat": "0.2.0",
+        "liquidjs": "10.10.0",
         "localforage": "1.10.0",
         "lodash": "4.17.21",
         "mini-svg-data-uri": "1.4.4",
