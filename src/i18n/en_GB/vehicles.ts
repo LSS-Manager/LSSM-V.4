@@ -852,7 +852,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [6, 19, 26],
         special:
-            'A dog carrier which transports mutiple dogs to a scene. Needs Police and Public Order Extension.',
+            'A dog carrier which transports mutiple dogs to a scene. Counts as 4 Dog Support Units when fully staffed. Needs Police and Public Order Extension.',
     },
     54: {
         caption: 'Detention Van',
@@ -915,7 +915,7 @@ export default {
         staff: { min: 1, max: 5 },
         icon: 'car-side',
         possibleBuildings: [22, 28],
-        special: 'Coastguard Response Vehicle. Responds to all calls on land.',
+        special: 'Coastguard Response Vehicle. Responds to land based rescue calls.',
     },
     58: {
         caption: 'Coastguard Mud Rescue Unit',
@@ -925,7 +925,7 @@ export default {
         staff: { min: 1, max: 5 },
         icon: 'car-side',
         possibleBuildings: [28],
-        special: 'Rescues those stuck in mud.',
+        special: 'Rescues those stuck in mud. Counts as a CRV',
     },
     59: {
         caption: 'Coastguard Rope Rescue Unit',
@@ -945,6 +945,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [28],
+        special:'Uses a speciallist Rope to rescue people. Counts as a CRV',
     },
     60: {
         caption: 'Coastguard Commander',
@@ -1008,7 +1009,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [28],
         special:
-            'Needed towing vehicle (Coastguard Mud Rescue Unit). Decontaiminates Hazardous Mud',
+            'Needed towing vehicle (Coastguard Mud Rescue Unit). Decontaiminates contaminated Mud',
     },
     63: {
         caption: 'Support Unit',
@@ -1038,7 +1039,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [30],
-        special: 'Can Transport More Paitents to hospital then a Air Ambulance',
+        special: 'Can Transport 16 Paitents to hospital. Ocean Calls Only.',
     },
     65: {
         caption: 'Coastguard Rescue Helicopter (Large)',
@@ -1059,7 +1060,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [30],
         special:
-            'Can Transport even more paitents to hospital then the Small One',
+            'Can Transport 21 Paitents to Hospital. Ocean Calls Only',
     },
     66: {
         caption: '4x4 Vehicle',
@@ -1090,7 +1091,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [27],
         special:
-            'Needed towing vehicle (4x4 Vehicle). Small Boat run by lifeguards for inland water rescue needs',
+            'Needed towing vehicle (4x4 Vehicle). Boat run by lifeguards to help those in distress near the coast',
     },
     68: {
         caption: 'ILB',
@@ -1214,7 +1215,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        special: 'Needed towing vehicle (Light 4x4) Fire Service Boat.',
+        special: 'Needed towing vehicle (Light 4x4) Fire Service Boat. Acts as a ILB boat run by the fire service.',
     },
     75: {
         caption: 'Major Foam Tender',
@@ -1227,6 +1228,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0, 18],
+        special: 'The classic airport firefighting unit.',
     },
     76: {
         caption: 'RIV',
@@ -1246,6 +1248,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0, 18],
+        special: 'Rapid Intervention Vehicle, A Smaller and quicker airport firefighting unit.',
     },
     77: {
         caption: 'Airfield Firefighting Command Vehicle',
@@ -1265,6 +1268,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0, 18],
+        special: 'Acts as a ICCU and a Fire Officer at Airport Based Missions',
     },
     78: {
         caption: 'Rescue Stairs',
@@ -1284,6 +1288,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0, 18],
+        special: 'Rescue Stairs to rescue people of planes that are in distress',
     },
     79: {
         caption: 'Airfield Operations Vehicle',
@@ -1296,6 +1301,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0, 6, 18, 19],
+        special: 'A vehicle run by the airports to keep the airport operating smoothly',
     },
     80: {
         caption: 'Airfield Operations Supervisor',
@@ -1308,6 +1314,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0, 6, 18, 19],
+        special: 'Supervises the Airport Operations Officers.',
     },
     81: {
         caption: 'Medical equipment trailer',
@@ -1321,7 +1328,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 6, 18, 19],
         special:
-            'Needed towing vehicle (Airfield Operations Vehicle, Airfield Operations Supervisor)',
+            'Needed towing vehicle (Airfield Operations Vehicle, Airfield Operations Supervisor) Carrys Vital Medical Equipment to hurt people at the airport.',
     },
     82: {
         caption: 'Armed Cell Van',
@@ -1341,6 +1348,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [6, 19],
+        special: 'Requires "aviation policing" extention. Counts as a IRV and a Firearms Resourse. Can transport up to two prisoners.',
     },
     83: {
         caption: 'Medical cycle responder',
@@ -1353,6 +1361,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [2, 20],
+        special: 'A pedal bike ran by the ambulance service, counts as a Rapid Response Vehicle',
     },
     84: {
         caption: 'Pump Trailer',
@@ -1365,7 +1374,7 @@ export default {
         },
         icon: 'car-side',
         special:
-            'Needed towing vehicle (Water Ladder, Light 4X4 Pump (L4P), Rescue Support Unit (RSU))',
+            'Needed towing vehicle (Water Ladder, Light 4X4 Pump (L4P), Rescue Support Unit (RSU)), Pumps Water out of any flooded location',
         pumpCapacity: 4000,
         pumpType: 'fire',
         possibleBuildings: [0, 18],
@@ -1401,7 +1410,7 @@ export default {
         staff: { min: 1, max: 3 },
         icon: 'car-side',
         possibleBuildings: [31],
-        special: '',
+        special: 'Carrys crew and equipment to SAR missions',
     },
     87: {
         caption: 'Operational Support Trailer',
@@ -1411,7 +1420,7 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'car-side',
         possibleBuildings: [31],
-        special: '',
+        special: 'Carrys equipment to SAR missions',
         isTrailer: true,
         tractiveVehicles: [85, 86, 89, 94],
     },
@@ -1433,7 +1442,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [31],
-        special: '',
+        special: 'Rescues People Trapped by flooding',
         isTrailer: true,
         tractiveVehicles: [85, 86, 89, 94],
     },
@@ -1456,7 +1465,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [31],
         equipmentCapacity: 10,
-        special: '',
+        special: 'Carrys drones, form a SAR HQ building',
     },
     90: {
         caption: 'Drone Vehicle (Fire Station)',
@@ -1477,7 +1486,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         equipmentCapacity: 10,
-        special: '',
+        special: 'Carrys Drones form a Fire Station',
     },
     91: {
         caption: 'Drone Vehicle (Police Station)',
@@ -1498,7 +1507,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [6, 19],
         equipmentCapacity: 10,
-        special: '',
+        special: 'Carrys Drones form a Police Station',
     },
     92: {
         caption: 'Personal SAR Vehicle',
@@ -1509,7 +1518,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [22],
         equipmentCapacity: 10,
-        special: '',
+        special: 'A take home SAR vehicle, fitted with blue lights and sirens.',
     },
     93: {
         caption: 'SAR 4x4',
@@ -1520,7 +1529,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [22, 31],
         equipmentCapacity: 10,
-        special: '',
+        special: 'A 4x4 Used by search and rescue crews to get to rough terrains',
     },
     94: {
         caption: 'RRV',
@@ -1530,6 +1539,6 @@ export default {
         staff: { min: 1, max: 1 },
         icon: 'car-side',
         possibleBuildings: [31],
-        special: '',
+        special: 'A rapid response vehicle based in the SAR HQ',
     },
 } satisfies Record<number, InternalVehicle>;
