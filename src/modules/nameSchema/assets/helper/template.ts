@@ -17,7 +17,7 @@ import type {
     AliasedInternalBuilding,
     AliasedInternalVehicle,
     AliasedVehicle,
-} from './types';
+} from 'typings/modules/nameSchema';
 
 const argsToOptions = (args: unknown[], keys: string[]) => {
     const allElementsAreArrays = args.every(Array.isArray);
