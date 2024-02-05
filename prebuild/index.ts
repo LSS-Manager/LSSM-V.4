@@ -1,6 +1,7 @@
 import buildAPI from './api';
 import collectFAIconNames from './collectFAIconNames';
 import copyStatic from './copyStatic';
+import createBranchesJson from './createBranchesJson';
 import downloadMissions from './downloadMissions';
 import downloadReleasenotes from './downloadReleasenotes';
 import { emptyFolder } from './emptyDir';
@@ -26,6 +27,7 @@ const timeWrap = async (name: string, fn: () => Promise<unknown> | unknown) => {
     await timeWrap('emptyDir', () => emptyFolder('./dist'));
     await timeWrap('download missions', downloadMissions);
     await timeWrap('download releasenotes', downloadReleasenotes);
+    await timeWrap('create dumy branches.json', createBranchesJson);
     await timeWrap('copyStatic', copyStatic);
     await timeWrap('build API', buildAPI);
     await timeWrap('Collect Third-Party Libraries', getLibraries);
