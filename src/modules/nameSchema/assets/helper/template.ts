@@ -205,7 +205,7 @@ export default class TemplateHelper {
                     vehicleAlias?.caption ??
                     vehicle.caption,
             } as AliasedVehicle,
-        });
+        }).replace(/\s{2,}/u, ' ');
     }
 
     private render(
