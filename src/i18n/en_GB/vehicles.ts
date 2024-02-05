@@ -915,7 +915,8 @@ export default {
         staff: { min: 1, max: 5 },
         icon: 'car-side',
         possibleBuildings: [22, 28],
-        special: 'Coastguard Response Vehicle. Responds to land based rescue calls.',
+        special:
+            'Coastguard Response Vehicle. Responds to land based rescue calls.',
     },
     58: {
         caption: 'Coastguard Mud Rescue Unit',
@@ -945,7 +946,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [28],
-        special:'Uses a speciallist Rope to rescue people. Counts as a CRV',
+        special: 'Uses a speciallist Rope to rescue people. Counts as a CRV',
     },
     60: {
         caption: 'Coastguard Commander',
@@ -1059,8 +1060,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [30],
-        special:
-            'Can Transport 21 Paitents to Hospital. Ocean Calls Only',
+        special: 'Can Transport 21 Paitents to Hospital. Ocean Calls Only',
     },
     66: {
         caption: '4x4 Vehicle',
@@ -1215,7 +1215,8 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        special: 'Needed towing vehicle (Light 4x4) Fire Service Boat. Acts as a ILB boat run by the fire service.',
+        special:
+            'Needed towing vehicle (Light 4x4) Fire Service Boat. Acts as a ILB boat run by the fire service.',
     },
     75: {
         caption: 'Major Foam Tender',
@@ -1248,7 +1249,8 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        special: 'Rapid Intervention Vehicle, A Smaller and quicker airport firefighting unit.',
+        special:
+            'Rapid Intervention Vehicle, A Smaller and quicker airport firefighting unit.',
     },
     77: {
         caption: 'Airfield Firefighting Command Vehicle',
@@ -1288,7 +1290,8 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        special: 'Rescue Stairs to rescue people of planes that are in distress',
+        special:
+            'Rescue Stairs to rescue people of planes that are in distress',
     },
     79: {
         caption: 'Airfield Operations Vehicle',
@@ -1301,7 +1304,8 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0, 6, 18, 19],
-        special: 'A vehicle run by the airports to keep the airport operating smoothly',
+        special:
+            'A vehicle run by the airports to keep the airport operating smoothly',
     },
     80: {
         caption: 'Airfield Operations Supervisor',
@@ -1348,7 +1352,8 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [6, 19],
-        special: 'Requires "aviation policing" extention. Counts as a IRV and a Firearms Resourse. Can transport up to two prisoners.',
+        special:
+            'Requires "aviation policing" extention. Counts as a IRV and a Firearms Resourse. Can transport up to two prisoners.',
     },
     83: {
         caption: 'Medical cycle responder',
@@ -1361,7 +1366,8 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [2, 20],
-        special: 'A pedal bike ran by the ambulance service, counts as a Rapid Response Vehicle',
+        special:
+            'A pedal bike ran by the ambulance service, counts as a Rapid Response Vehicle',
     },
     84: {
         caption: 'Pump Trailer',
@@ -1529,7 +1535,8 @@ export default {
         icon: 'car-side',
         possibleBuildings: [22, 31],
         equipmentCapacity: 10,
-        special: 'A 4x4 Used by search and rescue crews to get to rough terrains',
+        special:
+            'A 4x4 Used by search and rescue crews to get to rough terrains',
     },
     94: {
         caption: 'RRV',

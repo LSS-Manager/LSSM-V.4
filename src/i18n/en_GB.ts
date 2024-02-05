@@ -128,7 +128,7 @@ export default {
             },
             color: '#88ecc4',
         },
-         'Airport': {
+        'Airport': {
             vehicles: {
                 'Airport Firefighting': [75, 76, 77, 78],
                 'Airport Operations': [79, 80, 81],
