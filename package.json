@@ -1,6 +1,6 @@
 {
     "name": "lss-manager-v4",
-    "version": "4.7.12+20240201.1314",
+    "version": "4.7.12+20240205.1023",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "quickbuild": "./build/build.sh --quick",
@@ -55,7 +55,7 @@
         "@types/js-yaml": "4.0.9",
         "@types/leaflet": "1.9.8",
         "@types/lodash": "4.14.202",
-        "@types/node": "20.11.14",
+        "@types/node": "20.11.16",
         "@types/pdfmake": "0.2.8",
         "@types/prettier": "2.7.3",
         "@types/qrcode": "1.5.5",
@@ -84,11 +84,11 @@
         "eslint-plugin-unicorn": "50.0.1",
         "eslint-plugin-vue": "9.20.1",
         "html-loader": "5.0.0",
-        "husky": "9.0.7",
+        "husky": "9.0.10",
         "js-yaml": "4.1.0",
         "local-web-server": "5.3.1",
-        "moment-timezone": "0.5.44",
-        "prettier": "3.2.4",
+        "moment-timezone": "0.5.45",
+        "prettier": "3.2.5",
         "sass": "1.70.0",
         "sass-loader": "14.0.0",
         "simpleheat": "0.4.0",
@@ -103,9 +103,9 @@
         "webpack": "5.90.0"
     },
     "engines": {
-        "node": "20.10.0"
+        "node": "20.11.0"
     },
-    "packageManager": "yarn@4.0.2",
+    "packageManager": "yarn@4.1.0",
     "workspaces": [
         "./docs/.vuepress/"
     ],

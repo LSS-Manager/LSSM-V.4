@@ -110,6 +110,7 @@ export type TransportRequestWindow = BaseVehicleWindow & {
     transportRequestType:
         | 'patient-intermediate'
         | 'patient'
+        | 'prisoner-header'
         | 'prisoner-intermediate'
         | 'prisoner'
         | 'trailer';
@@ -134,18 +135,18 @@ export type TransportRequestWindow = BaseVehicleWindow & {
               releasable: boolean;
           }
         | {
-              transportRequestType: 'prisoner-intermediate';
-              buildings: {
-                  own: ShoreStation[];
-                  alliance: ShoreStation[];
+              transportRequestType: 'prisoner-header' | 'prisoner';
+              cells: {
+                  own: Cell[];
+                  alliance: Cell[];
               };
               releasable: boolean;
           }
         | {
-              transportRequestType: 'prisoner';
-              cells: {
-                  own: Cell[];
-                  alliance: Cell[];
+              transportRequestType: 'prisoner-intermediate';
+              buildings: {
+                  own: ShoreStation[];
+                  alliance: ShoreStation[];
               };
               releasable: boolean;
           }
@@ -387,12 +388,16 @@ export default <RedesignParser<VehicleWindow>>(({
         'prisoner-intermediate',
     ];
 
-    const transportRequestType =
+    const rawTransportRequestType =
         doc.querySelector<HTMLDivElement>(
             `[data-transport-request="true"]:where(${transportRequestTypes
                 .map(type => `[data-transport-request-type="${type}"]`)
                 .join(',')})`
         )?.dataset.transportRequestType ?? '';
+
+    const transportRequestType =
+        { 'prisoner-header': 'prisoner' }[rawTransportRequestType] ??
+        rawTransportRequestType;
 
     // workaround to have a safe type checking and assertion
     const isTransportRequest = (
