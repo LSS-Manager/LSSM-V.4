@@ -39,33 +39,15 @@ export default (Vue: VueConstructor): void => {
             );
             const missionIds = [] as string[];
             const missionNames = [] as string[];
-            const idLengths = { id: 0, variant: 0 };
-            missions
-                .map(({ id }) => `${id}-`.split('-').map(i => i.length))
-                .forEach(([id, variant]) => {
-                    idLengths.id = Math.max(idLengths.id, id);
-                    idLengths.variant = Math.max(idLengths.variant, variant);
-                });
-
-            const fill0Left = (string: string, length: number): string => {
-                let longString = string;
-                while (longString.length < length)
-                    longString = `0${longString}`;
-                return longString;
-            };
-
-            const idToLength = (id: string): string => {
-                if (!id.match(/-/u)) return fill0Left(id, idLengths.id);
-                const [base, variant] = id.split('-');
-                return `${fill0Left(base, idLengths.id)}-${fill0Left(
-                    variant,
-                    idLengths.variant
-                )}`;
-            };
+            const maxIdLength = Math.max(
+                ...missions.map(({ id }) => id.length)
+            );
 
             missions.forEach(({ id, name }) => {
                 missionIds.push(id);
-                missionNames.push(`${idToLength(id.toString())}: ${name}`);
+                missionNames.push(
+                    `${id.padStart(maxIdLength, '\xa0')}: ${name}`
+                );
             });
 
             return { missionIds, missionNames };
