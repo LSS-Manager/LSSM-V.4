@@ -294,17 +294,7 @@ export default class TemplateHelper {
             params.start -
             1;
 
-        const padStringLeft = (
-            str: string,
-            length: number,
-            pad: string = '0'
-        ) => {
-            return (pad.repeat(length) + str).slice(
-                Math.max(length, str.length) * -1
-            );
-        };
-
         // arabic with optional padding
-        return padStringLeft((vehicleIndex + 1).toString(), params.padding);
+        return (vehicleIndex + 1).toString().padStart(params.padding, '0');
     }
 }
