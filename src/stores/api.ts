@@ -1,6 +1,7 @@
 import type Vue from 'vue';
 
 import { defineStore } from 'pinia';
+import FetchWorker from '@workers/stores/api/fetch.worker';
 import { useBroadcastStore } from '@stores/broadcast';
 import { useConsoleStore } from '@stores/console';
 
@@ -195,6 +196,9 @@ export const defineAPIStore = defineStore('api', {
         missionsArray: (state): Mission[] => Object.values(state.missions),
     },
     actions: {
+        fetchViaWorker(...args: unknown[]) {
+            return FetchWorker.run(...args).then(console.log);
+        },
         _setSecretKey() {
             return this.request({
                 url: `/profile/external_secret_key/${window.user_id}`,
