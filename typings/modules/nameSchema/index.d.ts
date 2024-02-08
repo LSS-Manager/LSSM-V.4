@@ -4,6 +4,7 @@ import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 interface AliasProps {
     id: number;
     alias: string;
+    type: string;
 }
 
 export type AliasedBuilding = AliasProps & Building;

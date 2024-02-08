@@ -80,16 +80,22 @@ export default class TemplateHelper {
         );
         this.engine.registerFilter('index', {
             handler: (input: unknown, ...args: unknown[]) => {
-                const options = {
+                let options: {
+                    padding: number;
+                    start: number;
+                    groupBy?: string;
+                } = {
                     padding: 1,
                     start: 1,
-                    groupBy: this.isInputVehicle(input)
-                        ? 'buildingVehicleType'
-                        : 'dispatch',
-                    ...argsToOptions(args, ['padding', 'start', 'groupBy']),
                 };
 
                 if (this.isInputVehicle(input)) {
+                    options = {
+                        ...options,
+                        groupBy: 'buildingVehicleType',
+                        ...argsToOptions(args, ['padding', 'start', 'groupBy']),
+                    };
+
                     const building =
                         this.moduleParameters.LSSM.$stores.api.buildingsById[
                             input.building_id
@@ -97,7 +103,21 @@ export default class TemplateHelper {
 
                     return this.numberVehicle(building, input, options);
                 } else if (this.isInputBuilding(input)) {
+                    // default grouping for buildings is by type and dispatch center, except for dispatch centers which are grouped by building type
+                    options = {
+                        ...options,
+                        groupBy:
+                            input.building_type === 7
+                                ? 'buildingType'
+                                : 'dispatchBuildingType',
+                        ...argsToOptions(args, ['padding', 'start', 'groupBy']),
+                    };
+
                     return this.numberBuilding(input, options);
+                } else if ((input ?? null) !== null) {
+                    throw new Error(
+                        'Invalid input, expected vehicle or building for index filter'
+                    );
                 }
             },
             raw: true,
@@ -138,19 +158,20 @@ export default class TemplateHelper {
         // construct alias tables by loading the default aliases and replacing them with the user-defined aliases
         this.buildingAliases = Object.entries(
             LSSM.$stores.translations.buildings
-        ).map(([id, type]) => {
-            let alias = type.caption;
+        ).map(([id, internalBuilding]) => {
+            let alias = internalBuilding.caption;
 
             if (buildingAliasesSetting.enabled) {
                 alias =
                     buildingAliasesSetting.value.find(({ type: t }) => t === id)
-                        ?.alias ?? type.caption;
+                        ?.alias ?? internalBuilding.caption;
             }
 
             return {
                 id: Number(id),
-                ...type,
+                ...internalBuilding,
                 alias,
+                type: LSSM.$stores.translations.buildings[Number(id)].caption,
             };
         });
 
@@ -168,19 +189,20 @@ export default class TemplateHelper {
 
         this.vehicleTypeAliases = Object.entries(
             LSSM.$stores.translations.vehicles
-        ).map(([id, type]) => {
-            let alias = type.caption;
+        ).map(([id, internalVehicle]) => {
+            let alias = internalVehicle.caption;
 
             if (vehicleAliasesSetting.enabled) {
                 alias =
                     vehicleAliasesSetting.value.find(({ type: t }) => t === id)
-                        ?.alias ?? type.caption;
+                        ?.alias ?? internalVehicle.caption;
             }
 
             return {
                 id: Number(id),
-                ...type,
+                ...internalVehicle,
                 alias,
+                type: LSSM.$stores.translations.vehicles[Number(id)].caption,
             };
         });
 
@@ -220,29 +242,12 @@ export default class TemplateHelper {
                     ({ type }) => Number(type) === vehicle.vehicle_type
                 )?.template ?? this.defaultVehicleTemplate;
         }
-
-        const buildingAlias = this.buildingAliases.find(
-            a => a.id === building.building_type
-        );
-        const vehicleAlias = this.vehicleTypeAliases.find(
-            a => a.id === vehicle.vehicle_type
-        );
+        const aliasedBuilding = this.getAliasedBuilding(building);
+        const aliasedVehicle = this.getAliasedVehicle(vehicle);
 
         return this.render(vehicleTemplate, {
-            building: {
-                ...building,
-                alias:
-                    buildingAlias?.alias ??
-                    buildingAlias?.caption ??
-                    building.caption,
-            } as AliasedBuilding,
-            vehicle: {
-                ...vehicle,
-                alias:
-                    vehicleAlias?.alias ??
-                    vehicleAlias?.caption ??
-                    vehicle.caption,
-            } as AliasedVehicle,
+            building: aliasedBuilding,
+            vehicle: aliasedVehicle,
         }).replace(/\s{2,}/u, ' ');
     }
 
@@ -280,22 +285,16 @@ export default class TemplateHelper {
     ): string {
         const { LSSM } = this.moduleParameters;
         const replacementVariables: Record<string, unknown> = {
-            building: {
-                ...building,
-                type: LSSM.$stores.translations.buildings[
-                    building.building_type
-                ].caption,
-            },
+            building,
+            vehicle,
+            dispatch: building.leitstelle_building_id
+                ? this.getAliasedBuilding(
+                      LSSM.$stores.api.buildingsById[
+                          building.leitstelle_building_id
+                      ]
+                  )
+                : null,
         };
-
-        // if a vehicle is given, add the vehicle-specific replacement variables
-        if (vehicle) {
-            replacementVariables['vehicle'] = {
-                ...vehicle,
-                type: LSSM.$stores.translations.vehicles[vehicle.vehicle_type]
-                    .caption,
-            };
-        }
 
         return this.engine.parseAndRenderSync(template, replacementVariables);
     }
@@ -321,7 +320,7 @@ export default class TemplateHelper {
         params: {
             padding: number;
             start: number;
-            groupBy: string;
+            groupBy?: string;
         }
     ): string {
         const api: ReturnType<typeof defineAPIStore> =
@@ -352,7 +351,7 @@ export default class TemplateHelper {
             vehiclesInGroup = api.vehiclesByBuilding[building.id].filter(
                 v => v.vehicle_type === vehicle.vehicle_type
             );
-        } else if (params.groupBy === 'none') {
+        } else if (!params.groupBy || params.groupBy === 'none') {
             vehiclesInGroup = api.vehicles;
         }
 
@@ -372,15 +371,14 @@ export default class TemplateHelper {
         params: {
             padding: number;
             start: number;
-            groupBy: string;
+            groupBy?: string;
         }
     ): string {
         const api: ReturnType<typeof defineAPIStore> =
             this.moduleParameters.LSSM.$stores.api;
 
-        let buildingsInGroup: Building[] = [];
+        let buildingsInGroup: Building[] = api.buildings;
 
-        buildingsInGroup = api.buildings;
         if (params.groupBy === 'dispatch' && building.leitstelle_building_id) {
             buildingsInGroup =
                 api.buildingsByDispatchCenter[building.leitstelle_building_id];
@@ -407,5 +405,37 @@ export default class TemplateHelper {
 
         // arabic with optional padding
         return (buildingIndex + 1).toString().padStart(params.padding, '0');
+    }
+
+    private getAliasedBuilding(building: Building): AliasedBuilding {
+        const buildingAlias = this.buildingAliases.find(
+            a => a.id === building.building_type
+        );
+
+        return {
+            ...building,
+            alias:
+                buildingAlias?.alias ??
+                buildingAlias?.caption ??
+                building.caption,
+            type: this.moduleParameters.LSSM.$stores.translations.buildings[
+                building.building_type
+            ].caption,
+        };
+    }
+
+    private getAliasedVehicle(vehicle: Vehicle): AliasedVehicle {
+        const vehicleAlias = this.vehicleTypeAliases.find(
+            a => a.id === vehicle.vehicle_type
+        );
+
+        return {
+            ...vehicle,
+            alias:
+                vehicleAlias?.alias ?? vehicleAlias?.caption ?? vehicle.caption,
+            type: this.moduleParameters.LSSM.$stores.translations.vehicles[
+                vehicle.vehicle_type
+            ].caption,
+        };
     }
 }

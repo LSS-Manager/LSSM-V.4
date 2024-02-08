@@ -2,17 +2,19 @@
 
 ## Variablen
 
-Es stehen die Objekte `vehicle` und `building` zur Verfügung, die Informationen über das Fahrzeug bzw. das Gebäude (im Falle eines Fahrzeugs des zugeordneten) enthalten.
+Es stehen die Objekte `vehicle`, `building` und `dispatch` zur Verfügung, welche Informationen über das Fahrzeug, das zugeordnete Gebäude, sowie der zugeordneten Leitstelle (falls vorhanden) enthalten.
 
-Die Basis-Struktur der beiden Objekte entspricht der Struktur der Interfaces [`Vehicle`](https://github.com/LSS-Manager/LSSM-V.4/blob/dev/typings/Vehicle.d.ts) und [`Building`](https://github.com/LSS-Manager/LSSM-V.4/blob/dev/typings/Building.d.ts).
+Die Basis-Struktur der Objekte entspricht der Struktur der Interfaces [`Vehicle`](https://github.com/LSS-Manager/LSSM-V.4/blob/dev/typings/Vehicle.d.ts) und [`Building`](https://github.com/LSS-Manager/LSSM-V.4/blob/dev/typings/Building.d.ts) (für `building` und `dispatch`).
 Es kann somit auf alle Eigenschaften der beiden Objekte zugegriffen werden. Darüber hinaus sind einige zusätzliche Eigenschaften verfügbar, die in der folgenden Tabelle aufgeführt sind.
 
 | Variable             | Beschreibung                                                                           | Verwendbar in Templates für |
 |----------------------|----------------------------------------------------------------------------------------|-----------------------------|
 | `{{vehicle.type}}`   | Typ des Fahrzeugs (z. B. `LF 20/01`).                                                  | Fahrzeuge                   |
 | `{{vehicle.alias}}`  | Alias-Bezeichnung des Fahrzeuges (vgl. Aliase), ansonsten identisch zu `vehicle.type`. | Fahrzeuge                   |
-| `{{building.type}}`  | Typ des Gebäudes (z. B. `Feuerwehrschule`)                                             | Fahrzeuge, Gebäude          |
+| `{{building.type}}`  | Typ des Gebäudes (z. B. `Feuerwehrschule`).                                            | Fahrzeuge, Gebäude          |
 | `{{building.alias}}` | Alias-Bezeichnung des Gebäudes (vgl. Aliase), ansonsten identisch zu `building.type`.  | Fahrzeuge, Gebäude          |
+| `{{dispatch.type}}`  | Typ des Gebäudes (z. B. `Leitstelle`).                                                 | Fahrzeuge, Gebäude          |
+| `{{dispatch.alias}}` | Alias-Bezeichnung des Gebäudes (vgl. Aliase), ansonsten identisch zu `dispatch.type`.  | Fahrzeuge, Gebäude          |
 
 ## Filter
 
