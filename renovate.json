@@ -57,6 +57,8 @@
             "separateMajorMinor": false
         },
         {
+            "description": "We consider switching to VitePress (see #2884). While that, updates to vuepress are disabled",
+            "enabled": false,
             "groupName": "vuepress",
             "lockFileMaintenance": { "enabled": true },
             "matchManagers": ["npm"],
