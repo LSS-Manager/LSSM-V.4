@@ -9,9 +9,9 @@ Es kann somit auf alle Eigenschaften der beiden Objekte zugegriffen werden. Dar�
 
 | Variable             | Beschreibung                                                                           | Verwendbar in Templates f체r |
 |----------------------|----------------------------------------------------------------------------------------|-----------------------------|
-| `{{vehicle.type}}`   | Typ des Fahrzeugs (z.B. `LF 20/01`).                                                   | Fahrzeuge                   |
+| `{{vehicle.type}}`   | Typ des Fahrzeugs (z. B. `LF 20/01`).                                                  | Fahrzeuge                   |
 | `{{vehicle.alias}}`  | Alias-Bezeichnung des Fahrzeuges (vgl. Aliase), ansonsten identisch zu `vehicle.type`. | Fahrzeuge                   |
-| `{{building.type}}`  | Typ des Geb채udes (z.B. `Feuerwehrschule`)                                              | Fahrzeuge, Geb채ude          |
+| `{{building.type}}`  | Typ des Geb채udes (z. B. `Feuerwehrschule`)                                             | Fahrzeuge, Geb채ude          |
 | `{{building.alias}}` | Alias-Bezeichnung des Geb채udes (vgl. Aliase), ansonsten identisch zu `building.type`.  | Fahrzeuge, Geb채ude          |
 
 ## Filter
