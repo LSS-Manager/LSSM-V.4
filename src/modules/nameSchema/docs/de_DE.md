@@ -50,14 +50,16 @@ Es können Parameter übergeben werden, um die Nummerierung zu beeinflussen:
 
 Mögliche Werte für `groupBy`:
 
-| Wert                  | Gruppieren nach                                                   | Verwendbar in Templates für |
-|-----------------------|-------------------------------------------------------------------|-----------------------------|
-| `none`                | Ohne Gruppierung, Fahrzeuge werden global durchnummeriert.        | Fahrzeuge, Gebäuden         |
-| `building`            | Gruppierung pro Gebäude.                                          | Fahrzeuge                   |
-| `vehicleType`         | Gruppierung global nach Fahrzeugtyp.                              | Fahrzeuge                   |
-| `dispatch`            | Gruppierung nach Leitstelle                                       | Fahrzeuge, Gebäuden         |
-| `buildingVehicleType` | Kombinierte Gruppierung nach Gebäude und Fahrzeugtyps. (Standard) | Fahrzeuge                   |
-| `dispatchVehicleType` | Kombinierte Gruppierung nach Leitstelle und Fahrzeugtyps.         | Fahrzeuge                   |
+| Wert                   | Gruppieren nach                                                   | Anwendbar auf Objekt              | Verwendbar in Templates für |
+|------------------------|-------------------------------------------------------------------|-----------------------------------|-----------------------------|
+| `none`                 | Ohne Gruppierung, Fahrzeuge werden global durchnummeriert.        | `vehicle`, `building`, `dispatch` | Fahrzeuge, Gebäude          |
+| `building`             | Gruppierung pro Gebäude.                                          | `vehicle`                         | Fahrzeuge                   |
+| `vehicleType`          | Gruppierung global nach Fahrzeugtyp.                              | `vehicle`                         | Fahrzeuge                   |
+| `buildingType`         | Gruppierung global nach Gebäudetyp.                               | `building`, `dispatch`            | Gebäuden                    |
+| `dispatch`             | Gruppierung nach Leitstelle                                       | `vehicle`, `building`             | Fahrzeuge, Gebäude          |
+| `buildingVehicleType`  | Kombinierte Gruppierung nach Gebäude und Fahrzeugtyps. (Standard) | `vehicle`                         | Fahrzeuge                   |
+| `dispatchVehicleType`  | Kombinierte Gruppierung nach Leitstelle und Fahrzeugtyps.         | `vehicle`                         | Fahrzeuge                   |
+| `dispatchBuildingType` | Kombinierte Gruppierung nach Leitstelle und Gebäudetyp.           | `building`                        | Fahrzeuge, Gebäude          |
 
 ### Weitere Filter
 
