@@ -13,6 +13,7 @@ import type { useBroadcastStore } from '@stores/broadcast';
 import type { useConsoleStore } from '@stores/console';
 import type { useEventStore } from '@stores/event';
 import type { useModulesStore } from '@stores/modules';
+import type { useNewAPIStore } from '@stores/newApi';
 import type { useNotificationStore } from '@stores/notifications';
 import type { useRootStore } from '@stores/index';
 import type { useSettingsStore } from '@stores/settings';
@@ -160,6 +161,7 @@ declare module 'vue/types/vue' {
         $stores: {
             root: ReturnType<typeof useRootStore>;
             api: ReturnType<typeof useAPIStore>;
+            newApi: ReturnType<typeof useNewAPIStore>;
             broadcast: ReturnType<typeof useBroadcastStore>;
             console: ReturnType<typeof useConsoleStore>;
             event: ReturnType<typeof useEventStore>;

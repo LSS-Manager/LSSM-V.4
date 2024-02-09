@@ -9,6 +9,7 @@ import { useBroadcastStore } from '@stores/broadcast';
 import { useConsoleStore } from '@stores/console';
 import { useEventStore } from '@stores/event';
 import { useModulesStore } from '@stores/modules';
+import { useNewAPIStore } from '@stores/newApi';
 import { useNotificationStore } from '@stores/notifications';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
@@ -89,6 +90,7 @@ utils(Vue);
     LSSM.$stores = {
         root: rootStore,
         api: useAPIStore(),
+        newApi: useNewAPIStore(),
         broadcast: useBroadcastStore(),
         console: useConsoleStore(),
         event: useEventStore(),

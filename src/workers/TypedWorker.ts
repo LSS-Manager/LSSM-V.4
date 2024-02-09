@@ -24,13 +24,17 @@ export default class TypedWorker<Args extends unknown[] = [], Return = void> {
             [
                 `
 self.addEventListener('connect', event => {
-    console.log('Connected to worker', event.ports);
     const port = event.ports[0];
-    port.addEventListener('message', event => {
-        console.log('Message received', event.data);
+    port.addEventListener('message', async event => {
         const data = event.data;
-        const result = (${this.function.toString()})(...data);
-        port.postMessage(result);
+        try {
+            const result = await (
+${this.function.toString()}
+            )(...data);
+            port.postMessage(result);
+        } catch (error) {
+            throw error;
+        }
     });
     port.start();
 });`,
@@ -48,21 +52,23 @@ self.addEventListener('connect', event => {
         return this.blob;
     }
 
-    run(...args: Args): Promise<Return> {
+    run(...args: Args): Promise<Awaited<Return>> {
         if (!this.worker) this.worker = new SharedWorker(this.getBlob());
 
-        return new Promise<Return>((resolve, reject) => {
+        return new Promise<Awaited<Return>>((resolve, reject) => {
             if (!this.worker)
                 return reject(new Error('Worker not initialized'));
             this.worker.port.addEventListener(
                 'message',
-                event => {
-                    resolve(event.data);
-                },
+                event => resolve(event.data),
                 {
                     once: true,
                 }
             );
+            // TODO: Doesn't work yet
+            this.worker.port.addEventListener('error', event => reject(event), {
+                once: true,
+            });
             this.worker.port.start();
             this.worker.port.postMessage(args);
         });
