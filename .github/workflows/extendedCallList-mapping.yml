@@ -4,7 +4,7 @@ run-name: '[👷] Check extendedCallList event mapping'
 on:
     workflow_dispatch:
     schedule:
-        - cron: "0 */6 * * *"
+        - cron: '0 */6 * * *'
 
 jobs:
     eventMapping:
@@ -57,58 +57,58 @@ jobs:
               id: issue_body
               uses: actions/github-script@v7
               with:
-                result-encoding: string
-                script: |
-                    const { writeFileSync } = require('fs');
+                  result-encoding: string
+                  script: |
+                      const { writeFileSync } = require('fs');
 
-                    const iconSuggestor = (lang, missionData) => {
-                        // find other already mapped missions with the same start/end date and suggest their icon
-                        const mappedEvents = require(`./src/modules/extendedCallList/i18n/${lang}.root.json`).eventMissions?.default ?? {};
+                      const iconSuggestor = (lang, missionData) => {
+                          // find other already mapped missions with the same start/end date and suggest their icon
+                          const mappedEvents = require(`./src/modules/extendedCallList/i18n/${lang}.root.json`).eventMissions?.default ?? {};
 
-                        return (mission) => {
-                            const icons = Object.entries(mappedEvents).map(([icon, missions]) => {
-                                const mappedMissions = missions
-                                    .map(missionId => missionData[missionId])
-                                    .filter(m => !!m)
-                                    .filter(m => m.additional.date_start === mission.additional.date_start && m.additional.date_end === mission.additional.date_end)
-                                ;
+                          return (mission) => {
+                              const icons = Object.entries(mappedEvents).map(([icon, missions]) => {
+                                  const mappedMissions = missions
+                                      .map(missionId => missionData[missionId])
+                                      .filter(m => !!m)
+                                      .filter(m => m.additional.date_start === mission.additional.date_start && m.additional.date_end === mission.additional.date_end)
+                                  ;
 
-                                return { icon, hits: mappedMissions.length };
-                            }).sort((a, b) => b.hits - a.hits);
+                                  return { icon, hits: mappedMissions.length };
+                              }).sort((a, b) => b.hits - a.hits);
 
-                            if (icons.length > 0 && icons[0].hits > 0) {
-                                return icons[0].icon;
-                            }
+                              if (icons.length > 0 && icons[0].hits > 0) {
+                                  return icons[0].icon;
+                              }
 
-                            return '❔';
-                        };
-                    };
+                              return '❔';
+                          };
+                      };
 
-                    const diffs = JSON.parse('${{ steps.mission_compare.outputs.diffs_detected }}');
-                    let result = '<!-- automanaged -->\n' +
-                        'The following missions are not mapped in the `extendedCallList` module. Please map them in the respective language files.\n\n';
+                      const diffs = JSON.parse('${{ steps.mission_compare.outputs.diffs_detected }}');
+                      let result = '<!-- automanaged -->\n' +
+                          'The following missions are not mapped in the `extendedCallList` module. Please map them in the respective language files.\n\n';
 
-                    for (const lang in diffs) {
-                        const missionData = require(`./static/missions/${lang}.json`);
-                        const suggestIcon = iconSuggestor(lang, missionData);
-                        const sortedMissions = diffs[lang].map(missionId => missionData[missionId]).filter(m => !!m).sort((a, b) => {
-                            if (a.additional.date_start === b.additional.date_start) {
-                                return a.id - b.id;
-                            }
+                      for (const lang in diffs) {
+                          const missionData = require(`./static/missions/${lang}.json`);
+                          const suggestIcon = iconSuggestor(lang, missionData);
+                          const sortedMissions = diffs[lang].map(missionId => missionData[missionId]).filter(m => !!m).sort((a, b) => {
+                              if (a.additional.date_start === b.additional.date_start) {
+                                  return a.id - b.id;
+                              }
 
-                            return a.additional.date_start.localeCompare(b.additional.date_start);
-                        });
+                              return a.additional.date_start.localeCompare(b.additional.date_start);
+                          });
 
-                        result += `<details><summary>\n\n#### [\`${lang}\`](../blob/dev/src/modules/extendedCallList/i18n/${lang}.root.json) (${diffs[lang].length} mission${diffs[lang].length > 1 ? 's' : ''})\n\n</summary>\n\n`;
-                        result += '| ID | Title | Start date | End date | Icon |\n';
-                        result += '| --- | --- | --- | --- | --- |\n';
-                        for (const mission of sortedMissions) {
-                            result += `| \`${mission.id}\` | \`${mission.name}\` | \`${mission.additional.date_start}\` | \`${mission.additional.date_end}\` | ${suggestIcon(mission)} |\n`;
-                        }
-                        result += '\n</details>\n';
-                    }
+                          result += `<details><summary>\n\n#### [\`${lang}\`](../blob/dev/src/modules/extendedCallList/i18n/${lang}.root.json) (${diffs[lang].length} mission${diffs[lang].length > 1 ? 's' : ''})\n\n</summary>\n\n`;
+                          result += '| ID | Title | Start date | End date | Icon |\n';
+                          result += '| --- | --- | --- | --- | --- |\n';
+                          for (const mission of sortedMissions) {
+                              result += `| \`${mission.id}\` | \`${mission.name}\` | \`${mission.additional.date_start}\` | \`${mission.additional.date_end}\` | ${suggestIcon(mission)} |\n`;
+                          }
+                          result += '\n</details>\n';
+                      }
 
-                    writeFileSync('body.txt', result);
+                      writeFileSync('body.txt', result);
 
             - name: '[🔍] find existing issue'
               id: issue_exists
