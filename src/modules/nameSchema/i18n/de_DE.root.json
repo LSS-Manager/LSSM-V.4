@@ -1,10 +1,14 @@
 {
     "action": {
+        "importFromRenameFz": "Importiere Einstellungen",
         "rename": "Umbenennen in: {caption}",
         "rename_all": "Alle Fahrzeuge umbenennen"
     },
     "description": "Benenne Gebäude und Fahrzeuge nach deinem System oder nach einem Standard um.",
     "name": "Namens-Schema",
+    "notification": {
+        "importFromRenameFzSuccess": "Einstellungen erfolgreich importiert. Es wurden {count} Aliase übernommen."
+    },
     "settings": {
         "buildingAliases": {
             "alias": "Alias-Bezeichnung",
@@ -25,28 +29,32 @@
         },
         "defaultVehicleTemplate": {
             "defaultValue": "{{ vehicle.alias }} {{ vehicle | index: groupBy: \"buildingVehicleType\" }}",
-            "description": "Dieses Template wird für alle Einheiten verwendet, für die kein spezifisches Template definiert wurde.",
-            "title": "Standard Template für Einheiten"
+            "description": "Dieses Template wird für alle Fahrzeuge verwendet, für die kein spezifisches Template definiert wurde.",
+            "title": "Standard Template für Fahrzeuge"
         },
         "excludeBuildings": {
             "description": "Hier kannst du Gebäude ausschließen, die nicht umbenannt werden sollen.",
             "title": "Gebäude ausschließen"
         },
         "excludeVehicles": {
-            "description": "Hier kannst du Einheiten ausschließen, die nicht umbenannt werden sollen.",
-            "title": "Einheiten ausschließen"
+            "description": "Hier kannst du Fahrzeugtypen ausschließen, die nicht umbenannt werden sollen.",
+            "title": "Fahrzeugtyp ausschließen"
+        },
+        "importFromRenameFz": {
+            "description": "Falls erkannt, kannst du hier die Einstellungen aus dem v3 RenameFz Modul importieren. Die Einstellungen werden überschrieben!",
+            "title": "Import v3"
         },
         "vehicleAliases": {
             "alias": "Alias-Bezeichnung",
-            "description": "Hier kannst du für jeden Einheitentypen ein Alias definieren. Dieser Alias wird dann im Template für <code>{{ vehicle.alias }}</code> verwendet.<br>Wenn du hier nichts einträgst, wird die Standard-Bezeichnung des Einheitentyps verwendet.",
-            "title": "Aliase für Einheitentypen",
-            "type": "Einheitentyp"
+            "description": "Hier kannst du für jeden Fahrzeugtypen ein Alias definieren. Dieser Alias wird dann im Template für <code>{{ vehicle.alias }}</code> verwendet.<br>Wenn du hier nichts einträgst, wird die Standard-Bezeichnung des Fahrzeugtyps verwendet.",
+            "title": "Aliase für Fahrzeugtypen",
+            "type": "Fahrzeugtyp"
         },
         "vehicleTemplates": {
-            "description": "Hier kannst du für jede Einheit ein eigenes Template definieren. Die verfügbaren Platzhalter findest du in der Hilfe.",
+            "description": "Hier kannst du für jeden Fahrzeugtypen ein eigenes Template definieren. Die verfügbaren Platzhalter findest du in der Hilfe.",
             "template": "Template",
-            "title": "Einheitenspezifische Templates",
-            "type": "Einheitentyp"
+            "title": "Fahrzeugspezifische Templates",
+            "type": "Fahrzeugtyp"
         }
     }
 }

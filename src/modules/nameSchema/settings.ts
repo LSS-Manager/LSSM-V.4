@@ -1,9 +1,13 @@
 import type Vue from 'vue';
 
+import ImportSettingComponent from './components/import.vue';
+
+import type { ImportSettingComponentInterface } from './components/import.vue';
 import type { $m, ModuleSettingFunction } from 'typings/Module';
 import type {
     AppendableList,
     AppendableListSetting,
+    Custom,
     MultiSelect,
     RegisterSettings,
     Select,
@@ -202,6 +206,19 @@ const settings: ModuleSettingFunction = async (
             orderable: false,
             disableable: true,
         },
+        importFromRenameFz: {
+            type: 'custom',
+            component: ImportSettingComponent,
+            disabled() {
+                return (
+                    window.localStorage.getItem('lssm_LSS_RENAMEFZ_STORAGE') ===
+                    null
+                );
+            },
+        } as Omit<
+            Custom<never, never, never, never, never, never>,
+            'default' | 'isDisabled' | 'properties' | 'value'
+        >,
     };
 
     return settings;
