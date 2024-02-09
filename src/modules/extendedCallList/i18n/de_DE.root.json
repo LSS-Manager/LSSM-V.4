@@ -213,7 +213,7 @@
             "title": "Einsätze teilen: Einsatztypen"
         },
         "sortMissions": {
-            "description": "Sortiere die Einsatzliste nach bestimmten Kriterien, z.B. Verdienst oder noch vorhandenen Patienten",
+            "description": "Sortiere die Einsatzliste nach bestimmten Kriterien, z. B. Verdienst oder noch vorhandenen Patienten",
             "title": "Einsätze sortieren"
         },
         "sortMissionsButtonColor": {

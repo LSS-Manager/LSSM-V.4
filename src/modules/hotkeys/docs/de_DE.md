@@ -9,16 +9,16 @@ Welche Tastenkombinationen verwendet werden sollen, kannst du komplett frei best
 <!-- For later: ingame hotkeys @ https://blog.leitstellenspiel.de/tastaturkuerzel-hotkeys/ -->
 
 Alle Browser haben für eigene Funktionalitäten bereits Hotkeys eingebaut.
-(z.B. `Strg+S` zum Speichern einer Seite oder `Strg+O` zum Öffnen einer Datei).
+(z.&nbsp;B. `Strg+S` zum Speichern einer Seite oder `Strg+O` zum Öffnen einer Datei).
 Diese Standard-Hotkeys überschreiben wir derzeit **NICHT**!
 Solltest du also eine LSSM-Funktionalität auf `Strg+O` setzen,
 so wird sich zusätzlich auch der "Datei öffnen" Dialog deines Browsers öffnen.
 Grund hierfür ist der Aufbau unserer Hotkey-Erkennung.
 :::
 
-Als Hotkey kannst du entweder einen einzelnen Buchstaben (z.B. `U` oder `P`),
-eine Tastenkombination (z.B. `Alt+U` oder `Strg+Alt+P`) oder
-mehrere dieser hintereinander (z.B. `U P`, `Alt+U P` oder `Strg+Alt+U P Alt+U`) setzen.
+Als Hotkey kannst du entweder einen einzelnen Buchstaben (z.&nbsp;B. `U` oder `P`),
+eine Tastenkombination (z.&nbsp;B. `Alt+U` oder `Strg+Alt+P`) oder
+mehrere dieser hintereinander (z.&nbsp;B. `U P`, `Alt+U P` oder `Strg+Alt+U P Alt+U`) setzen.
 Groß- / Kleinschreibung wird übrigens nicht beachtet!
 
 Zum Setzen eines Hotkeys gehst du einfach in die Einstellungen zum Punkt `Hotkeys`.

@@ -31,9 +31,9 @@ Ganz einfach: Aktuell haben wir leider keine Möglichkeit bei existierenden Konv
 
 Mittels `{{today}}` kannst du ganz einfach das heutige Datum einfügen.
 
-Du möchtest ein zukünftiges oder vergangenes Datum einfügen, z.B. heute in 2 Wochen? Dann nutze dafür `{{today+14}}`,
+Du möchtest ein zukünftiges oder vergangenes Datum einfügen, z.&nbsp;B. heute in 2 Wochen? Dann nutze dafür `{{today+14}}`,
 um heute in 14 Tagen einzufügen.
-Genauso geht z.B. `{{today-436}}`, um heute vor 436 Tagen einzufügen.
+Genauso geht z.&nbsp;B. `{{today-436}}`, um heute vor 436 Tagen einzufügen.
 
 ### Beispiele
 

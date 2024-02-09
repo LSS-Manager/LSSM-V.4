@@ -74,7 +74,7 @@ Die Option `Verbandseinsätze` ist dafür gedacht, wenn man im Modul
 
 ### Einsätze teilen: Minimale Credits
 
-Nicht alle Einsätze möchte man freigeben, z.B. nur Einsätze, die im Schnitt mehr als 7.0000 Credits geben.
+Nicht alle Einsätze möchte man freigeben, z.&nbsp;B. nur Einsätze, die im Schnitt mehr als 7.0000 Credits geben.
 Das kannst du über diese Einstellung regeln.
 
 ## Einsätze sortieren
@@ -120,5 +120,5 @@ Mit dieser Einstellung kannst du für jeden einzelnen Einsatz beliebig viele kur
  welche vor dem Namen in der Einsatzliste gezeigt werden.
 Standardmäßig sind hier saisonale Einsätze eingetragen (Sommer, Halloween, Fußball etc.), daher auch der Name.
 
-So sieht das z.B. bei Standardeinstellung für einen Fußball-Einsatz aus:
+So sieht das z.&nbsp;B. bei Standardeinstellung für einen Fußball-Einsatz aus:
 ![Eventmission bei einem Fußalleinsatz](./eventmissions/eventMission.png)

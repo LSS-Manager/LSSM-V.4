@@ -156,7 +156,7 @@
             "title": "POI"
         },
         "prerequisites": {
-            "description": "Zeigt die Vorraussetzungen (z.B. 3 Rettungswachen und 4 Feuerwachen) an.",
+            "description": "Zeigt die Vorraussetzungen (z. B. 3 Rettungswachen und 4 Feuerwachen) an.",
             "title": "Vorraussetzungen"
         },
         "prisoners": {
@@ -178,7 +178,7 @@
             "title": "Anschlusseinsatz"
         },
         "title": {
-            "description": "Zeigt den Einsatznamen, z.B. \"Mülleimerbrand\" als Titel an.",
+            "description": "Zeigt den Einsatznamen, z. B. \"Mülleimerbrand\" als Titel an.",
             "title": "Einsatzname"
         },
         "type": {
