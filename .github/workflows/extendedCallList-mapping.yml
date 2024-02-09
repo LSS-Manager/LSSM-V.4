@@ -19,7 +19,7 @@ jobs:
             - name: '[🌐] extract module languages'
               id: module_languages
               run: |
-                  languages=`find src/modules/extendedCallList/i18n/ -type f -name '*.root.json' -printf '%f\n' | cut -d'.' -f1 | tr '\n' ' '`
+                  languages=`find src/modules/extendedCallList/i18n/ -type f -name '*.root.json' -printf '%f\n' | cut -d'.' -f1 | sort | tr '\n' ' '`
                   echo "languages=${languages% }" >> "$GITHUB_OUTPUT"
 
             - name: '[⤵️] download mission i18n files'
