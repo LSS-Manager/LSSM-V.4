@@ -117,7 +117,7 @@ jobs:
                   actions: 'find-issues'
                   token: ${{ secrets.GITHUB_TOKEN }}
                   body-includes: '<!-- automanaged -->'
-                  title-includes: '🩹 [extendedCallList] Unmapped events'
+                  title-includes: '🩹 [extendedCallList] Unmapped event missions'
 
             - name: '[✨] create new issue'
               id: issue_create
@@ -127,7 +127,7 @@ jobs:
                   script: |
                       const { readFileSync } = require('fs');
 
-                      const title = '🩹 [extendedCallList] Unmapped events';
+                      const title = '🩹 [extendedCallList] Unmapped event missions';
                       const existingIssue = context.payload.issue;
                       const issue = await github.rest.issues.create({
                           owner: context.repo.owner,
@@ -145,7 +145,7 @@ jobs:
                   script: |
                       const { readFileSync } = require('fs');
 
-                      const title = '🩹 [extendedCallList] Unmapped events';
+                      const title = '🩹 [extendedCallList] Unmapped event missions';
                       const existingIssue = context.payload.issue;
                       const issue = await github.rest.issues.update({
                           owner: context.repo.owner,
