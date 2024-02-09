@@ -4,7 +4,9 @@ import { ref } from 'vue';
 import type Vue from 'vue';
 
 import { defineStore } from 'pinia';
-import FetchWorker from '@workers/stores/api/fetch.worker';
+import FetchApiWorker from '@workers/stores/api/fetchApi.worker';
+
+import type { StorageAPIKey } from 'typings/store/api/State';
 
 // TODO: Rename to defineAPIStore and id to api
 export const defineNewAPIStore = defineStore('newApi', () => {
@@ -39,41 +41,11 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         return init;
     };
 
-    const request = (
-        inputOrUrl: Request | URL | string,
-        feature: string,
-        init: RequestInit = {},
-        dialogOnError = false
-    ): Promise<Response> =>
-        FetchWorker.run(inputOrUrl, getRequestInit(init, feature)).then(
-            response => {
-                if (response.ok) return response;
-
-                // if it has been a request to the LSSM server, and it reported to have detected and outdated version
-                if (
-                    response.url.startsWith(SERVER) &&
-                    response.headers
-                        .get('content-type')
-                        ?.startsWith('application/json')
-                ) {
-                    return response.json().then(data => {
-                        if (data?.error !== 'outdated version')
-                            return Promise.reject(response);
-                        // show a dialog
-                        return Promise.reject(response);
-                    });
-                }
-
-                // if showDialogOnError is set, show a dialog
-                if (dialogOnError) {
-                    // show a dialog
-                }
-                return Promise.reject(response);
-            }
-        );
+    const fetchApi = <Api extends StorageAPIKey>(api: Api, feature: string) =>
+        FetchApiWorker.run(api, getRequestInit({}, feature));
 
     return {
-        request,
+        fetchApi,
     };
 });
 
