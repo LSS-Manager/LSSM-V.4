@@ -1,5 +1,5 @@
-name: '[👷] Check extendedCallList event mapping'
-run-name: '[👷] Check extendedCallList event mapping'
+name: '[🍾] Check extendedCallList event mapping'
+run-name: '[🍾] Check extendedCallList event mapping'
 
 on:
     workflow_dispatch:
@@ -9,7 +9,7 @@ on:
 jobs:
     eventMapping:
         runs-on: ubuntu-latest
-        name: '[👷] Check extendedCallList event mapping'
+        name: '[🍾] Check extendedCallList event mapping'
         steps:
             - name: '[📥] checkout'
               uses: actions/checkout@v4
