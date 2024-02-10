@@ -36,17 +36,17 @@ now () {
     echo "${timestamp/N/000000000}"
 }
 
-ms_elapsed() {
+ms_elapsed () {
     local timestamp_now
     timestamp_now=$(now)
     echo $(((10#$timestamp_now - 10#$1) / 1000000))ms
 }
 
-print_start_message() {
+print_start_message () {
     echo "${bold}${blue}### $1 ###${normal}"
 }
 
-print_end_message() {
+print_end_message () {
     echo "${bold}${green}=== $1: $(ms_elapsed "$2") [$(date +"%Y-%m-%d %H:%M:%S %Z")] ===${normal}"
 }
 

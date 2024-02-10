@@ -8,6 +8,7 @@ import packageJson from '../package.json';
 import config, { PORT_ENV_KEY } from '../src/config';
 
 const script = packageJson.userscript;
+const localCoreName = 'core';
 
 const getScriptPath = (local: boolean) =>
     path.resolve(
@@ -49,7 +50,14 @@ ${Object.values(config.games)
 // @run-at       document-idle
 // @grant        GM_info
 // @grant        unsafeWindow
-// ==/UserScript==
+${
+    local
+        ? `
+// @grant        GM_getResourceURL
+// @resource     ${localCoreName} ${config.urls.server}core.js
+`.trimStart()
+        : ''
+}// ==/UserScript==
 /* global I18n, user_id */
 ${
     (
