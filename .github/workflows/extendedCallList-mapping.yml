@@ -40,13 +40,13 @@ jobs:
                       jq '. | map(select(.additional.optional_event_mission and (.additional.date_end > (now | todate)))) | map(.id | tostring) | sort | unique' static/missions/${lang}.json > static/missions/${lang}.events.json
 
                       echo "Extracting already mapped events for ${lang}..."
-                      jq '.eventMissions.default | flatten | map(. | tostring) | sort | unique' src/modules/extendedCallList/i18n/de_DE.root.json > static/missions/${lang}.mapped.json
+                      jq '(.eventMissions.default // {}) | flatten | map(. | tostring) | sort | unique' src/modules/extendedCallList/i18n/${lang}.root.json > static/missions/${lang}.mapped.json
 
                       echo "Getting unmapped events for ${lang}..."
                       jq -n --slurpfile events static/missions/${lang}.events.json --slurpfile mapped static/missions/${lang}.mapped.json '($events | flatten) - ($mapped | flatten)' > static/missions/${lang}.unmapped.json
 
                       echo "Merge unmapped events for ${lang}..."
-                      jq -cn --arg lang "${lang}" --slurpfile langfile static/missions/${lang}.unmapped.json --rawfile merged static/missions/unmapped.json '$merged | fromjson | .[$lang] = ($langfile | flatten)' > static/missions/unmapped.tmp.json
+                      jq -cn --arg lang "${lang}" --slurpfile langfile static/missions/${lang}.unmapped.json --rawfile merged static/missions/unmapped.json '$merged | fromjson | .[$lang] = ($langfile | flatten) | del(.. | select(length == 0))' > static/missions/unmapped.tmp.json
                       mv static/missions/unmapped.tmp.json static/missions/unmapped.json
                   done
 
