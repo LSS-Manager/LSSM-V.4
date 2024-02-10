@@ -1212,4 +1212,29 @@ export default {
         schools: [25],
         icon: 'building-shield',
     },
+    29: {
+        caption: 'GIH',
+        color: '#116611',
+        coins: 50,
+        credits: 1_000_000,
+        levelPrices: {
+            credits: [
+                500_000,
+            ],
+            coins: [50],
+        },
+        extensions: [],
+        levelcost: [
+            '1. 500 000',
+        ],
+        maxBuildings: 'Aucune limite',
+        maxLevel: 1,
+        special: '',
+        startPersonnel: 8,
+        startParkingLots: 1,
+        startVehicles: [],
+        schoolingTypes: ['Secours nautique'],
+        schools: [25],
+        icon: 'building-shield',
+    },
 } satisfies Record<number, InternalBuilding>;
