@@ -5,11 +5,13 @@ import type Vue from 'vue';
 
 import { defineStore } from 'pinia';
 import FetchApiWorker from '@workers/stores/api/fetchApi.worker';
+import VehiclesWorker from '@workers/stores/api/vehicles.worker';
 
 import type { Vehicle } from 'typings/Vehicle';
 
+// TODO: Switch to Maps instead of plain objects after switching to Vue3 (Vue2 does not support Maps without some hacks)
 export interface APIs {
-    vehicles: Vehicle[];
+    vehicles: Record<number, Vehicle>;
 }
 export type APIKey = keyof APIs;
 
@@ -37,9 +39,25 @@ export const defineNewAPIStore = defineStore('newApi', () => {
     const apiStorage: {
         [Api in APIKey]: Ref<APIs[Api]>;
     } = {
-        vehicles: ref<Vehicle[]>([]),
+        vehicles: ref<APIs['vehicles']>({}),
     };
     const lastUpdates = new Map<APIKey, number>();
+
+    // region computed values and fake-computed values for vehicles
+    // fake computed values require many iterations and are not suitable for the main thread
+    // for performance reasons, they are calculated in a worker
+    const vehiclesArray = ref<Vehicle[]>([]);
+    const vehicleStates = ref<Record<Vehicle['fms_real'], number>>({});
+    const vehiclesByTarget = ref<
+        Map<Vehicle['target_type'], Map<Vehicle['target_id'], Set<Vehicle>>>
+    >(new Map());
+    const vehiclesByType = ref<Map<Vehicle['vehicle_type'], Set<Vehicle>>>(
+        new Map()
+    );
+    const vehiclesByBuilding = ref<Map<Vehicle['building_id'], Set<Vehicle>>>(
+        new Map()
+    );
+    // endregion
 
     /**
      * Modify a RequestInit object to include the LSSM headers.
@@ -81,12 +99,26 @@ export const defineNewAPIStore = defineStore('newApi', () => {
      * Also calls a method to update the fake-computed values.
      * @param api - The API to store.
      * @param value - The value to store.
+     * @returns A void promise.
      */
-    const _storeApi = <Api extends APIKey>(api: Api, value: APIs[Api]) => {
+    const _storeApi = async <Api extends APIKey>(
+        api: Api,
+        value: APIs[Api]
+    ) => {
         apiStorage[api].value = value;
         lastUpdates.set(api, Date.now());
 
-        // TODO: Update fake-computed for heavy calculations with many iterations (switch-case and extra methods)
+        if (api === 'vehicles') {
+            await VehiclesWorker.run(value).then(calculations => {
+                vehiclesArray.value = calculations.vehiclesArray;
+                vehicleStates.value = calculations.vehicleStates;
+                vehiclesByTarget.value = calculations.vehiclesByTarget;
+                vehiclesByType.value = calculations.vehiclesByType;
+                vehiclesByBuilding.value = calculations.vehiclesByBuilding;
+            });
+        }
+
+        return Promise.resolve(value);
     };
 
     /**
@@ -116,10 +148,8 @@ export const defineNewAPIStore = defineStore('newApi', () => {
 
             // let's start the update on a worker
             FetchApiWorker.run(api, _getRequestInit({}, feat))
+                .then(value => _storeApi(api, value))
                 .then(value => {
-                    // store the value in the ref and set latest update time
-                    _storeApi(api, value);
-
                     // success! let's resolve all the callbacks
                     let callback = currentlyRunningUpdates[api]?.shift();
                     while (callback) {
@@ -156,11 +186,22 @@ export const defineNewAPIStore = defineStore('newApi', () => {
     };
 
     return {
+        // TODO: remove the lastUpdate things, this is only for debugging purposes
+        lastUpdates,
         // state: APIs
         ...apiStorage,
+        // getters: get computed and fake-computed values
+        vehiclesArray,
+        vehicleStates,
+        vehiclesByTarget,
+        vehiclesByType,
+        vehiclesByBuilding,
         // actions: get API data
-        getVehicles: (feature: string) =>
-            _getStoredOrFetch('vehicles', feature),
+        getVehicles: (feature: string, returnAsArray = false) =>
+            // for legacy reasons, optionally return the vehicles as an array
+            _getStoredOrFetch('vehicles', feature).then(vehicles =>
+                returnAsArray ? vehiclesArray.value : vehicles
+            ),
     };
 });
 

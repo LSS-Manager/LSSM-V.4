@@ -1,18 +1,23 @@
 import TypedWorker from '@workers/TypedWorker';
 
-import type { StorageAPIKey, StorageAPIs } from 'typings/store/api/State';
+import type { Vehicle } from 'typings/Vehicle';
+import type { APIKey, APIs } from '@stores/newApi';
+
+interface ApiFetchResults extends APIs {
+    vehicles: Vehicle[];
+}
 
 class FetchApiWorker extends TypedWorker<
-    [api: StorageAPIKey, init: RequestInit],
-    Promise<Exclude<StorageAPIs[StorageAPIKey], null>>
+    [api: APIKey, init: RequestInit],
+    Promise<APIs[APIKey]>
 > {
     constructor() {
         super(
             'api/fetch.worker',
-            async (
-                api: StorageAPIKey,
+            async <Api extends APIKey>(
+                api: Api,
                 init: RequestInit
-            ): Promise<Exclude<StorageAPIs[StorageAPIKey], null>> => {
+            ): Promise<APIs[Api]> => {
                 const headers = new Headers(init.headers);
 
                 // CAVEAT: headers are stored lowercase
@@ -27,21 +32,29 @@ class FetchApiWorker extends TypedWorker<
 
                 // TODO: Add support for paged API (/api/v2) for supported APIs (vehicles)
 
-                return fetch(
-                    new URL(`/api/${api}`, location.origin),
-                    init
-                ).then(res => res.json());
+                return fetch(new URL(`/api/${api}`, location.origin), init)
+                    .then(res => res.json())
+                    .then((res: ApiFetchResults[Api]) => {
+                        if (api === 'vehicles') {
+                            const vehiclesById: APIs['vehicles'] = {};
+                            for (const vehicle of res)
+                                vehiclesById[vehicle.id] = vehicle;
+                            return vehiclesById;
+                        }
+
+                        return res;
+                    });
             }
         );
     }
 
     // we're overriding the run method so that we can have a better and more explicit return type
-    run<Api extends StorageAPIKey>(
+    run<Api extends APIKey>(
         api: Api,
         init: RequestInit
-    ): Promise<Exclude<StorageAPIs[Api], null>> {
+    ): Promise<Exclude<APIs[Api], null>> {
         // we unfortunately have to cast here explicitly
-        return super.run(api, init) as Promise<Exclude<StorageAPIs[Api], null>>;
+        return super.run(api, init) as Promise<Exclude<APIs[Api], null>>;
     }
 }
 
