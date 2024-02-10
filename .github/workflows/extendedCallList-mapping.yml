@@ -40,7 +40,7 @@ jobs:
                       jq '. | map(select(.additional.optional_event_mission and (.additional.date_end > (now | todate)))) | map(.id | tostring) | sort | unique' static/missions/${lang}.json > static/missions/${lang}.events.json
 
                       echo "Extracting already mapped events for ${lang}..."
-                      jq '.eventMissions.default | flatten | map(. | tostring) | sort | unique' src/modules/extendedCallList/i18n/${lang}.root.json > static/missions/${lang}.mapped.json
+                      jq '(.eventMissions.default // {}) | flatten | map(. | tostring) | sort | unique' src/modules/extendedCallList/i18n/${lang}.root.json > static/missions/${lang}.mapped.json
 
                       echo "Getting unmapped events for ${lang}..."
                       jq -n --slurpfile events static/missions/${lang}.events.json --slurpfile mapped static/missions/${lang}.mapped.json '($events | flatten) - ($mapped | flatten)' > static/missions/${lang}.unmapped.json
