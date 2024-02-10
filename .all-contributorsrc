@@ -209,6 +209,13 @@
             "avatar_url": "https://avatars.githubusercontent.com/u/142994500?v=4",
             "profile": "https://github.com/Tobi-Continued",
             "contributions": ["de_DE"]
+        },
+        {
+            "login": "buffcode",
+            "name": "buffcode",
+            "avatar_url": "https://avatars.githubusercontent.com/u/2863518?v=4",
+            "profile": "https://github.com/buffcode",
+            "contributions": ["code", "doc", "de_DE"]
         }
     ],
     "contributorsPerLine": 7,

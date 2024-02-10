@@ -106,6 +106,31 @@ export const defineAPIStore = defineStore('api', {
             });
             return buildings;
         },
+        vehiclesByDispatchCenter: (state): Record<number, Vehicle[]> => {
+            const dispatchCenters: Record<number, Vehicle[]> = {};
+            const buildingDispatchCache: Record<number, number> = {};
+
+            const resolveDispatchId = (buildingId: number): number => {
+                const building = state.buildings.find(
+                    building => building.id === buildingId
+                );
+
+                // we group buildings without dispatch center as -1
+                return building?.leitstelle_building_id ?? -1;
+            };
+
+            state.vehicles.forEach(vehicle => {
+                const dispatchId = (buildingDispatchCache[
+                    vehicle.building_id
+                ] ??= resolveDispatchId(vehicle.building_id));
+
+                if (!dispatchCenters.hasOwnProperty(dispatchId))
+                    dispatchCenters[dispatchId] = [];
+
+                dispatchCenters[dispatchId].push(vehicle);
+            });
+            return dispatchCenters;
+        },
         participatedMissions(state): number[] {
             return Array.from(
                 new Set([
@@ -139,6 +164,17 @@ export const defineAPIStore = defineStore('api', {
                 types[building.building_type].push(building);
             });
             return types;
+        },
+        buildingsByDispatchCenter: (state): Record<number, Building[]> => {
+            const dispatchCenters: Record<number, Building[]> = {};
+            state.buildings.forEach(building => {
+                const dispatchId = building.leitstelle_building_id ?? -1;
+
+                if (!dispatchCenters.hasOwnProperty(dispatchId))
+                    dispatchCenters[dispatchId] = [];
+                dispatchCenters[dispatchId].push(building);
+            });
+            return dispatchCenters;
         },
         buildingsByCategory() {
             const LSSM = window[PREFIX] as Vue;

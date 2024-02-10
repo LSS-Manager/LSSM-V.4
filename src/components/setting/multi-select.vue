@@ -12,6 +12,9 @@
             <div slot="no-options">
                 {{ $t('noOptions') }}
             </div>
+            <template #selected-option="{ label }">
+                <span>{{ label.trim() }}</span>
+            </template>
         </v-select>
     </div>
 </template>

@@ -13,11 +13,9 @@
             <template v-if="name === 'global.branch'" #option="{ label }">
                 <span v-html="label"></span>
             </template>
-            <template
-                v-if="name === 'global.branch'"
-                #selected-option="{ label }"
-            >
-                <span v-html="label"></span>
+            <template #selected-option="{ label }">
+                <span v-html="label" v-if="name === 'global.branch'"></span>
+                <span v-else>{{ label.trim() }}</span>
             </template>
         </v-select>
     </div>
