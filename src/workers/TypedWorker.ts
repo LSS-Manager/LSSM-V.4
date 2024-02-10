@@ -6,14 +6,14 @@ export default class TypedWorker<Args extends unknown[] = [], Return = void> {
     private worker: SharedWorker | null = null;
 
     constructor(workerName: string, fn: (...args: Args) => Return) {
-        this.workerName = workerName;
+        this.workerName = `${PREFIX}:worker:${workerName}`;
         this.function = fn;
     }
 
     private getBlob() {
         if (this.blob) return this.blob;
 
-        const storageName = `${PREFIX}:worker:${this.workerName}`;
+        const storageName = this.workerName;
         const storedBlob = localStorage.getItem(storageName);
         if (storedBlob) {
             this.blob = storedBlob;
@@ -58,7 +58,8 @@ ${this.function.toString()}
 
     run(...args: Args): Promise<Awaited<Return>> {
         // create a new SharedWorker if the worker doesn't exist yet
-        if (!this.worker) this.worker = new SharedWorker(this.getBlob());
+        if (!this.worker)
+            this.worker = new SharedWorker(this.getBlob(), this.workerName);
 
         return new Promise<Awaited<Return>>((resolve, reject) => {
             // this is a backup for the case the worker is not initialized (anymore)
