@@ -1194,11 +1194,11 @@ export default {
                     },
                     swat: {
                         min: 6,
-                    }
-			    }
-             }
+                    },
+                },
+            },
         },
         icon: 'car-side',
         possibleBuildings: [29],
-    }
+    },
 } satisfies Record<number, InternalVehicle>;

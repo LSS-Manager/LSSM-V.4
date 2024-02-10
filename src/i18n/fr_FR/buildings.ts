@@ -1218,15 +1218,11 @@ export default {
         coins: 50,
         credits: 1_000_000,
         levelPrices: {
-            credits: [
-                500_000,
-            ],
+            credits: [500_000],
             coins: [50],
         },
         extensions: [],
-        levelcost: [
-            '1. 500 000',
-        ],
+        levelcost: ['1. 500 000'],
         maxBuildings: 'Aucune limite',
         maxLevel: 1,
         special: '',
