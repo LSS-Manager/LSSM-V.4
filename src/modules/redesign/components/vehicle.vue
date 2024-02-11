@@ -72,7 +72,7 @@
                                         ? `&vehicle_type_caption=${vehicle.vehicleType.caption}`
                                         : ''
                                 }`"
-                                class="btn btn-default btn-xs lightbox-open pull-right"
+                                class="btn btn-default btn-xs pull-right"
                                 :title="lightbox.$sm('color')"
                                 lightbox-open
                             >
