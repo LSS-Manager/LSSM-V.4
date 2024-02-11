@@ -1,10 +1,12 @@
 import TypedWorker from '@workers/TypedWorker';
 
+import type { Building } from 'typings/Building';
 import type { Vehicle } from 'typings/Vehicle';
 import type { APIKey, APIs } from '@stores/newApi';
 
 interface ApiFetchResults extends APIs {
     vehicles: Vehicle[];
+    buildings: Building[];
 }
 
 class FetchApiWorker extends TypedWorker<
@@ -35,11 +37,11 @@ class FetchApiWorker extends TypedWorker<
                 return fetch(new URL(`/api/${api}`, location.origin), init)
                     .then(res => res.json())
                     .then((res: ApiFetchResults[Api]) => {
-                        if (api === 'vehicles') {
-                            const vehiclesById: APIs['vehicles'] = {};
-                            for (const vehicle of res)
-                                vehiclesById[vehicle.id] = vehicle;
-                            return vehiclesById;
+                        // we want to store vehicles and buildings by ID for easier access
+                        if (api === 'vehicles' || api === 'buildings') {
+                            const byId: APIs[Api] = {};
+                            for (const item of res) byId[item.id] = item;
+                            return byId;
                         }
 
                         return res;

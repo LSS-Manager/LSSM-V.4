@@ -5,19 +5,28 @@ import type Vue from 'vue';
 
 import { defineStore } from 'pinia';
 import FetchApiWorker from '@workers/stores/api/fetchApi.worker';
+import { useTranslationStore } from '@stores/translationUtilities';
+import BuildingsWorker, {
+    type BuildingsByCategory,
+    type BuildingsByDispatchCenter,
+    type BuildingsByType,
+} from '@workers/stores/api/buildings.worker';
 import VehiclesWorker, {
     type VehiclesByBuilding,
+    type VehiclesByDispatchCenter,
     type VehiclesByTarget,
     type VehiclesByType,
     type VehicleStates,
 } from '@workers/stores/api/vehicles.worker';
 
+import type { Building } from 'typings/Building';
 import type { RadioMessage } from 'typings/Ingame';
 import type { Vehicle } from 'typings/Vehicle';
 
 // TODO: Switch to Maps instead of plain objects after switching to Vue3 (Vue2 does not support Maps without some hacks)
 export interface APIs {
-    vehicles: Record<number, Vehicle>;
+    vehicles: Record<Vehicle['id'], Vehicle>;
+    buildings: Record<Building['id'], Building>;
 }
 export type APIKey = keyof APIs;
 
@@ -46,6 +55,7 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         [Api in APIKey]: Ref<APIs[Api]>;
     } = {
         vehicles: ref<APIs['vehicles']>({}),
+        buildings: ref<APIs['buildings']>({}),
     };
     const lastUpdates = new Map<APIKey, number>();
 
@@ -56,10 +66,21 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         Object.values(apiStorage.vehicles.value)
     );
     const vehicleStates = ref<VehicleStates>({});
-    // TODO: Use Map and Set instead of Record after switching to Vue3
     const vehiclesByTarget = ref<VehiclesByTarget>({});
     const vehiclesByType = ref<VehiclesByType>({});
     const vehiclesByBuilding = ref<VehiclesByBuilding>({});
+    const vehiclesByDispatchCenter = ref<VehiclesByDispatchCenter>({});
+    // endregion
+
+    // region computed values and fake-computed values for buildings
+    // fake computed values require many iterations and are not suitable for the main thread
+    // for performance reasons, they are calculated in a worker
+    const buildingsArray = computed<Building[]>(() =>
+        Object.values(apiStorage.buildings.value)
+    );
+    const buildingsByType = ref<BuildingsByType>({});
+    const buildingsByDispatchCenter = ref<BuildingsByDispatchCenter>({});
+    const buildingsByCategory = ref<BuildingsByCategory>({});
     // endregion
 
     /**
@@ -98,6 +119,39 @@ export const defineNewAPIStore = defineStore('newApi', () => {
     };
 
     /**
+     * Trigger the complex calculations for a specific API.
+     * @param api - The API to trigger the complex calculations for.
+     */
+    const _triggerComplexCalculations = async <Api extends APIKey>(
+        api: Api
+    ) => {
+        if (api === 'vehicles') {
+            const calculations = await VehiclesWorker.run(
+                apiStorage.vehicles.value,
+                apiStorage.buildings.value
+            );
+            vehicleStates.value = calculations.vehicleStates;
+            vehiclesByTarget.value = calculations.vehiclesByTarget;
+            vehiclesByType.value = calculations.vehiclesByType;
+            vehiclesByBuilding.value = calculations.vehiclesByBuilding;
+            vehiclesByDispatchCenter.value =
+                calculations.vehiclesByDispatchCenter;
+        } else if (api === 'buildings') {
+            const calculations = await BuildingsWorker.run(
+                apiStorage.buildings.value,
+                useTranslationStore().buildingCategories,
+                vehiclesArray.value
+            );
+            buildingsByType.value = calculations.buildingsByType;
+            buildingsByDispatchCenter.value =
+                calculations.buildingsByDispatchCenter;
+            buildingsByCategory.value = calculations.buildingsByCategory;
+            vehiclesByDispatchCenter.value =
+                calculations.vehiclesByDispatchCenter;
+        }
+    };
+
+    /**
      * Store the API in the store and update the last update time.
      * Also calls a method to update the fake-computed values.
      * @param api - The API to store.
@@ -111,14 +165,7 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         apiStorage[api].value = value;
         lastUpdates.set(api, Date.now());
 
-        if (api === 'vehicles') {
-            await VehiclesWorker.run(value).then(calculations => {
-                vehicleStates.value = calculations.vehicleStates;
-                vehiclesByTarget.value = calculations.vehiclesByTarget;
-                vehiclesByType.value = calculations.vehiclesByType;
-                vehiclesByBuilding.value = calculations.vehiclesByBuilding;
-            });
-        }
+        await _triggerComplexCalculations(api);
 
         return Promise.resolve(value);
     };
@@ -274,11 +321,21 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         vehiclesByTarget,
         vehiclesByType,
         vehiclesByBuilding,
+        vehiclesByDispatchCenter,
+        buildingsArray,
+        buildingsByType,
+        buildingsByDispatchCenter,
+        buildingsByCategory,
         // actions: get API data
         getVehicles: (feature: string, returnAsArray = false) =>
             // for legacy reasons, optionally return the vehicles as an array
             _getStoredOrFetch('vehicles', feature).then(vehicles =>
                 returnAsArray ? vehiclesArray.value : vehicles
+            ),
+        getBuildings: (feature: string, returnAsArray = false) =>
+            // for legacy reasons, optionally return the buildings as an array
+            _getStoredOrFetch('buildings', feature).then(buildings =>
+                returnAsArray ? buildingsArray.value : buildings
             ),
         // mutations: update API data from ingame events
         updateVehicleFromRadioMessage,
