@@ -116,6 +116,7 @@ jobs:
               with:
                   actions: 'find-issues'
                   token: ${{ secrets.GITHUB_TOKEN }}
+                  issue-state: 'all'
                   body-includes: '<!-- automanaged -->'
                   title-includes: '🩹 [extendedCallList] Unmapped event missions'
 
