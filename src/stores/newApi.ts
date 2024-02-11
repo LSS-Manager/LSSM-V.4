@@ -1,12 +1,18 @@
-import { ref, type Ref } from 'vue';
+import { computed, ref, type Ref } from 'vue';
 // well, we cannot set default type import + non-default non-type import
 // eslint-disable-next-line no-duplicate-imports
 import type Vue from 'vue';
 
 import { defineStore } from 'pinia';
 import FetchApiWorker from '@workers/stores/api/fetchApi.worker';
-import VehiclesWorker from '@workers/stores/api/vehicles.worker';
+import VehiclesWorker, {
+    type VehiclesByBuilding,
+    type VehiclesByTarget,
+    type VehiclesByType,
+    type VehicleStates,
+} from '@workers/stores/api/vehicles.worker';
 
+import type { RadioMessage } from 'typings/Ingame';
 import type { Vehicle } from 'typings/Vehicle';
 
 // TODO: Switch to Maps instead of plain objects after switching to Vue3 (Vue2 does not support Maps without some hacks)
@@ -46,17 +52,14 @@ export const defineNewAPIStore = defineStore('newApi', () => {
     // region computed values and fake-computed values for vehicles
     // fake computed values require many iterations and are not suitable for the main thread
     // for performance reasons, they are calculated in a worker
-    const vehiclesArray = ref<Vehicle[]>([]);
-    const vehicleStates = ref<Record<Vehicle['fms_real'], number>>({});
-    const vehiclesByTarget = ref<
-        Map<Vehicle['target_type'], Map<Vehicle['target_id'], Set<Vehicle>>>
-    >(new Map());
-    const vehiclesByType = ref<Map<Vehicle['vehicle_type'], Set<Vehicle>>>(
-        new Map()
+    const vehiclesArray = computed<Vehicle[]>(() =>
+        Object.values(apiStorage.vehicles.value)
     );
-    const vehiclesByBuilding = ref<Map<Vehicle['building_id'], Set<Vehicle>>>(
-        new Map()
-    );
+    const vehicleStates = ref<VehicleStates>({});
+    // TODO: Use Map and Set instead of Record after switching to Vue3
+    const vehiclesByTarget = ref<VehiclesByTarget>({});
+    const vehiclesByType = ref<VehiclesByType>({});
+    const vehiclesByBuilding = ref<VehiclesByBuilding>({});
     // endregion
 
     /**
@@ -110,7 +113,6 @@ export const defineNewAPIStore = defineStore('newApi', () => {
 
         if (api === 'vehicles') {
             await VehiclesWorker.run(value).then(calculations => {
-                vehiclesArray.value = calculations.vehiclesArray;
                 vehicleStates.value = calculations.vehicleStates;
                 vehiclesByTarget.value = calculations.vehiclesByTarget;
                 vehiclesByType.value = calculations.vehiclesByType;
@@ -185,6 +187,82 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         return Promise.resolve(apiStorage[api].value);
     };
 
+    /**
+     * Update the vehicle store from a radio message.
+     * @param radioMessage - The radio message to update the vehicle store from.
+     */
+    const updateVehicleFromRadioMessage = (radioMessage: RadioMessage) => {
+        // if not a vehicle fms message or not from the current user, ignore
+        if (
+            radioMessage.type !== 'vehicle_fms' ||
+            radioMessage.user_id !== window.user_id
+        )
+            return;
+        // we're going to update caption, fms, fms_real, target_type and target_id
+        const vehicle = apiStorage.vehicles.value[radioMessage.id];
+        // TODO: fetch this vehicle instead
+        if (!vehicle) return;
+        // update caption
+        vehicle.caption = radioMessage.caption;
+        // update fms and fms_real
+        vehicleStates.value[vehicle.fms_real]--;
+        vehicle.fms_real = radioMessage.fms_real;
+        vehicleStates.value[vehicle.fms_real] ||= 0;
+        vehicleStates.value[vehicle.fms_real]++;
+        vehicle.fms_show = radioMessage.fms;
+        // update target_type and target_id
+        if (vehicle.target_type && vehicle.target_id) {
+            const index =
+                vehiclesByTarget.value[vehicle.target_type]?.[
+                    vehicle.target_id
+                ]?.findIndex(v => v.id === vehicle.id) ?? -1;
+            if (index > -1) {
+                vehiclesByTarget.value[vehicle.target_type]?.[
+                    vehicle.target_id
+                ]?.splice(index, 1);
+            }
+        }
+        vehicle.target_type = radioMessage.target_building_id
+            ? 'building'
+            : radioMessage.mission_id
+              ? 'mission'
+              : null;
+        vehicle.target_id =
+            vehicle.target_type === 'building'
+                ? radioMessage.target_building_id
+                : radioMessage.mission_id;
+        if (vehicle.target_type && vehicle.target_id) {
+            vehiclesByTarget.value[vehicle.target_type] ||= {};
+            vehiclesByTarget.value[vehicle.target_type]![vehicle.target_id] ||=
+                [];
+            vehiclesByTarget.value[vehicle.target_type]![
+                vehicle.target_id
+            ]?.push(vehicle);
+        }
+        // now also update vehiclesByBuilding and vehiclesByType
+        const buildingIndex =
+            vehiclesByBuilding.value[vehicle.building_id]?.findIndex(
+                v => v.id === vehicle.id
+            ) ?? -1;
+        if (buildingIndex > -1) {
+            vehiclesByBuilding.value[vehicle.building_id]?.splice(
+                buildingIndex,
+                1
+            );
+        }
+        vehiclesByBuilding.value[vehicle.building_id] ||= [];
+        vehiclesByBuilding.value[vehicle.building_id]?.push(vehicle);
+        const typeIndex =
+            vehiclesByType.value[vehicle.vehicle_type]?.findIndex(
+                v => v.id === vehicle.id
+            ) ?? -1;
+        if (typeIndex > -1)
+            vehiclesByType.value[vehicle.vehicle_type]?.splice(typeIndex, 1);
+
+        vehiclesByType.value[vehicle.vehicle_type] ||= [];
+        vehiclesByType.value[vehicle.vehicle_type]?.push(vehicle);
+    };
+
     return {
         // TODO: remove the lastUpdate things, this is only for debugging purposes
         lastUpdates,
@@ -202,6 +280,8 @@ export const defineNewAPIStore = defineStore('newApi', () => {
             _getStoredOrFetch('vehicles', feature).then(vehicles =>
                 returnAsArray ? vehiclesArray.value : vehicles
             ),
+        // mutations: update API data from ingame events
+        updateVehicleFromRadioMessage,
     };
 });
 

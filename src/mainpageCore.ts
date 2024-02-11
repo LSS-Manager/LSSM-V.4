@@ -147,6 +147,7 @@ export default async (LSSM: Vue): Promise<void> => {
                 radioMessage.user_id === window.user_id
             )
                 LSSM.$stores.api.radioMessage(radioMessage);
+            LSSM.$stores.newApi.updateVehicleFromRadioMessage(radioMessage);
         },
     });
 
