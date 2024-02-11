@@ -156,7 +156,7 @@ jobs:
                       });
 
             - name: '[✅] close issue'
-              if: ${{ steps.mission_compare.outputs.diffs_detected == '{}'  && (steps.issue_create.outputs.result || steps.issue_exists.outputs.isues != '[]') }}
+              if: ${{ steps.mission_compare.outputs.diffs_detected == '{}'  && (steps.issue_create.outputs.result || steps.issue_exists.outputs.issues != '[]') }}
               env:
                   issue_number: ${{ steps.issue_create.outputs.result || (fromJSON(steps.issue_exists.outputs.issues)[0].number) }}
               uses: actions-cool/issues-helper@v3
