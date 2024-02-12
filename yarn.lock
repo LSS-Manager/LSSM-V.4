@@ -2454,7 +2454,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/semver@npm:7.5.6, @types/semver@npm:^7.5.0":
+"@types/semver@npm:7.5.7":
+  version: 7.5.7
+  resolution: "@types/semver@npm:7.5.7"
+  checksum: 10c0/fb72d8b86a7779650f14ae89542f1da2ab624adb8188d98754b1d29a2fe3d41f0348bf9435b60ad145df1812fd2a09b3256779aa23b532c199f3dee59619a1eb
+  languageName: node
+  linkType: hard
+
+"@types/semver@npm:^7.5.0":
   version: 7.5.6
   resolution: "@types/semver@npm:7.5.6"
   checksum: 10c0/196dc32db5f68cbcde2e6a42bb4aa5cbb100fa2b7bd9c8c82faaaf3e03fbe063e205dbb4f03c7cdf53da2edb70a0d34c9f2e601b54281b377eb8dc1743226acd
@@ -7514,7 +7521,7 @@ __metadata:
     "@types/pdfmake": "npm:0.2.9"
     "@types/prettier": "npm:2.7.3"
     "@types/qrcode": "npm:1.5.5"
-    "@types/semver": "npm:7.5.6"
+    "@types/semver": "npm:7.5.7"
     "@types/showdown": "npm:2.0.6"
     "@types/simpleheat": "npm:0.4.3"
     "@types/tampermonkey": "npm:5.0.2"
