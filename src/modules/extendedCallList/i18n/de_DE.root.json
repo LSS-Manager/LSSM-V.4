@@ -10,11 +10,12 @@
     "description": "Erweitert die Einsatzliste um coole Features!",
     "eventMissions": {
         "default": {
-            "❄️": [53, 428, 581, 665, 677, 787, 788, 789, 793, 794, 795],
+            "🇪🇺": [704, 705, 706, 707, 708],
+            "❄️": [53, 428, 581, 665, 677, 787, 788, 789, 793, 794, 795, 831],
             "🌞": [183, 184, 185, 461, 546, 547, 548, 646, 647, 648],
             "🌹": [
                 360, 361, 362, 363, 364, 365, 597, 598, 599, 600, 601, 602, 603,
-                604, 605
+                604, 605, 790, 791, 792, 833, 834
             ],
             "🌼": [722, 723, 724, 725, 726, 727, 728, 729, 730],
             "🍂": [672, 673, 674, 675, 676, 677, 678, 679, 680],
@@ -96,7 +97,7 @@
                 737,
                 739
             ],
-            "🥸": [710, 711, 712, 713, 714, 715, 716, 718, 719],
+            "🥸": [710, 711, 712, 713, 714, 715, 716, 717, 718, 719],
             "🧨": [
                 259,
                 "259-0",
@@ -213,7 +214,7 @@
             "title": "Einsätze teilen: Einsatztypen"
         },
         "sortMissions": {
-            "description": "Sortiere die Einsatzliste nach bestimmten Kriterien, z.B. Verdienst oder noch vorhandenen Patienten",
+            "description": "Sortiere die Einsatzliste nach bestimmten Kriterien, z. B. Verdienst oder noch vorhandenen Patienten",
             "title": "Einsätze sortieren"
         },
         "sortMissionsButtonColor": {

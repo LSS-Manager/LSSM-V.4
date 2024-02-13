@@ -1,0 +1,161 @@
+name: '[🍾] Check extendedCallList event mapping'
+run-name: '[🍾] Check extendedCallList event mapping'
+
+on:
+    workflow_dispatch:
+    schedule:
+        - cron: '0 */6 * * *'
+
+jobs:
+    eventMapping:
+        runs-on: ubuntu-latest
+        name: '[🍾] Check extendedCallList event mapping'
+        steps:
+            - name: '[📥] checkout'
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: '[🌐] extract module languages'
+              id: module_languages
+              run: |
+                  languages=`find src/modules/extendedCallList/i18n/ -type f -name '*.root.json' -printf '%f\n' | cut -d'.' -f1 | sort | tr '\n' ' '`
+                  echo "languages=${languages% }" >> "$GITHUB_OUTPUT"
+
+            - name: '[⤵️] download mission i18n files'
+              run: |
+                  mkdir -p static/missions
+                  cd static/missions
+
+                  echo "${{ steps.module_languages.outputs.languages }}" | tr ' ' '\n' | xargs -I{} echo "https://v4.lss-manager.de/missions/{}.json" | xargs curl -sSLZ --remote-name-all
+
+            - name: '[🧐] compare event missions to mission i18n files'
+              id: mission_compare
+              run: |
+                  jq -cn '{}' > static/missions/unmapped.json
+
+                  languages=`echo "${{ steps.module_languages.outputs.languages }}"`
+                  for lang in ${languages}; do
+                      echo "Extracting events for ${lang}..."
+                      jq '. | map(select(.additional.optional_event_mission and (.additional.date_end > (now | todate)))) | map(.id | tostring) | sort | unique' static/missions/${lang}.json > static/missions/${lang}.events.json
+
+                      echo "Extracting already mapped events for ${lang}..."
+                      jq '(.eventMissions.default // {}) | flatten | map(. | tostring) | sort | unique' src/modules/extendedCallList/i18n/${lang}.root.json > static/missions/${lang}.mapped.json
+
+                      echo "Getting unmapped events for ${lang}..."
+                      jq -n --slurpfile events static/missions/${lang}.events.json --slurpfile mapped static/missions/${lang}.mapped.json '($events | flatten) - ($mapped | flatten)' > static/missions/${lang}.unmapped.json
+
+                      echo "Merge unmapped events for ${lang}..."
+                      jq -cn --arg lang "${lang}" --slurpfile langfile static/missions/${lang}.unmapped.json --rawfile merged static/missions/unmapped.json '$merged | fromjson | .[$lang] = ($langfile | flatten) | del(.. | select(length == 0))' > static/missions/unmapped.tmp.json
+                      mv static/missions/unmapped.tmp.json static/missions/unmapped.json
+                  done
+
+                  echo "diffs_detected=`cat static/missions/unmapped.json`" >> "$GITHUB_OUTPUT"
+
+            - name: '[✏️] prepare issue body'
+              id: issue_body
+              uses: actions/github-script@v7
+              with:
+                  result-encoding: string
+                  script: |
+                      const { writeFileSync } = require('fs');
+
+                      const iconSuggestor = (lang, missionData) => {
+                          // find other already mapped missions with the same start/end date and suggest their icon
+                          const mappedEvents = require(`./src/modules/extendedCallList/i18n/${lang}.root.json`).eventMissions?.default ?? {};
+
+                          return (mission) => {
+                              const icons = Object.entries(mappedEvents).map(([icon, missions]) => {
+                                  const mappedMissions = missions
+                                      .map(missionId => missionData[missionId])
+                                      .filter(m => !!m)
+                                      .filter(m => m.additional.date_start === mission.additional.date_start && m.additional.date_end === mission.additional.date_end)
+                                  ;
+
+                                  return { icon, hits: mappedMissions.length };
+                              }).sort((a, b) => b.hits - a.hits);
+
+                              if (icons.length > 0 && icons[0].hits > 0) {
+                                  return icons[0].icon;
+                              }
+
+                              return '❔';
+                          };
+                      };
+
+                      const diffs = JSON.parse('${{ steps.mission_compare.outputs.diffs_detected }}');
+                      let result = '<!-- automanaged -->\n';
+
+                      if (Object.keys(diffs).length === 0) {
+                          result += '# 🍾 No unmapped missions found 🍾\n\n_This issue will be reopened automatically when unmapped missions are found._';
+                      } else {
+                          result += 'The following missions are not mapped in the `extendedCallList` module. Please map them in the respective language files.\n\n';
+
+                          for (const lang in diffs) {
+                              const missionData = require(`./static/missions/${lang}.json`);
+                              const suggestIcon = iconSuggestor(lang, missionData);
+                              const sortedMissions = diffs[lang].map(missionId => missionData[missionId]).filter(m => !!m).sort((a, b) => {
+                                  if (a.additional.date_start === b.additional.date_start) {
+                                      return a.id - b.id;
+                                  }
+
+                                  return a.additional.date_start.localeCompare(b.additional.date_start);
+                              });
+
+                              result += `<details><summary>\n\n#### [\`${lang}\`](../blob/dev/src/modules/extendedCallList/i18n/${lang}.root.json) (${diffs[lang].length} mission${diffs[lang].length > 1 ? 's' : ''})\n\n</summary>\n\n`;
+                              result += '| ID | Title | Start date | End date | Icon |\n';
+                              result += '| --- | --- | --- | --- | --- |\n';
+                              for (const mission of sortedMissions) {
+                                  result += `| \`${mission.id}\` | \`${mission.name}\` | \`${mission.additional.date_start}\` | \`${mission.additional.date_end}\` | ${suggestIcon(mission)} |\n`;
+                              }
+                              result += '\n</details>\n';
+                          }
+                      }
+
+                      writeFileSync('body.txt', result);
+
+            - name: '[🔍] find existing issue'
+              id: issue_exists
+              uses: actions-cool/issues-helper@v3
+              with:
+                  actions: 'find-issues'
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  issue-state: 'all'
+                  body-includes: '<!-- automanaged -->'
+                  title-includes: '🩹 [extendedCallList] Unmapped event missions'
+
+            - name: '[✨] create new issue'
+              id: issue_create
+              if: ${{ steps.mission_compare.outputs.diffs_detected != '{}' && steps.issue_exists.outputs.issues == '[]' }}
+              uses: actions/github-script@v7
+              with:
+                  script: |
+                      const { readFileSync } = require('fs');
+
+                      const title = '🩹 [extendedCallList] Unmapped event missions';
+                      const existingIssue = context.payload.issue;
+                      const issue = await github.rest.issues.create({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          title: title,
+                          body: readFileSync('body.txt').toString()
+                      });
+
+                      return issue.data.number;
+
+            - name: '[✏️] update issue'
+              if: ${{ steps.issue_create.outputs.result || steps.issue_exists.outputs.issues != '[]' }}
+              uses: actions/github-script@v7
+              with:
+                  script: |
+                      const { readFileSync } = require('fs');
+
+                      const title = '🩹 [extendedCallList] Unmapped event missions';
+                      const existingIssue = context.payload.issue;
+                      const issue = await github.rest.issues.update({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          issue_number: ${{ steps.issue_create.outputs.result || (fromJSON(steps.issue_exists.outputs.issues)[0].number) }},
+                          state: '${{ steps.mission_compare.outputs.diffs_detected }}' === '{}' ? 'closed' : 'open',
+                          body: readFileSync('body.txt').toString()
+                      });
