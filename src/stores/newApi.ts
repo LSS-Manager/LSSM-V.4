@@ -20,8 +20,8 @@ import VehiclesWorker, {
 } from '@workers/stores/api/vehicles.worker';
 
 import type { Building } from 'typings/Building';
-import type { RadioMessage } from 'typings/Ingame';
 import type { Vehicle } from 'typings/Vehicle';
+import type { BuildingMarkerAdd, RadioMessage } from 'typings/Ingame';
 
 // TODO: Switch to Maps instead of plain objects after switching to Vue3 (Vue2 does not support Maps without some hacks)
 export interface APIs {
@@ -66,7 +66,10 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         Object.values(apiStorage.vehicles.value)
     );
     const vehicleStates = ref<VehicleStates>({});
-    const vehiclesByTarget = ref<VehiclesByTarget>({});
+    const vehiclesByTarget = ref<VehiclesByTarget>({
+        building: {},
+        mission: {},
+    });
     const vehiclesByType = ref<VehiclesByType>({});
     const vehiclesByBuilding = ref<VehiclesByBuilding>({});
     const vehiclesByDispatchCenter = ref<VehiclesByDispatchCenter>({});
@@ -245,7 +248,8 @@ export const defineNewAPIStore = defineStore('newApi', () => {
             radioMessage.user_id !== window.user_id
         )
             return;
-        // we're going to update caption, fms, fms_real, target_type and target_id
+
+        // we're going to update caption, fms, fms_real, target_type, target_id and building
         const vehicle = apiStorage.vehicles.value[radioMessage.id];
         // TODO: fetch this vehicle instead
         if (!vehicle) return;
@@ -259,16 +263,16 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         vehicle.fms_show = radioMessage.fms;
         // update target_type and target_id
         if (vehicle.target_type && vehicle.target_id) {
-            const index =
-                vehiclesByTarget.value[vehicle.target_type]?.[
-                    vehicle.target_id
-                ]?.findIndex(v => v.id === vehicle.id) ?? -1;
-            if (index > -1) {
-                vehiclesByTarget.value[vehicle.target_type]?.[
-                    vehicle.target_id
-                ]?.splice(index, 1);
-            }
+            delete vehiclesByTarget.value[vehicle.target_type][
+                vehicle.target_id
+            ][vehicle.id];
+            if (
+                Object.values(vehiclesByTarget.value[vehicle.target_type])
+                    .length === 0
+            )
+                delete vehiclesByTarget.value[vehicle.target_type];
         }
+
         vehicle.target_type = radioMessage.target_building_id
             ? 'building'
             : radioMessage.mission_id
@@ -279,35 +283,50 @@ export const defineNewAPIStore = defineStore('newApi', () => {
                 ? radioMessage.target_building_id
                 : radioMessage.mission_id;
         if (vehicle.target_type && vehicle.target_id) {
-            vehiclesByTarget.value[vehicle.target_type] ||= {};
-            vehiclesByTarget.value[vehicle.target_type]![vehicle.target_id] ||=
-                [];
-            vehiclesByTarget.value[vehicle.target_type]![
-                vehicle.target_id
-            ]?.push(vehicle);
+            vehiclesByTarget.value[vehicle.target_type][vehicle.target_id][
+                vehicle.id
+            ] = vehicle;
         }
-        // now also update vehiclesByBuilding and vehiclesByType
-        const buildingIndex =
-            vehiclesByBuilding.value[vehicle.building_id]?.findIndex(
-                v => v.id === vehicle.id
-            ) ?? -1;
-        if (buildingIndex > -1) {
-            vehiclesByBuilding.value[vehicle.building_id]?.splice(
-                buildingIndex,
-                1
-            );
+        // now also update vehiclesByBuilding
+        if (vehicle.building_id !== radioMessage.target_building_id) {
+            delete vehiclesByBuilding.value[vehicle.building_id][vehicle.id];
+            vehiclesByBuilding.value[vehicle.building_id] ||= {};
+            vehiclesByBuilding.value[vehicle.building_id][vehicle.id] = vehicle;
+            if (
+                Object.values(vehiclesByBuilding.value[vehicle.building_id])
+                    .length === 0
+            )
+                delete vehiclesByBuilding.value[vehicle.building_id];
+            vehicle.building_id = radioMessage.target_building_id;
         }
-        vehiclesByBuilding.value[vehicle.building_id] ||= [];
-        vehiclesByBuilding.value[vehicle.building_id]?.push(vehicle);
-        const typeIndex =
-            vehiclesByType.value[vehicle.vehicle_type]?.findIndex(
-                v => v.id === vehicle.id
-            ) ?? -1;
-        if (typeIndex > -1)
-            vehiclesByType.value[vehicle.vehicle_type]?.splice(typeIndex, 1);
+    };
 
-        vehiclesByType.value[vehicle.vehicle_type] ||= [];
-        vehiclesByType.value[vehicle.vehicle_type]?.push(vehicle);
+    const updateBuildingFromBuildingMarkerAdd = (
+        buildingMarker: BuildingMarkerAdd
+    ) => {
+        // if it is not our building, ignore it
+        // TODO: Alliance buildings?
+        if (buildingMarker.user_id !== window.user_id) return;
+
+        // we're going to update caption, longitude and latitude, leitstelle_building_id
+        const building = apiStorage.buildings.value[buildingMarker.id];
+        // TODO: fetch this building instead
+        if (!building) return;
+        // update caption
+        building.caption = buildingMarker.name;
+        // update longitude and latitude
+        building.longitude = buildingMarker.longitude;
+        building.latitude = buildingMarker.latitude;
+        // update leitstelle_building_id
+        if (building.leitstelle_building_id === buildingMarker.lbid) {
+            const leitstelle = building.leitstelle_building_id ?? -1;
+            delete buildingsByDispatchCenter.value[leitstelle][building.id];
+            building.leitstelle_building_id = buildingMarker.lbid;
+            const newLeitstelle = buildingMarker.lbid ?? -1;
+            buildingsByDispatchCenter.value[newLeitstelle] ||= {};
+            buildingsByDispatchCenter.value[newLeitstelle][building.id] =
+                building;
+        }
     };
 
     return {
@@ -339,6 +358,7 @@ export const defineNewAPIStore = defineStore('newApi', () => {
             ),
         // mutations: update API data from ingame events
         updateVehicleFromRadioMessage,
+        updateBuildingFromBuildingMarkerAdd,
     };
 });
 
