@@ -41,18 +41,45 @@
                 </div>
             </template>
         </notifications>
+        <b>Array</b>
+        <pre>{{ JSON.stringify(newApiStore.vehiclesArray) }}</pre>
+        <b>Object</b>
+        <pre>{{ JSON.stringify(newApiStore.vehicles) }}</pre>
+        <b>vehicleStates</b>
+        <pre>{{ JSON.stringify(newApiStore.vehicleStates) }}</pre>
+        <b>vehiclesByBuilding</b>
+        <pre>{{ JSON.stringify(newApiStore.vehiclesByBuilding) }}</pre>
+        <b>vehiclesByTarget</b>
+        <pre>{{ JSON.stringify(newApiStore.vehiclesByTarget) }}</pre>
+        <b>vehiclesByType</b>
+        <pre>{{ JSON.stringify(newApiStore.vehiclesByType) }}</pre>
+        <b>vehiclesByDispatchCenter</b>
+        <pre>{{ JSON.stringify(newApiStore.vehiclesByDispatchCenter) }}</pre>
+        <hr />
+        <b>Array</b>
+        <pre>{{ JSON.stringify(newApiStore.buildingsArray) }}</pre>
+        <b>Object</b>
+        <pre>{{ JSON.stringify(newApiStore.buildings) }}</pre>
+        <b>buildingsByType</b>
+        <pre>{{ JSON.stringify(newApiStore.buildingsByType) }}</pre>
+        <b>buildingsByDispatchCenter</b>
+        <pre>{{ JSON.stringify(newApiStore.buildingsByDispatchCenter) }}</pre>
+        <b>buildingsByCategory</b>
+        <pre>{{ JSON.stringify(newApiStore.buildingsByCategory) }}</pre>
     </div>
 </template>
 
 <script setup lang="ts">
 import { getCurrentInstance, onMounted } from 'vue';
 
+import { useNewAPIStore } from '@stores/newApi';
 import { useNotificationStore } from '@stores/notifications';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 
 const rootStore = useRootStore();
 const notificationStore = useNotificationStore();
+const newApiStore = useNewAPIStore();
 
 const id = rootStore.nodeAttribute('app', true);
 const clickHandler = (props, $event) =>

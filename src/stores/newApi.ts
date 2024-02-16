@@ -11,12 +11,14 @@ import BuildingsWorker, {
     type BuildingsByDispatchCenter,
     type BuildingsByType,
 } from '@workers/stores/api/buildings.worker';
-import VehiclesWorker, {
+import {
+    FetchSingleVehicleWorker,
     type VehiclesByBuilding,
     type VehiclesByDispatchCenter,
     type VehiclesByTarget,
     type VehiclesByType,
     type VehicleStates,
+    VehiclesWorker,
 } from '@workers/stores/api/vehicles.worker';
 
 import type { Building } from 'typings/Building';
@@ -238,10 +240,98 @@ export const defineNewAPIStore = defineStore('newApi', () => {
     };
 
     /**
+     * Update the vehicle store from the information of a single (potentially updated or new) vehicle.
+     * @param vehicle - The vehicle that may be new or updated.
+     * @returns The updated vehicle.
+     */
+    const _updateVehicle = (vehicle: Vehicle) => {
+        const oldVehicle = apiStorage.vehicles.value[vehicle.id];
+
+        // if the vehicle existed before, remove it from the fake computed values if needed
+        if (oldVehicle) {
+            if (oldVehicle.fms_real !== vehicle.fms_real)
+                vehicleStates.value[oldVehicle.fms_real]--;
+
+            if (
+                oldVehicle.target_type &&
+                oldVehicle.target_id &&
+                (oldVehicle.target_type !== vehicle.target_type ||
+                    oldVehicle.target_id !== vehicle.target_id)
+            ) {
+                delete vehiclesByTarget.value[oldVehicle.target_type][
+                    oldVehicle.target_id
+                ][vehicle.id];
+                if (
+                    Object.values(
+                        vehiclesByTarget.value[oldVehicle.target_type]
+                    ).length === 0
+                )
+                    delete vehiclesByTarget.value[oldVehicle.target_type];
+            }
+
+            if (oldVehicle.building_id !== vehicle.building_id) {
+                delete vehiclesByBuilding.value[oldVehicle.building_id][
+                    oldVehicle.id
+                ];
+                if (
+                    Object.values(
+                        vehiclesByBuilding.value[oldVehicle.building_id]
+                    ).length === 0
+                )
+                    delete vehiclesByBuilding.value[oldVehicle.building_id];
+
+                // TODO: vehiclesByDispatchCenter
+            }
+        }
+
+        // update the fake computed values
+        vehicleStates.value[vehicle.fms_real] ||= 0;
+        vehicleStates.value[vehicle.fms_real]++;
+
+        if (vehicle.target_type && vehicle.target_id) {
+            vehiclesByTarget.value[vehicle.target_type][vehicle.target_id] ||=
+                {};
+            vehiclesByTarget.value[vehicle.target_type][vehicle.target_id][
+                vehicle.id
+            ] = vehicle;
+        }
+
+        if (!oldVehicle || oldVehicle.building_id !== vehicle.building_id) {
+            vehiclesByBuilding.value[vehicle.building_id] ||= {};
+            vehiclesByBuilding.value[vehicle.building_id][vehicle.id] = vehicle;
+        }
+
+        // TODO: vehiclesByDispatchCenter
+
+        // update the vehicle in the store
+        apiStorage.vehicles.value[vehicle.id] = vehicle;
+
+        // reassign values due to reactivity
+        // TODO: Not necessary anymore with Maps and Sets (Vue3)
+        apiStorage.vehicles.value = Object.assign(
+            {},
+            apiStorage.vehicles.value
+        );
+        vehicleStates.value = Object.assign({}, vehicleStates.value);
+        vehiclesByType.value = Object.assign({}, vehiclesByType.value);
+        vehiclesByTarget.value = Object.assign({}, vehiclesByTarget.value);
+        vehiclesByBuilding.value = Object.assign({}, vehiclesByBuilding.value);
+        vehiclesByDispatchCenter.value = Object.assign(
+            {},
+            vehiclesByDispatchCenter.value
+        );
+
+        return vehicle;
+    };
+
+    /**
      * Update the vehicle store from a radio message.
      * @param radioMessage - The radio message to update the vehicle store from.
+     * @returns A promise that resolves when the update is finished.
      */
-    const updateVehicleFromRadioMessage = (radioMessage: RadioMessage) => {
+    const updateVehicleFromRadioMessage = async (
+        radioMessage: RadioMessage
+    ) => {
         // if not a vehicle fms message or not from the current user, ignore
         if (
             radioMessage.type !== 'vehicle_fms' ||
@@ -249,30 +339,23 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         )
             return;
 
-        // we're going to update caption, fms, fms_real, target_type, target_id and building
-        const vehicle = apiStorage.vehicles.value[radioMessage.id];
+        // we're going to update caption, fms, fms_real, target_type and target_id
+        const vehicle = structuredClone(
+            apiStorage.vehicles.value[radioMessage.id]
+        );
         // TODO: fetch this vehicle instead
-        if (!vehicle) return;
+        if (!vehicle) {
+            return FetchSingleVehicleWorker.run(
+                radioMessage.id,
+                _getRequestInit({}, 'updateVehicleFromRadioMessage')
+            ).then(vehicle => _updateVehicle(vehicle));
+        }
         // update caption
         vehicle.caption = radioMessage.caption;
         // update fms and fms_real
-        vehicleStates.value[vehicle.fms_real]--;
         vehicle.fms_real = radioMessage.fms_real;
-        vehicleStates.value[vehicle.fms_real] ||= 0;
-        vehicleStates.value[vehicle.fms_real]++;
         vehicle.fms_show = radioMessage.fms;
         // update target_type and target_id
-        if (vehicle.target_type && vehicle.target_id) {
-            delete vehiclesByTarget.value[vehicle.target_type][
-                vehicle.target_id
-            ][vehicle.id];
-            if (
-                Object.values(vehiclesByTarget.value[vehicle.target_type])
-                    .length === 0
-            )
-                delete vehiclesByTarget.value[vehicle.target_type];
-        }
-
         vehicle.target_type = radioMessage.target_building_id
             ? 'building'
             : radioMessage.mission_id
@@ -282,23 +365,8 @@ export const defineNewAPIStore = defineStore('newApi', () => {
             vehicle.target_type === 'building'
                 ? radioMessage.target_building_id
                 : radioMessage.mission_id;
-        if (vehicle.target_type && vehicle.target_id) {
-            vehiclesByTarget.value[vehicle.target_type][vehicle.target_id][
-                vehicle.id
-            ] = vehicle;
-        }
-        // now also update vehiclesByBuilding
-        if (vehicle.building_id !== radioMessage.target_building_id) {
-            delete vehiclesByBuilding.value[vehicle.building_id][vehicle.id];
-            vehiclesByBuilding.value[vehicle.building_id] ||= {};
-            vehiclesByBuilding.value[vehicle.building_id][vehicle.id] = vehicle;
-            if (
-                Object.values(vehiclesByBuilding.value[vehicle.building_id])
-                    .length === 0
-            )
-                delete vehiclesByBuilding.value[vehicle.building_id];
-            vehicle.building_id = radioMessage.target_building_id;
-        }
+
+        return _updateVehicle(vehicle);
     };
 
     const updateBuildingFromBuildingMarkerAdd = (
@@ -350,6 +418,10 @@ export const defineNewAPIStore = defineStore('newApi', () => {
             // for legacy reasons, optionally return the vehicles as an array
             _getStoredOrFetch('vehicles', feature).then(vehicles =>
                 returnAsArray ? vehiclesArray.value : vehicles
+            ),
+        getVehicle: (id: number, feature: string) =>
+            FetchSingleVehicleWorker.run(id, _getRequestInit({}, feature)).then(
+                _updateVehicle
             ),
         getBuildings: (feature: string, returnAsArray = false) =>
             // for legacy reasons, optionally return the buildings as an array

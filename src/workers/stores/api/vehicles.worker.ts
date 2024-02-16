@@ -20,7 +20,8 @@ export type VehiclesByDispatchCenter = Record<
     ExcludeNull<Building['leitstelle_building_id']> | -1,
     VehicleList
 >; // Map<Building['leitstelle_building_id'], Set<Vehicle>>;
-export default new TypedWorker(
+
+export const VehiclesWorker = new TypedWorker(
     'api/vehicles.worker',
     async (vehicles: APIs['vehicles'], buildings: APIs['buildings']) => {
         const vehiclesArray = Object.values(vehicles);
@@ -77,5 +78,29 @@ export default new TypedWorker(
             vehiclesByBuilding,
             vehiclesByDispatchCenter,
         };
+    }
+);
+
+export const FetchSingleVehicleWorker = new TypedWorker(
+    'api/vehicles.single.worker',
+    async (vehicleId: Vehicle['id'], init: RequestInit): Promise<Vehicle> => {
+        const headers = new Headers(init.headers);
+
+        // CAVEAT: headers are stored lowercase
+        // if the LSSM-Header is not set, abort the request!
+        if (!headers.has('x-lss-manager')) {
+            return Promise.reject(
+                new Error(
+                    'No X-LSS-Manager Header has been set. Aborting the request!'
+                )
+            );
+        }
+
+        // TODO: switch to API V2 here
+
+        return fetch(
+            new URL(`/api/vehicles/${vehicleId}`, location.origin),
+            init
+        ).then(res => res.json());
     }
 );

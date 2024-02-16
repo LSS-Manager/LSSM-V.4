@@ -158,6 +158,9 @@ export default async (LSSM: Vue): Promise<void> => {
         event: 'buildingMarkerAdd',
         callback(buildingMarker: BuildingMarkerAdd) {
             if (buildingMarker.user_id !== window.user_id) return;
+            LSSM.$stores.newApi.updateBuildingFromBuildingMarkerAdd(
+                buildingMarker
+            );
             const buildings = LSSM.$stores.api.buildings;
             const building = buildings.find(
                 ({ id }) => id === buildingMarker.id
