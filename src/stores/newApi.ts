@@ -5,11 +5,14 @@ import type Vue from 'vue';
 
 import { defineStore } from 'pinia';
 import FetchApiWorker from '@workers/stores/api/fetchApi.worker';
+import he from 'he';
 import { useTranslationStore } from '@stores/translationUtilities';
-import BuildingsWorker, {
+import {
     type BuildingsByCategory,
     type BuildingsByDispatchCenter,
     type BuildingsByType,
+    BuildingsWorker,
+    FetchSingleBuildingWorker,
 } from '@workers/stores/api/buildings.worker';
 import {
     FetchSingleVehicleWorker,
@@ -144,7 +147,7 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         } else if (api === 'buildings') {
             const calculations = await BuildingsWorker.run(
                 apiStorage.buildings.value,
-                useTranslationStore().buildingCategories,
+                useTranslationStore().buildingCategoryByType,
                 vehiclesArray.value
             );
             buildingsByType.value = calculations.buildingsByType;
@@ -280,7 +283,12 @@ export const defineNewAPIStore = defineStore('newApi', () => {
                 )
                     delete vehiclesByBuilding.value[oldVehicle.building_id];
 
-                // TODO: vehiclesByDispatchCenter
+                const building =
+                    apiStorage.buildings.value[oldVehicle.building_id];
+                const leitstelle = building?.leitstelle_building_id ?? -1;
+                delete vehiclesByDispatchCenter.value[leitstelle][
+                    oldVehicle.id
+                ];
             }
         }
 
@@ -296,12 +304,16 @@ export const defineNewAPIStore = defineStore('newApi', () => {
             ] = vehicle;
         }
 
-        if (!oldVehicle || oldVehicle.building_id !== vehicle.building_id) {
-            vehiclesByBuilding.value[vehicle.building_id] ||= {};
-            vehiclesByBuilding.value[vehicle.building_id][vehicle.id] = vehicle;
-        }
+        vehiclesByType.value[vehicle.vehicle_type] ||= {};
+        vehiclesByType.value[vehicle.vehicle_type][vehicle.id] = vehicle;
 
-        // TODO: vehiclesByDispatchCenter
+        vehiclesByBuilding.value[vehicle.building_id] ||= {};
+        vehiclesByBuilding.value[vehicle.building_id][vehicle.id] = vehicle;
+
+        const building = apiStorage.buildings.value[vehicle.building_id];
+        const leitstelle = building?.leitstelle_building_id ?? -1;
+        vehiclesByDispatchCenter.value[leitstelle] ||= {};
+        vehiclesByDispatchCenter.value[leitstelle][vehicle.id] = vehicle;
 
         // update the vehicle in the store
         apiStorage.vehicles.value[vehicle.id] = vehicle;
@@ -343,13 +355,13 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         const vehicle = structuredClone(
             apiStorage.vehicles.value[radioMessage.id]
         );
-        // TODO: fetch this vehicle instead
         if (!vehicle) {
             return FetchSingleVehicleWorker.run(
                 radioMessage.id,
                 _getRequestInit({}, 'updateVehicleFromRadioMessage')
-            ).then(vehicle => _updateVehicle(vehicle));
+            ).then(_updateVehicle);
         }
+
         // update caption
         vehicle.caption = radioMessage.caption;
         // update fms and fms_real
@@ -369,6 +381,62 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         return _updateVehicle(vehicle);
     };
 
+    const _updateBuilding = (building: Building) => {
+        const oldBuilding = apiStorage.buildings.value[building.id];
+
+        // if the building existed before, remove it from the fake computed values if needed
+        if (oldBuilding) {
+            if (
+                oldBuilding.leitstelle_building_id !==
+                building.leitstelle_building_id
+            ) {
+                const leitstelle = oldBuilding.leitstelle_building_id ?? -1;
+                delete buildingsByDispatchCenter.value[leitstelle][building.id];
+                if (
+                    Object.values(buildingsByDispatchCenter.value[leitstelle])
+                        .length === 0
+                )
+                    delete buildingsByDispatchCenter.value[leitstelle];
+            }
+        }
+
+        // update the fake computed values
+        buildingsByType.value[building.building_type] ||= {};
+        buildingsByType.value[building.building_type][building.id] = building;
+
+        const leitstelle = building.leitstelle_building_id ?? -1;
+        buildingsByDispatchCenter.value[leitstelle] ||= {};
+        buildingsByDispatchCenter.value[leitstelle][building.id] = building;
+
+        const category =
+            useTranslationStore().buildingCategoryByType[
+                building.building_type
+            ];
+        buildingsByCategory.value[category] ||= {};
+        buildingsByCategory.value[category][building.id] = building;
+
+        // update the building in the store
+        apiStorage.buildings.value[building.id] = building;
+
+        // reassign values due to reactivity
+        // TODO: Not necessary anymore with Maps and Sets (Vue3)
+        apiStorage.buildings.value = Object.assign(
+            {},
+            apiStorage.buildings.value
+        );
+        buildingsByType.value = Object.assign({}, buildingsByType.value);
+        buildingsByDispatchCenter.value = Object.assign(
+            {},
+            buildingsByDispatchCenter.value
+        );
+        buildingsByCategory.value = Object.assign(
+            {},
+            buildingsByCategory.value
+        );
+
+        return building;
+    };
+
     const updateBuildingFromBuildingMarkerAdd = (
         buildingMarker: BuildingMarkerAdd
     ) => {
@@ -378,23 +446,22 @@ export const defineNewAPIStore = defineStore('newApi', () => {
 
         // we're going to update caption, longitude and latitude, leitstelle_building_id
         const building = apiStorage.buildings.value[buildingMarker.id];
-        // TODO: fetch this building instead
-        if (!building) return;
+        if (!building) {
+            return FetchSingleBuildingWorker.run(
+                buildingMarker.id,
+                _getRequestInit({}, 'updateBuildingFromBuildingMarkerAdd')
+            ).then(_updateBuilding);
+        }
+
         // update caption
-        building.caption = buildingMarker.name;
+        building.caption = he.decode(buildingMarker.name);
         // update longitude and latitude
         building.longitude = buildingMarker.longitude;
         building.latitude = buildingMarker.latitude;
         // update leitstelle_building_id
-        if (building.leitstelle_building_id === buildingMarker.lbid) {
-            const leitstelle = building.leitstelle_building_id ?? -1;
-            delete buildingsByDispatchCenter.value[leitstelle][building.id];
-            building.leitstelle_building_id = buildingMarker.lbid;
-            const newLeitstelle = buildingMarker.lbid ?? -1;
-            buildingsByDispatchCenter.value[newLeitstelle] ||= {};
-            buildingsByDispatchCenter.value[newLeitstelle][building.id] =
-                building;
-        }
+        building.leitstelle_building_id = buildingMarker.lbid;
+
+        return _updateBuilding(building);
     };
 
     return {
@@ -428,6 +495,11 @@ export const defineNewAPIStore = defineStore('newApi', () => {
             _getStoredOrFetch('buildings', feature).then(buildings =>
                 returnAsArray ? buildingsArray.value : buildings
             ),
+        getBuilding: (id: number, feature: string) =>
+            FetchSingleBuildingWorker.run(
+                id,
+                _getRequestInit({}, feature)
+            ).then(_updateBuilding),
         // mutations: update API data from ingame events
         updateVehicleFromRadioMessage,
         updateBuildingFromBuildingMarkerAdd,

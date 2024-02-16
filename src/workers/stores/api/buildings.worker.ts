@@ -1,9 +1,9 @@
 import TypedWorker from '@workers/TypedWorker';
 
 import type { APIs } from '@stores/newApi';
+import type { Building } from 'typings/Building';
 import type { Vehicle } from 'typings/Vehicle';
 import type { VehiclesByDispatchCenter } from '@workers/stores/api/vehicles.worker';
-import type { Building, BuildingCategory } from 'typings/Building';
 
 type ExcludeNull<T> = Exclude<T, null>;
 
@@ -17,21 +17,13 @@ export type BuildingsByDispatchCenter = Record<
 >; // Map<Building['leitstelle_building_id'], Set<Building>>
 export type BuildingsByCategory = Record<string, BuildingList>; // Map<string, Set<Building>>
 
-export default new TypedWorker(
+export const BuildingsWorker = new TypedWorker(
     'api/buildings.worker',
     async (
         buildings: APIs['buildings'],
-        buildingCategories: Record<string, BuildingCategory>,
+        buildingCategoryByType: Record<Building['building_type'], string>,
         vehicles: Vehicle[]
     ) => {
-        const categoryByType: Record<Building['building_type'], string> = {};
-        for (const [category, { buildings }] of Object.entries(
-            buildingCategories
-        )) {
-            for (const building of buildings)
-                categoryByType[building] = category;
-        }
-
         const buildingsArray = Object.values(buildings);
         const buildingsByType: BuildingsByType = {};
         const buildingsByDispatchCenter: BuildingsByDispatchCenter = {};
@@ -51,8 +43,9 @@ export default new TypedWorker(
             buildingsByDispatchCenter[leitstelle][id] = building;
 
             // by category
-            buildingsByCategory[categoryByType[building_type]] ||= {};
-            buildingsByCategory[categoryByType[building_type]][id] = building;
+            buildingsByCategory[buildingCategoryByType[building_type]] ||= {};
+            buildingsByCategory[buildingCategoryByType[building_type]][id] =
+                building;
         }
 
         for (const vehicle of vehicles) {
@@ -72,5 +65,30 @@ export default new TypedWorker(
             buildingsByCategory,
             vehiclesByDispatchCenter,
         };
+    }
+);
+
+export const FetchSingleBuildingWorker = new TypedWorker(
+    'api/buildings.single.worker',
+    async (
+        buildingId: Building['id'],
+        init: RequestInit
+    ): Promise<Building> => {
+        const headers = new Headers(init.headers);
+
+        // CAVEAT: headers are stored lowercase
+        // if the LSSM-Header is not set, abort the request!
+        if (!headers.has('x-lss-manager')) {
+            return Promise.reject(
+                new Error(
+                    'No X-LSS-Manager Header has been set. Aborting the request!'
+                )
+            );
+        }
+
+        return fetch(
+            new URL(`/api/buildings/${buildingId}`, location.origin),
+            init
+        ).then(res => res.json());
     }
 );
