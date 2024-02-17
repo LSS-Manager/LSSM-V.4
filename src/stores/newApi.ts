@@ -23,8 +23,13 @@ import {
     type VehicleStates,
     VehiclesWorker,
 } from '@workers/stores/api/vehicles.worker';
+import MissionsWorker, {
+    type MissionsArray,
+    type MissionsById,
+} from '@workers/stores/api/missionTypes.worker';
 
 import type { Building } from 'typings/Building';
+import type { Mission } from 'typings/Mission';
 import type { Vehicle } from 'typings/Vehicle';
 import type { BuildingMarkerAdd, RadioMessage } from 'typings/Ingame';
 
@@ -481,6 +486,7 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         buildingsByDispatchCenter,
         buildingsByCategory,
         // actions: get API data
+        // vehicles
         getVehicles: (feature: string, returnAsArray = false) =>
             // for legacy reasons, optionally return the vehicles as an array
             _getStoredOrFetch('vehicles', feature).then(vehicles =>
@@ -490,6 +496,7 @@ export const defineNewAPIStore = defineStore('newApi', () => {
             FetchSingleVehicleWorker.run(id, _getRequestInit({}, feature)).then(
                 _updateVehicle
             ),
+        // buildings
         getBuildings: (feature: string, returnAsArray = false) =>
             // for legacy reasons, optionally return the buildings as an array
             _getStoredOrFetch('buildings', feature).then(buildings =>
@@ -500,6 +507,22 @@ export const defineNewAPIStore = defineStore('newApi', () => {
                 id,
                 _getRequestInit({}, feature)
             ).then(_updateBuilding),
+        // missionTypes
+        getMissionTypes: (feature: string): Promise<MissionsById> =>
+            MissionsWorker.run(
+                window.I18n.locale,
+                _getRequestInit({}, feature)
+            ).then(({ missions }) => missions),
+        getMissionType: (id: string, feature: string): Promise<Mission> =>
+            MissionsWorker.run(
+                window.I18n.locale,
+                _getRequestInit({}, feature)
+            ).then(({ missions }) => missions[id]),
+        getMissionsTypesArray: (feature: string): Promise<MissionsArray> =>
+            MissionsWorker.run(
+                window.I18n.locale,
+                _getRequestInit({}, feature)
+            ).then(({ missionArray }) => missionArray),
         // mutations: update API data from ingame events
         updateVehicleFromRadioMessage,
         updateBuildingFromBuildingMarkerAdd,

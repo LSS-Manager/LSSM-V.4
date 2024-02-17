@@ -2,23 +2,41 @@ export default class TypedWorker<Args extends unknown[] = [], Return = void> {
     private readonly function: (...args: Args) => Return;
     private readonly workerName: string;
 
-    private blob: string = '';
     private worker: SharedWorker | null = null;
+
+    // it is a good idea to use the topmost window to create the object URL as that allows the worker to exist as long as possible
+    private readonly top = window.top ?? window.parent ?? window;
 
     constructor(workerName: string, fn: (...args: Args) => Return) {
         this.workerName = `${PREFIX}:worker:${workerName}`;
         this.function = fn;
+
+        if (this.blob) {
+            fetch(this.blob)
+                .then(res => {
+                    if (!res.ok) this.revokeBlob();
+                })
+                .catch(() => this.revokeBlob());
+        }
+    }
+
+    private get blob() {
+        return localStorage.getItem(this.workerName) ?? '';
+    }
+
+    private set blob(value) {
+        localStorage.setItem(this.workerName, value);
+    }
+
+    private revokeBlob() {
+        if (this.blob) this.top.URL.revokeObjectURL(this.blob);
+
+        this.worker = null;
+        localStorage.removeItem(this.workerName);
     }
 
     private getBlob() {
         if (this.blob) return this.blob;
-
-        const storageName = this.workerName;
-        const storedBlob = localStorage.getItem(storageName);
-        if (storedBlob) {
-            this.blob = storedBlob;
-            return this.blob;
-        }
 
         const blob = new Blob(
             [
@@ -45,21 +63,22 @@ ${this.function.toString()}
             ],
             { type: 'application/javascript' }
         );
+        this.blob = this.top.URL.createObjectURL(blob);
 
-        this.blob = URL.createObjectURL(blob);
-
-        localStorage.setItem(storageName, this.blob);
-        window.addEventListener('beforeunload', () =>
-            localStorage.removeItem(storageName)
-        );
+        this.top.addEventListener('beforeunload', () => this.revokeBlob());
+        this.top.addEventListener('unload', () => this.revokeBlob());
 
         return this.blob;
     }
 
     run(...args: Args): Promise<Awaited<Return>> {
         // create a new SharedWorker if the worker doesn't exist yet
-        if (!this.worker)
-            this.worker = new SharedWorker(this.getBlob(), this.workerName);
+        if (!this.worker) {
+            this.worker = new this.top.SharedWorker(
+                this.getBlob(),
+                this.workerName
+            );
+        }
 
         return new Promise<Awaited<Return>>((resolve, reject) => {
             // this is a backup for the case the worker is not initialized (anymore)
