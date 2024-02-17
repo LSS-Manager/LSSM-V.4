@@ -17,7 +17,10 @@ export default async (
 
     if (missionType === '-1') return;
 
-    const mission = LSSM.$stores.api.missions[missionType];
+    const mission = await LSSM.$stores.newApi.getMissionType(
+        missionType,
+        'ecw-mk'
+    );
 
     const addLabel = (
         text: string,

@@ -70,6 +70,8 @@ export const VehiclesWorker = new TypedWorker(
             }
         }
 
+        // TODO: participatedMissions
+
         return {
             vehiclesArray,
             vehicleStates,

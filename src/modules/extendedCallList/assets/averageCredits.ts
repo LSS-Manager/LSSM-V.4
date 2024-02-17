@@ -4,14 +4,16 @@ import type {
     ProgressPrependCallback,
 } from './utils/progressPrepend';
 
-export default (
+export default async (
     LSSM: Vue,
     MODULE_ID: string
-): {
+): Promise<{
     addAverageCredits(mission: ProgressPrependCallback): number;
     updateAverageCredits(mission: MissionUpdateCallback): void;
-} => {
-    const missionsById = LSSM.$stores.api.missions;
+}> => {
+    const missionsById = await LSSM.$stores.newApi.getMissionTypes(
+        `${MODULE_ID}-averageCredits`
+    );
 
     const wrapperClass = LSSM.$stores.root.nodeAttribute(
         `${MODULE_ID}_average-credits_wrapper`

@@ -489,11 +489,11 @@
                                 </template>
                             </template>
                             <template v-else-if="col === 'credits'">
-                                <template v-if="apiStore.missions[item.type]">
+                                <template v-if="missionTypes[item.type]">
                                     ~
                                     {{
                                         (
-                                            apiStore.missions[item.type]
+                                            missionTypes[item.type]
                                                 .average_credits ?? 0
                                         ).toLocaleString()
                                     }}
@@ -658,6 +658,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
 import { mapState } from 'pinia';
+import { useNewAPIStore } from '@stores/newApi';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 import { defineAPIStore, useAPIStore } from '@stores/api';
@@ -801,6 +802,7 @@ export default Vue.extend<
             settingsStore: useSettingsStore(),
             starredMissionsEnabled: false,
             starredMissions: [],
+            missionTypes: {},
         };
     },
     computed: {
@@ -1027,7 +1029,7 @@ export default Vue.extend<
                         ),
                         credits:
                             'type' in item
-                                ? this.apiStore.missions[item.type]
+                                ? this.missionTypes[item.type]
                                       ?.average_credits ?? 0
                                 : Number.MAX_SAFE_INTEGER,
                         progress: 'progress' in item ? item.progress.width : 0,
@@ -1066,8 +1068,7 @@ export default Vue.extend<
                 } else if (sort === 'credits') {
                     sortValue =
                         'type' in item
-                            ? this.apiStore.missions[item.type]
-                                  ?.average_credits ?? 0
+                            ? this.missionTypes[item.type]?.average_credits ?? 0
                             : Number.MAX_SAFE_INTEGER;
                 } else if (sort === 'progress') {
                     sortValue =
@@ -1728,6 +1729,10 @@ export default Vue.extend<
     },
     mounted() {
         this.updateStarredMissions().then();
+
+        useNewAPIStore()
+            .getMissionTypes('redesign-vehicle')
+            .then(missionTypes => (this.missionTypes = missionTypes));
 
         this.lightbox.setHotkeyRedesignParam('vehicles', this.hotkeysParam);
         this.lightbox.finishLoading('vehicle-mounted');

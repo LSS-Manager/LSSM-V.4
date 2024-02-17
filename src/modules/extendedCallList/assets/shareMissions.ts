@@ -29,7 +29,9 @@ export default async (
         document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
             ?.content ?? '';
 
-    const missionsById = LSSM.$stores.api.missions;
+    const missionsById = await LSSM.$stores.newApi.getMissionTypes(
+        `${MODULE_ID}-shareMissions`
+    );
     const acceptedMissionTypes = Object.entries(missionsById)
         .filter(([, { average_credits }]) =>
             minCredits ? average_credits && average_credits >= minCredits : true

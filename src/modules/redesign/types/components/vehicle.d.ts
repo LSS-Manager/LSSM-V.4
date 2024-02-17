@@ -170,6 +170,7 @@ export type RedesignVehicleComponent = RedesignComponent<
         settingsStore: ReturnType<typeof useSettingsStore>;
         starredMissionsEnabled: boolean;
         starredMissions: string[];
+        missionTypes: Record<string, Mission>;
     },
     {
         getUrl(item: ItemChooser<'item'>): string;

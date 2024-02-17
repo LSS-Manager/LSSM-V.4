@@ -513,7 +513,10 @@ export const defineNewAPIStore = defineStore('newApi', () => {
                 window.I18n.locale,
                 _getRequestInit({}, feature)
             ).then(({ missions }) => missions),
-        getMissionType: (id: string, feature: string): Promise<Mission> =>
+        getMissionType: (
+            id: string,
+            feature: string
+        ): Promise<Mission | undefined> =>
             MissionsWorker.run(
                 window.I18n.locale,
                 _getRequestInit({}, feature)

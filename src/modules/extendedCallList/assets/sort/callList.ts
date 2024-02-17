@@ -28,7 +28,7 @@ interface StringSorting {
     order: number[];
 }
 
-export default (
+export default async (
     LSSM: Vue,
     MODULE_ID: string,
     sort: Sort,
@@ -59,7 +59,9 @@ export default (
         Record<string, { order: number; el: HTMLDivElement }>
     > = {};
 
-    const missionsById = LSSM.$stores.api.missions;
+    const missionsById = await LSSM.$stores.newApi.getMissionTypes(
+        `${MODULE_ID}-sort-callList`
+    );
     const missionIdsByAlphabet: Record<string, number> = Object.fromEntries(
         Object.values(missionsById)
             .sort(({ name: nameA }, { name: nameB }) =>

@@ -147,20 +147,19 @@ export default async (LSSM: Vue): Promise<void> => {
                 radioMessage.user_id === window.user_id
             )
                 LSSM.$stores.api.radioMessage(radioMessage);
-            LSSM.$stores.newApi.updateVehicleFromRadioMessage(radioMessage);
+            // LSSM.$stores.newApi.updateVehicleFromRadioMessage(radioMessage);
         },
     });
 
     await LSSM.$stores.api.getBuildings('mainPage-core_initial-update');
-    await LSSM.$stores.api.getMissions('mainPage-core_initial-update', true);
 
     LSSM.$stores.root.hook({
         event: 'buildingMarkerAdd',
         callback(buildingMarker: BuildingMarkerAdd) {
             if (buildingMarker.user_id !== window.user_id) return;
-            LSSM.$stores.newApi.updateBuildingFromBuildingMarkerAdd(
-                buildingMarker
-            );
+            // LSSM.$stores.newApi.updateBuildingFromBuildingMarkerAdd(
+            //     buildingMarker
+            // );
             const buildings = LSSM.$stores.api.buildings;
             const building = buildings.find(
                 ({ id }) => id === buildingMarker.id

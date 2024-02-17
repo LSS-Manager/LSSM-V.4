@@ -29,8 +29,6 @@ export default async ({
     getSetting,
     $m,
 }: Parameters<ModuleMainFunction>[0]) => {
-    await LSSM.$stores.api.getMissions(MODULE_ID);
-
     const messages = (
         await getSetting<{ value: Message[]; enabled: boolean }>('messages')
     ).value;
@@ -66,11 +64,15 @@ export default async ({
         },
     });
 
-    const missionType = LSSM.$utils.getMissionTypeInMissionWindow();
+    const missionTypeId = LSSM.$utils.getMissionTypeInMissionWindow();
 
-    const mission = LSSM.$stores.api.missions[missionType];
+    const missionType = await LSSM.$stores.newApi.getMissionType(
+        missionTypeId,
+        MODULE_ID
+    );
 
-    const averageCredits = mission?.average_credits?.toLocaleString() ?? '–';
+    const averageCredits =
+        missionType?.average_credits?.toLocaleString() ?? '–';
     const patients = document
         .querySelectorAll('.mission_patient')
         .length.toLocaleString();
@@ -217,7 +219,7 @@ export default async ({
     }
 
     const missionName =
-        mission?.name ??
+        missionType?.name ??
         Array.from(
             document.querySelector<HTMLHeadingElement>(`#missionH1`)
                 ?.childNodes ?? []
@@ -273,7 +275,7 @@ export default async ({
         today: () => today,
         tomorrow: () => tomorrow,
         ...getTimeReplacers(),
-        totalDuration: () => mission?.additional?.duration_text ?? '–',
+        totalDuration: () => missionType?.additional?.duration_text ?? '–',
     };
 
     const getModifiedMessage = (message: string) => {

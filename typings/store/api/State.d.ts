@@ -5,7 +5,7 @@
 import type { AllianceInfo } from 'typings/api/AllianceInfo';
 import type { Building } from '../../Building';
 import type { CreditsInfo } from 'typings/api/Credits';
-import type { Mission } from 'typings/Mission';
+// import type { Mission } from 'typings/Mission';
 import type { SchoolingAPI } from 'typings/api/Schoolings';
 import type { Settings } from 'typings/api/Settings';
 import type { Vehicle } from '../../Vehicle';
@@ -34,7 +34,7 @@ export interface EnsuredAPIGetter<API extends StorageAPIKey> {
 }
 
 export interface APIState extends StorageAPIs {
-    missions: Record<string, Mission>;
+    // missions: Record<string, Mission>;
     autoUpdates: StorageAPIKey[];
     currentlyUpdating: StorageAPIKey[];
     secretKey: string | null;

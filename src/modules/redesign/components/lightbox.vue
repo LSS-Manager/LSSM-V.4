@@ -717,7 +717,6 @@ export default Vue.extend<
         this.apiStore.getAllianceInfo(mountFeature).then();
         this.apiStore.getBuildings(mountFeature).then();
         this.apiStore.getCredits(mountFeature).then();
-        this.apiStore.getMissions(mountFeature).then();
         this.apiStore.getVehicles(mountFeature).then();
     },
     mounted() {
