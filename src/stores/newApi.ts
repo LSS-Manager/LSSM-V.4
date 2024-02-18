@@ -83,6 +83,9 @@ export const defineNewAPIStore = defineStore('newApi', () => {
     const vehiclesByType = ref<VehiclesByType>({});
     const vehiclesByBuilding = ref<VehiclesByBuilding>({});
     const vehiclesByDispatchCenter = ref<VehiclesByDispatchCenter>({});
+    const participatedMissions = computed(() =>
+        Object.keys(vehiclesByTarget.value.mission)
+    );
     // endregion
 
     // region computed values and fake-computed values for buildings
@@ -481,6 +484,7 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         vehiclesByType,
         vehiclesByBuilding,
         vehiclesByDispatchCenter,
+        participatedMissions,
         buildingsArray,
         buildingsByType,
         buildingsByDispatchCenter,
