@@ -35,7 +35,7 @@
                         :alt="award.caption"
                         :src="award.image"
                     />
-                    <div>
+                    <div style="width: 100%">
                         <p>{{ award.desc }}</p>
                         <div v-if="award.progress" class="progress">
                             <div
