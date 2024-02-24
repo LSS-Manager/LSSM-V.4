@@ -483,47 +483,45 @@ export default (
     };
 
     const updateOrderList = () =>
-        localStorage.setItem(
-            `${PREFIX}_${MODULE_ID}_sort_order`,
-            JSON.stringify(
-                Object.fromEntries(
-                    Object.entries(missionOrderValuesById).map(
-                        ([list, missions]) => [
-                            list,
-                            Object.entries(missions)
-                                .sort(
-                                    (
-                                        [, { order: valueA, el: elA }],
-                                        [, { order: valueB, el: elB }]
-                                    ) => {
-                                        const position =
-                                            elA.compareDocumentPosition(elB);
-                                        return panelBody.classList.contains(
-                                            reverseClass
-                                        )
-                                            ? valueB === valueA
-                                                ? position &
-                                                  Node.DOCUMENT_POSITION_FOLLOWING
-                                                    ? 1
-                                                    : position &
-                                                        Node.DOCUMENT_POSITION_PRECEDING
-                                                      ? -1
-                                                      : 0
-                                                : valueB - valueA
-                                            : valueB === valueA
-                                              ? position &
-                                                Node.DOCUMENT_POSITION_FOLLOWING
+        setSetting(
+            'sortMissionsOrder',
+            Object.fromEntries(
+                Object.entries(missionOrderValuesById).map(
+                    ([list, missions]) => [
+                        list,
+                        Object.entries(missions)
+                            .sort(
+                                (
+                                    [, { order: valueA, el: elA }],
+                                    [, { order: valueB, el: elB }]
+                                ) => {
+                                    const position =
+                                        elA.compareDocumentPosition(elB);
+                                    return panelBody.classList.contains(
+                                        reverseClass
+                                    )
+                                        ? valueB === valueA
+                                            ? position &
+                                              Node.DOCUMENT_POSITION_FOLLOWING
+                                                ? 1
+                                                : position &
+                                                    Node.DOCUMENT_POSITION_PRECEDING
                                                   ? -1
-                                                  : position &
-                                                      Node.DOCUMENT_POSITION_PRECEDING
-                                                    ? 1
-                                                    : 0
-                                              : valueA - valueB;
-                                    }
-                                )
-                                .map(([mission]) => mission),
-                        ]
-                    )
+                                                  : 0
+                                            : valueB - valueA
+                                        : valueB === valueA
+                                          ? position &
+                                            Node.DOCUMENT_POSITION_FOLLOWING
+                                              ? -1
+                                              : position &
+                                                  Node.DOCUMENT_POSITION_PRECEDING
+                                                ? 1
+                                                : 0
+                                          : valueA - valueB;
+                                }
+                            )
+                            .map(([mission]) => mission),
+                    ]
                 )
             )
         );
