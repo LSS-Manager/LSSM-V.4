@@ -34,7 +34,7 @@ export default (Vue: VueConstructor): void => {
             return missionType;
         },
         async getMissionOptions(LSSM: Vue, MODULE_ID: string, reason: string) {
-            const missions = await LSSM.$stores.newApi.getMissionsTypesArray(
+            const missions = await LSSM.$stores.newApi.getMissionTypesArray(
                 `${MODULE_ID}-${reason}`
             );
             const missionIds = [] as string[];
