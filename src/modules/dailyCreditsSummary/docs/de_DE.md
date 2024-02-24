@@ -1,6 +1,6 @@
 Schon in der V3 hatten wir das Modul `Summe für die tägliche Zusammenfassung`, welches in der
  [täglichen Zusammenfassung](https://www.leitstellenspiel.de/credits/daily) zeigte, wie viel Geld du
- z.B. zusammen für Patienten bekommen hast.
+ z.&nbsp;B. zusammen für Patienten bekommen hast.
 
 Für die V4 haben wir das ganze etwas aufgepeppt und ein verbessertes Design verwendet.
 

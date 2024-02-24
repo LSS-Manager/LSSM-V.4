@@ -170,6 +170,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Aapeli1304"><img src="https://avatars.githubusercontent.com/u/102477892?v=4?s=100" width="100px;" alt="Aapeli1304"/><br /><sub><b>Aapeli1304</b></sub></a><br /><a href="#translation-Aapeli1304" title="Translation">🌍</a> <a href="https://www.hatakeskuspeli.com" title="Translations for Hätäkeskuspeli.com (fi_FI)">🇫🇮</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://www.aawebdev.co.uk/"><img src="https://avatars.githubusercontent.com/u/81488720?v=4?s=100" width="100px;" alt="aallen92"/><br /><sub><b>aallen92</b></sub></a><br /><a href="https://github.com/LSS-Manager/LSSM-V.4/commits?author=aallen92" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Tobi-Continued"><img src="https://avatars.githubusercontent.com/u/142994500?v=4?s=100" width="100px;" alt="Tobi-Continued"/><br /><sub><b>Tobi-Continued</b></sub></a><br /><a href="https://www.leitstellenspiel.de" title="Translations for Leitstellenspiel.de (de_DE)">🇩🇪</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/buffcode"><img src="https://avatars.githubusercontent.com/u/2863518?v=4?s=100" width="100px;" alt="buffcode"/><br /><sub><b>buffcode</b></sub></a><br /><a href="https://github.com/LSS-Manager/LSSM-V.4/commits?author=buffcode" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>

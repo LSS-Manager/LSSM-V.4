@@ -259,9 +259,8 @@ export default async (
         descBtn.append(descIcon);
 
         const btnGroup = document.createElement('div');
-        btnGroup.classList.add('btn-group', 'pull-right');
+        btnGroup.classList.add('btn-group');
         btnGroup.append(ascBtn, descBtn);
-        btnGroup.style.setProperty('margin-left', '1em');
 
         if (sort === sortingType) {
             if (sortingDirection === 'asc') ascBtn.setAttribute('disabled', '');
@@ -345,6 +344,48 @@ export default async (
             selectorText: `#${sortIcon.id}[data-icon="face-rolling-eyes"], #${sortSelectionList.id} [data-icon="face-rolling-eyes"]`,
             style: {
                 display: 'none',
+            },
+        },
+        ...(CSS.supports('selector(:has(#id))')
+            ? [
+                  {
+                      selectorText: `#missions:has(.dropdown.open #${sortSelectionList.id})`,
+                      style: {
+                          overflow: 'visible',
+                      },
+                  },
+              ]
+            : [
+                  {
+                      selectorText: `#${sortSelectionList.id}`,
+                      // centers the dropdown to the button to avoid overflowing the available space
+                      style: {
+                          right: 'auto',
+                          left: '50%',
+                          transform: 'translateX(-50%)',
+                      },
+                  },
+              ]),
+        {
+            selectorText: `#${sortSelectionList.id} > li > a`,
+            style: {
+                'display': 'flex',
+                'flex-flow': 'row',
+                'width': '100%',
+            },
+        },
+        {
+            selectorText: `#${sortSelectionList.id} > li > a > .btn-group`,
+            style: {
+                'margin-left': 'auto',
+                'flex-shrink': '0',
+                'display': 'inline-flex',
+            },
+        },
+        {
+            selectorText: `#${sortSelectionList.id} > li > a > .btn-group > .btn:first-child`,
+            style: {
+                'margin-left': '1em',
             },
         },
     ]);
@@ -444,47 +485,45 @@ export default async (
     };
 
     const updateOrderList = () =>
-        localStorage.setItem(
-            `${PREFIX}_${MODULE_ID}_sort_order`,
-            JSON.stringify(
-                Object.fromEntries(
-                    Object.entries(missionOrderValuesById).map(
-                        ([list, missions]) => [
-                            list,
-                            Object.entries(missions)
-                                .sort(
-                                    (
-                                        [, { order: valueA, el: elA }],
-                                        [, { order: valueB, el: elB }]
-                                    ) => {
-                                        const position =
-                                            elA.compareDocumentPosition(elB);
-                                        return panelBody.classList.contains(
-                                            reverseClass
-                                        )
-                                            ? valueB === valueA
-                                                ? position &
-                                                  Node.DOCUMENT_POSITION_FOLLOWING
-                                                    ? 1
-                                                    : position &
-                                                        Node.DOCUMENT_POSITION_PRECEDING
-                                                      ? -1
-                                                      : 0
-                                                : valueB - valueA
-                                            : valueB === valueA
-                                              ? position &
-                                                Node.DOCUMENT_POSITION_FOLLOWING
+        setSetting(
+            'sortMissionsOrder',
+            Object.fromEntries(
+                Object.entries(missionOrderValuesById).map(
+                    ([list, missions]) => [
+                        list,
+                        Object.entries(missions)
+                            .sort(
+                                (
+                                    [, { order: valueA, el: elA }],
+                                    [, { order: valueB, el: elB }]
+                                ) => {
+                                    const position =
+                                        elA.compareDocumentPosition(elB);
+                                    return panelBody.classList.contains(
+                                        reverseClass
+                                    )
+                                        ? valueB === valueA
+                                            ? position &
+                                              Node.DOCUMENT_POSITION_FOLLOWING
+                                                ? 1
+                                                : position &
+                                                    Node.DOCUMENT_POSITION_PRECEDING
                                                   ? -1
-                                                  : position &
-                                                      Node.DOCUMENT_POSITION_PRECEDING
-                                                    ? 1
-                                                    : 0
-                                              : valueA - valueB;
-                                    }
-                                )
-                                .map(([mission]) => mission),
-                        ]
-                    )
+                                                  : 0
+                                            : valueB - valueA
+                                        : valueB === valueA
+                                          ? position &
+                                            Node.DOCUMENT_POSITION_FOLLOWING
+                                              ? -1
+                                              : position &
+                                                  Node.DOCUMENT_POSITION_PRECEDING
+                                                ? 1
+                                                : 0
+                                          : valueA - valueB;
+                                }
+                            )
+                            .map(([mission]) => mission),
+                    ]
                 )
             )
         );
@@ -526,9 +565,17 @@ export default async (
 
     resetOrder();
 
+    const sortBtnWrapper = document.createElement('div');
+    sortBtnWrapper.classList.add('dropdown');
+    sortBtnWrapper.style.setProperty('display', 'inline-block');
+    sortBtnWrapper.append(sortBtn, sortSelectionList);
+
     document
-        .querySelector<HTMLDivElement>('#btn-group-mission-select')
-        ?.append(sortBtn, sortSelectionList);
+        .querySelector<HTMLDivElement>(
+            // second selector is fallback for pre-ingame-update
+            '#missions .mission-filters .mission-filters-row, #btn-group-mission-select'
+        )
+        ?.append(sortBtnWrapper);
 
     LSSM.$stores.root.hook({
         event: 'missionMarkerAdd',

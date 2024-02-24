@@ -60,7 +60,8 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
                     (await getSetting<Sort>('sortMissionsType')) ?? 'default',
                     (await getSetting('sortMissionsInMissionwindowChecked')) ??
                         true,
-                    setSetting
+                    setSetting,
+                    getSetting
                 )
             );
         }

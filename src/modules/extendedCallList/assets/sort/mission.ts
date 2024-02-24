@@ -14,11 +14,13 @@ export default async (
     $m: $m,
     sort: Sort,
     checked: boolean,
-    setSetting: Parameters<ModuleMainFunction>[0]['setSetting']
+    setSetting: Parameters<ModuleMainFunction>[0]['setSetting'],
+    getSetting: Parameters<ModuleMainFunction>[0]['getSetting']
 ) => {
     if (sort === 'default') return;
-    const order: Record<string, string[]> = JSON.parse(
-        localStorage.getItem(`${PREFIX}_${MODULE_ID}_sort_order`) ?? '{}'
+    const order: Record<string, string[]> = await getSetting(
+        'sortMissionsOrder',
+        {}
     );
     const missionId = window.location.pathname.split('/')[2];
     let missionList = '';
