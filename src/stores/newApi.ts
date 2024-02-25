@@ -110,6 +110,12 @@ export const defineNewAPIStore = defineStore('newApi', () => {
     const buildingsByCategory = ref<BuildingsByCategory>({});
     // endregion
 
+    // auto-update
+    setInterval(
+        () => lastUpdates.forEach((_, api) => _updateAPI(api, 'autoUpdate')),
+        API_UPDATE_AFTER
+    );
+
     /**
      * Modify a RequestInit object to include the LSSM headers.
      * @param init - A RequestInit object that should be extended.
