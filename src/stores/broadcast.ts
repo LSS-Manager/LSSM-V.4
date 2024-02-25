@@ -4,17 +4,12 @@ import { defineStore } from 'pinia';
 import { useAPIStore } from '@stores/api';
 import { BroadcastChannel, createLeaderElection } from 'broadcast-channel';
 
-// import type { Mission } from 'typings/Mission';
 import type {
     APIBroadcastMessage,
     APIRequestBroadcastMessage,
     APIResponseBroadcastMessage,
     CustomBroadcastMessage,
     GenericBroadcastMessageType,
-    // MissionAPIBroadcastMessage,
-    // MissionAPIRequestBroadcastMessage,
-    // MissionAPIResponseBroadcastMessage,
-    // MissionAPIResponseData,
     NameRequestBroadcastMessage,
 } from 'typings/store/broadcast/Broadcast';
 import type { EnsuredAPIGetter, StorageAPIKey } from 'typings/store/api/State';
@@ -38,9 +33,6 @@ channel.addEventListener('message', msg => {
     if (msg.receiver !== getWindowName() && msg.receiver !== '*') return;
     if (msg.type === 'api_broadcast') {
         useAPIStore()._setAPI(msg.data.api, msg.data.value);
-    } else if (msg.type === 'mission_api_broadcast') {
-        // useAPIStore().missions = msg.data;
-        // useAPIStore().lastUpdates.missions = Date.now();
     } else if (msg.type === 'api_request') {
         const apiStore = useAPIStore();
         const apiValue = apiStore[msg.data.api];
@@ -57,19 +49,6 @@ channel.addEventListener('message', msg => {
                 msg.sender
             ).then();
         }
-    } else if (msg.type === 'mission_api_request') {
-        // const apiStore = useAPIStore();
-        // const apiValue = apiStore.missions;
-        // if (apiValue) {
-        //     sendRequest<MissionAPIResponseBroadcastMessage>(
-        //         'mission_api_response',
-        //         {
-        //             missions: apiValue,
-        //             lastUpdate: apiStore.lastUpdates.missions ?? 0,
-        //         },
-        //         msg.sender
-        //     ).then();
-        // }
     } else if (msg.type === 'custom') {
         // TODO: find a better solution than eval
         // eslint-disable-next-line no-eval
@@ -175,34 +154,6 @@ export const defineBroadcastStore = defineStore('broadcast', {
                 });
             });
         },
-        // missionsApiBroadcast(missions: Record<string, Mission>) {
-        //     return sendRequest<MissionAPIBroadcastMessage>(
-        //         'mission_api_broadcast',
-        //         missions
-        //     ).then(() => missions);
-        // },
-        // requestMissionsAPI() {
-        //     return new Promise<MissionAPIResponseData[]>(resolve => {
-        //         const collected_values: MissionAPIResponseData[] = [];
-        //         const receiver_handler = (msg: GenericBroadcastMessageType) =>
-        //             msg.receiver === getWindowName() &&
-        //             msg.type === 'mission_api_response' &&
-        //             collected_values.push(msg.data);
-        //         channel.addEventListener('message', receiver_handler);
-        //         sendRequest<MissionAPIRequestBroadcastMessage>(
-        //             'mission_api_request',
-        //             null
-        //         ).then(() => {
-        //             window.setTimeout(() => {
-        //                 channel.removeEventListener(
-        //                     'message',
-        //                     receiver_handler
-        //                 );
-        //                 resolve(collected_values);
-        //             }, BROADCAST_GETTER_WAITING_TIME);
-        //         });
-        //     });
-        // },
     },
 });
 

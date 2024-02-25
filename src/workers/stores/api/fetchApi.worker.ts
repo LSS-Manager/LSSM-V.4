@@ -32,6 +32,7 @@ class FetchApiWorker extends TypedWorker<
                 self.lastUpdates ??= new Map<APIKey, number>();
                 self.apiStorage ??= {};
 
+                // if the API has been fetched in the last 4.5 minutes, return the stored result
                 const stored = self.apiStorage[api];
                 if (
                     stored &&
