@@ -1,5 +1,6 @@
 import TypedWorker from '../../TypedWorker';
 
+import type LSSMStorage from '../../../importableScripts/indexedDB';
 import type { Mission } from 'typings/Mission';
 
 export type MissionsById = Record<Mission['id'], Mission>;
@@ -8,6 +9,7 @@ export type MissionsArray = Mission[];
 declare const self: WindowOrWorkerGlobalScope & {
     missions: MissionsById;
     missionArray: MissionsArray;
+    LSSMStorage: typeof LSSMStorage;
 };
 
 export default new TypedWorker(
@@ -28,15 +30,29 @@ export default new TypedWorker(
         if (self.missions)
             return { missions: self.missions, missionArray: self.missionArray };
 
-        // TODO: Store in an indexedDB (independence of LSSM-server status)
-        // do we want to replace self.missions with the indexedDB?
-
         return fetch(`${SERVER}missions/${locale}.json`, init)
             .then(res => res.json())
             .then((missions: MissionsById) => {
                 self.missions = missions;
                 self.missionArray = Object.values(missions);
                 return { missions, missionArray: self.missionArray };
+            })
+            .then(async ({ missions, missionArray }) => {
+                const storage = new self.LSSMStorage();
+                await storage.storeMissionTypes(missions);
+                return { missions, missionArray };
+            })
+            .catch(async () => {
+                // if the fetch fails, try to get the missionTypes from indexedDB
+                const storage = new self.LSSMStorage();
+                const missionTypes = await storage.getMissionTypes();
+                self.missions = missionTypes;
+                self.missionArray = Object.values(missionTypes);
+                return {
+                    missions: missionTypes,
+                    missionArray: self.missionArray,
+                };
             });
-    }
+    },
+    new Set(['LSSMStorage'])
 );
