@@ -66,7 +66,7 @@ self.addEventListener('connect', event => {
     const port = event.ports[0];
     // once a message is received, call the worker function, await it and post the result back
     port.addEventListener('message', async event => {
-        const [uuid, ...data] = event.data;
+        const [uuid, data] = event.data;
         try {
             const result = await (
 ${this.#function.toString()}
