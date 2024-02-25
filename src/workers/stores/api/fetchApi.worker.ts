@@ -9,6 +9,11 @@ interface ApiFetchResults extends APIs {
     buildings: Building[];
 }
 
+declare const self: WindowOrWorkerGlobalScope & {
+    lastUpdates: Map<APIKey, number>;
+    apiStorage: Partial<APIs>;
+};
+
 class FetchApiWorker extends TypedWorker<
     [api: APIKey, init: RequestInit],
     Promise<APIs[APIKey]>
@@ -20,6 +25,21 @@ class FetchApiWorker extends TypedWorker<
                 api: Api,
                 init: RequestInit
             ): Promise<APIs[Api]> => {
+                // this is not the 5 Minutes used in API store to avoid issues with different transaction times etc.
+                const API_UPDATE_AFTER = 4.5 * 60 * 1000; // 4 Minutes and 30 seconds
+
+                // init the last updates map if it doesn't exist
+                self.lastUpdates ??= new Map<APIKey, number>();
+                self.apiStorage ??= {};
+
+                const stored = self.apiStorage[api];
+                if (
+                    stored &&
+                    (self.lastUpdates.get(api) ?? 0) >
+                        Date.now() - API_UPDATE_AFTER
+                )
+                    return Promise.resolve(stored);
+
                 const headers = new Headers(init.headers);
 
                 // CAVEAT: headers are stored lowercase
@@ -50,6 +70,11 @@ class FetchApiWorker extends TypedWorker<
                         }
 
                         return res;
+                    })
+                    .then(result => {
+                        self.apiStorage[api] = result;
+                        self.lastUpdates.set(api, Date.now());
+                        return result;
                     });
             }
         );
