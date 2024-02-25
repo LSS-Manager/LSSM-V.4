@@ -12,7 +12,10 @@ prebuild/*.js
 scripts/**/*.js
 src/userscript.js
 src/config.js
+
 static/fontawesome_*.min.js
+static/missions/*
+static/releasenotes/*
 
 src/modules/support/*
 src/modules/renameFz/*
