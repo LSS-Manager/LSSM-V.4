@@ -1,9 +1,8 @@
 import type Vue from 'vue';
 
 import { defineStore } from 'pinia';
-import { useAPIStore } from '@stores/api';
-import { useBroadcastStore } from '@stores/broadcast';
 import { useEventStore } from '@stores/event';
+import { useNewAPIStore } from '@stores/newApi';
 
 import config from '../config';
 import lssmLogo from '../img/lssm.png';
@@ -92,7 +91,7 @@ export const defineRootStore = defineStore('root', {
         updateCredits(credits: number) {
             const old = this.credits;
             this.credits = credits;
-            const apiStore = useAPIStore();
+            const apiStore = useNewAPIStore();
             if (apiStore.credits) {
                 apiStore.credits.credits_user_current = credits;
                 const diff = credits - old;
@@ -102,12 +101,6 @@ export const defineRootStore = defineStore('root', {
                     })
                 );
                 if (diff > 0) apiStore.credits.credits_user_total += diff;
-                useBroadcastStore()
-                    .apiBroadcast('credits', {
-                        value: apiStore.credits,
-                        lastUpdate: apiStore.lastUpdates.credits ?? Date.now(),
-                    })
-                    .then();
             }
         },
         updateCoins(coins: number) {

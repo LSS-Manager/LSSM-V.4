@@ -168,9 +168,9 @@ export default (
             });
     };
 
-    LSSM.$stores.api
+    LSSM.$stores.newApi
         .getCredits('telemetry')
-        .then(async ({ value: { user_directplay_registered } }) => {
+        .then(async ({ user_directplay_registered }) => {
             if (user_directplay_registered) return;
 
             const ua = new UAParser(window.navigator.userAgent);

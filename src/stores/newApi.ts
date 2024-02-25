@@ -30,6 +30,7 @@ import MissionsWorker, {
 
 import type { AllianceInfo } from 'typings/api/AllianceInfo';
 import type { Building } from 'typings/Building';
+import type { CreditsInfo } from 'typings/api/Credits';
 import type { Mission } from 'typings/Mission';
 import type { Vehicle } from 'typings/Vehicle';
 import type { BuildingMarkerAdd, RadioMessage } from 'typings/Ingame';
@@ -39,6 +40,7 @@ export interface APIs {
     vehicles: Record<Vehicle['id'], Vehicle>;
     buildings: Record<Building['id'], Building>;
     allianceinfo: AllianceInfo;
+    credits: CreditsInfo;
 }
 export type APIKey = keyof APIs;
 
@@ -76,6 +78,19 @@ export const defineNewAPIStore = defineStore('newApi', () => {
             rank: 0,
             finance_active: false,
             users: [],
+        }),
+        credits: ref<APIs['credits']>({
+            credits_user_current: 0,
+            credits_user_total: 0,
+            user_name: '',
+            user_id: 0,
+            user_toplist_position: 0,
+            user_directplay_registered: false,
+            user_email_registered: false,
+            user_facebook_registered: false,
+            user_apple_registered: false,
+            user_level: 0,
+            user_level_title: '',
         }),
     };
     const lastUpdates = new Map<APIKey, number>();
@@ -550,6 +565,8 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         // allianceinfo
         getAllianceInfo: (feature: string) =>
             _getStoredOrFetch('allianceinfo', feature),
+        // credits API
+        getCredits: (feature: string) => _getStoredOrFetch('credits', feature),
         // mutations: update API data from ingame events
         updateVehicleFromRadioMessage,
         updateBuildingFromBuildingMarkerAdd,

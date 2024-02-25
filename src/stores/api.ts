@@ -4,7 +4,6 @@ import { defineStore } from 'pinia';
 import { useBroadcastStore } from '@stores/broadcast';
 import { useConsoleStore } from '@stores/console';
 
-// import type { Mission } from 'typings/Mission';
 import type { RadioMessage } from 'typings/Ingame';
 import type { Vehicle } from 'typings/Vehicle';
 import type {
@@ -24,9 +23,8 @@ export const defineAPIStore = defineStore('api', {
             buildings: [],
             vehicles: [],
             alliance_buildings: [],
-            // allianceinfo: null,
             settings: null,
-            credits: null,
+            // credits: null,
             schoolings: {
                 result: [],
             },
@@ -447,24 +445,6 @@ export const defineAPIStore = defineStore('api', {
                 updateInterval
             );
         },
-        // getAllianceInfo(
-        //     feature: string
-        // ): Promise<EnsuredAPIGetter<'allianceinfo'>> {
-        //     return this._getAPI('allianceinfo', feature);
-        // },
-        // autoUpdateAllianceInfo(
-        //     feature: string,
-        //     callback: (api: EnsuredAPIGetter<'allianceinfo'>) => void = () =>
-        //         void null,
-        //     updateInterval: number = API_MIN_UPDATE
-        // ) {
-        //     return this._autoUpdate(
-        //         this.getAllianceInfo,
-        //         feature,
-        //         callback,
-        //         updateInterval
-        //     );
-        // },
         getBuilding(buildingId: number, feature: string): Promise<Building> {
             return this._awaitInitialBroadcast()
                 .then(() =>
@@ -516,22 +496,22 @@ export const defineAPIStore = defineStore('api', {
                 updateInterval
             );
         },
-        getCredits(feature: string): Promise<EnsuredAPIGetter<'credits'>> {
-            return this._getAPI('credits', feature);
-        },
-        autoUpdateCredits(
-            feature: string,
-            callback: (api: EnsuredAPIGetter<'credits'>) => void = () =>
-                void null,
-            updateInterval: number = API_MIN_UPDATE
-        ) {
-            return this._autoUpdate(
-                this.getCredits,
-                feature,
-                callback,
-                updateInterval
-            );
-        },
+        // getCredits(feature: string): Promise<EnsuredAPIGetter<'credits'>> {
+        //     return this._getAPI('credits', feature);
+        // },
+        // autoUpdateCredits(
+        //     feature: string,
+        //     callback: (api: EnsuredAPIGetter<'credits'>) => void = () =>
+        //         void null,
+        //     updateInterval: number = API_MIN_UPDATE
+        // ) {
+        //     return this._autoUpdate(
+        //         this.getCredits,
+        //         feature,
+        //         callback,
+        //         updateInterval
+        //     );
+        // },
         getSchoolings(
             feature: string
         ): Promise<EnsuredAPIGetter<'schoolings'>> {
