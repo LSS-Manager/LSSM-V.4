@@ -15,7 +15,6 @@ import type {
 import type { Building, BuildingCategory } from 'typings/Building';
 
 const API_MIN_UPDATE = 5 * 60 * 1000; // 5 Minutes
-// const MISSIONS_STORAGE_KEY = `${PREFIX}_missionSpecsStorage`;
 
 export const defineAPIStore = defineStore('api', {
     state: () =>
@@ -23,8 +22,7 @@ export const defineAPIStore = defineStore('api', {
             buildings: [],
             vehicles: [],
             alliance_buildings: [],
-            settings: null,
-            // credits: null,
+            // settings: null,
             schoolings: {
                 result: [],
             },
@@ -189,7 +187,6 @@ export const defineAPIStore = defineStore('api', {
             );
             return buildingsByCategory;
         },
-        // missionsArray: (state): Mission[] => Object.values(state.missions),
     },
     actions: {
         _setSecretKey() {
@@ -496,22 +493,6 @@ export const defineAPIStore = defineStore('api', {
                 updateInterval
             );
         },
-        // getCredits(feature: string): Promise<EnsuredAPIGetter<'credits'>> {
-        //     return this._getAPI('credits', feature);
-        // },
-        // autoUpdateCredits(
-        //     feature: string,
-        //     callback: (api: EnsuredAPIGetter<'credits'>) => void = () =>
-        //         void null,
-        //     updateInterval: number = API_MIN_UPDATE
-        // ) {
-        //     return this._autoUpdate(
-        //         this.getCredits,
-        //         feature,
-        //         callback,
-        //         updateInterval
-        //     );
-        // },
         getSchoolings(
             feature: string
         ): Promise<EnsuredAPIGetter<'schoolings'>> {
@@ -554,22 +535,22 @@ export const defineAPIStore = defineStore('api', {
                 updateInterval
             );
         },
-        getSettings(feature: string): Promise<EnsuredAPIGetter<'settings'>> {
-            return this._getAPI('settings', feature);
-        },
-        autoUpdateSettings(
-            feature: string,
-            callback: (api: EnsuredAPIGetter<'settings'>) => void = () =>
-                void null,
-            updateInterval: number = API_MIN_UPDATE
-        ) {
-            return this._autoUpdate(
-                this.getSettings,
-                feature,
-                callback,
-                updateInterval
-            );
-        },
+        // getSettings(feature: string): Promise<EnsuredAPIGetter<'settings'>> {
+        //     return this._getAPI('settings', feature);
+        // },
+        // autoUpdateSettings(
+        //     feature: string,
+        //     callback: (api: EnsuredAPIGetter<'settings'>) => void = () =>
+        //         void null,
+        //     updateInterval: number = API_MIN_UPDATE
+        // ) {
+        //     return this._autoUpdate(
+        //         this.getSettings,
+        //         feature,
+        //         callback,
+        //         updateInterval
+        //     );
+        // },
         getVehiclesAtBuilding(buildingId: number, feature: string) {
             return this._awaitInitialBroadcast()
                 .then(() =>

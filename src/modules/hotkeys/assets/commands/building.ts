@@ -46,13 +46,13 @@ export default <Scope<Empty, ['goto', 'changeSharing', 'dispatch'], [], true>>{
                 .then(result => {
                     if (result?.leitstelle_building_id == null) {
                         if (
-                            LSSM.$stores.api.settings?.leitstelle_building_id ==
-                            null
+                            LSSM.$stores.newApi.settings
+                                ?.leitstelle_building_id == null
                         ) {
                             return;
                         } else {
                             leitstellenId =
-                                LSSM.$stores.api.settings
+                                LSSM.$stores.newApi.settings
                                     ?.leitstelle_building_id;
                         }
                     } else {

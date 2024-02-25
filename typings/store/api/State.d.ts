@@ -3,17 +3,15 @@
  */
 
 import type { Building } from '../../Building';
-// import type { CreditsInfo } from 'typings/api/Credits';
 import type { SchoolingAPI } from 'typings/api/Schoolings';
-import type { Settings } from 'typings/api/Settings';
+// import type { Settings } from 'typings/api/Settings';
 import type { Vehicle } from '../../Vehicle';
 
 export interface StorageAPIs {
     buildings: Building[];
     vehicles: Vehicle[];
     alliance_buildings: Building[];
-    settings: Settings | null;
-    // credits: CreditsInfo | null;
+    // settings: Settings | null;
     schoolings: SchoolingAPI;
     alliance_schoolings: SchoolingAPI;
 }

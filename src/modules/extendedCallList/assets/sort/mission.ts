@@ -56,7 +56,7 @@ export default async (
     toggleWrapper.style.setProperty('display', 'inline-block');
 
     if (found) {
-        await LSSM.$stores.api.getSettings(
+        await LSSM.$stores.newApi.getSettings(
             `${MODULE_ID}_sort-missions_mission-window`
         );
 
@@ -117,8 +117,8 @@ export default async (
                             }`
                         );
                     } else if (
-                        LSSM.$stores.api.settings
-                            ?.mission_alarmed_successfull_close_window
+                        LSSM.$stores.newApi.settings
+                            .mission_alarmed_successfull_close_window
                     ) {
                         window.location.replace('/missions/close');
                     } else {

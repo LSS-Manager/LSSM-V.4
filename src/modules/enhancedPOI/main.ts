@@ -7,7 +7,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
     const poi_types = Object.values(LSSM.$t('pois')) as string[];
     poi_types.sort();
 
-    await LSSM.$stores.api.getSettings(MODULE_ID);
+    await LSSM.$stores.newApi.getSettings(MODULE_ID);
 
     const style = await (async () => {
         const predef = await getSetting<string>('predefined_style');
@@ -151,7 +151,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
     };
     refresh_shown_pois();
     const paddingLeftPOI = [3, 4].includes(
-        LSSM.$stores.api.settings?.design_mode ?? 0
+        LSSM.$stores.newApi.settings.design_mode ?? 0
     )
         ? '25px'
         : '1ch';

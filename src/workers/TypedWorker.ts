@@ -48,7 +48,7 @@ export default class TypedWorker<Args extends unknown[] = [], Return = void> {
 
     get #importScriptsExpression() {
         return Array.from(this.#importableScriptsUrls.values())
-            .map(url => `'${url}'`)
+            .map(url => JSON.stringify(url))
             .join(', ');
     }
 
@@ -58,8 +58,14 @@ export default class TypedWorker<Args extends unknown[] = [], Return = void> {
         const blob = new Blob(
             [
                 `
-// import scripts (may be empty)
+                ${
+                    this.#importScriptsExpression
+                        ? `
+// import scripts for this worker
 self.importScripts(${this.#importScriptsExpression});
+`
+                        : ''
+                }
 
 // a connection is opened
 self.addEventListener('connect', event => {

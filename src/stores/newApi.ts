@@ -32,6 +32,7 @@ import type { AllianceInfo } from 'typings/api/AllianceInfo';
 import type { Building } from 'typings/Building';
 import type { CreditsInfo } from 'typings/api/Credits';
 import type { Mission } from 'typings/Mission';
+import type { Settings } from 'typings/api/Settings';
 import type { Vehicle } from 'typings/Vehicle';
 import type { BuildingMarkerAdd, RadioMessage } from 'typings/Ingame';
 
@@ -41,6 +42,7 @@ export interface APIs {
     buildings: Record<Building['id'], Building>;
     allianceinfo: AllianceInfo;
     credits: CreditsInfo;
+    settings: Settings;
 }
 export type APIKey = keyof APIs;
 
@@ -91,6 +93,38 @@ export const defineNewAPIStore = defineStore('newApi', () => {
             user_apple_registered: false,
             user_level: 0,
             user_level_title: '',
+        }),
+        settings: ref<APIs['settings']>({
+            aao_big: false,
+            aao_search: false,
+            aao_timer_show: false,
+            alliance_mission_distance: 0,
+            alliance_show_not_involved_vehicle: false,
+            backalarm_automatic_rettungsdienst: false,
+            critical_care_enabled: false,
+            design_mode: 0,
+            disable_event_missions: false,
+            disable_mission_group_1: false,
+            disable_mission_group_2: false,
+            follow_up_missions_enabled: false,
+            hide_anti_abuse_message: false,
+            hide_faq_button: false,
+            leitstelle_building_id: 0,
+            lightbox_static: false,
+            limited_vehicle_message_before_aao: false,
+            mission_alarmed_successfull_close_window: false,
+            mission_expansion: false,
+            mission_expansion_fms_5: false,
+            mobile_show_vehicle: false,
+            mouse_over_disable_inactive_elements: false,
+            patients_use_nef_count: false,
+            poi_private: false,
+            prisoner_transportation_delay: 0,
+            prisoner_transportation_disabled: false,
+            progress_animation: false,
+            route_show: false,
+            show_vehicle: false,
+            start_view: 'map',
         }),
     };
     const lastUpdates = new Map<APIKey, number>();
@@ -567,6 +601,9 @@ export const defineNewAPIStore = defineStore('newApi', () => {
             _getStoredOrFetch('allianceinfo', feature),
         // credits API
         getCredits: (feature: string) => _getStoredOrFetch('credits', feature),
+        // settings API
+        getSettings: (feature: string) =>
+            _getStoredOrFetch('settings', feature),
         // mutations: update API data from ingame events
         updateVehicleFromRadioMessage,
         updateBuildingFromBuildingMarkerAdd,

@@ -113,9 +113,9 @@ export default async (LSSM: Vue): Promise<void> => {
                 icon.classList.add('fas', 'fa-expand-arrows-alt');
                 control.append(icon);
                 control.style.setProperty('cursor', 'pointer');
-                LSSM.$stores.api
+                LSSM.$stores.newApi
                     .getSettings('mainPage-core_map-expand')
-                    .then(({ value: { design_mode } }) =>
+                    .then(({ design_mode }) =>
                         control.addEventListener('click', () => {
                             window.mapExpand(design_mode >= 3);
                         })
