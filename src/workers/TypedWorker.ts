@@ -66,15 +66,15 @@ self.addEventListener('connect', event => {
     const port = event.ports[0];
     // once a message is received, call the worker function, await it and post the result back
     port.addEventListener('message', async event => {
-        const data = event.data;
+        const [uuid, ...data] = event.data;
         try {
             const result = await (
 ${this.#function.toString()}
             )(...data);
-            port.postMessage(result);
+            port.postMessage({uuid, result});
         } catch (error) {
             // has an error been thrown? post it back to the main thread, the TypedWorker class will cause the promise to reject
-            port.postMessage(error);
+            port.postMessage({uuid, error});
         }
     });
     // we've used addEventListener, so we need to explicitly start the port
@@ -130,23 +130,27 @@ self.LSSMStorage = ${LSSMStorage.name};
             if (!this.#worker)
                 return reject(new Error('Worker not initialized'));
 
+            const uuid = crypto.randomUUID();
+
+            type MessageType =
+                | { uuid: typeof uuid; error: Error }
+                | { uuid: typeof uuid; result: Awaited<Return> };
+
+            const listener = (event: MessageEvent<MessageType>) => {
+                if (event.data.uuid !== uuid) return;
+                if ('error' in event.data) reject(event.data.error);
+                else resolve(event.data.result);
+                this.#worker?.port.removeEventListener('message', listener);
+            };
+
             // once a message is received, resolve or reject the promise based on if the message is an error or not
-            this.#worker.port.addEventListener(
-                'message',
-                event => {
-                    if (event.data instanceof Error) reject(event.data);
-                    else resolve(event.data);
-                },
-                {
-                    once: true,
-                }
-            );
+            this.#worker.port.addEventListener('message', listener);
 
             // we've used addEventListener, so we need to explicitly start the port
             this.#worker.port.start();
 
             // let's send the arguments to the worker
-            this.#worker.port.postMessage(args);
+            this.#worker.port.postMessage([uuid, args]);
         });
     }
 }
