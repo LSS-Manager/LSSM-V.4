@@ -978,9 +978,9 @@ export default Vue.extend<
         this.getSetting('hiddenFilters', []).then(
             f => (this.hiddenFilters = f)
         );
-        this.lightbox.apiStore
+        this.lightbox.newApiStore
             .getAllianceInfo('redesign-profile')
-            .then(({ value: allianceinfo }) => {
+            .then(allianceinfo => {
                 this.allianceUser = allianceinfo.users.find(
                     ({ id }) => id === this.profile.id
                 );

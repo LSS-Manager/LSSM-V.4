@@ -226,7 +226,6 @@ export default Vue.extend<
         },
     },
     beforeMount() {
-        this.apiStore.getAllianceInfo('lssmaql-beforeMount');
         this.apiStore.getBuildings('lssmaql-beforeMount');
         this.apiStore.getVehicles('lssmaql-beforeMount');
     },

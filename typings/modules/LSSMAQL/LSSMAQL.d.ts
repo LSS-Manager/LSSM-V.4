@@ -22,12 +22,8 @@ export interface LSSMAQLMethods {
 }
 
 export interface LSSMAQLComputed {
-    result:
-        | APIState['allianceinfo']
-        | APIState['buildings']
-        // | APIState['missions']
-        | APIState['vehicles']
-        | null;
+    result: // | APIState['allianceinfo']
+    APIState['buildings'] | APIState['vehicles'] | null;
     resultLength: number;
 }
 

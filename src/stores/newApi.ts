@@ -28,6 +28,7 @@ import MissionsWorker, {
     type MissionsById,
 } from '@workers/stores/api/missionTypes.worker';
 
+import type { AllianceInfo } from 'typings/api/AllianceInfo';
 import type { Building } from 'typings/Building';
 import type { Mission } from 'typings/Mission';
 import type { Vehicle } from 'typings/Vehicle';
@@ -37,6 +38,7 @@ import type { BuildingMarkerAdd, RadioMessage } from 'typings/Ingame';
 export interface APIs {
     vehicles: Record<Vehicle['id'], Vehicle>;
     buildings: Record<Building['id'], Building>;
+    allianceinfo: AllianceInfo;
 }
 export type APIKey = keyof APIs;
 
@@ -66,6 +68,15 @@ export const defineNewAPIStore = defineStore('newApi', () => {
     } = {
         vehicles: ref<APIs['vehicles']>({}),
         buildings: ref<APIs['buildings']>({}),
+        allianceinfo: ref<APIs['allianceinfo']>({
+            credits_total: 0,
+            credits_current: 0,
+            user_count: 0,
+            user_online_count: 0,
+            rank: 0,
+            finance_active: false,
+            users: [],
+        }),
     };
     const lastUpdates = new Map<APIKey, number>();
 
@@ -243,7 +254,7 @@ export const defineNewAPIStore = defineStore('newApi', () => {
     const _getStoredOrFetch = <Api extends APIKey>(
         api: Api,
         feature: string
-    ) => {
+    ): Promise<APIs[Api]> => {
         const lastUpdate = lastUpdates.get(api) ?? 0;
         if (Date.now() - lastUpdate > API_UPDATE_AFTER)
             return _updateAPI(api, feature);
@@ -530,6 +541,9 @@ export const defineNewAPIStore = defineStore('newApi', () => {
                 window.I18n.locale,
                 _getRequestInit({}, feature)
             ).then(({ missionArray }) => missionArray),
+        // allianceinfo
+        getAllianceInfo: (feature: string) =>
+            _getStoredOrFetch('allianceinfo', feature),
         // mutations: update API data from ingame events
         updateVehicleFromRadioMessage,
         updateBuildingFromBuildingMarkerAdd,

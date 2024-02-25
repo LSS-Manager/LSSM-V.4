@@ -102,7 +102,9 @@ ${this.#function.toString()}
                 case 'LSSMStorage':
                     textContent = `
 ${LSSMStorage.toString()}
-self[${JSON.stringify(LSSMStorage.name)}] = ${LSSMStorage.name};
+
+// make the class available in workers
+self.LSSMStorage = ${LSSMStorage.name};
 `;
                     break;
             }

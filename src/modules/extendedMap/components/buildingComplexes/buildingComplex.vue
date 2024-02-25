@@ -1285,6 +1285,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { mapState } from 'pinia';
 import moment from 'moment';
 import { useEventStore } from '@stores/event';
+import { useNewAPIStore } from '@stores/newApi';
 import { useRootStore } from '@stores/index';
 import { useTranslationStore } from '@stores/translationUtilities';
 import { defineAPIStore, useAPIStore } from '@stores/api';
@@ -1545,6 +1546,7 @@ export default Vue.extend<
             sortDir: 'asc' | 'desc';
         };
         apiStore: ReturnType<typeof useAPIStore>;
+        newApiStore: ReturnType<typeof useNewAPIStore>;
         rootStore: ReturnType<typeof useRootStore>;
         translationStore: ReturnType<typeof useTranslationStore>;
         moment: typeof moment;
@@ -1715,6 +1717,7 @@ export default Vue.extend<
                 sortDir: 'asc',
             },
             apiStore: useAPIStore(),
+            newApiStore: useNewAPIStore(),
             rootStore: useRootStore(),
             translationStore,
             moment,
@@ -2346,7 +2349,7 @@ export default Vue.extend<
                                                   coins: extensionType.coins,
                                                   enoughCredits:
                                                       (alliance
-                                                          ? this.apiStore
+                                                          ? this.newApiStore
                                                                 .allianceinfo
                                                                 ?.credits_current ??
                                                             0
@@ -2653,7 +2656,7 @@ export default Vue.extend<
         },
         userHasAllianceFinanceRights() {
             const allianceUserRoleFlags =
-                this.apiStore.allianceinfo?.users.find(
+                this.newApiStore.allianceinfo?.users.find(
                     ({ id }) => id === window.user_id
                 )?.role_flags;
             return !!(

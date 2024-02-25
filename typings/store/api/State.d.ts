@@ -2,10 +2,9 @@
  * @file - Types for the state of API store.
  */
 
-import type { AllianceInfo } from 'typings/api/AllianceInfo';
+// import type { AllianceInfo } from 'typings/api/AllianceInfo';
 import type { Building } from '../../Building';
 import type { CreditsInfo } from 'typings/api/Credits';
-// import type { Mission } from 'typings/Mission';
 import type { SchoolingAPI } from 'typings/api/Schoolings';
 import type { Settings } from 'typings/api/Settings';
 import type { Vehicle } from '../../Vehicle';
@@ -14,7 +13,7 @@ export interface StorageAPIs {
     buildings: Building[];
     vehicles: Vehicle[];
     alliance_buildings: Building[];
-    allianceinfo: AllianceInfo | null;
+    // allianceinfo: AllianceInfo | null;
     settings: Settings | null;
     credits: CreditsInfo | null;
     schoolings: SchoolingAPI;

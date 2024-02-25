@@ -38,7 +38,12 @@ class FetchApiWorker extends TypedWorker<
                     .then(res => res.json())
                     .then((res: ApiFetchResults[Api]) => {
                         // we want to store vehicles and buildings by ID for easier access
-                        if (api === 'vehicles' || api === 'buildings') {
+                        // TODO: Remove Array.isArray check when Typescript extends oneof is available
+                        if (
+                            Array.isArray(res) &&
+                            (api === 'vehicles' || api === 'buildings')
+                        ) {
+                            // @ts-expect-error unfortunately, typescript doesn't understand that we're filtering here (we need the extends oneof!)
                             const byId: APIs[Api] = {};
                             for (const item of res) byId[item.id] = item;
                             return byId;

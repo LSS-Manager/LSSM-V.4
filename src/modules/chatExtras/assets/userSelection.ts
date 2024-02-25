@@ -12,7 +12,7 @@ import type { User } from 'typings/api/AllianceInfo';
 
 export default (LSSM: Vue) => {
     // enable auto-update of allianceinfo API to keep users list up-to-date
-    LSSM.$stores.api.autoUpdateAllianceInfo('ce-user_selection').then();
+    LSSM.$stores.newApi.getAllianceInfo('ce-user_selection').then();
 
     // chatInput is the input field in the chat panel
     const chatInput = document.querySelector<HTMLInputElement>(
@@ -256,7 +256,7 @@ export default (LSSM: Vue) => {
 
     // adjust choicePopup if necessary on every input event
     chatInput.addEventListener('input', () => {
-        const users = LSSM.$stores.api.allianceinfo?.users;
+        const users = LSSM.$stores.newApi.allianceinfo.users;
         if (!users) return;
 
         const selectionStart = chatInput.selectionStart ?? 0;

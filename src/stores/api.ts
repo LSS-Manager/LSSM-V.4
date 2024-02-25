@@ -24,7 +24,7 @@ export const defineAPIStore = defineStore('api', {
             buildings: [],
             vehicles: [],
             alliance_buildings: [],
-            allianceinfo: null,
+            // allianceinfo: null,
             settings: null,
             credits: null,
             schoolings: {
@@ -33,7 +33,6 @@ export const defineAPIStore = defineStore('api', {
             alliance_schoolings: {
                 result: [],
             },
-            // missions: {},
             autoUpdates: [],
             currentlyUpdating: [],
             secretKey: null,
@@ -250,48 +249,27 @@ export const defineAPIStore = defineStore('api', {
                                 (a, b) => a.lastUpdate - b.lastUpdate
                             )[0]
                     );
-            return (
-                Promise.all(
-                    (
-                        [
-                            'alliance_buildings',
-                            'allianceinfo',
-                            'buildings',
-                            'credits',
-                            'schoolings',
-                            'alliance_schoolings',
-                            'settings',
-                            'vehicles',
-                        ] as StorageAPIKey[]
-                    ).map(<API extends StorageAPIKey>(api: API) =>
-                        collectAPI<API>(api).then(latest => {
-                            if (
-                                latest &&
-                                latest.lastUpdate > (this.lastUpdates[api] ?? 0)
-                            )
-                                this._setAPI(api, latest);
-                        })
-                    )
+            return Promise.all(
+                (
+                    [
+                        'alliance_buildings',
+                        'buildings',
+                        'credits',
+                        'schoolings',
+                        'alliance_schoolings',
+                        'settings',
+                        'vehicles',
+                    ] as StorageAPIKey[]
+                ).map(<API extends StorageAPIKey>(api: API) =>
+                    collectAPI<API>(api).then(latest => {
+                        if (
+                            latest &&
+                            latest.lastUpdate > (this.lastUpdates[api] ?? 0)
+                        )
+                            this._setAPI(api, latest);
+                    })
                 )
-                    // .then(() => broadcastStore.requestMissionsAPI())
-                    // .then(
-                    //     collectedMissions =>
-                    //         collectedMissions.sort(
-                    //             (a, b) => a.lastUpdate - b.lastUpdate
-                    //         )[0]
-                    // )
-                    // .then(latestMission => {
-                    //     if (
-                    //         latestMission &&
-                    //         latestMission.lastUpdate >
-                    //             (this.lastUpdates.missions ?? 0)
-                    //     ) {
-                    //         this.missions = latestMission.missions;
-                    //         this.lastUpdates.missions = latestMission.lastUpdate;
-                    //     }
-                    // })
-                    .then(() => (this.initialBroadcastUpdateFinished = true))
-            );
+            ).then(() => (this.initialBroadcastUpdateFinished = true));
         },
         _prepareAPIDataForState<API extends StorageAPIKey>(
             api: API,
@@ -469,24 +447,24 @@ export const defineAPIStore = defineStore('api', {
                 updateInterval
             );
         },
-        getAllianceInfo(
-            feature: string
-        ): Promise<EnsuredAPIGetter<'allianceinfo'>> {
-            return this._getAPI('allianceinfo', feature);
-        },
-        autoUpdateAllianceInfo(
-            feature: string,
-            callback: (api: EnsuredAPIGetter<'allianceinfo'>) => void = () =>
-                void null,
-            updateInterval: number = API_MIN_UPDATE
-        ) {
-            return this._autoUpdate(
-                this.getAllianceInfo,
-                feature,
-                callback,
-                updateInterval
-            );
-        },
+        // getAllianceInfo(
+        //     feature: string
+        // ): Promise<EnsuredAPIGetter<'allianceinfo'>> {
+        //     return this._getAPI('allianceinfo', feature);
+        // },
+        // autoUpdateAllianceInfo(
+        //     feature: string,
+        //     callback: (api: EnsuredAPIGetter<'allianceinfo'>) => void = () =>
+        //         void null,
+        //     updateInterval: number = API_MIN_UPDATE
+        // ) {
+        //     return this._autoUpdate(
+        //         this.getAllianceInfo,
+        //         feature,
+        //         callback,
+        //         updateInterval
+        //     );
+        // },
         getBuilding(buildingId: number, feature: string): Promise<Building> {
             return this._awaitInitialBroadcast()
                 .then(() =>
@@ -554,47 +532,6 @@ export const defineAPIStore = defineStore('api', {
                 updateInterval
             );
         },
-        // getMissions(
-        //     feature: string,
-        //     force = false
-        // ): Promise<Record<string, Mission>> {
-        //     if (Object.keys(this.missions).length && !force)
-        //         return new Promise(resolve => resolve(this.missions));
-        //     if (!force) {
-        //         const missions: Record<string, Mission> = JSON.parse(
-        //             localStorage.getItem(MISSIONS_STORAGE_KEY) ?? '{}'
-        //         );
-        //         if (Object.keys(missions).length) {
-        //             this.missions = missions;
-        //             return new Promise(resolve => resolve(this.missions));
-        //         }
-        //     }
-        //     return this._awaitInitialBroadcast()
-        //         .then(() =>
-        //             this.request({
-        //                 url: `${SERVER}missions/${window.I18n.locale}.json`,
-        //                 feature,
-        //             })
-        //         )
-        //         .then(res => res.json() as Promise<Record<string, Mission>>)
-        //         .then(missions =>
-        //             useBroadcastStore().missionsApiBroadcast(missions)
-        //         )
-        //         .then(missions => {
-        //             this.missions = missions;
-        //             this.lastUpdates.missions = Date.now();
-        //             localStorage.setItem(
-        //                 MISSIONS_STORAGE_KEY,
-        //                 JSON.stringify(missions)
-        //             );
-        //             return missions;
-        //         });
-        // },
-        // getMissionsArray(feature: string): Promise<Mission[]> {
-        //     return this.getMissions(feature).then(missions =>
-        //         Object.values(missions)
-        //     );
-        // },
         getSchoolings(
             feature: string
         ): Promise<EnsuredAPIGetter<'schoolings'>> {

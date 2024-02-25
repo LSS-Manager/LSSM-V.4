@@ -89,6 +89,7 @@ import { useBroadcastStore } from '@stores/broadcast';
 import { useConsoleStore } from '@stores/console';
 import { useEventStore } from '@stores/event';
 import { useModulesStore } from '@stores/modules';
+import { useNewAPIStore } from '@stores/newApi';
 import { useNotificationStore } from '@stores/notifications';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
@@ -315,6 +316,7 @@ export default Vue.extend<
             },
             existingHotkeys: [],
             apiStore: useAPIStore(),
+            newApiStore: useNewAPIStore(),
             broadcastStore: useBroadcastStore(),
             consoleStore: useConsoleStore(),
             eventStore: useEventStore(),
@@ -714,7 +716,7 @@ export default Vue.extend<
     },
     beforeMount() {
         const mountFeature = 'redesign-lightbox-mount';
-        this.apiStore.getAllianceInfo(mountFeature).then();
+        this.newApiStore.getAllianceInfo(mountFeature).then();
         this.apiStore.getBuildings(mountFeature).then();
         this.apiStore.getCredits(mountFeature).then();
         this.apiStore.getVehicles(mountFeature).then();
