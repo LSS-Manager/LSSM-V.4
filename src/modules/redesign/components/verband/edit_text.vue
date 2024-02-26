@@ -243,10 +243,11 @@ export default Vue.extend<
             const webhook =
                 (this.$refs.webhook as HTMLInputElement | null)?.value ?? '';
             url.searchParams.append('discord_webhook', webhook);
-            this.lightbox.apiStore
-                .request({
-                    url: `/veband/text/speichern`,
-                    init: {
+            this.lightbox.newApiStore
+                .request(
+                    `/veband/text/speichern`,
+                    `redesign-edit-alliance-name`,
+                    {
                         credentials: 'include',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
@@ -259,9 +260,8 @@ export default Vue.extend<
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
-                    },
-                    feature: `redesign-edit-alliance-name`,
-                })
+                    }
+                )
                 .then((res: Response) => {
                     const { redirected, url } = res;
                     if (!redirected) {

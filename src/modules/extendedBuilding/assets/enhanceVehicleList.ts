@@ -112,11 +112,11 @@ export default async (
                     )
                         ? 6
                         : 2;
-                    LSSM.$stores.api
-                        .request({
-                            url: `/vehicles/${vehicleId}/set_fms/${nextFms}`,
-                            feature: `${MODULE_ID}-enhanceVehicleList-fmsSwitch`,
-                        })
+                    LSSM.$stores.newApi
+                        .request(
+                            `/vehicles/${vehicleId}/set_fms/${nextFms}`,
+                            `${MODULE_ID}-enhanceVehicleList-fmsSwitch`
+                        )
                         .then(({ status }) => {
                             if (status === 200) {
                                 fmsBtn.classList.replace(
@@ -189,11 +189,11 @@ export default async (
                     (async () => {
                         let currentPersonnel = 0;
                         if (lastRowItems.includes('vehiclesPersonnelCurrent')) {
-                            currentPersonnel = await LSSM.$stores.api
-                                .request({
-                                    url: `/vehicles/${vehicleId}`,
-                                    feature: `${MODULE_ID}-enhanceVehicleList-personnel`,
-                                })
+                            currentPersonnel = await LSSM.$stores.newApi
+                                .request(
+                                    `/vehicles/${vehicleId}`,
+                                    `${MODULE_ID}-enhanceVehicleList-personnel`
+                                )
                                 .then(res => res.text())
                                 .then(
                                     res =>

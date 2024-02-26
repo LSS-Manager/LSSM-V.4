@@ -166,10 +166,11 @@ export default Vue.extend<
                                 'authenticity_token',
                                 LSSM.home.authenticity_token
                             );
-                            LSSM.lightbox.apiStore
-                                .request({
-                                    url: `/verband/verlassen`,
-                                    init: {
+                            LSSM.lightbox.newApiStore
+                                .request(
+                                    `/verband/verlassen`,
+                                    `redesign-alliance-leave`,
+                                    {
                                         credentials: 'include',
                                         headers: {
                                             'Content-Type':
@@ -182,9 +183,8 @@ export default Vue.extend<
                                         body: url.searchParams.toString(),
                                         method: 'POST',
                                         mode: 'cors',
-                                    },
-                                    feature: `redesign-alliance-leave`,
-                                })
+                                    }
+                                )
                                 .then(() => {
                                     LSSM.$modal.hide('dialog');
                                     LSSM.$set(
@@ -199,22 +199,22 @@ export default Vue.extend<
             });
         },
         apply() {
-            this.lightbox.apiStore
-                .request({
-                    url: `/verband/bewerben/${this.home.meta.id}`,
-                    feature: `redesign-alliance-leave`,
-                })
+            this.lightbox.newApiStore
+                .request(
+                    `/verband/bewerben/${this.home.meta.id}`,
+                    `redesign-alliance-apply`
+                )
                 .then(() => {
                     this.$set(this.lightbox.data, 'applied', true);
                     this.$set(this.lightbox.data, 'appliable', false);
                 });
         },
         unapply() {
-            this.lightbox.apiStore
-                .request({
-                    url: `/verband/bewerben/${this.home.meta.id}/zurueckziehen`,
-                    feature: `redesign-alliance-leave`,
-                })
+            this.lightbox.newApiStore
+                .request(
+                    `/verband/bewerben/${this.home.meta.id}/zurueckziehen`,
+                    `redesign-alliance-unapply`
+                )
                 .then(() => {
                     this.$set(this.lightbox.data, 'applied', false);
                     this.$set(this.lightbox.data, 'appliable', true);

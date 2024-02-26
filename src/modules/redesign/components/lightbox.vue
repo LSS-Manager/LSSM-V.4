@@ -406,11 +406,8 @@ export default Vue.extend<
 
                 let redirected = false;
 
-                this.apiStore
-                    .request({
-                        url,
-                        feature: `redesign-${type}`,
-                    })
+                this.newApiStore
+                    .request(url, `redesign-${type}`)
                     .then((res: Response) => {
                         if (res.redirected && type !== 'einsatz') {
                             redirected = true;

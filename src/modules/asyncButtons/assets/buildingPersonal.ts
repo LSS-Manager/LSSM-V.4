@@ -35,10 +35,11 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
                                     .querySelector('meta[name="csrf-token"]')
                                     ?.getAttribute('content') || ''
                             );
-                            await LSSM.$stores.api
-                                .request({
-                                    url: btn.href,
-                                    init: {
+                            await LSSM.$stores.newApi
+                                .request(
+                                    btn.href,
+                                    `${MODULE_ID}-buildingPersonal`,
+                                    {
                                         method: 'POST',
                                         body: url.searchParams.toString(),
                                         credentials: 'include',
@@ -50,9 +51,8 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
                                                 'application/x-www-form-urlencoded',
                                             'Upgrade-Insecure-Requests': '1',
                                         },
-                                    },
-                                    feature: `${MODULE_ID}-buildingPersonal`,
-                                })
+                                    }
+                                )
                                 .then(({ status }) => {
                                     if (status !== 200) return;
                                     btn.parentElement?.parentElement?.parentElement?.classList.add(

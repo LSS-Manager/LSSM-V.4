@@ -2874,11 +2874,11 @@ export default Vue.extend<
             if (![2, 6].includes(vehicle.fms_real)) return;
             const targetFMS = vehicle.fms_real === 2 ? 6 : 2;
             const feature = 'buildingComplex-setFMS';
-            this.apiStore
-                .request({
-                    url: `/vehicles/${vehicle.id}/set_fms/${targetFMS}`,
-                    feature,
-                })
+            this.newApiStore
+                .request(
+                    `/vehicles/${vehicle.id}/set_fms/${targetFMS}`,
+                    feature
+                )
                 .then(() => this.apiStore.getVehicle(vehicle.id, feature));
         },
         setSortBuildingsTable(sort) {
@@ -2944,19 +2944,19 @@ export default Vue.extend<
                 )?.content ?? ''
             );
             const feature = 'buildingComplexes-build-extension';
-            this.apiStore
-                .request({
-                    url: `/buildings/${buildingId}/extension/${method}/${extensionType}?redirect_building_id=${buildingId}`,
-                    init: {
+            this.newApiStore
+                .request(
+                    `/buildings/${buildingId}/extension/${method}/${extensionType}?redirect_building_id=${buildingId}`,
+                    feature,
+                    {
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
                         },
                         referrer: `/buildings/${buildingId}`,
                         method: 'POST',
                         body: url.searchParams.toString(),
-                    },
-                    feature,
-                })
+                    }
+                )
                 .then(() =>
                     this.apiStore[
                         allianceBuilding ? 'getAllianceBuilding' : 'getBuilding'
@@ -2980,19 +2980,19 @@ export default Vue.extend<
                 )?.content ?? ''
             );
             const feature = 'buildingComplexes-toggle-extension';
-            this.apiStore
-                .request({
-                    url: `/buildings/${buildingId}/extension_ready/${extensionType}/${buildingId}`,
-                    init: {
+            this.newApiStore
+                .request(
+                    `/buildings/${buildingId}/extension_ready/${extensionType}/${buildingId}`,
+                    feature,
+                    {
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
                         },
                         referrer: `/buildings/${buildingId}`,
                         method: 'POST',
                         body: url.searchParams.toString(),
-                    },
-                    feature,
-                })
+                    }
+                )
                 .then(() => this.apiStore.getBuilding(buildingId, feature))
                 .then(() => {
                     this.tempDisableAllExtensionButtons = false;
@@ -3051,11 +3051,11 @@ export default Vue.extend<
                 window.clearTimeout(this.protocolDeletionTimeout);
             this.protocolDeletionTimeout = window.setTimeout(() => {
                 this.protocolUpdating = true;
-                this.apiStore
-                    .request({
-                        url: `/buildings/${dispatchCenterBuilding.id}/leitstelle-protocol`,
-                        feature: 'buildingComplex',
-                    })
+                this.newApiStore
+                    .request(
+                        `/buildings/${dispatchCenterBuilding.id}/leitstelle-protocol`,
+                        'buildingComplex'
+                    )
                     .then(res => res.text())
                     .then(html => {
                         const protocolDocument =
@@ -3166,11 +3166,11 @@ export default Vue.extend<
         },
         deleteProtocolEntry(id, dispatchId) {
             this.protocolDeletions.push(id);
-            this.apiStore
-                .request({
-                    url: `/buildings/${dispatchId}/leitstelle-protocol-delete?protocol_id=${id}`,
-                    feature: 'buildingComplex',
-                })
+            this.newApiStore
+                .request(
+                    `/buildings/${dispatchId}/leitstelle-protocol-delete?protocol_id=${id}`,
+                    'buildingComplex'
+                )
                 .then(() => {
                     this.protocol.splice(
                         this.protocol.findIndex(p => p.id === id),
@@ -3204,20 +3204,17 @@ export default Vue.extend<
         },
         toggleAllianceShare(buildingId) {
             const feature = 'buildingComplex-toggle-alliance-share';
-            this.apiStore
-                .request({
-                    url: `/buildings/${buildingId}/alliance`,
-                    feature,
-                })
+            this.newApiStore
+                .request(`/buildings/${buildingId}/alliance`, feature)
                 .then(() => this.apiStore.getBuilding(buildingId, feature));
         },
         setAllianceTax(buildingId, tax) {
             const feature = 'buildingComplex-toggle-alliance-set-tax';
-            this.apiStore
-                .request({
-                    url: `/buildings/${buildingId}/alliance_costs/${tax}`,
-                    feature,
-                })
+            this.newApiStore
+                .request(
+                    `/buildings/${buildingId}/alliance_costs/${tax}`,
+                    feature
+                )
                 .then(() => this.apiStore.getBuilding(buildingId, feature));
         },
         openAvailableSchool() {

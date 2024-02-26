@@ -123,10 +123,11 @@ export default (
             .getBuildings('telemetry')
             .then(({ value: buildings }) => buildings.length);
 
-        LSSM.$stores.api
-            .request({
-                url: LSSM.$stores.root.lssmUrl(`/telemetry.php`, true),
-                init: {
+        LSSM.$stores.newApi
+            .request(
+                LSSM.$stores.root.lssmUrl(`/telemetry.php`, true),
+                'telemetry',
+                {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -159,9 +160,8 @@ export default (
                             ) ?? '4.0.0',
                         branch: BRANCH,
                     }),
-                },
-                feature: 'telemetry',
-            })
+                }
+            )
             .then(res => res.json())
             .catch(() => {
                 // Don't do anything

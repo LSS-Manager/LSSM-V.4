@@ -26,10 +26,10 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m) => {
                 renewalCounter.textContent = `0 / ${stagingAreas.length}`;
                 let counter = 0;
                 for (const { id } of stagingAreas) {
-                    await LSSM.$stores.api.request({
-                        url: `/buildings/${id}/bereitstellung-verlaengern`,
-                        feature: `${MODULE_ID}_renewStagingAreasShortcut`,
-                    });
+                    await LSSM.$stores.newApi.request(
+                        `/buildings/${id}/bereitstellung-verlaengern`,
+                        `${MODULE_ID}_renewStagingAreasShortcut`
+                    );
                     counter++;
                     renewalCounter.textContent = `${counter} / ${stagingAreas.length}`;
                 }

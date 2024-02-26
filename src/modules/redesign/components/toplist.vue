@@ -167,11 +167,8 @@ export default Vue.extend<
             const search =
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
             if (search) url.searchParams.set('username', search);
-            this.lightbox.apiStore
-                .request({
-                    url,
-                    feature: `redesign-toplist-load-prev-${this.startPage}`,
-                })
+            this.lightbox.newApiStore
+                .request(url, `redesign-toplist-load-prev-${this.startPage}`)
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../parsers/toplist').then(async parser => {
@@ -209,11 +206,8 @@ export default Vue.extend<
             const search =
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
             if (search) url.searchParams.set('username', search);
-            this.lightbox.apiStore
-                .request({
-                    url,
-                    feature: `redesign-toplist-load-next-${this.endPage}`,
-                })
+            this.lightbox.newApiStore
+                .request(url, `redesign-toplist-load-next-${this.endPage}`)
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../parsers/toplist').then(async parser => {

@@ -261,11 +261,11 @@ export default Vue.extend<
         toggle() {
             this.$set(this.lightbox, 'loading', true);
             const url = new URL('/verband/kasse', window.location.origin);
-            this.lightbox.apiStore
-                .request({
-                    url: `${url.toString()}/umschalten`,
-                    feature: `redesign-verband-kasse-toggle`,
-                })
+            this.lightbox.newApiStore
+                .request(
+                    `${url.toString()}/umschalten`,
+                    `redesign-verband-kasse-toggle`
+                )
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/verband/kasse').then(async parser => {
@@ -289,11 +289,11 @@ export default Vue.extend<
         },
         changeRate(rate) {
             this.$set(this.lightbox, 'loading', true);
-            this.lightbox.apiStore
-                .request({
-                    url: `/verband/kasse/rate/${rate}`,
-                    feature: `redesign-verband-kasse-rate`,
-                })
+            this.lightbox.newApiStore
+                .request(
+                    `/verband/kasse/rate/${rate}`,
+                    `redesign-verband-kasse-rate`
+                )
                 .then(() => {
                     this.$set(this.lightbox.data, 'rate', rate);
                     this.lightbox.finishLoading('verband-kasse-toggle');
@@ -304,11 +304,8 @@ export default Vue.extend<
             this.$set(this.lightbox, 'loading', true);
             const url = new URL('/verband/kasse', window.location.origin);
             url.searchParams.set('type', type);
-            this.lightbox.apiStore
-                .request({
-                    url,
-                    feature: `redesign-verband-kasse-earnings-type`,
-                })
+            this.lightbox.newApiStore
+                .request(url, `redesign-verband-kasse-earnings-type`)
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/verband/kasse').then(async parser => {
@@ -343,11 +340,8 @@ export default Vue.extend<
             this.$set(this.lightbox, 'loading', true);
             const url = new URL('/verband/kasse', window.location.origin);
             url.searchParams.set('type', this.kasse.earnings.type);
-            this.lightbox.apiStore
-                .request({
-                    url,
-                    feature: `redesign-verband-kasse-earnings-today`,
-                })
+            this.lightbox.newApiStore
+                .request(url, `redesign-verband-kasse-earnings-today`)
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/verband/kasse').then(async parser => {
@@ -386,11 +380,8 @@ export default Vue.extend<
                 'scroll',
                 (this.kasse.earnings.scroll - 1).toString()
             );
-            this.lightbox.apiStore
-                .request({
-                    url,
-                    feature: `redesign-verband-kasse-earnings-prev`,
-                })
+            this.lightbox.newApiStore
+                .request(url, `redesign-verband-kasse-earnings-prev`)
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/verband/kasse').then(async parser => {
@@ -429,11 +420,8 @@ export default Vue.extend<
                 'scroll',
                 (this.kasse.earnings.scroll + 1).toString()
             );
-            this.lightbox.apiStore
-                .request({
-                    url,
-                    feature: `redesign-verband-kasse-earnings-next`,
-                })
+            this.lightbox.newApiStore
+                .request(url, `redesign-verband-kasse-earnings-next`)
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/verband/kasse').then(async parser => {
@@ -471,11 +459,8 @@ export default Vue.extend<
                 'page',
                 (this.kasse.spendings.page + 1).toString()
             );
-            this.lightbox.apiStore
-                .request({
-                    url,
-                    feature: `redesign-verband-kasse-more-spendings`,
-                })
+            this.lightbox.newApiStore
+                .request(url, `redesign-verband-kasse-more-spendings`)
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/verband/kasse').then(async parser => {

@@ -30,7 +30,7 @@
 import { computed, nextTick, onMounted, ref } from 'vue';
 
 import { storeToRefs } from 'pinia';
-import { useAPIStore } from '@stores/api';
+import { useNewAPIStore } from '@stores/newApi';
 import { useRootStore } from '@stores/index';
 
 const STORAGE = localStorage;
@@ -84,11 +84,11 @@ onMounted(() => {
 
     // if there are no file-sizes cached, fetch them
     if (Object.values(fileSizes.value).length === 0) {
-        useAPIStore()
-            .request({
-                url: rootStore.lssmUrl('/static/fileSizes.json', true),
-                feature: 'loading-indicator',
-            })
+        useNewAPIStore()
+            .request(
+                rootStore.lssmUrl('/static/fileSizes.json', true),
+                'loading-indicator'
+            )
             .then(res => res.json())
             .then(sizes => {
                 fileSizes.value = sizes;

@@ -62,10 +62,11 @@ export default Vue.extend<
                 this.message.authenticity_token
             );
             url.searchParams.append('_method', 'post');
-            this.lightbox.apiStore
-                .request({
-                    url: `/messages/system_message/${this.id}/remove`,
-                    init: {
+            this.lightbox.newApiStore
+                .request(
+                    `/messages/system_message/${this.id}/remove`,
+                    'redesign-messages-system_messages-delete',
+                    {
                         credentials: 'include',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
@@ -78,9 +79,8 @@ export default Vue.extend<
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
-                    },
-                    feature: 'redesign-messages-system_messages-delete',
-                })
+                    }
+                )
                 .then(({ url }: Response) => {
                     if (
                         !new URL(

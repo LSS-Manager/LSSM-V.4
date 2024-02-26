@@ -246,11 +246,11 @@ export default Vue.extend<
             this.startPage--;
             const url = new URL(`/alliance_logfiles`, window.location.origin);
             url.searchParams.set('page', this.startPage.toString());
-            this.lightbox.apiStore
-                .request({
+            this.lightbox.newApiStore
+                .request(
                     url,
-                    feature: `redesign-verband-mitgliederliste-load-prev-${this.startPage}`,
-                })
+                    `redesign-verband-mitgliederliste-load-prev-${this.startPage}`
+                )
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/verband/protokoll').then(
@@ -289,11 +289,11 @@ export default Vue.extend<
             this.endPage++;
             const url = new URL(`/alliance_logfiles`, window.location.origin);
             url.searchParams.set('page', this.endPage.toString());
-            this.lightbox.apiStore
-                .request({
+            this.lightbox.newApiStore
+                .request(
                     url,
-                    feature: `redesign-verband-mitgliederliste-load-prev-${this.endPage}`,
-                })
+                    `redesign-verband-mitgliederliste-load-next-${this.endPage}`
+                )
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/verband/protokoll').then(

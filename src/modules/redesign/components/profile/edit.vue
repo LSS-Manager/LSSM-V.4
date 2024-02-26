@@ -52,23 +52,19 @@ export default Vue.extend<
             const content =
                 (this.$refs.content as HTMLTextAreaElement | null)?.value ?? '';
             url.searchParams.append('profile[content]', content);
-            this.lightbox.apiStore
-                .request({
-                    url: `/profile`,
-                    init: {
-                        credentials: 'include',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                        },
-                        referrer: new URL(
-                            `profile/edit`,
-                            window.location.origin
-                        ).toString(),
-                        body: url.searchParams.toString(),
-                        method: 'POST',
-                        mode: 'cors',
+            this.lightbox.newApiStore
+                .request(`/profile`, 'redesign-profile-edit', {
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
                     },
-                    feature: `redesign-profile-edit`,
+                    referrer: new URL(
+                        `profile/edit`,
+                        window.location.origin
+                    ).toString(),
+                    body: url.searchParams.toString(),
+                    method: 'POST',
+                    mode: 'cors',
                 })
                 .then(({ url }) => {
                     if (

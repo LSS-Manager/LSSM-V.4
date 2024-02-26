@@ -31,11 +31,11 @@ export default (LSSM: Vue, $m: $m, $mc: $mc, MODULE_ID: string) => {
 
         liItem.addEventListener('click', e => {
             e.preventDefault();
-            LSSM.$stores.api
-                .request({
-                    url: `/vehiclepatrols/start/${duration}?duration=${duration}`,
-                    feature: `${MODULE_ID}_startPatrolsShortcut`,
-                })
+            LSSM.$stores.newApi
+                .request(
+                    `/vehiclepatrols/start/${duration}?duration=${duration}`,
+                    `${MODULE_ID}_startPatrolsShortcut`
+                )
                 .then(res => res.text())
                 .then(html => {
                     const doc = new DOMParser().parseFromString(

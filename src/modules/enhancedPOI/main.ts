@@ -38,11 +38,8 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
     );
 
     const modifyMarkers = () =>
-        LSSM.$stores.api
-            .request({
-                url: '/mission_positions',
-                feature: MODULE_ID,
-            })
+        LSSM.$stores.newApi
+            .request('/mission_positions', MODULE_ID)
             .then(res => res.json())
             .then(
                 ({

@@ -21,11 +21,11 @@ export default (
             btn.addEventListener('click', async e => {
                 e.preventDefault();
                 taxBtns.forEach(taxBtn => taxBtn.classList.add('disabled'));
-                await LSSM.$stores.api
-                    .request({
-                        url: btn.getAttribute('href') ?? '',
-                        feature: `${MODULE_ID}-buildings`,
-                    })
+                await LSSM.$stores.newApi
+                    .request(
+                        btn.getAttribute('href') ?? '',
+                        `${MODULE_ID}-buildings`
+                    )
                     .then(({ status }) => {
                         if (status === 200) {
                             document
@@ -71,10 +71,11 @@ export default (
                         .querySelector('meta[name="csrf-token"]')
                         ?.getAttribute('content') || ''
                 );
-                await LSSM.$stores.api
-                    .request({
-                        url: btn.getAttribute('href') ?? '',
-                        init: {
+                await LSSM.$stores.newApi
+                    .request(
+                        btn.getAttribute('href') ?? '',
+                        'ab-buildings-extensionState',
+                        {
                             method: 'POST',
                             body: url.searchParams.toString(),
                             headers: {
@@ -84,9 +85,8 @@ export default (
                                     'application/x-www-form-urlencoded',
                                 'Upgrade-Insecure-Requests': '1',
                             },
-                        },
-                        feature: 'ab-buildings-extensionState',
-                    })
+                        }
+                    )
                     .then(({ status }) => {
                         if (status === 200) {
                             extensionStateBtns.forEach(tbtn =>

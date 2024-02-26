@@ -117,11 +117,11 @@ export default async (
             mission.btnGroup.append(btn);
             btn.addEventListener('click', () => {
                 btn.disabled = true;
-                LSSM.$stores.api
-                    .request({
-                        url: `/missions/${mission.id}/alliance`,
-                        feature: 'ecl-share-missions',
-                    })
+                LSSM.$stores.newApi
+                    .request(
+                        `/missions/${mission.id}/alliance`,
+                        'ecl-share-missions'
+                    )
                     .then(() => btn.remove());
             });
         }

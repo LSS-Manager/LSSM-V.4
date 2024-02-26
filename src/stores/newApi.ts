@@ -62,7 +62,6 @@ const API_UPDATE_AFTER = 5 * 60 * 1000; // 5 Minutes
 
 // TODO: Rename to defineAPIStore and id to api
 export const defineNewAPIStore = defineStore('newApi', () => {
-    // TODO: fetch secretKey from according endpoint
     const secretKey = ref<string>('');
     const currentlyRunningUpdates: RunningUpdatesMap = {};
 
@@ -455,6 +454,11 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         return _updateVehicle(vehicle);
     };
 
+    /**
+     * Update the building store from the information of a single (potentially updated or new) building.
+     * @param building - The building that may be new or updated.
+     * @returns The updated building.
+     */
     const _updateBuilding = (building: Building) => {
         const oldBuilding = apiStorage.buildings.value[building.id];
 
@@ -511,6 +515,11 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         return building;
     };
 
+    /**
+     * Update the building store from a buildingMarkerAdd call.
+     * @param buildingMarker - The building marker to update the building store from.
+     * @returns A promise that resolves when the update is finished.
+     */
     const updateBuildingFromBuildingMarkerAdd = (
         buildingMarker: BuildingMarkerAdd
     ) => {
@@ -537,6 +546,121 @@ export const defineNewAPIStore = defineStore('newApi', () => {
 
         return _updateBuilding(building);
     };
+
+    /**
+     * Make a request to a URL.
+     * @param inputOrUrl - Either a Request object or a URL string.
+     * @param feature - The feature that is requesting the URL.
+     * @param init - A RequestInit object to modify the request.
+     * @param dialogOnError - A boolean indicating whether to show a dialog on a 500 error.
+     * @returns A promise that resolves with the response.
+     */
+    const request = async (
+        inputOrUrl: RequestInfo | URL,
+        feature: string,
+        init: RequestInit = {},
+        dialogOnError: boolean = false
+    ): Promise<Response> => {
+        const requestUrl =
+            inputOrUrl instanceof URL
+                ? inputOrUrl.href
+                : inputOrUrl instanceof Request
+                  ? inputOrUrl.url
+                  : inputOrUrl;
+        const isRequestToLSSMServer = requestUrl.startsWith(SERVER);
+        const requestInit = _getRequestInit(
+            init,
+            feature,
+            isRequestToLSSMServer
+        );
+
+        const startTime = Date.now();
+
+        const res = await fetch(inputOrUrl, requestInit);
+
+        if (res.ok) return res;
+
+        // request has not been okay
+
+        // check if the response tells us that the currently used LSSM Version is out-of-date
+        if (
+            isRequestToLSSMServer &&
+            res.headers.get('content-type')?.startsWith('application/json')
+        ) {
+            const data = await res.json();
+            if (data.error === 'outdated version') {
+                const LSSM = window[PREFIX] as Vue;
+                LSSM.$modal.show('dialog', {
+                    title: LSSM.$t('global.warnings.version.title'),
+                    text: LSSM.$t('global.warnings.version.text', {
+                        version: data.version,
+                        curver: VERSION,
+                    }),
+                    buttons: [
+                        {
+                            title: LSSM.$t('global.warnings.version.close'),
+                            default: true,
+                            handler() {
+                                window.location.reload(
+                                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                    // @ts-ignore
+                                    true
+                                );
+                            },
+                        },
+                        {
+                            title: LSSM.$t('global.warnings.version.abort'),
+                            handler() {
+                                LSSM.$modal.hide('dialog');
+                            },
+                        },
+                    ],
+                });
+                window.focus();
+            }
+            return res;
+        }
+
+        // did the request end in a 500?
+        if (dialogOnError && res.status === 500) {
+            const LSSM = window[PREFIX] as Vue;
+            LSSM.$modal.show('dialog', {
+                title: LSSM.$t('global.error.requestIssue.title', {
+                    status: res.status,
+                    statusText: res.statusText,
+                }),
+                text: LSSM.$t('global.error.requestIssue.text', {
+                    url: res.url,
+                    status: res.status,
+                    statusText: res.statusText,
+                    method: init.method?.toUpperCase() ?? 'GET',
+                    feature,
+                    duration: Date.now() - startTime,
+                    timestamp: new Date().toISOString(),
+                    uid: `${window.I18n.locale}-${window.user_id}`,
+                }),
+                buttons: [
+                    {
+                        title: LSSM.$t('global.error.requestIssue.close'),
+                        default: true,
+                        handler() {
+                            LSSM.$modal.hide('dialog');
+                        },
+                    },
+                ],
+            });
+        }
+
+        return res;
+    };
+
+    // initially request the secret key of this user
+    request(
+        `/profile/external_secret_key/${window.user_id}`,
+        'apiStore/_fetchSecretKey'
+    )
+        .then(res => res.json())
+        .then(({ code }) => (secretKey.value = code));
 
     return {
         // TODO: remove the lastUpdate things, this is only for debugging purposes
@@ -607,6 +731,8 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         // mutations: update API data from ingame events
         updateVehicleFromRadioMessage,
         updateBuildingFromBuildingMarkerAdd,
+        // utility functions
+        request,
     };
 });
 

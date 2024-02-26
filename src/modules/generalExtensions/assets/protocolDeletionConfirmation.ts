@@ -17,10 +17,10 @@ export default async (
             `#protocol_entry_${btn.getAttribute('protocol_id')}`
         );
         if (!row) return;
-        await LSSM.$stores.api.request({
-            url: link,
-            feature: `${MODULE_ID}-protocolDeletionConfirmation`,
-        });
+        await LSSM.$stores.newApi.request(
+            link,
+            `${MODULE_ID}-protocolDeletionConfirmation`
+        );
         row.style.display = 'none';
     };
 

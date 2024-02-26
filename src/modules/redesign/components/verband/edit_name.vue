@@ -56,10 +56,11 @@ export default Vue.extend<
                 (this.$refs.content as HTMLTextAreaElement | null)?.value ?? '';
             formData.append('alliance[caption]', content);
             formData.append('commit', 'save');
-            this.lightbox.apiStore
-                .request({
-                    url: `/alliances/${this.alliance.meta.id}`,
-                    init: {
+            this.lightbox.newApiStore
+                .request(
+                    `/alliances/${this.alliance.meta.id}`,
+                    `redesign-edit-alliance-name`,
+                    {
                         credentials: 'include',
                         headers: {
                             'Upgrade-Insecure-Requests': '1',
@@ -68,9 +69,8 @@ export default Vue.extend<
                         body: formData,
                         method: 'POST',
                         mode: 'cors',
-                    },
-                    feature: `redesign-edit-alliance-name`,
-                })
+                    }
+                )
                 .then(({ url }) => {
                     if (
                         !new URL(

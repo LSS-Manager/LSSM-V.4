@@ -109,6 +109,7 @@ import Vue from 'vue';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
 import { useAPIStore } from '@stores/api';
+import { useNewAPIStore } from '@stores/newApi';
 import { useRootStore } from '@stores/index';
 import { useTranslationStore } from '@stores/translationUtilities';
 
@@ -157,6 +158,7 @@ export default Vue.extend<
             ),
             resolving: null,
             apiStore,
+            newApiStore: useNewAPIStore(),
         } as VehicleList;
     },
     props: {
@@ -202,11 +204,11 @@ export default Vue.extend<
         toggleFMS(vehicle) {
             if (![2, 6].includes(vehicle.fms_real)) return;
             const target = vehicle.fms_real === 2 ? 6 : 2;
-            this.apiStore
-                .request({
-                    url: `/vehicles/${vehicle.id}/set_fms/${target}`,
-                    feature: `dashboard-vehicleList-setfms`,
-                })
+            this.newApiStore
+                .request(
+                    `/vehicles/${vehicle.id}/set_fms/${target}`,
+                    `dashboard-vehicleList-setfms`
+                )
                 .then(() => {
                     vehicle.fms_real = target;
                     vehicle.fms_show = (
@@ -221,11 +223,11 @@ export default Vue.extend<
             if (this.resolving) return;
             this.resolving = window.setTimeout(
                 () =>
-                    this.apiStore
-                        .request({
-                            url: `/${type}s/${id}`,
-                            feature: 'dashboard-vehiclelist-resolve-title',
-                        })
+                    this.newApiStore
+                        .request(
+                            `/${type}s/${id}`,
+                            'dashboard-vehiclelist-resolve-title'
+                        )
                         .then(res => res.text())
                         .then(html => {
                             const doc = new DOMParser().parseFromString(

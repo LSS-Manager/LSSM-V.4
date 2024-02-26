@@ -27,19 +27,16 @@ export default async (LSSM: Vue): Promise<void> => {
     const currentVersion = coerce(VERSION) ?? '4.0.0';
 
     const notes: [string, Releasenote][] = Object.entries(
-        (await LSSM.$stores.api
-            .request({
-                url: LSSM.$stores.root.lssmUrl(
+        await LSSM.$stores.newApi
+            .request(
+                LSSM.$stores.root.lssmUrl(
                     `/releasenotes/${LSSM.$stores.root.locale}.json`,
                     true,
                     { v: VERSION }
                 ),
-                init: {
-                    method: 'GET',
-                },
-                feature: 'releasenotes',
-            })
-            .then(res => res.json())) as Releasenotes
+                'releasenotes'
+            )
+            .then<Releasenotes>(res => res.json())
     )
         .filter(
             ([version, { content }]) =>

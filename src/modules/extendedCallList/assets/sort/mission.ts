@@ -69,11 +69,11 @@ export default async (
                 searchParams.append(key, value.toString())
             );
             searchParams.set('alliance_mission_publish', publish ? '1' : '0');
-            return LSSM.$stores.api
-                .request({
-                    url: `/missions/${missionId}/alarm`,
-                    feature: `${MODULE_ID}_sort-missions_alarm`,
-                    init: {
+            return LSSM.$stores.newApi
+                .request(
+                    `/missions/${missionId}/alarm`,
+                    `${MODULE_ID}_sort-missions_alarm`,
+                    {
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
                         },
@@ -84,8 +84,8 @@ export default async (
                         body: searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
-                    },
-                })
+                    }
+                )
                 .then((res: Response) => res.text())
                 .then(html => {
                     const flashs = Array.from(

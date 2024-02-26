@@ -190,7 +190,7 @@ export const defineAPIStore = defineStore('api', {
     },
     actions: {
         _setSecretKey() {
-            return this.request({
+            return this._request({
                 url: `/profile/external_secret_key/${window.user_id}`,
                 feature: 'get_external_secret_key',
             })
@@ -318,7 +318,7 @@ export const defineAPIStore = defineStore('api', {
                         resolve(stateValue as EnsuredAPIGetter<API>)
                     );
                 }
-                return this.request({
+                return this._request({
                     url: `/api/${api}`,
                     feature: `apiStore/getAPI(${feature})`,
                 })
@@ -390,7 +390,7 @@ export const defineAPIStore = defineStore('api', {
         ): Promise<Building> {
             return this._awaitInitialBroadcast()
                 .then(() =>
-                    this.request({
+                    this._request({
                         url: `/api/alliance_buildings/${buildingId}`,
                         feature: `apiStore/getAllianceBuilding(${feature})`,
                     })
@@ -445,7 +445,7 @@ export const defineAPIStore = defineStore('api', {
         getBuilding(buildingId: number, feature: string): Promise<Building> {
             return this._awaitInitialBroadcast()
                 .then(() =>
-                    this.request({
+                    this._request({
                         url: `/api/buildings/${buildingId}`,
                         feature: `apiStore/getBuilding(${feature})`,
                     })
@@ -554,7 +554,7 @@ export const defineAPIStore = defineStore('api', {
         getVehiclesAtBuilding(buildingId: number, feature: string) {
             return this._awaitInitialBroadcast()
                 .then(() =>
-                    this.request({
+                    this._request({
                         url: `/api/buildings/${buildingId}/vehicles`,
                         feature: `apiStore/getVehiclesAtBuilding(${feature})`,
                     })
@@ -586,7 +586,7 @@ export const defineAPIStore = defineStore('api', {
         getVehicle(vehicleId: number, feature: string): Promise<Vehicle> {
             return this._awaitInitialBroadcast()
                 .then(() =>
-                    this.request({
+                    this._request({
                         url: `/api/vehicles/${vehicleId}`,
                         feature: `apiStore/getVehicle(${feature})`,
                     })
@@ -634,7 +634,7 @@ export const defineAPIStore = defineStore('api', {
                 updateInterval
             );
         },
-        async request({
+        async _request({
             input,
             url = '',
             init = {},

@@ -271,11 +271,8 @@ export default Vue.extend<
                 window.location.origin
             );
             url.searchParams.set('page', newPage.toString());
-            this.lightbox.apiStore
-                .request({
-                    url,
-                    feature: `redesign-conversation-load-${mode}-${newPage}`,
-                })
+            this.lightbox.newApiStore
+                .request(url, `redesign-conversation-load-${mode}-${newPage}`)
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/messages/conversation').then(
@@ -331,10 +328,11 @@ export default Vue.extend<
                 this.conversation.id.toString()
             );
             url.searchParams.append('message[body]', this.response);
-            this.lightbox.apiStore
-                .request({
-                    url: `/messages`,
-                    init: {
+            this.lightbox.newApiStore
+                .request(
+                    `/messages`,
+                    'redesign-messages-conversation-respond',
+                    {
                         credentials: 'include',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
@@ -347,9 +345,8 @@ export default Vue.extend<
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
-                    },
-                    feature: 'redesign-messages-conversation-respond',
-                })
+                    }
+                )
                 .then(() => {
                     this.$set(this.lightbox.data, 'messages', [
                         {
@@ -382,10 +379,11 @@ export default Vue.extend<
                 'conversations[]',
                 this.conversation.id.toString()
             );
-            this.lightbox.apiStore
-                .request({
-                    url: `/messages/trash`,
-                    init: {
+            this.lightbox.newApiStore
+                .request(
+                    `/messages/trash`,
+                    'redesign-messages-conversation-delete',
+                    {
                         credentials: 'include',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
@@ -398,9 +396,8 @@ export default Vue.extend<
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
-                    },
-                    feature: 'redesign-messages-conversation-delete',
-                })
+                    }
+                )
                 .then(({ url }: Response) => {
                     this.$set(this.lightbox, 'src', url);
                 });

@@ -83,25 +83,21 @@ export default Vue.extend<
                 this.imageFile.name
             );
             formData.append('commit', 'save');
-            this.lightbox.apiStore
-                .request({
-                    url: `/avatar/upload`,
-                    init: {
-                        credentials: 'include',
-                        headers: {
-                            'Accept':
-                                'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-                            'Upgrade-Insecure-Requests': '1',
-                        },
-                        referrer: new URL(
-                            `avatar`,
-                            window.location.origin
-                        ).toString(),
-                        body: formData,
-                        method: 'POST',
-                        mode: 'cors',
+            this.lightbox.newApiStore
+                .request(`/avatar/upload`, `redesign-avatar-edit`, {
+                    credentials: 'include',
+                    headers: {
+                        'Accept':
+                            'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+                        'Upgrade-Insecure-Requests': '1',
                     },
-                    feature: `redesign-avatar-edit`,
+                    referrer: new URL(
+                        `avatar`,
+                        window.location.origin
+                    ).toString(),
+                    body: formData,
+                    method: 'POST',
+                    mode: 'cors',
                 })
                 .then(({ url }) => {
                     const img = this.image;
@@ -126,19 +122,15 @@ export default Vue.extend<
         },
         deleteAvatar() {
             this.$set(this.lightbox, 'loading', true);
-            this.lightbox.apiStore
-                .request({
-                    url: `/avatar/delete`,
-                    init: {
-                        credentials: 'include',
-                        referrer: new URL(
-                            `avatar`,
-                            window.location.origin
-                        ).toString(),
-                        method: 'GET',
-                        mode: 'cors',
-                    },
-                    feature: `redesign-avatar-delete`,
+            this.lightbox.newApiStore
+                .request(`/avatar/delete`, `redesign-avatar-delete`, {
+                    credentials: 'include',
+                    referrer: new URL(
+                        `avatar`,
+                        window.location.origin
+                    ).toString(),
+                    method: 'GET',
+                    mode: 'cors',
                 })
                 .then(() => {
                     this.$set(this.lightbox.data, 'image', '');

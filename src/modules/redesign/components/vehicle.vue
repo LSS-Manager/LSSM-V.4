@@ -1248,10 +1248,11 @@ export default Vue.extend<
                 this.vehicle.id.toString()
             );
             url.searchParams.append('vehicle_return', '1');
-            this.lightbox.apiStore
-                .request({
-                    url: `/missions/${missionId}/alarm`,
-                    init: {
+            this.lightbox.newApiStore
+                .request(
+                    `/missions/${missionId}/alarm`,
+                    `redesign-vehicle-alarm-${this.vehicle.id}-to-${missionId}`,
+                    {
                         credentials: 'include',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
@@ -1263,9 +1264,8 @@ export default Vue.extend<
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
-                    },
-                    feature: `redesign-vehicle-alarm-${this.vehicle.id}-to-${missionId}`,
-                })
+                    }
+                )
                 .then(() =>
                     this.$set(
                         this.lightbox,
@@ -1297,11 +1297,8 @@ export default Vue.extend<
             }
         },
         approach(url, followRedirect = true) {
-            this.lightbox.apiStore
-                .request({
-                    url,
-                    feature: `redesign-vehicle-approach`,
-                })
+            this.lightbox.newApiStore
+                .request(url, `redesign-vehicle-approach`)
                 .then((res: Response) => {
                     if (res.redirected && followRedirect) {
                         if (
@@ -1394,10 +1391,11 @@ export default Vue.extend<
                                 'authenticity_token',
                                 LSSM.vehicle.authenticity_token
                             );
-                            LSSM.lightbox.apiStore
-                                .request({
-                                    url: `/vehicles/${LSSM.vehicle.id}`,
-                                    init: {
+                            LSSM.lightbox.newApiStore
+                                .request(
+                                    `/vehicles/${LSSM.vehicle.id}`,
+                                    `redesign-vehicle-delete-${LSSM.vehicle.id}`,
+                                    {
                                         credentials: 'include',
                                         headers: {
                                             'Content-Type':
@@ -1410,9 +1408,8 @@ export default Vue.extend<
                                         body: url.searchParams.toString(),
                                         method: 'POST',
                                         mode: 'cors',
-                                    },
-                                    feature: `redesign-vehicle-delete-${LSSM.vehicle.id}`,
-                                })
+                                    }
+                                )
                                 .then(() => {
                                     LSSM.$modal.hide('dialog');
                                     LSSM.$set(
@@ -1427,11 +1424,11 @@ export default Vue.extend<
             });
         },
         backalarm() {
-            this.lightbox.apiStore
-                .request({
-                    url: `/vehicles/${this.vehicle.id}/backalarm`,
-                    feature: `redesign-vehicle-alarm-${this.vehicle.id}-backalarm`,
-                })
+            this.lightbox.newApiStore
+                .request(
+                    `/vehicles/${this.vehicle.id}/backalarm`,
+                    `redesign-vehicle-alarm-${this.vehicle.id}-backalarm`
+                )
                 .then(() =>
                     this.$set(
                         this.lightbox,
@@ -1441,11 +1438,11 @@ export default Vue.extend<
                 );
         },
         backalarmFollowUp(missionId) {
-            this.lightbox.apiStore
-                .request({
-                    url: `/vehicles/${this.vehicle.id}/backalarm?only_mission_id=${missionId}`,
-                    feature: `redesign-vehicle-backalarm-only_mission`,
-                })
+            this.lightbox.newApiStore
+                .request(
+                    `/vehicles/${this.vehicle.id}/backalarm?only_mission_id=${missionId}`,
+                    `redesign-vehicle-backalarm-only_mission`
+                )
                 .then(() => {
                     this.$set(
                         this.lightbox,
@@ -1455,11 +1452,11 @@ export default Vue.extend<
                 });
         },
         backalarmCurrent() {
-            this.lightbox.apiStore
-                .request({
-                    url: `/vehicles/${this.vehicle.id}/backalarm?next_mission=1`,
-                    feature: `redesign-vehicle-backalarm-next_mission`,
-                })
+            this.lightbox.newApiStore
+                .request(
+                    `/vehicles/${this.vehicle.id}/backalarm?next_mission=1`,
+                    `redesign-vehicle-backalarm-next_mission`
+                )
                 .then(() => {
                     this.$set(
                         this.lightbox,
@@ -1471,11 +1468,11 @@ export default Vue.extend<
         switchState() {
             if (![2, 6].includes(this.vehicle.fms)) return;
             const target = this.vehicle.fms === 2 ? 6 : 2;
-            this.lightbox.apiStore
-                .request({
-                    url: `/vehicles/${this.vehicle.id}/set_fms/${target}`,
-                    feature: `redesign-vehicle-setfms`,
-                })
+            this.lightbox.newApiStore
+                .request(
+                    `/vehicles/${this.vehicle.id}/set_fms/${target}`,
+                    `redesign-vehicle-setfms`
+                )
                 .then(() => {
                     this.$set(
                         this.lightbox,
@@ -1540,10 +1537,11 @@ export default Vue.extend<
                     'authenticity_token',
                     this.vehicle.authenticity_token
                 );
-                this.lightbox.apiStore
-                    .request({
-                        url: `${url.pathname}?vehicle_id=${this.vehicle.id}`,
-                        init: {
+                this.lightbox.newApiStore
+                    .request(
+                        `${url.pathname}?vehicle_id=${this.vehicle.id}`,
+                        `redesign-vehicle-release-prisoners`,
+                        {
                             credentials: 'include',
                             headers: {
                                 'Content-Type':
@@ -1556,9 +1554,8 @@ export default Vue.extend<
                             body: url.searchParams.toString(),
                             method: 'POST',
                             mode: 'cors',
-                        },
-                        feature: `redesign-vehicle-release-prisoners`,
-                    })
+                        }
+                    )
                     .then((res: Response) => {
                         this.$set(
                             this.lightbox,
@@ -1607,11 +1604,8 @@ export default Vue.extend<
                 `/vehicles/${this.vehicle.id}?load_all=true`,
                 window.location.origin
             );
-            this.lightbox.apiStore
-                .request({
-                    url,
-                    feature: `redesign-vehicle-load_all_hospitals`,
-                })
+            this.lightbox.newApiStore
+                .request(url, `redesign-vehicle-load_all_hospitals`)
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../parsers/vehicle').then(async parser => {

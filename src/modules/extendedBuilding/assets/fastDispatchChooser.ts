@@ -129,11 +129,11 @@ export default async (
                     setBtn.style.marginLeft = '1ch';
                     setBtn.addEventListener('click', e => {
                         e.preventDefault();
-                        LSSM.$stores.api
-                            .request({
-                                url: `/buildings/${buildingID}/leitstelle-set/${building.id}`,
-                                feature: `${MODULE_ID}-fastDispatchChooser`,
-                            })
+                        LSSM.$stores.newApi
+                            .request(
+                                `/buildings/${buildingID}/leitstelle-set/${building.id}`,
+                                `${MODULE_ID}-fastDispatchChooser`
+                            )
                             .then(() => {
                                 dispatchBtn.setAttribute(
                                     'href',

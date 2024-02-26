@@ -83,10 +83,11 @@ export default Vue.extend<
                 this.imageFile.name
             );
             formData.append('commit', 'save');
-            this.lightbox.apiStore
-                .request({
-                    url: `/verband/avatar/upload`,
-                    init: {
+            this.lightbox.newApiStore
+                .request(
+                    `/verband/avatar/upload`,
+                    `redesign-alliance-avatar-edit`,
+                    {
                         credentials: 'include',
                         headers: {
                             'Accept':
@@ -100,9 +101,8 @@ export default Vue.extend<
                         body: formData,
                         method: 'POST',
                         mode: 'cors',
-                    },
-                    feature: `redesign-alliance-avatar-edit`,
-                })
+                    }
+                )
                 .then(({ url }) => {
                     const img = this.image;
                     this.image = '';
@@ -126,10 +126,11 @@ export default Vue.extend<
         },
         deleteAvatar() {
             this.$set(this.lightbox, 'loading', true);
-            this.lightbox.apiStore
-                .request({
-                    url: `/verband/avatar/delete`,
-                    init: {
+            this.lightbox.newApiStore
+                .request(
+                    `/verband/avatar/delete`,
+                    `redesign-alliance-avatar-delete`,
+                    {
                         credentials: 'include',
                         referrer: new URL(
                             `verband/avatar`,
@@ -137,9 +138,8 @@ export default Vue.extend<
                         ).toString(),
                         method: 'GET',
                         mode: 'cors',
-                    },
-                    feature: `redesign-alliance-avatar-delete`,
-                })
+                    }
+                )
                 .then(() => {
                     this.$set(this.lightbox.data, 'image', '');
                     this.lightbox.finishLoading('avatar-deleted');

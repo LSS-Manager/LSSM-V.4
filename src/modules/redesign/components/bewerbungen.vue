@@ -140,10 +140,11 @@ export default Vue.extend<
     },
     methods: {
         accept(id, username) {
-            this.lightbox.apiStore
-                .request({
-                    url: `/verband/bewerbungen/annehmen/${id}`,
-                    init: {
+            this.lightbox.newApiStore
+                .request(
+                    `/verband/bewerbungen/annehmen/${id}`,
+                    `redesign-verband-bewerbungen-accept`,
+                    {
                         credentials: 'include',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
@@ -154,9 +155,8 @@ export default Vue.extend<
                         ).toString(),
                         method: 'GET',
                         mode: 'cors',
-                    },
-                    feature: `redesign-verband-bewerbungen-accept`,
-                })
+                    }
+                )
                 .then(() => {
                     this.alertMsg = this.lightbox
                         .$sm('alert.accepted', { username })
@@ -171,10 +171,11 @@ export default Vue.extend<
                 });
         },
         decline(id, username) {
-            this.lightbox.apiStore
-                .request({
-                    url: `/verband/bewerbungen/ablehnen/${id}`,
-                    init: {
+            this.lightbox.newApiStore
+                .request(
+                    `/verband/bewerbungen/ablehnen/${id}`,
+                    `redesign-verband-bewerbungen-decline`,
+                    {
                         credentials: 'include',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
@@ -185,9 +186,8 @@ export default Vue.extend<
                         ).toString(),
                         method: 'GET',
                         mode: 'cors',
-                    },
-                    feature: `redesign-verband-bewerbungen-decline`,
-                })
+                    }
+                )
                 .then(() => {
                     this.alertMsg = this.lightbox
                         .$sm('alert.declined', { username })
@@ -211,11 +211,11 @@ export default Vue.extend<
                             window.location.origin
                         ).toString();
                         return new Promise<void>(resolve =>
-                            this.lightbox.apiStore
-                                .request({
+                            this.lightbox.newApiStore
+                                .request(
                                     url,
-                                    feature: `redesign-bewerbungen-load-credits`,
-                                })
+                                    `redesign-bewerbungen-load-credits`
+                                )
                                 .then((res: Response) => res.text())
                                 .then(html =>
                                     import(
