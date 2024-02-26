@@ -118,10 +118,11 @@ export default (
         browser: UAParser.IBrowser,
         browserMajor: number
     ) => {
-        await LSSM.$stores.api._setSecretKey();
         const buildingsAmount = await LSSM.$stores.api
             .getBuildings('telemetry')
             .then(({ value: buildings }) => buildings.length);
+
+        await LSSM.$stores.newApi.awaitSecretKey();
 
         LSSM.$stores.newApi
             .request(

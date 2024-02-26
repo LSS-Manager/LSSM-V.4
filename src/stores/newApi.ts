@@ -1,4 +1,4 @@
-import { computed, ref, type Ref } from 'vue';
+import { computed, ref, type Ref, watch } from 'vue';
 // well, we cannot set default type import + non-default non-type import
 // eslint-disable-next-line no-duplicate-imports
 import type Vue from 'vue';
@@ -733,6 +733,16 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         updateBuildingFromBuildingMarkerAdd,
         // utility functions
         request,
+        awaitSecretKey: () =>
+            new Promise<void>(resolve => {
+                if (secretKey.value) return resolve();
+                const stopWatching = watch(secretKey, () => {
+                    if (secretKey.value) {
+                        stopWatching();
+                        resolve();
+                    }
+                });
+            }),
     };
 });
 
