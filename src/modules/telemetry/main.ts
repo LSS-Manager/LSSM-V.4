@@ -122,8 +122,6 @@ export default (
             .getBuildings('telemetry')
             .then(({ value: buildings }) => buildings.length);
 
-        await LSSM.$stores.newApi.awaitSecretKey();
-
         LSSM.$stores.newApi
             .request(
                 LSSM.$stores.root.lssmUrl(`/telemetry.php`, true),
@@ -134,7 +132,7 @@ export default (
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        id: LSSM.$stores.api.secretKey,
+                        id: await LSSM.$stores.newApi.awaitSecretKey(),
                         uid: window.user_id,
                         game: LSSM.$stores.root.locale,
                         police: LSSM.$stores.root.isPoliceChief,

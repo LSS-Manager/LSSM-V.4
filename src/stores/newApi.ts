@@ -734,12 +734,12 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         // utility functions
         request,
         awaitSecretKey: () =>
-            new Promise<void>(resolve => {
-                if (secretKey.value) return resolve();
+            new Promise<string>(resolve => {
+                if (secretKey.value) return resolve(secretKey.value);
                 const stopWatching = watch(secretKey, () => {
                     if (secretKey.value) {
                         stopWatching();
-                        resolve();
+                        resolve(secretKey.value);
                     }
                 });
             }),
