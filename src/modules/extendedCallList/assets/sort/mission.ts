@@ -54,75 +54,25 @@ export default async (
     toggleWrapper.style.setProperty('display', 'inline-block');
 
     if (found) {
-        await LSSM.$stores.api.getSettings(
-            `${MODULE_ID}_sort-missions_mission-window`
-        );
-
         const alarm = (publish = false) => {
             const form =
                 document.querySelector<HTMLFormElement>('#mission-form');
             if (!form) return;
-            const searchParams = new URLSearchParams();
-            Array.from(new FormData(form).entries()).forEach(([key, value]) =>
-                searchParams.append(key, value.toString())
+            const nextMissionIdInput =
+                form.querySelector<HTMLInputElement>('#next_mission_id');
+            if (nextMissionIdInput) {
+                nextMissionIdInput.value =
+                    order[missionList][missionListPosition + 1];
+            }
+            const publishInput = form.querySelector<HTMLInputElement>(
+                '#alliance_mission_publish'
             );
-            searchParams.set('alliance_mission_publish', publish ? '1' : '0');
-            return LSSM.$stores.api
-                .request({
-                    url: `/missions/${missionId}/alarm`,
-                    feature: `${MODULE_ID}_sort-missions_alarm`,
-                    init: {
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                        },
-                        referrer: new URL(
-                            `/missions/${missionId}`,
-                            window.location.origin
-                        ).toString(),
-                        body: searchParams.toString(),
-                        method: 'POST',
-                        mode: 'cors',
-                    },
-                })
-                .then((res: Response) => res.text())
-                .then(html => {
-                    const flashs = Array.from(
-                        new DOMParser()
-                            .parseFromString(html, 'text/html')
-                            .querySelectorAll<HTMLDivElement>(
-                                // possible flashs: red, green, red+green
-                                '#flash_insert_point + .alert.alert-danger:not(.alert-missing-vehicles), #flash_insert_point + .alert.alert-success, #flash_insert_point + .alert.alert-danger:not(.alert-missing-vehicles) + .alert.alert-success'
-                            )
-                    );
+            if (publishInput) publishInput.value = Number(publish).toString();
 
-                    if (flashs.length) {
-                        sessionStorage.setItem(
-                            flashStorageKey,
-                            flashs.map(flash => flash.outerHTML).join('\n')
-                        );
-                        if (
-                            flashs.some(flash =>
-                                flash.classList.contains('alert-danger')
-                            )
-                        )
-                            return window.location.reload();
-                    }
-
-                    if (!isLastMission) {
-                        window.location.replace(
-                            `/missions/${
-                                order[missionList][missionListPosition + 1]
-                            }`
-                        );
-                    } else if (
-                        LSSM.$stores.api.settings
-                            ?.mission_alarmed_successfull_close_window
-                    ) {
-                        window.location.replace('/missions/close');
-                    } else {
-                        window.location.reload();
-                    }
-                });
+            // we've set the next mission id and the publishing value, so we can easily submit the form with normal alarm button
+            document
+                .querySelector<HTMLAnchorElement>('#mission_alarm_btn')
+                ?.click();
         };
 
         const toggleInput = document.createElement('input');
