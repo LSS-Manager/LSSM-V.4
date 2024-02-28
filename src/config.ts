@@ -180,7 +180,7 @@ export default {
     urls: {
         server: isLocalServer
             ? `https://localhost:${process.env[PORT_ENV_KEY]}/`
-            : 'https://v4.lssm.ledbrain.de/',
+            : 'https://v4.lss-manager.de/',
         docs: isLocalServer
             ? `https://localhost:${process.env[PORT_ENV_KEY]}/docs/`
             : 'https://docs.lss-manager.de/',
