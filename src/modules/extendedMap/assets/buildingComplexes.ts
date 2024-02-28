@@ -42,7 +42,7 @@ export default async (
     await LSSM.$stores.api.getBuildings('buildingComplexes');
     await LSSM.$stores.newApi.getSchoolings('buildingComplexes');
     await LSSM.$stores.newApi.getAllianceSchoolings('buildingComplexes');
-    await LSSM.$stores.api.getVehicles('buildingComplexes');
+    await LSSM.$stores.newApi.getVehicles('buildingComplexes');
 
     const save = () =>
         setSetting('buildingComplexes', {

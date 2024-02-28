@@ -113,6 +113,7 @@ import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsOfflineExporting from 'highcharts/modules/offline-exporting';
 import HighchartsSunburst from 'highcharts/modules/sunburst';
 import { mapState } from 'pinia';
+import { useNewAPIStore } from '@stores/newApi';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 import { useTranslationStore } from '@stores/translationUtilities';
@@ -156,6 +157,7 @@ export default Vue.extend<
     name: 'lssmv4-dashboard-chart-summary',
     data() {
         const apiStore = useAPIStore();
+        const newApiStore = useNewAPIStore();
         const rootStore = useRootStore();
         const translationStore = useTranslationStore();
         const internalBuildingTypes = translationStore.buildings;
@@ -180,7 +182,7 @@ export default Vue.extend<
                 )
             ),
             vehiclesId: rootStore.nodeAttribute('chart-summary-vehicles', true),
-            vehicles: apiStore.vehiclesByType,
+            vehicles: newApiStore.vehiclesByType,
             vehicleCategories: this.$t(
                 'vehicleCategories'
             ) as unknown as Record<string, VehicleCategory>,
@@ -194,7 +196,7 @@ export default Vue.extend<
                     ([index, { color }]) => [index, color]
                 )
             ),
-            vehiclesByBuilding: apiStore.vehiclesByBuilding,
+            vehiclesByBuilding: newApiStore.vehiclesByBuilding,
             buildingsAsColumn: false,
             settingsStore: useSettingsStore(),
             waterByType: Object.fromEntries(

@@ -211,7 +211,7 @@ export type RedesignVehicleComponent = RedesignComponent<
         sortedItems: ItemChooser<'item'>[];
         shownItems: ItemChooser<'item'>[];
 
-        participatedMissions: number[];
+        participatedMissions: string[];
 
         hotkeysParam: {
             component: RedesignVueInstance<RedesignVehicleComponent>;

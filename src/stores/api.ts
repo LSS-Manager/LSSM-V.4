@@ -4,8 +4,8 @@ import { defineStore } from 'pinia';
 import { useBroadcastStore } from '@stores/broadcast';
 import { useConsoleStore } from '@stores/console';
 
-import type { RadioMessage } from 'typings/Ingame';
-import type { Vehicle } from 'typings/Vehicle';
+// import type { RadioMessage } from 'typings/Ingame';
+// import type { Vehicle } from 'typings/Vehicle';
 import type {
     APIGetter,
     APIState,
@@ -20,14 +20,8 @@ export const defineAPIStore = defineStore('api', {
     state: () =>
         <APIState>{
             buildings: [],
-            vehicles: [],
+            // vehicles: [],
             alliance_buildings: [],
-            // schoolings: {
-            //     result: [],
-            // },
-            // alliance_schoolings: {
-            //     result: [],
-            // },
             autoUpdates: [],
             currentlyUpdating: [],
             secretKey: null,
@@ -47,98 +41,98 @@ export const defineAPIStore = defineStore('api', {
                 value: state[api],
                 lastUpdate: state.lastUpdates[api] ?? 0,
             }),
-        vehicleStates: (state): Record<number, number> => {
-            const states: Record<number, number> = {};
-            state.vehicles.forEach(
-                ({ fms_show }) => states[fms_show]++ || (states[fms_show] = 1)
-            );
-            return states;
-        },
-        vehiclesById: (state): Record<number, Vehicle> =>
-            Object.fromEntries(
-                state.vehicles.map(vehicle => [vehicle.id, vehicle])
-            ),
-        vehiclesByTarget:
-            state =>
-            (): {
-                mission: Record<number, Vehicle[]>;
-                building: Record<number, Vehicle[]>;
-            } => {
-                const targets: {
-                    mission: Record<number, Vehicle[]>;
-                    building: Record<number, Vehicle[]>;
-                } = { mission: {}, building: {} };
-                state.vehicles.forEach(vehicle => {
-                    if (!vehicle.target_type || !vehicle.target_id) return;
-                    if (
-                        !targets[vehicle.target_type].hasOwnProperty(
-                            vehicle.target_id
-                        )
-                    )
-                        targets[vehicle.target_type][vehicle.target_id] = [];
-                    targets[vehicle.target_type][vehicle.target_id].push(
-                        vehicle
-                    );
-                });
-                return targets;
-            },
-        vehiclesByType: (state): Record<number, Vehicle[]> => {
-            const types: Record<number, Vehicle[]> = {};
-            state.vehicles.forEach(vehicle => {
-                if (!types.hasOwnProperty(vehicle.vehicle_type))
-                    types[vehicle.vehicle_type] = [];
-                types[vehicle.vehicle_type].push(vehicle);
-            });
-            return types;
-        },
-        vehiclesByBuilding: (state): Record<number, Vehicle[]> => {
-            const buildings: Record<number, Vehicle[]> = {};
-            state.vehicles.forEach(vehicle => {
-                if (!buildings.hasOwnProperty(vehicle.building_id))
-                    buildings[vehicle.building_id] = [];
-                buildings[vehicle.building_id].push(vehicle);
-            });
-            return buildings;
-        },
-        vehiclesByDispatchCenter: (state): Record<number, Vehicle[]> => {
-            const dispatchCenters: Record<number, Vehicle[]> = {};
-            const buildingDispatchCache: Record<number, number> = {};
-
-            const resolveDispatchId = (buildingId: number): number => {
-                const building = state.buildings.find(
-                    building => building.id === buildingId
-                );
-
-                // we group buildings without dispatch center as -1
-                return building?.leitstelle_building_id ?? -1;
-            };
-
-            state.vehicles.forEach(vehicle => {
-                const dispatchId = (buildingDispatchCache[
-                    vehicle.building_id
-                ] ??= resolveDispatchId(vehicle.building_id));
-
-                if (!dispatchCenters.hasOwnProperty(dispatchId))
-                    dispatchCenters[dispatchId] = [];
-
-                dispatchCenters[dispatchId].push(vehicle);
-            });
-            return dispatchCenters;
-        },
-        participatedMissions(state): number[] {
-            return Array.from(
-                new Set([
-                    ...state.vehicles
-                        .flatMap(
-                            ({ queued_mission_id, target_type, target_id }) => [
-                                target_type === 'mission' ? target_id : null,
-                                queued_mission_id,
-                            ]
-                        )
-                        .filter(<S>(id: S | null): id is S => !!id),
-                ])
-            );
-        },
+        // vehicleStates: (state): Record<number, number> => {
+        //     const states: Record<number, number> = {};
+        //     state.vehicles.forEach(
+        //         ({ fms_show }) => states[fms_show]++ || (states[fms_show] = 1)
+        //     );
+        //     return states;
+        // },
+        // vehiclesById: (state): Record<number, Vehicle> =>
+        //     Object.fromEntries(
+        //         state.vehicles.map(vehicle => [vehicle.id, vehicle])
+        //     ),
+        // vehiclesByTarget:
+        //     state =>
+        //     (): {
+        //         mission: Record<number, Vehicle[]>;
+        //         building: Record<number, Vehicle[]>;
+        //     } => {
+        //         const targets: {
+        //             mission: Record<number, Vehicle[]>;
+        //             building: Record<number, Vehicle[]>;
+        //         } = { mission: {}, building: {} };
+        //         state.vehicles.forEach(vehicle => {
+        //             if (!vehicle.target_type || !vehicle.target_id) return;
+        //             if (
+        //                 !targets[vehicle.target_type].hasOwnProperty(
+        //                     vehicle.target_id
+        //                 )
+        //             )
+        //                 targets[vehicle.target_type][vehicle.target_id] = [];
+        //             targets[vehicle.target_type][vehicle.target_id].push(
+        //                 vehicle
+        //             );
+        //         });
+        //         return targets;
+        //     },
+        // vehiclesByType: (state): Record<number, Vehicle[]> => {
+        //     const types: Record<number, Vehicle[]> = {};
+        //     state.vehicles.forEach(vehicle => {
+        //         if (!types.hasOwnProperty(vehicle.vehicle_type))
+        //             types[vehicle.vehicle_type] = [];
+        //         types[vehicle.vehicle_type].push(vehicle);
+        //     });
+        //     return types;
+        // },
+        // vehiclesByBuilding: (state): Record<number, Vehicle[]> => {
+        //     const buildings: Record<number, Vehicle[]> = {};
+        //     state.vehicles.forEach(vehicle => {
+        //         if (!buildings.hasOwnProperty(vehicle.building_id))
+        //             buildings[vehicle.building_id] = [];
+        //         buildings[vehicle.building_id].push(vehicle);
+        //     });
+        //     return buildings;
+        // },
+        // vehiclesByDispatchCenter: (state): Record<number, Vehicle[]> => {
+        //     const dispatchCenters: Record<number, Vehicle[]> = {};
+        //     const buildingDispatchCache: Record<number, number> = {};
+        //
+        //     const resolveDispatchId = (buildingId: number): number => {
+        //         const building = state.buildings.find(
+        //             building => building.id === buildingId
+        //         );
+        //
+        //         // we group buildings without dispatch center as -1
+        //         return building?.leitstelle_building_id ?? -1;
+        //     };
+        //
+        //     state.vehicles.forEach(vehicle => {
+        //         const dispatchId = (buildingDispatchCache[
+        //             vehicle.building_id
+        //         ] ??= resolveDispatchId(vehicle.building_id));
+        //
+        //         if (!dispatchCenters.hasOwnProperty(dispatchId))
+        //             dispatchCenters[dispatchId] = [];
+        //
+        //         dispatchCenters[dispatchId].push(vehicle);
+        //     });
+        //     return dispatchCenters;
+        // },
+        // participatedMissions(state): number[] {
+        //     return Array.from(
+        //         new Set([
+        //             ...state.vehicles
+        //                 .flatMap(
+        //                     ({ queued_mission_id, target_type, target_id }) => [
+        //                         target_type === 'mission' ? target_id : null,
+        //                         queued_mission_id,
+        //                     ]
+        //                 )
+        //                 .filter(<S>(id: S | null): id is S => !!id),
+        //         ])
+        //     );
+        // },
         allianceBuildingsById: (state): Record<number, Building> =>
             Object.fromEntries(
                 state.alliance_buildings.map(building => [
@@ -248,9 +242,7 @@ export const defineAPIStore = defineStore('api', {
                     [
                         'alliance_buildings',
                         'buildings',
-                        // 'schoolings',
-                        // 'alliance_schoolings',
-                        'vehicles',
+                        // 'vehicles',
                     ] as StorageAPIKey[]
                 ).map(<API extends StorageAPIKey>(api: API) =>
                     collectAPI<API>(api).then(latest => {
@@ -304,11 +296,7 @@ export const defineAPIStore = defineStore('api', {
                 const stateValue = this._stateValue(api);
                 if (
                     stateValue.value &&
-                    stateValue.lastUpdate > Date.now() - API_MIN_UPDATE /*&&*/
-                    // these are to be updated with each request
-                    // !(
-                    //     ['schoolings', 'alliance_schoolings'] as StorageAPIKey[]
-                    // ).includes(api)
+                    stateValue.lastUpdate > Date.now() - API_MIN_UPDATE
                 ) {
                     this._removeAPIFromQueue(api);
                     return new Promise(resolve =>
@@ -352,35 +340,35 @@ export const defineAPIStore = defineStore('api', {
                 return () => window.clearInterval(interval);
             });
         },
-        radioMessage(radioMessage: RadioMessage) {
-            if (radioMessage.type !== 'vehicle_fms') return;
-            this.debounce.vehicles.updates.set(radioMessage.id, {
-                caption: radioMessage.caption,
-                fms_show: radioMessage.fms,
-                fms_real: radioMessage.fms_real,
-            });
-            if (this.debounce.vehicles.timeout)
-                window.clearTimeout(this.debounce.vehicles.timeout);
-            this.debounce.vehicles.timeout = window.setTimeout(() => {
-                for (const vehicle of this.vehicles) {
-                    const update = this.debounce.vehicles.updates.get(
-                        vehicle.id
-                    );
-                    if (!update) continue;
-                    vehicle.caption = update.caption;
-                    vehicle.fms_show = update.fms_show;
-                    vehicle.fms_real = update.fms_real;
-                    this.debounce.vehicles.updates.delete(vehicle.id);
-                    if (this.debounce.vehicles.updates.size === 0) break;
-                }
-                useBroadcastStore()
-                    .apiBroadcast('vehicles', {
-                        value: this.vehicles,
-                        lastUpdate: this.lastUpdates.vehicles ?? 0,
-                    })
-                    .then();
-            }, 100);
-        },
+        // radioMessage(radioMessage: RadioMessage) {
+        //     if (radioMessage.type !== 'vehicle_fms') return;
+        //     this.debounce.vehicles.updates.set(radioMessage.id, {
+        //         caption: radioMessage.caption,
+        //         fms_show: radioMessage.fms,
+        //         fms_real: radioMessage.fms_real,
+        //     });
+        //     if (this.debounce.vehicles.timeout)
+        //         window.clearTimeout(this.debounce.vehicles.timeout);
+        //     this.debounce.vehicles.timeout = window.setTimeout(() => {
+        //         for (const vehicle of this.vehicles) {
+        //             const update = this.debounce.vehicles.updates.get(
+        //                 vehicle.id
+        //             );
+        //             if (!update) continue;
+        //             vehicle.caption = update.caption;
+        //             vehicle.fms_show = update.fms_show;
+        //             vehicle.fms_real = update.fms_real;
+        //             this.debounce.vehicles.updates.delete(vehicle.id);
+        //             if (this.debounce.vehicles.updates.size === 0) break;
+        //         }
+        //         useBroadcastStore()
+        //             .apiBroadcast('vehicles', {
+        //                 value: this.vehicles,
+        //                 lastUpdate: this.lastUpdates.vehicles ?? 0,
+        //             })
+        //             .then();
+        //     }, 100);
+        // },
         getAllianceBuilding(
             buildingId: number,
             feature: string
@@ -490,131 +478,89 @@ export const defineAPIStore = defineStore('api', {
                 updateInterval
             );
         },
-        // getSchoolings(
-        //     feature: string
-        // ): Promise<EnsuredAPIGetter<'schoolings'>> {
-        //     return this._getAPI('schoolings', feature);
+        // getVehiclesAtBuilding(buildingId: number, feature: string) {
+        //     return this._awaitInitialBroadcast()
+        //         .then(() =>
+        //             this._request({
+        //                 url: `/api/buildings/${buildingId}/vehicles`,
+        //                 feature: `apiStore/getVehiclesAtBuilding(${feature})`,
+        //             })
+        //         )
+        //         .then(res => res.json() as Promise<Vehicle[]>)
+        //         .then(fetchedVehicles => {
+        //             fetchedVehicles.forEach(vehicle => {
+        //                 const vehicleIndex = this.vehicles.findIndex(
+        //                     ({ id }) => id === vehicle.id
+        //                 );
+        //                 if (vehicleIndex < 0) {
+        //                     this.vehicles.push(vehicle);
+        //                 } else {
+        //                     // workaround for reactivity
+        //                     const vehicles = this.vehicles;
+        //                     vehicles[vehicleIndex] = vehicle;
+        //                     this.vehicles = [];
+        //                     this.vehicles = vehicles;
+        //                 }
+        //             });
+        //             return useBroadcastStore()
+        //                 .apiBroadcast('vehicles', {
+        //                     value: this.vehicles,
+        //                     lastUpdate: this.lastUpdates.vehicles ?? 0,
+        //                 })
+        //                 .then(() => fetchedVehicles);
+        //         });
         // },
-        // autoUpdateSchoolings(
+        // getVehicle(vehicleId: number, feature: string): Promise<Vehicle> {
+        //     return this._awaitInitialBroadcast()
+        //         .then(() =>
+        //             this._request({
+        //                 url: `/api/vehicles/${vehicleId}`,
+        //                 feature: `apiStore/getVehicle(${feature})`,
+        //             })
+        //         )
+        //         .then(res => res.json() as Promise<Vehicle>)
+        //         .then(fetchedVehicle => {
+        //             if (!Object.keys(fetchedVehicle).length) {
+        //                 throw new Error(
+        //                     `API of vehicle with ID ${vehicleId} is not accessible by user`
+        //                 );
+        //             }
+        //             const vehicleIndex = this.vehicles.findIndex(
+        //                 ({ id }) => id === vehicleId
+        //             );
+        //             if (vehicleIndex < 0) {
+        //                 this.vehicles.push(fetchedVehicle);
+        //             } else {
+        //                 // workaround for reactivity
+        //                 const vehicles = this.vehicles;
+        //                 vehicles[vehicleIndex] = fetchedVehicle;
+        //                 this.vehicles = [];
+        //                 this.vehicles = vehicles;
+        //             }
+        //             return useBroadcastStore()
+        //                 .apiBroadcast('vehicles', {
+        //                     value: this.vehicles,
+        //                     lastUpdate: this.lastUpdates.vehicles ?? 0,
+        //                 })
+        //                 .then(() => fetchedVehicle);
+        //         });
+        // },
+        // getVehicles(feature: string): Promise<EnsuredAPIGetter<'vehicles'>> {
+        //     return this._getAPI('vehicles', feature);
+        // },
+        // autoUpdateVehicles(
         //     feature: string,
-        //     callback: (api: EnsuredAPIGetter<'schoolings'>) => void = () =>
+        //     callback: (api: EnsuredAPIGetter<'vehicles'>) => void = () =>
         //         void null,
         //     updateInterval: number = API_MIN_UPDATE
         // ) {
         //     return this._autoUpdate(
-        //         this.getSchoolings,
+        //         this.getVehicles,
         //         feature,
         //         callback,
         //         updateInterval
         //     );
         // },
-        // getAllianceSchoolings(
-        //     feature: string
-        // ): Promise<EnsuredAPIGetter<'alliance_schoolings'>> {
-        //     return this._getAPI('alliance_schoolings', feature).catch(() => {
-        //         useConsoleStore().error(
-        //             'Alliance-Schoolings throwing error 500. Catching the error and not showing the popup'
-        //         );
-        //         return { value: { result: [] }, lastUpdate: Date.now() };
-        //     });
-        // },
-        // autoUpdateAllianceSchoolings(
-        //     feature: string,
-        //     callback: (
-        //         api: EnsuredAPIGetter<'alliance_schoolings'>
-        //     ) => void = () => void null,
-        //     updateInterval: number = API_MIN_UPDATE
-        // ) {
-        //     return this._autoUpdate(
-        //         this.getAllianceSchoolings,
-        //         feature,
-        //         callback,
-        //         updateInterval
-        //     );
-        // },
-        getVehiclesAtBuilding(buildingId: number, feature: string) {
-            return this._awaitInitialBroadcast()
-                .then(() =>
-                    this._request({
-                        url: `/api/buildings/${buildingId}/vehicles`,
-                        feature: `apiStore/getVehiclesAtBuilding(${feature})`,
-                    })
-                )
-                .then(res => res.json() as Promise<Vehicle[]>)
-                .then(fetchedVehicles => {
-                    fetchedVehicles.forEach(vehicle => {
-                        const vehicleIndex = this.vehicles.findIndex(
-                            ({ id }) => id === vehicle.id
-                        );
-                        if (vehicleIndex < 0) {
-                            this.vehicles.push(vehicle);
-                        } else {
-                            // workaround for reactivity
-                            const vehicles = this.vehicles;
-                            vehicles[vehicleIndex] = vehicle;
-                            this.vehicles = [];
-                            this.vehicles = vehicles;
-                        }
-                    });
-                    return useBroadcastStore()
-                        .apiBroadcast('vehicles', {
-                            value: this.vehicles,
-                            lastUpdate: this.lastUpdates.vehicles ?? 0,
-                        })
-                        .then(() => fetchedVehicles);
-                });
-        },
-        getVehicle(vehicleId: number, feature: string): Promise<Vehicle> {
-            return this._awaitInitialBroadcast()
-                .then(() =>
-                    this._request({
-                        url: `/api/vehicles/${vehicleId}`,
-                        feature: `apiStore/getVehicle(${feature})`,
-                    })
-                )
-                .then(res => res.json() as Promise<Vehicle>)
-                .then(fetchedVehicle => {
-                    if (!Object.keys(fetchedVehicle).length) {
-                        throw new Error(
-                            `API of vehicle with ID ${vehicleId} is not accessible by user`
-                        );
-                    }
-                    const vehicleIndex = this.vehicles.findIndex(
-                        ({ id }) => id === vehicleId
-                    );
-                    if (vehicleIndex < 0) {
-                        this.vehicles.push(fetchedVehicle);
-                    } else {
-                        // workaround for reactivity
-                        const vehicles = this.vehicles;
-                        vehicles[vehicleIndex] = fetchedVehicle;
-                        this.vehicles = [];
-                        this.vehicles = vehicles;
-                    }
-                    return useBroadcastStore()
-                        .apiBroadcast('vehicles', {
-                            value: this.vehicles,
-                            lastUpdate: this.lastUpdates.vehicles ?? 0,
-                        })
-                        .then(() => fetchedVehicle);
-                });
-        },
-        getVehicles(feature: string): Promise<EnsuredAPIGetter<'vehicles'>> {
-            return this._getAPI('vehicles', feature);
-        },
-        autoUpdateVehicles(
-            feature: string,
-            callback: (api: EnsuredAPIGetter<'vehicles'>) => void = () =>
-                void null,
-            updateInterval: number = API_MIN_UPDATE
-        ) {
-            return this._autoUpdate(
-                this.getVehicles,
-                feature,
-                callback,
-                updateInterval
-            );
-        },
         async _request({
             input,
             url = '',

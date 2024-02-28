@@ -32,7 +32,8 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         vehicleValues.push({ id, caption })
     );
 
-    (await LSSM.$stores.api.getVehicles(`${MODULE_ID}_settings`)).value
+    await LSSM.$stores.newApi.getVehicles(`${MODULE_ID}_settings`);
+    LSSM.$stores.newApi.vehiclesArray
         .filter(v => v.vehicle_type_caption && vehicles[v.vehicle_type])
         .forEach(({ vehicle_type, vehicle_type_caption = '' }) => {
             const caption = `[${vehicles[vehicle_type].caption}] ${vehicle_type_caption}`;

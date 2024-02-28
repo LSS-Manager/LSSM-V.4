@@ -44,21 +44,6 @@
         <!-- TODO: Remove this when rewrite of API-Store is finished -->
         <!-- This is some debugging stuff for while rewriting the API-Store -->
         <!--<b>Array</b>
-        <pre>{{ JSON.stringify(newApiStore.vehiclesArray) }}</pre>
-        <b>Object</b>
-        <pre>{{ JSON.stringify(newApiStore.vehicles) }}</pre>
-        <b>vehicleStates</b>
-        <pre>{{ JSON.stringify(newApiStore.vehicleStates) }}</pre>
-        <b>vehiclesByBuilding</b>
-        <pre>{{ JSON.stringify(newApiStore.vehiclesByBuilding) }}</pre>
-        <b>vehiclesByTarget</b>
-        <pre>{{ JSON.stringify(newApiStore.vehiclesByTarget) }}</pre>
-        <b>vehiclesByType</b>
-        <pre>{{ JSON.stringify(newApiStore.vehiclesByType) }}</pre>
-        <b>vehiclesByDispatchCenter</b>
-        <pre>{{ JSON.stringify(newApiStore.vehiclesByDispatchCenter) }}</pre>
-        <hr />
-        <b>Array</b>
         <pre>{{ JSON.stringify(newApiStore.buildingsArray) }}</pre>
         <b>Object</b>
         <pre>{{ JSON.stringify(newApiStore.buildings) }}</pre>
@@ -67,7 +52,8 @@
         <b>buildingsByDispatchCenter</b>
         <pre>{{ JSON.stringify(newApiStore.buildingsByDispatchCenter) }}</pre>
         <b>buildingsByCategory</b>
-        <pre>{{ JSON.stringify(newApiStore.buildingsByCategory) }}</pre>-->
+        <pre>{{ JSON.stringify(newApiStore.buildingsByCategory) }}</pre>
+        -->
     </div>
 </template>
 

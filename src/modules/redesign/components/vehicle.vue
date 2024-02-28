@@ -474,7 +474,9 @@
                                 v-else-if="col === 'participation'"
                                 :icon="
                                     participationIcon[
-                                        participatedMissions.includes(item.id)
+                                        participatedMissions.includes(
+                                            item.id.toString()
+                                        )
                                     ]
                                 "
                             >
@@ -658,10 +660,10 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
 import { mapState } from 'pinia';
-import { useNewAPIStore } from '@stores/newApi';
+import { useAPIStore } from '@stores/api';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
-import { defineAPIStore, useAPIStore } from '@stores/api';
+import { defineNewAPIStore, useNewAPIStore } from '@stores/newApi';
 
 import createBtn from '../../extendedCallList/assets/starrableMissions/createBtn';
 
@@ -1020,7 +1022,7 @@ export default Vue.extend<
                                 ? item[filter as keyof typeof item]
                                 : item,
                         participation: this.participatedMissions.includes(
-                            item.id
+                            item.id.toString()
                         ),
                         distance: parseFloat(
                             item.distance
@@ -1058,7 +1060,9 @@ export default Vue.extend<
                 let sortValue: boolean | number | string = 0;
 
                 if (sort === 'participation') {
-                    sortValue = this.participatedMissions.includes(item.id);
+                    sortValue = this.participatedMissions.includes(
+                        item.id.toString()
+                    );
                 } else if (sort === 'distance') {
                     sortValue = parseFloat(
                         item.distance
@@ -1136,9 +1140,7 @@ export default Vue.extend<
             }
             return this.sortedItems;
         },
-        ...mapState(defineAPIStore, {
-            participatedMissions: 'participatedMissions',
-        }),
+        ...mapState(defineNewAPIStore, ['participatedMissions']),
         hotkeysParam() {
             return {
                 component: this,

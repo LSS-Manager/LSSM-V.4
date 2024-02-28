@@ -1293,6 +1293,7 @@ import { defineNewAPIStore, useNewAPIStore } from '@stores/newApi';
 import type { Complex } from '../../assets/buildingComplexes';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { Schooling } from 'typings/api/Schoolings';
+import type { VehiclesByBuilding } from '@workers/stores/api/vehicles.worker';
 import type { $m, $mc } from 'typings/Module';
 import type {
     Building,
@@ -1587,7 +1588,7 @@ export default Vue.extend<
     {
         buildings: Record<number, Building>;
         allianceBuildings: Record<number, Building>;
-        vehiclesByBuilding: Record<number, Vehicle[]>;
+        vehiclesByBuilding: VehiclesByBuilding;
         allSchoolings: Schooling[];
         attributedBuildings: AttributedBuilding[];
         sortedBuildingsByName: AttributedBuilding[];
@@ -1727,9 +1728,8 @@ export default Vue.extend<
         ...mapState(defineAPIStore, {
             buildings: 'buildingsById',
             allianceBuildings: 'allianceBuildingsById',
-            vehiclesByBuilding: 'vehiclesByBuilding',
         }),
-        ...mapState(defineNewAPIStore, ['allSchoolings']),
+        ...mapState(defineNewAPIStore, ['allSchoolings', 'vehiclesByBuilding']),
         attributedBuildings() {
             const smallBuildings = this.$t(
                 'small_buildings'
@@ -1887,9 +1887,9 @@ export default Vue.extend<
                         'startParkingLots' in buildingType
                             ? {
                                   hasVehicles: true,
-                                  vehicles:
-                                      this.vehiclesByBuilding[building.id] ??
-                                      [],
+                                  vehicles: Object.values(
+                                      this.vehiclesByBuilding[building.id] ?? []
+                                  ),
                                   maxVehicles:
                                       (buildingType.parkingLotsPerLevel ?? 1) *
                                           building.level +
@@ -2870,7 +2870,7 @@ export default Vue.extend<
                     `/vehicles/${vehicle.id}/set_fms/${targetFMS}`,
                     feature
                 )
-                .then(() => this.apiStore.getVehicle(vehicle.id, feature));
+                .then(() => this.newApiStore.getVehicle(vehicle.id, feature));
         },
         setSortBuildingsTable(sort) {
             const s = sort;

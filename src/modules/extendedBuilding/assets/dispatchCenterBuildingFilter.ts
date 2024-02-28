@@ -1,6 +1,6 @@
 export default (LSSM: Vue, MODULE_ID: string) => {
     const insertFilters = async () => {
-        await LSSM.$stores.api.getVehicles(`${MODULE_ID}_dcbf`);
+        await LSSM.$stores.newApi.getVehicles(`${MODULE_ID}_dcbf`);
 
         const buildingRows = document.querySelectorAll<HTMLTableRowElement>(
             '#building_table tbody tr'
@@ -19,9 +19,11 @@ export default (LSSM: Vue, MODULE_ID: string) => {
                 ),
                 vehicleTypes: Array.from(
                     new Set(
-                        LSSM.$stores.api.vehiclesByBuilding[buildingId]?.map(
-                            v => v.vehicle_type_caption || v.vehicle_type
-                        ) ?? []
+                        Object.values(
+                            LSSM.$stores.newApi.vehiclesByBuilding[
+                                buildingId
+                            ] ?? []
+                        ).map(v => v.vehicle_type_caption || v.vehicle_type)
                     )
                 ),
             };

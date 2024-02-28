@@ -36,7 +36,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { defineAPIStore } from '@stores/api';
+import { defineNewAPIStore } from '@stores/newApi';
 import { mapState } from 'pinia';
 
 import type { DefaultMethods } from 'vue/types/options';
@@ -61,8 +61,8 @@ export default Vue.extend<
         };
     },
     computed: {
-        ...mapState(defineAPIStore, {
-            vehicles: store => store.vehicles.length,
+        ...mapState(defineNewAPIStore, {
+            vehicles: store => store.vehiclesArray.length,
             vehicleStates: 'vehicleStates',
         }),
         vehicleStateAmounts() {

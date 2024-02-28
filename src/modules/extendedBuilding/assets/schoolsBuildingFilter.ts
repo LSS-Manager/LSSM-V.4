@@ -15,12 +15,12 @@ export default async (LSSM: Vue) => {
     if (!accordion) return;
 
     await LSSM.$stores.api.getBuildings('eb-sbf');
-    await LSSM.$stores.api.getVehicles('eb-sbf');
+    await LSSM.$stores.newApi.getVehicles('eb-sbf');
 
     const buildings: BuildingInfos[] = [];
 
     const buildingsById = LSSM.$stores.api.buildingsById;
-    const vehiclesByBuilding = LSSM.$stores.api.vehiclesByBuilding;
+    const vehiclesByBuilding = LSSM.$stores.newApi.vehiclesByBuilding;
 
     const buildingTypes = LSSM.$stores.translations.buildings;
     const vehicleTypes = LSSM.$stores.translations.vehicles;
@@ -45,7 +45,7 @@ export default async (LSSM: Vue) => {
             dispatchCenter: buildingsById[buildingId].leitstelle_building_id,
             vehicleTypes: Array.from(
                 new Set(
-                    vehiclesByBuilding[buildingId]?.map(
+                    Object.values(vehiclesByBuilding[buildingId] ?? []).map(
                         ({ vehicle_type }) => vehicle_type
                     ) ?? []
                 )

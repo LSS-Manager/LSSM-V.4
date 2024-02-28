@@ -142,12 +142,7 @@ export default async (LSSM: Vue): Promise<void> => {
         event: 'radioMessage',
         post: false,
         callback(radioMessage: RadioMessage) {
-            if (
-                radioMessage.type === 'vehicle_fms' &&
-                radioMessage.user_id === window.user_id
-            )
-                LSSM.$stores.api.radioMessage(radioMessage);
-            // LSSM.$stores.newApi.updateVehicleFromRadioMessage(radioMessage);
+            LSSM.$stores.newApi.updateVehicleFromRadioMessage(radioMessage);
         },
     });
 
@@ -173,21 +168,14 @@ export default async (LSSM: Vue): Promise<void> => {
                         buildingMarker.id,
                         'mainPage-core_buildingMarkerAdd'
                     )
-                    .then(building =>
-                        LSSM.$stores.api
-                            .getVehiclesAtBuilding(
-                                building.id,
-                                'mainPage-core_buildingMarkerAdd'
-                            )
-                            .then(() =>
-                                LSSM.$stores.event.createAndDispatchEvent({
-                                    name: 'buildingMarkerAdd',
-                                    detail: {
-                                        marker: buildingMarker,
-                                        building,
-                                    },
-                                })
-                            )
+                    .then(() =>
+                        LSSM.$stores.event.createAndDispatchEvent({
+                            name: 'buildingMarkerAdd',
+                            detail: {
+                                marker: buildingMarker,
+                                building,
+                            },
+                        })
                     );
             }
         },

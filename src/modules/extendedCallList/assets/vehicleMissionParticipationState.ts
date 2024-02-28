@@ -1,9 +1,9 @@
 export default async (LSSM: Vue, MODULE_ID: string): Promise<void> => {
-    await LSSM.$stores.api.getVehicles(
+    await LSSM.$stores.newApi.getVehicles(
         `${MODULE_ID}-vehicleMissionParticipitationState`
     );
 
-    const missions = LSSM.$stores.api.participatedMissions;
+    const missions = LSSM.$stores.newApi.participatedMissions;
     document
         .querySelectorAll<HTMLTableRowElement>(
             '#mission_own table thead tr th:nth-child(2), #mission_alliance table  thead tr th:nth-child(2)'
@@ -23,14 +23,12 @@ export default async (LSSM: Vue, MODULE_ID: string): Promise<void> => {
             span.classList.add(
                 'glyphicon',
                 missions.includes(
-                    parseInt(
-                        row
-                            .querySelector<HTMLAnchorElement>(
-                                'a[href^="/missions/"]'
-                            )
-                            ?.getAttribute('href')
-                            ?.match(/\d+$/u)?.[0] ?? '-1'
-                    )
+                    row
+                        .querySelector<HTMLAnchorElement>(
+                            'a[href^="/missions/"]'
+                        )
+                        ?.getAttribute('href')
+                        ?.match(/\d+$/u)?.[0] ?? '-1'
                 )
                     ? 'glyphicon-user'
                     : 'glyphicon-asterisk'

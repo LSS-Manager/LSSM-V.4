@@ -342,6 +342,7 @@
 import Vue from 'vue';
 
 import { useAPIStore } from '@stores/api';
+import { useNewAPIStore } from '@stores/newApi';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 import { useTranslationStore } from '@stores/translationUtilities';
@@ -392,6 +393,7 @@ export default Vue.extend<
     },
     data() {
         const apiStore = useAPIStore();
+        const newApiStore = useNewAPIStore();
         const rootStore = useRootStore();
         const translationStore = useTranslationStore();
         const buildingTypes = translationStore.buildings;
@@ -407,7 +409,7 @@ export default Vue.extend<
             newBoardTitle: '',
             buildingTypes,
             currentBoard: 0,
-            vehiclesByBuilding: apiStore.vehiclesByBuilding,
+            vehiclesByBuilding: newApiStore.vehiclesByBuilding,
             vehicleBuildings: translationStore.vehicleBuildings
                 .map(type => ({
                     type,
@@ -503,9 +505,9 @@ export default Vue.extend<
         vehiclesByBuildingSorted() {
             const vehiclesSorted = {} as Record<number, Vehicle[]>;
             Object.keys(this.vehiclesByBuilding).forEach(building => {
-                vehiclesSorted[parseInt(building)] = this.vehiclesByBuilding[
-                    parseInt(building)
-                ].sort((a, b) =>
+                vehiclesSorted[parseInt(building)] = Object.values(
+                    this.vehiclesByBuilding[parseInt(building)]
+                ).toSorted((a, b) =>
                     a.caption > b.caption ? -1 : a.caption < b.caption ? 1 : 0
                 );
             });
@@ -627,8 +629,9 @@ export default Vue.extend<
                 (async () => {
                     const height = Math.ceil(
                         14 +
-                            (this.vehiclesByBuilding[building.id] || [])
-                                .length *
+                            Object.values(
+                                this.vehiclesByBuilding[building.id] || []
+                            ).length *
                                 1.5
                     );
                     if (height > currentRow) currentRow = height;

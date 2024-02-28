@@ -5,7 +5,7 @@ export default <ModuleMainFunction>(({ LSSM, $m }) => {
         .addMenuItem($m('name').toString())
         .addEventListener('click', async () => {
             await LSSM.$stores.api.autoUpdateBuildings('dashboard');
-            await LSSM.$stores.api.autoUpdateVehicles('dashboard');
+            await LSSM.$stores.newApi.getVehicles('dashboard');
             LSSM.$modal.show(
                 () =>
                     import(

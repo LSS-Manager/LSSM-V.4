@@ -94,7 +94,7 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
         ])
     );
 
-    LSSM.$stores.api
+    LSSM.$stores.newApi
         .getVehiclesAtBuilding(buildingId, `${MODULE_ID}-schoolingSummary`)
         .then(vehicles => {
             vehicles.forEach(vehicle => {

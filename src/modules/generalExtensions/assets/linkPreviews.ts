@@ -14,7 +14,7 @@ export default async (
     MODULE_ID: string
 ): Promise<void> => {
     await LSSM.$stores.api.autoUpdateBuildings(`${MODULE_ID}-linkPreviews`);
-    await LSSM.$stores.api.autoUpdateVehicles(`${MODULE_ID}-linkPreviews`);
+    await LSSM.$stores.newApi.getVehicles(`${MODULE_ID}-linkPreviews`);
 
     const previewLinkClass = LSSM.$stores.root.nodeAttribute('is-previewLink');
     const attrSelectors = previews.map(
@@ -98,7 +98,7 @@ export default async (
         }
         // Vehicle
         else if (type === 'vehicles') {
-            const vehicle = LSSM.$stores.api.vehiclesById[id];
+            const vehicle = LSSM.$stores.newApi.vehicles[id];
             if (!vehicle) return;
             LinkPreviewInstance.setVehicle(vehicle);
         }
