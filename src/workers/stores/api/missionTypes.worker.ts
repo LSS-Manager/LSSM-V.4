@@ -35,12 +35,9 @@ export default new TypedWorker(
             .then((missions: MissionsById) => {
                 self.missions = missions;
                 self.missionArray = Object.values(missions);
-                return { missions, missionArray: self.missionArray };
-            })
-            .then(async ({ missions, missionArray }) => {
                 const storage = new self.LSSMStorage();
-                await storage.storeMissionTypes(missions);
-                return { missions, missionArray };
+                storage.storeMissionTypes(missions).then();
+                return { missions, missionArray: self.missionArray };
             })
             .catch(async () => {
                 // if the fetch fails, try to get the missionTypes from indexedDB
