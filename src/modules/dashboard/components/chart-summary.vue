@@ -528,9 +528,11 @@ export default Vue.extend<
                                                 )
                                             )
                                                 return;
-                                            this.vehiclesByBuilding[
-                                                building.id
-                                            ].forEach(vehicle => {
+                                            Object.values(
+                                                this.vehiclesByBuilding[
+                                                    building.id
+                                                ]
+                                            ).forEach(vehicle => {
                                                 if (
                                                     !vehicle_types.hasOwnProperty(
                                                         vehicle.vehicle_type
