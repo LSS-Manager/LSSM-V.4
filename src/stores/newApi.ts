@@ -6,6 +6,7 @@ import type Vue from 'vue';
 import { defineStore } from 'pinia';
 import FetchApiWorker from '@workers/stores/api/fetchApi.worker';
 import he from 'he';
+import { SchoolingsWorker } from '@workers/stores/api/schoolings.worker';
 import { useTranslationStore } from '@stores/translationUtilities';
 import {
     type BuildingsByCategory,
@@ -32,6 +33,7 @@ import type { AllianceInfo } from 'typings/api/AllianceInfo';
 import type { Building } from 'typings/Building';
 import type { CreditsInfo } from 'typings/api/Credits';
 import type { Mission } from 'typings/Mission';
+import type { Schooling } from 'typings/api/Schoolings';
 import type { Settings } from 'typings/api/Settings';
 import type { Vehicle } from 'typings/Vehicle';
 import type { BuildingMarkerAdd, RadioMessage } from 'typings/Ingame';
@@ -43,6 +45,8 @@ export interface APIs {
     allianceinfo: AllianceInfo;
     credits: CreditsInfo;
     settings: Settings;
+    schoolings: Schooling[];
+    alliance_schoolings: Schooling[];
 }
 export type APIKey = keyof APIs;
 
@@ -59,6 +63,7 @@ type RunningUpdatesMap = {
 };
 
 const API_UPDATE_AFTER = 5 * 60 * 1000; // 5 Minutes
+const API_UPDATE_AFTER_SCHOOLINGS = 30 * 1000; // 30 seconds
 
 // TODO: Rename to defineAPIStore and id to api
 export const defineNewAPIStore = defineStore('newApi', () => {
@@ -125,6 +130,8 @@ export const defineNewAPIStore = defineStore('newApi', () => {
             show_vehicle: false,
             start_view: 'map',
         }),
+        schoolings: ref<APIs['schoolings']>([]),
+        alliance_schoolings: ref<APIs['alliance_schoolings']>([]),
     };
     const lastUpdates = new Map<APIKey, number>();
 
@@ -156,6 +163,12 @@ export const defineNewAPIStore = defineStore('newApi', () => {
     const buildingsByType = ref<BuildingsByType>({});
     const buildingsByDispatchCenter = ref<BuildingsByDispatchCenter>({});
     const buildingsByCategory = ref<BuildingsByCategory>({});
+    // endregion
+
+    // region computed values and fake-computed values for schoolings & alliance_schoolings
+    // fake computed values require many iterations and are not suitable for the main thread
+    // for performance reasons, they are calculated in a worker
+    const allSchoolings = ref<Schooling[]>([]);
     // endregion
 
     // auto-update
@@ -229,6 +242,12 @@ export const defineNewAPIStore = defineStore('newApi', () => {
             buildingsByCategory.value = calculations.buildingsByCategory;
             vehiclesByDispatchCenter.value =
                 calculations.vehiclesByDispatchCenter;
+        } else if (api === 'schoolings' || api === 'alliance_schoolings') {
+            const calculations = await SchoolingsWorker.run(
+                apiStorage.schoolings.value,
+                apiStorage.alliance_schoolings.value
+            );
+            allSchoolings.value = calculations.allSchoolings;
         }
     };
 
@@ -310,7 +329,10 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         feature: string
     ): Promise<APIs[Api]> => {
         const lastUpdate = lastUpdates.get(api) ?? 0;
-        if (Date.now() - lastUpdate > API_UPDATE_AFTER)
+        const updateAfter = ['schoolings', 'alliance_schoolings'].includes(api)
+            ? API_UPDATE_AFTER_SCHOOLINGS
+            : API_UPDATE_AFTER;
+        if (lastUpdate < Date.now() - updateAfter)
             return _updateAPI(api, feature);
         return Promise.resolve(apiStorage[api].value);
     };
@@ -679,6 +701,7 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         buildingsByType,
         buildingsByDispatchCenter,
         buildingsByCategory,
+        allSchoolings,
         // actions: get API data
         // vehicles
         getVehicles: (feature: string, returnAsArray = false) =>
@@ -728,6 +751,11 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         // settings API
         getSettings: (feature: string) =>
             _getStoredOrFetch('settings', feature),
+        // schoolings API
+        getSchoolings: (feature: string) =>
+            _getStoredOrFetch('schoolings', feature),
+        getAllianceSchoolings: (feature: string) =>
+            _getStoredOrFetch('alliance_schoolings', feature),
         // mutations: update API data from ingame events
         updateVehicleFromRadioMessage,
         updateBuildingFromBuildingMarkerAdd,

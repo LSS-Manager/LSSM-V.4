@@ -40,8 +40,8 @@ export default async (
     await LSSM.$stores.api.getAllianceBuildings('buildingComplexes');
     await LSSM.$stores.newApi.getAllianceInfo('buildingComplexes');
     await LSSM.$stores.api.getBuildings('buildingComplexes');
-    await LSSM.$stores.api.getSchoolings('buildingComplexes');
-    await LSSM.$stores.api.getAllianceSchoolings('buildingComplexes');
+    await LSSM.$stores.newApi.getSchoolings('buildingComplexes');
+    await LSSM.$stores.newApi.getAllianceSchoolings('buildingComplexes');
     await LSSM.$stores.api.getVehicles('buildingComplexes');
 
     const save = () =>

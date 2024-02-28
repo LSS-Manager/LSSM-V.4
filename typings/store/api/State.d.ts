@@ -3,17 +3,15 @@
  */
 
 import type { Building } from '../../Building';
-import type { SchoolingAPI } from 'typings/api/Schoolings';
-// import type { Settings } from 'typings/api/Settings';
+// import type { SchoolingAPI } from 'typings/api/Schoolings';
 import type { Vehicle } from '../../Vehicle';
 
 export interface StorageAPIs {
     buildings: Building[];
     vehicles: Vehicle[];
     alliance_buildings: Building[];
-    // settings: Settings | null;
-    schoolings: SchoolingAPI;
-    alliance_schoolings: SchoolingAPI;
+    // schoolings: SchoolingAPI;
+    // alliance_schoolings: SchoolingAPI;
 }
 
 export type StorageAPIKey = keyof StorageAPIs;

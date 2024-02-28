@@ -22,13 +22,12 @@ export const defineAPIStore = defineStore('api', {
             buildings: [],
             vehicles: [],
             alliance_buildings: [],
-            // settings: null,
-            schoolings: {
-                result: [],
-            },
-            alliance_schoolings: {
-                result: [],
-            },
+            // schoolings: {
+            //     result: [],
+            // },
+            // alliance_schoolings: {
+            //     result: [],
+            // },
             autoUpdates: [],
             currentlyUpdating: [],
             secretKey: null,
@@ -228,8 +227,8 @@ export const defineAPIStore = defineStore('api', {
             this.$patch({ [api]: value });
             this.lastUpdates[api] = lastUpdate;
             // reactivity workaround for schoolings
-            if (api === 'schoolings' || api === 'alliance_schoolings')
-                this.schoolings.result = this.schoolings.result.slice(0);
+            // if (api === 'schoolings' || api === 'alliance_schoolings')
+            //     this.schoolings.result = this.schoolings.result.slice(0);
             return { api, value, lastUpdate };
         },
         _initAPIsFromBroadcast() {
@@ -249,10 +248,8 @@ export const defineAPIStore = defineStore('api', {
                     [
                         'alliance_buildings',
                         'buildings',
-                        'credits',
-                        'schoolings',
-                        'alliance_schoolings',
-                        'settings',
+                        // 'schoolings',
+                        // 'alliance_schoolings',
                         'vehicles',
                     ] as StorageAPIKey[]
                 ).map(<API extends StorageAPIKey>(api: API) =>
@@ -307,11 +304,11 @@ export const defineAPIStore = defineStore('api', {
                 const stateValue = this._stateValue(api);
                 if (
                     stateValue.value &&
-                    stateValue.lastUpdate > Date.now() - API_MIN_UPDATE &&
+                    stateValue.lastUpdate > Date.now() - API_MIN_UPDATE /*&&*/
                     // these are to be updated with each request
-                    !(
-                        ['schoolings', 'alliance_schoolings'] as StorageAPIKey[]
-                    ).includes(api)
+                    // !(
+                    //     ['schoolings', 'alliance_schoolings'] as StorageAPIKey[]
+                    // ).includes(api)
                 ) {
                     this._removeAPIFromQueue(api);
                     return new Promise(resolve =>
@@ -493,59 +490,43 @@ export const defineAPIStore = defineStore('api', {
                 updateInterval
             );
         },
-        getSchoolings(
-            feature: string
-        ): Promise<EnsuredAPIGetter<'schoolings'>> {
-            return this._getAPI('schoolings', feature);
-        },
-        autoUpdateSchoolings(
-            feature: string,
-            callback: (api: EnsuredAPIGetter<'schoolings'>) => void = () =>
-                void null,
-            updateInterval: number = API_MIN_UPDATE
-        ) {
-            return this._autoUpdate(
-                this.getSchoolings,
-                feature,
-                callback,
-                updateInterval
-            );
-        },
-        getAllianceSchoolings(
-            feature: string
-        ): Promise<EnsuredAPIGetter<'alliance_schoolings'>> {
-            return this._getAPI('alliance_schoolings', feature).catch(() => {
-                useConsoleStore().error(
-                    'Alliance-Schoolings throwing error 500. Catching the error and not showing the popup'
-                );
-                return { value: { result: [] }, lastUpdate: Date.now() };
-            });
-        },
-        autoUpdateAllianceSchoolings(
-            feature: string,
-            callback: (
-                api: EnsuredAPIGetter<'alliance_schoolings'>
-            ) => void = () => void null,
-            updateInterval: number = API_MIN_UPDATE
-        ) {
-            return this._autoUpdate(
-                this.getAllianceSchoolings,
-                feature,
-                callback,
-                updateInterval
-            );
-        },
-        // getSettings(feature: string): Promise<EnsuredAPIGetter<'settings'>> {
-        //     return this._getAPI('settings', feature);
+        // getSchoolings(
+        //     feature: string
+        // ): Promise<EnsuredAPIGetter<'schoolings'>> {
+        //     return this._getAPI('schoolings', feature);
         // },
-        // autoUpdateSettings(
+        // autoUpdateSchoolings(
         //     feature: string,
-        //     callback: (api: EnsuredAPIGetter<'settings'>) => void = () =>
+        //     callback: (api: EnsuredAPIGetter<'schoolings'>) => void = () =>
         //         void null,
         //     updateInterval: number = API_MIN_UPDATE
         // ) {
         //     return this._autoUpdate(
-        //         this.getSettings,
+        //         this.getSchoolings,
+        //         feature,
+        //         callback,
+        //         updateInterval
+        //     );
+        // },
+        // getAllianceSchoolings(
+        //     feature: string
+        // ): Promise<EnsuredAPIGetter<'alliance_schoolings'>> {
+        //     return this._getAPI('alliance_schoolings', feature).catch(() => {
+        //         useConsoleStore().error(
+        //             'Alliance-Schoolings throwing error 500. Catching the error and not showing the popup'
+        //         );
+        //         return { value: { result: [] }, lastUpdate: Date.now() };
+        //     });
+        // },
+        // autoUpdateAllianceSchoolings(
+        //     feature: string,
+        //     callback: (
+        //         api: EnsuredAPIGetter<'alliance_schoolings'>
+        //     ) => void = () => void null,
+        //     updateInterval: number = API_MIN_UPDATE
+        // ) {
+        //     return this._autoUpdate(
+        //         this.getAllianceSchoolings,
         //         feature,
         //         callback,
         //         updateInterval

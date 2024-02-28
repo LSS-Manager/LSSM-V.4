@@ -1285,10 +1285,10 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { mapState } from 'pinia';
 import moment from 'moment';
 import { useEventStore } from '@stores/event';
-import { useNewAPIStore } from '@stores/newApi';
 import { useRootStore } from '@stores/index';
 import { useTranslationStore } from '@stores/translationUtilities';
 import { defineAPIStore, useAPIStore } from '@stores/api';
+import { defineNewAPIStore, useNewAPIStore } from '@stores/newApi';
 
 import type { Complex } from '../../assets/buildingComplexes';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
@@ -1728,16 +1728,8 @@ export default Vue.extend<
             buildings: 'buildingsById',
             allianceBuildings: 'allianceBuildingsById',
             vehiclesByBuilding: 'vehiclesByBuilding',
-            allSchoolings(store) {
-                const allianceSchoolings = store.alliance_schoolings.result;
-                const allianceSchoolingIds = allianceSchoolings.map(s => s.id);
-                return allianceSchoolings.concat(
-                    store.schoolings.result.filter(
-                        s => !allianceSchoolingIds.includes(s.id)
-                    )
-                );
-            },
         }),
+        ...mapState(defineNewAPIStore, ['allSchoolings']),
         attributedBuildings() {
             const smallBuildings = this.$t(
                 'small_buildings'
@@ -2789,13 +2781,12 @@ export default Vue.extend<
                 switch (index) {
                     case this.overviewTabs.classrooms:
                         this.classRoomsUpdating = true;
-                        return this.apiStore
-                            .getSchoolings('buildingComplex')
-                            .then(() =>
-                                this.apiStore.getAllianceSchoolings(
-                                    'buildingComplex'
-                                )
-                            )
+                        return Promise.all([
+                            this.newApiStore.getSchoolings('buildingComplex'),
+                            this.newApiStore.getAllianceSchoolings(
+                                'buildingComplex'
+                            ),
+                        ])
                             .then(() => this.$nextTick())
                             .then(() => this.initSchoolingCountdowns())
                             .then(() => (this.classRoomsUpdating = false));
