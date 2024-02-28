@@ -17,6 +17,7 @@ import {
 } from '@workers/stores/api/buildings.worker';
 import {
     FetchSingleVehicleWorker,
+    FetchVehiclesAtBuildingWorker,
     type VehiclesByBuilding,
     type VehiclesByDispatchCenter,
     type VehiclesByTarget,
@@ -713,6 +714,14 @@ export const defineNewAPIStore = defineStore('newApi', () => {
             FetchSingleVehicleWorker.run(id, _getRequestInit({}, feature)).then(
                 _updateVehicle
             ),
+        getVehiclesAtBuilding: (id: number, feature: string) =>
+            FetchVehiclesAtBuildingWorker.run(
+                id,
+                _getRequestInit({}, feature)
+            ).then(vehicles => {
+                vehicles.forEach(_updateVehicle);
+                return vehicles;
+            }),
         // buildings
         getBuildings: (feature: string, returnAsArray = false) =>
             // for legacy reasons, optionally return the buildings as an array

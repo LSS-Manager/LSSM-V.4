@@ -104,3 +104,30 @@ export const FetchSingleVehicleWorker = new TypedWorker(
         ).then(res => res.json());
     }
 );
+
+export const FetchVehiclesAtBuildingWorker = new TypedWorker(
+    'api/vehicles.building.worker',
+    async (
+        buildingId: Building['id'],
+        init: RequestInit
+    ): Promise<Vehicle[]> => {
+        const headers = new Headers(init.headers);
+
+        // CAVEAT: headers are stored lowercase
+        // if the LSSM-Header is not set, abort the request!
+        if (!headers.has('x-lss-manager')) {
+            return Promise.reject(
+                new Error(
+                    'No X-LSS-Manager Header has been set. Aborting the request!'
+                )
+            );
+        }
+
+        // TODO: switch to API V2 here
+
+        return fetch(
+            new URL(`/api/buildings/${buildingId}/vehicles`, location.origin),
+            init
+        ).then(res => res.json());
+    }
+);
