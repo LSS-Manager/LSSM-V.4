@@ -1,6 +1,6 @@
 import TypedWorker from '../../TypedWorker';
 
-import type LSSMStorage from '../../../importableScripts/indexedDB';
+import type LSSMStorage from '../../../importableScripts/LSSMStorage';
 import type { Mission } from 'typings/Mission';
 
 export type MissionsById = Record<Mission['id'], Mission>;

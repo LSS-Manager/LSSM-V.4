@@ -1,4 +1,4 @@
-import LSSMStorage from '../importableScripts/indexedDB';
+import LSSMStorage from '../importableScripts/LSSMStorage';
 
 type ImportableScript = 'LSSMStorage';
 

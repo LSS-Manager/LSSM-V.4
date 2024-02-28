@@ -8,24 +8,24 @@ export default class LSSMStorage {
     async #upgradeDB({ oldVersion }: IDBVersionChangeEvent) {
         if (!this.#db) return;
 
-        const transactions: IDBTransaction[] = [];
+        const transactions: Promise<void>[] = [];
+
+        const addTransaction = (transaction: IDBTransaction) =>
+            transactions.push(
+                new Promise<void>(resolve =>
+                    transaction.addEventListener('complete', () => resolve())
+                )
+            );
 
         // In version 1, we introduced storing missionTypes
         if (oldVersion < 1) {
-            transactions.push(
+            addTransaction(
                 this.#db.createObjectStore('missionTypes', { keyPath: 'id' })
                     .transaction
             );
         }
 
-        await Promise.all(
-            transactions.map(
-                transaction =>
-                    new Promise(resolve =>
-                        transaction.addEventListener('complete', resolve)
-                    )
-            )
-        );
+        await Promise.all(transactions);
     }
 
     #setDB(db: IDBDatabase) {
