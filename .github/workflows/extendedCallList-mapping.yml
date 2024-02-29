@@ -4,7 +4,7 @@ run-name: '[🍾] Check extendedCallList event mapping'
 on:
     workflow_dispatch:
     schedule:
-        - cron: '0 */6 * * *'
+        - cron: '10 10,17 * * 1,2,3,4,5'
 
 jobs:
     eventMapping:
