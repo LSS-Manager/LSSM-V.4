@@ -347,7 +347,7 @@ export default (
         ...(CSS.supports('selector(:has(#id))')
             ? [
                   {
-                      selectorText: `#missions:has(.dropdown.open #${sortSelectionList.id})`,
+                      selectorText: `:where(#missions, #missions_outer):has(.dropdown.open #${sortSelectionList.id})`,
                       style: {
                           overflow: 'visible',
                       },
@@ -569,11 +569,8 @@ export default (
     sortBtnWrapper.append(sortBtn, sortSelectionList);
 
     document
-        .querySelector<HTMLDivElement>(
-            // second selector is fallback for pre-ingame-update
-            '#missions .mission-filters .mission-filters-row, #btn-group-mission-select'
-        )
-        ?.append(sortBtnWrapper);
+        .querySelector<HTMLDivElement>('.mission-filters-top .mission-sorting')
+        ?.prepend(sortBtnWrapper);
 
     LSSM.$stores.root.hook({
         event: 'missionMarkerAdd',

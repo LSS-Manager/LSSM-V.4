@@ -168,10 +168,10 @@ export default (
         sortBtn.parentElement?.before(allBtn);
     } else {
         document
-            .querySelector<HTMLDivElement>( // second selector is fallback for pre-ingame-update
-                '#missions .mission-filters .mission-filters-row, #btn-group-mission-select'
+            .querySelector<HTMLDivElement>(
+                '.mission-filters-top .mission-sorting'
             )
-            ?.append(allBtn);
+            ?.prepend(allBtn);
     }
 
     return (mission, collapsableMissionBtnClass) => {
