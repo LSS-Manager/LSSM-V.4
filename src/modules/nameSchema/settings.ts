@@ -1,8 +1,7 @@
 import type Vue from 'vue';
 
-import ImportSettingComponent from './components/import.vue';
+import ImportSettingComponent from './components/importButton.vue';
 
-import type { ImportSettingComponentInterface } from './components/import.vue';
 import type { $m, ModuleSettingFunction } from 'typings/Module';
 import type {
     AppendableList,
