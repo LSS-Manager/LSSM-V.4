@@ -51,7 +51,7 @@ jobs:
               # --stats => show stats at the end
               # --progress => show progress during transfer
               # -e => specify ssh port
-              run: rsync -hirtuz --delete --delete-delay --stats --progress -e "ssh -p 22" ./dist/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_DIR }}/${{ inputs.branch }}
+              run: rsync -hirtuz --delete --delete-delay --stats --progress --exclude static/branches.json --exclude static/missions --exclude static/releasenotes -e "ssh -p 22" ./dist/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_DIR }}/${{ inputs.branch }}
 
             - name: '[🔗] Create symlinks on server'
               if: ${{ success() }}

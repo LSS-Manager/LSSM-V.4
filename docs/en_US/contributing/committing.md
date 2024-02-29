@@ -22,18 +22,21 @@ what you changed (eg. translations). Some long module names got unofficial abbre
 | ecw          | extendedCallWindow        |                         |
 | emv          | extendedCallWindow        | enhancedMissingVehicles |
 | tt           | extendedCallWindow        | tailored Tabs           |
+| ai           | extendedCallWindow        | alarm icons             |
+| mk           | extendedCallWindow        | mission keywords        |
 | em           | extendedMap               |                         |
 | ge           | generalExtensions         |                         |
 | mh           | missionHelper             |                         |
 | sap          | ShareAlliancePost         |                         |
 | docs         | docs (main pages only)    |                         |
 | etr          | enhancedTransportRequests |                         |
-| hk           | hotkeys                   |                         |    
+| hk           | hotkeys                   |                         |
 
 ![](../images/contributing/committing/GH_commit_msg.png)
 
 :::tip What's next?
 
+* Read [Test locally](./runningLocally.md)
 * Read [how to create a Pull Request](./prs.md)
 * Read one of the special sections for contribution topics
   :::
