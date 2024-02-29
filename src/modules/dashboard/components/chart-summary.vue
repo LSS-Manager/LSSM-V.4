@@ -43,7 +43,7 @@
                     {{ $sm('vehicles.title') }}:
                     {{
                         Object.values(vehicles)
-                            .reduce((a, b) => a + b.length, 0)
+                            .reduce((a, b) => a + Object.keys(b).length, 0)
                             .toLocaleString()
                     }}
                 </b>
@@ -325,7 +325,9 @@ export default Vue.extend<
                     Object.values(
                         this.vehicleCategories[category].vehicles[group]
                     ).forEach(type => {
-                        const value = (this.vehicles[type] || []).length;
+                        const value = Object.keys(
+                            this.vehicles[type] ?? []
+                        ).length;
                         sum += value;
                         const color = this.vehicleTypeColors[type];
                         groupColor += parseInt(color.replace(/^#/u, ''), 16);
@@ -354,7 +356,9 @@ export default Vue.extend<
                 Object.values(
                     this.vehicleCategories[category].vehicles[groups[0]]
                 ).forEach(type => {
-                    const value = (this.vehicles[type] || []).length;
+                    const value = Object.values(
+                        this.vehicles[type] ?? []
+                    ).length;
                     sum += value;
                     data.push({
                         id: `${category}_${type}`,
