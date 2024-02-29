@@ -159,6 +159,7 @@ foreach ($arg in $args) {
         "--local" {
             $_RUN_STEP_YARN_SETUP = $true
             $_RUN_STEP_VERSIONS = $true
+            $_RUN_STEP_PREBUILD = $true
             $_RUN_STEP_YARN_INSTALL = $true
             $_RUN_STEP_ENV = $true
             $_RUN_STEP_TSC = $true

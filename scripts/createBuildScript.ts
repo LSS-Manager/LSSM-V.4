@@ -32,6 +32,7 @@ const shortcuts = {
     'local': [
         'yarn_setup',
         'versions', //not required, just for debugging
+        'prebuild', //Download releasenotes, branches and missions
         'yarn_install',
         'env',
         'tsc',
