@@ -24,7 +24,7 @@ Mit der Nutzung des `LSSM` (Leitstellenspiel Manager, Userscript für den Browse
 * Version des installierten LSSM Userscripts
 
 Diese Daten dienen zur Verbesserung der Erweiterung sowie als Anhaltspunkt für die Entwicklung bestehender bzw. zukünftiger Module.
-Ebenso sind sie Grundlage spannender Statistiken, die z.B. als News veröffentlicht werden können (für weitere Informationen, siehe [weiter unten](#veroffentlichung-von-statistiken)).
+Ebenso sind sie Grundlage spannender Statistiken, die z.&nbsp;B. als News veröffentlicht werden können (für weitere Informationen, siehe [weiter unten](#veroffentlichung-von-statistiken)).
 
 **Der Nutzer kann die Erhebung dieser Daten jederzeit in den [Einstellungen][docs.settings] (de-)aktivieren.**
 
@@ -58,7 +58,7 @@ Durch diese Statistiken ist das Rückschließen auf einzelne Datensätze **nicht
 ## Erhebung von Metadaten durch Drittanbieter
 
 Der LSSM selber nutzt keine Tools, Libraries, Hilfsmittel o.ä., welche Metadaten der Nutzer erheben könnten.
-Mit der Nutzung eines Browsers und eines Userscript-Managers, wie z.B. [Tampermonkey][tampermonkey] ist eine Erhebung von Metadaten durch diese nicht ausgeschlossen.
+Mit der Nutzung eines Browsers und eines Userscript-Managers, wie z.&nbsp;B. [Tampermonkey][tampermonkey] ist eine Erhebung von Metadaten durch diese nicht ausgeschlossen.
 Sämtliche dieser erhobenen Daten sind für das LSSM-Team nicht zugänglich oder einsehbar und können durch den LSSM auch nicht unterbunden, begünstigt oder manipuliert werden.
 Informationen über die Datenerhebung der jeweils genutzten Software ist den Informationsquellen der jeweiligen Software zu entnehmen.
 

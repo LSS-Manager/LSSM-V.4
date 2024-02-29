@@ -36,17 +36,17 @@ now () {
     echo "${timestamp/N/000000000}"
 }
 
-ms_elapsed() {
+ms_elapsed () {
     local timestamp_now
     timestamp_now=$(now)
     echo $(((10#$timestamp_now - 10#$1) / 1000000))ms
 }
 
-print_start_message() {
+print_start_message () {
     echo "${bold}${blue}### $1 ###${normal}"
 }
 
-print_end_message() {
+print_end_message () {
     echo "${bold}${green}=== $1: $(ms_elapsed "$2") [$(date +"%Y-%m-%d %H:%M:%S %Z")] ===${normal}"
 }
 
@@ -107,6 +107,7 @@ while :; do
         --local)
           _RUN_STEP_YARN_SETUP=true
           _RUN_STEP_VERSIONS=true
+          _RUN_STEP_PREBUILD=true
           _RUN_STEP_YARN_INSTALL=true
           _RUN_STEP_ENV=true
           _RUN_STEP_TSC=true
@@ -347,7 +348,7 @@ if [[ $_RUN_STEP_PREBUILD = true ]]; then
     start_time=$(now)
     print_start_message "[🚧] run prebuild"
     enable_debugging
-    yarn ts-node prebuild/index.ts "$MODE" "$BRANCH" "🦄 branch label" || exit 1
+    yarn ts-node prebuild/index.ts "$MODE" "$BRANCH" ""🦄 branch label"" || exit 1
     disable_debugging
     print_end_message "[🚧] run prebuild" "$start_time"
 fi
@@ -357,7 +358,7 @@ if [[ $_RUN_STEP_WEBPACK = true ]]; then
     start_time=$(now)
     print_start_message "[👷] webpack"
     enable_debugging
-    yarn ts-node build/index.ts --esModuleInterop "$MODE" "$BRANCH" "🦄 branch label" || exit 1
+    yarn ts-node build/index.ts --esModuleInterop "$MODE" "$BRANCH" ""🦄 branch label"" || exit 1
     disable_debugging
     print_end_message "[👷] webpack" "$start_time"
 fi
@@ -390,7 +391,7 @@ if [[ $_RUN_STEP_SERVE = true ]]; then
     start_time=$(now)
     print_start_message "Start test server"
     enable_debugging
-    ws -d ./dist/ --https --port="$LSSM_PORT" --hostname localhost & echo "webserver moved to background. Get it back with 'fg'"
+    ws -d ./dist/ --https --port="$LSSM_PORT" --hostname localhost
     disable_debugging
     print_end_message "Start test server" "$start_time"
 fi

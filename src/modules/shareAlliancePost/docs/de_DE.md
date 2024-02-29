@@ -53,9 +53,9 @@ In der Einsatzliste wird einfach der normale Inhalt der roten Box eingefügt.
 
 ### Datum
 
-`{{today}}` fügt das heutige Datum (Tag und Monat) ein. z.B. `19.10`.
+`{{today}}` fügt das heutige Datum (Tag und Monat) ein. z.&nbsp;B. `19.10`.
 
-Analog gibt `{{tomorrow}}` das morgige Datum (Tag und Monat) aus. z.B. `20.10`.
+Analog gibt `{{tomorrow}}` das morgige Datum (Tag und Monat) aus. z.&nbsp;B. `20.10`.
 
 ### Uhrzeiten
 
@@ -67,7 +67,7 @@ Da das etwas komplizierter ist, empfehlen wir die konzentrierte Lektüre der fol
 Du kannst jede beliebige positive Zahl nutzen.
 
 Ebenso kannst Du Uhrzeiten auf- und abrunden.
-Um z.B. auf die nächste viertelstunde aufzurunden, verwende `r15`, zum Abrunden einfach `r-15`.
+Um z.&nbsp;B. auf die nächste viertelstunde aufzurunden, verwende `r15`, zum Abrunden einfach `r-15`.
 Du kannst natürlich jede Zahl zwischen `0` und `59` verwenden.
 
 Beispiel: Wenn du "In 7 Stunden und 22,5 Minuten, aber auf eine Minutenzahl, die durch drei teilbar ist, abrunden",
@@ -75,7 +75,7 @@ verwende einfach `{{now+7.266r-3}}`.
 Tut uns leid, Verwirrtheitszertifikate stellen wir derzeit leider nicht aus ;)
 
 Möchtest du das jeweils zugehörige Datum mit ausgeben, dann füge einfach ein `d` hinten an die Variable an:
-`{{now+5r0d}}` Würde z.B. am 24.03.2020 um 10:32 folgenden Output generieren:
+`{{now+5r0d}}` Würde z.&nbsp;B. am 24.03.2020 um 10:32 folgenden Output generieren:
 `16:00 (24.03.)`, am selben Tag um 21:43 würde das Ergebnis `03:00 (25.03.)` sein.
 
 Wenn du das ganze nicht verstehst (was wir als überaus verständlich werten),

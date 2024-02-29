@@ -29,6 +29,8 @@ jobs:
         outputs:
             branch: ${{ steps.output.outputs.branch }}
             version: ${{ steps.output.outputs.version }}
+        env:
+            BranchLabel: ${{ inputs.label || github.ref }}
         steps:
             # - name: Generate Token
             #   id: generate_token
@@ -167,11 +169,11 @@ jobs:
 
             - name: '[🚧] run prebuild'
               id: prebuild
-              run: yarn ts-node prebuild/index.ts "${{ env.MODE }}" "${{ env.BRANCH }}" "${{ inputs.label }}" || exit 1
+              run: yarn ts-node prebuild/index.ts "${{ env.MODE }}" "${{ env.BRANCH }}" "$BranchLabel" || exit 1
 
             - name: '[👷] webpack'
               id: webpack
-              run: yarn ts-node build/index.ts --esModuleInterop "${{ env.MODE }}" "${{ env.BRANCH }}" "${{ inputs.label }}" || exit 1
+              run: yarn ts-node build/index.ts --esModuleInterop "${{ env.MODE }}" "${{ env.BRANCH }}" "$BranchLabel" || exit 1
 
             - name: '[📝] build docs'
               id: docs
