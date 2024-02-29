@@ -236,9 +236,10 @@ export default Vue.extend<
         },
         water() {
             return Object.entries(this.vehicles).reduce(
-                (a, [type, { length }]) =>
+                (a, [type, vehicles]) =>
                     a +
-                    length * (this.waterByType[parseInt(type.toString())] ?? 0),
+                    Object.keys(vehicles).length *
+                        (this.waterByType[parseInt(type.toString())] ?? 0),
                 0
             );
         },
@@ -247,9 +248,9 @@ export default Vue.extend<
                 (this.water *
                     (100 +
                         Object.entries(this.vehicles).reduce(
-                            (a, [type, { length }]) =>
+                            (a, [type, vehicles]) =>
                                 a +
-                                length *
+                                Object.keys(vehicles).length *
                                     (this.waterBonusByType[
                                         parseInt(type.toString())
                                     ] ?? 0),
@@ -263,9 +264,10 @@ export default Vue.extend<
         },
         foam() {
             return Object.entries(this.vehicles).reduce(
-                (a, [type, { length }]) =>
+                (a, [type, vehicles]) =>
                     a +
-                    length * (this.foamByType[parseInt(type.toString())] ?? 0),
+                    Object.keys(vehicles).length *
+                        (this.foamByType[parseInt(type.toString())] ?? 0),
                 0
             );
         },
@@ -274,9 +276,9 @@ export default Vue.extend<
                 (this.foam *
                     (100 +
                         Object.entries(this.vehicles).reduce(
-                            (a, [type, { length }]) =>
+                            (a, [type, vehicles]) =>
                                 a +
-                                length *
+                                Object.keys(vehicles).length *
                                     (this.foamBonusByType[
                                         parseInt(type.toString())
                                     ] ?? 0),
