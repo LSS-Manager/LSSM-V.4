@@ -32,6 +32,7 @@ const shortcuts = {
     'local': [
         'yarn_setup',
         'versions', //not required, just for debugging
+        'prebuild', //Download releasenotes, branches and missions
         'yarn_install',
         'env',
         'tsc',
@@ -88,15 +89,15 @@ fi`,
     timestamp="$(date +%s%N)"
     echo "\${timestamp/N/000000000}"
 }`,
-    `ms_elapsed() {
+    `ms_elapsed () {
     local timestamp_now
     timestamp_now=$(now)
     echo $(((10#$timestamp_now - 10#$1) / 1000000))ms
 }`,
-    `print_start_message() {
+    `print_start_message () {
     echo "\${bold}$\{blue}### $1 ###$\{normal}"
 }`,
-    `print_end_message() {
+    `print_end_message () {
     echo "\${bold}$\{green}=== $1: $(ms_elapsed "$2") [$(date +"%Y-%m-%d %H:%M:%S %Z")] ===$\{normal}"
 }`,
 ];
@@ -144,7 +145,7 @@ try {
         .concat([
             {
                 name: 'Start test server',
-                run: `ws -d ./dist/ --https --port="$${PORT_ENV_KEY}" --hostname localhost & echo "webserver moved to background. Get it back with 'fg'"`,
+                run: `ws -d ./dist/ --https --port="$${PORT_ENV_KEY}" --hostname localhost`,
                 id: 'serve',
             } as Job,
         ]);
