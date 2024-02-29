@@ -8,6 +8,7 @@ import type { APIKey, APIs } from '@stores/newApi';
 type ApiFetchResults = APIs & {
     vehicles: Vehicle[];
     buildings: Building[];
+    alliance_buildings: Building[];
     schoolings: SchoolingAPI;
     alliance_schoolings: SchoolingAPI;
 };
@@ -72,7 +73,9 @@ class FetchApiWorker extends TypedWorker<
                             // TODO: Remove Array.isArray check when Typescript extends oneof is available
                             if (
                                 Array.isArray(res) &&
-                                (api === 'vehicles' || api === 'buildings')
+                                (api === 'vehicles' ||
+                                    api === 'buildings' ||
+                                    api === 'alliance_buildings')
                             ) {
                                 // @ts-expect-error unfortunately, typescript doesn't understand that we're filtering here (we need the extends oneof!)
                                 const byId: APIs[Api] = {};

@@ -13,6 +13,7 @@ import {
     type BuildingsByDispatchCenter,
     type BuildingsByType,
     BuildingsWorker,
+    FetchSingleAllianceBuildingWorker,
     FetchSingleBuildingWorker,
 } from '@workers/stores/api/buildings.worker';
 import {
@@ -43,6 +44,7 @@ import type { BuildingMarkerAdd, RadioMessage } from 'typings/Ingame';
 export interface APIs {
     vehicles: Record<Vehicle['id'], Vehicle>;
     buildings: Record<Building['id'], Building>;
+    alliance_buildings: Record<Building['id'], Building>;
     allianceinfo: AllianceInfo;
     credits: CreditsInfo;
     settings: Settings;
@@ -77,6 +79,7 @@ export const defineNewAPIStore = defineStore('newApi', () => {
     } = {
         vehicles: ref<APIs['vehicles']>({}),
         buildings: ref<APIs['buildings']>({}),
+        alliance_buildings: ref<APIs['alliance_buildings']>({}),
         allianceinfo: ref<APIs['allianceinfo']>({
             credits_total: 0,
             credits_current: 0,
@@ -164,6 +167,12 @@ export const defineNewAPIStore = defineStore('newApi', () => {
     const buildingsByType = ref<BuildingsByType>({});
     const buildingsByDispatchCenter = ref<BuildingsByDispatchCenter>({});
     const buildingsByCategory = ref<BuildingsByCategory>({});
+
+    const allianceBuildingsArray = computed<Building[]>(() =>
+        Object.values(apiStorage.alliance_buildings.value)
+    );
+    const allianceBuildingsByType = ref<BuildingsByType>({});
+    const allianceBuildingsByCategory = ref<BuildingsByCategory>({});
     // endregion
 
     // region computed values and fake-computed values for schoolings & alliance_schoolings
@@ -243,6 +252,15 @@ export const defineNewAPIStore = defineStore('newApi', () => {
             buildingsByCategory.value = calculations.buildingsByCategory;
             vehiclesByDispatchCenter.value =
                 calculations.vehiclesByDispatchCenter;
+        } else if (api === 'alliance_buildings') {
+            const calculations = await BuildingsWorker.run(
+                apiStorage.alliance_buildings.value,
+                useTranslationStore().buildingCategoryByType,
+                []
+            );
+            allianceBuildingsByType.value = calculations.buildingsByType;
+            allianceBuildingsByCategory.value =
+                calculations.buildingsByCategory;
         } else if (api === 'schoolings' || api === 'alliance_schoolings') {
             const calculations = await SchoolingsWorker.run(
                 apiStorage.schoolings.value,
@@ -539,6 +557,45 @@ export const defineNewAPIStore = defineStore('newApi', () => {
     };
 
     /**
+     * Update the alliance_building store from the information of a single (potentially updated or new) building.
+     * @param building - The building that may be new or updated.
+     * @returns The updated building.
+     */
+    const _updateAllianceBuilding = (building: Building) => {
+        // update the fake computed values
+        allianceBuildingsByType.value[building.building_type] ||= {};
+        allianceBuildingsByType.value[building.building_type][building.id] =
+            building;
+
+        const category =
+            useTranslationStore().buildingCategoryByType[
+                building.building_type
+            ];
+        allianceBuildingsByCategory.value[category] ||= {};
+        allianceBuildingsByCategory.value[category][building.id] = building;
+
+        // update the building in the store
+        apiStorage.alliance_buildings.value[building.id] = building;
+
+        // reassign values due to reactivity
+        // TODO: Not necessary anymore with Maps and Sets (Vue3)
+        apiStorage.alliance_buildings.value = Object.assign(
+            {},
+            apiStorage.alliance_buildings.value
+        );
+        allianceBuildingsByType.value = Object.assign(
+            {},
+            allianceBuildingsByType.value
+        );
+        allianceBuildingsByCategory.value = Object.assign(
+            {},
+            allianceBuildingsByCategory.value
+        );
+
+        return building;
+    };
+
+    /**
      * Update the building store from a buildingMarkerAdd call.
      * @param buildingMarker - The building marker to update the building store from.
      * @returns A promise that resolves when the update is finished.
@@ -546,8 +603,27 @@ export const defineNewAPIStore = defineStore('newApi', () => {
     const updateBuildingFromBuildingMarkerAdd = (
         buildingMarker: BuildingMarkerAdd
     ) => {
+        // if user_id is null, this is an alliance building (built from alliance funds)
+        if (buildingMarker.user_id === null) {
+            const allianceBuilding =
+                apiStorage.alliance_buildings.value[buildingMarker.id];
+            if (!allianceBuilding) {
+                return FetchSingleAllianceBuildingWorker.run(
+                    buildingMarker.id,
+                    _getRequestInit({}, 'updateBuildingFromBuildingMarkerAdd')
+                ).then(_updateAllianceBuilding);
+            }
+
+            // update caption
+            allianceBuilding.caption = he.decode(buildingMarker.name);
+            // update longitude and latitude
+            allianceBuilding.longitude = buildingMarker.longitude;
+            allianceBuilding.latitude = buildingMarker.latitude;
+
+            return _updateAllianceBuilding(allianceBuilding);
+        }
+
         // if it is not our building, ignore it
-        // TODO: Alliance buildings?
         if (buildingMarker.user_id !== window.user_id) return;
 
         // we're going to update caption, longitude and latitude, leitstelle_building_id
@@ -702,6 +778,9 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         buildingsByType,
         buildingsByDispatchCenter,
         buildingsByCategory,
+        allianceBuildingsArray,
+        allianceBuildingsByType,
+        allianceBuildingsByCategory,
         allSchoolings,
         // actions: get API data
         // vehicles
@@ -733,6 +812,16 @@ export const defineNewAPIStore = defineStore('newApi', () => {
                 id,
                 _getRequestInit({}, feature)
             ).then(_updateBuilding),
+        getAllianceBuildings: (feature: string, returnAsArray = false) =>
+            // for legacy reasons, optionally return the buildings as an array
+            _getStoredOrFetch('alliance_buildings', feature).then(buildings =>
+                returnAsArray ? allianceBuildingsArray.value : buildings
+            ),
+        getAllianceBuilding: (id: number, feature: string) =>
+            FetchSingleAllianceBuildingWorker.run(
+                id,
+                _getRequestInit({}, feature)
+            ).then(_updateAllianceBuilding),
         // missionTypes
         getMissionTypes: (feature: string): Promise<MissionsById> =>
             MissionsWorker.run(
