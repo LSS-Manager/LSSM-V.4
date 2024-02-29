@@ -106,7 +106,7 @@
 import Vue from 'vue';
 
 import { Chart } from 'highcharts-vue';
-import { defineAPIStore } from '@stores/api';
+import { defineNewAPIStore } from '@stores/newApi';
 import { faCarSide } from '@fortawesome/free-solid-svg-icons/faCarSide';
 import { faChartPie } from '@fortawesome/free-solid-svg-icons/faChartPie';
 import { mapState } from 'pinia';
@@ -184,7 +184,7 @@ export default Vue.extend<
         } as VehicleTypes;
     },
     computed: {
-        ...mapState(defineAPIStore, {
+        ...mapState(defineNewAPIStore, {
             vehicleTypes(store) {
                 const vbt = store.vehiclesByType;
                 const types = {} as TypeList;
@@ -194,14 +194,15 @@ export default Vue.extend<
                     Object.values(this.statuses).forEach(
                         status => (fms[`s${status}`] = [])
                     );
-                    Object.values(vbt[intType]).forEach(vehicle => {
+                    const vehiclesOfType = Object.values(vbt[intType]);
+                    vehiclesOfType.forEach(vehicle => {
                         fms[`s${vehicle.fms_show}`].push(vehicle);
                     });
                     types[`t${type}`] = {
                         title: this.vehicleTypeNames[parseInt(type)],
                         fms,
-                        sum: vbt[intType].length,
-                        vehicles: vbt[intType],
+                        sum: vehiclesOfType.length,
+                        vehicles: vehiclesOfType,
                     };
                 });
                 return types;
