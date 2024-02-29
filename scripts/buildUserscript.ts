@@ -73,6 +73,7 @@ ${
                         local,
                         host: config.urls.server,
                         prefix: config.prefix,
+                        localCoreName,
                     },
                     sequences: false,
                     unsafe_arrows: true,
