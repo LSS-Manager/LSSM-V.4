@@ -152,7 +152,7 @@
 import Vue from 'vue';
 
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons/faSlidersH';
-import { useAPIStore } from '@stores/api';
+import { useNewAPIStore } from '@stores/newApi';
 import { useRootStore } from '@stores/index';
 import { useTranslationStore } from '@stores/translationUtilities';
 
@@ -275,8 +275,8 @@ export default Vue.extend<
                             label: caption,
                         })
                     ),
-                    ...useAPIStore()
-                        .vehicles.filter(v => v.vehicle_type_caption)
+                    ...useNewAPIStore()
+                        .vehiclesArray.filter(v => v.vehicle_type_caption)
                         .map(({ vehicle_type, vehicle_type_caption = '' }) => ({
                             value: `[${vehicle_type}] ${vehicle_type_caption}`,
                             label: `[${this.vehicleTypes[vehicle_type].caption}] ${vehicle_type_caption}`,
