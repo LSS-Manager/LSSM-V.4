@@ -391,7 +391,7 @@ if [[ $_RUN_STEP_SERVE = true ]]; then
     start_time=$(now)
     print_start_message "Start test server"
     enable_debugging
-    ws -d ./dist/ --https --port="$LSSM_PORT" --hostname localhost & echo "webserver moved to background. Get it back with 'fg'"
+    ws -d ./dist/ --https --port="$LSSM_PORT" --hostname localhost
     disable_debugging
     print_end_message "Start test server" "$start_time"
 fi
