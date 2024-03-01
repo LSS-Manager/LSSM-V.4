@@ -103,7 +103,7 @@
         "webpack": "5.90.3"
     },
     "engines": {
-        "node": "20.11.0"
+        "node": "20.11.1"
     },
     "packageManager": "yarn@4.1.0",
     "workspaces": [
