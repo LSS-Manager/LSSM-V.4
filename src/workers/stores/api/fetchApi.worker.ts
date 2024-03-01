@@ -1,3 +1,7 @@
+import {
+    type SmallBuildingsMap,
+    updateBuildingTypeIfSmall,
+} from '@workers/stores/api/buildings.worker';
 import TypedWorker, { type WorkerSelf } from '@workers/TypedWorker';
 
 import checkRequestInit from '../../../importableScripts/checkRequestInit';
@@ -20,11 +24,11 @@ interface Storage {
     apiStorage: Partial<APIs>;
 }
 
-const scripts = { checkRequestInit } as const;
+const scripts = { checkRequestInit, updateBuildingTypeIfSmall } as const;
 
 class FetchApiWorker extends TypedWorker<
     Storage,
-    [api: APIKey, init: RequestInit],
+    [api: APIKey, init: RequestInit, smallBuildingsMap: SmallBuildingsMap],
     Promise<APIs[APIKey]>,
     typeof scripts
 > {
@@ -34,7 +38,8 @@ class FetchApiWorker extends TypedWorker<
             async <Api extends APIKey>(
                 self: WorkerSelf<Storage, typeof scripts>,
                 api: Api,
-                init: RequestInit
+                init: RequestInit,
+                smallBuildingsMap: SmallBuildingsMap
             ): Promise<APIs[Api]> => {
                 // this is not the 5 Minutes used in API store to avoid issues with different transaction times etc.
                 const API_UPDATE_AFTER = [
@@ -76,7 +81,17 @@ class FetchApiWorker extends TypedWorker<
                             ) {
                                 // @ts-expect-error unfortunately, typescript doesn't understand that we're filtering here (we need the extends oneof!)
                                 const byId: APIs[Api] = {};
-                                for (const item of res) byId[item.id] = item;
+                                for (const item of res) {
+                                    if ('small_building' in item) {
+                                        byId[item.id] =
+                                            self.updateBuildingTypeIfSmall(
+                                                item,
+                                                smallBuildingsMap
+                                            );
+                                    } else {
+                                        byId[item.id] = item;
+                                    }
+                                }
                                 return byId;
                             } else if (
                                 'result' in res &&
@@ -102,10 +117,13 @@ class FetchApiWorker extends TypedWorker<
     // we're overriding the run method so that we can have a better and more explicit return type
     run<Api extends APIKey>(
         api: Api,
-        init: RequestInit
+        init: RequestInit,
+        smallBuildingsMap: SmallBuildingsMap
     ): Promise<Exclude<APIs[Api], null>> {
         // we unfortunately have to cast here explicitly
-        return super.run(api, init) as Promise<Exclude<APIs[Api], null>>;
+        return super.run(api, init, smallBuildingsMap) as Promise<
+            Exclude<APIs[Api], null>
+        >;
     }
 }
 

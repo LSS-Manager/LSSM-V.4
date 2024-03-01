@@ -19,6 +19,25 @@ export type BuildingsByDispatchCenter = Record<
 >; // Map<Building['leitstelle_building_id'], Set<Building>>
 export type BuildingsByCategory = Record<string, BuildingList>; // Map<string, Set<Building>>
 
+export type SmallBuildingsMap = Record<
+    Building['building_type'],
+    Building['building_type']
+>;
+
+/**
+ * Changes the building type if the building is a small building.
+ * @param building - The building to update.
+ * @param smallBuildingsMap - The map to use for updating the building type.
+ * @returns The updated building.
+ */
+export function updateBuildingTypeIfSmall(
+    building: Building,
+    smallBuildingsMap: SmallBuildingsMap
+) {
+    if (building.small_building && building.building_type in smallBuildingsMap)
+        building.building_type = smallBuildingsMap[building.building_type];
+    return building;
+}
 export const BuildingsWorker = new TypedWorker(
     'api/buildings.worker',
     async (
@@ -77,16 +96,21 @@ export const FetchSingleBuildingWorker = new TypedWorker(
     async (
         self,
         buildingId: Building['id'],
-        init: RequestInit
+        init: RequestInit,
+        smallBuildingsMap: SmallBuildingsMap
     ): Promise<Building> => {
         self.checkRequestInit(init);
 
         return fetch(
             new URL(`/api/buildings/${buildingId}`, location.origin),
             init
-        ).then(res => res.json());
+        )
+            .then<Building>(res => res.json())
+            .then(building =>
+                self.updateBuildingTypeIfSmall(building, smallBuildingsMap)
+            );
     },
-    { checkRequestInit }
+    { checkRequestInit, updateBuildingTypeIfSmall }
 );
 
 export const FetchSingleAllianceBuildingWorker = new TypedWorker(
@@ -94,14 +118,19 @@ export const FetchSingleAllianceBuildingWorker = new TypedWorker(
     async (
         self,
         buildingId: Building['id'],
-        init: RequestInit
+        init: RequestInit,
+        smallBuildingsMap: SmallBuildingsMap
     ): Promise<Building> => {
         self.checkRequestInit(init);
 
         return fetch(
             new URL(`/api/alliance_buildings/${buildingId}`, location.origin),
             init
-        ).then(res => res.json());
+        )
+            .then<Building>(res => res.json())
+            .then(building =>
+                self.updateBuildingTypeIfSmall(building, smallBuildingsMap)
+            );
     },
-    { checkRequestInit }
+    { checkRequestInit, updateBuildingTypeIfSmall }
 );

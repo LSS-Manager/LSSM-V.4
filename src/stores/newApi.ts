@@ -15,6 +15,7 @@ import {
     BuildingsWorker,
     FetchSingleAllianceBuildingWorker,
     FetchSingleBuildingWorker,
+    type SmallBuildingsMap,
 } from '@workers/stores/api/buildings.worker';
 import {
     FetchSingleVehicleWorker,
@@ -72,6 +73,10 @@ const API_UPDATE_AFTER_SCHOOLINGS = 30 * 1000; // 30 seconds
 export const defineNewAPIStore = defineStore('newApi', () => {
     const secretKey = ref<string>('');
     const currentlyRunningUpdates: RunningUpdatesMap = {};
+
+    const smallBuildingsMap = (window[PREFIX] as Vue).$t(
+        'small_buildings'
+    ) as unknown as SmallBuildingsMap;
 
     // we're storing the refs in an object to make it easier to access them dynamically
     const apiStorage: {
@@ -315,7 +320,11 @@ export const defineNewAPIStore = defineStore('newApi', () => {
             const feat = `apiStore/_updateAPI:${api}(${feature})`;
 
             // let's start the update on a worker
-            FetchApiWorker.run(api, _getRequestInit({}, feat))
+            FetchApiWorker.run(
+                api,
+                _getRequestInit({}, feat),
+                smallBuildingsMap
+            )
                 .then(value => _storeApi(api, value))
                 .then(value => {
                     // success! let's resolve all the callbacks
@@ -610,7 +619,8 @@ export const defineNewAPIStore = defineStore('newApi', () => {
             if (!allianceBuilding) {
                 return FetchSingleAllianceBuildingWorker.run(
                     buildingMarker.id,
-                    _getRequestInit({}, 'updateBuildingFromBuildingMarkerAdd')
+                    _getRequestInit({}, 'updateBuildingFromBuildingMarkerAdd'),
+                    smallBuildingsMap
                 ).then(_updateAllianceBuilding);
             }
 
@@ -631,7 +641,8 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         if (!building) {
             return FetchSingleBuildingWorker.run(
                 buildingMarker.id,
-                _getRequestInit({}, 'updateBuildingFromBuildingMarkerAdd')
+                _getRequestInit({}, 'updateBuildingFromBuildingMarkerAdd'),
+                smallBuildingsMap
             ).then(_updateBuilding);
         }
 
@@ -810,7 +821,8 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         getBuilding: (id: number, feature: string) =>
             FetchSingleBuildingWorker.run(
                 id,
-                _getRequestInit({}, feature)
+                _getRequestInit({}, feature),
+                smallBuildingsMap
             ).then(_updateBuilding),
         getAllianceBuildings: (feature: string, returnAsArray = false) =>
             // for legacy reasons, optionally return the buildings as an array
@@ -820,7 +832,8 @@ export const defineNewAPIStore = defineStore('newApi', () => {
         getAllianceBuilding: (id: number, feature: string) =>
             FetchSingleAllianceBuildingWorker.run(
                 id,
-                _getRequestInit({}, feature)
+                _getRequestInit({}, feature),
+                smallBuildingsMap
             ).then(_updateAllianceBuilding),
         // missionTypes
         getMissionTypes: (feature: string): Promise<MissionsById> =>
