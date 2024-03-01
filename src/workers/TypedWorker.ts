@@ -6,6 +6,13 @@ interface ImportableScripts {
     LSSMStorage: typeof LSSMStorage;
 }
 
+const importableScripts = {
+    checkRequestInit,
+    LSSMStorage,
+} as const satisfies ImportableScripts;
+Object.seal(importableScripts);
+Object.freeze(importableScripts);
+
 type ImportableScript = keyof ImportableScripts;
 
 type WorkerExtraPropertiesType = Record<never, never>;
@@ -93,6 +100,8 @@ export default class TypedWorker<
         const blob = new Blob(
             [
                 `
+// this is the TypedWorker ${this.#workerName}
+
                 ${
                     this.#importScriptsExpression
                         ? `
@@ -138,13 +147,10 @@ ${this.#function.toString()}
         for (const script of this.#importableScripts) {
             if (this.#importableScriptsUrls.has(script)) continue;
 
-            const exported = {
-                checkRequestInit,
-                LSSMStorage,
-            }[script];
+            const exported = importableScripts[script];
 
             const textContent = `
-// this is the imported script ${script}
+// this is the imported script ${script} (imported into ${this.#workerName})
 ${exported.toString()}
 
 // make available in workers
