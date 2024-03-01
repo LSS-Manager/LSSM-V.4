@@ -6,7 +6,6 @@ import type { Building } from '../../Building';
 
 export interface StorageAPIs {
     buildings: Building[];
-    alliance_buildings: Building[];
 }
 
 export type StorageAPIKey = keyof StorageAPIs;

@@ -18,7 +18,6 @@ export const defineAPIStore = defineStore('api', {
     state: () =>
         <APIState>{
             buildings: [],
-            alliance_buildings: [],
             autoUpdates: [],
             currentlyUpdating: [],
             lastUpdates: {},
@@ -31,13 +30,6 @@ export const defineAPIStore = defineStore('api', {
                 value: state[api],
                 lastUpdate: state.lastUpdates[api] ?? 0,
             }),
-        allianceBuildingsById: (state): Record<number, Building> =>
-            Object.fromEntries(
-                state.alliance_buildings.map(building => [
-                    building.id,
-                    building,
-                ])
-            ),
         buildingsById: (state): Record<number, Building> =>
             Object.fromEntries(
                 state.buildings.map(building => [building.id, building])
@@ -219,64 +211,6 @@ export const defineAPIStore = defineStore('api', {
                 );
                 return () => window.clearInterval(interval);
             });
-        },
-        getAllianceBuilding(
-            buildingId: number,
-            feature: string
-        ): Promise<Building> {
-            return this._awaitInitialBroadcast()
-                .then(() =>
-                    useNewAPIStore().request(
-                        `/api/alliance_buildings/${buildingId}`,
-                        `apiStore/getAllianceBuilding(${feature})`
-                    )
-                )
-                .then(res => res.json() as Promise<Building>)
-                .then(fetchedBuilding => {
-                    if (!Object.keys(fetchedBuilding).length) {
-                        throw new Error(
-                            `API of alliance building with ID ${buildingId} is not accessible by user`
-                        );
-                    }
-                    const buildingIndex = this.alliance_buildings.findIndex(
-                        ({ id }) => id === buildingId
-                    );
-                    if (buildingIndex < 0) {
-                        this.alliance_buildings.push(fetchedBuilding);
-                    } else {
-                        // workaround for reactivity
-                        const buildings = this.alliance_buildings;
-                        buildings[buildingIndex] = fetchedBuilding;
-                        this.alliance_buildings = [];
-                        this.alliance_buildings = buildings;
-                    }
-                    return useBroadcastStore()
-                        .apiBroadcast('alliance_buildings', {
-                            value: this.alliance_buildings,
-                            lastUpdate:
-                                this.lastUpdates.alliance_buildings ?? 0,
-                        })
-                        .then(() => fetchedBuilding);
-                });
-        },
-        getAllianceBuildings(
-            feature: string
-        ): Promise<EnsuredAPIGetter<'alliance_buildings'>> {
-            return this._getAPI('alliance_buildings', feature);
-        },
-        autoUpdateAllianceBuildings(
-            feature: string,
-            callback: (
-                api: EnsuredAPIGetter<'alliance_buildings'>
-            ) => void = () => void null,
-            updateInterval: number = API_MIN_UPDATE
-        ) {
-            return this._autoUpdate<'alliance_buildings'>(
-                this.getAllianceBuildings,
-                feature,
-                callback,
-                updateInterval
-            );
         },
         getBuilding(buildingId: number, feature: string): Promise<Building> {
             return this._awaitInitialBroadcast()

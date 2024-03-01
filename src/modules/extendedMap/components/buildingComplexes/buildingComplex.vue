@@ -1727,9 +1727,12 @@ export default Vue.extend<
     computed: {
         ...mapState(defineAPIStore, {
             buildings: 'buildingsById',
-            allianceBuildings: 'allianceBuildingsById',
         }),
-        ...mapState(defineNewAPIStore, ['allSchoolings', 'vehiclesByBuilding']),
+        ...mapState(defineNewAPIStore, {
+            allSchoolings: 'allSchoolings',
+            vehiclesByBuilding: 'vehiclesByBuilding',
+            allianceBuildings: 'alliance_buildings',
+        }),
         attributedBuildings() {
             const smallBuildings = this.$t(
                 'small_buildings'
@@ -2949,9 +2952,12 @@ export default Vue.extend<
                     }
                 )
                 .then(() =>
-                    this.apiStore[
-                        allianceBuilding ? 'getAllianceBuilding' : 'getBuilding'
-                    ](buildingId, feature)
+                    allianceBuilding
+                        ? this.newApiStore.getAllianceBuilding(
+                              buildingId,
+                              feature
+                          )
+                        : this.apiStore.getBuilding(buildingId, feature)
                 )
                 .then(() => {
                     this.tempDisableAllExtensionButtons = false;
