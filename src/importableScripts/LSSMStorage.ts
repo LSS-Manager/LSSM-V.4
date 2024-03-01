@@ -1,4 +1,5 @@
 import type { Mission } from 'typings/Mission';
+import type { MissionsById } from '@workers/stores/api/missionTypes.worker';
 
 export default class LSSMStorage {
     readonly #DB_NAME = `${PREFIX}-storage-v2`;
@@ -62,7 +63,7 @@ export default class LSSMStorage {
     }
 
     // region missionTypes
-    public storeMissionTypes(missionTypes: Record<Mission['id'], Mission>) {
+    public storeMissionTypes(missionTypes: MissionsById) {
         return this.#openDB()
             .then(db => {
                 const tx = db.transaction('missionTypes', 'readwrite');
@@ -95,7 +96,7 @@ export default class LSSMStorage {
             })
             .then(missionTypes => {
                 // indexedDB returns an array, so we need to convert it to an object
-                const missionTypesObject: Record<Mission['id'], Mission> = {};
+                const missionTypesObject: MissionsById = {};
                 missionTypes.forEach(missionType => {
                     missionTypesObject[missionType.id] = missionType;
                 });

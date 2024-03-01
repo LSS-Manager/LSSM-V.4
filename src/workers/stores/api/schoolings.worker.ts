@@ -5,6 +5,7 @@ import type { APIs } from '@stores/newApi';
 export const SchoolingsWorker = new TypedWorker(
     'api/schoolings.worker',
     async (
+        self,
         schoolings: APIs['schoolings'],
         alliance_schoolings: APIs['alliance_schoolings']
     ) => {
@@ -14,5 +15,6 @@ export const SchoolingsWorker = new TypedWorker(
             if (!processedSchoolings.has(s.id)) allSchoolings.push(s);
 
         return { allSchoolings };
-    }
+    },
+    []
 );

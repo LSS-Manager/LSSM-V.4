@@ -23,7 +23,7 @@ export type VehiclesByDispatchCenter = Record<
 
 export const VehiclesWorker = new TypedWorker(
     'api/vehicles.worker',
-    async (vehicles: APIs['vehicles'], buildings: APIs['buildings']) => {
+    async (self, vehicles: APIs['vehicles'], buildings: APIs['buildings']) => {
         const vehiclesArray = Object.values(vehicles);
         const vehicleStates: VehicleStates = {};
         const vehiclesByTarget: VehiclesByTarget = {
@@ -78,12 +78,17 @@ export const VehiclesWorker = new TypedWorker(
             vehiclesByBuilding,
             vehiclesByDispatchCenter,
         };
-    }
+    },
+    []
 );
 
 export const FetchSingleVehicleWorker = new TypedWorker(
     'api/vehicles.single.worker',
-    async (vehicleId: Vehicle['id'], init: RequestInit): Promise<Vehicle> => {
+    async (
+        self,
+        vehicleId: Vehicle['id'],
+        init: RequestInit
+    ): Promise<Vehicle> => {
         const headers = new Headers(init.headers);
 
         // CAVEAT: headers are stored lowercase
@@ -102,12 +107,14 @@ export const FetchSingleVehicleWorker = new TypedWorker(
             new URL(`/api/vehicles/${vehicleId}`, location.origin),
             init
         ).then(res => res.json());
-    }
+    },
+    []
 );
 
 export const FetchVehiclesAtBuildingWorker = new TypedWorker(
     'api/vehicles.building.worker',
     async (
+        self,
         buildingId: Building['id'],
         init: RequestInit
     ): Promise<Vehicle[]> => {
@@ -129,5 +136,6 @@ export const FetchVehiclesAtBuildingWorker = new TypedWorker(
             new URL(`/api/buildings/${buildingId}/vehicles`, location.origin),
             init
         ).then(res => res.json());
-    }
+    },
+    []
 );

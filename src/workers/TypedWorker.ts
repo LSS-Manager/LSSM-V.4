@@ -1,11 +1,44 @@
 import LSSMStorage from '../importableScripts/LSSMStorage';
 
-type ImportableScript = 'LSSMStorage';
+interface ImportableScripts {
+    LSSMStorage: typeof LSSMStorage;
+}
 
-export default class TypedWorker<Args extends unknown[] = [], Return = void> {
-    readonly #function: (...args: Args) => Return;
+type ImportableScript = keyof ImportableScripts;
+
+type WorkerExtraPropertiesType = Record<never, never>;
+
+export type WorkerSelf<
+    ExtraProperties extends
+        WorkerExtraPropertiesType = WorkerExtraPropertiesType,
+    Scripts extends ImportableScript[] = [],
+> = ExtraProperties &
+    WindowOrWorkerGlobalScope & {
+        [K in Scripts[number]]: ImportableScripts[K];
+    };
+
+type WorkerFunction<
+    ExtraProperties extends
+        WorkerExtraPropertiesType = WorkerExtraPropertiesType,
+    Scripts extends ImportableScript[] = [],
+    Args extends unknown[] = [],
+    Return = void,
+> = (self: WorkerSelf<ExtraProperties, Scripts>, ...args: Args) => Return;
+
+export default class TypedWorker<
+    WorkerExtraProperties extends WorkerExtraPropertiesType,
+    Args extends unknown[] = [],
+    Return = void,
+    Scripts extends ImportableScript[] = [],
+> {
+    readonly #function: WorkerFunction<
+        WorkerExtraProperties,
+        Scripts,
+        Args,
+        Return
+    >;
     readonly #workerName: string;
-    readonly #importableScripts: Set<ImportableScript>;
+    readonly #importableScripts: Scripts;
     readonly #importableScriptsUrls = new Map<ImportableScript, string>();
 
     #worker: SharedWorker | null = null;
@@ -15,8 +48,8 @@ export default class TypedWorker<Args extends unknown[] = [], Return = void> {
 
     constructor(
         workerName: string,
-        fn: (...args: Args) => Return,
-        importableScripts: Set<ImportableScript> = new Set<ImportableScript>()
+        fn: WorkerFunction<WorkerExtraProperties, Scripts, Args, Return>,
+        importableScripts: Scripts
     ) {
         this.#workerName = `${PREFIX}:worker:${workerName}`;
         this.#function = fn;
@@ -76,7 +109,7 @@ self.addEventListener('connect', event => {
         try {
             const result = await (
 ${this.#function.toString()}
-            )(...data);
+            )(self, ...data);
             port.postMessage({uuid, result});
         } catch (error) {
             // has an error been thrown? post it back to the main thread, the TypedWorker class will cause the promise to reject
@@ -102,21 +135,32 @@ ${this.#function.toString()}
         // import importable scripts if they are not yet imported
         for (const script of this.#importableScripts) {
             if (this.#importableScriptsUrls.has(script)) continue;
-            let textContent = '';
+
+            let exported: ImportableScripts[typeof script];
+            let exportName = '';
 
             switch (script) {
                 case 'LSSMStorage':
-                    textContent = `
-${LSSMStorage.toString()}
-
-// make the class available in workers
-self.LSSMStorage = ${LSSMStorage.name};
-`;
+                    exported = LSSMStorage;
+                    exportName = LSSMStorage.name;
+                    //                     textContent = `
+                    // ${LSSMStorage.toString()}
+                    //
+                    // // make available in workers
+                    // self.LSSMStorage = ${LSSMStorage.name};
+                    // `;
                     break;
             }
 
+            const textContent = `
+${exported.toString()}
+
+// make available in workers
+self.${script} = ${exportName};
+`.trim();
+
             if (!textContent) continue;
-            const blob = new Blob([textContent.trim()], {
+            const blob = new Blob([textContent], {
                 type: 'text/javascript',
             });
             const url = URL.createObjectURL(blob);

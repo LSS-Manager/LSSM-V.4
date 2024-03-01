@@ -20,6 +20,7 @@ export type BuildingsByCategory = Record<string, BuildingList>; // Map<string, S
 export const BuildingsWorker = new TypedWorker(
     'api/buildings.worker',
     async (
+        self,
         buildings: APIs['buildings'],
         buildingCategoryByType: Record<Building['building_type'], string>,
         vehicles: Vehicle[]
@@ -65,12 +66,14 @@ export const BuildingsWorker = new TypedWorker(
             buildingsByCategory,
             vehiclesByDispatchCenter,
         };
-    }
+    },
+    []
 );
 
 export const FetchSingleBuildingWorker = new TypedWorker(
     'api/buildings.single.worker',
     async (
+        self,
         buildingId: Building['id'],
         init: RequestInit
     ): Promise<Building> => {
@@ -90,12 +93,14 @@ export const FetchSingleBuildingWorker = new TypedWorker(
             new URL(`/api/buildings/${buildingId}`, location.origin),
             init
         ).then(res => res.json());
-    }
+    },
+    []
 );
 
 export const FetchSingleAllianceBuildingWorker = new TypedWorker(
     'api/alliance_buildings.single.worker',
     async (
+        self,
         buildingId: Building['id'],
         init: RequestInit
     ): Promise<Building> => {
@@ -115,5 +120,6 @@ export const FetchSingleAllianceBuildingWorker = new TypedWorker(
             new URL(`/api/alliance_buildings/${buildingId}`, location.origin),
             init
         ).then(res => res.json());
-    }
+    },
+    []
 );

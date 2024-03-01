@@ -1,20 +1,23 @@
 import TypedWorker from '../../TypedWorker';
 
-import type LSSMStorage from '../../../importableScripts/LSSMStorage';
 import type { Mission } from 'typings/Mission';
 
 export type MissionsById = Record<Mission['id'], Mission>;
 export type MissionsArray = Mission[];
 
-declare const self: WindowOrWorkerGlobalScope & {
+interface MissionTypes {
     missions: MissionsById;
     missionArray: MissionsArray;
-    LSSMStorage: typeof LSSMStorage;
-};
+}
 
-export default new TypedWorker(
+export default new TypedWorker<
+    MissionTypes,
+    [locale: string, init: RequestInit],
+    Promise<MissionTypes>,
+    ['LSSMStorage']
+>(
     'api/missionTypes.worker',
-    async (locale: string, init: RequestInit) => {
+    async (self, locale: string, init: RequestInit) => {
         const headers = new Headers(init.headers);
 
         // CAVEAT: headers are stored lowercase
@@ -51,5 +54,5 @@ export default new TypedWorker(
                 };
             });
     },
-    new Set(['LSSMStorage'])
+    ['LSSMStorage']
 );

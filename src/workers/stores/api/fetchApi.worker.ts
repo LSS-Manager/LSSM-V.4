@@ -1,4 +1,4 @@
-import TypedWorker from '@workers/TypedWorker';
+import TypedWorker, { type WorkerSelf } from '@workers/TypedWorker';
 
 import type { Building } from 'typings/Building';
 import type { SchoolingAPI } from 'typings/api/Schoolings';
@@ -13,12 +13,13 @@ type ApiFetchResults = APIs & {
     alliance_schoolings: SchoolingAPI;
 };
 
-declare const self: WindowOrWorkerGlobalScope & {
+interface Storage {
     lastUpdates: Map<APIKey, number>;
     apiStorage: Partial<APIs>;
-};
+}
 
 class FetchApiWorker extends TypedWorker<
+    Storage,
     [api: APIKey, init: RequestInit],
     Promise<APIs[APIKey]>
 > {
@@ -26,6 +27,7 @@ class FetchApiWorker extends TypedWorker<
         super(
             'api/fetch.worker',
             async <Api extends APIKey>(
+                self: WorkerSelf<Storage>,
                 api: Api,
                 init: RequestInit
             ): Promise<APIs[Api]> => {
@@ -97,7 +99,8 @@ class FetchApiWorker extends TypedWorker<
                             return result;
                         })
                 );
-            }
+            },
+            []
         );
     }
 
