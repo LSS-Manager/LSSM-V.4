@@ -1,7 +1,3 @@
-interface Importable {
-    name: string;
-}
-
 type WorkerExtraPropertiesType = Record<never, never>;
 
 export type WorkerSelf<
@@ -22,7 +18,7 @@ export default class TypedWorker<
     WorkerExtraProperties extends WorkerExtraPropertiesType,
     Args extends unknown[] = [],
     Return = void,
-    Scripts extends Record<string, Importable> = Record<never, never>,
+    Scripts extends Record<string, object> = Record<never, never>,
 > {
     readonly #function: WorkerFunction<
         WorkerExtraProperties,
@@ -137,11 +133,8 @@ ${this.#function.toString()}
             const exported = this.#importableScripts[script];
 
             const textContent = `
-// this is the imported script ${script} (imported into ${this.#workerName})
-${exported.toString()}
-
-// make available in workers
-self.${script} = ${exported.name};
+// this is ${script} (being imported into ${this.#workerName})
+self.${script} = (${exported.toString()});
 `.trim();
 
             if (!textContent) continue;

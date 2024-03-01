@@ -30,14 +30,15 @@ export type SmallBuildingsMap = Record<
  * @param smallBuildingsMap - The map to use for updating the building type.
  * @returns The updated building.
  */
-export function updateBuildingTypeIfSmall(
+export const updateBuildingTypeIfSmall = (
     building: Building,
     smallBuildingsMap: SmallBuildingsMap
-) {
+) => {
     if (building.small_building && building.building_type in smallBuildingsMap)
         building.building_type = smallBuildingsMap[building.building_type];
     return building;
-}
+};
+
 export const BuildingsWorker = new TypedWorker(
     'api/buildings.worker',
     async (

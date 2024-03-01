@@ -3,7 +3,7 @@
  * @param init - The RequestInit to check against.
  * @throws Error If the LSSM-Header is not set.
  */
-export default function checkRequestInit(init: RequestInit) {
+export default (init: RequestInit) => {
     const headers = new Headers(init.headers);
 
     // CAVEAT: headers are stored lowercase
@@ -13,4 +13,4 @@ export default function checkRequestInit(init: RequestInit) {
             'No X-LSS-Manager Header has been set. Aborting the request!'
         );
     }
-}
+};
