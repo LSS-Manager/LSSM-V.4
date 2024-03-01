@@ -41,7 +41,7 @@ export default class TypedWorker<
     >;
     readonly #workerName: string;
     readonly #importableScripts: Scripts;
-    readonly #importableScriptsUrls = new Map<ImportableScript, string>();
+    readonly #importableScriptsUrls = new Map<Scripts[number], string>();
 
     #worker: SharedWorker | null = null;
 
@@ -82,8 +82,8 @@ export default class TypedWorker<
     }
 
     get #importScriptsExpression() {
-        return Array.from(this.#importableScriptsUrls.values())
-            .map(url => JSON.stringify(url))
+        return Array.from(this.#importableScriptsUrls.entries())
+            .map(([name, url]) => `/* ${name} */ ${JSON.stringify(url)}`)
             .join(', ');
     }
 
@@ -144,6 +144,7 @@ ${this.#function.toString()}
             }[script];
 
             const textContent = `
+// this is the imported script ${script}
 ${exported.toString()}
 
 // make available in workers
