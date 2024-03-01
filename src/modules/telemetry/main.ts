@@ -118,9 +118,9 @@ export default (
         browser: UAParser.IBrowser,
         browserMajor: number
     ) => {
-        const buildingsAmount = await LSSM.$stores.api
+        const buildingsAmount = await LSSM.$stores.newApi
             .getBuildings('telemetry')
-            .then(({ value: buildings }) => buildings.length);
+            .then(buildings => Object.values(buildings).length);
 
         LSSM.$stores.newApi
             .request(

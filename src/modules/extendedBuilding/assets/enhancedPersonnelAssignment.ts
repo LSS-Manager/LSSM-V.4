@@ -19,7 +19,7 @@ export default async (
         vehicleId,
         `${MODULE_ID}-enhancedPersonnelAssignment`
     );
-    const building = await LSSM.$stores.api.getBuilding(
+    const building = await LSSM.$stores.newApi.getBuilding(
         vehicle.building_id,
         `${MODULE_ID}-enhancedPersonnelAssignment`
     );

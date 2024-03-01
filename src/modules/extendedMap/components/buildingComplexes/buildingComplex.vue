@@ -1284,10 +1284,10 @@ import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { mapState } from 'pinia';
 import moment from 'moment';
+import { useAPIStore } from '@stores/api';
 import { useEventStore } from '@stores/event';
 import { useRootStore } from '@stores/index';
 import { useTranslationStore } from '@stores/translationUtilities';
-import { defineAPIStore, useAPIStore } from '@stores/api';
 import { defineNewAPIStore, useNewAPIStore } from '@stores/newApi';
 
 import type { Complex } from '../../assets/buildingComplexes';
@@ -1725,11 +1725,9 @@ export default Vue.extend<
         };
     },
     computed: {
-        ...mapState(defineAPIStore, {
-            buildings: 'buildingsById',
-        }),
         ...mapState(defineNewAPIStore, {
             allSchoolings: 'allSchoolings',
+            buildings: 'buildings',
             vehiclesByBuilding: 'vehiclesByBuilding',
             allianceBuildings: 'alliance_buildings',
         }),
@@ -2222,7 +2220,7 @@ export default Vue.extend<
                                             buildingTypeId
                                         ][index] ??=
                                             extensionType.maxExtensionsFunction(
-                                                this.apiStore.buildingsByType
+                                                this.newApiStore.buildingsByType
                                             );
                                     }
 
@@ -2794,14 +2792,14 @@ export default Vue.extend<
                             .then(() => this.initSchoolingCountdowns())
                             .then(() => (this.classRoomsUpdating = false));
                     case this.overviewTabs.buildings:
-                        return this.apiStore.getBuildings('buildingComplex');
+                        return this.newApiStore.getBuildings('buildingComplex');
                     case this.overviewTabs.extensions:
                         return this.apiStore
                             .getBuildings('buildingComplex')
                             .then(() => this.$nextTick())
                             .then(() => this.initExtensionCountdowns());
                     case this.overviewTabs.vehicles:
-                        return this.apiStore.getBuildings('buildingComplex');
+                        return this.newApiStoregetBuildings('buildingComplex');
                     case this.overviewTabs.protocol:
                         return this.updateProtocol();
                 }
@@ -2957,7 +2955,7 @@ export default Vue.extend<
                               buildingId,
                               feature
                           )
-                        : this.apiStore.getBuilding(buildingId, feature)
+                        : this.newApiStoregetBuilding(buildingId, feature)
                 )
                 .then(() => {
                     this.tempDisableAllExtensionButtons = false;
@@ -2990,7 +2988,7 @@ export default Vue.extend<
                         body: url.searchParams.toString(),
                     }
                 )
-                .then(() => this.apiStore.getBuilding(buildingId, feature))
+                .then(() => this.newApiStoregetBuilding(buildingId, feature))
                 .then(() => {
                     this.tempDisableAllExtensionButtons = false;
                 });
@@ -3039,7 +3037,7 @@ export default Vue.extend<
         updateProtocol() {
             const dispatchCenterTypes =
                 this.translationStore.dispatchCenterBuildings;
-            const dispatchCenterBuilding = this.apiStore.buildings.find(
+            const dispatchCenterBuilding = this.newApiStore.buildingsArray.find(
                 ({ building_type }) =>
                     dispatchCenterTypes.includes(building_type)
             );
@@ -3203,7 +3201,7 @@ export default Vue.extend<
             const feature = 'buildingComplex-toggle-alliance-share';
             this.newApiStore
                 .request(`/buildings/${buildingId}/alliance`, feature)
-                .then(() => this.apiStore.getBuilding(buildingId, feature));
+                .then(() => this.newApiStore.getBuilding(buildingId, feature));
         },
         setAllianceTax(buildingId, tax) {
             const feature = 'buildingComplex-toggle-alliance-set-tax';
@@ -3212,7 +3210,7 @@ export default Vue.extend<
                     `/buildings/${buildingId}/alliance_costs/${tax}`,
                     feature
                 )
-                .then(() => this.apiStore.getBuilding(buildingId, feature));
+                .then(() => this.newApiStoregetBuilding(buildingId, feature));
         },
         openAvailableSchool() {
             const buildingId = this.schoolingBuildings.find(
@@ -3265,13 +3263,13 @@ export default Vue.extend<
     },
     beforeMount() {
         this.moment.locale(useRootStore().locale);
-        this.apiStore.getBuildings('buildingComplex');
+        this.newApiStoregetBuildings('buildingComplex');
     },
     mounted() {
         this.$set(this, 'currentBuildingId', this.sortedBuildingIdsByName[-1]);
-        this.apiStore.$subscribe(() =>
-            this.$nextTick().then(() => this.initSchoolingCountdowns())
-        );
+        // this.apiStore.$subscribe(() =>
+        //     this.$nextTick().then(() => this.initSchoolingCountdowns())
+        // );
         this.selectOverviewTab(new MouseEvent('click'), 0);
     },
 });

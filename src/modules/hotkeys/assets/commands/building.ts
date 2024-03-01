@@ -41,7 +41,7 @@ export default <Scope<Empty, ['goto', 'changeSharing', 'dispatch'], [], true>>{
             const LSSM = window[PREFIX] as Vue;
             let leitstellenId: number | null;
             leitstellenId = null;
-            await LSSM.$stores.api
+            await LSSM.$stores.newApi
                 .getBuilding(buildingId, 'hotkeys-building')
                 .then(result => {
                     if (result?.leitstelle_building_id == null) {
@@ -194,7 +194,7 @@ export default <Scope<Empty, ['goto', 'changeSharing', 'dispatch'], [], true>>{
                 LSSM.$stores.translations.dispatchCenterBuildings;
 
             //check if current building is a dispatch type
-            return LSSM.$stores.api
+            return LSSM.$stores.newApi
                 .getBuilding(buildingId, 'hotkeys-building-dispatch')
                 .then(result => {
                     if (dispatchType.includes(result?.building_type)) {

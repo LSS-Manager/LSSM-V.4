@@ -3,11 +3,9 @@ export default (LSSM: Vue): void => {
         window.location.pathname.match(/\d+\/?$/u)?.[0] ?? '0'
     );
     if (!buildingId) return;
-    const building = LSSM.$stores.api.buildings.find(
-        ({ id }) => id === buildingId
-    );
+    const building = LSSM.$stores.newApi.buildings[buildingId];
     if (!building) return;
-    const buildingsByType = LSSM.$stores.api.buildingsByType;
+    const buildingsByType = LSSM.$stores.newApi.buildingsByType;
     const smallBuildings = LSSM.$t('small_buildings') as unknown as Record<
         number,
         number
@@ -20,8 +18,8 @@ export default (LSSM: Vue): void => {
     if (!smallBuildingsArray) return;
     const buildings = smallBuildingsArray
         .flatMap(type =>
-            (buildingsByType[parseInt(type.toString())] || []).map(
-                ({ id }) => id
+            Object.keys(buildingsByType[parseInt(type.toString())] ?? {}).map(
+                key => parseInt(key)
             )
         )
         .sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));

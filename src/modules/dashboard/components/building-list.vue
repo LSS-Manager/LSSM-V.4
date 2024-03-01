@@ -172,6 +172,7 @@ export default Vue.extend<
     },
     data() {
         const apiStore = useAPIStore();
+        const newApiStore = useNewAPIStore();
         const translationStore = useTranslationStore();
         const headingsAll = {
             building_type: { title: this.$m('type') },
@@ -224,11 +225,13 @@ export default Vue.extend<
                 id: 0,
             },
         ] as Building[];
-        const buildingsByType = apiStore.buildingsByType;
+        const buildingsByType = newApiStore.buildingsByType;
         const dispatchCenterBuildings =
             useTranslationStore().dispatchCenterBuildings;
         dispatchCenterBuildings.forEach(type =>
-            dispatchBuildings.push(...(buildingsByType[type] ?? []))
+            dispatchBuildings.push(
+                ...Object.values(buildingsByType[type] ?? [])
+            )
         );
         dispatchBuildings.sort((a, b) =>
             !a.id
@@ -242,7 +245,7 @@ export default Vue.extend<
         const bedBuildings: Building[] = [];
         const bedBuildingsType = useTranslationStore().bedBuildings;
         bedBuildingsType.forEach(type =>
-            bedBuildings.push(...(buildingsByType[type] ?? []))
+            bedBuildings.push(...Object.values(buildingsByType[type] ?? []))
         );
         return {
             buildingTypeNames: Object.fromEntries(

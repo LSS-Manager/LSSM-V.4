@@ -41,33 +41,18 @@
                 </div>
             </template>
         </notifications>
-        <!-- TODO: Remove this when rewrite of API-Store is finished -->
-        <!-- This is some debugging stuff for while rewriting the API-Store -->
-        <!--<b>Array</b>
-        <pre>{{ JSON.stringify(newApiStore.buildingsArray) }}</pre>
-        <b>Object</b>
-        <pre>{{ JSON.stringify(newApiStore.buildings) }}</pre>
-        <b>buildingsByType</b>
-        <pre>{{ JSON.stringify(newApiStore.buildingsByType) }}</pre>
-        <b>buildingsByDispatchCenter</b>
-        <pre>{{ JSON.stringify(newApiStore.buildingsByDispatchCenter) }}</pre>
-        <b>buildingsByCategory</b>
-        <pre>{{ JSON.stringify(newApiStore.buildingsByCategory) }}</pre>
-        -->
     </div>
 </template>
 
 <script setup lang="ts">
 import { getCurrentInstance, onMounted } from 'vue';
 
-// import { useNewAPIStore } from '@stores/newApi';
 import { useNotificationStore } from '@stores/notifications';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 
 const rootStore = useRootStore();
 const notificationStore = useNotificationStore();
-// const newApiStore = useNewAPIStore();
 
 const id = rootStore.nodeAttribute('app', true);
 const clickHandler = (props, $event) =>

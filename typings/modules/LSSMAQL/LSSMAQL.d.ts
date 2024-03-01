@@ -1,6 +1,5 @@
 import type Vue from 'vue';
 
-import type { APIState } from 'typings/store/api/State';
 import type { CombinedVueInstance } from 'vue/types/vue';
 import type { DefaultProps } from 'vue/types/options';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
@@ -22,7 +21,7 @@ export interface LSSMAQLMethods {
 }
 
 export interface LSSMAQLComputed {
-    result: APIState['buildings'] | null;
+    result: null;
     resultLength: number;
 }
 

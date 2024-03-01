@@ -239,7 +239,7 @@ export default Vue.extend<
     data() {
         const apiStore = useAPIStore();
         const newApiStore = useNewAPIStore();
-        const userBuildings = apiStore.buildingsById;
+        const userBuildings = newApiStore.buildings;
         const allianceBuildings = newApiStore.alliance_buildings;
         const buildingTypes = useTranslationStore().buildings;
 
@@ -509,7 +509,7 @@ export default Vue.extend<
     },
     async beforeMount() {
         await this.newApiStore.getAllianceBuildings('buildingComplexes');
-        await this.apiStore.getBuildings('buildingComplexes');
+        await this.newApiStore.getBuildings('buildingComplexes');
     },
     mounted() {
         this.name = this.complex.name;

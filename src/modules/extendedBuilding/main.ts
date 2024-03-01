@@ -41,7 +41,7 @@ export default (async ({
 
         const path = window.location.pathname.split('/').filter(s => !!s);
         const buildingId = parseInt(path.at(-1) ?? '-1');
-        await LSSM.$stores.api.getBuilding(buildingId, `${MODULE_ID}-main`);
+        await LSSM.$stores.newApi.getBuilding(buildingId, `${MODULE_ID}-main`);
 
         if (
             (BUILDING_MODE === 'dispatch' || BUILDING_MODE === 'building') &&
@@ -96,7 +96,7 @@ export default (async ({
         }
 
         if (await getSetting('buildingsLeftRight')) {
-            await LSSM.$stores.api.getBuildings(`${MODULE_ID}_blr`);
+            await LSSM.$stores.newApi.getBuildings(`${MODULE_ID}_blr`);
             import(
                 /* webpackChunkName: "modules/extendedBuilding/buildingsLeftRight" */ './assets/buildingsLeftRight'
             ).then(({ default: buildingsLeftRight }) =>

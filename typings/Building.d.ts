@@ -2,6 +2,7 @@
  * @file - Type definitions for in game buildings & internal buildings (translations).
  */
 
+import type { BuildingsByType } from '@workers/stores/api/buildings.worker';
 import type { IconName } from '@fortawesome/free-solid-svg-icons';
 
 type Extension = {
@@ -69,9 +70,7 @@ interface BaseExtension {
     coins: number;
     duration: string;
     cannotDisable?: true;
-    maxExtensionsFunction?(
-        buildingsByType?: Record<number, Building[]>
-    ): number;
+    maxExtensionsFunction?(buildingsByType?: BuildingsByType): number;
     canBuyByAmount?(
         boughtExtensionsAmountByType: Record<number, Record<number, number>>,
         maxExtensions: number

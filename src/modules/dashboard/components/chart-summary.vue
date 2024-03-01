@@ -6,7 +6,7 @@
                     {{ $sm('buildings.title') }}:
                     {{
                         Object.values(buildings)
-                            .reduce((a, b) => (a += b.length), 0)
+                            .reduce((a, b) => (a += Object.keys(b).length), 0)
                             .toLocaleString()
                     }}
                 </b>
@@ -113,11 +113,10 @@ import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsOfflineExporting from 'highcharts/modules/offline-exporting';
 import HighchartsSunburst from 'highcharts/modules/sunburst';
 import { mapState } from 'pinia';
-import { useNewAPIStore } from '@stores/newApi';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 import { useTranslationStore } from '@stores/translationUtilities';
-import { defineAPIStore, useAPIStore } from '@stores/api';
+import { defineNewAPIStore, useNewAPIStore } from '@stores/newApi';
 
 import type { BuildingCategory } from 'typings/Building';
 import type { DefaultProps } from 'vue/types/options';
@@ -156,7 +155,6 @@ export default Vue.extend<
 >({
     name: 'lssmv4-dashboard-chart-summary',
     data() {
-        const apiStore = useAPIStore();
         const newApiStore = useNewAPIStore();
         const rootStore = useRootStore();
         const translationStore = useTranslationStore();
@@ -167,7 +165,7 @@ export default Vue.extend<
                 'chart-summary-buildings',
                 true
             ),
-            buildings: apiStore.buildingsByCategory,
+            buildings: newApiStore.buildingsByCategory,
             buildingCategories: this.$t(
                 'buildingCategories'
             ) as unknown as Record<string, BuildingCategory>,
@@ -222,11 +220,9 @@ export default Vue.extend<
         } as ChartSummary;
     },
     computed: {
-        ...mapState(defineAPIStore, {
+        ...mapState(defineNewAPIStore, {
             personalCount: store =>
-                store.buildings
-                    .map(b => b.personal_count)
-                    .reduce((a, b) => a + b, 0),
+                store.buildingsArray.reduce((a, b) => a + b.personal_count, 0),
         }),
         maxMissions() {
             return window.mission_count_max;
@@ -474,7 +470,9 @@ export default Vue.extend<
                             ...types.map(type => {
                                 return {
                                     name: this.buildingTypeNames[type],
-                                    y: (this.buildings[category] || []).filter(
+                                    y: Object.values(
+                                        this.buildings[category] || []
+                                    ).filter(
                                         building =>
                                             building.building_type === type
                                     ).length,
@@ -486,7 +484,8 @@ export default Vue.extend<
                                 isSum: !this.buildingsAsColumn,
                                 color: this.buildingCategories[category].color,
                                 drilldown: category,
-                                y: this.buildings[category]?.length ?? 0,
+                                y: Object.keys(this.buildings[category] ?? {})
+                                    .length,
                             },
                         ],
                     };
@@ -516,7 +515,7 @@ export default Vue.extend<
                                     id: category,
                                     type: 'column',
                                     data: types.map(building_type => {
-                                        const buildings = (
+                                        const buildings = Object.values(
                                             this.buildings[category] || []
                                         ).filter(
                                             building =>

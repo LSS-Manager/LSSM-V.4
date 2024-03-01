@@ -23,7 +23,7 @@ export default <ModuleMainFunction>(async ({
 
     window.simpleheat = simpleHeat;
 
-    await LSSM.$stores.api.getBuildings(MODULE_ID);
+    await LSSM.$stores.newApi.getBuildings(MODULE_ID);
     await LSSM.$stores.newApi.getVehicles(MODULE_ID);
 
     const getModuleSettings = () =>
@@ -73,7 +73,7 @@ export default <ModuleMainFunction>(async ({
     };
 
     const setData = (heatLayer: HeatLayer) => {
-        const buildings = LSSM.$stores.api.buildings;
+        const buildings = LSSM.$stores.newApi.buildingsArray;
         const buildingsById = Object.fromEntries(
             buildings.map(({ id, latitude, longitude }) => [
                 id,

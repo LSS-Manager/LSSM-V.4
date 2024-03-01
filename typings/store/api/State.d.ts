@@ -2,10 +2,10 @@
  * @file - Types for the state of API store.
  */
 
-import type { Building } from '../../Building';
+// import type { Building } from '../../Building';
 
 export interface StorageAPIs {
-    buildings: Building[];
+    // buildings: Building[];
 }
 
 export type StorageAPIKey = keyof StorageAPIs;

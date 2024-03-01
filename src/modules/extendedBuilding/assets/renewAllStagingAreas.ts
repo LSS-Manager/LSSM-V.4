@@ -13,10 +13,10 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m) => {
         e.preventDefault();
         renewAllButton.disabled = true;
         renewAllButton.classList.add('disabled');
-        LSSM.$stores.api
-            .getBuildings(`${MODULE_ID}_renewStagingAreasShortcut`)
-            .then(buildings =>
-                buildings.value.filter(({ building_type }) =>
+        LSSM.$stores.newApi
+            .getBuildings(`${MODULE_ID}_renewStagingAreasShortcut`, true)
+            .then(() =>
+                LSSM.$stores.newApi.buildingsArray.filter(({ building_type }) =>
                     LSSM.$stores.translations.stagingAreaBuildings.includes(
                         building_type
                     )

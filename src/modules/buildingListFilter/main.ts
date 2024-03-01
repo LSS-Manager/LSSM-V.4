@@ -15,7 +15,7 @@ export default <ModuleMainFunction>(async ({
     );
     if (!selectGroup) return;
 
-    await LSSM.$stores.api.getBuildings(MODULE_ID);
+    await LSSM.$stores.newApi.getBuildings(MODULE_ID);
 
     LSSM.$stores.root.addStyle({
         selectorText: '#building_panel_heading .search-station-input',
@@ -191,7 +191,7 @@ export default <ModuleMainFunction>(async ({
 
         insertIntoDocument();
 
-        const buildingsByType = LSSM.$stores.api.buildingsByType;
+        const buildingsByType = LSSM.$stores.newApi.buildingsByType;
         Object.entries(smallBuildings).forEach(([big, small]) =>
             document
                 .querySelectorAll<HTMLLIElement>(
@@ -205,7 +205,7 @@ export default <ModuleMainFunction>(async ({
                             )
                             ?.getAttribute('data-building_id') ?? '-1'
                     );
-                    if (buildingsByType[small]?.find(b => b.id === id)) {
+                    if (buildingsByType[small]?.[id]) {
                         building.setAttribute(
                             'building_type_id',
                             small.toString()

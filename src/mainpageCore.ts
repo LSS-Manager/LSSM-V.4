@@ -1,5 +1,3 @@
-import he from 'he';
-
 import loadingIndicatorStorageKey from '../build/plugins/LoadingProgressPluginStorageKey';
 import LSSMMenu from './LSSM-Menu.vue';
 import telemetry from './modules/telemetry/main';
@@ -146,38 +144,24 @@ export default async (LSSM: Vue): Promise<void> => {
         },
     });
 
-    await LSSM.$stores.api.getBuildings('mainPage-core_initial-update');
+    LSSM.$stores.newApi.getBuildings('mainPage-core_initial-update').then();
 
     LSSM.$stores.root.hook({
         event: 'buildingMarkerAdd',
-        callback(buildingMarker: BuildingMarkerAdd) {
-            if (buildingMarker.user_id !== window.user_id) return;
-            // LSSM.$stores.newApi.updateBuildingFromBuildingMarkerAdd(
-            //     buildingMarker
-            // );
-            const buildings = LSSM.$stores.api.buildings;
-            const building = buildings.find(
-                ({ id }) => id === buildingMarker.id
-            );
-            if (
-                !building ||
-                building.caption !== he.decode(buildingMarker.name)
-            ) {
-                LSSM.$stores.api
-                    .getBuilding(
-                        buildingMarker.id,
-                        'mainPage-core_buildingMarkerAdd'
-                    )
-                    .then(() =>
-                        LSSM.$stores.event.createAndDispatchEvent({
-                            name: 'buildingMarkerAdd',
-                            detail: {
-                                marker: buildingMarker,
-                                building,
-                            },
-                        })
-                    );
-            }
+        async callback(buildingMarker: BuildingMarkerAdd) {
+            const building =
+                await LSSM.$stores.newApi.updateBuildingFromBuildingMarkerAdd(
+                    buildingMarker
+                );
+
+            if (!building) return;
+            LSSM.$stores.event.createAndDispatchEvent({
+                name: 'buildingMarkerAdd',
+                detail: {
+                    marker: buildingMarker,
+                    building,
+                },
+            });
         },
     });
 };

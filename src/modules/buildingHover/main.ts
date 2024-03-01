@@ -5,7 +5,7 @@ import type { VehiclesByBuilding } from '@workers/stores/api/vehicles.worker';
 import type { BuildingMarker, RadioMessage } from 'typings/Ingame';
 
 export default (async ({ LSSM, MODULE_ID }) => {
-    await LSSM.$stores.api.autoUpdateBuildings(MODULE_ID);
+    await LSSM.$stores.newApi.getBuildings(MODULE_ID);
     await LSSM.$stores.newApi.getVehicles(MODULE_ID);
 
     const vehicleTypes = LSSM.$stores.translations.vehicles;
@@ -25,7 +25,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
 
     const updateBuildings = () => {
         vehiclesByBuilding = LSSM.$stores.newApi.vehiclesByBuilding;
-        buildings = LSSM.$stores.api.buildings;
+        buildings = LSSM.$stores.newApi.buildingsArray;
     };
 
     updateBuildings();

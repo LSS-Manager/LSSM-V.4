@@ -87,6 +87,7 @@ import Vue from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
 import { faBuilding } from '@fortawesome/free-solid-svg-icons/faBuilding';
 import { useAPIStore } from '@stores/api';
+import { useNewAPIStore } from '@stores/newApi';
 import { useTranslationStore } from '@stores/translationUtilities';
 
 import buildingList from './building-list.vue';
@@ -115,6 +116,7 @@ export default Vue.extend<
     },
     data() {
         const apiStore = useAPIStore();
+        const newApiStore = useNewAPIStore();
         const buildingTypes = useTranslationStore().buildings;
         const categories = this.$t('buildingCategories') as unknown as Record<
             string,
@@ -126,7 +128,7 @@ export default Vue.extend<
                 color,
             ])
         ) as Record<string, string>;
-        const buildingsByType = apiStore.buildingsByType;
+        const buildingsByType = newApiStore.buildingsByType;
         const groups = {} as BuildingTypes['groups'];
         Object.entries(categories).forEach(
             ([category, { buildings, color }]) => {
@@ -137,8 +139,9 @@ export default Vue.extend<
                             const removeNull = <S,>(
                                 value: S | null
                             ): value is S => !!value;
-                            const buildingsOfType =
-                                buildingsByType[buildingType];
+                            const buildingsOfType = Object.values(
+                                buildingsByType[buildingType] ?? {}
+                            );
                             const extensionsOfType = {} as Record<
                                 string,
                                 Extension[]
@@ -237,7 +240,8 @@ export default Vue.extend<
                                             buildingTypes[
                                                 buildingType
                                             ].maxBuildingsFunction?.(
-                                                apiStore.buildings.length
+                                                newApiStore.buildingsArray
+                                                    .length
                                             ) ?? '–',
                                         buildings: buildingsOfType,
                                     },

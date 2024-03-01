@@ -75,12 +75,16 @@ export default async (
     const vehicleBuildings: Building[] = [];
     const vehicleBuildingLatLngs: LatLng[] = [];
 
-    LSSM.$stores.api.getBuildings('ecl-sort-missions').then(() => {
+    LSSM.$stores.newApi.getBuildings('ecl-sort-missions').then(() => {
         dispatchCenters.splice(
             0,
             dispatchCenters.length,
             ...LSSM.$stores.translations.dispatchCenterBuildings
-                .flatMap(type => LSSM.$stores.api.buildingsByType[type])
+                .flatMap(type =>
+                    Object.values(
+                        LSSM.$stores.newApi.buildingsByType[type] ?? {}
+                    )
+                )
                 .filter(b => !!b)
         );
         dispatchCenterLatLngs.splice(
@@ -96,7 +100,11 @@ export default async (
             0,
             vehicleBuildings.length,
             ...LSSM.$stores.translations.vehicleBuildings
-                .flatMap(type => LSSM.$stores.api.buildingsByType[type])
+                .flatMap(type =>
+                    Object.values(
+                        LSSM.$stores.newApi.buildingsByType[type] ?? {}
+                    )
+                )
                 .filter(b => !!b)
         );
         vehicleBuildingLatLngs.splice(

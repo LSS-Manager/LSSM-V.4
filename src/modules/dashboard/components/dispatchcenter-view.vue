@@ -341,13 +341,13 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { mapState } from 'pinia';
 import { useAPIStore } from '@stores/api';
-import { useNewAPIStore } from '@stores/newApi';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 import { useTranslationStore } from '@stores/translationUtilities';
+import { defineNewAPIStore, useNewAPIStore } from '@stores/newApi';
 
-import type { Building } from 'typings/Building';
 import type { DefaultProps } from 'vue/types/options';
 import type { Vehicle } from 'typings/Vehicle';
 import type {
@@ -400,7 +400,7 @@ export default Vue.extend<
         const dispatchCenterBuildings =
             translationStore.dispatchCenterBuildings;
         return {
-            buildings: apiStore.buildings,
+            buildings: newApiStore.buildingsArray,
             selectedBuilding: null,
             boards: [],
             buildingLimit: 50,
@@ -418,7 +418,7 @@ export default Vue.extend<
                 .sort((a, b) =>
                     a.caption > b.caption ? 1 : a.caption < b.caption ? -1 : 0
                 ),
-            dispatchBuildings: apiStore.buildings
+            dispatchBuildings: newApiStore.buildingsArray
                 .filter(building =>
                     dispatchCenterBuildings.includes(building.building_type)
                 )
@@ -441,13 +441,9 @@ export default Vue.extend<
         buildingSelection() {
             return this.board ? this.board.buildingSelection : {};
         },
-        buildingsById() {
-            const buildings = {} as Record<number, Building>;
-            Object.values(this.buildings).forEach(
-                building => (buildings[building.id] = building)
-            );
-            return buildings;
-        },
+        ...mapState(defineNewAPIStore, {
+            buildingsById: 'buildings',
+        }),
         buildingList() {
             return this.buildingListFiltered.slice(
                 this.buildingListOffset,

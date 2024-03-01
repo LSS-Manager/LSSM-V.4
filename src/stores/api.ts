@@ -10,14 +10,14 @@ import type {
     EnsuredAPIGetter,
     StorageAPIKey,
 } from 'typings/store/api/State';
-import type { Building, BuildingCategory } from 'typings/Building';
+// import type { Building, BuildingCategory } from 'typings/Building';
 
 const API_MIN_UPDATE = 5 * 60 * 1000; // 5 Minutes
 
 export const defineAPIStore = defineStore('api', {
     state: () =>
         <APIState>{
-            buildings: [],
+            // buildings: [],
             autoUpdates: [],
             currentlyUpdating: [],
             lastUpdates: {},
@@ -30,46 +30,46 @@ export const defineAPIStore = defineStore('api', {
                 value: state[api],
                 lastUpdate: state.lastUpdates[api] ?? 0,
             }),
-        buildingsById: (state): Record<number, Building> =>
-            Object.fromEntries(
-                state.buildings.map(building => [building.id, building])
-            ),
-        buildingsByType: (state): Record<number, Building[]> => {
-            const types: Record<number, Building[]> = {};
-            state.buildings.forEach(building => {
-                if (!types.hasOwnProperty(building.building_type))
-                    types[building.building_type] = [];
-                types[building.building_type].push(building);
-            });
-            return types;
-        },
-        buildingsByDispatchCenter: (state): Record<number, Building[]> => {
-            const dispatchCenters: Record<number, Building[]> = {};
-            state.buildings.forEach(building => {
-                const dispatchId = building.leitstelle_building_id ?? -1;
-
-                if (!dispatchCenters.hasOwnProperty(dispatchId))
-                    dispatchCenters[dispatchId] = [];
-                dispatchCenters[dispatchId].push(building);
-            });
-            return dispatchCenters;
-        },
-        buildingsByCategory() {
-            const LSSM = window[PREFIX] as Vue;
-            const categories = LSSM.$t(
-                'buildingCategories'
-            ) as unknown as Record<string, BuildingCategory>;
-            const buildingsByCategory = {} as Record<string, Building[]>;
-            Object.entries(categories).forEach(
-                ([category, { buildings }]) =>
-                    (buildingsByCategory[category] = [
-                        ...Object.values(buildings).flatMap(
-                            type => this.buildingsByType[type]
-                        ),
-                    ].filter(v => !!v))
-            );
-            return buildingsByCategory;
-        },
+        // buildingsById: (state): Record<number, Building> =>
+        //     Object.fromEntries(
+        //         state.buildings.map(building => [building.id, building])
+        //     ),
+        // buildingsByType: (state): Record<number, Building[]> => {
+        //     const types: Record<number, Building[]> = {};
+        //     state.buildings.forEach(building => {
+        //         if (!types.hasOwnProperty(building.building_type))
+        //             types[building.building_type] = [];
+        //         types[building.building_type].push(building);
+        //     });
+        //     return types;
+        // },
+        // buildingsByDispatchCenter: (state): Record<number, Building[]> => {
+        //     const dispatchCenters: Record<number, Building[]> = {};
+        //     state.buildings.forEach(building => {
+        //         const dispatchId = building.leitstelle_building_id ?? -1;
+        //
+        //         if (!dispatchCenters.hasOwnProperty(dispatchId))
+        //             dispatchCenters[dispatchId] = [];
+        //         dispatchCenters[dispatchId].push(building);
+        //     });
+        //     return dispatchCenters;
+        // },
+        // buildingsByCategory() {
+        //     const LSSM = window[PREFIX] as Vue;
+        //     const categories = LSSM.$t(
+        //         'buildingCategories'
+        //     ) as unknown as Record<string, BuildingCategory>;
+        //     const buildingsByCategory = {} as Record<string, Building[]>;
+        //     Object.entries(categories).forEach(
+        //         ([category, { buildings }]) =>
+        //             (buildingsByCategory[category] = [
+        //                 ...Object.values(buildings).flatMap(
+        //                     type => this.buildingsByType[type]
+        //                 ),
+        //             ].filter(v => !!v))
+        //     );
+        //     return buildingsByCategory;
+        // },
     },
     actions: {
         _awaitInitialBroadcast(): Promise<void> {
@@ -101,7 +101,7 @@ export const defineAPIStore = defineStore('api', {
         ): EnsuredAPIGetter<API> & { api: API } {
             this._removeAPIFromQueue(api);
             this.$patch({ [api]: value });
-            this.lastUpdates[api] = lastUpdate;
+            // this.lastUpdates[api] = lastUpdate;
             return { api, value, lastUpdate };
         },
         _initAPIsFromBroadcast() {
@@ -117,7 +117,7 @@ export const defineAPIStore = defineStore('api', {
                             )[0]
                     );
             return Promise.all(
-                (['alliance_buildings', 'buildings'] as StorageAPIKey[]).map(
+                ([] as StorageAPIKey[]).map(
                     <API extends StorageAPIKey>(api: API) =>
                         collectAPI<API>(api).then(latest => {
                             if (
@@ -133,29 +133,29 @@ export const defineAPIStore = defineStore('api', {
             api: API,
             data: EnsuredAPIGetter<API>['value']
         ): EnsuredAPIGetter<API> {
-            if (api === 'buildings') {
-                const smallBuildings = (window[PREFIX] as Vue).$t(
-                    'small_buildings'
-                ) as unknown as Record<number, number>;
-                // TODO: Find a way that typescript likes...
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                return <EnsuredAPIGetter<'buildings'>>{
-                    value: (data as EnsuredAPIGetter<'buildings'>['value']).map(
-                        building =>
-                            building.small_building
-                                ? {
-                                      ...building,
-                                      building_type:
-                                          smallBuildings[
-                                              building.building_type
-                                          ],
-                                  }
-                                : building
-                    ),
-                    lastUpdate: Date.now(),
-                };
-            }
+            // if (api === 'buildings') {
+            //     const smallBuildings = (window[PREFIX] as Vue).$t(
+            //         'small_buildings'
+            //     ) as unknown as Record<number, number>;
+            //     // TODO: Find a way that typescript likes...
+            //     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            //     // @ts-ignore
+            //     return <EnsuredAPIGetter<'buildings'>>{
+            //         value: (data as EnsuredAPIGetter<'buildings'>['value']).map(
+            //             building =>
+            //                 building.small_building
+            //                     ? {
+            //                           ...building,
+            //                           building_type:
+            //                               smallBuildings[
+            //                                   building.building_type
+            //                               ],
+            //                       }
+            //                     : building
+            //         ),
+            //         lastUpdate: Date.now(),
+            //     };
+            // }
 
             return {
                 value: data,
@@ -212,57 +212,57 @@ export const defineAPIStore = defineStore('api', {
                 return () => window.clearInterval(interval);
             });
         },
-        getBuilding(buildingId: number, feature: string): Promise<Building> {
-            return this._awaitInitialBroadcast()
-                .then(() =>
-                    useNewAPIStore().request(
-                        `/api/buildings/${buildingId}`,
-                        `apiStore/getBuilding(${feature})`
-                    )
-                )
-                .then(res => res.json() as Promise<Building>)
-                .then(fetchedBuilding => {
-                    if (!Object.keys(fetchedBuilding).length) {
-                        throw new Error(
-                            `API of building with ID ${buildingId} is not accessible by user`
-                        );
-                    }
-                    const buildingIndex = this.buildings.findIndex(
-                        ({ id }) => id === buildingId
-                    );
-                    if (buildingIndex < 0) {
-                        this.buildings.push(fetchedBuilding);
-                    } else {
-                        // workaround for reactivity
-                        const buildings = this.buildings;
-                        buildings[buildingIndex] = fetchedBuilding;
-                        this.buildings = [];
-                        this.buildings = buildings;
-                    }
-                    return useBroadcastStore()
-                        .apiBroadcast('buildings', {
-                            value: this.buildings,
-                            lastUpdate: this.lastUpdates.buildings ?? 0,
-                        })
-                        .then(() => fetchedBuilding);
-                });
-        },
-        getBuildings(feature: string): Promise<EnsuredAPIGetter<'buildings'>> {
-            return this._getAPI('buildings', feature);
-        },
-        autoUpdateBuildings(
-            feature: string,
-            callback: (api: EnsuredAPIGetter<'buildings'>) => void = () =>
-                void null,
-            updateInterval: number = API_MIN_UPDATE
-        ) {
-            return this._autoUpdate(
-                this.getBuildings,
-                feature,
-                callback,
-                updateInterval
-            );
-        },
+        // getBuilding(buildingId: number, feature: string): Promise<Building> {
+        //     return this._awaitInitialBroadcast()
+        //         .then(() =>
+        //             useNewAPIStore().request(
+        //                 `/api/buildings/${buildingId}`,
+        //                 `apiStore/getBuilding(${feature})`
+        //             )
+        //         )
+        //         .then(res => res.json() as Promise<Building>)
+        //         .then(fetchedBuilding => {
+        //             if (!Object.keys(fetchedBuilding).length) {
+        //                 throw new Error(
+        //                     `API of building with ID ${buildingId} is not accessible by user`
+        //                 );
+        //             }
+        //             const buildingIndex = this.buildings.findIndex(
+        //                 ({ id }) => id === buildingId
+        //             );
+        //             if (buildingIndex < 0) {
+        //                 this.buildings.push(fetchedBuilding);
+        //             } else {
+        //                 // workaround for reactivity
+        //                 const buildings = this.buildings;
+        //                 buildings[buildingIndex] = fetchedBuilding;
+        //                 this.buildings = [];
+        //                 this.buildings = buildings;
+        //             }
+        //             return useBroadcastStore()
+        //                 .apiBroadcast('buildings', {
+        //                     value: this.buildings,
+        //                     lastUpdate: this.lastUpdates.buildings ?? 0,
+        //                 })
+        //                 .then(() => fetchedBuilding);
+        //         });
+        // },
+        // getBuildings(feature: string): Promise<EnsuredAPIGetter<'buildings'>> {
+        //     return this._getAPI('buildings', feature);
+        // },
+        // autoUpdateBuildings(
+        //     feature: string,
+        //     callback: (api: EnsuredAPIGetter<'buildings'>) => void = () =>
+        //         void null,
+        //     updateInterval: number = API_MIN_UPDATE
+        // ) {
+        //     return this._autoUpdate(
+        //         this.getBuildings,
+        //         feature,
+        //         callback,
+        //         updateInterval
+        //     );
+        // },
     },
 });
 
