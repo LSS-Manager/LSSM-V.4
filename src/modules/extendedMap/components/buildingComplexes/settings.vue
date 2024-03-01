@@ -169,7 +169,6 @@ import Vue from 'vue';
 import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons/faTrashCan';
 import isEqual from 'lodash/isEqual';
-import { useAPIStore } from '@stores/api';
 import { useNewAPIStore } from '@stores/newApi';
 import { useTranslationStore } from '@stores/translationUtilities';
 
@@ -196,7 +195,6 @@ export default Vue.extend<
         iconBase64s: string[];
         excludedCustomIcons: string[];
         erroredIcons: string[];
-        apiStore: ReturnType<typeof useAPIStore>;
         newApiStore: ReturnType<typeof useNewAPIStore>;
     },
     { save(): void; dissolveHandler(): void; adjustDropdownPosition(): void },
@@ -237,7 +235,6 @@ export default Vue.extend<
             ),
     },
     data() {
-        const apiStore = useAPIStore();
         const newApiStore = useNewAPIStore();
         const userBuildings = newApiStore.buildings;
         const allianceBuildings = newApiStore.alliance_buildings;
@@ -260,7 +257,6 @@ export default Vue.extend<
             iconBase64s: [],
             excludedCustomIcons: [],
             erroredIcons: [],
-            apiStore,
             newApiStore,
         };
     },

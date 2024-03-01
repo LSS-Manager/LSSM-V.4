@@ -42,7 +42,6 @@ import type { VerbandskasseWindow } from '../../src/modules/redesign/parsers/ver
 import type { CombinedVueInstance } from 'vue/types/vue';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { RootScopeWithoutAll } from '../../src/modules/hotkeys/main';
-import type { useAPIStore } from '@stores/api';
 import type { useBroadcastStore } from '@stores/broadcast';
 import type { useConsoleStore } from '@stores/console';
 import type { useEventStore } from '@stores/event';
@@ -125,7 +124,6 @@ interface Data<T extends RedesignKey | '' | 'default'> {
         pictures: boolean;
     };
     existingHotkeys: string[];
-    apiStore: ReturnType<typeof useAPIStore>;
     newApiStore: ReturnType<typeof useNewAPIStore>;
     broadcastStore: ReturnType<typeof useBroadcastStore>;
     consoleStore: ReturnType<typeof useConsoleStore>;

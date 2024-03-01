@@ -342,7 +342,6 @@
 import Vue from 'vue';
 
 import { mapState } from 'pinia';
-import { useAPIStore } from '@stores/api';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 import { useTranslationStore } from '@stores/translationUtilities';
@@ -392,7 +391,6 @@ export default Vue.extend<
             ),
     },
     data() {
-        const apiStore = useAPIStore();
         const newApiStore = useNewAPIStore();
         const rootStore = useRootStore();
         const translationStore = useTranslationStore();
@@ -426,7 +424,6 @@ export default Vue.extend<
                     a.caption > b.caption ? 1 : a.caption < b.caption ? -1 : 0
                 ),
             settingsStore: useSettingsStore(),
-            apiStore,
             rootStore,
             translationStore,
         } as DispatchcenterView;

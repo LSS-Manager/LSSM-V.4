@@ -1284,7 +1284,6 @@ import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { mapState } from 'pinia';
 import moment from 'moment';
-import { useAPIStore } from '@stores/api';
 import { useEventStore } from '@stores/event';
 import { useRootStore } from '@stores/index';
 import { useTranslationStore } from '@stores/translationUtilities';
@@ -1546,7 +1545,6 @@ export default Vue.extend<
             sort: ProtocolSortAttribute;
             sortDir: 'asc' | 'desc';
         };
-        apiStore: ReturnType<typeof useAPIStore>;
         newApiStore: ReturnType<typeof useNewAPIStore>;
         rootStore: ReturnType<typeof useRootStore>;
         translationStore: ReturnType<typeof useTranslationStore>;
@@ -1717,7 +1715,6 @@ export default Vue.extend<
                 sort: 'time',
                 sortDir: 'asc',
             },
-            apiStore: useAPIStore(),
             newApiStore: useNewAPIStore(),
             rootStore: useRootStore(),
             translationStore,
@@ -2794,7 +2791,7 @@ export default Vue.extend<
                     case this.overviewTabs.buildings:
                         return this.newApiStore.getBuildings('buildingComplex');
                     case this.overviewTabs.extensions:
-                        return this.apiStore
+                        return this.newApiStore
                             .getBuildings('buildingComplex')
                             .then(() => this.$nextTick())
                             .then(() => this.initExtensionCountdowns());

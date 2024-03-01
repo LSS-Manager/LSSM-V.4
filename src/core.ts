@@ -4,7 +4,6 @@ import * as Tabs from 'vue-slim-tabs';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import Notifications from 'vue-notification';
 import ToggleButton from 'vue-js-toggle-button';
-import { useAPIStore } from '@stores/api';
 import { useBroadcastStore } from '@stores/broadcast';
 import { useConsoleStore } from '@stores/console';
 import { useEventStore } from '@stores/event';
@@ -89,7 +88,6 @@ utils(Vue);
 
     LSSM.$stores = {
         root: rootStore,
-        api: useAPIStore(),
         newApi: useNewAPIStore(),
         broadcast: useBroadcastStore(),
         console: useConsoleStore(),
@@ -121,8 +119,6 @@ utils(Vue);
     registerGlobalSettings(LSSM).then(() => debugMode(LSSM));
 
     const locale = LSSM.$stores.root.locale;
-
-    LSSM.$stores.api._initAPIsFromBroadcast().then();
 
     import('./natives/checkboxMultiSelect').then(({ default: multiSelect }) =>
         multiSelect(LSSM)

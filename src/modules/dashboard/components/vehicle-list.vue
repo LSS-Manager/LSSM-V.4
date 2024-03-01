@@ -108,7 +108,6 @@ import Vue from 'vue';
 
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
-import { useAPIStore } from '@stores/api';
 import { useNewAPIStore } from '@stores/newApi';
 import { useRootStore } from '@stores/index';
 import { useTranslationStore } from '@stores/translationUtilities';
@@ -139,7 +138,7 @@ export default Vue.extend<
     },
     data() {
         const internalVehicleTypes = useTranslationStore().vehicles;
-        const apiStore = useAPIStore();
+        const newApiStore = useNewAPIStore();
         return {
             vehicleTypeNames: Object.fromEntries(
                 Object.entries(internalVehicleTypes).map(
@@ -147,7 +146,7 @@ export default Vue.extend<
                 )
             ),
             vehiclesWithBuildings: [],
-            buildings: apiStore.buildings,
+            buildings: newApiStore.buildingsArray,
             search: '',
             sort: 'caption',
             sortDir: 'asc',
@@ -157,8 +156,7 @@ export default Vue.extend<
                 'dashboard-vehiclelist-resolvable-link'
             ),
             resolving: null,
-            apiStore,
-            newApiStore: useNewAPIStore(),
+            newApiStore,
         } as VehicleList;
     },
     props: {

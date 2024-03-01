@@ -86,7 +86,6 @@ import Vue from 'vue';
 
 import cloneDeep from 'lodash/cloneDeep';
 import { faBuilding } from '@fortawesome/free-solid-svg-icons/faBuilding';
-import { useAPIStore } from '@stores/api';
 import { useNewAPIStore } from '@stores/newApi';
 import { useTranslationStore } from '@stores/translationUtilities';
 
@@ -115,7 +114,6 @@ export default Vue.extend<
             ),
     },
     data() {
-        const apiStore = useAPIStore();
         const newApiStore = useNewAPIStore();
         const buildingTypes = useTranslationStore().buildings;
         const categories = this.$t('buildingCategories') as unknown as Record<
@@ -313,7 +311,6 @@ export default Vue.extend<
             categoryColors,
             groups,
             faBuilding,
-            apiStore,
         };
     },
     computed: {

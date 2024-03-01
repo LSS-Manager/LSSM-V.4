@@ -1,18 +1,13 @@
 import type Vue from 'vue';
 
 import { defineStore } from 'pinia';
-import { useAPIStore } from '@stores/api';
 import { BroadcastChannel, createLeaderElection } from 'broadcast-channel';
 
 import type {
-    APIBroadcastMessage,
-    APIRequestBroadcastMessage,
-    APIResponseBroadcastMessage,
     CustomBroadcastMessage,
     GenericBroadcastMessageType,
     NameRequestBroadcastMessage,
 } from 'typings/store/broadcast/Broadcast';
-import type { EnsuredAPIGetter, StorageAPIKey } from 'typings/store/api/State';
 
 const BROADCAST_GETTER_WAITING_TIME = 500;
 const STORAGE_NAME_KEY = `${PREFIX}_windowName`;
@@ -31,25 +26,7 @@ leader_elector
 
 channel.addEventListener('message', msg => {
     if (msg.receiver !== getWindowName() && msg.receiver !== '*') return;
-    if (msg.type === 'api_broadcast') {
-        useAPIStore()._setAPI(msg.data.api, msg.data.value);
-    } else if (msg.type === 'api_request') {
-        const apiStore = useAPIStore();
-        const apiValue = apiStore[msg.data.api];
-        if (apiValue) {
-            sendRequest<APIResponseBroadcastMessage<StorageAPIKey>>(
-                'api_response',
-                {
-                    api: msg.data.api,
-                    value: {
-                        value: apiValue,
-                        lastUpdate: apiStore.lastUpdates[msg.data.api] ?? 0,
-                    },
-                },
-                msg.sender
-            ).then();
-        }
-    } else if (msg.type === 'custom') {
+    if (msg.type === 'custom') {
         // TODO: find a better solution than eval
         // eslint-disable-next-line no-eval
         eval(msg.handler)?.(msg);
@@ -99,15 +76,6 @@ if (getWindowName() !== 'leader') {
 export const defineBroadcastStore = defineStore('broadcast', {
     state: () => ({}),
     actions: {
-        apiBroadcast<API extends StorageAPIKey>(
-            api: API,
-            value: EnsuredAPIGetter<API>
-        ) {
-            return sendRequest<APIBroadcastMessage<API>>('api_broadcast', {
-                api,
-                value,
-            }).then(() => value);
-        },
         sendCustomMessage<Data>({
             name,
             handler,
@@ -128,30 +96,6 @@ export const defineBroadcastStore = defineStore('broadcast', {
                     .toString()
                     .replace(/^.*?(?=\()/u, 'function')})`,
                 data,
-            });
-        },
-        requestAPI<API extends StorageAPIKey>(api: API) {
-            return new Promise<EnsuredAPIGetter<API>[]>(resolve => {
-                const collected_values: EnsuredAPIGetter<API>[] = [];
-                const receiver_handler = (msg: GenericBroadcastMessageType) =>
-                    msg.receiver === getWindowName() &&
-                    msg.type === 'api_response' &&
-                    msg.data.api === api &&
-                    collected_values.push(
-                        (msg as APIResponseBroadcastMessage<API>).data.value
-                    );
-                channel.addEventListener('message', receiver_handler);
-                sendRequest<APIRequestBroadcastMessage<API>>('api_request', {
-                    api,
-                }).then(() => {
-                    window.setTimeout(() => {
-                        channel.removeEventListener(
-                            'message',
-                            receiver_handler
-                        );
-                        resolve(collected_values);
-                    }, BROADCAST_GETTER_WAITING_TIME);
-                });
             });
         },
     },

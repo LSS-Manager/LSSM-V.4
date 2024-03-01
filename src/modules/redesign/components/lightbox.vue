@@ -84,7 +84,6 @@
 import Vue from 'vue';
 
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
-import { useAPIStore } from '@stores/api';
 import { useBroadcastStore } from '@stores/broadcast';
 import { useConsoleStore } from '@stores/console';
 import { useEventStore } from '@stores/event';
@@ -315,7 +314,6 @@ export default Vue.extend<
                 pictures: false,
             },
             existingHotkeys: [],
-            apiStore: useAPIStore(),
             newApiStore: useNewAPIStore(),
             broadcastStore: useBroadcastStore(),
             consoleStore: useConsoleStore(),

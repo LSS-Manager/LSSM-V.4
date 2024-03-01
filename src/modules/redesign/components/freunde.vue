@@ -160,10 +160,11 @@ export default Vue.extend<
                 this.$refs[`notes_${friend_id}`] as HTMLTextAreaElement[]
             )[0].value;
             url.searchParams.append('friend[comment]', note);
-            this.lightbox.apiStore
-                .request({
-                    url: `/friends/${friend_id}`,
-                    init: {
+            this.lightbox.newApiStore
+                .request(
+                    `/friends/${friend_id}`,
+                    'redesign-freunde-edit-note',
+                    {
                         credentials: 'include',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
@@ -176,9 +177,8 @@ export default Vue.extend<
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
-                    },
-                    feature: 'redesign-freunde-edit-note',
-                })
+                    }
+                )
                 .then(() => {
                     this.notes_editing.splice(
                         this.notes_editing.indexOf(friend_id),
@@ -196,10 +196,11 @@ export default Vue.extend<
                 });
         },
         removeFriend(user_id) {
-            this.lightbox.apiStore
-                .request({
-                    url: `/freunde/entfernen/${user_id}?user=${user_id}`,
-                    init: {
+            this.lightbox.newApiStore
+                .request(
+                    `/freunde/entfernen/${user_id}?user=${user_id}`,
+                    'redesign-freunde-remove-friend',
+                    {
                         credentials: 'include',
                         referrer: new URL(
                             `/freunde`,
@@ -207,9 +208,8 @@ export default Vue.extend<
                         ).toString(),
                         method: 'GET',
                         mode: 'cors',
-                    },
-                    feature: 'redesign-freunde-remove-friend',
-                })
+                    }
+                )
                 .then(() => {
                     this.$set(
                         this.lightbox.data,

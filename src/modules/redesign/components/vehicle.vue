@@ -660,7 +660,6 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
 import { mapState } from 'pinia';
-import { useAPIStore } from '@stores/api';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 import { defineNewAPIStore, useNewAPIStore } from '@stores/newApi';
@@ -800,7 +799,6 @@ export default Vue.extend<
                     showEach: 0,
                 },
             },
-            apiStore: useAPIStore(),
             settingsStore: useSettingsStore(),
             starredMissionsEnabled: false,
             starredMissions: [],

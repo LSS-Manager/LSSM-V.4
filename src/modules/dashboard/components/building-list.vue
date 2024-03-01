@@ -137,7 +137,6 @@
 import Vue from 'vue';
 
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
-import { useAPIStore } from '@stores/api';
 import { useNewAPIStore } from '@stores/newApi';
 import { useTranslationStore } from '@stores/translationUtilities';
 
@@ -171,7 +170,6 @@ export default Vue.extend<
             ),
     },
     data() {
-        const apiStore = useAPIStore();
         const newApiStore = useNewAPIStore();
         const translationStore = useTranslationStore();
         const headingsAll = {
@@ -264,7 +262,6 @@ export default Vue.extend<
             dispatchCenterBuildings,
             bedBuildings,
             bedBuildingsType,
-            apiStore,
             newApiStore: useNewAPIStore(),
             translationStore,
         } as BuildingList;

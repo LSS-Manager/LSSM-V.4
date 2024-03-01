@@ -1,4 +1,3 @@
-import type { useAPIStore } from '@stores/api';
 import type { useRootStore } from '@stores/index';
 import type { useSettingsStore } from '@stores/settings';
 import type { useTranslationStore } from '@stores/translationUtilities';
@@ -59,7 +58,6 @@ export interface DispatchcenterView {
     }[];
     dispatchBuildings: Building[];
     settingsStore: ReturnType<typeof useSettingsStore>;
-    apiStore: ReturnType<typeof useAPIStore>;
     rootStore: ReturnType<typeof useRootStore>;
     translationStore: ReturnType<typeof useTranslationStore>;
 }

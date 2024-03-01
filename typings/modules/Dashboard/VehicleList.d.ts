@@ -1,5 +1,4 @@
 import type { Building } from 'typings/Building';
-import type { useAPIStore } from '@stores/api';
 import type { useNewAPIStore } from '@stores/newApi';
 import type { Vehicle } from 'typings/Vehicle';
 import type VueI18n from 'vue-i18n';
@@ -17,7 +16,6 @@ export interface VehicleList {
     sortDir: string;
     resolveLinkClass: string;
     resolving: number | null;
-    apiStore: ReturnType<typeof useAPIStore>;
     newApiStore: ReturnType<typeof useNewAPIStore>;
 }
 
