@@ -3,11 +3,9 @@
  */
 
 import type { Building } from '../../Building';
-// import type { Vehicle } from '../../Vehicle';
 
 export interface StorageAPIs {
     buildings: Building[];
-    // vehicles: Vehicle[];
     alliance_buildings: Building[];
 }
 
@@ -26,20 +24,6 @@ export interface EnsuredAPIGetter<API extends StorageAPIKey> {
 export interface APIState extends StorageAPIs {
     autoUpdates: StorageAPIKey[];
     currentlyUpdating: StorageAPIKey[];
-    secretKey: string | null;
-    lastUpdates: Partial<Record<StorageAPIKey | 'missions', number>>;
-    debounce: {
-        vehicles: {
-            timeout: number | null;
-            updates: Map<
-                number, // represents the vehicleID
-                {
-                    caption: string;
-                    fms_show: number;
-                    fms_real: number;
-                }
-            >;
-        };
-    };
+    lastUpdates: Partial<Record<StorageAPIKey, number>>;
     initialBroadcastUpdateFinished: boolean;
 }

@@ -2,10 +2,8 @@ import type Vue from 'vue';
 
 import { defineStore } from 'pinia';
 import { useBroadcastStore } from '@stores/broadcast';
-import { useConsoleStore } from '@stores/console';
+import { useNewAPIStore } from '@stores/newApi';
 
-// import type { RadioMessage } from 'typings/Ingame';
-// import type { Vehicle } from 'typings/Vehicle';
 import type {
     APIGetter,
     APIState,
@@ -20,18 +18,10 @@ export const defineAPIStore = defineStore('api', {
     state: () =>
         <APIState>{
             buildings: [],
-            // vehicles: [],
             alliance_buildings: [],
             autoUpdates: [],
             currentlyUpdating: [],
-            secretKey: null,
             lastUpdates: {},
-            debounce: {
-                vehicles: {
-                    timeout: null,
-                    updates: new Map(),
-                },
-            },
             initialBroadcastUpdateFinished: false,
         },
     getters: {
@@ -41,98 +31,6 @@ export const defineAPIStore = defineStore('api', {
                 value: state[api],
                 lastUpdate: state.lastUpdates[api] ?? 0,
             }),
-        // vehicleStates: (state): Record<number, number> => {
-        //     const states: Record<number, number> = {};
-        //     state.vehicles.forEach(
-        //         ({ fms_show }) => states[fms_show]++ || (states[fms_show] = 1)
-        //     );
-        //     return states;
-        // },
-        // vehiclesById: (state): Record<number, Vehicle> =>
-        //     Object.fromEntries(
-        //         state.vehicles.map(vehicle => [vehicle.id, vehicle])
-        //     ),
-        // vehiclesByTarget:
-        //     state =>
-        //     (): {
-        //         mission: Record<number, Vehicle[]>;
-        //         building: Record<number, Vehicle[]>;
-        //     } => {
-        //         const targets: {
-        //             mission: Record<number, Vehicle[]>;
-        //             building: Record<number, Vehicle[]>;
-        //         } = { mission: {}, building: {} };
-        //         state.vehicles.forEach(vehicle => {
-        //             if (!vehicle.target_type || !vehicle.target_id) return;
-        //             if (
-        //                 !targets[vehicle.target_type].hasOwnProperty(
-        //                     vehicle.target_id
-        //                 )
-        //             )
-        //                 targets[vehicle.target_type][vehicle.target_id] = [];
-        //             targets[vehicle.target_type][vehicle.target_id].push(
-        //                 vehicle
-        //             );
-        //         });
-        //         return targets;
-        //     },
-        // vehiclesByType: (state): Record<number, Vehicle[]> => {
-        //     const types: Record<number, Vehicle[]> = {};
-        //     state.vehicles.forEach(vehicle => {
-        //         if (!types.hasOwnProperty(vehicle.vehicle_type))
-        //             types[vehicle.vehicle_type] = [];
-        //         types[vehicle.vehicle_type].push(vehicle);
-        //     });
-        //     return types;
-        // },
-        // vehiclesByBuilding: (state): Record<number, Vehicle[]> => {
-        //     const buildings: Record<number, Vehicle[]> = {};
-        //     state.vehicles.forEach(vehicle => {
-        //         if (!buildings.hasOwnProperty(vehicle.building_id))
-        //             buildings[vehicle.building_id] = [];
-        //         buildings[vehicle.building_id].push(vehicle);
-        //     });
-        //     return buildings;
-        // },
-        // vehiclesByDispatchCenter: (state): Record<number, Vehicle[]> => {
-        //     const dispatchCenters: Record<number, Vehicle[]> = {};
-        //     const buildingDispatchCache: Record<number, number> = {};
-        //
-        //     const resolveDispatchId = (buildingId: number): number => {
-        //         const building = state.buildings.find(
-        //             building => building.id === buildingId
-        //         );
-        //
-        //         // we group buildings without dispatch center as -1
-        //         return building?.leitstelle_building_id ?? -1;
-        //     };
-        //
-        //     state.vehicles.forEach(vehicle => {
-        //         const dispatchId = (buildingDispatchCache[
-        //             vehicle.building_id
-        //         ] ??= resolveDispatchId(vehicle.building_id));
-        //
-        //         if (!dispatchCenters.hasOwnProperty(dispatchId))
-        //             dispatchCenters[dispatchId] = [];
-        //
-        //         dispatchCenters[dispatchId].push(vehicle);
-        //     });
-        //     return dispatchCenters;
-        // },
-        // participatedMissions(state): number[] {
-        //     return Array.from(
-        //         new Set([
-        //             ...state.vehicles
-        //                 .flatMap(
-        //                     ({ queued_mission_id, target_type, target_id }) => [
-        //                         target_type === 'mission' ? target_id : null,
-        //                         queued_mission_id,
-        //                     ]
-        //                 )
-        //                 .filter(<S>(id: S | null): id is S => !!id),
-        //         ])
-        //     );
-        // },
         allianceBuildingsById: (state): Record<number, Building> =>
             Object.fromEntries(
                 state.alliance_buildings.map(building => [
@@ -182,14 +80,6 @@ export const defineAPIStore = defineStore('api', {
         },
     },
     actions: {
-        _setSecretKey() {
-            return this._request({
-                url: `/profile/external_secret_key/${window.user_id}`,
-                feature: 'get_external_secret_key',
-            })
-                .then(res => res.json())
-                .then(({ code }) => (this.secretKey = code));
-        },
         _awaitInitialBroadcast(): Promise<void> {
             return new Promise<void>(resolve => {
                 const interval = window.setInterval(() => {
@@ -220,9 +110,6 @@ export const defineAPIStore = defineStore('api', {
             this._removeAPIFromQueue(api);
             this.$patch({ [api]: value });
             this.lastUpdates[api] = lastUpdate;
-            // reactivity workaround for schoolings
-            // if (api === 'schoolings' || api === 'alliance_schoolings')
-            //     this.schoolings.result = this.schoolings.result.slice(0);
             return { api, value, lastUpdate };
         },
         _initAPIsFromBroadcast() {
@@ -238,20 +125,15 @@ export const defineAPIStore = defineStore('api', {
                             )[0]
                     );
             return Promise.all(
-                (
-                    [
-                        'alliance_buildings',
-                        'buildings',
-                        // 'vehicles',
-                    ] as StorageAPIKey[]
-                ).map(<API extends StorageAPIKey>(api: API) =>
-                    collectAPI<API>(api).then(latest => {
-                        if (
-                            latest &&
-                            latest.lastUpdate > (this.lastUpdates[api] ?? 0)
-                        )
-                            this._setAPI(api, latest);
-                    })
+                (['alliance_buildings', 'buildings'] as StorageAPIKey[]).map(
+                    <API extends StorageAPIKey>(api: API) =>
+                        collectAPI<API>(api).then(latest => {
+                            if (
+                                latest &&
+                                latest.lastUpdate > (this.lastUpdates[api] ?? 0)
+                            )
+                                this._setAPI(api, latest);
+                        })
                 )
             ).then(() => (this.initialBroadcastUpdateFinished = true));
         },
@@ -303,10 +185,8 @@ export const defineAPIStore = defineStore('api', {
                         resolve(stateValue as EnsuredAPIGetter<API>)
                     );
                 }
-                return this._request({
-                    url: `/api/${api}`,
-                    feature: `apiStore/getAPI(${feature})`,
-                })
+                return useNewAPIStore()
+                    .request(`/api/${api}`, `apiStore/getAPI(${feature})`)
                     .then(
                         res =>
                             res.json() as Promise<
@@ -340,45 +220,16 @@ export const defineAPIStore = defineStore('api', {
                 return () => window.clearInterval(interval);
             });
         },
-        // radioMessage(radioMessage: RadioMessage) {
-        //     if (radioMessage.type !== 'vehicle_fms') return;
-        //     this.debounce.vehicles.updates.set(radioMessage.id, {
-        //         caption: radioMessage.caption,
-        //         fms_show: radioMessage.fms,
-        //         fms_real: radioMessage.fms_real,
-        //     });
-        //     if (this.debounce.vehicles.timeout)
-        //         window.clearTimeout(this.debounce.vehicles.timeout);
-        //     this.debounce.vehicles.timeout = window.setTimeout(() => {
-        //         for (const vehicle of this.vehicles) {
-        //             const update = this.debounce.vehicles.updates.get(
-        //                 vehicle.id
-        //             );
-        //             if (!update) continue;
-        //             vehicle.caption = update.caption;
-        //             vehicle.fms_show = update.fms_show;
-        //             vehicle.fms_real = update.fms_real;
-        //             this.debounce.vehicles.updates.delete(vehicle.id);
-        //             if (this.debounce.vehicles.updates.size === 0) break;
-        //         }
-        //         useBroadcastStore()
-        //             .apiBroadcast('vehicles', {
-        //                 value: this.vehicles,
-        //                 lastUpdate: this.lastUpdates.vehicles ?? 0,
-        //             })
-        //             .then();
-        //     }, 100);
-        // },
         getAllianceBuilding(
             buildingId: number,
             feature: string
         ): Promise<Building> {
             return this._awaitInitialBroadcast()
                 .then(() =>
-                    this._request({
-                        url: `/api/alliance_buildings/${buildingId}`,
-                        feature: `apiStore/getAllianceBuilding(${feature})`,
-                    })
+                    useNewAPIStore().request(
+                        `/api/alliance_buildings/${buildingId}`,
+                        `apiStore/getAllianceBuilding(${feature})`
+                    )
                 )
                 .then(res => res.json() as Promise<Building>)
                 .then(fetchedBuilding => {
@@ -430,10 +281,10 @@ export const defineAPIStore = defineStore('api', {
         getBuilding(buildingId: number, feature: string): Promise<Building> {
             return this._awaitInitialBroadcast()
                 .then(() =>
-                    this._request({
-                        url: `/api/buildings/${buildingId}`,
-                        feature: `apiStore/getBuilding(${feature})`,
-                    })
+                    useNewAPIStore().request(
+                        `/api/buildings/${buildingId}`,
+                        `apiStore/getBuilding(${feature})`
+                    )
                 )
                 .then(res => res.json() as Promise<Building>)
                 .then(fetchedBuilding => {
@@ -476,286 +327,6 @@ export const defineAPIStore = defineStore('api', {
                 feature,
                 callback,
                 updateInterval
-            );
-        },
-        // getVehiclesAtBuilding(buildingId: number, feature: string) {
-        //     return this._awaitInitialBroadcast()
-        //         .then(() =>
-        //             this._request({
-        //                 url: `/api/buildings/${buildingId}/vehicles`,
-        //                 feature: `apiStore/getVehiclesAtBuilding(${feature})`,
-        //             })
-        //         )
-        //         .then(res => res.json() as Promise<Vehicle[]>)
-        //         .then(fetchedVehicles => {
-        //             fetchedVehicles.forEach(vehicle => {
-        //                 const vehicleIndex = this.vehicles.findIndex(
-        //                     ({ id }) => id === vehicle.id
-        //                 );
-        //                 if (vehicleIndex < 0) {
-        //                     this.vehicles.push(vehicle);
-        //                 } else {
-        //                     // workaround for reactivity
-        //                     const vehicles = this.vehicles;
-        //                     vehicles[vehicleIndex] = vehicle;
-        //                     this.vehicles = [];
-        //                     this.vehicles = vehicles;
-        //                 }
-        //             });
-        //             return useBroadcastStore()
-        //                 .apiBroadcast('vehicles', {
-        //                     value: this.vehicles,
-        //                     lastUpdate: this.lastUpdates.vehicles ?? 0,
-        //                 })
-        //                 .then(() => fetchedVehicles);
-        //         });
-        // },
-        // getVehicle(vehicleId: number, feature: string): Promise<Vehicle> {
-        //     return this._awaitInitialBroadcast()
-        //         .then(() =>
-        //             this._request({
-        //                 url: `/api/vehicles/${vehicleId}`,
-        //                 feature: `apiStore/getVehicle(${feature})`,
-        //             })
-        //         )
-        //         .then(res => res.json() as Promise<Vehicle>)
-        //         .then(fetchedVehicle => {
-        //             if (!Object.keys(fetchedVehicle).length) {
-        //                 throw new Error(
-        //                     `API of vehicle with ID ${vehicleId} is not accessible by user`
-        //                 );
-        //             }
-        //             const vehicleIndex = this.vehicles.findIndex(
-        //                 ({ id }) => id === vehicleId
-        //             );
-        //             if (vehicleIndex < 0) {
-        //                 this.vehicles.push(fetchedVehicle);
-        //             } else {
-        //                 // workaround for reactivity
-        //                 const vehicles = this.vehicles;
-        //                 vehicles[vehicleIndex] = fetchedVehicle;
-        //                 this.vehicles = [];
-        //                 this.vehicles = vehicles;
-        //             }
-        //             return useBroadcastStore()
-        //                 .apiBroadcast('vehicles', {
-        //                     value: this.vehicles,
-        //                     lastUpdate: this.lastUpdates.vehicles ?? 0,
-        //                 })
-        //                 .then(() => fetchedVehicle);
-        //         });
-        // },
-        // getVehicles(feature: string): Promise<EnsuredAPIGetter<'vehicles'>> {
-        //     return this._getAPI('vehicles', feature);
-        // },
-        // autoUpdateVehicles(
-        //     feature: string,
-        //     callback: (api: EnsuredAPIGetter<'vehicles'>) => void = () =>
-        //         void null,
-        //     updateInterval: number = API_MIN_UPDATE
-        // ) {
-        //     return this._autoUpdate(
-        //         this.getVehicles,
-        //         feature,
-        //         callback,
-        //         updateInterval
-        //     );
-        // },
-        async _request({
-            input,
-            url = '',
-            init = {},
-            feature,
-            dialogOnError = true,
-        }: {
-            init?: RequestInit;
-            feature: string;
-            dialogOnError?: boolean;
-        } & (
-            | {
-                  input: Request;
-                  url?: URL | string;
-              }
-            | {
-                  input?: Request;
-                  url: URL | string;
-              }
-        )): Promise<Response> {
-            const consoleStore = useConsoleStore();
-
-            if (input && url) {
-                consoleStore.warn({
-                    messages: [
-                        `Request was initialized with both, input and URL, input object will be used!`,
-                        'input:',
-                        input,
-                        'URL:',
-                        url,
-                    ],
-                });
-            }
-            init.headers ||= {};
-            if (Array.isArray(init.headers)) {
-                init.headers = Object.fromEntries(init.headers) as Record<
-                    string,
-                    string
-                >;
-            }
-
-            const getHeader = (
-                headers: Exclude<
-                    RequestInit['headers'],
-                    string[][] | undefined
-                >,
-                header: string
-            ) =>
-                headers instanceof Headers
-                    ? headers.get(header)
-                    : headers[header];
-            const setHeader = (
-                headers: Exclude<
-                    RequestInit['headers'],
-                    string[][] | undefined
-                >,
-                header: string,
-                value: string
-            ) =>
-                headers instanceof Headers
-                    ? headers.set(header, value)
-                    : (headers[header] = value);
-
-            if (init.headers.hasOwnProperty('X-LSS-Manager')) {
-                consoleStore.warn({
-                    messages: [
-                        'Request Header "X-LSS-Manager" with value',
-                        getHeader(init.headers, 'X-LSS-Manager'),
-                        'will be overwritten by',
-                        VERSION,
-                    ],
-                });
-            }
-            setHeader(init.headers, 'X-LSS-Manager', VERSION);
-            setHeader(init.headers, 'X-LSS-Manager-Branch', BRANCH);
-            setHeader(init.headers, 'X-LSS-Manager-Feature', feature);
-
-            init.cache = init.cache || 'no-cache';
-            const target = input || url;
-            if (target.toString().startsWith(SERVER)) {
-                if (!this.secretKey) await this._setSecretKey();
-                setHeader(
-                    init.headers,
-                    'X-LSSM-User',
-                    btoa(`${this.secretKey}:${VERSION}-${MODE}`)
-                );
-            }
-
-            init.mode ||= 'cors';
-
-            const startTime = Date.now();
-            return fetch(target, init).then(
-                res =>
-                    new Promise((resolve, reject) => {
-                        if (!res.ok) {
-                            if (
-                                res.url.startsWith(SERVER) &&
-                                res.headers
-                                    .get('content-type')
-                                    ?.startsWith('application/json')
-                            ) {
-                                return res.json().then(data => {
-                                    if (data.error === 'outdated version') {
-                                        const LSSM = window[PREFIX] as Vue;
-                                        LSSM.$modal.show('dialog', {
-                                            title: LSSM.$t(
-                                                'global.warnings.version.title'
-                                            ),
-                                            text: LSSM.$t(
-                                                'global.warnings.version.text',
-                                                {
-                                                    version: data.version,
-                                                    curver: VERSION,
-                                                }
-                                            ),
-                                            buttons: [
-                                                {
-                                                    title: LSSM.$t(
-                                                        'global.warnings.version.close'
-                                                    ),
-                                                    default: true,
-                                                    handler() {
-                                                        window.location.reload(
-                                                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                                                            // @ts-ignore
-                                                            true
-                                                        );
-                                                    },
-                                                },
-                                                {
-                                                    title: LSSM.$t(
-                                                        'global.warnings.version.abort'
-                                                    ),
-                                                    handler() {
-                                                        LSSM.$modal.hide(
-                                                            'dialog'
-                                                        );
-                                                    },
-                                                },
-                                            ],
-                                        });
-                                        window.focus();
-                                    }
-                                    return reject(res);
-                                });
-                            }
-                            if (
-                                dialogOnError &&
-                                !(
-                                    res.url.endsWith(
-                                        '/api/alliance_schoolings'
-                                    ) && res.status === 500
-                                )
-                            ) {
-                                const LSSM = window[PREFIX] as Vue;
-                                LSSM.$modal.show('dialog', {
-                                    title: LSSM.$t(
-                                        'global.error.requestIssue.title',
-                                        {
-                                            status: res.status,
-                                            statusText: res.statusText,
-                                        }
-                                    ),
-                                    text: LSSM.$t(
-                                        'global.error.requestIssue.text',
-                                        {
-                                            url: res.url,
-                                            status: res.status,
-                                            statusText: res.statusText,
-                                            method:
-                                                init.method?.toUpperCase() ??
-                                                'GET',
-                                            feature,
-                                            duration: Date.now() - startTime,
-                                            timestamp: new Date().toISOString(),
-                                            uid: `${window.I18n.locale}-${window.user_id}`,
-                                        }
-                                    ),
-                                    buttons: [
-                                        {
-                                            title: LSSM.$t(
-                                                'global.error.requestIssue.close'
-                                            ),
-                                            default: true,
-                                            handler() {
-                                                LSSM.$modal.hide('dialog');
-                                            },
-                                        },
-                                    ],
-                                });
-                            }
-                            return reject(res);
-                        }
-                        return resolve(res);
-                    })
             );
         },
     },
