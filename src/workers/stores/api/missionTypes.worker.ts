@@ -14,21 +14,11 @@ export default new TypedWorker<
     MissionTypes,
     [locale: string, init: RequestInit],
     Promise<MissionTypes>,
-    ['LSSMStorage']
+    ['checkRequestInit', 'LSSMStorage']
 >(
     'api/missionTypes.worker',
     async (self, locale: string, init: RequestInit) => {
-        const headers = new Headers(init.headers);
-
-        // CAVEAT: headers are stored lowercase
-        // if the LSSM-Header is not set, abort the request!
-        if (!headers.has('x-lss-manager')) {
-            return Promise.reject(
-                new Error(
-                    'No X-LSS-Manager Header has been set. Aborting the request!'
-                )
-            );
-        }
+        self.checkRequestInit(init);
 
         if (self.missions)
             return { missions: self.missions, missionArray: self.missionArray };
@@ -54,5 +44,5 @@ export default new TypedWorker<
                 };
             });
     },
-    ['LSSMStorage']
+    ['checkRequestInit', 'LSSMStorage']
 );

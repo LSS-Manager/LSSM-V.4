@@ -18,16 +18,19 @@ interface Storage {
     apiStorage: Partial<APIs>;
 }
 
+type Scripts = ['checkRequestInit'];
+
 class FetchApiWorker extends TypedWorker<
     Storage,
     [api: APIKey, init: RequestInit],
-    Promise<APIs[APIKey]>
+    Promise<APIs[APIKey]>,
+    Scripts
 > {
     constructor() {
         super(
             'api/fetch.worker',
             async <Api extends APIKey>(
-                self: WorkerSelf<Storage>,
+                self: WorkerSelf<Storage, Scripts>,
                 api: Api,
                 init: RequestInit
             ): Promise<APIs[Api]> => {
@@ -52,17 +55,7 @@ class FetchApiWorker extends TypedWorker<
                 )
                     return Promise.resolve(stored);
 
-                const headers = new Headers(init.headers);
-
-                // CAVEAT: headers are stored lowercase
-                // if the LSSM-Header is not set, abort the request!
-                if (!headers.has('x-lss-manager')) {
-                    return Promise.reject(
-                        new Error(
-                            'No X-LSS-Manager Header has been set. Aborting the request!'
-                        )
-                    );
-                }
+                self.checkRequestInit(init);
 
                 // TODO: Add support for paged API (/api/v2) for supported APIs (vehicles)
 
@@ -100,7 +93,7 @@ class FetchApiWorker extends TypedWorker<
                         })
                 );
             },
-            []
+            ['checkRequestInit']
         );
     }
 

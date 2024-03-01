@@ -77,24 +77,14 @@ export const FetchSingleBuildingWorker = new TypedWorker(
         buildingId: Building['id'],
         init: RequestInit
     ): Promise<Building> => {
-        const headers = new Headers(init.headers);
-
-        // CAVEAT: headers are stored lowercase
-        // if the LSSM-Header is not set, abort the request!
-        if (!headers.has('x-lss-manager')) {
-            return Promise.reject(
-                new Error(
-                    'No X-LSS-Manager Header has been set. Aborting the request!'
-                )
-            );
-        }
+        self.checkRequestInit(init);
 
         return fetch(
             new URL(`/api/buildings/${buildingId}`, location.origin),
             init
         ).then(res => res.json());
     },
-    []
+    ['checkRequestInit']
 );
 
 export const FetchSingleAllianceBuildingWorker = new TypedWorker(
@@ -104,22 +94,12 @@ export const FetchSingleAllianceBuildingWorker = new TypedWorker(
         buildingId: Building['id'],
         init: RequestInit
     ): Promise<Building> => {
-        const headers = new Headers(init.headers);
-
-        // CAVEAT: headers are stored lowercase
-        // if the LSSM-Header is not set, abort the request!
-        if (!headers.has('x-lss-manager')) {
-            return Promise.reject(
-                new Error(
-                    'No X-LSS-Manager Header has been set. Aborting the request!'
-                )
-            );
-        }
+        self.checkRequestInit(init);
 
         return fetch(
             new URL(`/api/alliance_buildings/${buildingId}`, location.origin),
             init
         ).then(res => res.json());
     },
-    []
+    ['checkRequestInit']
 );

@@ -89,17 +89,7 @@ export const FetchSingleVehicleWorker = new TypedWorker(
         vehicleId: Vehicle['id'],
         init: RequestInit
     ): Promise<Vehicle> => {
-        const headers = new Headers(init.headers);
-
-        // CAVEAT: headers are stored lowercase
-        // if the LSSM-Header is not set, abort the request!
-        if (!headers.has('x-lss-manager')) {
-            return Promise.reject(
-                new Error(
-                    'No X-LSS-Manager Header has been set. Aborting the request!'
-                )
-            );
-        }
+        self.checkRequestInit(init);
 
         // TODO: switch to API V2 here
 
@@ -108,7 +98,7 @@ export const FetchSingleVehicleWorker = new TypedWorker(
             init
         ).then(res => res.json());
     },
-    []
+    ['checkRequestInit']
 );
 
 export const FetchVehiclesAtBuildingWorker = new TypedWorker(
@@ -118,17 +108,7 @@ export const FetchVehiclesAtBuildingWorker = new TypedWorker(
         buildingId: Building['id'],
         init: RequestInit
     ): Promise<Vehicle[]> => {
-        const headers = new Headers(init.headers);
-
-        // CAVEAT: headers are stored lowercase
-        // if the LSSM-Header is not set, abort the request!
-        if (!headers.has('x-lss-manager')) {
-            return Promise.reject(
-                new Error(
-                    'No X-LSS-Manager Header has been set. Aborting the request!'
-                )
-            );
-        }
+        self.checkRequestInit(init);
 
         // TODO: switch to API V2 here
 
@@ -137,5 +117,5 @@ export const FetchVehiclesAtBuildingWorker = new TypedWorker(
             init
         ).then(res => res.json());
     },
-    []
+    ['checkRequestInit']
 );

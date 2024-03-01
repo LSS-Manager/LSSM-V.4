@@ -1,6 +1,8 @@
+import checkRequestInit from '../importableScripts/checkRequestInit';
 import LSSMStorage from '../importableScripts/LSSMStorage';
 
 interface ImportableScripts {
+    checkRequestInit: typeof checkRequestInit;
     LSSMStorage: typeof LSSMStorage;
 }
 
@@ -136,27 +138,16 @@ ${this.#function.toString()}
         for (const script of this.#importableScripts) {
             if (this.#importableScriptsUrls.has(script)) continue;
 
-            let exported: ImportableScripts[typeof script];
-            let exportName = '';
-
-            switch (script) {
-                case 'LSSMStorage':
-                    exported = LSSMStorage;
-                    exportName = LSSMStorage.name;
-                    //                     textContent = `
-                    // ${LSSMStorage.toString()}
-                    //
-                    // // make available in workers
-                    // self.LSSMStorage = ${LSSMStorage.name};
-                    // `;
-                    break;
-            }
+            const exported = {
+                checkRequestInit,
+                LSSMStorage,
+            }[script];
 
             const textContent = `
 ${exported.toString()}
 
 // make available in workers
-self.${script} = ${exportName};
+self.${script} = ${exported.name};
 `.trim();
 
             if (!textContent) continue;
