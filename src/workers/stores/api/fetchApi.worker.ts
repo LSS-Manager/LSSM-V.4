@@ -1,5 +1,7 @@
 import TypedWorker, { type WorkerSelf } from '@workers/TypedWorker';
 
+import checkRequestInit from '../../../importableScripts/checkRequestInit';
+
 import type { Building } from 'typings/Building';
 import type { SchoolingAPI } from 'typings/api/Schoolings';
 import type { Vehicle } from 'typings/Vehicle';
@@ -18,19 +20,19 @@ interface Storage {
     apiStorage: Partial<APIs>;
 }
 
-type Scripts = ['checkRequestInit'];
+const scripts = { checkRequestInit } as const;
 
 class FetchApiWorker extends TypedWorker<
     Storage,
     [api: APIKey, init: RequestInit],
     Promise<APIs[APIKey]>,
-    Scripts
+    typeof scripts
 > {
     constructor() {
         super(
             'api/fetch.worker',
             async <Api extends APIKey>(
-                self: WorkerSelf<Storage, Scripts>,
+                self: WorkerSelf<Storage, typeof scripts>,
                 api: Api,
                 init: RequestInit
             ): Promise<APIs[Api]> => {
@@ -93,7 +95,7 @@ class FetchApiWorker extends TypedWorker<
                         })
                 );
             },
-            ['checkRequestInit']
+            scripts
         );
     }
 

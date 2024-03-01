@@ -1,5 +1,7 @@
 import TypedWorker from '@workers/TypedWorker';
 
+import checkRequestInit from '../../../importableScripts/checkRequestInit';
+
 import type { APIs } from '@stores/newApi';
 import type { Building } from 'typings/Building';
 import type { Vehicle } from 'typings/Vehicle';
@@ -79,7 +81,7 @@ export const VehiclesWorker = new TypedWorker(
             vehiclesByDispatchCenter,
         };
     },
-    []
+    {}
 );
 
 export const FetchSingleVehicleWorker = new TypedWorker(
@@ -98,7 +100,7 @@ export const FetchSingleVehicleWorker = new TypedWorker(
             init
         ).then(res => res.json());
     },
-    ['checkRequestInit']
+    { checkRequestInit }
 );
 
 export const FetchVehiclesAtBuildingWorker = new TypedWorker(
@@ -117,5 +119,5 @@ export const FetchVehiclesAtBuildingWorker = new TypedWorker(
             init
         ).then(res => res.json());
     },
-    ['checkRequestInit']
+    { checkRequestInit }
 );

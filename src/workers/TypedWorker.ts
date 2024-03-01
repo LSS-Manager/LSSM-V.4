@@ -1,35 +1,19 @@
-import checkRequestInit from '../importableScripts/checkRequestInit';
-import LSSMStorage from '../importableScripts/LSSMStorage';
-
-interface ImportableScripts {
-    checkRequestInit: typeof checkRequestInit;
-    LSSMStorage: typeof LSSMStorage;
+interface Importable {
+    name: string;
 }
-
-const importableScripts = {
-    checkRequestInit,
-    LSSMStorage,
-} as const satisfies ImportableScripts;
-Object.seal(importableScripts);
-Object.freeze(importableScripts);
-
-type ImportableScript = keyof ImportableScripts;
 
 type WorkerExtraPropertiesType = Record<never, never>;
 
 export type WorkerSelf<
     ExtraProperties extends
         WorkerExtraPropertiesType = WorkerExtraPropertiesType,
-    Scripts extends ImportableScript[] = [],
-> = ExtraProperties &
-    WindowOrWorkerGlobalScope & {
-        [K in Scripts[number]]: ImportableScripts[K];
-    };
+    Scripts extends Record<string, unknown> = Record<never, never>,
+> = ExtraProperties & Scripts & WindowOrWorkerGlobalScope;
 
 type WorkerFunction<
     ExtraProperties extends
         WorkerExtraPropertiesType = WorkerExtraPropertiesType,
-    Scripts extends ImportableScript[] = [],
+    Scripts extends Record<string, unknown> = Record<never, never>,
     Args extends unknown[] = [],
     Return = void,
 > = (self: WorkerSelf<ExtraProperties, Scripts>, ...args: Args) => Return;
@@ -38,7 +22,7 @@ export default class TypedWorker<
     WorkerExtraProperties extends WorkerExtraPropertiesType,
     Args extends unknown[] = [],
     Return = void,
-    Scripts extends ImportableScript[] = [],
+    Scripts extends Record<string, Importable> = Record<never, never>,
 > {
     readonly #function: WorkerFunction<
         WorkerExtraProperties,
@@ -48,7 +32,7 @@ export default class TypedWorker<
     >;
     readonly #workerName: string;
     readonly #importableScripts: Scripts;
-    readonly #importableScriptsUrls = new Map<Scripts[number], string>();
+    readonly #importableScriptsUrls = new Map<keyof Scripts, string>();
 
     #worker: SharedWorker | null = null;
 
@@ -90,7 +74,10 @@ export default class TypedWorker<
 
     get #importScriptsExpression() {
         return Array.from(this.#importableScriptsUrls.entries())
-            .map(([name, url]) => `/* ${name} */ ${JSON.stringify(url)}`)
+            .map(
+                ([name, url]) =>
+                    `/* ${name.toString()} */ ${JSON.stringify(url)}`
+            )
             .join(', ');
     }
 
@@ -144,10 +131,10 @@ ${this.#function.toString()}
 
     public async run(...args: Args): Promise<Awaited<Return>> {
         // import importable scripts if they are not yet imported
-        for (const script of this.#importableScripts) {
+        for (const script in this.#importableScripts) {
             if (this.#importableScriptsUrls.has(script)) continue;
 
-            const exported = importableScripts[script];
+            const exported = this.#importableScripts[script];
 
             const textContent = `
 // this is the imported script ${script} (imported into ${this.#workerName})

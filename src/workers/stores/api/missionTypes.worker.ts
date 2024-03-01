@@ -1,3 +1,5 @@
+import checkRequestInit from '../../../importableScripts/checkRequestInit';
+import LSSMStorage from '../../../importableScripts/LSSMStorage';
 import TypedWorker from '../../TypedWorker';
 
 import type { Mission } from 'typings/Mission';
@@ -10,11 +12,13 @@ interface MissionTypes {
     missionArray: MissionsArray;
 }
 
+const scripts = { checkRequestInit, LSSMStorage } as const;
+
 export default new TypedWorker<
     MissionTypes,
     [locale: string, init: RequestInit],
     Promise<MissionTypes>,
-    ['checkRequestInit', 'LSSMStorage']
+    typeof scripts
 >(
     'api/missionTypes.worker',
     async (self, locale: string, init: RequestInit) => {
@@ -44,5 +48,5 @@ export default new TypedWorker<
                 };
             });
     },
-    ['checkRequestInit', 'LSSMStorage']
+    scripts
 );

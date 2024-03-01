@@ -16,5 +16,5 @@ export const SchoolingsWorker = new TypedWorker(
 
         return { allSchoolings };
     },
-    []
+    {}
 );
