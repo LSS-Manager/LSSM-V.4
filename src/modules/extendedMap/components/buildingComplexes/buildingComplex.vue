@@ -2796,7 +2796,7 @@ export default Vue.extend<
                             .then(() => this.$nextTick())
                             .then(() => this.initExtensionCountdowns());
                     case this.overviewTabs.vehicles:
-                        return this.newApiStoregetBuildings('buildingComplex');
+                        return this.newApiStore.getBuildings('buildingComplex');
                     case this.overviewTabs.protocol:
                         return this.updateProtocol();
                 }
@@ -2952,7 +2952,7 @@ export default Vue.extend<
                               buildingId,
                               feature
                           )
-                        : this.newApiStoregetBuilding(buildingId, feature)
+                        : this.newApiStore.getBuilding(buildingId, feature)
                 )
                 .then(() => {
                     this.tempDisableAllExtensionButtons = false;
@@ -2985,7 +2985,7 @@ export default Vue.extend<
                         body: url.searchParams.toString(),
                     }
                 )
-                .then(() => this.newApiStoregetBuilding(buildingId, feature))
+                .then(() => this.newApiStore.getBuilding(buildingId, feature))
                 .then(() => {
                     this.tempDisableAllExtensionButtons = false;
                 });
@@ -3207,7 +3207,7 @@ export default Vue.extend<
                     `/buildings/${buildingId}/alliance_costs/${tax}`,
                     feature
                 )
-                .then(() => this.newApiStoregetBuilding(buildingId, feature));
+                .then(() => this.newApiStore.getBuilding(buildingId, feature));
         },
         openAvailableSchool() {
             const buildingId = this.schoolingBuildings.find(
@@ -3260,7 +3260,7 @@ export default Vue.extend<
     },
     beforeMount() {
         this.moment.locale(useRootStore().locale);
-        this.newApiStoregetBuildings('buildingComplex');
+        this.newApiStore.getBuildings('buildingComplex');
     },
     mounted() {
         this.$set(this, 'currentBuildingId', this.sortedBuildingIdsByName[-1]);
