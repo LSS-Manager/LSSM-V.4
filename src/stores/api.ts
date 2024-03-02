@@ -233,6 +233,10 @@ export const defineAPIStore = defineStore('api', () => {
     const _triggerComplexCalculations = async <Api extends APIKey>(
         api: Api
     ) => {
+        const vehicleUpdateIsRunning = Boolean(
+            currentlyRunningUpdates.vehicles?.length
+        );
+
         if (api === 'vehicles') {
             const calculations = await VehiclesWorker.run(
                 apiStorage.vehicles.value,
@@ -248,14 +252,17 @@ export const defineAPIStore = defineStore('api', () => {
             const calculations = await BuildingsWorker.run(
                 apiStorage.buildings.value,
                 useTranslationStore().buildingCategoryByType,
-                vehiclesArray.value
+                vehicleUpdateIsRunning ? [] : vehiclesArray.value
             );
             buildingsByType.value = calculations.buildingsByType;
             buildingsByDispatchCenter.value =
                 calculations.buildingsByDispatchCenter;
             buildingsByCategory.value = calculations.buildingsByCategory;
-            vehiclesByDispatchCenter.value =
-                calculations.vehiclesByDispatchCenter;
+
+            if (!vehicleUpdateIsRunning) {
+                vehiclesByDispatchCenter.value =
+                    calculations.vehiclesByDispatchCenter;
+            }
         } else if (api === 'alliance_buildings') {
             const calculations = await BuildingsWorker.run(
                 apiStorage.alliance_buildings.value,
