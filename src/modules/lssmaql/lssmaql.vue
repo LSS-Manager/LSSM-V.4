@@ -4,7 +4,7 @@
             <font-awesome-icon :icon='faTerminal'></font-awesome-icon>
             LSSMAQL Console
         </h1>
-        <form>
+        <form @submit='getResult'>
             <div class='input-group'>
                 <label>
                     your LSSMAQL Query
@@ -12,25 +12,22 @@
                         type='text'
                         class='form-control'
                         v-model='query'
-                        @keypress.enter='$refs.execute.click()'
+                        @keydown.enter='getResult'
                     />
                 </label>
             </div>
-            <a class='btn btn-success' @click='getResult' ref='execute'>
-                Execute
-            </a>
+            <a class='btn btn-success' @click='getResult'> Execute </a>
         </form>
         <div class='row'>
             <div class='col-sm-8'>
-                <b>Result ({{ resultLength.toLocaleString() }}):</b>
-                <pre>{{ result }}</pre>
+                <b>Result ({{ getResult }}):</b>
+                <pre>{{ resultLength }}</pre>
             </div>
         </div>
     </lightbox>
 </template>
 <script lang='ts'>
 import jsonata from 'jsonata';
-import { faTerminal } from '@fortawesome/free-solid-svg-icons/faTerminal';
 import { useAPIStore } from '@stores/api';
 
 export default {
@@ -42,24 +39,47 @@ export default {
                 ),
     },
     setup() {
-        function getResult(query: string): any {
+        let resultLength: number = 0;
+
+        /**
+         * Executes the jsonata query.
+         * @returns Stringified result JSON object.
+         */
+        function getResult(): string {
+            const query: string = 'missions';
             const expression = jsonata(query);
-            return JSON.stringify(expression.evaluate(getAPIData()));
+            const result: Promise<object[]> = expression.evaluate(getAPIData());
+            resultLength = getResultLength(result);
+            return JSON.stringify(result);
         }
 
+        /**
+         * Returns the length of the result array. If the result is not an array the length is 0.
+         * @param result - From getResult.
+         * @returns Result length.
+         */
+        function getResultLength(result: Promise<object[]>): number {
+            if (Array.isArray(result)) return result.length;
+            return 0;
+        }
+
+        /**
+         * Helperfunction to get and modify the API data.
+         * @returns Which contains the missions, vehicles and buildings as children.
+         */
         function getAPIData() {
             const apiStore = useAPIStore();
             apiStore.getBuildings('lssmaql-beforeMount');
             apiStore.getVehicles('lssmaql-beforeMount');
             apiStore.getMissions('lssmaql-beforeMount');
             return {
-                'missions': apiStore.missions,
-                'buildings': apiStore.buildings,
-                'vehicles': apiStore.buildings,
+                missions: apiStore.missions,
+                buildings: apiStore.buildings,
+                vehicles: apiStore.buildings,
             };
         }
 
-        return {};
+        return { getResult, resultLength };
     },
 };
 </script>
