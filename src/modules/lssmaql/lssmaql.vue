@@ -20,13 +20,15 @@
         </form>
         <div class='row'>
             <div class='col-sm-8'>
-                <b>Result ({{ getResult }}):</b>
-                <pre>{{ resultLength }}</pre>
+                <b>Result ({{ resultLength }}):</b>
+                <pre>{{ result }}</pre>
             </div>
         </div>
     </lightbox>
 </template>
 <script lang='ts'>
+import { ref, UnwrapRef } from 'vue';
+
 import jsonata from 'jsonata';
 import { useAPIStore } from '@stores/api';
 
@@ -39,28 +41,30 @@ export default {
                 ),
     },
     setup() {
-        let resultLength: number = 0;
+        const query = ref('');
+        const result = ref(JSON);
+        const resultString = ref('');
+        const resultLength = ref(0);
 
         /**
          * Executes the jsonata query.
          * @returns Stringified result JSON object.
          */
-        function getResult(): string {
-            const query: string = 'missions';
-            const expression = jsonata(query);
-            const result: Promise<object[]> = expression.evaluate(getAPIData());
-            resultLength = getResultLength(result);
-            return JSON.stringify(result);
+        async function getResult(): Promise<void> {
+            const expression = jsonata(query.value);
+            result.value = await expression.evaluate(getAPIData());
+
+            getResultLength(result.value);
+            resultString.value = JSON.stringify(result);
         }
 
         /**
          * Returns the length of the result array. If the result is not an array the length is 0.
          * @param result - From getResult.
-         * @returns Result length.
          */
-        function getResultLength(result: Promise<object[]>): number {
-            if (Array.isArray(result)) return result.length;
-            return 0;
+        function getResultLength(result: UnwrapRef<JSON>): void {
+            if (Array.isArray(result)) resultLength.value = result.length;
+            else resultLength.value = 0;
         }
 
         /**
@@ -79,7 +83,7 @@ export default {
             };
         }
 
-        return { getResult, resultLength };
+        return { getResult, resultLength, result, query, resultString };
     },
 };
 </script>
