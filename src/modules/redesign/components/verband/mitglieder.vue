@@ -325,7 +325,7 @@ export default Vue.extend<
             const search =
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
             if (search) url.searchParams.set('username', search);
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     url,
                     `redesign-verband-mitgliederliste-load-prev-${this.startPage}`
@@ -375,7 +375,7 @@ export default Vue.extend<
             const search =
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
             if (search) url.searchParams.set('username', search);
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     url,
                     `redesign-verband-mitgliederliste-load-next-${this.endPage}`
@@ -444,7 +444,7 @@ export default Vue.extend<
                         ] as (HTMLInputElement | null)[]
                     )[0]?.value ?? '';
                 url.searchParams.append('user[caption]', caption);
-                this.lightbox.newApiStore.request(
+                this.lightbox.apiStore.request(
                     `/verband/rolecaptionForm/${user_id}`,
                     `redesign-verband-mitgliederliste-save_caption`,
                     {
@@ -478,7 +478,7 @@ export default Vue.extend<
             }
         },
         applyDiscount(user_id, amount) {
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/verband/discount/${user_id}/${amount}`,
                     `redesign-verband-mitgliederliste-apply_discount`,
@@ -507,7 +507,7 @@ export default Vue.extend<
                 });
         },
         toggleRight(user_id, right, new_state) {
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/verband/${right}/${user_id}/${new_state}`,
                     `redesign-verband-mitgliederliste-toggle_role`,
@@ -564,7 +564,7 @@ export default Vue.extend<
                     {
                         title: LSSM.lightbox.$sm('rights.kickModal.btnConfirm'),
                         handler() {
-                            LSSM.lightbox.newApiStore
+                            LSSM.lightbox.apiStore
                                 .request(
                                     `/verband/kick/${user_id}/`,
                                     `redesign-verband-mitgliederliste-kick`,

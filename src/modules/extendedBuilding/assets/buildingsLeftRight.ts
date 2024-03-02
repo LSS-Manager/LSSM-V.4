@@ -3,9 +3,9 @@ export default (LSSM: Vue): void => {
         window.location.pathname.match(/\d+\/?$/u)?.[0] ?? '0'
     );
     if (!buildingId) return;
-    const building = LSSM.$stores.newApi.buildings[buildingId];
+    const building = LSSM.$stores.api.buildings[buildingId];
     if (!building) return;
-    const buildingsByType = LSSM.$stores.newApi.buildingsByType;
+    const buildingsByType = LSSM.$stores.api.buildingsByType;
     const smallBuildings = LSSM.$t('small_buildings') as unknown as Record<
         number,
         number

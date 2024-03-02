@@ -129,7 +129,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { defineNewAPIStore } from '@stores/newApi';
+import { defineAPIStore } from '@stores/api';
 import { faBorderAll } from '@fortawesome/free-solid-svg-icons/faBorderAll';
 import { faCar } from '@fortawesome/free-solid-svg-icons/faCar';
 import { faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons/faChalkboardTeacher';
@@ -194,7 +194,7 @@ export default Vue.extend<
         parent() {
             return this.$el.parentElement;
         },
-        ...mapState(defineNewAPIStore, {
+        ...mapState(defineAPIStore, {
             vehicles: 'vehiclesByBuilding',
             buildings: 'buildingsArray',
         }),

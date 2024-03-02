@@ -5,8 +5,8 @@ import type { VehiclesByBuilding } from '@workers/stores/api/vehicles.worker';
 import type { BuildingMarker, RadioMessage } from 'typings/Ingame';
 
 export default (async ({ LSSM, MODULE_ID }) => {
-    await LSSM.$stores.newApi.getBuildings(MODULE_ID);
-    await LSSM.$stores.newApi.getVehicles(MODULE_ID);
+    await LSSM.$stores.api.getBuildings(MODULE_ID);
+    await LSSM.$stores.api.getVehicles(MODULE_ID);
 
     const vehicleTypes = LSSM.$stores.translations.vehicles;
 
@@ -24,8 +24,8 @@ export default (async ({ LSSM, MODULE_ID }) => {
     let buildings: Building[];
 
     const updateBuildings = () => {
-        vehiclesByBuilding = LSSM.$stores.newApi.vehiclesByBuilding;
-        buildings = LSSM.$stores.newApi.buildingsArray;
+        vehiclesByBuilding = LSSM.$stores.api.vehiclesByBuilding;
+        buildings = LSSM.$stores.api.buildingsArray;
     };
 
     updateBuildings();
@@ -167,7 +167,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
             )
                 return;
             const { id, fms, fms_real } = radioMessage;
-            const vehicle = LSSM.$stores.newApi.vehicles[id];
+            const vehicle = LSSM.$stores.api.vehicles[id];
             if (!vehicle) return;
             updateBuildings();
             const v = vehiclesByBuilding[vehicle.building_id][vehicle.id];

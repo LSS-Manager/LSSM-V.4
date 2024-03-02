@@ -118,11 +118,11 @@ export default (
         browser: UAParser.IBrowser,
         browserMajor: number
     ) => {
-        const buildingsAmount = await LSSM.$stores.newApi
+        const buildingsAmount = await LSSM.$stores.api
             .getBuildings('telemetry')
             .then(buildings => Object.values(buildings).length);
 
-        LSSM.$stores.newApi
+        LSSM.$stores.api
             .request(
                 LSSM.$stores.root.lssmUrl(`/telemetry.php`, true),
                 'telemetry',
@@ -132,7 +132,7 @@ export default (
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        id: await LSSM.$stores.newApi.awaitSecretKey(),
+                        id: await LSSM.$stores.api.awaitSecretKey(),
                         uid: window.user_id,
                         game: LSSM.$stores.root.locale,
                         police: LSSM.$stores.root.isPoliceChief,
@@ -167,7 +167,7 @@ export default (
             });
     };
 
-    LSSM.$stores.newApi
+    LSSM.$stores.api
         .getCredits('telemetry')
         .then(async ({ user_directplay_registered }) => {
             if (user_directplay_registered) return;

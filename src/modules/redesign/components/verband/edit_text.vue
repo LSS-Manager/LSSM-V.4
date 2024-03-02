@@ -243,7 +243,7 @@ export default Vue.extend<
             const webhook =
                 (this.$refs.webhook as HTMLInputElement | null)?.value ?? '';
             url.searchParams.append('discord_webhook', webhook);
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/veband/text/speichern`,
                     `redesign-edit-alliance-name`,

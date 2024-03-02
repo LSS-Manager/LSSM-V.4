@@ -175,7 +175,7 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
         async toggleFMS(_, redesign) {
             const vehicleID = redesign?.data.id ?? this.vehicleId;
             const LSSM = window[PREFIX] as Vue;
-            LSSM.$stores.newApi
+            LSSM.$stores.api
                 .getVehicle(vehicleID, 'hotkeys-vehicles')
                 .then(result => {
                     if (result.fms_real === 2) return 6;
@@ -183,7 +183,7 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
                     throw new Error('FMS is not 2 or 6');
                 })
                 .then(fms =>
-                    LSSM.$stores.newApi.request(
+                    LSSM.$stores.api.request(
                         `/vehicles/${vehicleID}/set_fms/${fms}`,
                         `hotkeys-toggleFMS`
                     )

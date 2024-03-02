@@ -106,7 +106,7 @@
 import Vue from 'vue';
 
 import { Chart } from 'highcharts-vue';
-import { defineNewAPIStore } from '@stores/newApi';
+import { defineAPIStore } from '@stores/api';
 import { faCarSide } from '@fortawesome/free-solid-svg-icons/faCarSide';
 import { faChartPie } from '@fortawesome/free-solid-svg-icons/faChartPie';
 import { mapState } from 'pinia';
@@ -184,7 +184,7 @@ export default Vue.extend<
         } as VehicleTypes;
     },
     computed: {
-        ...mapState(defineNewAPIStore, {
+        ...mapState(defineAPIStore, {
             vehicleTypes(store) {
                 const vbt = store.vehiclesByType;
                 const types = {} as TypeList;

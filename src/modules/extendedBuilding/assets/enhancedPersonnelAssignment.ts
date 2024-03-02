@@ -15,11 +15,11 @@ export default async (
     );
 
     // Fetch the current state of the vehicle and its building
-    const vehicle = await LSSM.$stores.newApi.getVehicle(
+    const vehicle = await LSSM.$stores.api.getVehicle(
         vehicleId,
         `${MODULE_ID}-enhancedPersonnelAssignment`
     );
-    const building = await LSSM.$stores.newApi.getBuilding(
+    const building = await LSSM.$stores.api.getBuilding(
         vehicle.building_id,
         `${MODULE_ID}-enhancedPersonnelAssignment`
     );

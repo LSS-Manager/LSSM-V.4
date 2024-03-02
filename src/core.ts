@@ -4,11 +4,11 @@ import * as Tabs from 'vue-slim-tabs';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import Notifications from 'vue-notification';
 import ToggleButton from 'vue-js-toggle-button';
+import { useAPIStore } from '@stores/api';
 import { useBroadcastStore } from '@stores/broadcast';
 import { useConsoleStore } from '@stores/console';
 import { useEventStore } from '@stores/event';
 import { useModulesStore } from '@stores/modules';
-import { useNewAPIStore } from '@stores/newApi';
 import { useNotificationStore } from '@stores/notifications';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
@@ -88,7 +88,7 @@ utils(Vue);
 
     LSSM.$stores = {
         root: rootStore,
-        newApi: useNewAPIStore(),
+        api: useAPIStore(),
         broadcast: useBroadcastStore(),
         console: useConsoleStore(),
         event: useEventStore(),
@@ -150,7 +150,7 @@ utils(Vue);
     } else if (
         window.location.pathname.match(/^\/(buildings|schoolings)\/\d+\/?/u)
     ) {
-        LSSM.$stores.newApi.getSchoolings('core-update-schoolings').then();
+        LSSM.$stores.api.getSchoolings('core-update-schoolings').then();
     }
 
     import(

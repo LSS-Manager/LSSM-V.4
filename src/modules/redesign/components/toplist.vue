@@ -167,7 +167,7 @@ export default Vue.extend<
             const search =
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
             if (search) url.searchParams.set('username', search);
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(url, `redesign-toplist-load-prev-${this.startPage}`)
                 .then((res: Response) => res.text())
                 .then(async html => {
@@ -206,7 +206,7 @@ export default Vue.extend<
             const search =
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
             if (search) url.searchParams.set('username', search);
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(url, `redesign-toplist-load-next-${this.endPage}`)
                 .then((res: Response) => res.text())
                 .then(async html => {

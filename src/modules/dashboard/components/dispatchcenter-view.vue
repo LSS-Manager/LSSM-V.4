@@ -345,7 +345,7 @@ import { mapState } from 'pinia';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 import { useTranslationStore } from '@stores/translationUtilities';
-import { defineNewAPIStore, useNewAPIStore } from '@stores/newApi';
+import { defineAPIStore, useAPIStore } from '@stores/api';
 
 import type { DefaultProps } from 'vue/types/options';
 import type { Vehicle } from 'typings/Vehicle';
@@ -391,14 +391,14 @@ export default Vue.extend<
             ),
     },
     data() {
-        const newApiStore = useNewAPIStore();
+        const apiStore = useAPIStore();
         const rootStore = useRootStore();
         const translationStore = useTranslationStore();
         const buildingTypes = translationStore.buildings;
         const dispatchCenterBuildings =
             translationStore.dispatchCenterBuildings;
         return {
-            buildings: newApiStore.buildingsArray,
+            buildings: apiStore.buildingsArray,
             selectedBuilding: null,
             boards: [],
             buildingLimit: 50,
@@ -407,7 +407,7 @@ export default Vue.extend<
             newBoardTitle: '',
             buildingTypes,
             currentBoard: 0,
-            vehiclesByBuilding: newApiStore.vehiclesByBuilding,
+            vehiclesByBuilding: apiStore.vehiclesByBuilding,
             vehicleBuildings: translationStore.vehicleBuildings
                 .map(type => ({
                     type,
@@ -416,7 +416,7 @@ export default Vue.extend<
                 .sort((a, b) =>
                     a.caption > b.caption ? 1 : a.caption < b.caption ? -1 : 0
                 ),
-            dispatchBuildings: newApiStore.buildingsArray
+            dispatchBuildings: apiStore.buildingsArray
                 .filter(building =>
                     dispatchCenterBuildings.includes(building.building_type)
                 )
@@ -438,7 +438,7 @@ export default Vue.extend<
         buildingSelection() {
             return this.board ? this.board.buildingSelection : {};
         },
-        ...mapState(defineNewAPIStore, {
+        ...mapState(defineAPIStore, {
             buildingsById: 'buildings',
         }),
         buildingList() {

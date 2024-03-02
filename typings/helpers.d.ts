@@ -8,11 +8,11 @@ import type Highcharts from 'highcharts';
 import type L from 'leaflet';
 import type { POI } from './modules/EnhancedPOI';
 import type { sceditor } from './SCEditor';
+import type { useAPIStore } from '@stores/api';
 import type { useBroadcastStore } from '@stores/broadcast';
 import type { useConsoleStore } from '@stores/console';
 import type { useEventStore } from '@stores/event';
 import type { useModulesStore } from '@stores/modules';
-import type { useNewAPIStore } from '@stores/newApi';
 import type { useNotificationStore } from '@stores/notifications';
 import type { useRootStore } from '@stores/index';
 import type { useSettingsStore } from '@stores/settings';
@@ -161,7 +161,7 @@ declare module 'vue/types/vue' {
     interface Vue {
         $stores: {
             root: ReturnType<typeof useRootStore>;
-            newApi: ReturnType<typeof useNewAPIStore>;
+            api: ReturnType<typeof useAPIStore>;
             broadcast: ReturnType<typeof useBroadcastStore>;
             console: ReturnType<typeof useConsoleStore>;
             event: ReturnType<typeof useEventStore>;

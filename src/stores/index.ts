@@ -1,8 +1,8 @@
 import type Vue from 'vue';
 
 import { defineStore } from 'pinia';
+import { useAPIStore } from '@stores/api';
 import { useEventStore } from '@stores/event';
-import { useNewAPIStore } from '@stores/newApi';
 
 import config from '../config';
 import lssmLogo from '../img/lssm.png';
@@ -91,7 +91,7 @@ export const defineRootStore = defineStore('root', {
         updateCredits(credits: number) {
             const old = this.credits;
             this.credits = credits;
-            const apiStore = useNewAPIStore();
+            const apiStore = useAPIStore();
             if (apiStore.credits) {
                 apiStore.credits.credits_user_current = credits;
                 const diff = credits - old;

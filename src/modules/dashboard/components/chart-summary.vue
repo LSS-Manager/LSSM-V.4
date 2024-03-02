@@ -116,7 +116,7 @@ import { mapState } from 'pinia';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 import { useTranslationStore } from '@stores/translationUtilities';
-import { defineNewAPIStore, useNewAPIStore } from '@stores/newApi';
+import { defineAPIStore, useAPIStore } from '@stores/api';
 
 import type { BuildingCategory } from 'typings/Building';
 import type { DefaultProps } from 'vue/types/options';
@@ -155,7 +155,7 @@ export default Vue.extend<
 >({
     name: 'lssmv4-dashboard-chart-summary',
     data() {
-        const newApiStore = useNewAPIStore();
+        const apiStore = useAPIStore();
         const rootStore = useRootStore();
         const translationStore = useTranslationStore();
         const internalBuildingTypes = translationStore.buildings;
@@ -165,7 +165,7 @@ export default Vue.extend<
                 'chart-summary-buildings',
                 true
             ),
-            buildings: newApiStore.buildingsByCategory,
+            buildings: apiStore.buildingsByCategory,
             buildingCategories: this.$t(
                 'buildingCategories'
             ) as unknown as Record<string, BuildingCategory>,
@@ -180,7 +180,7 @@ export default Vue.extend<
                 )
             ),
             vehiclesId: rootStore.nodeAttribute('chart-summary-vehicles', true),
-            vehicles: newApiStore.vehiclesByType,
+            vehicles: apiStore.vehiclesByType,
             vehicleCategories: this.$t(
                 'vehicleCategories'
             ) as unknown as Record<string, VehicleCategory>,
@@ -194,7 +194,7 @@ export default Vue.extend<
                     ([index, { color }]) => [index, color]
                 )
             ),
-            vehiclesByBuilding: newApiStore.vehiclesByBuilding,
+            vehiclesByBuilding: apiStore.vehiclesByBuilding,
             buildingsAsColumn: false,
             settingsStore: useSettingsStore(),
             waterByType: Object.fromEntries(
@@ -220,7 +220,7 @@ export default Vue.extend<
         } as ChartSummary;
     },
     computed: {
-        ...mapState(defineNewAPIStore, {
+        ...mapState(defineAPIStore, {
             personalCount: store =>
                 store.buildingsArray.reduce((a, b) => a + b.personal_count, 0),
         }),

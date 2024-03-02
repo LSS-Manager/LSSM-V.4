@@ -1,6 +1,6 @@
 import TypedWorker from '@workers/TypedWorker';
 
-import type { APIs } from '@stores/newApi';
+import type { APIs } from '@stores/api';
 
 export const SchoolingsWorker = new TypedWorker(
     'api/schoolings.worker',

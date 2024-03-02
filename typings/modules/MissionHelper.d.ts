@@ -1,7 +1,7 @@
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { Mission } from 'typings/Mission';
 import type { ModuleMainFunction } from 'typings/Module';
-import type { useNewAPIStore } from '@stores/newApi';
+import type { useAPIStore } from '@stores/api';
 
 export type VehicleRequirements = Record<
     string,
@@ -37,7 +37,7 @@ export interface MissionHelper {
     missionId: number;
     overlay: boolean | undefined;
     minified: boolean | undefined;
-    apiStore: ReturnType<typeof useNewAPIStore>;
+    apiStore: ReturnType<typeof useAPIStore>;
     settings: {
         title: boolean;
         id: boolean;

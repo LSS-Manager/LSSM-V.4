@@ -21,7 +21,7 @@ export default (
             btn.addEventListener('click', async e => {
                 e.preventDefault();
                 taxBtns.forEach(taxBtn => taxBtn.classList.add('disabled'));
-                await LSSM.$stores.newApi
+                await LSSM.$stores.api
                     .request(
                         btn.getAttribute('href') ?? '',
                         `${MODULE_ID}-buildings`
@@ -71,7 +71,7 @@ export default (
                         .querySelector('meta[name="csrf-token"]')
                         ?.getAttribute('content') || ''
                 );
-                await LSSM.$stores.newApi
+                await LSSM.$stores.api
                     .request(
                         btn.getAttribute('href') ?? '',
                         'ab-buildings-extensionState',

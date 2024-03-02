@@ -2,7 +2,7 @@ import TypedWorker from '@workers/TypedWorker';
 
 import checkRequestInit from '../../../importableScripts/checkRequestInit';
 
-import type { APIs } from '@stores/newApi';
+import type { APIs } from '@stores/api';
 import type { Building } from 'typings/Building';
 import type { Vehicle } from 'typings/Vehicle';
 

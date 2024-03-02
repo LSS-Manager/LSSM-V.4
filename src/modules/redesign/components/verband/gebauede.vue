@@ -115,7 +115,7 @@ import Vue from 'vue';
 
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons/faMapMarkedAlt';
 
-import type { defineNewAPIStore } from '@stores/newApi';
+import type { defineAPIStore } from '@stores/api';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { RedesignSubComponent } from 'typings/modules/Redesign';
 import type { VerbandGebaeudeWindow } from '../../parsers/verband/gebauede';
@@ -140,7 +140,7 @@ type Component = RedesignSubComponent<
     {
         filteredBuildings: VerbandGebaeudeWindow['buildings'];
         allianceBuildings: ReturnType<
-            typeof defineNewAPIStore
+            typeof defineAPIStore
         >['alliance_buildings'];
         buildingTypesAmount: Record<number, number>;
     }
@@ -229,7 +229,7 @@ export default Vue.extend<
             }
         },
         allianceBuildings() {
-            return this.lightbox.newApiStore.alliance_buildings;
+            return this.lightbox.apiStore.alliance_buildings;
         },
         buildingTypesAmount() {
             const amounts: Record<number, number> = {};
@@ -280,7 +280,7 @@ export default Vue.extend<
             );
         });
         this.markerFeatureGroup = window.L.featureGroup(this.markers);
-        this.lightbox.newApiStore.getAllianceBuildings(
+        this.lightbox.apiStore.getAllianceBuildings(
             'redesign/verband/gebaeude'
         );
     },

@@ -66,7 +66,7 @@ export default async ({
 
     const missionTypeId = LSSM.$utils.getMissionTypeInMissionWindow();
 
-    const missionType = await LSSM.$stores.newApi.getMissionType(
+    const missionType = await LSSM.$stores.api.getMissionType(
         missionTypeId,
         MODULE_ID
     );

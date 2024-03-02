@@ -737,7 +737,7 @@ export default Vue.extend<
                 'authenticity_token',
                 this.profile.authenticity_token
             );
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/allianceIgnore/${this.profile.id}/${
                         this.profile.alliance_ignored ? 'destroy' : 'add'
@@ -978,7 +978,7 @@ export default Vue.extend<
         this.getSetting('hiddenFilters', []).then(
             f => (this.hiddenFilters = f)
         );
-        this.lightbox.newApiStore
+        this.lightbox.apiStore
             .getAllianceInfo('redesign-profile')
             .then(allianceinfo => {
                 this.allianceUser = allianceinfo.users.find(

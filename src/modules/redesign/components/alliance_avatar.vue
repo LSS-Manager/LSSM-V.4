@@ -83,7 +83,7 @@ export default Vue.extend<
                 this.imageFile.name
             );
             formData.append('commit', 'save');
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/verband/avatar/upload`,
                     `redesign-alliance-avatar-edit`,
@@ -126,7 +126,7 @@ export default Vue.extend<
         },
         deleteAvatar() {
             this.$set(this.lightbox, 'loading', true);
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/verband/avatar/delete`,
                     `redesign-alliance-avatar-delete`,

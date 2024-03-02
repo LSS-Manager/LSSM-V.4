@@ -207,7 +207,7 @@ export default Vue.extend<
         },
         claimReward(id) {
             this.$set(this.lightbox, 'loading', true);
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/tasks/claim_reward?task_progress_id=${id}`,
                     `redesign-tasks-claim-${id}`,
@@ -263,7 +263,7 @@ export default Vue.extend<
 
             const claimAll = () => {
                 this.$set(this.lightbox, 'loading', true);
-                this.lightbox.newApiStore
+                this.lightbox.apiStore
                     .request(
                         `/tasks/claim_all_rewards`,
                         `redesign-tasks-claim-all`,

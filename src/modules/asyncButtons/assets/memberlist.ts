@@ -13,7 +13,7 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
         rights: string[],
         t: HTMLAnchorElement
     ) => {
-        await LSSM.$stores.newApi
+        await LSSM.$stores.api
             .request(t.getAttribute('href') ?? '', `${MODULE_ID}-memberlist`)
             .then(({ status }) => {
                 if (status !== 200) return;

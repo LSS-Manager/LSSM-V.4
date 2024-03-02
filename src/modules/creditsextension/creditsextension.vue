@@ -193,7 +193,7 @@ import { faListUl } from '@fortawesome/free-solid-svg-icons/faListUl';
 import { faPiggyBank } from '@fortawesome/free-solid-svg-icons/faPiggyBank';
 import { faTable } from '@fortawesome/free-solid-svg-icons/faTable';
 import { mapState } from 'pinia';
-import { defineNewAPIStore, useNewAPIStore } from '@stores/newApi';
+import { defineAPIStore, useAPIStore } from '@stores/api';
 import { defineRootStore, useRootStore } from '@stores/index';
 
 import type { CreditsInfo } from 'typings/api/Credits';
@@ -298,7 +298,7 @@ export default Vue.extend<
     },
     computed: {
         ...mapState(defineRootStore, ['credits', 'coins']),
-        ...mapState(defineNewAPIStore, {
+        ...mapState(defineAPIStore, {
             creditsAPI: 'credits',
         }),
         creditsLocalized() {
@@ -382,7 +382,7 @@ export default Vue.extend<
             'alerts'
         ).then(({ value: alerts }) => {
             if (!alerts.length)
-                return useNewAPIStore().getCredits('creditsextension-initial');
+                return useAPIStore().getCredits('creditsextension-initial');
 
             const alertValues = alerts.map(({ credits }) => credits).sort();
 
@@ -402,7 +402,7 @@ export default Vue.extend<
                     (newValue / findNextAlertValue(newValue)) * 100;
             });
 
-            useNewAPIStore()
+            useAPIStore()
                 .getCredits('creditsextension-alerts-initial')
                 .then(
                     ({ credits_user_current }) =>

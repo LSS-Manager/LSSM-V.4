@@ -166,7 +166,7 @@ export default Vue.extend<
                                 'authenticity_token',
                                 LSSM.home.authenticity_token
                             );
-                            LSSM.lightbox.newApiStore
+                            LSSM.lightbox.apiStore
                                 .request(
                                     `/verband/verlassen`,
                                     `redesign-alliance-leave`,
@@ -199,7 +199,7 @@ export default Vue.extend<
             });
         },
         apply() {
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/verband/bewerben/${this.home.meta.id}`,
                     `redesign-alliance-apply`
@@ -210,7 +210,7 @@ export default Vue.extend<
                 });
         },
         unapply() {
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/verband/bewerben/${this.home.meta.id}/zurueckziehen`,
                     `redesign-alliance-unapply`

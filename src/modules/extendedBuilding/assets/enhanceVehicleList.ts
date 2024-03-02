@@ -95,7 +95,7 @@ export default async (
 
             if (!vehicleId || !linkWrapper) return;
 
-            const storedVehicle = LSSM.$stores.newApi.vehicles[vehicleId];
+            const storedVehicle = LSSM.$stores.api.vehicles[vehicleId];
 
             if (fmsSwitch) {
                 const fmsBtn = vehicle.querySelector('.building_list_fms');
@@ -110,7 +110,7 @@ export default async (
                     )
                         ? 6
                         : 2;
-                    LSSM.$stores.newApi
+                    LSSM.$stores.api
                         .request(
                             `/vehicles/${vehicleId}/set_fms/${nextFms}`,
                             `${MODULE_ID}-enhanceVehicleList-fmsSwitch`
@@ -187,7 +187,7 @@ export default async (
                     (async () => {
                         let currentPersonnel = 0;
                         if (lastRowItems.includes('vehiclesPersonnelCurrent')) {
-                            currentPersonnel = await LSSM.$stores.newApi
+                            currentPersonnel = await LSSM.$stores.api
                                 .request(
                                     `/vehicles/${vehicleId}`,
                                     `${MODULE_ID}-enhanceVehicleList-personnel`
@@ -246,9 +246,7 @@ export default async (
         BUILDING_MODE === 'dispatch' &&
         window.location.hash !== '#tab_vehicle'
     ) {
-        await LSSM.$stores.newApi.getVehicles(
-            `${MODULE_ID}-enhanceVehicleList`
-        );
+        await LSSM.$stores.api.getVehicles(`${MODULE_ID}-enhanceVehicleList`);
         LSSM.$stores.root.observeAsyncTab({
             tabSelector: '#tab_vehicle',
             callback,
@@ -256,7 +254,7 @@ export default async (
     } else {
         const path = window.location.pathname.split('/').filter(s => !!s);
         const buildingId = parseInt(path.at(-1) ?? '-1');
-        await LSSM.$stores.newApi.getVehiclesAtBuilding(
+        await LSSM.$stores.api.getVehiclesAtBuilding(
             buildingId,
             `${MODULE_ID}-enhanceVehicleList`
         );

@@ -261,7 +261,7 @@ export default Vue.extend<
         toggle() {
             this.$set(this.lightbox, 'loading', true);
             const url = new URL('/verband/kasse', window.location.origin);
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `${url.toString()}/umschalten`,
                     `redesign-verband-kasse-toggle`
@@ -289,7 +289,7 @@ export default Vue.extend<
         },
         changeRate(rate) {
             this.$set(this.lightbox, 'loading', true);
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/verband/kasse/rate/${rate}`,
                     `redesign-verband-kasse-rate`
@@ -304,7 +304,7 @@ export default Vue.extend<
             this.$set(this.lightbox, 'loading', true);
             const url = new URL('/verband/kasse', window.location.origin);
             url.searchParams.set('type', type);
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(url, `redesign-verband-kasse-earnings-type`)
                 .then((res: Response) => res.text())
                 .then(async html => {
@@ -340,7 +340,7 @@ export default Vue.extend<
             this.$set(this.lightbox, 'loading', true);
             const url = new URL('/verband/kasse', window.location.origin);
             url.searchParams.set('type', this.kasse.earnings.type);
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(url, `redesign-verband-kasse-earnings-today`)
                 .then((res: Response) => res.text())
                 .then(async html => {
@@ -380,7 +380,7 @@ export default Vue.extend<
                 'scroll',
                 (this.kasse.earnings.scroll - 1).toString()
             );
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(url, `redesign-verband-kasse-earnings-prev`)
                 .then((res: Response) => res.text())
                 .then(async html => {
@@ -420,7 +420,7 @@ export default Vue.extend<
                 'scroll',
                 (this.kasse.earnings.scroll + 1).toString()
             );
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(url, `redesign-verband-kasse-earnings-next`)
                 .then((res: Response) => res.text())
                 .then(async html => {
@@ -459,7 +459,7 @@ export default Vue.extend<
                 'page',
                 (this.kasse.spendings.page + 1).toString()
             );
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(url, `redesign-verband-kasse-more-spendings`)
                 .then((res: Response) => res.text())
                 .then(async html => {

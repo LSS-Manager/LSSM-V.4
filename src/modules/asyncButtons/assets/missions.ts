@@ -26,7 +26,7 @@ export default (
                     )
                         return;
                     e.preventDefault();
-                    LSSM.$stores.newApi
+                    LSSM.$stores.api
                         .request(
                             target.getAttribute('href') ?? '',
                             `${MODULE_ID}-missions-prisoners`
@@ -144,7 +144,7 @@ export default (
                 'mission_reply[mission_id]',
                 missionId.toString()
             );
-            LSSM.$stores.newApi
+            LSSM.$stores.api
                 .request('/mission_replies', `${MODULE_ID}_missionReply`, {
                     credentials: 'include',
                     headers: {

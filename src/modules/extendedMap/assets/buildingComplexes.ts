@@ -37,12 +37,12 @@ export default async (
 ) => {
     if (!window.map) return;
 
-    await LSSM.$stores.newApi.getAllianceBuildings('buildingComplexes');
-    await LSSM.$stores.newApi.getAllianceInfo('buildingComplexes');
-    await LSSM.$stores.newApi.getBuildings('buildingComplexes');
-    await LSSM.$stores.newApi.getSchoolings('buildingComplexes');
-    await LSSM.$stores.newApi.getAllianceSchoolings('buildingComplexes');
-    await LSSM.$stores.newApi.getVehicles('buildingComplexes');
+    await LSSM.$stores.api.getAllianceBuildings('buildingComplexes');
+    await LSSM.$stores.api.getAllianceInfo('buildingComplexes');
+    await LSSM.$stores.api.getBuildings('buildingComplexes');
+    await LSSM.$stores.api.getSchoolings('buildingComplexes');
+    await LSSM.$stores.api.getAllianceSchoolings('buildingComplexes');
+    await LSSM.$stores.api.getVehicles('buildingComplexes');
 
     const save = () =>
         setSetting('buildingComplexes', {
@@ -62,7 +62,7 @@ export default async (
     updateBuildingListHideStyle();
     document.head.append(buildingListHideStyle);
 
-    const userBuildings = LSSM.$stores.newApi.buildings;
+    const userBuildings = LSSM.$stores.api.buildings;
 
     const complexesLayer = window.L.layerGroup().addTo(window.map);
     const complexMarkers: Marker[] = [];

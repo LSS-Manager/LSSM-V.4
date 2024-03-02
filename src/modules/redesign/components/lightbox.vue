@@ -84,11 +84,11 @@
 import Vue from 'vue';
 
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
+import { useAPIStore } from '@stores/api';
 import { useBroadcastStore } from '@stores/broadcast';
 import { useConsoleStore } from '@stores/console';
 import { useEventStore } from '@stores/event';
 import { useModulesStore } from '@stores/modules';
-import { useNewAPIStore } from '@stores/newApi';
 import { useNotificationStore } from '@stores/notifications';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
@@ -314,7 +314,7 @@ export default Vue.extend<
                 pictures: false,
             },
             existingHotkeys: [],
-            newApiStore: useNewAPIStore(),
+            apiStore: useAPIStore(),
             broadcastStore: useBroadcastStore(),
             consoleStore: useConsoleStore(),
             eventStore: useEventStore(),
@@ -404,7 +404,7 @@ export default Vue.extend<
 
                 let redirected = false;
 
-                this.newApiStore
+                this.apiStore
                     .request(url, `redesign-${type}`)
                     .then((res: Response) => {
                         if (res.redirected && type !== 'einsatz') {
@@ -711,10 +711,10 @@ export default Vue.extend<
     },
     beforeMount() {
         const mountFeature = 'redesign-lightbox-mount';
-        this.newApiStore.getAllianceInfo(mountFeature).then();
-        this.newApiStore.getBuildings(mountFeature).then();
-        this.newApiStore.getCredits(mountFeature).then();
-        this.newApiStore.getVehicles(mountFeature).then();
+        this.apiStore.getAllianceInfo(mountFeature).then();
+        this.apiStore.getBuildings(mountFeature).then();
+        this.apiStore.getCredits(mountFeature).then();
+        this.apiStore.getVehicles(mountFeature).then();
     },
     mounted() {
         this.settingsStore

@@ -17,7 +17,7 @@ export default (
         const props = getMissingRequirements(
             LSSM,
             missingDialog,
-            await LSSM.$stores.newApi.getMissionType(
+            await LSSM.$stores.api.getMissionType(
                 LSSM.$utils.getMissionTypeInMissionWindow(),
                 'ecw-emv'
             ),

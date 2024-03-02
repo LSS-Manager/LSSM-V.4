@@ -387,8 +387,8 @@ import Vue from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
 import { faHistory } from '@fortawesome/free-solid-svg-icons/faHistory';
 import isEqual from 'lodash/isEqual';
+import { useAPIStore } from '@stores/api';
 import { useModulesStore } from '@stores/modules';
-import { useNewAPIStore } from '@stores/newApi';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 import { useStorageStore } from '@stores/storage';
@@ -847,7 +847,7 @@ export default Vue.extend<
         this.getExportData();
         (window[PREFIX] as Vue).$settings = this;
 
-        useNewAPIStore()
+        useAPIStore()
             .request(this.rootStore.lssmUrl('/branches.json'), 'settings')
             .then(res => res.json() as Promise<SettingsData['branches']>)
             .then(branches => (this.branches = branches));

@@ -69,8 +69,7 @@ type RunningUpdatesMap = {
 const API_UPDATE_AFTER = 5 * 60 * 1000; // 5 Minutes
 const API_UPDATE_AFTER_SCHOOLINGS = 30 * 1000; // 30 seconds
 
-// TODO: Rename to defineAPIStore and id to api
-export const defineNewAPIStore = defineStore('newApi', () => {
+export const defineAPIStore = defineStore('api', () => {
     const secretKey = ref<string>('');
     const currentlyRunningUpdates: RunningUpdatesMap = {};
 
@@ -885,6 +884,5 @@ export const defineNewAPIStore = defineStore('newApi', () => {
     };
 });
 
-// TODO: Rename to useAPIStore
-export const useNewAPIStore: () => ReturnType<typeof defineNewAPIStore> = () =>
-    (window[PREFIX] as Vue)?.$stores?.newApi ?? defineNewAPIStore();
+export const useAPIStore: () => ReturnType<typeof defineAPIStore> = () =>
+    (window[PREFIX] as Vue)?.$stores?.api ?? defineAPIStore();

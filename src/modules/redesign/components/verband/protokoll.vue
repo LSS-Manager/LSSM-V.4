@@ -246,7 +246,7 @@ export default Vue.extend<
             this.startPage--;
             const url = new URL(`/alliance_logfiles`, window.location.origin);
             url.searchParams.set('page', this.startPage.toString());
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     url,
                     `redesign-verband-mitgliederliste-load-prev-${this.startPage}`
@@ -289,7 +289,7 @@ export default Vue.extend<
             this.endPage++;
             const url = new URL(`/alliance_logfiles`, window.location.origin);
             url.searchParams.set('page', this.endPage.toString());
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     url,
                     `redesign-verband-mitgliederliste-load-next-${this.endPage}`

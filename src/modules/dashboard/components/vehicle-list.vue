@@ -108,7 +108,7 @@ import Vue from 'vue';
 
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
-import { useNewAPIStore } from '@stores/newApi';
+import { useAPIStore } from '@stores/api';
 import { useRootStore } from '@stores/index';
 import { useTranslationStore } from '@stores/translationUtilities';
 
@@ -138,7 +138,7 @@ export default Vue.extend<
     },
     data() {
         const internalVehicleTypes = useTranslationStore().vehicles;
-        const newApiStore = useNewAPIStore();
+        const apiStore = useAPIStore();
         return {
             vehicleTypeNames: Object.fromEntries(
                 Object.entries(internalVehicleTypes).map(
@@ -146,7 +146,7 @@ export default Vue.extend<
                 )
             ),
             vehiclesWithBuildings: [],
-            buildings: newApiStore.buildingsArray,
+            buildings: apiStore.buildingsArray,
             search: '',
             sort: 'caption',
             sortDir: 'asc',
@@ -156,7 +156,7 @@ export default Vue.extend<
                 'dashboard-vehiclelist-resolvable-link'
             ),
             resolving: null,
-            newApiStore,
+            apiStore,
         } as VehicleList;
     },
     props: {
@@ -202,7 +202,7 @@ export default Vue.extend<
         toggleFMS(vehicle) {
             if (![2, 6].includes(vehicle.fms_real)) return;
             const target = vehicle.fms_real === 2 ? 6 : 2;
-            this.newApiStore
+            this.apiStore
                 .request(
                     `/vehicles/${vehicle.id}/set_fms/${target}`,
                     `dashboard-vehicleList-setfms`
@@ -221,7 +221,7 @@ export default Vue.extend<
             if (this.resolving) return;
             this.resolving = window.setTimeout(
                 () =>
-                    this.newApiStore
+                    this.apiStore
                         .request(
                             `/${type}s/${id}`,
                             'dashboard-vehiclelist-resolve-title'

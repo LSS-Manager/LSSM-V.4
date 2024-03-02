@@ -111,7 +111,7 @@ export default async (LSSM: Vue): Promise<void> => {
                 icon.classList.add('fas', 'fa-expand-arrows-alt');
                 control.append(icon);
                 control.style.setProperty('cursor', 'pointer');
-                LSSM.$stores.newApi
+                LSSM.$stores.api
                     .getSettings('mainPage-core_map-expand')
                     .then(({ design_mode }) =>
                         control.addEventListener('click', () => {
@@ -140,17 +140,17 @@ export default async (LSSM: Vue): Promise<void> => {
         event: 'radioMessage',
         post: false,
         callback(radioMessage: RadioMessage) {
-            LSSM.$stores.newApi.updateVehicleFromRadioMessage(radioMessage);
+            LSSM.$stores.api.updateVehicleFromRadioMessage(radioMessage);
         },
     });
 
-    LSSM.$stores.newApi.getBuildings('mainPage-core_initial-update').then();
+    LSSM.$stores.api.getBuildings('mainPage-core_initial-update').then();
 
     LSSM.$stores.root.hook({
         event: 'buildingMarkerAdd',
         async callback(buildingMarker: BuildingMarkerAdd) {
             const building =
-                await LSSM.$stores.newApi.updateBuildingFromBuildingMarkerAdd(
+                await LSSM.$stores.api.updateBuildingFromBuildingMarkerAdd(
                     buildingMarker
                 );
 

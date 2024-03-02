@@ -23,8 +23,8 @@ export default <ModuleMainFunction>(async ({
 
     window.simpleheat = simpleHeat;
 
-    await LSSM.$stores.newApi.getBuildings(MODULE_ID);
-    await LSSM.$stores.newApi.getVehicles(MODULE_ID);
+    await LSSM.$stores.api.getBuildings(MODULE_ID);
+    await LSSM.$stores.api.getVehicles(MODULE_ID);
 
     const getModuleSettings = () =>
         LSSM.$stores.settings.getModule<Settings>(MODULE_ID);
@@ -73,7 +73,7 @@ export default <ModuleMainFunction>(async ({
     };
 
     const setData = (heatLayer: HeatLayer) => {
-        const buildings = LSSM.$stores.newApi.buildingsArray;
+        const buildings = LSSM.$stores.api.buildingsArray;
         const buildingsById = Object.fromEntries(
             buildings.map(({ id, latitude, longitude }) => [
                 id,
@@ -104,7 +104,7 @@ export default <ModuleMainFunction>(async ({
             const vehicleTypes = vehicleSettings.includes.map(
                 ({ value }) => value
             );
-            LSSM.$stores.newApi.vehiclesArray.forEach(
+            LSSM.$stores.api.vehiclesArray.forEach(
                 ({ building_id, vehicle_type, vehicle_type_caption = '' }) => {
                     if (
                         !(

@@ -71,7 +71,7 @@ export default (
     const getVehicleStaff = (
         vehicleId: number
     ): { min: number; max: number } => {
-        const vehicle = LSSM.$stores.newApi.vehicles[vehicleId];
+        const vehicle = LSSM.$stores.api.vehicles[vehicleId];
         if (!vehicle) return { min: 0, max: 0 };
         return {
             min: vehicleTypes[vehicle.vehicle_type]?.staff.min ?? 0,
@@ -175,7 +175,7 @@ export default (
                 checkbox.getAttribute('tractive_vehicle_id') ?? '-1'
             );
             const tractiveVehicle =
-                LSSM.$stores.newApi.vehicles[tractiveVehicleId];
+                LSSM.$stores.api.vehicles[tractiveVehicleId];
             // tractive vehicle is explicitly set
             if (
                 tractiveVehicle &&

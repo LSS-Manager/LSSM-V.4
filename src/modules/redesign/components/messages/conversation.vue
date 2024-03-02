@@ -271,7 +271,7 @@ export default Vue.extend<
                 window.location.origin
             );
             url.searchParams.set('page', newPage.toString());
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(url, `redesign-conversation-load-${mode}-${newPage}`)
                 .then((res: Response) => res.text())
                 .then(async html => {
@@ -328,7 +328,7 @@ export default Vue.extend<
                 this.conversation.id.toString()
             );
             url.searchParams.append('message[body]', this.response);
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/messages`,
                     'redesign-messages-conversation-respond',
@@ -379,7 +379,7 @@ export default Vue.extend<
                 'conversations[]',
                 this.conversation.id.toString()
             );
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/messages/trash`,
                     'redesign-messages-conversation-delete',

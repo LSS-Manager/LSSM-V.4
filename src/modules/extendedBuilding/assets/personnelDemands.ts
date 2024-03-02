@@ -18,7 +18,7 @@ export default (
     let sumMinPersonnelS6 = 0;
     let sumMaxPersonnelS6 = 0;
 
-    LSSM.$stores.newApi
+    LSSM.$stores.api
         .getVehiclesAtBuilding(buildingId, `${MODULE_ID}-personnelDemands`)
         .then(vehicles => {
             vehicles.forEach(vehicle => {

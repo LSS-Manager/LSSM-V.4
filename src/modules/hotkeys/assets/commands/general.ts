@@ -89,10 +89,10 @@ export default <
     },
     async protocol() {
         const LSSM = window[PREFIX] as Vue;
-        await LSSM.$stores.newApi.getBuildings('hotkeys-*.protocol');
+        await LSSM.$stores.api.getBuildings('hotkeys-*.protocol');
         const lstBuildings = LSSM.$stores.translations.dispatchCenterBuildings;
-        const id = LSSM.$stores.newApi.buildingsArray.find(
-            ({ building_type }) => lstBuildings.includes(building_type)
+        const id = LSSM.$stores.api.buildingsArray.find(({ building_type }) =>
+            lstBuildings.includes(building_type)
         )?.id;
         if (id) window.lightboxOpen(`/buildings/${id}#tab_protocol`);
     },

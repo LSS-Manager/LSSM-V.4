@@ -85,7 +85,7 @@ export default Vue.extend<
                 this.note.authenticity_token
             );
             url.searchParams.append('note[message]', this.noteText);
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(`/note`, 'redesign-note', {
                     credentials: 'include',
                     headers: {

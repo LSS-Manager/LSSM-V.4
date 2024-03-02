@@ -29,7 +29,7 @@ export default async (
         document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
             ?.content ?? '';
 
-    const missionsById = await LSSM.$stores.newApi.getMissionTypes(
+    const missionsById = await LSSM.$stores.api.getMissionTypes(
         `${MODULE_ID}-shareMissions`
     );
     const acceptedMissionTypes = Object.entries(missionsById)
@@ -117,7 +117,7 @@ export default async (
             mission.btnGroup.append(btn);
             btn.addEventListener('click', () => {
                 btn.disabled = true;
-                LSSM.$stores.newApi
+                LSSM.$stores.api
                     .request(
                         `/missions/${mission.id}/alliance`,
                         'ecl-share-missions'

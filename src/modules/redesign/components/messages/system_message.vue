@@ -62,7 +62,7 @@ export default Vue.extend<
                 this.message.authenticity_token
             );
             url.searchParams.append('_method', 'post');
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/messages/system_message/${this.id}/remove`,
                     'redesign-messages-system_messages-delete',

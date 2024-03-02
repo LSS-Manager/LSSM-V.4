@@ -43,7 +43,7 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
                                     .querySelector('meta[name="csrf-token"]')
                                     ?.getAttribute('content') || ''
                             );
-                            await LSSM.$stores.newApi
+                            await LSSM.$stores.api
                                 .request(btn.href, `${MODULE_ID}-forumpost`, {
                                     method: 'POST',
                                     body: url.searchParams.toString(),

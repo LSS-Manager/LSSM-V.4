@@ -1,6 +1,6 @@
 import type { Building } from 'typings/Building';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import type { useNewAPIStore } from '@stores/newApi';
+import type { useAPIStore } from '@stores/api';
 import type { useTranslationStore } from '@stores/translationUtilities';
 import type VueI18n from 'vue-i18n';
 
@@ -25,7 +25,7 @@ export interface BuildingList {
     dispatchCenterBuildings: number[];
     bedBuildings: Building[];
     bedBuildingsType: number[];
-    newApiStore: ReturnType<typeof useNewAPIStore>;
+    apiStore: ReturnType<typeof useAPIStore>;
     translationStore: ReturnType<typeof useTranslationStore>;
 }
 

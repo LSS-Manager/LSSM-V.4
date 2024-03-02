@@ -160,7 +160,7 @@ export default Vue.extend<
                 this.$refs[`notes_${friend_id}`] as HTMLTextAreaElement[]
             )[0].value;
             url.searchParams.append('friend[comment]', note);
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/friends/${friend_id}`,
                     'redesign-freunde-edit-note',
@@ -196,7 +196,7 @@ export default Vue.extend<
                 });
         },
         removeFriend(user_id) {
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/freunde/entfernen/${user_id}?user=${user_id}`,
                     'redesign-freunde-remove-friend',

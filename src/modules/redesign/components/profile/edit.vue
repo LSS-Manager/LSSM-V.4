@@ -52,7 +52,7 @@ export default Vue.extend<
             const content =
                 (this.$refs.content as HTMLTextAreaElement | null)?.value ?? '';
             url.searchParams.append('profile[content]', content);
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(`/profile`, 'redesign-profile-edit', {
                     credentials: 'include',
                     headers: {

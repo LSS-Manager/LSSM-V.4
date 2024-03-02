@@ -103,7 +103,7 @@ export default Vue.extend<
                 'authenticity_token',
                 this.fahrzeugfarbe.authenticity_token
             );
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/fahrzeugfarbe/${this.fahrzeugfarbe.vehicleType}/update${this.urlSearchParam}`,
                     `redesign-update-fahrzeugfarbe-${this.fahrzeugfarbe.vehicleType}`,
@@ -131,7 +131,7 @@ export default Vue.extend<
                 });
         },
         resetColor() {
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/fahrzeugfarbe/${this.fahrzeugfarbe.vehicleType}/destroy${this.urlSearchParam}`,
                     `redesign-destroy-fahrzeugfarbe-${this.fahrzeugfarbe.vehicleType}`,

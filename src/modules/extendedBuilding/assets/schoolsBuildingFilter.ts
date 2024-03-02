@@ -14,13 +14,13 @@ export default async (LSSM: Vue) => {
 
     if (!accordion) return;
 
-    await LSSM.$stores.newApi.getBuildings('eb-sbf');
-    await LSSM.$stores.newApi.getVehicles('eb-sbf');
+    await LSSM.$stores.api.getBuildings('eb-sbf');
+    await LSSM.$stores.api.getVehicles('eb-sbf');
 
     const buildings: BuildingInfos[] = [];
 
-    const buildingsById = LSSM.$stores.newApi.buildings;
-    const vehiclesByBuilding = LSSM.$stores.newApi.vehiclesByBuilding;
+    const buildingsById = LSSM.$stores.api.buildings;
+    const vehiclesByBuilding = LSSM.$stores.api.vehiclesByBuilding;
 
     const buildingTypes = LSSM.$stores.translations.buildings;
     const vehicleTypes = LSSM.$stores.translations.vehicles;

@@ -17,7 +17,7 @@ export default async (
             `#protocol_entry_${btn.getAttribute('protocol_id')}`
         );
         if (!row) return;
-        await LSSM.$stores.newApi.request(
+        await LSSM.$stores.api.request(
             link,
             `${MODULE_ID}-protocolDeletionConfirmation`
         );

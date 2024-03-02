@@ -9,7 +9,7 @@ import type {
 } from 'typings/modules/ExtendedBuilding/schoolingSummary';
 
 export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
-    await LSSM.$stores.newApi.getBuildings(`${MODULE_ID}-schoolingSummary`);
+    await LSSM.$stores.api.getBuildings(`${MODULE_ID}-schoolingSummary`);
     const dataList =
         document.querySelector<HTMLDataListElement>('dl:last-of-type');
 
@@ -71,7 +71,7 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
 
     const buildingType =
         LSSM.$stores.translations.buildings[
-            LSSM.$stores.newApi.buildings[buildingId]?.building_type ?? -1
+            LSSM.$stores.api.buildings[buildingId]?.building_type ?? -1
         ];
 
     const schools =
@@ -93,7 +93,7 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
         ])
     );
 
-    LSSM.$stores.newApi
+    LSSM.$stores.api
         .getVehiclesAtBuilding(buildingId, `${MODULE_ID}-schoolingSummary`)
         .then(vehicles => {
             vehicles.forEach(vehicle => {

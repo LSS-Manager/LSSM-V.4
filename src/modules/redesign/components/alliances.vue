@@ -158,7 +158,7 @@ export default Vue.extend<
             const search =
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
             if (search) url.searchParams.set('caption', search);
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(url, `redesign-alliances-load-prev-${this.startPage}`)
                 .then((res: Response) => res.text())
                 .then(async html => {
@@ -197,7 +197,7 @@ export default Vue.extend<
             const search =
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
             if (search) url.searchParams.set('caption', search);
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(url, `redesign-alliances-load-next-${this.endPage}`)
                 .then((res: Response) => res.text())
                 .then(async html => {

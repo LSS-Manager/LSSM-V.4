@@ -142,7 +142,7 @@ export default Vue.extend<
             this.$set(this.lightbox, 'loading', true);
             this.startPage--;
             const url = `/coins/list?page=${this.startPage}`;
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(url, `redesign-coins-list-load-prev-${this.startPage}`)
                 .then((res: Response) => res.text())
                 .then(async html => {
@@ -175,7 +175,7 @@ export default Vue.extend<
             this.$set(this.lightbox, 'loading', true);
             this.endPage++;
             const url = `/coins/list?page=${this.endPage}`;
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(url, `redesign-coins-list-load-next-${this.endPage}`)
                 .then((res: Response) => res.text())
                 .then(async html => {

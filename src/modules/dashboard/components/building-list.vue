@@ -137,7 +137,7 @@
 import Vue from 'vue';
 
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
-import { useNewAPIStore } from '@stores/newApi';
+import { useAPIStore } from '@stores/api';
 import { useTranslationStore } from '@stores/translationUtilities';
 
 import type {
@@ -170,7 +170,7 @@ export default Vue.extend<
             ),
     },
     data() {
-        const newApiStore = useNewAPIStore();
+        const apiStore = useAPIStore();
         const translationStore = useTranslationStore();
         const headingsAll = {
             building_type: { title: this.$m('type') },
@@ -223,7 +223,7 @@ export default Vue.extend<
                 id: 0,
             },
         ] as Building[];
-        const buildingsByType = newApiStore.buildingsByType;
+        const buildingsByType = apiStore.buildingsByType;
         const dispatchCenterBuildings =
             useTranslationStore().dispatchCenterBuildings;
         dispatchCenterBuildings.forEach(type =>
@@ -262,7 +262,7 @@ export default Vue.extend<
             dispatchCenterBuildings,
             bedBuildings,
             bedBuildingsType,
-            newApiStore: useNewAPIStore(),
+            apiStore: useAPIStore(),
             translationStore,
         } as BuildingList;
     },
@@ -315,7 +315,7 @@ export default Vue.extend<
             this.sortDir = 'asc';
         },
         setDispatchCenter(building, dispatchBuilding) {
-            this.newApiStore
+            this.apiStore
                 .request(
                     `/buildings/${building.id}/leitstelle-set/${dispatchBuilding.id}`,
                     `dashboard-buildingList-fastDispatchChooser`

@@ -9,7 +9,7 @@ export default async (
 ): Promise<void> => {
     const path = window.location.pathname.split('/').filter(s => !!s);
     const buildingId = parseInt(path.at(-1) ?? '-1');
-    await LSSM.$stores.newApi.getBuildings(`${MODULE_ID}_fdc`);
+    await LSSM.$stores.api.getBuildings(`${MODULE_ID}_fdc`);
 
     const callback = () => {
         const buildingIds = BUILDING_MODE === 'dispatch' ? [] : [buildingId];
@@ -33,12 +33,12 @@ export default async (
         const buildings = [
             { caption: $m('fastDispatchChooser.noDispatch'), id: 0 },
         ] as Building[];
-        const buildingsByType = LSSM.$stores.newApi.buildingsByType;
+        const buildingsByType = LSSM.$stores.api.buildingsByType;
         LSSM.$stores.translations.dispatchCenterBuildings.forEach(type =>
             buildings.push(...Object.values(buildingsByType[type] ?? []))
         );
         buildingIds.forEach(buildingID => {
-            const building = LSSM.$stores.newApi.buildings[buildingID];
+            const building = LSSM.$stores.api.buildings[buildingID];
             if (!building) return;
             const dispatchBtn = (
                 BUILDING_MODE !== 'dispatch'
@@ -129,7 +129,7 @@ export default async (
                     setBtn.style.marginLeft = '1ch';
                     setBtn.addEventListener('click', e => {
                         e.preventDefault();
-                        LSSM.$stores.newApi
+                        LSSM.$stores.api
                             .request(
                                 `/buildings/${buildingID}/leitstelle-set/${building.id}`,
                                 `${MODULE_ID}-fastDispatchChooser`

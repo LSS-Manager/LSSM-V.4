@@ -169,7 +169,7 @@ import Vue from 'vue';
 import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons/faTrashCan';
 import isEqual from 'lodash/isEqual';
-import { useNewAPIStore } from '@stores/newApi';
+import { useAPIStore } from '@stores/api';
 import { useTranslationStore } from '@stores/translationUtilities';
 
 import type { $m } from 'typings/Module';
@@ -195,7 +195,7 @@ export default Vue.extend<
         iconBase64s: string[];
         excludedCustomIcons: string[];
         erroredIcons: string[];
-        newApiStore: ReturnType<typeof useNewAPIStore>;
+        apiStore: ReturnType<typeof useAPIStore>;
     },
     { save(): void; dissolveHandler(): void; adjustDropdownPosition(): void },
     {
@@ -235,9 +235,9 @@ export default Vue.extend<
             ),
     },
     data() {
-        const newApiStore = useNewAPIStore();
-        const userBuildings = newApiStore.buildings;
-        const allianceBuildings = newApiStore.alliance_buildings;
+        const apiStore = useAPIStore();
+        const userBuildings = apiStore.buildings;
+        const allianceBuildings = apiStore.alliance_buildings;
         const buildingTypes = useTranslationStore().buildings;
 
         return {
@@ -257,7 +257,7 @@ export default Vue.extend<
             iconBase64s: [],
             excludedCustomIcons: [],
             erroredIcons: [],
-            newApiStore,
+            apiStore,
         };
     },
     computed: {
@@ -504,8 +504,8 @@ export default Vue.extend<
         },
     },
     async beforeMount() {
-        await this.newApiStore.getAllianceBuildings('buildingComplexes');
-        await this.newApiStore.getBuildings('buildingComplexes');
+        await this.apiStore.getAllianceBuildings('buildingComplexes');
+        await this.apiStore.getBuildings('buildingComplexes');
     },
     mounted() {
         this.name = this.complex.name;

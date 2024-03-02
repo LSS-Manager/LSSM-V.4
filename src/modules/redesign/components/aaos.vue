@@ -231,7 +231,7 @@ export default Vue.extend<
                                 'authenticity_token',
                                 LSSM.aaos.authenticity_token
                             );
-                            LSSM.lightbox.newApiStore
+                            LSSM.lightbox.apiStore
                                 .request(
                                     `/${
                                         type === 'arr'
@@ -289,7 +289,7 @@ export default Vue.extend<
                     {
                         title: this.lightbox.$sm('delete.confirm'),
                         async handler() {
-                            LSSM.lightbox.newApiStore
+                            LSSM.lightbox.apiStore
                                 .request(
                                     '/aao/alle_loeschen',
                                     'redesign-aaos-delete-all'

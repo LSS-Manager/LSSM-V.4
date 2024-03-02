@@ -158,7 +158,7 @@ export default Vue.extend<
             url.searchParams.append('message[recipients]', this.receiver.value);
             url.searchParams.append('message[subject]', this.subject.value);
             url.searchParams.append('message[body]', this.content.value);
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(`/messages`, 'redesign-messages-new', {
                     credentials: 'include',
                     headers: {

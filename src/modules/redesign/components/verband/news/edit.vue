@@ -96,7 +96,7 @@ export default Vue.extend<
             if ((this.$refs.public as HTMLInputElement | null)?.checked)
                 url.searchParams.append('alliance_newse[public]', '1');
             if (this.news.id > 0) url.searchParams.append('_method', 'put');
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/alliance_newses${
                         this.news.id < 0 ? '' : `/${this.news.id}`

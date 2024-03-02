@@ -59,7 +59,7 @@ export default async (
         Record<string, { order: number; el: HTMLDivElement }>
     > = {};
 
-    const missionsById = await LSSM.$stores.newApi.getMissionTypes(
+    const missionsById = await LSSM.$stores.api.getMissionTypes(
         `${MODULE_ID}-sort-callList`
     );
     const missionIdsByAlphabet: Record<string, number> = Object.fromEntries(
@@ -75,15 +75,13 @@ export default async (
     const vehicleBuildings: Building[] = [];
     const vehicleBuildingLatLngs: LatLng[] = [];
 
-    LSSM.$stores.newApi.getBuildings('ecl-sort-missions').then(() => {
+    LSSM.$stores.api.getBuildings('ecl-sort-missions').then(() => {
         dispatchCenters.splice(
             0,
             dispatchCenters.length,
             ...LSSM.$stores.translations.dispatchCenterBuildings
                 .flatMap(type =>
-                    Object.values(
-                        LSSM.$stores.newApi.buildingsByType[type] ?? {}
-                    )
+                    Object.values(LSSM.$stores.api.buildingsByType[type] ?? {})
                 )
                 .filter(b => !!b)
         );
@@ -101,9 +99,7 @@ export default async (
             vehicleBuildings.length,
             ...LSSM.$stores.translations.vehicleBuildings
                 .flatMap(type =>
-                    Object.values(
-                        LSSM.$stores.newApi.buildingsByType[type] ?? {}
-                    )
+                    Object.values(LSSM.$stores.api.buildingsByType[type] ?? {})
                 )
                 .filter(b => !!b)
         );

@@ -1287,7 +1287,7 @@ import moment from 'moment';
 import { useEventStore } from '@stores/event';
 import { useRootStore } from '@stores/index';
 import { useTranslationStore } from '@stores/translationUtilities';
-import { defineNewAPIStore, useNewAPIStore } from '@stores/newApi';
+import { defineAPIStore, useAPIStore } from '@stores/api';
 
 import type { Complex } from '../../assets/buildingComplexes';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
@@ -1545,7 +1545,7 @@ export default Vue.extend<
             sort: ProtocolSortAttribute;
             sortDir: 'asc' | 'desc';
         };
-        newApiStore: ReturnType<typeof useNewAPIStore>;
+        apiStore: ReturnType<typeof useAPIStore>;
         rootStore: ReturnType<typeof useRootStore>;
         translationStore: ReturnType<typeof useTranslationStore>;
         moment: typeof moment;
@@ -1715,14 +1715,14 @@ export default Vue.extend<
                 sort: 'time',
                 sortDir: 'asc',
             },
-            newApiStore: useNewAPIStore(),
+            apiStore: useAPIStore(),
             rootStore: useRootStore(),
             translationStore,
             moment,
         };
     },
     computed: {
-        ...mapState(defineNewAPIStore, {
+        ...mapState(defineAPIStore, {
             allSchoolings: 'allSchoolings',
             buildings: 'buildings',
             vehiclesByBuilding: 'vehiclesByBuilding',
@@ -2217,7 +2217,7 @@ export default Vue.extend<
                                             buildingTypeId
                                         ][index] ??=
                                             extensionType.maxExtensionsFunction(
-                                                this.newApiStore.buildingsByType
+                                                this.apiStore.buildingsByType
                                             );
                                     }
 
@@ -2339,7 +2339,7 @@ export default Vue.extend<
                                                   coins: extensionType.coins,
                                                   enoughCredits:
                                                       (alliance
-                                                          ? this.newApiStore
+                                                          ? this.apiStore
                                                                 .allianceinfo
                                                                 ?.credits_current ??
                                                             0
@@ -2646,7 +2646,7 @@ export default Vue.extend<
         },
         userHasAllianceFinanceRights() {
             const allianceUserRoleFlags =
-                this.newApiStore.allianceinfo?.users.find(
+                this.apiStore.allianceinfo?.users.find(
                     ({ id }) => id === window.user_id
                 )?.role_flags;
             return !!(
@@ -2780,8 +2780,8 @@ export default Vue.extend<
                     case this.overviewTabs.classrooms:
                         this.classRoomsUpdating = true;
                         return Promise.all([
-                            this.newApiStore.getSchoolings('buildingComplex'),
-                            this.newApiStore.getAllianceSchoolings(
+                            this.apiStore.getSchoolings('buildingComplex'),
+                            this.apiStore.getAllianceSchoolings(
                                 'buildingComplex'
                             ),
                         ])
@@ -2789,14 +2789,14 @@ export default Vue.extend<
                             .then(() => this.initSchoolingCountdowns())
                             .then(() => (this.classRoomsUpdating = false));
                     case this.overviewTabs.buildings:
-                        return this.newApiStore.getBuildings('buildingComplex');
+                        return this.apiStore.getBuildings('buildingComplex');
                     case this.overviewTabs.extensions:
-                        return this.newApiStore
+                        return this.apiStore
                             .getBuildings('buildingComplex')
                             .then(() => this.$nextTick())
                             .then(() => this.initExtensionCountdowns());
                     case this.overviewTabs.vehicles:
-                        return this.newApiStore.getBuildings('buildingComplex');
+                        return this.apiStore.getBuildings('buildingComplex');
                     case this.overviewTabs.protocol:
                         return this.updateProtocol();
                 }
@@ -2863,12 +2863,12 @@ export default Vue.extend<
             if (![2, 6].includes(vehicle.fms_real)) return;
             const targetFMS = vehicle.fms_real === 2 ? 6 : 2;
             const feature = 'buildingComplex-setFMS';
-            this.newApiStore
+            this.apiStore
                 .request(
                     `/vehicles/${vehicle.id}/set_fms/${targetFMS}`,
                     feature
                 )
-                .then(() => this.newApiStore.getVehicle(vehicle.id, feature));
+                .then(() => this.apiStore.getVehicle(vehicle.id, feature));
         },
         setSortBuildingsTable(sort) {
             const s = sort;
@@ -2933,7 +2933,7 @@ export default Vue.extend<
                 )?.content ?? ''
             );
             const feature = 'buildingComplexes-build-extension';
-            this.newApiStore
+            this.apiStore
                 .request(
                     `/buildings/${buildingId}/extension/${method}/${extensionType}?redirect_building_id=${buildingId}`,
                     feature,
@@ -2948,11 +2948,8 @@ export default Vue.extend<
                 )
                 .then(() =>
                     allianceBuilding
-                        ? this.newApiStore.getAllianceBuilding(
-                              buildingId,
-                              feature
-                          )
-                        : this.newApiStore.getBuilding(buildingId, feature)
+                        ? this.apiStore.getAllianceBuilding(buildingId, feature)
+                        : this.apiStore.getBuilding(buildingId, feature)
                 )
                 .then(() => {
                     this.tempDisableAllExtensionButtons = false;
@@ -2972,7 +2969,7 @@ export default Vue.extend<
                 )?.content ?? ''
             );
             const feature = 'buildingComplexes-toggle-extension';
-            this.newApiStore
+            this.apiStore
                 .request(
                     `/buildings/${buildingId}/extension_ready/${extensionType}/${buildingId}`,
                     feature,
@@ -2985,7 +2982,7 @@ export default Vue.extend<
                         body: url.searchParams.toString(),
                     }
                 )
-                .then(() => this.newApiStore.getBuilding(buildingId, feature))
+                .then(() => this.apiStore.getBuilding(buildingId, feature))
                 .then(() => {
                     this.tempDisableAllExtensionButtons = false;
                 });
@@ -3034,7 +3031,7 @@ export default Vue.extend<
         updateProtocol() {
             const dispatchCenterTypes =
                 this.translationStore.dispatchCenterBuildings;
-            const dispatchCenterBuilding = this.newApiStore.buildingsArray.find(
+            const dispatchCenterBuilding = this.apiStore.buildingsArray.find(
                 ({ building_type }) =>
                     dispatchCenterTypes.includes(building_type)
             );
@@ -3043,7 +3040,7 @@ export default Vue.extend<
                 window.clearTimeout(this.protocolDeletionTimeout);
             this.protocolDeletionTimeout = window.setTimeout(() => {
                 this.protocolUpdating = true;
-                this.newApiStore
+                this.apiStore
                     .request(
                         `/buildings/${dispatchCenterBuilding.id}/leitstelle-protocol`,
                         'buildingComplex'
@@ -3158,7 +3155,7 @@ export default Vue.extend<
         },
         deleteProtocolEntry(id, dispatchId) {
             this.protocolDeletions.push(id);
-            this.newApiStore
+            this.apiStore
                 .request(
                     `/buildings/${dispatchId}/leitstelle-protocol-delete?protocol_id=${id}`,
                     'buildingComplex'
@@ -3196,18 +3193,18 @@ export default Vue.extend<
         },
         toggleAllianceShare(buildingId) {
             const feature = 'buildingComplex-toggle-alliance-share';
-            this.newApiStore
+            this.apiStore
                 .request(`/buildings/${buildingId}/alliance`, feature)
-                .then(() => this.newApiStore.getBuilding(buildingId, feature));
+                .then(() => this.apiStore.getBuilding(buildingId, feature));
         },
         setAllianceTax(buildingId, tax) {
             const feature = 'buildingComplex-toggle-alliance-set-tax';
-            this.newApiStore
+            this.apiStore
                 .request(
                     `/buildings/${buildingId}/alliance_costs/${tax}`,
                     feature
                 )
-                .then(() => this.newApiStore.getBuilding(buildingId, feature));
+                .then(() => this.apiStore.getBuilding(buildingId, feature));
         },
         openAvailableSchool() {
             const buildingId = this.schoolingBuildings.find(
@@ -3260,7 +3257,7 @@ export default Vue.extend<
     },
     beforeMount() {
         this.moment.locale(useRootStore().locale);
-        this.newApiStore.getBuildings('buildingComplex');
+        this.apiStore.getBuildings('buildingComplex');
     },
     mounted() {
         this.$set(this, 'currentBuildingId', this.sortedBuildingIdsByName[-1]);

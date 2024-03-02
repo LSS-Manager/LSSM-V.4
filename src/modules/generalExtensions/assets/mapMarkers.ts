@@ -276,7 +276,7 @@ export default async (
         const { lat, lng, zoom } = JSON.parse(
             target.getAttribute('data-history') || '{}'
         );
-        LSSM.$stores.newApi
+        LSSM.$stores.api
             .request(
                 `/reverse_address?latitude=${lat}&longitude=${lng}`,
                 `${MODULE_ID}-mapMarkers`

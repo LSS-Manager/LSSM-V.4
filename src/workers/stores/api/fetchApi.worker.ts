@@ -9,7 +9,7 @@ import checkRequestInit from '../../../importableScripts/checkRequestInit';
 import type { Building } from 'typings/Building';
 import type { SchoolingAPI } from 'typings/api/Schoolings';
 import type { Vehicle } from 'typings/Vehicle';
-import type { APIKey, APIs } from '@stores/newApi';
+import type { APIKey, APIs } from '@stores/api';
 
 type ApiFetchResults = APIs & {
     vehicles: Vehicle[];

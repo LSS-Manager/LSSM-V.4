@@ -86,7 +86,7 @@ export default Vue.extend<
             this.startPage--;
             const url = new URL('/alliance_chats', window.location.origin);
             url.searchParams.set('page', this.startPage.toString());
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(url, `redesign-chatlog-load-prev-${this.startPage}`)
                 .then((res: Response) => res.text())
                 .then(async html => {
@@ -122,7 +122,7 @@ export default Vue.extend<
             this.endPage++;
             const url = new URL('/alliance_chats', window.location.origin);
             url.searchParams.set('page', this.endPage.toString());
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(url, `redesign-chatlog-load-next-${this.endPage}`)
                 .then((res: Response) => res.text())
                 .then(async html => {

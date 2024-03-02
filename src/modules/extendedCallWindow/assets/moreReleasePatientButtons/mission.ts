@@ -22,7 +22,7 @@ export default (LSSM: Vue, releaseText: string) => {
             btnGroup.append(vehicle, releaseBtn);
         });
 
-    LSSM.$stores.newApi.getAllianceInfo('ecw-mrpb').then(allianceInfo => {
+    LSSM.$stores.api.getAllianceInfo('ecw-mrpb').then(allianceInfo => {
         const roleFlags = allianceInfo.users.find(
             ({ id }) => id === window.user_id
         )?.role_flags;

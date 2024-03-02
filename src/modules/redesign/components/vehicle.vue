@@ -662,7 +662,7 @@ import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
 import { mapState } from 'pinia';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
-import { defineNewAPIStore, useNewAPIStore } from '@stores/newApi';
+import { defineAPIStore, useAPIStore } from '@stores/api';
 
 import createBtn from '../../extendedCallList/assets/starrableMissions/createBtn';
 
@@ -1138,7 +1138,7 @@ export default Vue.extend<
             }
             return this.sortedItems;
         },
-        ...mapState(defineNewAPIStore, ['participatedMissions']),
+        ...mapState(defineAPIStore, ['participatedMissions']),
         hotkeysParam() {
             return {
                 component: this,
@@ -1248,7 +1248,7 @@ export default Vue.extend<
                 this.vehicle.id.toString()
             );
             url.searchParams.append('vehicle_return', '1');
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/missions/${missionId}/alarm`,
                     `redesign-vehicle-alarm-${this.vehicle.id}-to-${missionId}`,
@@ -1297,7 +1297,7 @@ export default Vue.extend<
             }
         },
         approach(url, followRedirect = true) {
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(url, `redesign-vehicle-approach`)
                 .then((res: Response) => {
                     if (res.redirected && followRedirect) {
@@ -1391,7 +1391,7 @@ export default Vue.extend<
                                 'authenticity_token',
                                 LSSM.vehicle.authenticity_token
                             );
-                            LSSM.lightbox.newApiStore
+                            LSSM.lightbox.apiStore
                                 .request(
                                     `/vehicles/${LSSM.vehicle.id}`,
                                     `redesign-vehicle-delete-${LSSM.vehicle.id}`,
@@ -1424,7 +1424,7 @@ export default Vue.extend<
             });
         },
         backalarm() {
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/vehicles/${this.vehicle.id}/backalarm`,
                     `redesign-vehicle-alarm-${this.vehicle.id}-backalarm`
@@ -1438,7 +1438,7 @@ export default Vue.extend<
                 );
         },
         backalarmFollowUp(missionId) {
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/vehicles/${this.vehicle.id}/backalarm?only_mission_id=${missionId}`,
                     `redesign-vehicle-backalarm-only_mission`
@@ -1452,7 +1452,7 @@ export default Vue.extend<
                 });
         },
         backalarmCurrent() {
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/vehicles/${this.vehicle.id}/backalarm?next_mission=1`,
                     `redesign-vehicle-backalarm-next_mission`
@@ -1468,7 +1468,7 @@ export default Vue.extend<
         switchState() {
             if (![2, 6].includes(this.vehicle.fms)) return;
             const target = this.vehicle.fms === 2 ? 6 : 2;
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/vehicles/${this.vehicle.id}/set_fms/${target}`,
                     `redesign-vehicle-setfms`
@@ -1537,7 +1537,7 @@ export default Vue.extend<
                     'authenticity_token',
                     this.vehicle.authenticity_token
                 );
-                this.lightbox.newApiStore
+                this.lightbox.apiStore
                     .request(
                         `${url.pathname}?vehicle_id=${this.vehicle.id}`,
                         `redesign-vehicle-release-prisoners`,
@@ -1604,7 +1604,7 @@ export default Vue.extend<
                 `/vehicles/${this.vehicle.id}?load_all=true`,
                 window.location.origin
             );
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(url, `redesign-vehicle-load_all_hospitals`)
                 .then((res: Response) => res.text())
                 .then(async html => {
@@ -1724,7 +1724,7 @@ export default Vue.extend<
     mounted() {
         this.updateStarredMissions().then();
 
-        useNewAPIStore()
+        useAPIStore()
             .getMissionTypes('redesign-vehicle')
             .then(missionTypes => (this.missionTypes = missionTypes));
 

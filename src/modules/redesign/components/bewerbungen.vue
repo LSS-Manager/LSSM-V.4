@@ -140,7 +140,7 @@ export default Vue.extend<
     },
     methods: {
         accept(id, username) {
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/verband/bewerbungen/annehmen/${id}`,
                     `redesign-verband-bewerbungen-accept`,
@@ -171,7 +171,7 @@ export default Vue.extend<
                 });
         },
         decline(id, username) {
-            this.lightbox.newApiStore
+            this.lightbox.apiStore
                 .request(
                     `/verband/bewerbungen/ablehnen/${id}`,
                     `redesign-verband-bewerbungen-decline`,
@@ -211,7 +211,7 @@ export default Vue.extend<
                             window.location.origin
                         ).toString();
                         return new Promise<void>(resolve =>
-                            this.lightbox.newApiStore
+                            this.lightbox.apiStore
                                 .request(
                                     url,
                                     `redesign-bewerbungen-load-credits`

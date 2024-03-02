@@ -31,7 +31,7 @@ export default (LSSM: Vue, $m: $m, $mc: $mc, MODULE_ID: string) => {
 
         liItem.addEventListener('click', e => {
             e.preventDefault();
-            LSSM.$stores.newApi
+            LSSM.$stores.api
                 .request(
                     `/vehiclepatrols/start/${duration}?duration=${duration}`,
                     `${MODULE_ID}_startPatrolsShortcut`

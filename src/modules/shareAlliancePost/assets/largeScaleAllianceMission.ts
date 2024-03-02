@@ -151,7 +151,7 @@ export default async ({
 
     const observedGroups = new Set<string>();
 
-    const missionsById = await LSSM.$stores.newApi.getMissionTypes(
+    const missionsById = await LSSM.$stores.api.getMissionTypes(
         'sap-largeScaleAllianceMission'
     );
 

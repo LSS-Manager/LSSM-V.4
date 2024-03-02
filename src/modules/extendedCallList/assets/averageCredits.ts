@@ -11,7 +11,7 @@ export default async (
     addAverageCredits(mission: ProgressPrependCallback): number;
     updateAverageCredits(mission: MissionUpdateCallback): void;
 }> => {
-    const missionsById = await LSSM.$stores.newApi.getMissionTypes(
+    const missionsById = await LSSM.$stores.api.getMissionTypes(
         `${MODULE_ID}-averageCredits`
     );
 
