@@ -21,13 +21,13 @@
         <div class='row'>
             <div class='col-sm-8'>
                 <b>Result ({{ resultLength }}):</b>
-                <pre>{{ result }}</pre>
+                <pre>{{ resultString }}</pre>
             </div>
         </div>
     </lightbox>
 </template>
 <script lang='ts'>
-import { ref, UnwrapRef } from 'vue';
+import { computed, ref } from 'vue';
 
 import jsonata from 'jsonata';
 import { useAPIStore } from '@stores/api';
@@ -44,7 +44,12 @@ export default {
         const query = ref('');
         const result = ref(JSON);
         const resultString = ref('');
-        const resultLength = ref(0);
+        const resultLength = computed(() => {
+            if (Array.isArray(result.value)) return result.value;
+            else if (typeof result.value == 'object')
+                return Object.keys(result.value);
+            else return 0;
+        });
 
         /**
          * Executes the jsonata query.
@@ -52,19 +57,9 @@ export default {
          */
         async function getResult(): Promise<void> {
             const expression = jsonata(query.value);
-            result.value = await expression.evaluate(getAPIData());
-
-            getResultLength(result.value);
-            resultString.value = JSON.stringify(result);
-        }
-
-        /**
-         * Returns the length of the result array. If the result is not an array the length is 0.
-         * @param result - From getResult.
-         */
-        function getResultLength(result: UnwrapRef<JSON>): void {
-            if (Array.isArray(result)) resultLength.value = result.length;
-            else resultLength.value = 0;
+            resultString.value = JSON.stringify(
+                await expression.evaluate(getAPIData()),
+            );
         }
 
         /**
@@ -83,7 +78,7 @@ export default {
             };
         }
 
-        return { getResult, resultLength, result, query, resultString };
+        return { getResult, resultLength, result, resultString, query };
     },
 };
 </script>
