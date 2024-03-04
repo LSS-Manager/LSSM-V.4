@@ -74,9 +74,7 @@ export default {
                 duration: '5 Days',
                 isVehicleExtension: true,
                 givesParkingLots: 2,
-                parkingLotReservations: [
-                    [55, 56, 57, 58, 60],
-                ],
+                parkingLotReservations: [[55, 56, 57, 58, 60]],
                 unlocksVehicleTypes: [55, 56, 57, 58, 60],
             },
         ],
@@ -665,9 +663,7 @@ export default {
                 duration: '5 Days',
                 isVehicleExtension: true,
                 givesParkingLots: 2,
-                parkingLotReservations: [
-                    [55, 56, 57, 58, 60],
-                ],
+                parkingLotReservations: [[55, 56, 57, 58, 60]],
                 unlocksVehicleTypes: [55, 56, 57, 58, 60],
             },
         ],
