@@ -246,7 +246,7 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [0],
+        possibleBuildings: [0, 13],
         waterTank: 4500,
         foamTank: 650,
     },
@@ -444,7 +444,7 @@ export default {
         coins: 19,
         staff: { min: 3, max: 5 },
         icon: 'car-side',
-        possibleBuildings: [0],
+        possibleBuildings: [0, 13],
         waterTank: 500,
         foamTank: 20,
         equipmentCapacity: 10,
@@ -456,7 +456,7 @@ export default {
         coins: 8,
         staff: { min: 1, max: 3 },
         icon: 'car-side',
-        possibleBuildings: [0],
+        possibleBuildings: [0, 13],
         waterTank: 400,
     },
     32: {
@@ -466,7 +466,7 @@ export default {
         coins: 5,
         staff: { min: 1, max: 2 },
         icon: 'car-side',
-        possibleBuildings: [0],
+        possibleBuildings: [0, 13],
         waterTank: 50,
     },
     33: {
@@ -872,7 +872,7 @@ export default {
         coins: 30,
         staff: { min: 0, max: 0 },
         icon: 'car-side',
-        possibleBuildings: [3],
+        possibleBuildings: [3, 16],
         isTrailer: true,
         tractiveVehicles: [41],
         special:
@@ -885,7 +885,7 @@ export default {
         coins: 15,
         staff: { min: 0, max: 0 },
         icon: 'car-side',
-        possibleBuildings: [3],
+        possibleBuildings: [3, 16],
         isTrailer: true,
         tractiveVehicles: [15, 28, 29],
         special:
@@ -1164,7 +1164,7 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [0],
+        possibleBuildings: [0, 13],
     },
     75: {
         caption: 'Wildland Lead Plane',
@@ -1248,7 +1248,7 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [0],
+        possibleBuildings: [0,13],
         waterTank: 300,
         foamTank: 50,
     },
@@ -1269,7 +1269,7 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [0],
+        possibleBuildings: [0,13],
         waterTank: 650,
         foamTank: 60,
     },
@@ -1347,7 +1347,7 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [5],
+        possibleBuildings: [5, 15],
     },
     85: {
         caption: 'Riot Police Trailer',
@@ -1571,5 +1571,81 @@ export default {
         isTrailer: true,
         tractiveVehicles: [41],
         special: 'Needed towing vehicle (Crew cab semi)',
+    },
+    101: {
+        caption: 'Police Traffic Control Unit',
+        color: '#4282f0',
+        credits: 8000,
+        coins: 10,
+        staff: {
+            min: 1,
+            max: 4,
+            training: {
+                Police: {
+                    traffic_control: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [5, 15],
+    },
+    102: {
+        caption: 'Police Traffic Blocker Unit',
+        color: '#4282f0',
+        credits: 12_000,
+        coins: 15,
+        staff: {
+            min: 1,
+            max: 6,
+            training: {
+                Police: {
+                    traffic_control: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [5, 15],
+    },
+    103: {
+        caption: 'Fire Traffic Control Unit',
+        color: '#cc2222',
+        credits: 8000,
+        coins: 10,
+        staff: {
+            min: 1,
+            max: 4,
+            training: {
+                'Fire Station': {
+                    traffic_control: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [0,13],
+    },
+    104: {
+        caption: 'Fire Traffic Blocker Unit',
+        color: '#cc2222',
+        credits: 12_000,
+        coins: 15,
+        staff: {
+            min: 1,
+            max: 6,
+            training: {
+                'Fire Station': {
+                    traffic_control: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [0,13],
     },
 } satisfies Record<number, InternalVehicle>;
