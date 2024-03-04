@@ -30,6 +30,7 @@
     },
     "enhancedMissingVehicles": {
         "driving": "En-route",
+        "foam": "l. foam",
         "missing": "Missing on mission",
         "pump": "l/min pumping process",
         "selected": "Selected",
@@ -50,11 +51,11 @@
         "vehiclesByRequirement": [
             {
                 "texts": ["Fire engine", "Fire engines"],
-                "vehicles": [0, 1, 12, 13, 19, 30]
+                "vehicles": [0, 1, 12, 13, 19, 30, 55, 56, 59]
             },
             {
                 "texts": ["Ladder Platform Truck", "Ladder Platform Trucks"],
-                "vehicles": [2, 13]
+                "vehicles": [2, 13, 56]
             },
             {
                 "texts": ["Support Vehicle", "Support Vehicles"],
@@ -70,10 +71,10 @@
             { "texts": ["BASU"], "vehicles": [10] },
             {
                 "texts": ["Bulk Water Tanker", "Bulk Water Tankers"],
-                "vehicles": [6]
+                "vehicles": [6, 57]
             },
             { "texts": ["MCV or SES Mobile Command"], "vehicles": [11, 41] },
-            { "texts": ["HAZMAT Truck", "HAZMAT Trucks"], "vehicles": [7] },
+            { "texts": ["HAZMAT Truck", "HAZMAT Trucks"], "vehicles": [7, 59] },
             { "texts": ["Ambulance", "Ambulances"], "vehicles": [5] },
             {
                 "texts": ["Police car", "Police cars"],
@@ -185,6 +186,14 @@
             {
                 "texts": ["SES Storm Trailer", "SES Storm Trailers"],
                 "vehicles": [42]
+            },
+            {
+                "texts": ["Foam Unit or CAFS"],
+                "vehicles": [55, 56, 57, 58, 60]
+            },
+            {
+                "texts": ["Waterdamage Pump"],
+                "vehicles": [0, 1, 6, 12, 13, 19, 30, 48]
             }
         ],
         "water": "l. water"

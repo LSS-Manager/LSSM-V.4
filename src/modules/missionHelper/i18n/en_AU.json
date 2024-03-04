@@ -8,6 +8,7 @@
         "ambulance": "Ambulance Mission",
         "coastal_rescue_ocean": "VMR Ocean Missions",
         "fire": "Fire Fighting Missions",
+        "fire_support": "Chemical and Industrial Fire Missions",
         "forestry": "Wildfire Missions",
         "forestry_specialization": "Bushfire Missions (Specialization)",
         "police": "Police Mission",
@@ -34,6 +35,7 @@
         "coastal_rescue_count": "Volunteer Marine Rescue Station | Volunteer Marine Rescue Stations",
         "disaster_response_count": "Disaster Response Equipment Extension | Disaster Response Equipment Extensions",
         "fire_aviation_count": "Fire Airbase | Fire Airbases",
+        "fire_support_count": "Foam and CAFS Extension | Foam and CAFS Extensions",
         "fire_stations": "Fire Station | Fire Stations",
         "max_police_stations": "Maximum Police Stations",
         "max_rescue_stations": "Maximum Rescue Stations",
@@ -51,7 +53,10 @@
         "max_possible_prisoners": "Maximum Prisoners",
         "title": "Prisoner | {n} Prisoner | {n} Prisoner"
     },
-    "requirements": { "water_needed": "Water demand (lit)" },
+    "requirements": {
+        "foam_needed": "Foam demand (lit)",
+        "water_needed": "Water demand (lit))"
+    },
     "subsequent": "Subsequent Mission | Subsequent Missions",
     "tip": {
         "dragging": "drag window",
@@ -75,6 +80,8 @@
             "fire_aviation": "Airborne Firefighting Vehicle | Airborne Firefighting Vehicles",
             "firetrucks": "Fire Engine | Fire Engines",
             "flood_equipment": "SES Sandbag Trailer | SES Sandbag Trailers",
+            "foam_needed": "Foam demand",
+            "foam": "Foam Unit or CAFS | Foam Units or CAFS",
             "gw_wasserrettung": "SES Unit | SES Units",
             "hazmat_vehicles": "HAZMAT Truck | HAZMAT Trucks",
             "heavy_rescue_vehicles": "Major Rescue Vehicle or SES Rescue Truck | Major Rescue Vehicles or SES Rescue Trucks",
