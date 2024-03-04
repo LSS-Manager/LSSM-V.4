@@ -214,6 +214,12 @@ export default {
             staffList: 'Sharpshooter',
             key: 'sniper',
         },
+        {
+            caption: 'Traffic Control Training',
+            duration: '3 Days',
+            staffList: 'Traffic Control Training',
+            key: 'traffic_control',
+        },
     ],
     'Rescue': [
         {
