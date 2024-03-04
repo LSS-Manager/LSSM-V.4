@@ -548,6 +548,7 @@ export default Vue.extend<
                         'en_US',
                         'nl_NL',
                         'sv_SE',
+                        'en_AU',
                     ].includes(locale)
                         ? {
                               foamTank: {
