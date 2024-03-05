@@ -1,10 +1,11 @@
+import type { Ref } from 'vue';
+
 import TypedWorker from '@workers/TypedWorker';
 
 import checkRequestInit from '../../../importableScripts/checkRequestInit';
 
 import type { APIs } from '@stores/api';
 import type { Building } from 'typings/Building';
-import type { Vehicle } from 'typings/Vehicle';
 import type { VehiclesByDispatchCenter } from '@workers/stores/api/vehicles.worker';
 
 type ExcludeNull<T> = Exclude<T, null>;
@@ -39,58 +40,53 @@ export const updateBuildingTypeIfSmall = (
     return building;
 };
 
-export const BuildingsWorker = new TypedWorker(
-    'api/buildings.worker',
-    async (
-        self,
-        buildings: APIs['buildings'],
-        buildingCategoryByType: Record<Building['building_type'], string>,
-        vehicles: Vehicle[]
-    ) => {
-        const buildingsArray = Object.values(buildings);
-        const buildingsByType: BuildingsByType = {};
-        const buildingsByDispatchCenter: BuildingsByDispatchCenter = {};
-        const buildingsByCategory: BuildingsByCategory = {};
-        const vehiclesByDispatchCenter: VehiclesByDispatchCenter = {};
+export const doBuildingCalculations = (
+    buildings: Ref<APIs['buildings']>,
+    vehicles: Ref<APIs['vehicles']>,
+    buildingsByType: Ref<BuildingsByType>,
+    buildingsByDispatchCenter: Ref<BuildingsByDispatchCenter>,
+    buildingsByCategory: Ref<BuildingsByCategory>,
+    vehiclesByDispatchCenter: Ref<VehiclesByDispatchCenter>,
+    buildingCategoryByType: Record<Building['building_type'], string>
+) => {
+    const buildingsArray = Object.values(buildings.value);
 
-        for (const building of buildingsArray) {
-            const { id, building_type, leitstelle_building_id } = building;
+    for (const building of buildingsArray) {
+        const { id, building_type, leitstelle_building_id } = building;
 
-            // by type
-            buildingsByType[building_type] ||= {};
-            buildingsByType[building_type][id] = building;
+        // by type
+        buildingsByType.value[building_type] ||= {};
+        buildingsByType.value[building_type][id] = building;
 
-            // by dispatch center
-            const leitstelle = leitstelle_building_id ?? -1;
-            buildingsByDispatchCenter[leitstelle] ||= {};
-            buildingsByDispatchCenter[leitstelle][id] = building;
+        // by dispatch center
+        const leitstelle = leitstelle_building_id ?? -1;
+        buildingsByDispatchCenter.value[leitstelle] ||= {};
+        buildingsByDispatchCenter.value[leitstelle][id] = building;
 
-            // by category
-            buildingsByCategory[buildingCategoryByType[building_type]] ||= {};
-            buildingsByCategory[buildingCategoryByType[building_type]][id] =
-                building;
+        // by category
+        buildingsByCategory.value[buildingCategoryByType[building_type]] ||= {};
+        buildingsByCategory.value[buildingCategoryByType[building_type]][id] =
+            building;
+    }
+
+    for (const vehicle of Object.values(vehicles.value)) {
+        // vehicles by dispatch center
+        const building = buildings.value[vehicle.building_id];
+        if (building) {
+            const leitstelle = building.leitstelle_building_id ?? -1;
+            vehiclesByDispatchCenter.value[leitstelle] ||= {};
+            vehiclesByDispatchCenter.value[leitstelle][vehicle.id] = vehicle;
         }
+    }
 
-        for (const vehicle of vehicles) {
-            // vehicles by dispatch center
-            const building = buildings[vehicle.building_id];
-            if (building) {
-                const leitstelle = building.leitstelle_building_id ?? -1;
-                vehiclesByDispatchCenter[leitstelle] ||= {};
-                vehiclesByDispatchCenter[leitstelle][vehicle.id] = vehicle;
-            }
-        }
-
-        return {
-            buildingsArray,
-            buildingsByType,
-            buildingsByDispatchCenter,
-            buildingsByCategory,
-            vehiclesByDispatchCenter,
-        };
-    },
-    {}
-);
+    return {
+        buildingsArray,
+        buildingsByType,
+        buildingsByDispatchCenter,
+        buildingsByCategory,
+        vehiclesByDispatchCenter,
+    };
+};
 
 export const FetchSingleBuildingWorker = new TypedWorker(
     'api/buildings.single.worker',

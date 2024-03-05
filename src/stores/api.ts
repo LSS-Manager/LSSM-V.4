@@ -12,12 +12,13 @@ import {
     type BuildingsByCategory,
     type BuildingsByDispatchCenter,
     type BuildingsByType,
-    BuildingsWorker,
+    doBuildingCalculations,
     FetchSingleAllianceBuildingWorker,
     FetchSingleBuildingWorker,
     type SmallBuildingsMap,
 } from '@workers/stores/api/buildings.worker';
 import {
+    doVehicleCalculations,
     FetchSingleVehicleWorker,
     FetchVehiclesAtBuildingWorker,
     type VehiclesByBuilding,
@@ -25,7 +26,6 @@ import {
     type VehiclesByTarget,
     type VehiclesByType,
     type VehicleStates,
-    VehiclesWorker,
 } from '@workers/stores/api/vehicles.worker';
 import MissionsWorker, {
     type MissionsArray,
@@ -144,8 +144,6 @@ export const defineAPIStore = defineStore('api', () => {
     const lastUpdates = new Map<APIKey, number>();
 
     // region computed values and fake-computed values for vehicles
-    // fake computed values require many iterations and are not suitable for the main thread
-    // for performance reasons, they are calculated in a worker
     const vehiclesArray = computed<Vehicle[]>(() =>
         Object.values(apiStorage.vehicles.value)
     );
@@ -163,8 +161,6 @@ export const defineAPIStore = defineStore('api', () => {
     // endregion
 
     // region computed values and fake-computed values for buildings
-    // fake computed values require many iterations and are not suitable for the main thread
-    // for performance reasons, they are calculated in a worker
     const buildingsArray = computed<Building[]>(() =>
         Object.values(apiStorage.buildings.value)
     );
@@ -180,8 +176,6 @@ export const defineAPIStore = defineStore('api', () => {
     // endregion
 
     // region computed values and fake-computed values for schoolings & alliance_schoolings
-    // fake computed values require many iterations and are not suitable for the main thread
-    // for performance reasons, they are calculated in a worker
     const allSchoolings = ref<Schooling[]>([]);
     // endregion
 
@@ -238,40 +232,35 @@ export const defineAPIStore = defineStore('api', () => {
         );
 
         if (api === 'vehicles') {
-            const calculations = await VehiclesWorker.run(
-                apiStorage.vehicles.value,
-                apiStorage.buildings.value
+            doVehicleCalculations(
+                apiStorage.vehicles,
+                apiStorage.buildings,
+                vehicleStates,
+                vehiclesByTarget,
+                vehiclesByType,
+                vehiclesByBuilding,
+                vehiclesByDispatchCenter
             );
-            vehicleStates.value = calculations.vehicleStates;
-            vehiclesByTarget.value = calculations.vehiclesByTarget;
-            vehiclesByType.value = calculations.vehiclesByType;
-            vehiclesByBuilding.value = calculations.vehiclesByBuilding;
-            vehiclesByDispatchCenter.value =
-                calculations.vehiclesByDispatchCenter;
         } else if (api === 'buildings') {
-            const calculations = await BuildingsWorker.run(
-                apiStorage.buildings.value,
-                useTranslationStore().buildingCategoryByType,
-                vehicleUpdateIsRunning ? [] : vehiclesArray.value
+            doBuildingCalculations(
+                apiStorage.buildings,
+                vehicleUpdateIsRunning ? ref({}) : apiStorage.vehicles,
+                buildingsByType,
+                buildingsByDispatchCenter,
+                buildingsByCategory,
+                vehiclesByDispatchCenter,
+                useTranslationStore().buildingCategoryByType
             );
-            buildingsByType.value = calculations.buildingsByType;
-            buildingsByDispatchCenter.value =
-                calculations.buildingsByDispatchCenter;
-            buildingsByCategory.value = calculations.buildingsByCategory;
-
-            if (!vehicleUpdateIsRunning) {
-                vehiclesByDispatchCenter.value =
-                    calculations.vehiclesByDispatchCenter;
-            }
         } else if (api === 'alliance_buildings') {
-            const calculations = await BuildingsWorker.run(
-                apiStorage.alliance_buildings.value,
-                useTranslationStore().buildingCategoryByType,
-                []
+            doBuildingCalculations(
+                apiStorage.alliance_buildings,
+                ref({}),
+                allianceBuildingsByType,
+                ref({}),
+                allianceBuildingsByCategory,
+                ref({}),
+                useTranslationStore().buildingCategoryByType
             );
-            allianceBuildingsByType.value = calculations.buildingsByType;
-            allianceBuildingsByCategory.value =
-                calculations.buildingsByCategory;
         } else if (api === 'schoolings' || api === 'alliance_schoolings') {
             const calculations = await SchoolingsWorker.run(
                 apiStorage.schoolings.value,

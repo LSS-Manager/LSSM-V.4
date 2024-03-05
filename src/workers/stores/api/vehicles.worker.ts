@@ -1,3 +1,5 @@
+import type { Ref } from 'vue';
+
 import TypedWorker from '@workers/TypedWorker';
 
 import checkRequestInit from '../../../importableScripts/checkRequestInit';
@@ -23,66 +25,63 @@ export type VehiclesByDispatchCenter = Record<
     VehicleList
 >; // Map<Building['leitstelle_building_id'], Set<Vehicle>>;
 
-export const VehiclesWorker = new TypedWorker(
-    'api/vehicles.worker',
-    async (self, vehicles: APIs['vehicles'], buildings: APIs['buildings']) => {
-        const vehiclesArray = Object.values(vehicles);
-        const vehicleStates: VehicleStates = {};
-        const vehiclesByTarget: VehiclesByTarget = {
-            building: {},
-            mission: {},
-        };
-        const vehiclesByType: VehiclesByType = {};
-        const vehiclesByBuilding: VehiclesByBuilding = {};
-        const vehiclesByDispatchCenter: VehiclesByDispatchCenter = {};
+export const doVehicleCalculations = (
+    vehicles: Ref<APIs['vehicles']>,
+    buildings: Ref<APIs['buildings']>,
+    vehicleStates: Ref<VehicleStates>,
+    vehiclesByTarget: Ref<VehiclesByTarget>,
+    vehiclesByType: Ref<VehiclesByType>,
+    vehiclesByBuilding: Ref<VehiclesByBuilding>,
+    vehiclesByDispatchCenter: Ref<VehiclesByDispatchCenter>
+) => {
+    const vehiclesArray = Object.values(vehicles.value);
 
-        for (const vehicle of vehiclesArray) {
-            const {
-                target_type,
-                id,
-                fms_real,
-                target_id,
-                vehicle_type,
-                building_id,
-            } = vehicle;
+    for (const vehicle of vehiclesArray) {
+        const {
+            target_type,
+            id,
+            fms_real,
+            target_id,
+            vehicle_type,
+            building_id,
+        } = vehicle;
 
-            // vehicle states
-            vehicleStates[fms_real] = (vehicleStates[fms_real] || 0) + 1;
+        // vehicle states
+        vehicleStates.value[fms_real] =
+            (vehicleStates.value[fms_real] || 0) + 1;
 
-            // by target
-            if (target_type && target_id) {
-                vehiclesByTarget[target_type][target_id] ||= {};
-                vehiclesByTarget[target_type][target_id][id] = vehicle;
-            }
-
-            // by type
-            vehiclesByType[vehicle_type] ||= {};
-            vehiclesByType[vehicle_type][id] = vehicle;
-
-            // by building
-            vehiclesByBuilding[building_id] ||= {};
-            vehiclesByBuilding[building_id][id] = vehicle;
-
-            // by dispatch center
-            const building = buildings[building_id];
-            if (building) {
-                const leitstelle = building.leitstelle_building_id ?? -1;
-                vehiclesByDispatchCenter[leitstelle] ||= {};
-                vehiclesByDispatchCenter[leitstelle][id] = vehicle;
-            }
+        // by target
+        if (target_type && target_id) {
+            vehiclesByTarget.value[target_type][target_id] ||= {};
+            vehiclesByTarget.value[target_type][target_id][id] = vehicle;
         }
 
-        return {
-            vehiclesArray,
-            vehicleStates,
-            vehiclesByTarget,
-            vehiclesByType,
-            vehiclesByBuilding,
-            vehiclesByDispatchCenter,
-        };
-    },
-    {}
-);
+        // by type
+        vehiclesByType.value[vehicle_type] ||= {};
+        vehiclesByType.value[vehicle_type][id] = vehicle;
+
+        // by building
+        vehiclesByBuilding.value[building_id] ||= {};
+        vehiclesByBuilding.value[building_id][id] = vehicle;
+
+        // by dispatch center
+        const building = buildings.value[building_id];
+        if (building) {
+            const leitstelle = building.leitstelle_building_id ?? -1;
+            vehiclesByDispatchCenter.value[leitstelle] ||= {};
+            vehiclesByDispatchCenter.value[leitstelle][id] = vehicle;
+        }
+    }
+
+    return {
+        vehiclesArray,
+        vehicleStates,
+        vehiclesByTarget,
+        vehiclesByType,
+        vehiclesByBuilding,
+        vehiclesByDispatchCenter,
+    };
+};
 
 export const FetchSingleVehicleWorker = new TypedWorker(
     'api/vehicles.single.worker',
