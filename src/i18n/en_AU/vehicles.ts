@@ -12,6 +12,7 @@ export default {
         waterTank: 2000,
         pumpCapacity: 2000,
         pumpType: 'fire',
+        foamTank: 80,
     },
     1: {
         caption: 'Medium Tanker',
@@ -24,6 +25,7 @@ export default {
         waterTank: 3000,
         pumpCapacity: 1500,
         pumpType: 'fire',
+        foamTank: 40,
     },
     2: {
         caption: 'Ladder Platform',
@@ -75,6 +77,7 @@ export default {
         waterTank: 11_000,
         pumpCapacity: 2000,
         pumpType: 'fire',
+        foamTank: 40,
         special: 'Required once you have built 7 firehouses',
     },
     7: {
@@ -166,6 +169,7 @@ export default {
         waterTank: 2000,
         pumpCapacity: 1500,
         pumpType: 'fire',
+        foamTank: 80,
         special:
             'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Rescue Pumper acts as a MRU and a Fire Truck.',
     },
@@ -180,6 +184,7 @@ export default {
         waterTank: 2000,
         pumpCapacity: 1500,
         pumpType: 'fire',
+        foamTank: 80,
         special:
             'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Aerial Pumper acts as a Turntable Ladder and a Fire Truck.',
     },
@@ -291,6 +296,7 @@ export default {
         possibleBuildings: [0, 18],
         waterTank: 4000,
         pumpCapacity: 1500,
+        foamTank: 40,
         pumpType: 'fire',
     },
     20: {
@@ -430,6 +436,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         waterTank: 500,
+        foamTank: 25,
     },
     29: {
         caption: 'Light Tanker',
@@ -440,6 +447,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         waterTank: 1800,
+        foamTank: 20,
     },
     30: {
         caption: 'Pumper Tanker',
@@ -452,6 +460,7 @@ export default {
         waterTank: 2000,
         pumpCapacity: 1500,
         pumpType: 'fire',
+        foamTank: 40,
     },
     31: {
         caption: 'Fire Helicopter',
@@ -663,6 +672,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         waterTank: 14_000,
+        foamTank: 1400,
     },
     44: {
         caption: 'RIV',
@@ -683,6 +693,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         waterTank: 2000,
+        foamTank: 80,
     },
     45: {
         caption: 'Emergency Stairs',
@@ -819,5 +830,81 @@ export default {
         isTrailer: true,
         tractiveVehicles: [20, 40, 46],
         special: 'Can be towed by SES Vehicle, SES FOV, SES Rescue Truck',
+    },
+    55: {
+        caption: 'CAFS Pumper',
+        color: '#cc0000',
+        credits: 20_000,
+        coins: 25,
+        staff: { min: 1, max: 5 },
+        icon: 'car-side',
+        possibleBuildings: [0, 18],
+        waterTank: 2000,
+        foamTank: 250,
+    },
+    56: {
+        caption: 'CAFS Aerial Pumper',
+        color: '#cc0000',
+        credits: 27_000,
+        coins: 25,
+        staff: { min: 1, max: 5 },
+        icon: 'car-side',
+        possibleBuildings: [0, 18],
+        waterTank: 2000,
+        foamTank: 250,
+    },
+    57: {
+        caption: 'CAFS Bulk Water',
+        color: '#cc0000',
+        credits: 5000,
+        coins: 25,
+        staff: { min: 1, max: 2 },
+        icon: 'car-side',
+        possibleBuildings: [0, 18],
+        waterTank: 11_000,
+        foamTank: 40,
+    },
+    58: {
+        caption: 'Foam Logistics Vehicle',
+        color: '#cc0000',
+        credits: 28_000,
+        coins: 20,
+        staff: { min: 1, max: 2 },
+        icon: 'car-side',
+        possibleBuildings: [0, 18],
+        foamTank: 3000,
+    },
+    59: {
+        caption: 'HazMat Pumper',
+        color: '#cc0000',
+        credits: 5000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 6,
+            training: {
+                'Fire Station': {
+                    gw_gefahrgut: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 18],
+        waterTank: 2000,
+        foamTank: 40,
+    },
+    60: {
+        caption: 'Foam Trailer',
+        color: '#cc0000',
+        credits: 7000,
+        coins: 10,
+        staff: { min: 1, max: 5 },
+        icon: 'car-side',
+        possibleBuildings: [0, 18],
+        isTrailer: true,
+        tractiveVehicles: [3],
+        foamTank: 1000,
     },
 } satisfies Record<number, InternalVehicle>;

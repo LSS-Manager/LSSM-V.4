@@ -80,16 +80,17 @@ export default {
             color: '#0000ff',
         },
         'Other': {
-            buildings: [7, 14, 21, 22],
+            buildings: [7, 14, 21, 22, 25],
             color: '#02a18c',
         },
     },
     vehicleCategories: {
         'Fire Vehicles': {
             vehicles: {
-                'Fire Trucks': [0, 1, 12, 13, 19, 30],
+                'Fire Trucks': [0, 1, 12, 13, 19, 30, 59],
                 'Airport': [43, 44, 45],
                 'Bush-Fire Units': [28, 29, 31, 32, 33],
+                'CAFS': [55, 56, 57, 58, 60],
                 'Special Vehicles': [2, 3, 4, 6, 7, 10, 11],
             },
             color: '#ff2d2d',

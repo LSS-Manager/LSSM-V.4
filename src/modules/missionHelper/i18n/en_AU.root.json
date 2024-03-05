@@ -12,6 +12,11 @@
             "in": "additional",
             "text": "Average min . Police Personnel"
         },
+        "foam_needed": {
+            "badge": true,
+            "in": "requirements",
+            "text": "Foam: {n} l | Foam: {n} l"
+        },
         "min_pump_speed": {
             "badge": true,
             "in": "requirements",

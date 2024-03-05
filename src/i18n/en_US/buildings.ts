@@ -138,6 +138,19 @@ export default {
                 givesParkingLots: 10,
                 cannotDisable: true,
             },
+            {
+                caption: 'Traffic Control Extension',
+                credits: 200_000,
+                coins: 25,
+                duration: '3 Days',
+                isVehicleExtension: true,
+                givesParkingLots: 2,
+                unlocksVehicleTypes: [103, 104],
+                parkingLotReservations: [
+                    [103, 104],
+                    [103, 104],
+                ],
+            },
         ],
         storageUpgrades: {
             initial_containers: {
@@ -550,6 +563,19 @@ export default {
                 newCells: 10,
                 cannotDisable: true,
             },
+            {
+                caption: 'Traffic Control Extension',
+                credits: 200_000,
+                coins: 25,
+                duration: '3 Days',
+                isVehicleExtension: true,
+                givesParkingLots: 2,
+                unlocksVehicleTypes: [101, 102],
+                parkingLotReservations: [
+                    [101, 102],
+                    [101, 102],
+                ],
+            },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
         maxBuildings: 'no limit',
@@ -856,6 +882,19 @@ export default {
                     [93, 94],
                 ],
             },
+            {
+                caption: 'Traffic Control Extension',
+                credits: 200_000,
+                coins: 25,
+                duration: '3 Days',
+                isVehicleExtension: true,
+                givesParkingLots: 2,
+                unlocksVehicleTypes: [103, 104],
+                parkingLotReservations: [
+                    [103, 104],
+                    [103, 104],
+                ],
+            },
         ],
         storageUpgrades: {
             initial_containers: {
@@ -1024,6 +1063,19 @@ export default {
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [43, 46],
                 parkingLotReservations: [[43], [46]],
+            },
+            {
+                caption: 'Traffic Control Extension',
+                credits: 200_000,
+                coins: 25,
+                duration: '3 Days',
+                isVehicleExtension: true,
+                givesParkingLots: 2,
+                unlocksVehicleTypes: [101, 102],
+                parkingLotReservations: [
+                    [101, 102],
+                    [101, 102],
+                ],
             },
         ],
         levelcost: [

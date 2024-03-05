@@ -1,6 +1,6 @@
 {
     "name": "lss-manager-v4",
-    "version": "4.7.12+20240301.0643",
+    "version": "4.7.12+20240305.0805",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "quickbuild": "./build/build.sh --quick",
@@ -66,8 +66,8 @@
         "@types/ua-parser-js": "0.7.39",
         "@types/vue-select": "3.16.8",
         "@types/webpack-env": "1.18.4",
-        "@typescript-eslint/eslint-plugin": "7.0.2",
-        "@typescript-eslint/parser": "7.0.2",
+        "@typescript-eslint/eslint-plugin": "7.1.1",
+        "@typescript-eslint/parser": "7.1.1",
         "all-contributors-cli": "6.26.1",
         "copy-dir": "1.3.0",
         "css-loader": "6.10.0",
