@@ -2302,7 +2302,7 @@ export default {
         special:
             '',
     },
-    133: {
+    140: {
         caption: 'MTW-Verpflegung',
         color: '#a34100',
         credits: 15_000,
@@ -2321,7 +2321,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
     },
-    132: {
+    141: {
         caption: 'Anhänger Feldherdkoch',
         color: '#a34100',
         credits: 10_000,
@@ -2337,7 +2337,7 @@ export default {
         special:
             'Der Anhänger Feldherdkoch kann zur Versorgung von Einsatzkräften eingesetzt werden und ist Teil des Verpflegungsdienstes.',
     },
-    119: {
+    142: {
         caption: 'AB-Küche',
         color: '#9d2424',
         credits: 7000,
