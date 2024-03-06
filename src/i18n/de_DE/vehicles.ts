@@ -2275,8 +2275,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        special:
-            '',
+        special: '',
     },
     139: {
         caption: 'GW-Küche',
@@ -2299,8 +2298,7 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        special:
-            '',
+        special: '',
     },
     140: {
         caption: 'MTW-Verpflegung',

@@ -42,7 +42,10 @@ export default {
                         47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
                     ],
                     parkingLotReservations: [
-                        [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119, 142],
+                        [
+                            47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
+                            142,
+                        ],
                     ],
                     cannotDisable: true,
                     unlockedVehiclesOnReservedLotsOnly: true,
@@ -126,7 +129,10 @@ export default {
                         47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
                     ],
                     parkingLotReservations: [
-                        [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119, 142],
+                        [
+                            47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
+                            142,
+                        ],
                     ],
                     cannotDisable: true,
                 },
@@ -204,7 +210,10 @@ export default {
                 duration: '5 Tage',
                 isVehicleExtension: true,
                 givesParkingLots: 2,
-                parkingLotReservations: [[138, 139, 140, 141], [138, 139, 140, 141]],
+                parkingLotReservations: [
+                    [138, 139, 140, 141],
+                    [138, 139, 140, 141],
+                ],
                 unlocksVehicleTypes: [138, 139, 140, 141, 142],
             },
         ],
@@ -1392,7 +1401,10 @@ export default {
                         47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
                     ],
                     parkingLotReservations: [
-                        [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119, 142],
+                        [
+                            47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
+                            142,
+                        ],
                     ],
                     cannotDisable: true,
                     unlockedVehiclesOnReservedLotsOnly: true,
@@ -1473,7 +1485,10 @@ export default {
                 duration: '5 Tage',
                 isVehicleExtension: true,
                 givesParkingLots: 2,
-                parkingLotReservations: [[138, 139, 140, 141],[138, 139, 140, 141]],
+                parkingLotReservations: [
+                    [138, 139, 140, 141],
+                    [138, 139, 140, 141],
+                ],
                 unlocksVehicleTypes: [138, 139, 140, 141, 142],
             },
         ],
