@@ -469,13 +469,14 @@ export const defineAPIStore = defineStore('api', () => {
 
         // we're going to update caption, fms, fms_real, target_type and target_id
         const vehicle = apiStorage.vehicles.value[radioMessage.id];
-        const oldVehicle = structuredClone(vehicle);
         if (!vehicle) {
             return FetchSingleVehicleWorker.run(
                 radioMessage.id,
                 _getRequestInit({}, 'updateVehicleFromRadioMessage')
             ).then(_updateVehicle);
         }
+
+        const oldVehicle = structuredClone(vehicle);
 
         // update caption
         vehicle.caption = radioMessage.caption;
@@ -499,11 +500,10 @@ export const defineAPIStore = defineStore('api', () => {
     /**
      * Update the building store from the information of a single (potentially updated or new) building.
      * @param building - The building that may be new or updated.
+     * @param oldBuilding - The old building if it existed before. If not provided, the building is assumed to be new. Used to remove the building from the fake computed values.
      * @returns The updated building.
      */
-    const _updateBuilding = (building: Building) => {
-        const oldBuilding = apiStorage.buildings.value[building.id];
-
+    const _updateBuilding = (building: Building, oldBuilding?: Building) => {
         // if the building existed before, remove it from the fake computed values if needed
         if (oldBuilding) {
             if (
@@ -520,39 +520,26 @@ export const defineAPIStore = defineStore('api', () => {
             }
         }
 
+        // update the building in the store
+        apiStorage.buildings.value[building.id] = building;
+        // to be sure that references are used instead of values
+        const buildingRef = apiStorage.buildings.value[building.id];
+
         // update the fake computed values
         buildingsByType.value[building.building_type] ||= {};
-        buildingsByType.value[building.building_type][building.id] = building;
+        buildingsByType.value[building.building_type][building.id] =
+            buildingRef;
 
         const leitstelle = building.leitstelle_building_id ?? -1;
         buildingsByDispatchCenter.value[leitstelle] ||= {};
-        buildingsByDispatchCenter.value[leitstelle][building.id] = building;
+        buildingsByDispatchCenter.value[leitstelle][building.id] = buildingRef;
 
         const category =
             useTranslationStore().buildingCategoryByType[
                 building.building_type
             ];
         buildingsByCategory.value[category] ||= {};
-        buildingsByCategory.value[category][building.id] = building;
-
-        // update the building in the store
-        apiStorage.buildings.value[building.id] = building;
-
-        // reassign values due to reactivity
-        // TODO: Not necessary anymore with Maps and Sets (Vue3)
-        apiStorage.buildings.value = Object.assign(
-            {},
-            apiStorage.buildings.value
-        );
-        buildingsByType.value = Object.assign({}, buildingsByType.value);
-        buildingsByDispatchCenter.value = Object.assign(
-            {},
-            buildingsByDispatchCenter.value
-        );
-        buildingsByCategory.value = Object.assign(
-            {},
-            buildingsByCategory.value
-        );
+        buildingsByCategory.value[category][building.id] = buildingRef;
 
         return building;
     };
@@ -563,35 +550,22 @@ export const defineAPIStore = defineStore('api', () => {
      * @returns The updated building.
      */
     const _updateAllianceBuilding = (building: Building) => {
+        // update the building in the store
+        apiStorage.alliance_buildings.value[building.id] = building;
+        // to be sure that references are used instead of values
+        const buildingRef = apiStorage.buildings.value[building.id];
+
         // update the fake computed values
         allianceBuildingsByType.value[building.building_type] ||= {};
         allianceBuildingsByType.value[building.building_type][building.id] =
-            building;
+            buildingRef;
 
         const category =
             useTranslationStore().buildingCategoryByType[
                 building.building_type
             ];
         allianceBuildingsByCategory.value[category] ||= {};
-        allianceBuildingsByCategory.value[category][building.id] = building;
-
-        // update the building in the store
-        apiStorage.alliance_buildings.value[building.id] = building;
-
-        // reassign values due to reactivity
-        // TODO: Not necessary anymore with Maps and Sets (Vue3)
-        apiStorage.alliance_buildings.value = Object.assign(
-            {},
-            apiStorage.alliance_buildings.value
-        );
-        allianceBuildingsByType.value = Object.assign(
-            {},
-            allianceBuildingsByType.value
-        );
-        allianceBuildingsByCategory.value = Object.assign(
-            {},
-            allianceBuildingsByCategory.value
-        );
+        allianceBuildingsByCategory.value[category][building.id] = buildingRef;
 
         return building;
     };
@@ -638,6 +612,8 @@ export const defineAPIStore = defineStore('api', () => {
             ).then(_updateBuilding);
         }
 
+        const oldBuilding = structuredClone(building);
+
         // update caption
         building.caption = he.decode(buildingMarker.name);
         // update longitude and latitude
@@ -646,7 +622,7 @@ export const defineAPIStore = defineStore('api', () => {
         // update leitstelle_building_id
         building.leitstelle_building_id = buildingMarker.lbid;
 
-        return _updateBuilding(building);
+        return _updateBuilding(building, oldBuilding);
     };
 
     /**
