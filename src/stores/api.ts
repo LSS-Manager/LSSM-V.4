@@ -363,11 +363,10 @@ export const defineAPIStore = defineStore('api', () => {
     /**
      * Update the vehicle store from the information of a single (potentially updated or new) vehicle.
      * @param vehicle - The vehicle that may be new or updated.
+     * @param oldVehicle - The old vehicle if it existed before. If not provided, the vehicle is assumed to be new. Used to remove the vehicle from the fake computed values.
      * @returns The updated vehicle.
      */
-    const _updateVehicle = (vehicle: Vehicle) => {
-        const oldVehicle = apiStorage.vehicles.value[vehicle.id];
-
+    const _updateVehicle = (vehicle: Vehicle, oldVehicle?: Vehicle) => {
         // if the vehicle existed before, remove it from the fake computed values if needed
         if (oldVehicle) {
             if (oldVehicle.fms_real !== vehicle.fms_real)
@@ -410,6 +409,11 @@ export const defineAPIStore = defineStore('api', () => {
             }
         }
 
+        // update the vehicle in the store
+        apiStorage.vehicles.value[vehicle.id] = vehicle;
+        // to be sure that references are used instead of values
+        const vehicleRef = apiStorage.vehicles.value[vehicle.id];
+
         // update the fake computed values
         vehicleStates.value[vehicle.fms_real] ||= 0;
         vehicleStates.value[vehicle.fms_real]++;
@@ -419,39 +423,33 @@ export const defineAPIStore = defineStore('api', () => {
                 {};
             vehiclesByTarget.value[vehicle.target_type][vehicle.target_id][
                 vehicle.id
-            ] = vehicle;
+            ] = vehicleRef;
         }
 
         vehiclesByType.value[vehicle.vehicle_type] ||= {};
-        vehiclesByType.value[vehicle.vehicle_type][vehicle.id] = vehicle;
+        vehiclesByType.value[vehicle.vehicle_type][vehicle.id] = vehicleRef;
 
         vehiclesByBuilding.value[vehicle.building_id] ||= {};
-        vehiclesByBuilding.value[vehicle.building_id][vehicle.id] = vehicle;
+        vehiclesByBuilding.value[vehicle.building_id][vehicle.id] = vehicleRef;
 
         const building = apiStorage.buildings.value[vehicle.building_id];
         const leitstelle = building?.leitstelle_building_id ?? -1;
         vehiclesByDispatchCenter.value[leitstelle] ||= {};
-        vehiclesByDispatchCenter.value[leitstelle][vehicle.id] = vehicle;
-
-        // update the vehicle in the store
-        apiStorage.vehicles.value[vehicle.id] = vehicle;
-
-        // reassign values due to reactivity
-        // TODO: Not necessary anymore with Maps and Sets (Vue3)
-        apiStorage.vehicles.value = Object.assign(
-            {},
-            apiStorage.vehicles.value
-        );
-        vehicleStates.value = Object.assign({}, vehicleStates.value);
-        vehiclesByType.value = Object.assign({}, vehiclesByType.value);
-        vehiclesByTarget.value = Object.assign({}, vehiclesByTarget.value);
-        vehiclesByBuilding.value = Object.assign({}, vehiclesByBuilding.value);
-        vehiclesByDispatchCenter.value = Object.assign(
-            {},
-            vehiclesByDispatchCenter.value
-        );
+        vehiclesByDispatchCenter.value[leitstelle][vehicle.id] = vehicleRef;
 
         return vehicle;
+    };
+
+    /**
+     * Update the vehicle store for multiple vehicles at once.
+     * @param vehicles - The vehicles to update the vehicle store from.
+     * @returns The updated vehicles.
+     */
+    const _updateVehicles = (vehicles: Vehicle[]) => {
+        vehicles.forEach(vehicle =>
+            _updateVehicle(vehicle, structuredClone(vehicle))
+        );
+        return vehicles;
     };
 
     /**
@@ -470,9 +468,8 @@ export const defineAPIStore = defineStore('api', () => {
             return;
 
         // we're going to update caption, fms, fms_real, target_type and target_id
-        const vehicle = structuredClone(
-            apiStorage.vehicles.value[radioMessage.id]
-        );
+        const vehicle = apiStorage.vehicles.value[radioMessage.id];
+        const oldVehicle = structuredClone(vehicle);
         if (!vehicle) {
             return FetchSingleVehicleWorker.run(
                 radioMessage.id,
@@ -496,7 +493,7 @@ export const defineAPIStore = defineStore('api', () => {
                 ? radioMessage.target_building_id
                 : radioMessage.mission_id;
 
-        return _updateVehicle(vehicle);
+        return _updateVehicle(vehicle, oldVehicle);
     };
 
     /**
@@ -803,10 +800,7 @@ export const defineAPIStore = defineStore('api', () => {
             FetchVehiclesAtBuildingWorker.run(
                 id,
                 _getRequestInit({}, feature)
-            ).then(vehicles => {
-                vehicles.forEach(_updateVehicle);
-                return vehicles;
-            }),
+            ).then(_updateVehicles),
         // buildings
         getBuildings: (feature: string, returnAsArray = false) =>
             // for legacy reasons, optionally return the buildings as an array
