@@ -1160,6 +1160,7 @@ export default {
                 unlocksVehicleTypes: [96],
                 parkingLotReservations: [[96]],
                 unlockedVehiclesOnReservedLotsOnly: true,
+                cannotDisable: true,
             },
         ],
         levelcost: ['1.-7. 1.000.000 Credits / 50 Coins'],
