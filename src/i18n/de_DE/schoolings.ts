@@ -98,6 +98,18 @@ export default {
             staffList: 'Drohnen-Schulung',
             key: 'fire_drone',
         },
+        {
+            caption: 'Feuerwehr-Verpflegungseinheit',
+            duration: '3 Tage',
+            staffList: 'Feuerwehr-Verpflegungseinheit',
+            key: 'fire_care_service',
+        },
+        {
+            caption: 'Verpflegungshelfer',
+            duration: '3 Tage',
+            staffList: 'Verpflegungshelfer',
+            key: 'care_service_equipment',
+        },
     ],
     Polizei: [
         {

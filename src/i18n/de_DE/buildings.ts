@@ -42,7 +42,10 @@ export default {
                         47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
                     ],
                     parkingLotReservations: [
-                        [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119],
+                        [
+                            47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
+                            142,
+                        ],
                     ],
                     cannotDisable: true,
                     unlockedVehiclesOnReservedLotsOnly: true,
@@ -69,7 +72,7 @@ export default {
                     47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
                 ],
                 parkingLotReservations: [
-                    [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119],
+                    [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119, 142],
                 ],
                 cannotDisable: true,
                 unlockedVehiclesOnReservedLotsOnly: true,
@@ -126,7 +129,10 @@ export default {
                         47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
                     ],
                     parkingLotReservations: [
-                        [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119],
+                        [
+                            47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
+                            142,
+                        ],
                     ],
                     cannotDisable: true,
                 },
@@ -182,7 +188,7 @@ export default {
                     47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
                 ],
                 parkingLotReservations: [
-                    [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119],
+                    [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119, 142],
                 ],
                 cannotDisable: true,
                 unlockedVehiclesOnReservedLotsOnly: true,
@@ -196,6 +202,19 @@ export default {
                 givesParkingLots: 1,
                 parkingLotReservations: [[126, 128]],
                 unlocksVehicleTypes: [126, 128],
+            },
+            {
+                caption: 'Verpflegungsdienst',
+                credits: 200_000,
+                coins: 25,
+                duration: '5 Tage',
+                isVehicleExtension: true,
+                givesParkingLots: 2,
+                parkingLotReservations: [
+                    [138, 139, 140, 141],
+                    [138, 139, 140, 141],
+                ],
+                unlocksVehicleTypes: [138, 139, 140, 141, 142],
             },
         ],
         storageUpgrades: {
@@ -1382,7 +1401,10 @@ export default {
                         47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
                     ],
                     parkingLotReservations: [
-                        [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119],
+                        [
+                            47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
+                            142,
+                        ],
                     ],
                     cannotDisable: true,
                     unlockedVehiclesOnReservedLotsOnly: true,
@@ -1455,6 +1477,19 @@ export default {
                 givesParkingLots: 1,
                 parkingLotReservations: [[126, 128]],
                 unlocksVehicleTypes: [126, 128],
+            },
+            {
+                caption: 'Verpflegungsdienst',
+                credits: 200_000,
+                coins: 25,
+                duration: '5 Tage',
+                isVehicleExtension: true,
+                givesParkingLots: 2,
+                parkingLotReservations: [
+                    [138, 139, 140, 141],
+                    [138, 139, 140, 141],
+                ],
+                unlocksVehicleTypes: [138, 139, 140, 141, 142],
             },
         ],
         storageUpgrades: {
