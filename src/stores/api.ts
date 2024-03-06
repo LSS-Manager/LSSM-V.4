@@ -741,8 +741,6 @@ export const defineAPIStore = defineStore('api', () => {
         .then(({ code }) => (secretKey.value = code));
 
     return {
-        // TODO: remove the lastUpdate things, this is only for debugging purposes
-        lastUpdates,
         // state: APIs
         ...apiStorage,
         // getters: get computed and fake-computed values
