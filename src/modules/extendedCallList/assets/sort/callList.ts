@@ -570,7 +570,7 @@ export default (
 
     document
         .querySelector<HTMLDivElement>(
-            '.missions-panel-main .mission_selection'
+            '.missions-panel-main .mission_selection:not(:has(~.mission_selection))'
         )
         ?.after(sortBtnWrapper);
 
