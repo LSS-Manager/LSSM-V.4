@@ -6167,10 +6167,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"highcharts@npm:11.3.0":
-  version: 11.3.0
-  resolution: "highcharts@npm:11.3.0"
-  checksum: 10c0/53e20f9a68698121c0ba7cad0979dfba69b6d76982e98c904c81a6fd477de126c2151966054276fea0084bdbc9ca71aefb166a16794ddefe82eef548f417719d
+"highcharts@npm:11.4.0":
+  version: 11.4.0
+  resolution: "highcharts@npm:11.4.0"
+  checksum: 10c0/6ba29ea1597dc9977997fab26ca96c8dfec2db530dc7d7909d43b05c4bf9c9f84098428fc17b3b3ec45b935847d48e09d9fe6aee42ae18108d0151e93b57b84f
   languageName: node
   linkType: hard
 
@@ -7566,7 +7566,7 @@ __metadata:
     eslint-plugin-unicorn: "npm:51.0.1"
     eslint-plugin-vue: "npm:9.22.0"
     he: "npm:1.2.0"
-    highcharts: "npm:11.3.0"
+    highcharts: "npm:11.4.0"
     highcharts-vue: "npm:1.4.3"
     html-loader: "npm:5.0.0"
     husky: "npm:9.0.11"
