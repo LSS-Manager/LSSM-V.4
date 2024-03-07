@@ -24,11 +24,11 @@
             "matchManagers": ["npm"],
             "matchPackageNames": [
                 "@fortawesome/vue-fontawesome",
+                "highcharts-vue",
                 "vue",
                 "vue-i18n",
                 "vue-loader",
-                "vue-template-compiler",
-                "highcharts-vue"
+                "vue-template-compiler"
             ],
             "matchPaths": ["+(package.json)"]
         },
