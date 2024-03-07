@@ -27,7 +27,8 @@
                 "vue",
                 "vue-i18n",
                 "vue-loader",
-                "vue-template-compiler"
+                "vue-template-compiler",
+                "highcharts-vue"
             ],
             "matchPaths": ["+(package.json)"]
         },
