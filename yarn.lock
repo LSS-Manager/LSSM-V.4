@@ -2378,12 +2378,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:20.11.24":
+"@types/node@npm:*":
   version: 20.11.24
   resolution: "@types/node@npm:20.11.24"
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: 10c0/5a62225eb4797b41e6953f9c08c4611d607b5422ddd153312fc81ed6ed37115228ae27e3e3caa1a3bf52d88310306a196ba1cfbd8b2ec918a20f64d80dfa22c9
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:20.11.25":
+  version: 20.11.25
+  resolution: "@types/node@npm:20.11.25"
+  dependencies:
+    undici-types: "npm:~5.26.4"
+  checksum: 10c0/3a65a0469309d503e572a3198d81c9248876236b1bcc0c9943e995cfa536df7ce9a9302638258984877420d1613167a8a82dbfb3a92197319fb79ebebf9abc83
   languageName: node
   linkType: hard
 
@@ -4061,9 +4070,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001524, caniuse-lite@npm:^1.0.30001587, caniuse-lite@npm:^1.0.30001591":
-  version: 1.0.30001594
-  resolution: "caniuse-lite@npm:1.0.30001594"
-  checksum: 10c0/738b4ea8b12f040baafe5fe4c63f16f27c10334e0a36cc9786811b781a92c749523abc88cf20a4f4f9da0413e1c13b0482ee8e8b7398a3554742fba036b8ed91
+  version: 1.0.30001596
+  resolution: "caniuse-lite@npm:1.0.30001596"
+  checksum: 10c0/60589001c7d9bb89e2bf08f1aeadd09c867e41661b1fd2c1d562ca8e67a9f645f7dd9572aeca7ffdfff37a4e17ccf6a4cfdd29dde5a7454f5f08f5f372345d13
   languageName: node
   linkType: hard
 
@@ -6167,10 +6176,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"highcharts@npm:11.3.0":
-  version: 11.3.0
-  resolution: "highcharts@npm:11.3.0"
-  checksum: 10c0/53e20f9a68698121c0ba7cad0979dfba69b6d76982e98c904c81a6fd477de126c2151966054276fea0084bdbc9ca71aefb166a16794ddefe82eef548f417719d
+"highcharts@npm:11.4.0":
+  version: 11.4.0
+  resolution: "highcharts@npm:11.4.0"
+  checksum: 10c0/6ba29ea1597dc9977997fab26ca96c8dfec2db530dc7d7909d43b05c4bf9c9f84098428fc17b3b3ec45b935847d48e09d9fe6aee42ae18108d0151e93b57b84f
   languageName: node
   linkType: hard
 
@@ -7533,7 +7542,7 @@ __metadata:
     "@types/js-yaml": "npm:4.0.9"
     "@types/leaflet": "npm:1.9.8"
     "@types/lodash": "npm:4.14.202"
-    "@types/node": "npm:20.11.24"
+    "@types/node": "npm:20.11.25"
     "@types/pdfmake": "npm:0.2.9"
     "@types/prettier": "npm:2.7.3"
     "@types/qrcode": "npm:1.5.5"
@@ -7566,7 +7575,7 @@ __metadata:
     eslint-plugin-unicorn: "npm:51.0.1"
     eslint-plugin-vue: "npm:9.22.0"
     he: "npm:1.2.0"
-    highcharts: "npm:11.3.0"
+    highcharts: "npm:11.4.0"
     highcharts-vue: "npm:1.4.3"
     html-loader: "npm:5.0.0"
     husky: "npm:9.0.11"

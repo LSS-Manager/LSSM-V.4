@@ -68,12 +68,21 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
         return;
     }
 
-    LSSM.$stores.root.addStyle({
-        selectorText: '.mission-filters-top .mission-sorting',
-        style: {
-            'flex-direction': 'row',
+    LSSM.$stores.root.addStyles([
+        {
+            selectorText: '.mission-filters-top .mission-sorting',
+            style: {
+                'display': 'flex',
+                'flex-direction': 'row',
+            },
         },
-    });
+        {
+            selectorText: '.mission-filters-top .mission-sorting > .btn',
+            style: {
+                height: '22px',
+            },
+        },
+    ]);
 
     const collapsableMissions = await getSetting('collapsableMissions');
     const shareMissions = await getSetting('shareMissions');
