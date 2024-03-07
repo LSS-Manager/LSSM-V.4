@@ -347,7 +347,7 @@ export default (
         ...(CSS.supports('selector(:has(#id))')
             ? [
                   {
-                      selectorText: `#missions:has(.dropdown.open #${sortSelectionList.id})`,
+                      selectorText: `:where(#missions, #missions_outer):has(.dropdown.open #${sortSelectionList.id})`,
                       style: {
                           overflow: 'visible',
                       },
