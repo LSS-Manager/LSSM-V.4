@@ -25,6 +25,7 @@ export interface Vehicle {
     queued_mission_id: number | null;
     equipments: Equipments[]; // Equipment only visible when the car is approaching and the RCs are assigned.
     assigned_equipments: AEquipments[]; // Equipment only visible when the car is approaching and the RCs are assigned.
+    tractive_random: boolean;
     faPencilAlt: IconDefinition;
     faUsers: IconDefinition;
 }
