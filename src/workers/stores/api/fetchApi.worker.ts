@@ -66,49 +66,46 @@ class FetchApiWorker extends TypedWorker<
 
                 // TODO: Add support for paged API (/api/v2) for supported APIs (vehicles)
 
-                return (
-                    fetch(new URL(`/api/${api}`, location.origin), init)
-                        .then(res => res.json())
-                        // TODO: wait for Typescript extends oneof, then remove the casts
-                        .then((res: ApiFetchResults[Api]) => {
-                            // we want to store vehicles and buildings by ID for easier access
-                            // TODO: Remove Array.isArray check when Typescript extends oneof is available
-                            if (
-                                Array.isArray(res) &&
-                                (api === 'vehicles' ||
-                                    api === 'buildings' ||
-                                    api === 'alliance_buildings')
-                            ) {
-                                // @ts-expect-error unfortunately, typescript doesn't understand that we're filtering here (we need the extends oneof!)
-                                const byId: APIs[Api] = {};
-                                for (const item of res) {
-                                    if ('small_building' in item) {
-                                        byId[item.id] =
-                                            self.updateBuildingTypeIfSmall(
-                                                item,
-                                                smallBuildingsMap
-                                            );
-                                    } else {
-                                        byId[item.id] = item;
-                                    }
-                                }
-                                return byId;
-                            } else if (
-                                'result' in res &&
-                                (api === 'schoolings' ||
-                                    api === 'alliance_schoolings')
-                            ) {
-                                return res.result as APIs[Api];
+                const postProcessFetch = (res: ApiFetchResults[Api]) => {
+                    // we want to store vehicles and buildings by ID for easier access
+                    // TODO: Remove Array.isArray check and casts when Typescript extends oneof is available
+                    if (
+                        Array.isArray(res) &&
+                        (api === 'vehicles' ||
+                            api === 'buildings' ||
+                            api === 'alliance_buildings')
+                    ) {
+                        // @ts-expect-error unfortunately, typescript doesn't understand that we're filtering here (we need the extends oneof!)
+                        const byId: APIs[Api] = {};
+                        for (const item of res) {
+                            if ('small_building' in item) {
+                                byId[item.id] = self.updateBuildingTypeIfSmall(
+                                    item,
+                                    smallBuildingsMap
+                                );
+                            } else {
+                                byId[item.id] = item;
                             }
+                        }
+                        return byId;
+                    } else if (
+                        'result' in res &&
+                        (api === 'schoolings' || api === 'alliance_schoolings')
+                    ) {
+                        return res.result as APIs[Api];
+                    }
 
-                            return res;
-                        })
-                        .then(result => {
-                            self.apiStorage[api] = result;
-                            self.lastUpdates.set(api, Date.now());
-                            return result;
-                        })
-                );
+                    return res;
+                };
+
+                return fetch(new URL(`/api/${api}`, location.origin), init)
+                    .then(res => res.json())
+                    .then((res: ApiFetchResults[Api]) => postProcessFetch(res))
+                    .then(result => {
+                        self.apiStorage[api] = result;
+                        self.lastUpdates.set(api, Date.now());
+                        return result;
+                    });
             },
             scripts
         );
