@@ -1,3 +1,5 @@
+import { useConsoleStore } from '@stores/console';
+
 type WorkerExtraPropertiesType = Record<never, never>;
 
 export type WorkerSelf<
@@ -166,8 +168,17 @@ self.${script} = (${exported.toString()});
 
             const listener = (event: MessageEvent<MessageType>) => {
                 if (event.data.uuid !== uuid) return;
-                if ('error' in event.data) reject(event.data.error);
-                else resolve(event.data.result);
+                if ('error' in event.data) {
+                    useConsoleStore().error({
+                        messages: [
+                            `An error has been thrown in TypedWorker ${this.#workerName}, living on URL ${this.#blob}.`,
+                            event.data.error,
+                        ],
+                    });
+                    reject(event.data.error);
+                } else {
+                    resolve(event.data.result);
+                }
                 this.#worker?.port.removeEventListener('message', listener);
             };
 
