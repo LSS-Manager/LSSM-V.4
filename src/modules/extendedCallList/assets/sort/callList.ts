@@ -575,8 +575,10 @@ export default async (
     sortBtnWrapper.append(sortBtn, sortSelectionList);
 
     document
-        .querySelector<HTMLDivElement>('.mission-filters-top .mission-sorting')
-        ?.prepend(sortBtnWrapper);
+        .querySelector<HTMLDivElement>(
+            '.missions-panel-main .mission_selection:not(:has(~.mission_selection))'
+        )
+        ?.after(sortBtnWrapper);
 
     LSSM.$stores.root.hook({
         event: 'missionMarkerAdd',

@@ -5271,9 +5271,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsdoc@npm:48.2.0":
-  version: 48.2.0
-  resolution: "eslint-plugin-jsdoc@npm:48.2.0"
+"eslint-plugin-jsdoc@npm:48.2.1":
+  version: 48.2.1
+  resolution: "eslint-plugin-jsdoc@npm:48.2.1"
   dependencies:
     "@es-joy/jsdoccomment": "npm:~0.42.0"
     are-docs-informative: "npm:^0.0.2"
@@ -5286,7 +5286,7 @@ __metadata:
     spdx-expression-parse: "npm:^4.0.0"
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
-  checksum: 10c0/778f979ca40594269d531767ab29fb2a6c448425f8f732708ac5d3b9c61bbeb8504f1490a1057c7740f3e8f8a75d57ff50c766bc40fb1474f195e6f1aed30814
+  checksum: 10c0/92237f08b7dadb21f9eda50eda00bf69ac5e0bfcb9d179bf118e096178d7dc4a62b34fd01b3b7b0ba1142ff6e13814cfe2cf9a60c6cfcc879559b6b509d0d4e1
   languageName: node
   linkType: hard
 
@@ -7567,7 +7567,7 @@ __metadata:
     eslint-import-resolver-typescript: "npm:3.6.1"
     eslint-plugin-compat: "npm:4.2.0"
     eslint-plugin-import: "npm:2.29.1"
-    eslint-plugin-jsdoc: "npm:48.2.0"
+    eslint-plugin-jsdoc: "npm:48.2.1"
     eslint-plugin-markdownlint: "npm:0.5.0"
     eslint-plugin-prettier: "npm:5.1.3"
     eslint-plugin-regexp: "npm:2.2.0"
@@ -7595,7 +7595,7 @@ __metadata:
     semver: "npm:7.6.0"
     showdown: "npm:2.1.0"
     simpleheat: "npm:0.4.0"
-    terser: "npm:5.28.1"
+    terser: "npm:5.29.1"
     ts-loader: "npm:9.5.1"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.3.3"
@@ -10357,7 +10357,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"terser@npm:5.28.1, terser@npm:^5.0.0, terser@npm:^5.15.1, terser@npm:^5.26.0":
+"terser@npm:5.29.1":
+  version: 5.29.1
+  resolution: "terser@npm:5.29.1"
+  dependencies:
+    "@jridgewell/source-map": "npm:^0.3.3"
+    acorn: "npm:^8.8.2"
+    commander: "npm:^2.20.0"
+    source-map-support: "npm:~0.5.20"
+  bin:
+    terser: bin/terser
+  checksum: 10c0/5f50762d0804bf906dab4f8102811b0b94b8bceebe0f5f6186ee902200a089f06445c10f0f9bfd0cf3e118a5dd149a7cf625ec008cb880235be6901b43280833
+  languageName: node
+  linkType: hard
+
+"terser@npm:^5.0.0, terser@npm:^5.15.1, terser@npm:^5.26.0":
   version: 5.28.1
   resolution: "terser@npm:5.28.1"
   dependencies:

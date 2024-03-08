@@ -169,9 +169,9 @@ export default (
     } else {
         document
             .querySelector<HTMLDivElement>(
-                '.mission-filters-top .mission-sorting'
+                '.missions-panel-main .mission_selection:not(:has(~.mission_selection))'
             )
-            ?.prepend(allBtn);
+            ?.after(allBtn);
     }
 
     return (mission, collapsableMissionBtnClass) => {
