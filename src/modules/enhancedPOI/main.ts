@@ -39,10 +39,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
 
     const modifyMarkers = () =>
         LSSM.$stores.api
-            .request({
-                url: '/mission_positions',
-                feature: MODULE_ID,
-            })
+            .request('/mission_positions', MODULE_ID)
             .then(res => res.json())
             .then(
                 ({
@@ -151,7 +148,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
     };
     refresh_shown_pois();
     const paddingLeftPOI = [3, 4].includes(
-        LSSM.$stores.api.settings?.design_mode ?? 0
+        LSSM.$stores.api.settings.design_mode ?? 0
     )
         ? '25px'
         : '1ch';

@@ -3,9 +3,13 @@ import type Vue from 'vue';
 import { defineStore } from 'pinia';
 
 import type { IconName } from '@fortawesome/free-solid-svg-icons';
-import type { InternalBuilding } from 'typings/Building';
 import type { InternalEquipments } from 'typings/Equipment';
 import type { InternalVehicle } from 'typings/Vehicle';
+import type {
+    Building,
+    BuildingCategory,
+    InternalBuilding,
+} from 'typings/Building';
 
 const translationStore = defineStore('translationUtilities', () => {
     const LSSM = window[PREFIX] as Vue;
@@ -65,6 +69,19 @@ const translationStore = defineStore('translationUtilities', () => {
         Object.entries(buildings).map(([id, { icon }]) => [id, icon])
     );
 
+    const buildingCategories = LSSM.$t(
+        'buildingCategories'
+    ) as unknown as Record<string, BuildingCategory>;
+
+    const buildingCategoryByType: Record<Building['building_type'], string> =
+        {};
+    for (const [category, { buildings }] of Object.entries(
+        buildingCategories
+    )) {
+        for (const building of buildings)
+            buildingCategoryByType[building] = category;
+    }
+
     return {
         buildings,
         vehicles,
@@ -77,6 +94,8 @@ const translationStore = defineStore('translationUtilities', () => {
         cellExtensions,
         classroomBuildings,
         buildingIcons,
+        buildingCategories,
+        buildingCategoryByType,
     };
 });
 

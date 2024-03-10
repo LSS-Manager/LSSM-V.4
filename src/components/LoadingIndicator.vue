@@ -85,10 +85,10 @@ onMounted(() => {
     // if there are no file-sizes cached, fetch them
     if (Object.values(fileSizes.value).length === 0) {
         useAPIStore()
-            .request({
-                url: rootStore.lssmUrl('/static/fileSizes.json', true),
-                feature: 'loading-indicator',
-            })
+            .request(
+                rootStore.lssmUrl('/static/fileSizes.json', true),
+                'loading-indicator'
+            )
             .then(res => res.json())
             .then(sizes => {
                 fileSizes.value = sizes;

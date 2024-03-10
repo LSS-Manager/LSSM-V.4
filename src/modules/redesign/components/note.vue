@@ -86,23 +86,19 @@ export default Vue.extend<
             );
             url.searchParams.append('note[message]', this.noteText);
             this.lightbox.apiStore
-                .request({
-                    url: `/note`,
-                    init: {
-                        credentials: 'include',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                            'Upgrade-Insecure-Requests': '1',
-                        },
-                        referrer: new URL(
-                            `/note`,
-                            window.location.origin
-                        ).toString(),
-                        body: url.searchParams.toString(),
-                        method: 'POST',
-                        mode: 'cors',
+                .request(`/note`, 'redesign-note', {
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Upgrade-Insecure-Requests': '1',
                     },
-                    feature: 'redesign-note',
+                    referrer: new URL(
+                        `/note`,
+                        window.location.origin
+                    ).toString(),
+                    body: url.searchParams.toString(),
+                    method: 'POST',
+                    mode: 'cors',
                 })
                 .then(() =>
                     useEventStore().createAndDispatchEvent({

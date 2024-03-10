@@ -210,6 +210,7 @@ import { mapState } from 'pinia';
 import moment from 'moment';
 
 import type { Building } from 'typings/Building';
+import type { BuildingsByType } from '@workers/stores/api/buildings.worker';
 import type { Mission } from 'typings/Mission';
 import type { RedesignComponent } from 'typings/modules/Redesign';
 
@@ -251,7 +252,7 @@ type Component = RedesignComponent<
         setSort(type: sort): void;
     },
     {
-        buildings: Record<string, Building[]>;
+        buildings: BuildingsByType;
         dispatchCenters: Building[];
         prerequisites: Record<string, Record<string, number>>;
         missions: MissionEntry[];
@@ -313,7 +314,7 @@ export default Vue.extend<
         ...mapState(defineAPIStore, { buildings: 'buildingsByType' }),
         dispatchCenters() {
             return this.lightbox.translationStore.dispatchCenterBuildings
-                .flatMap(type => this.buildings[type])
+                .flatMap(type => Object.values(this.buildings[type] ?? []))
                 .filter(d => d?.generate_own_missions);
         },
         prerequisites() {
@@ -327,7 +328,7 @@ export default Vue.extend<
                 ),
             };
             Object.values(this.buildings)
-                .flat()
+                .flatMap(buildings => Object.values(buildings))
                 .forEach(building => {
                     const addTo: string[] = [building.building_type.toString()];
                     Object.entries(calcs).forEach(([req, stations]) =>
@@ -419,9 +420,11 @@ export default Vue.extend<
                             [string, Record<'diff' | 'have' | 'need', number>]
                         >(([req, amount]) => {
                             const have = req.match(/\d+\.\d+/u)
-                                ? this.buildings[
-                                      mission.prerequisites.main_building
-                                  ]?.find(
+                                ? Object.values(
+                                      this.buildings[
+                                          mission.prerequisites.main_building
+                                      ] ?? {}
+                                  ).some(
                                       b =>
                                           (this.selectedDispatchCenter ===
                                               '0' ||

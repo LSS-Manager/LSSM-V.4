@@ -1,11 +1,12 @@
+import type { BuildingCategory } from 'typings/Building';
+import type { BuildingsByCategory } from '@workers/stores/api/buildings.worker';
 import type { useSettingsStore } from '@stores/settings';
 import type VueI18n from 'vue-i18n';
-import type { Building, BuildingCategory } from 'typings/Building';
 import type { Vehicle, VehicleCategory } from 'typings/Vehicle';
 
 export interface ChartSummary {
     buildingsId: string;
-    buildings: Record<string, Building[]>;
+    buildings: BuildingsByCategory;
     buildingCategories: Record<string, BuildingCategory>;
     buildingTypeNames: Record<number, string>;
     buildingTypeColors: Record<number, string>;

@@ -42,7 +42,6 @@ import Vue from 'vue';
 
 import cloneDeep from 'lodash/cloneDeep';
 import { faTerminal } from '@fortawesome/free-solid-svg-icons/faTerminal';
-import { useAPIStore } from '@stores/api';
 
 import parser from './assets/parser';
 import tokenizer from './assets/tokenizer';
@@ -192,13 +191,11 @@ export default Vue.extend<
             ),
     },
     data() {
-        const apiStore = useAPIStore();
         return {
             faTerminal,
             query: '',
             token_list: [],
             querytree: null,
-            apiStore,
         } as LSSMAQL;
     },
     computed: {
@@ -226,10 +223,8 @@ export default Vue.extend<
         },
     },
     beforeMount() {
-        this.apiStore.getAllianceInfo('lssmaql-beforeMount');
         this.apiStore.getBuildings('lssmaql-beforeMount');
         this.apiStore.getVehicles('lssmaql-beforeMount');
-        this.apiStore.getMissions('lssmaql-beforeMount');
     },
 });
 </script>

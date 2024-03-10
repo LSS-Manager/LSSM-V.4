@@ -44,20 +44,16 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
                                     ?.getAttribute('content') || ''
                             );
                             await LSSM.$stores.api
-                                .request({
-                                    url: btn.href,
-                                    init: {
-                                        method: 'POST',
-                                        body: url.searchParams.toString(),
-                                        credentials: 'include',
-                                        mode: 'cors',
-                                        headers: {
-                                            'content-type':
-                                                'application/x-www-form-urlencoded',
-                                            'upgrade-insecure-requests': '1',
-                                        },
+                                .request(btn.href, `${MODULE_ID}-forumpost`, {
+                                    method: 'POST',
+                                    body: url.searchParams.toString(),
+                                    credentials: 'include',
+                                    mode: 'cors',
+                                    headers: {
+                                        'content-type':
+                                            'application/x-www-form-urlencoded',
+                                        'upgrade-insecure-requests': '1',
                                     },
-                                    feature: `${MODULE_ID}-forumpost`,
                                 })
                                 .then(({ status }) => {
                                     if (status !== 200) return;

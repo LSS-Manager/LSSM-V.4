@@ -13,6 +13,7 @@
         "outDir": "typings/dist",
         "paths": {
             "@stores/*": ["../src/stores/*"],
+            "@workers/*": ["../src/workers/*"],
             "typings/*": ["../typings/*"]
         },
         "resolveJsonModule": true,
@@ -21,6 +22,6 @@
         "target": "ES2022",
         "types": ["jquery", "node", "vue", "webpack-env"]
     },
-    "exclude": ["node_modules"],
+    "exclude": ["node_modules", "src/workers"],
     "include": ["src/**/*", "typings/**/*"]
 }

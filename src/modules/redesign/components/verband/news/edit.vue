@@ -97,11 +97,12 @@ export default Vue.extend<
                 url.searchParams.append('alliance_newse[public]', '1');
             if (this.news.id > 0) url.searchParams.append('_method', 'put');
             this.lightbox.apiStore
-                .request({
-                    url: `/alliance_newses${
+                .request(
+                    `/alliance_newses${
                         this.news.id < 0 ? '' : `/${this.news.id}`
                     }`,
-                    init: {
+                    'redesign-alliance-news-new/edit',
+                    {
                         credentials: 'include',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
@@ -118,9 +119,8 @@ export default Vue.extend<
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
-                    },
-                    feature: `redesign-alliance-news-new/edit`,
-                })
+                    }
+                )
                 .then(({ url }) => {
                     if (
                         !new URL(

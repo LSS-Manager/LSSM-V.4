@@ -62,7 +62,7 @@ export default async (
     updateBuildingListHideStyle();
     document.head.append(buildingListHideStyle);
 
-    const userBuildings = LSSM.$stores.api.buildingsById;
+    const userBuildings = LSSM.$stores.api.buildings;
 
     const complexesLayer = window.L.layerGroup().addTo(window.map);
     const complexMarkers: Marker[] = [];

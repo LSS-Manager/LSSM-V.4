@@ -326,10 +326,10 @@ export default Vue.extend<
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
             if (search) url.searchParams.set('username', search);
             this.lightbox.apiStore
-                .request({
+                .request(
                     url,
-                    feature: `redesign-verband-mitgliederliste-load-prev-${this.startPage}`,
-                })
+                    `redesign-verband-mitgliederliste-load-prev-${this.startPage}`
+                )
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/verband/mitglieder').then(
@@ -376,10 +376,10 @@ export default Vue.extend<
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
             if (search) url.searchParams.set('username', search);
             this.lightbox.apiStore
-                .request({
+                .request(
                     url,
-                    feature: `redesign-verband-mitgliederliste-load-next-${this.endPage}`,
-                })
+                    `redesign-verband-mitgliederliste-load-next-${this.endPage}`
+                )
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/verband/mitglieder').then(
@@ -444,9 +444,10 @@ export default Vue.extend<
                         ] as (HTMLInputElement | null)[]
                     )[0]?.value ?? '';
                 url.searchParams.append('user[caption]', caption);
-                this.lightbox.apiStore.request({
-                    url: `/verband/rolecaptionForm/${user_id}`,
-                    init: {
+                this.lightbox.apiStore.request(
+                    `/verband/rolecaptionForm/${user_id}`,
+                    `redesign-verband-mitgliederliste-save_caption`,
+                    {
                         credentials: 'include',
                         headers: {
                             'X-CSRF-Token': this.mitglieder.authenticity_token,
@@ -460,9 +461,8 @@ export default Vue.extend<
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
-                    },
-                    feature: `redesign-verband-mitgliederliste-save_caption`,
-                });
+                    }
+                );
                 this.caption_editing.splice(
                     this.caption_editing.indexOf(user_id),
                     1
@@ -479,9 +479,10 @@ export default Vue.extend<
         },
         applyDiscount(user_id, amount) {
             this.lightbox.apiStore
-                .request({
-                    url: `/verband/discount/${user_id}/${amount}`,
-                    init: {
+                .request(
+                    `/verband/discount/${user_id}/${amount}`,
+                    `redesign-verband-mitgliederliste-apply_discount`,
+                    {
                         credentials: 'include',
                         headers: {
                             'X-CSRF-Token': this.mitglieder.authenticity_token,
@@ -492,9 +493,8 @@ export default Vue.extend<
                         ).toString(),
                         method: 'GET',
                         mode: 'cors',
-                    },
-                    feature: `redesign-verband-mitgliederliste-apply_discount`,
-                })
+                    }
+                )
                 .then(() => {
                     const userIndex = this.mitglieder.users.findIndex(
                         ({ id }) => id === user_id
@@ -508,9 +508,10 @@ export default Vue.extend<
         },
         toggleRight(user_id, right, new_state) {
             this.lightbox.apiStore
-                .request({
-                    url: `/verband/${right}/${user_id}/${new_state}`,
-                    init: {
+                .request(
+                    `/verband/${right}/${user_id}/${new_state}`,
+                    `redesign-verband-mitgliederliste-toggle_role`,
+                    {
                         credentials: 'include',
                         headers: {
                             'X-CSRF-Token': this.mitglieder.authenticity_token,
@@ -521,9 +522,8 @@ export default Vue.extend<
                         ).toString(),
                         method: 'GET',
                         mode: 'cors',
-                    },
-                    feature: `redesign-verband-mitgliederliste-toggle_role`,
-                })
+                    }
+                )
                 .then(() => {
                     const userIndex = this.mitglieder.users.findIndex(
                         ({ id }) => id === user_id
@@ -565,9 +565,10 @@ export default Vue.extend<
                         title: LSSM.lightbox.$sm('rights.kickModal.btnConfirm'),
                         handler() {
                             LSSM.lightbox.apiStore
-                                .request({
-                                    url: `/verband/kick/${user_id}/`,
-                                    init: {
+                                .request(
+                                    `/verband/kick/${user_id}/`,
+                                    `redesign-verband-mitgliederliste-kick`,
+                                    {
                                         credentials: 'include',
                                         headers: {
                                             'X-CSRF-Token':
@@ -580,9 +581,8 @@ export default Vue.extend<
                                         ).toString(),
                                         method: 'GET',
                                         mode: 'cors',
-                                    },
-                                    feature: `redesign-verband-mitgliederliste-kick`,
-                                })
+                                    }
+                                )
                                 .then(() => {
                                     LSSM.$set(
                                         LSSM.lightbox.data,

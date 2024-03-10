@@ -95,9 +95,7 @@ export default async (
 
             if (!vehicleId || !linkWrapper) return;
 
-            const storedVehicle = LSSM.$stores.api.vehicles.find(
-                v => v.id === vehicleId
-            );
+            const storedVehicle = LSSM.$stores.api.vehicles[vehicleId];
 
             if (fmsSwitch) {
                 const fmsBtn = vehicle.querySelector('.building_list_fms');
@@ -113,10 +111,10 @@ export default async (
                         ? 6
                         : 2;
                     LSSM.$stores.api
-                        .request({
-                            url: `/vehicles/${vehicleId}/set_fms/${nextFms}`,
-                            feature: `${MODULE_ID}-enhanceVehicleList-fmsSwitch`,
-                        })
+                        .request(
+                            `/vehicles/${vehicleId}/set_fms/${nextFms}`,
+                            `${MODULE_ID}-enhanceVehicleList-fmsSwitch`
+                        )
                         .then(({ status }) => {
                             if (status === 200) {
                                 fmsBtn.classList.replace(
@@ -190,10 +188,10 @@ export default async (
                         let currentPersonnel = 0;
                         if (lastRowItems.includes('vehiclesPersonnelCurrent')) {
                             currentPersonnel = await LSSM.$stores.api
-                                .request({
-                                    url: `/vehicles/${vehicleId}`,
-                                    feature: `${MODULE_ID}-enhanceVehicleList-personnel`,
-                                })
+                                .request(
+                                    `/vehicles/${vehicleId}`,
+                                    `${MODULE_ID}-enhanceVehicleList-personnel`
+                                )
                                 .then(res => res.text())
                                 .then(
                                     res =>

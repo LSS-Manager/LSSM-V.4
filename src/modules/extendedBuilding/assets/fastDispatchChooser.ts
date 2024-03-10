@@ -35,10 +35,10 @@ export default async (
         ] as Building[];
         const buildingsByType = LSSM.$stores.api.buildingsByType;
         LSSM.$stores.translations.dispatchCenterBuildings.forEach(type =>
-            buildings.push(...(buildingsByType[type] ?? []))
+            buildings.push(...Object.values(buildingsByType[type] ?? []))
         );
         buildingIds.forEach(buildingID => {
-            const building = LSSM.$stores.api.buildingsById[buildingID];
+            const building = LSSM.$stores.api.buildings[buildingID];
             if (!building) return;
             const dispatchBtn = (
                 BUILDING_MODE !== 'dispatch'
@@ -130,10 +130,10 @@ export default async (
                     setBtn.addEventListener('click', e => {
                         e.preventDefault();
                         LSSM.$stores.api
-                            .request({
-                                url: `/buildings/${buildingID}/leitstelle-set/${building.id}`,
-                                feature: `${MODULE_ID}-fastDispatchChooser`,
-                            })
+                            .request(
+                                `/buildings/${buildingID}/leitstelle-set/${building.id}`,
+                                `${MODULE_ID}-fastDispatchChooser`
+                            )
                             .then(() => {
                                 dispatchBtn.setAttribute(
                                     'href',

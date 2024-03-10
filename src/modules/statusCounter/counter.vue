@@ -62,7 +62,7 @@ export default Vue.extend<
     },
     computed: {
         ...mapState(defineAPIStore, {
-            vehicles: store => store.vehicles.length,
+            vehicles: store => store.vehiclesArray.length,
             vehicleStates: 'vehicleStates',
         }),
         vehicleStateAmounts() {

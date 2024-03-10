@@ -1,5 +1,8 @@
+import type Vue from 'vue';
+
 import type { $m } from 'typings/Module';
 import type { GroupTranslation } from './getVehicleListObserveHandler';
+import type { Mission } from 'typings/Mission';
 import type { MissionRequirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
 
 export const groups = ['vehicles', 'staff', 'other'] as const;
@@ -7,14 +10,14 @@ Object.seal(groups);
 
 export type Group = (typeof groups)[number];
 export type MissingRequirements = Exclude<
-    ReturnType<typeof getMissingRequirements>,
+    Awaited<ReturnType<typeof getMissingRequirements>>,
     undefined
 >;
 
 const getMissingRequirements = (
     LSSM: Vue,
     missingDialog: HTMLDivElement,
-    missionType: string,
+    missionType: Mission | undefined,
     $m: $m
 ) => {
     if (!missingDialog.textContent?.trim()) return;
@@ -196,11 +199,7 @@ const getMissingRequirements = (
 
             Object.entries(groupReq.conditionalVehicles ?? {}).forEach(
                 ([condition, vehicles]) => {
-                    if (
-                        LSSM.$stores.api.missions[missionType]?.additional[
-                            condition
-                        ]
-                    )
+                    if (missionType?.additional[condition])
                         addRequirementToVehicles(Object.values(vehicles));
                 }
             );

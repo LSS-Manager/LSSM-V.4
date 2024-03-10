@@ -738,11 +738,14 @@ export default Vue.extend<
                 this.profile.authenticity_token
             );
             this.lightbox.apiStore
-                .request({
-                    url: `/allianceIgnore/${this.profile.id}/${
+                .request(
+                    `/allianceIgnore/${this.profile.id}/${
                         this.profile.alliance_ignored ? 'destroy' : 'add'
                     }`,
-                    init: {
+                    `redesign-profile-allianceignore-${
+                        this.profile.id
+                    }-to-${!this.profile.alliance_ignored}`,
+                    {
                         credentials: 'include',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
@@ -754,11 +757,8 @@ export default Vue.extend<
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
-                    },
-                    feature: `redesign-profile-allianceignore-${
-                        this.profile.id
-                    }-to-${!this.profile.alliance_ignored}`,
-                })
+                    }
+                )
                 .then(() =>
                     this.$set(
                         this.lightbox,
@@ -980,7 +980,7 @@ export default Vue.extend<
         );
         this.lightbox.apiStore
             .getAllianceInfo('redesign-profile')
-            .then(({ value: allianceinfo }) => {
+            .then(allianceinfo => {
                 this.allianceUser = allianceinfo.users.find(
                     ({ id }) => id === this.profile.id
                 );

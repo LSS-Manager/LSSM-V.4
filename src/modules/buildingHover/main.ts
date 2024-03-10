@@ -1,12 +1,12 @@
 import type { Building } from 'typings/Building';
 import type { ModuleMainFunction } from 'typings/Module';
 import type { PointTuple } from 'leaflet';
-import type { Vehicle } from 'typings/Vehicle';
+import type { VehiclesByBuilding } from '@workers/stores/api/vehicles.worker';
 import type { BuildingMarker, RadioMessage } from 'typings/Ingame';
 
 export default (async ({ LSSM, MODULE_ID }) => {
-    await LSSM.$stores.api.autoUpdateBuildings(MODULE_ID);
-    await LSSM.$stores.api.autoUpdateVehicles(MODULE_ID);
+    await LSSM.$stores.api.getBuildings(MODULE_ID);
+    await LSSM.$stores.api.getVehicles(MODULE_ID);
 
     const vehicleTypes = LSSM.$stores.translations.vehicles;
 
@@ -19,13 +19,13 @@ export default (async ({ LSSM, MODULE_ID }) => {
         },
     });
 
-    let vehiclesByBuilding: Record<number, Vehicle[]>;
+    let vehiclesByBuilding: VehiclesByBuilding;
 
     let buildings: Building[];
 
     const updateBuildings = () => {
         vehiclesByBuilding = LSSM.$stores.api.vehiclesByBuilding;
-        buildings = LSSM.$stores.api.buildings;
+        buildings = LSSM.$stores.api.buildingsArray;
     };
 
     updateBuildings();
@@ -40,7 +40,9 @@ export default (async ({ LSSM, MODULE_ID }) => {
 
         if (hasTt) marker.unbindTooltip();
 
-        const vehicles = vehiclesByBuilding[marker.building_id] || [];
+        const vehicles = Object.values(
+            vehiclesByBuilding[marker.building_id] ?? []
+        );
         vehicles.sort((a, b) =>
             a.caption > b.caption ? 1 : b.caption > a.caption ? -1 : 0
         );
@@ -165,12 +167,10 @@ export default (async ({ LSSM, MODULE_ID }) => {
             )
                 return;
             const { id, fms, fms_real } = radioMessage;
-            const vehicle = LSSM.$stores.api.vehicles.find(v => v.id === id);
+            const vehicle = LSSM.$stores.api.vehicles[id];
             if (!vehicle) return;
             updateBuildings();
-            const v = vehiclesByBuilding[vehicle.building_id].find(
-                v => v.id === vehicle.id
-            );
+            const v = vehiclesByBuilding[vehicle.building_id][vehicle.id];
             if (v) {
                 v.fms_show = fms;
                 v.fms_real = fms_real;

@@ -848,10 +848,7 @@ export default Vue.extend<
         (window[PREFIX] as Vue).$settings = this;
 
         useAPIStore()
-            .request({
-                url: this.rootStore.lssmUrl('/branches.json'),
-                feature: 'settings',
-            })
+            .request(this.rootStore.lssmUrl('/branches.json'), 'settings')
             .then(res => res.json() as Promise<SettingsData['branches']>)
             .then(branches => (this.branches = branches));
     },

@@ -29,7 +29,9 @@ export default async (
         document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
             ?.content ?? '';
 
-    const missionsById = LSSM.$stores.api.missions;
+    const missionsById = await LSSM.$stores.api.getMissionTypes(
+        `${MODULE_ID}-shareMissions`
+    );
     const acceptedMissionTypes = Object.entries(missionsById)
         .filter(([, { average_credits }]) =>
             minCredits ? average_credits && average_credits >= minCredits : true
@@ -116,10 +118,10 @@ export default async (
             btn.addEventListener('click', () => {
                 btn.disabled = true;
                 LSSM.$stores.api
-                    .request({
-                        url: `/missions/${mission.id}/alliance`,
-                        feature: 'ecl-share-missions',
-                    })
+                    .request(
+                        `/missions/${mission.id}/alliance`,
+                        'ecl-share-missions'
+                    )
                     .then(() => btn.remove());
             });
         }

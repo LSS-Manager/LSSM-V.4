@@ -203,10 +203,10 @@ export function shareMission(
     missionId: number | string,
     isCallList = false
 ) {
-    return LSSM.$stores.api.request({
-        url: `/missions/${missionId}/alliance`,
-        feature: `'sap-${isCallList ? 'ecl-' : ''}share-missions'`,
-    });
+    return LSSM.$stores.api.request(
+        `/missions/${missionId}/alliance`,
+        `sap-${isCallList ? 'ecl-' : ''}share-missions`
+    );
 }
 
 /**
@@ -235,10 +235,10 @@ export function sendReply(
 
     url.searchParams.append('mission_reply[content]', message);
     url.searchParams.append('mission_reply[mission_id]', missionId.toString());
-    return LSSM.$stores.api.request({
-        url: '/mission_replies',
-        feature: `sap${isCallList ? '-ecl' : ''}_reply`,
-        init: {
+    return LSSM.$stores.api.request(
+        '/mission_replies',
+        `sap${isCallList ? '-ecl' : ''}_reply`,
+        {
             credentials: 'include',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -246,8 +246,8 @@ export function sendReply(
             body: url.searchParams.toString(),
             method: 'POST',
             mode: 'cors',
-        },
-    });
+        }
+    );
 }
 
 /**

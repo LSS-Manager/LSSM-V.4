@@ -47,6 +47,8 @@ declare const GM_INFO_KEY: Prefixed<'GM_Info'>;
 
 declare global {
     interface Window {
+        URL: typeof URL;
+        SharedWorker: typeof SharedWorker;
         $: JQueryStatic;
         sceditor: sceditor;
         keepAlive: boolean;

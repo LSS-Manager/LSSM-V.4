@@ -151,6 +151,10 @@ export default async ({
 
     const observedGroups = new Set<string>();
 
+    const missionsById = await LSSM.$stores.api.getMissionTypes(
+        'sap-largeScaleAllianceMission'
+    );
+
     const observer = new MutationObserver(mutations =>
         mutations.forEach(mutation => {
             const target = mutation.target;
@@ -177,7 +181,6 @@ export default async ({
                     replyInProgress.add(missionId);
                     const doTheSendStuff = (el = missionElement) => {
                         if (!el) return;
-                        const missionsById = LSSM.$stores.api.missions;
                         sendReply(
                             LSSM,
                             missionId,

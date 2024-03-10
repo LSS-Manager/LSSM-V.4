@@ -227,7 +227,9 @@ export default Vue.extend<
         const dispatchCenterBuildings =
             useTranslationStore().dispatchCenterBuildings;
         dispatchCenterBuildings.forEach(type =>
-            dispatchBuildings.push(...(buildingsByType[type] ?? []))
+            dispatchBuildings.push(
+                ...Object.values(buildingsByType[type] ?? [])
+            )
         );
         dispatchBuildings.sort((a, b) =>
             !a.id
@@ -241,7 +243,7 @@ export default Vue.extend<
         const bedBuildings: Building[] = [];
         const bedBuildingsType = useTranslationStore().bedBuildings;
         bedBuildingsType.forEach(type =>
-            bedBuildings.push(...(buildingsByType[type] ?? []))
+            bedBuildings.push(...Object.values(buildingsByType[type] ?? []))
         );
         return {
             buildingTypeNames: Object.fromEntries(
@@ -260,7 +262,7 @@ export default Vue.extend<
             dispatchCenterBuildings,
             bedBuildings,
             bedBuildingsType,
-            apiStore,
+            apiStore: useAPIStore(),
             translationStore,
         } as BuildingList;
     },
@@ -314,10 +316,10 @@ export default Vue.extend<
         },
         setDispatchCenter(building, dispatchBuilding) {
             this.apiStore
-                .request({
-                    url: `/buildings/${building.id}/leitstelle-set/${dispatchBuilding.id}`,
-                    feature: `dashboard-buildingList-fastDispatchChooser`,
-                })
+                .request(
+                    `/buildings/${building.id}/leitstelle-set/${dispatchBuilding.id}`,
+                    `dashboard-buildingList-fastDispatchChooser`
+                )
                 .then(() => {
                     const dispatchBtn =
                         document.querySelector<HTMLButtonElement>(

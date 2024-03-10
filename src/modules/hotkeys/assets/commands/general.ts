@@ -91,7 +91,7 @@ export default <
         const LSSM = window[PREFIX] as Vue;
         await LSSM.$stores.api.getBuildings('hotkeys-*.protocol');
         const lstBuildings = LSSM.$stores.translations.dispatchCenterBuildings;
-        const id = LSSM.$stores.api.buildings.find(({ building_type }) =>
+        const id = LSSM.$stores.api.buildingsArray.find(({ building_type }) =>
             lstBuildings.includes(building_type)
         )?.id;
         if (id) window.lightboxOpen(`/buildings/${id}#tab_protocol`);
