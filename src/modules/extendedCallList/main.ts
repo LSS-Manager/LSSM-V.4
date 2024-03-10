@@ -68,13 +68,6 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
         return;
     }
 
-    LSSM.$stores.root.addStyle({
-        selectorText: '.mission-filters-top .mission-sorting',
-        style: {
-            'flex-direction': 'row',
-        },
-    });
-
     const collapsableMissions = await getSetting('collapsableMissions');
     const shareMissions = await getSetting('shareMissions');
 
@@ -287,10 +280,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
         import(
             /* webpackChunkName: "modules/extendedCallList/utils/progressPrepend" */ './assets/utils/progressPrepend'
         ).then(async ({ default: progressPrepend }) => {
-            if (averageCredits)
-                await LSSM.$stores.api.getMissions('ecl-averageCredits');
-
-            const { addAverageCredits, updateAverageCredits } = (
+            const { addAverageCredits, updateAverageCredits } = await (
                 await import(
                     /* webpackChunkName: "modules/extendedCallList/averageCredits" */ './assets/averageCredits'
                 )

@@ -143,10 +143,10 @@ export default Vue.extend<
             this.startPage--;
             const url = `/credits?page=${this.startPage}`;
             this.lightbox.apiStore
-                .request({
+                .request(
                     url,
-                    feature: `redesign-credits-index-load-prev-${this.startPage}`,
-                })
+                    `redesign-credits-index-load-prev-${this.startPage}`
+                )
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/credits/list').then(async parser => {
@@ -181,10 +181,10 @@ export default Vue.extend<
             this.endPage++;
             const url = `/credits?page=${this.endPage}`;
             this.lightbox.apiStore
-                .request({
+                .request(
                     url,
-                    feature: `redesign-credits-index-load-next-${this.endPage}`,
-                })
+                    `redesign-credits-index-load-next-${this.endPage}`
+                )
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/credits/list').then(async parser => {

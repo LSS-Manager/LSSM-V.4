@@ -262,10 +262,10 @@ export default Vue.extend<
             this.$set(this.lightbox, 'loading', true);
             const url = new URL('/verband/kasse', window.location.origin);
             this.lightbox.apiStore
-                .request({
-                    url: `${url.toString()}/umschalten`,
-                    feature: `redesign-verband-kasse-toggle`,
-                })
+                .request(
+                    `${url.toString()}/umschalten`,
+                    `redesign-verband-kasse-toggle`
+                )
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/verband/kasse').then(async parser => {
@@ -290,10 +290,10 @@ export default Vue.extend<
         changeRate(rate) {
             this.$set(this.lightbox, 'loading', true);
             this.lightbox.apiStore
-                .request({
-                    url: `/verband/kasse/rate/${rate}`,
-                    feature: `redesign-verband-kasse-rate`,
-                })
+                .request(
+                    `/verband/kasse/rate/${rate}`,
+                    `redesign-verband-kasse-rate`
+                )
                 .then(() => {
                     this.$set(this.lightbox.data, 'rate', rate);
                     this.lightbox.finishLoading('verband-kasse-toggle');
@@ -305,10 +305,7 @@ export default Vue.extend<
             const url = new URL('/verband/kasse', window.location.origin);
             url.searchParams.set('type', type);
             this.lightbox.apiStore
-                .request({
-                    url,
-                    feature: `redesign-verband-kasse-earnings-type`,
-                })
+                .request(url, `redesign-verband-kasse-earnings-type`)
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/verband/kasse').then(async parser => {
@@ -344,10 +341,7 @@ export default Vue.extend<
             const url = new URL('/verband/kasse', window.location.origin);
             url.searchParams.set('type', this.kasse.earnings.type);
             this.lightbox.apiStore
-                .request({
-                    url,
-                    feature: `redesign-verband-kasse-earnings-today`,
-                })
+                .request(url, `redesign-verband-kasse-earnings-today`)
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/verband/kasse').then(async parser => {
@@ -387,10 +381,7 @@ export default Vue.extend<
                 (this.kasse.earnings.scroll - 1).toString()
             );
             this.lightbox.apiStore
-                .request({
-                    url,
-                    feature: `redesign-verband-kasse-earnings-prev`,
-                })
+                .request(url, `redesign-verband-kasse-earnings-prev`)
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/verband/kasse').then(async parser => {
@@ -430,10 +421,7 @@ export default Vue.extend<
                 (this.kasse.earnings.scroll + 1).toString()
             );
             this.lightbox.apiStore
-                .request({
-                    url,
-                    feature: `redesign-verband-kasse-earnings-next`,
-                })
+                .request(url, `redesign-verband-kasse-earnings-next`)
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/verband/kasse').then(async parser => {
@@ -472,10 +460,7 @@ export default Vue.extend<
                 (this.kasse.spendings.page + 1).toString()
             );
             this.lightbox.apiStore
-                .request({
-                    url,
-                    feature: `redesign-verband-kasse-more-spendings`,
-                })
+                .request(url, `redesign-verband-kasse-more-spendings`)
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/verband/kasse').then(async parser => {

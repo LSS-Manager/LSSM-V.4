@@ -1292,6 +1292,7 @@ import { defineAPIStore, useAPIStore } from '@stores/api';
 import type { Complex } from '../../assets/buildingComplexes';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { Schooling } from 'typings/api/Schoolings';
+import type { VehiclesByBuilding } from '@workers/stores/api/vehicles.worker';
 import type { $m, $mc } from 'typings/Module';
 import type {
     Building,
@@ -1585,7 +1586,7 @@ export default Vue.extend<
     {
         buildings: Record<number, Building>;
         allianceBuildings: Record<number, Building>;
-        vehiclesByBuilding: Record<number, Vehicle[]>;
+        vehiclesByBuilding: VehiclesByBuilding;
         allSchoolings: Schooling[];
         attributedBuildings: AttributedBuilding[];
         sortedBuildingsByName: AttributedBuilding[];
@@ -1722,18 +1723,10 @@ export default Vue.extend<
     },
     computed: {
         ...mapState(defineAPIStore, {
-            buildings: 'buildingsById',
-            allianceBuildings: 'allianceBuildingsById',
+            allSchoolings: 'allSchoolings',
+            buildings: 'buildings',
             vehiclesByBuilding: 'vehiclesByBuilding',
-            allSchoolings(store) {
-                const allianceSchoolings = store.alliance_schoolings.result;
-                const allianceSchoolingIds = allianceSchoolings.map(s => s.id);
-                return allianceSchoolings.concat(
-                    store.schoolings.result.filter(
-                        s => !allianceSchoolingIds.includes(s.id)
-                    )
-                );
-            },
+            allianceBuildings: 'alliance_buildings',
         }),
         attributedBuildings() {
             const smallBuildings = this.$t(
@@ -1892,9 +1885,9 @@ export default Vue.extend<
                         'startParkingLots' in buildingType
                             ? {
                                   hasVehicles: true,
-                                  vehicles:
-                                      this.vehiclesByBuilding[building.id] ??
-                                      [],
+                                  vehicles: Object.values(
+                                      this.vehiclesByBuilding[building.id] ?? []
+                                  ),
                                   maxVehicles:
                                       (buildingType.parkingLotsPerLevel ?? 1) *
                                           building.level +
@@ -2786,13 +2779,12 @@ export default Vue.extend<
                 switch (index) {
                     case this.overviewTabs.classrooms:
                         this.classRoomsUpdating = true;
-                        return this.apiStore
-                            .getSchoolings('buildingComplex')
-                            .then(() =>
-                                this.apiStore.getAllianceSchoolings(
-                                    'buildingComplex'
-                                )
-                            )
+                        return Promise.all([
+                            this.apiStore.getSchoolings('buildingComplex'),
+                            this.apiStore.getAllianceSchoolings(
+                                'buildingComplex'
+                            ),
+                        ])
                             .then(() => this.$nextTick())
                             .then(() => this.initSchoolingCountdowns())
                             .then(() => (this.classRoomsUpdating = false));
@@ -2872,10 +2864,10 @@ export default Vue.extend<
             const targetFMS = vehicle.fms_real === 2 ? 6 : 2;
             const feature = 'buildingComplex-setFMS';
             this.apiStore
-                .request({
-                    url: `/vehicles/${vehicle.id}/set_fms/${targetFMS}`,
-                    feature,
-                })
+                .request(
+                    `/vehicles/${vehicle.id}/set_fms/${targetFMS}`,
+                    feature
+                )
                 .then(() => this.apiStore.getVehicle(vehicle.id, feature));
         },
         setSortBuildingsTable(sort) {
@@ -2942,22 +2934,22 @@ export default Vue.extend<
             );
             const feature = 'buildingComplexes-build-extension';
             this.apiStore
-                .request({
-                    url: `/buildings/${buildingId}/extension/${method}/${extensionType}?redirect_building_id=${buildingId}`,
-                    init: {
+                .request(
+                    `/buildings/${buildingId}/extension/${method}/${extensionType}?redirect_building_id=${buildingId}`,
+                    feature,
+                    {
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
                         },
                         referrer: `/buildings/${buildingId}`,
                         method: 'POST',
                         body: url.searchParams.toString(),
-                    },
-                    feature,
-                })
+                    }
+                )
                 .then(() =>
-                    this.apiStore[
-                        allianceBuilding ? 'getAllianceBuilding' : 'getBuilding'
-                    ](buildingId, feature)
+                    allianceBuilding
+                        ? this.apiStore.getAllianceBuilding(buildingId, feature)
+                        : this.apiStore.getBuilding(buildingId, feature)
                 )
                 .then(() => {
                     this.tempDisableAllExtensionButtons = false;
@@ -2978,18 +2970,18 @@ export default Vue.extend<
             );
             const feature = 'buildingComplexes-toggle-extension';
             this.apiStore
-                .request({
-                    url: `/buildings/${buildingId}/extension_ready/${extensionType}/${buildingId}`,
-                    init: {
+                .request(
+                    `/buildings/${buildingId}/extension_ready/${extensionType}/${buildingId}`,
+                    feature,
+                    {
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
                         },
                         referrer: `/buildings/${buildingId}`,
                         method: 'POST',
                         body: url.searchParams.toString(),
-                    },
-                    feature,
-                })
+                    }
+                )
                 .then(() => this.apiStore.getBuilding(buildingId, feature))
                 .then(() => {
                     this.tempDisableAllExtensionButtons = false;
@@ -3039,7 +3031,7 @@ export default Vue.extend<
         updateProtocol() {
             const dispatchCenterTypes =
                 this.translationStore.dispatchCenterBuildings;
-            const dispatchCenterBuilding = this.apiStore.buildings.find(
+            const dispatchCenterBuilding = this.apiStore.buildingsArray.find(
                 ({ building_type }) =>
                     dispatchCenterTypes.includes(building_type)
             );
@@ -3049,10 +3041,10 @@ export default Vue.extend<
             this.protocolDeletionTimeout = window.setTimeout(() => {
                 this.protocolUpdating = true;
                 this.apiStore
-                    .request({
-                        url: `/buildings/${dispatchCenterBuilding.id}/leitstelle-protocol`,
-                        feature: 'buildingComplex',
-                    })
+                    .request(
+                        `/buildings/${dispatchCenterBuilding.id}/leitstelle-protocol`,
+                        'buildingComplex'
+                    )
                     .then(res => res.text())
                     .then(html => {
                         const protocolDocument =
@@ -3164,10 +3156,10 @@ export default Vue.extend<
         deleteProtocolEntry(id, dispatchId) {
             this.protocolDeletions.push(id);
             this.apiStore
-                .request({
-                    url: `/buildings/${dispatchId}/leitstelle-protocol-delete?protocol_id=${id}`,
-                    feature: 'buildingComplex',
-                })
+                .request(
+                    `/buildings/${dispatchId}/leitstelle-protocol-delete?protocol_id=${id}`,
+                    'buildingComplex'
+                )
                 .then(() => {
                     this.protocol.splice(
                         this.protocol.findIndex(p => p.id === id),
@@ -3202,19 +3194,16 @@ export default Vue.extend<
         toggleAllianceShare(buildingId) {
             const feature = 'buildingComplex-toggle-alliance-share';
             this.apiStore
-                .request({
-                    url: `/buildings/${buildingId}/alliance`,
-                    feature,
-                })
+                .request(`/buildings/${buildingId}/alliance`, feature)
                 .then(() => this.apiStore.getBuilding(buildingId, feature));
         },
         setAllianceTax(buildingId, tax) {
             const feature = 'buildingComplex-toggle-alliance-set-tax';
             this.apiStore
-                .request({
-                    url: `/buildings/${buildingId}/alliance_costs/${tax}`,
-                    feature,
-                })
+                .request(
+                    `/buildings/${buildingId}/alliance_costs/${tax}`,
+                    feature
+                )
                 .then(() => this.apiStore.getBuilding(buildingId, feature));
         },
         openAvailableSchool() {
@@ -3272,9 +3261,9 @@ export default Vue.extend<
     },
     mounted() {
         this.$set(this, 'currentBuildingId', this.sortedBuildingIdsByName[-1]);
-        this.apiStore.$subscribe(() =>
-            this.$nextTick().then(() => this.initSchoolingCountdowns())
-        );
+        // this.apiStore.$subscribe(() =>
+        //     this.$nextTick().then(() => this.initSchoolingCountdowns())
+        // );
         this.selectOverviewTab(new MouseEvent('click'), 0);
     },
 });

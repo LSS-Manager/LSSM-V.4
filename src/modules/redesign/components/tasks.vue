@@ -208,9 +208,10 @@ export default Vue.extend<
         claimReward(id) {
             this.$set(this.lightbox, 'loading', true);
             this.lightbox.apiStore
-                .request({
-                    url: `/tasks/claim_reward?task_progress_id=${id}`,
-                    init: {
+                .request(
+                    `/tasks/claim_reward?task_progress_id=${id}`,
+                    `redesign-tasks-claim-${id}`,
+                    {
                         credentials: 'include',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
@@ -224,9 +225,8 @@ export default Vue.extend<
                         )}`,
                         method: 'POST',
                         mode: 'cors',
-                    },
-                    feature: `redesign-tasks-claim-${id}`,
-                })
+                    }
+                )
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../parsers/tasks').then(async parser => {
@@ -264,9 +264,10 @@ export default Vue.extend<
             const claimAll = () => {
                 this.$set(this.lightbox, 'loading', true);
                 this.lightbox.apiStore
-                    .request({
-                        url: `/tasks/claim_all_rewards`,
-                        init: {
+                    .request(
+                        `/tasks/claim_all_rewards`,
+                        `redesign-tasks-claim-all`,
+                        {
                             credentials: 'include',
                             headers: {
                                 'Content-Type':
@@ -281,9 +282,8 @@ export default Vue.extend<
                             )}`,
                             method: 'POST',
                             mode: 'cors',
-                        },
-                        feature: `redesign-tasks-claim-all`,
-                    })
+                        }
+                    )
                     .then((res: Response) => res.text())
                     .then(async html => {
                         import('../parsers/tasks').then(async parser => {

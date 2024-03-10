@@ -71,8 +71,7 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
 
     const buildingType =
         LSSM.$stores.translations.buildings[
-            LSSM.$stores.api.buildings.find(({ id }) => id === buildingId)
-                ?.building_type ?? -1
+            LSSM.$stores.api.buildings[buildingId]?.building_type ?? -1
         ];
 
     const schools =

@@ -27,10 +27,10 @@ export default (
                         return;
                     e.preventDefault();
                     LSSM.$stores.api
-                        .request({
-                            url: target.getAttribute('href') ?? '',
-                            feature: `${MODULE_ID}-missions-prisoners`,
-                        })
+                        .request(
+                            target.getAttribute('href') ?? '',
+                            `${MODULE_ID}-missions-prisoners`
+                        )
                         .then(() => {
                             const vehicleId =
                                 target.parentElement?.getAttribute(
@@ -145,18 +145,14 @@ export default (
                 missionId.toString()
             );
             LSSM.$stores.api
-                .request({
-                    url: '/mission_replies',
-                    feature: `${MODULE_ID}_missionReply`,
-                    init: {
-                        credentials: 'include',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                        },
-                        body: url.searchParams.toString(),
-                        method: 'POST',
-                        mode: 'cors',
+                .request('/mission_replies', `${MODULE_ID}_missionReply`, {
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
                     },
+                    body: url.searchParams.toString(),
+                    method: 'POST',
+                    mode: 'cors',
                 })
                 .then(() => {
                     let missionReplies =

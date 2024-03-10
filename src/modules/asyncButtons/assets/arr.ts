@@ -45,22 +45,18 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
                                     ?.getAttribute('content') || ''
                             );
                             await LSSM.$stores.api
-                                .request({
-                                    url: btn.href,
-                                    init: {
-                                        method: 'POST',
-                                        body: url.searchParams.toString(),
-                                        credentials: 'include',
-                                        mode: 'cors',
-                                        headers: {
-                                            'Accept':
-                                                'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-                                            'Content-Type':
-                                                'application/x-www-form-urlencoded',
-                                            'Upgrade-Insecure-Requests': '1',
-                                        },
+                                .request(btn.href, `${MODULE_ID}-arr`, {
+                                    method: 'POST',
+                                    body: url.searchParams.toString(),
+                                    credentials: 'include',
+                                    mode: 'cors',
+                                    headers: {
+                                        'Accept':
+                                            'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+                                        'Content-Type':
+                                            'application/x-www-form-urlencoded',
+                                        'Upgrade-Insecure-Requests': '1',
                                     },
-                                    feature: `${MODULE_ID}-arr`,
                                 })
                                 .then(({ status }) => {
                                     if (status !== 200) return;

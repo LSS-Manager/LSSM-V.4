@@ -83,7 +83,7 @@ export default <ModuleSettingFunction>(async (MODULE_ID, LSSM, $m) => {
     const buildingTypes = LSSM.$stores.translations.buildings;
 
     await LSSM.$stores.api.getBuildings(`${MODULE_ID}-settings`);
-    const userBuildings = LSSM.$stores.api.buildings;
+    const userBuildings = LSSM.$stores.api.buildingsArray;
     const userBuildingIds: string[] = [];
     const userBuildingLabels: string[] = [];
 

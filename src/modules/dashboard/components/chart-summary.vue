@@ -6,7 +6,7 @@
                     {{ $sm('buildings.title') }}:
                     {{
                         Object.values(buildings)
-                            .reduce((a, b) => (a += b.length), 0)
+                            .reduce((a, b) => (a += Object.keys(b).length), 0)
                             .toLocaleString()
                     }}
                 </b>
@@ -43,7 +43,7 @@
                     {{ $sm('vehicles.title') }}:
                     {{
                         Object.values(vehicles)
-                            .reduce((a, b) => a + b.length, 0)
+                            .reduce((a, b) => a + Object.keys(b).length, 0)
                             .toLocaleString()
                     }}
                 </b>
@@ -222,9 +222,7 @@ export default Vue.extend<
     computed: {
         ...mapState(defineAPIStore, {
             personalCount: store =>
-                store.buildings
-                    .map(b => b.personal_count)
-                    .reduce((a, b) => a + b, 0),
+                store.buildingsArray.reduce((a, b) => a + b.personal_count, 0),
         }),
         maxMissions() {
             return window.mission_count_max;
@@ -234,9 +232,10 @@ export default Vue.extend<
         },
         water() {
             return Object.entries(this.vehicles).reduce(
-                (a, [type, { length }]) =>
+                (a, [type, vehicles]) =>
                     a +
-                    length * (this.waterByType[parseInt(type.toString())] ?? 0),
+                    Object.keys(vehicles).length *
+                        (this.waterByType[parseInt(type.toString())] ?? 0),
                 0
             );
         },
@@ -245,9 +244,9 @@ export default Vue.extend<
                 (this.water *
                     (100 +
                         Object.entries(this.vehicles).reduce(
-                            (a, [type, { length }]) =>
+                            (a, [type, vehicles]) =>
                                 a +
-                                length *
+                                Object.keys(vehicles).length *
                                     (this.waterBonusByType[
                                         parseInt(type.toString())
                                     ] ?? 0),
@@ -261,9 +260,10 @@ export default Vue.extend<
         },
         foam() {
             return Object.entries(this.vehicles).reduce(
-                (a, [type, { length }]) =>
+                (a, [type, vehicles]) =>
                     a +
-                    length * (this.foamByType[parseInt(type.toString())] ?? 0),
+                    Object.keys(vehicles).length *
+                        (this.foamByType[parseInt(type.toString())] ?? 0),
                 0
             );
         },
@@ -272,9 +272,9 @@ export default Vue.extend<
                 (this.foam *
                     (100 +
                         Object.entries(this.vehicles).reduce(
-                            (a, [type, { length }]) =>
+                            (a, [type, vehicles]) =>
                                 a +
-                                length *
+                                Object.keys(vehicles).length *
                                     (this.foamBonusByType[
                                         parseInt(type.toString())
                                     ] ?? 0),
@@ -321,7 +321,9 @@ export default Vue.extend<
                     Object.values(
                         this.vehicleCategories[category].vehicles[group]
                     ).forEach(type => {
-                        const value = (this.vehicles[type] || []).length;
+                        const value = Object.keys(
+                            this.vehicles[type] ?? []
+                        ).length;
                         sum += value;
                         const color = this.vehicleTypeColors[type];
                         groupColor += parseInt(color.replace(/^#/u, ''), 16);
@@ -350,7 +352,9 @@ export default Vue.extend<
                 Object.values(
                     this.vehicleCategories[category].vehicles[groups[0]]
                 ).forEach(type => {
-                    const value = (this.vehicles[type] || []).length;
+                    const value = Object.values(
+                        this.vehicles[type] ?? []
+                    ).length;
                     sum += value;
                     data.push({
                         id: `${category}_${type}`,
@@ -466,7 +470,9 @@ export default Vue.extend<
                             ...types.map(type => {
                                 return {
                                     name: this.buildingTypeNames[type],
-                                    y: (this.buildings[category] || []).filter(
+                                    y: Object.values(
+                                        this.buildings[category] || []
+                                    ).filter(
                                         building =>
                                             building.building_type === type
                                     ).length,
@@ -478,7 +484,8 @@ export default Vue.extend<
                                 isSum: !this.buildingsAsColumn,
                                 color: this.buildingCategories[category].color,
                                 drilldown: category,
-                                y: this.buildings[category]?.length ?? 0,
+                                y: Object.keys(this.buildings[category] ?? {})
+                                    .length,
                             },
                         ],
                     };
@@ -508,7 +515,7 @@ export default Vue.extend<
                                     id: category,
                                     type: 'column',
                                     data: types.map(building_type => {
-                                        const buildings = (
+                                        const buildings = Object.values(
                                             this.buildings[category] || []
                                         ).filter(
                                             building =>
@@ -526,9 +533,11 @@ export default Vue.extend<
                                                 )
                                             )
                                                 return;
-                                            this.vehiclesByBuilding[
-                                                building.id
-                                            ].forEach(vehicle => {
+                                            Object.values(
+                                                this.vehiclesByBuilding[
+                                                    building.id
+                                                ]
+                                            ).forEach(vehicle => {
                                                 if (
                                                     !vehicle_types.hasOwnProperty(
                                                         vehicle.vehicle_type

@@ -9,7 +9,7 @@ export default async (
     const $m: $m = (key: string, args?: Record<string, unknown>) =>
         LSSM.$t(`modules.dailyCreditsSummary.${key}`, args);
 
-    const missions = await LSSM.$stores.api.getMissionsArray(
+    const missions = await LSSM.$stores.api.getMissionTypesArray(
         'dailyCreditSummary-getMissions'
     );
 

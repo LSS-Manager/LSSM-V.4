@@ -30,6 +30,7 @@
 import { computed, ref } from 'vue';
 
 import jsonata from 'jsonata';
+import { faTerminal } from '@fortawesome/free-solid-svg-icons/faTerminal';
 import { useAPIStore } from '@stores/api';
 
 export default {
@@ -80,7 +81,12 @@ export default {
 
         return { getResult, resultLength, result, resultString, query };
     },
-};
+    beforeMount() {
+        this.apiStore.getMissions('lssmaql-beforeMount');
+        this.apiStore.getBuildings('lssmaql-beforeMount');
+        this.apiStore.getVehicles('lssmaql-beforeMount');
+    },
+});
 </script>
 
 <style scoped lang="sass">

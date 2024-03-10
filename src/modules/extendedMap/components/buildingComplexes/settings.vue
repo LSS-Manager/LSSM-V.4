@@ -236,8 +236,8 @@ export default Vue.extend<
     },
     data() {
         const apiStore = useAPIStore();
-        const userBuildings = apiStore.buildingsById;
-        const allianceBuildings = apiStore.allianceBuildingsById;
+        const userBuildings = apiStore.buildings;
+        const allianceBuildings = apiStore.alliance_buildings;
         const buildingTypes = useTranslationStore().buildings;
 
         return {

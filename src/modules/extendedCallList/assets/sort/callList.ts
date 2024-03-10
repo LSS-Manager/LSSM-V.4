@@ -28,7 +28,7 @@ interface StringSorting {
     order: number[];
 }
 
-export default (
+export default async (
     LSSM: Vue,
     MODULE_ID: string,
     sort: Sort,
@@ -59,7 +59,9 @@ export default (
         Record<string, { order: number; el: HTMLDivElement }>
     > = {};
 
-    const missionsById = LSSM.$stores.api.missions;
+    const missionsById = await LSSM.$stores.api.getMissionTypes(
+        `${MODULE_ID}-sort-callList`
+    );
     const missionIdsByAlphabet: Record<string, number> = Object.fromEntries(
         Object.values(missionsById)
             .sort(({ name: nameA }, { name: nameB }) =>
@@ -78,7 +80,9 @@ export default (
             0,
             dispatchCenters.length,
             ...LSSM.$stores.translations.dispatchCenterBuildings
-                .flatMap(type => LSSM.$stores.api.buildingsByType[type])
+                .flatMap(type =>
+                    Object.values(LSSM.$stores.api.buildingsByType[type] ?? {})
+                )
                 .filter(b => !!b)
         );
         dispatchCenterLatLngs.splice(
@@ -94,7 +98,9 @@ export default (
             0,
             vehicleBuildings.length,
             ...LSSM.$stores.translations.vehicleBuildings
-                .flatMap(type => LSSM.$stores.api.buildingsByType[type])
+                .flatMap(type =>
+                    Object.values(LSSM.$stores.api.buildingsByType[type] ?? {})
+                )
                 .filter(b => !!b)
         );
         vehicleBuildingLatLngs.splice(
@@ -569,8 +575,10 @@ export default (
     sortBtnWrapper.append(sortBtn, sortSelectionList);
 
     document
-        .querySelector<HTMLDivElement>('.mission-filters-top .mission-sorting')
-        ?.prepend(sortBtnWrapper);
+        .querySelector<HTMLDivElement>(
+            '.missions-panel-main .mission_selection:not(:has(~.mission_selection))'
+        )
+        ?.after(sortBtnWrapper);
 
     LSSM.$stores.root.hook({
         event: 'missionMarkerAdd',

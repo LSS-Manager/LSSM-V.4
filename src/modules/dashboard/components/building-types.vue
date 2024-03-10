@@ -137,8 +137,9 @@ export default Vue.extend<
                             const removeNull = <S,>(
                                 value: S | null
                             ): value is S => !!value;
-                            const buildingsOfType =
-                                buildingsByType[buildingType];
+                            const buildingsOfType = Object.values(
+                                buildingsByType[buildingType] ?? {}
+                            );
                             const extensionsOfType = {} as Record<
                                 string,
                                 Extension[]
@@ -237,7 +238,7 @@ export default Vue.extend<
                                             buildingTypes[
                                                 buildingType
                                             ].maxBuildingsFunction?.(
-                                                apiStore.buildings.length
+                                                apiStore.buildingsArray.length
                                             ) ?? '–',
                                         buildings: buildingsOfType,
                                     },
@@ -309,7 +310,6 @@ export default Vue.extend<
             categoryColors,
             groups,
             faBuilding,
-            apiStore,
         };
     },
     computed: {

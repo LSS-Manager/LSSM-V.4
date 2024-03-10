@@ -232,13 +232,14 @@ export default Vue.extend<
                                 LSSM.aaos.authenticity_token
                             );
                             LSSM.lightbox.apiStore
-                                .request({
-                                    url: `/${
+                                .request(
+                                    `/${
                                         type === 'arr'
                                             ? 'aaos'
                                             : 'vehicle_groups'
                                     }/${id}`,
-                                    init: {
+                                    'redesign-aaos-delete',
+                                    {
                                         credentials: 'include',
                                         headers: {
                                             'Content-Type':
@@ -254,9 +255,8 @@ export default Vue.extend<
                                         body: url.searchParams.toString(),
                                         method: 'POST',
                                         mode: 'cors',
-                                    },
-                                    feature: 'redesign-aaos-delete',
-                                })
+                                    }
+                                )
                                 .then(() => {
                                     LSSM.$set(
                                         LSSM.lightbox.data.categories[category],
@@ -290,10 +290,10 @@ export default Vue.extend<
                         title: this.lightbox.$sm('delete.confirm'),
                         async handler() {
                             LSSM.lightbox.apiStore
-                                .request({
-                                    url: '/aao/alle_loeschen',
-                                    feature: 'redesign-aaos-delete-all',
-                                })
+                                .request(
+                                    '/aao/alle_loeschen',
+                                    'redesign-aaos-delete-all'
+                                )
                                 .then(() => {
                                     Object.entries(
                                         LSSM.aaos.categories

@@ -23,14 +23,12 @@ export default async (LSSM: Vue, MODULE_ID: string): Promise<void> => {
             span.classList.add(
                 'glyphicon',
                 missions.includes(
-                    parseInt(
-                        row
-                            .querySelector<HTMLAnchorElement>(
-                                'a[href^="/missions/"]'
-                            )
-                            ?.getAttribute('href')
-                            ?.match(/\d+$/u)?.[0] ?? '-1'
-                    )
+                    row
+                        .querySelector<HTMLAnchorElement>(
+                            'a[href^="/missions/"]'
+                        )
+                        ?.getAttribute('href')
+                        ?.match(/\d+$/u)?.[0] ?? '-1'
                 )
                     ? 'glyphicon-user'
                     : 'glyphicon-asterisk'

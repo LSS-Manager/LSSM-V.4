@@ -1,5 +1,6 @@
 import type { Building } from 'typings/Building';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { VehiclesByBuilding } from '@workers/stores/api/vehicles.worker';
 import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export interface LinkPreview {
@@ -48,7 +49,7 @@ export interface LinkPreviewComputed {
     link: string;
     parent: HTMLElement | null;
     buildings: Building[];
-    vehicles: Record<number, Vehicle[]>;
+    vehicles: VehiclesByBuilding;
     buildingVehicles: Vehicle[];
     buildingCells: number[];
 }

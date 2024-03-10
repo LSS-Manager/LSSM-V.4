@@ -277,10 +277,10 @@ export default async (
             target.getAttribute('data-history') || '{}'
         );
         LSSM.$stores.api
-            .request({
-                url: `/reverse_address?latitude=${lat}&longitude=${lng}`,
-                feature: `${MODULE_ID}-mapMarkers`,
-            })
+            .request(
+                `/reverse_address?latitude=${lat}&longitude=${lng}`,
+                `${MODULE_ID}-mapMarkers`
+            )
             .then(res => res.text())
             .then(address => {
                 target.textContent = `${address} (Zoom: ${zoom})`;

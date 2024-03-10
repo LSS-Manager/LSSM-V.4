@@ -120,8 +120,6 @@ utils(Vue);
 
     const locale = LSSM.$stores.root.locale;
 
-    LSSM.$stores.api._initAPIsFromBroadcast().then();
-
     import('./natives/checkboxMultiSelect').then(({ default: multiSelect }) =>
         multiSelect(LSSM)
     );

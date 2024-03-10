@@ -33,7 +33,7 @@
             :icon="faSyncAlt"
             :spin="isReloading"
             fixed-width
-            @click="reloadSpecs(true)"
+            @click="reloadSpecs"
         ></font-awesome-icon>
         <div v-if="settings.hoverTip" class="alert alert-info">
             {{ $m('tip.reload') }}
@@ -679,10 +679,8 @@ export default Vue.extend<
         },
     },
     methods: {
-        async reloadSpecs(force = false) {
+        async reloadSpecs() {
             this.isReloading = true;
-
-            await this.apiStore.getMissions('missionHelper-getMission', force);
 
             const missionHelpBtn =
                 document.querySelector<HTMLAnchorElement>('#mission_help');
@@ -698,7 +696,9 @@ export default Vue.extend<
             this.isReloading = false;
         },
         async getMission(id) {
-            const missionsById = this.apiStore.missions;
+            const missionsById = await this.apiStore.getMissionTypes(
+                'missionHelper-getMission'
+            );
             const mission: Mission | undefined = missionsById[id];
             if (mission) {
                 if (this.settings.expansions && mission.additional) {

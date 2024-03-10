@@ -159,10 +159,7 @@ export default Vue.extend<
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
             if (search) url.searchParams.set('caption', search);
             this.lightbox.apiStore
-                .request({
-                    url: toString(),
-                    feature: `redesign-alliances-load-prev-${this.startPage}`,
-                })
+                .request(url, `redesign-alliances-load-prev-${this.startPage}`)
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../parsers/alliances').then(async parser => {
@@ -201,10 +198,7 @@ export default Vue.extend<
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
             if (search) url.searchParams.set('caption', search);
             this.lightbox.apiStore
-                .request({
-                    url,
-                    feature: `redesign-alliances-load-next-${this.endPage}`,
-                })
+                .request(url, `redesign-alliances-load-next-${this.endPage}`)
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../parsers/alliances').then(async parser => {
