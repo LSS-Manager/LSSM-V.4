@@ -36,9 +36,8 @@ export type ClickHandler<
     AcceptsNullProp extends boolean = false,
     Data extends Record<string, unknown> = Record<string, unknown>,
 > = (
-    props: AcceptsNullProp extends true
-        ? ClickHandlerProp<Data> | null
-        : ClickHandlerProp<Data>,
+    props: AcceptsNullProp extends true ? ClickHandlerProp<Data> | null
+    :   ClickHandlerProp<Data>,
     $event: MouseEvent
 ) => unknown;
 

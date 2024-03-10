@@ -74,9 +74,9 @@ const mapMounted = async (map: LMap) => {
         e.preventDefault();
         const location = marker?.getLatLng() ?? map.getCenter();
         props.save(
-            props.zoom
-                ? [location.lat, location.lng, map.getZoom()]
-                : [location.lat, location.lng]
+            props.zoom ?
+                [location.lat, location.lng, map.getZoom()]
+            :   [location.lat, location.lng]
         );
         $emit('close');
     });

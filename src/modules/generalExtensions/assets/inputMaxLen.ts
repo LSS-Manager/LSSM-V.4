@@ -152,10 +152,12 @@ export default (LSSM: Vue): void => {
         }
         counter.classList.remove('text-success', 'text-danger');
         counter.classList.add(
-            target.value.length <= minMax.max &&
-                target.value.length >= minMax.min
-                ? 'text-success'
-                : 'text-danger'
+            (
+                target.value.length <= minMax.max &&
+                    target.value.length >= minMax.min
+            ) ?
+                'text-success'
+            :   'text-danger'
         );
         counter.textContent = `(${target.value.length}/${minMax.max})`;
     });

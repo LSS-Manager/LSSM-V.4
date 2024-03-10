@@ -29,9 +29,9 @@ export default class DynamicImportQueryPlugin {
             const getPathOrig = compilation.getPath;
             compilation.getPath = (...args) => {
                 const path = getPathOrig.apply(compilation, args);
-                return args[0] === '"[id].js"'
-                    ? `${path} + "?${this.query}"`
-                    : path;
+                return args[0] === '"[id].js"' ?
+                        `${path} + "?${this.query}"`
+                    :   path;
             };
         });
     }

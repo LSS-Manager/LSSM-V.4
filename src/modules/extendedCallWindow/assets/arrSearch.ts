@@ -77,16 +77,18 @@ export default (
             );
             panels.forEach(panel =>
                 panel.classList[
-                    panel.querySelector(
-                        searchAttributeSelectors
-                            .map(
-                                attributeSelector =>
-                                    `.aao_searchable${attributeSelector}`
-                            )
-                            .join(', ')
-                    )
-                        ? 'add'
-                        : 'remove'
+                    (
+                        panel.querySelector(
+                            searchAttributeSelectors
+                                .map(
+                                    attributeSelector =>
+                                        `.aao_searchable${attributeSelector}`
+                                )
+                                .join(', ')
+                        )
+                    ) ?
+                        'add'
+                    :   'remove'
                 ](panelHasResultsClass)
             );
             const notAttributesSelector = searchAttributeSelectors

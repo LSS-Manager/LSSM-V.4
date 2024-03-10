@@ -20,18 +20,18 @@ export default (LSSM: Vue, moduleId: string, $m: $m, $mc: $mc) =>
                 defaultValue: T | undefined,
                 addUnit: Unit extends '' ? false | undefined : true
             ) =>
-                addUnit
-                    ? LSSM.$stores.settings.getSetting<T, Unit>({
-                          moduleId,
-                          settingId,
-                          defaultValue,
-                          addUnit,
-                      } as SettingsGet<T, Unit>)
-                    : LSSM.$stores.settings.getSetting<T>({
-                          moduleId,
-                          settingId,
-                          defaultValue,
-                      }),
+                addUnit ?
+                    LSSM.$stores.settings.getSetting<T, Unit>({
+                        moduleId,
+                        settingId,
+                        defaultValue,
+                        addUnit,
+                    } as SettingsGet<T, Unit>)
+                :   LSSM.$stores.settings.getSetting<T>({
+                        moduleId,
+                        settingId,
+                        defaultValue,
+                    }),
             setSetting: (settingId, value) =>
                 LSSM.$stores.settings.setSetting({
                     moduleId,

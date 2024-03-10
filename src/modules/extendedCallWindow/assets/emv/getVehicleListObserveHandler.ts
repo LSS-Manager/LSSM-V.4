@@ -110,11 +110,11 @@ export default (
             })
         ) => {
             const reqs =
-                typeof type === 'number'
-                    ? missingRequirements.requirementsForVehicle[type]
-                    : missingRequirements.requirementsForEquipment[
-                          type.toString()
-                      ];
+                typeof type === 'number' ?
+                    missingRequirements.requirementsForVehicle[type]
+                :   missingRequirements.requirementsForEquipment[
+                        type.toString()
+                    ];
             groups.forEach(group =>
                 reqs?.[group]?.forEach(requirement => {
                     selected[group] ??= [];

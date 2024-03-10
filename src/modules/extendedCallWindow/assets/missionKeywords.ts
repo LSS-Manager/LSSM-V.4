@@ -43,9 +43,8 @@ export default async (
         textNode.style.backgroundClip = 'text';
         textNode.style.webkitBackgroundClip = 'text';
         textNode.style.color = autotextcolor ? 'transparent' : textcolor;
-        textNode.style.filter = autotextcolor
-            ? 'invert(1) grayscale(1) contrast(9)'
-            : '';
+        textNode.style.filter =
+            autotextcolor ? 'invert(1) grayscale(1) contrast(9)' : '';
         label.append(textNode);
         if (!prefix) missionTitle.append(label);
         else missionTitle.insertBefore(label, missionTitle.firstChild);

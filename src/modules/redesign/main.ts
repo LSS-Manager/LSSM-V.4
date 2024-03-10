@@ -190,11 +190,11 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
                 defaultValue: true,
             }));
         const nextVehicle =
-            (etrAcSb && type === 'vehicle') || type === 'vehicle/nextfms'
-                ? document
-                      .querySelector<HTMLAnchorElement>('#next-vehicle-fms-5')
-                      ?.href?.match(/\d+$/u)?.[0]
-                : null;
+            (etrAcSb && type === 'vehicle') || type === 'vehicle/nextfms' ?
+                document
+                    .querySelector<HTMLAnchorElement>('#next-vehicle-fms-5')
+                    ?.href?.match(/\d+$/u)?.[0]
+            :   null;
         if (type && (nextVehicle || type !== 'vehicle/nextfms')) {
             import(
                 /* webpackChunkName: "modules/redesign/lightbox" */ `./components/lightbox.vue`
@@ -205,9 +205,10 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
                     render: h =>
                         h(lightbox.default, {
                             props: {
-                                url: nextVehicle
-                                    ? `/vehicles/${nextVehicle}`
-                                    : window.location.href,
+                                url:
+                                    nextVehicle ?
+                                        `/vehicles/${nextVehicle}`
+                                    :   window.location.href,
                                 $m: (
                                     key: string,
                                     args?: Record<string, unknown>

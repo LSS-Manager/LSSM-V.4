@@ -115,7 +115,8 @@
         "quoteProps": "consistent",
         "singleQuote": true,
         "tabWidth": 4,
-        "trailingComma": "es5"
+        "trailingComma": "es5",
+        "experimentalTernaries": true
     },
     "browserslist": [
         "last 7 chrome major versions",

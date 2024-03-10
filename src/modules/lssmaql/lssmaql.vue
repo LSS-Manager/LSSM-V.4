@@ -89,23 +89,25 @@ const parse_filter = (
 ) => {
     const [side] = filter;
     const oneside =
-        side.type === 'string'
-            ? side.value
-            : side.type === 'number'
-              ? parseInt(side.value)
-              : side.type === 'boolean'
-                ? !!side.value
-                : (parser(
-                      cloneDeep(filter),
-                      [tree.base, ...tree.attributes].join('.')
-                  ) as ObjectTree);
+        side.type === 'string' ? side.value
+        : side.type === 'number' ? parseInt(side.value)
+        : side.type === 'boolean' ? !!side.value
+        : (parser(
+                cloneDeep(filter),
+                [tree.base, ...tree.attributes].join('.')
+            ) as ObjectTree);
     let sideObject = (
-        typeof oneside === 'string' ||
-        typeof oneside === 'number' ||
-        typeof oneside === 'boolean'
-            ? oneside
-            : [...oneside.base.split('.'), ...oneside.attributes]
-    ) as (number | string)[] | Record<string, unknown> | number | string;
+        (
+            typeof oneside === 'string' ||
+            typeof oneside === 'number' ||
+            typeof oneside === 'boolean'
+        ) ?
+            oneside
+        :   [...oneside.base.split('.'), ...oneside.attributes]) as
+        | (number | string)[]
+        | Record<string, unknown>
+        | number
+        | string;
     if (!sideObject) return;
     if (Array.isArray(sideObject)) {
         while (sideObject.includes('..'))
@@ -157,12 +159,14 @@ const resolve_object = (tree: QueryTree, vm: LSSMAQLVue): unknown => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             object = object.filter((_, index) => {
-                const leftParam = Array.isArray(leftObject)
-                    ? (leftObject as never[])[index]
-                    : leftObject;
-                const rightParam = Array.isArray(rightObject)
-                    ? (rightObject as never[])[index]
-                    : rightObject;
+                const leftParam =
+                    Array.isArray(leftObject) ?
+                        (leftObject as never[])[index]
+                    :   leftObject;
+                const rightParam =
+                    Array.isArray(rightObject) ?
+                        (rightObject as never[])[index]
+                    :   rightObject;
                 return (
                     leftParam !== null &&
                     typeof leftParam !== 'undefined' &&

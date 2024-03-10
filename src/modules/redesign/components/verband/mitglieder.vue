@@ -152,9 +152,8 @@
                         {{
                             lightbox.$sm(
                                 `rights.${
-                                    rights_editing.includes(user.id)
-                                        ? 'hide'
-                                        : 'edit'
+                                    rights_editing.includes(user.id) ? 'hide'
+                                    :   'edit'
                                 }`
                             )
                         }}
@@ -645,13 +644,13 @@ export default Vue.extend<
                 .toString();
         },
         usersFiltered() {
-            return this.search.trim().length
-                ? this.mitglieder.users.filter(user =>
-                      JSON.stringify(Object.values(user))
-                          .toLowerCase()
-                          .match(this.search.trim().toLowerCase())
-                  )
-                : this.mitglieder.users;
+            return this.search.trim().length ?
+                    this.mitglieder.users.filter(user =>
+                        JSON.stringify(Object.values(user))
+                            .toLowerCase()
+                            .match(this.search.trim().toLowerCase())
+                    )
+                :   this.mitglieder.users;
         },
         usersSorted() {
             if (this.sort === 'credits' && !this.urlSearch) {
@@ -666,7 +665,11 @@ export default Vue.extend<
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 const s = b[this.sort] ?? '';
-                return f < s ? -1 * modifier : f > s ? modifier : 0;
+                return (
+                    f < s ? -1 * modifier
+                    : f > s ? modifier
+                    : 0
+                );
             });
         },
     },
@@ -717,19 +720,19 @@ export default Vue.extend<
             name: { title: this.lightbox.$sm('name').toString() },
             roles: { title: this.lightbox.$sm('roles').toString() },
             credits: { title: this.lightbox.$sm('credits').toString() },
-            ...(this.mitglieder.edit_discount
-                ? {
-                      discount: {
-                          title: this.lightbox.$sm('discount').toString(),
-                      },
-                      tax: { title: this.lightbox.$sm('tax').toString() },
-                  }
-                : {}),
-            ...(this.mitglieder.edit_rights
-                ? {
-                      edit: { title: '', noSort: true },
-                  }
-                : {}),
+            ...(this.mitglieder.edit_discount ?
+                {
+                    discount: {
+                        title: this.lightbox.$sm('discount').toString(),
+                    },
+                    tax: { title: this.lightbox.$sm('tax').toString() },
+                }
+            :   {}),
+            ...(this.mitglieder.edit_rights ?
+                {
+                    edit: { title: '', noSort: true },
+                }
+            :   {}),
         };
     },
     mounted() {

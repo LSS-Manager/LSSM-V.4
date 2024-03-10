@@ -274,13 +274,13 @@ export default Vue.extend<
                 .toString();
         },
         alliancesFiltered() {
-            return this.search.trim().length
-                ? this.alliances.alliances.filter(alliance =>
-                      JSON.stringify(Object.values(alliance))
-                          .toLowerCase()
-                          .match(this.search.trim().toLowerCase())
-                  )
-                : this.alliances.alliances;
+            return this.search.trim().length ?
+                    this.alliances.alliances.filter(alliance =>
+                        JSON.stringify(Object.values(alliance))
+                            .toLowerCase()
+                            .match(this.search.trim().toLowerCase())
+                    )
+                :   this.alliances.alliances;
         },
         alliancesSorted() {
             if (this.sort === 'credits' && !this.urlSearch) {
@@ -295,7 +295,11 @@ export default Vue.extend<
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 const s = b[this.sort] ?? '';
-                return f < s ? -1 * modifier : f > s ? modifier : 0;
+                return (
+                    f < s ? -1 * modifier
+                    : f > s ? modifier
+                    : 0
+                );
             });
         },
     },

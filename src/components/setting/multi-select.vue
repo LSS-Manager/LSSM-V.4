@@ -77,30 +77,32 @@ export default Vue.extend<
     computed: {
         updateValue: {
             get() {
-                return !this.value.length && this.allOnNone
-                    ? this.options
-                    : (
-                          this.value
-                              .map(v =>
-                                  this.options.find(
-                                      o => o.value.toString() === v.toString()
-                                  )
-                              )
-                              .filter(
-                                  v => !!v
-                              ) as MultiSelectComputed['updateValue']
-                      ).sort((a, b) =>
-                          a.value > b.value ? 1 : a.value < b.value ? -1 : 0
-                      );
+                return !this.value.length && this.allOnNone ?
+                        this.options
+                    :   (
+                            this.value
+                                .map(v =>
+                                    this.options.find(
+                                        o => o.value.toString() === v.toString()
+                                    )
+                                )
+                                .filter(
+                                    v => !!v
+                                ) as MultiSelectComputed['updateValue']
+                        ).sort((a, b) =>
+                            a.value > b.value ? 1
+                            : a.value < b.value ? -1
+                            : 0
+                        );
             },
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             set(values: (string | { label: string; value: string })[]) {
                 this.$emit(
                     'input',
-                    !values.length && this.allOnNone
-                        ? this.options.map(({ value }) => value)
-                        : values.map(v => (typeof v === 'string' ? v : v.value))
+                    !values.length && this.allOnNone ?
+                        this.options.map(({ value }) => value)
+                    :   values.map(v => (typeof v === 'string' ? v : v.value))
                 );
             },
         },
@@ -108,19 +110,23 @@ export default Vue.extend<
             const filtered = this.options.filter(
                 o => !this.updateValue.some(v => v.value === o.value)
             );
-            return filtered.every(({ label }) => label.match(/^\d+/u))
-                ? filtered.sort((a, b) => {
-                      const aLabel = a.label.replace(
-                          /(?<=^\d+)-(?=\d+:)/u,
-                          ':'
-                      );
-                      const bLabel = b.label.replace(
-                          /(?<=^\d+)-(?=\d+:)/u,
-                          ':'
-                      );
-                      return aLabel > bLabel ? 1 : aLabel < bLabel ? -1 : 0;
-                  })
-                : filtered;
+            return filtered.every(({ label }) => label.match(/^\d+/u)) ?
+                    filtered.sort((a, b) => {
+                        const aLabel = a.label.replace(
+                            /(?<=^\d+)-(?=\d+:)/u,
+                            ':'
+                        );
+                        const bLabel = b.label.replace(
+                            /(?<=^\d+)-(?=\d+:)/u,
+                            ':'
+                        );
+                        return (
+                            aLabel > bLabel ? 1
+                            : aLabel < bLabel ? -1
+                            : 0
+                        );
+                    })
+                :   filtered;
         },
     },
 });

@@ -31,13 +31,11 @@ export default (async ({
         return;
 
     if (window.location.pathname.match(/^\/buildings\/\d+\/?$/u)) {
-        const BUILDING_MODE = document.querySelector<HTMLDivElement>(
-            '#tab_protocol'
-        )
-            ? 'dispatch'
-            : document.querySelector<HTMLDivElement>('#schooling_running')
-              ? 'schooling'
-              : 'building';
+        const BUILDING_MODE =
+            document.querySelector<HTMLDivElement>('#tab_protocol') ? 'dispatch'
+            : document.querySelector<HTMLDivElement>('#schooling_running') ?
+                'schooling'
+            :   'building';
 
         const path = window.location.pathname.split('/').filter(s => !!s);
         const buildingId = parseInt(path.at(-1) ?? '-1');

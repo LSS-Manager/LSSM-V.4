@@ -41,16 +41,15 @@ export default async (
             const building = LSSM.$stores.api.buildings[buildingID];
             if (!building) return;
             const dispatchBtn = (
-                BUILDING_MODE !== 'dispatch'
-                    ? document.querySelector(
-                          `#building-navigation-container a${
-                              building.leitstelle_building_id
-                                  ? `[href="/buildings/${building.leitstelle_building_id}"]`
-                                  : ':nth-of-type(2)'
-                          }`
-                      )
-                    : document.createElement('a')
-            ) as HTMLAnchorElement;
+                BUILDING_MODE !== 'dispatch' ?
+                    document.querySelector(
+                        `#building-navigation-container a${
+                            building.leitstelle_building_id ?
+                                `[href="/buildings/${building.leitstelle_building_id}"]`
+                            :   ':nth-of-type(2)'
+                        }`
+                    )
+                :   document.createElement('a')) as HTMLAnchorElement;
             if (BUILDING_MODE === 'dispatch') {
                 document
                     .querySelectorAll(`.building_leitstelle_set_${buildingID}`)
@@ -69,14 +68,14 @@ export default async (
                     ) as HTMLAnchorElement
                 ).href.split('/leitstelle-set/')[1];
                 dispatchBtn.href =
-                    parseInt(dispatchId) !== 0
-                        ? `/buildings/${dispatchId}`
-                        : '#';
+                    parseInt(dispatchId) !== 0 ?
+                        `/buildings/${dispatchId}`
+                    :   '#';
                 dispatchBtn.innerHTML =
-                    parseInt(dispatchId) !== 0
-                        ? buildings.find(b => b.id === parseInt(dispatchId))
-                              ?.caption ?? ''
-                        : $m('fastDispatchChooser.noDispatch').toString();
+                    parseInt(dispatchId) !== 0 ?
+                        buildings.find(b => b.id === parseInt(dispatchId))
+                            ?.caption ?? ''
+                    :   $m('fastDispatchChooser.noDispatch').toString();
                 (
                     document.querySelector(
                         `.building_leitstelle_set_${buildingID}`
@@ -103,13 +102,10 @@ export default async (
             dropdown.classList.add('dropdown-menu');
             buildings
                 .sort((a, b) =>
-                    !a.id
-                        ? 1
-                        : a.caption < b.caption
-                          ? -1
-                          : a.caption > b.caption
-                            ? 1
-                            : 0
+                    !a.id ? 1
+                    : a.caption < b.caption ? -1
+                    : a.caption > b.caption ? 1
+                    : 0
                 )
                 .forEach(building => {
                     const wrapper = document.createElement('li');
@@ -137,9 +133,9 @@ export default async (
                             .then(() => {
                                 dispatchBtn.setAttribute(
                                     'href',
-                                    building.id
-                                        ? `/buildings/${building.id}`
-                                        : '#'
+                                    building.id ?
+                                        `/buildings/${building.id}`
+                                    :   '#'
                                 );
                                 dispatchBtn.textContent = building.caption;
                             });

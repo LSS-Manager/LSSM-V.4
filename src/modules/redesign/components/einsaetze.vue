@@ -76,9 +76,9 @@
                     <template v-else-if="col === 'average_credits'">
                         ~
                         {{
-                            mission.average_credits
-                                ? mission.average_credits.toLocaleString()
-                                : '–'
+                            mission.average_credits ?
+                                mission.average_credits.toLocaleString()
+                            :   '–'
                         }}
                     </template>
                     <ul v-else-if="col === 'place'">
@@ -397,60 +397,63 @@ export default Vue.extend<
                     unfullfilled_prerequisites: (
                         [
                             ...Object.entries(prerequisites),
-                            ...(mission.prerequisites.main_building_extensions
-                                ? [
-                                      [
-                                          Object.values(
-                                              mission.prerequisites
-                                                  .main_building_extensions ??
-                                                  {}
-                                          )
-                                              .map(
-                                                  extension =>
-                                                      `${mission.prerequisites.main_building}.${extension}`
-                                              )
-                                              .join(','),
-                                          1,
-                                      ],
-                                  ]
-                                : []),
+                            ...(mission.prerequisites.main_building_extensions ?
+                                [
+                                    [
+                                        Object.values(
+                                            mission.prerequisites
+                                                .main_building_extensions ?? {}
+                                        )
+                                            .map(
+                                                extension =>
+                                                    `${mission.prerequisites.main_building}.${extension}`
+                                            )
+                                            .join(','),
+                                        1,
+                                    ],
+                                ]
+                            :   []),
                         ] as [string, number][]
                     )
                         .map<
                             [string, Record<'diff' | 'have' | 'need', number>]
                         >(([req, amount]) => {
-                            const have = req.match(/\d+\.\d+/u)
-                                ? Object.values(
-                                      this.buildings[
-                                          mission.prerequisites.main_building
-                                      ] ?? {}
-                                  ).some(
-                                      b =>
-                                          (this.selectedDispatchCenter ===
-                                              '0' ||
-                                              b.leitstelle_building_id?.toString() ===
-                                                  this
-                                                      .selectedDispatchCenter) &&
-                                          req
-                                              .split(',')
-                                              .every(
-                                                  ex =>
-                                                      b.extensions.find(
-                                                          e =>
-                                                              e.type_id ===
-                                                              parseInt(
-                                                                  ex.split(
-                                                                      '.'
-                                                                  )[1]
-                                                              )
-                                                      )?.enabled
-                                              )
-                                  )
-                                    ? 1
-                                    : 0
-                                : this.prerequisites[
-                                      this.selectedDispatchCenter
-                                  ][req.replace(/^max_/u, '')] ?? 0;
+                            const have =
+                                req.match(/\d+\.\d+/u) ?
+                                    (
+                                        Object.values(
+                                            this.buildings[
+                                                mission.prerequisites
+                                                    .main_building
+                                            ] ?? {}
+                                        ).some(
+                                            b =>
+                                                (this.selectedDispatchCenter ===
+                                                    '0' ||
+                                                    b.leitstelle_building_id?.toString() ===
+                                                        this
+                                                            .selectedDispatchCenter) &&
+                                                req
+                                                    .split(',')
+                                                    .every(
+                                                        ex =>
+                                                            b.extensions.find(
+                                                                e =>
+                                                                    e.type_id ===
+                                                                    parseInt(
+                                                                        ex.split(
+                                                                            '.'
+                                                                        )[1]
+                                                                    )
+                                                            )?.enabled
+                                                    )
+                                        )
+                                    ) ?
+                                        1
+                                    :   0
+                                :   this.prerequisites[
+                                        this.selectedDispatchCenter
+                                    ][req.replace(/^max_/u, '')] ?? 0;
                             return [
                                 req,
                                 {
@@ -473,35 +476,35 @@ export default Vue.extend<
             });
         },
         missionsFiltered() {
-            return this.search.trim().length
-                ? this.missions.filter(
-                      ({
-                          name,
-                          place_array,
-                          average_credits,
-                          generated_by,
-                          additional: { duration_text },
-                          prerequisites,
-                      }) =>
-                          [
-                              name,
-                              ...place_array,
-                              average_credits?.toString() ?? '',
-                              generated_by,
-                              duration_text ?? '',
-                              ...Object.entries(prerequisites).map(
-                                  ([req, amount]) =>
-                                      `${amount} ${this.lightbox.$sm(
-                                          `prerequisites_long.${req}`
-                                      )}`
-                              ),
-                          ].filter(attr =>
-                              attr
-                                  .toLowerCase()
-                                  .match(this.search.trim().toLowerCase())
-                          ).length
-                  )
-                : this.missions;
+            return this.search.trim().length ?
+                    this.missions.filter(
+                        ({
+                            name,
+                            place_array,
+                            average_credits,
+                            generated_by,
+                            additional: { duration_text },
+                            prerequisites,
+                        }) =>
+                            [
+                                name,
+                                ...place_array,
+                                average_credits?.toString() ?? '',
+                                generated_by,
+                                duration_text ?? '',
+                                ...Object.entries(prerequisites).map(
+                                    ([req, amount]) =>
+                                        `${amount} ${this.lightbox.$sm(
+                                            `prerequisites_long.${req}`
+                                        )}`
+                                ),
+                            ].filter(attr =>
+                                attr
+                                    .toLowerCase()
+                                    .match(this.search.trim().toLowerCase())
+                            ).length
+                    )
+                :   this.missions;
         },
         missionsSorted() {
             if (this.sort === 'id') {
@@ -511,14 +514,18 @@ export default Vue.extend<
             const modifier = this.sortDir === 'desc' ? -1 : 1;
             return [...this.missionsFiltered].sort((a, b) => {
                 const f =
-                    (this.sort === 'duration'
-                        ? a.additional.duration
-                        : a[this.sort]) ?? '';
+                    (this.sort === 'duration' ?
+                        a.additional.duration
+                    :   a[this.sort]) ?? '';
                 const s =
-                    (this.sort === 'duration'
-                        ? b.additional.duration
-                        : b[this.sort]) ?? '';
-                return f < s ? -1 * modifier : f > s ? modifier : 0;
+                    (this.sort === 'duration' ?
+                        b.additional.duration
+                    :   b[this.sort]) ?? '';
+                return (
+                    f < s ? -1 * modifier
+                    : f > s ? modifier
+                    : 0
+                );
             });
         },
         head() {

@@ -40,10 +40,11 @@ export default <RedesignParser<VerbandHomeWindow>>(({
             doc.querySelector<HTMLDivElement>('#alliance-description')
                 ?.innerHTML ?? '',
         appliable: !!applyBtn,
-        no_apply_box: applyBtn?.classList.contains('disabled')
-            ? doc.querySelector<HTMLDivElement>('.alert.alert-info')
-                  ?.innerHTML ?? ''
-            : '',
+        no_apply_box:
+            applyBtn?.classList.contains('disabled') ?
+                doc.querySelector<HTMLDivElement>('.alert.alert-info')
+                    ?.innerHTML ?? ''
+            :   '',
         applied: !!doc.querySelector<HTMLAnchorElement>(
             `a[href="/verband/bewerben/${id}/zurueckziehen"]`
         ),

@@ -150,9 +150,10 @@ watch(table, (t, old) => {
         const parentRect = scrollParent.getBoundingClientRect();
         const headRect = head.value?.getBoundingClientRect();
 
-        const unFixedHeadHeight = head.value?.classList.contains('fixed')
-            ? parseFloat(headHeight.value)
-            : headRect?.height ?? 0;
+        const unFixedHeadHeight =
+            head.value?.classList.contains('fixed') ?
+                parseFloat(headHeight.value)
+            :   headRect?.height ?? 0;
 
         const top = parentRect.top - unFixedHeadHeight;
 

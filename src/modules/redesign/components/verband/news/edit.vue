@@ -110,9 +110,9 @@ export default Vue.extend<
                         },
                         referrer: new URL(
                             `/alliance_newses/${
-                                this.news.id < 0
-                                    ? 'new'
-                                    : `${this.news.id}/edit`
+                                this.news.id < 0 ?
+                                    'new'
+                                :   `${this.news.id}/edit`
                             }`,
                             window.location.origin
                         ).toString(),

@@ -91,13 +91,14 @@ export default Vue.extend<
                     name: this.name,
                     title: this.placeholder,
                     zoom: this.zoom,
-                    location: this.updateValue.filter(Boolean).length
-                        ? this.updateValue
-                        : [
-                              window.map.getCenter().lat,
-                              window.map.getCenter().lng,
-                              window.map.getZoom(),
-                          ],
+                    location:
+                        this.updateValue.filter(Boolean).length ?
+                            this.updateValue
+                        :   [
+                                window.map.getCenter().lat,
+                                window.map.getCenter().lng,
+                                window.map.getZoom(),
+                            ],
                     markers: this.markers,
                     save(location: number[]) {
                         Vue.$set(

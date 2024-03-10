@@ -72,9 +72,9 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                 const title = `${
                     mission_id ? '🔔 ' : ''
                 }<a href="/profile/${user_id}" class="lightbox-open">${username}</a>${
-                    mission_id
-                        ? `: [<a href="/missions/${mission_id}" class="lightbox-open">${mission_caption}</a>]`
-                        : ``
+                    mission_id ?
+                        `: [<a href="/missions/${mission_id}" class="lightbox-open">${mission_caption}</a>]`
+                    :   ``
                 }`;
                 if (isWhispered) {
                     events['allianceChatWhisper'].forEach(async alert =>
@@ -190,9 +190,10 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                     (siwa_success || siwa_error) &&
                     message.type === 'sicherheitswache'
                 ) {
-                    const mode = message.success
-                        ? 'sicherheitswache_success'
-                        : 'sicherheitswache_error';
+                    const mode =
+                        message.success ?
+                            'sicherheitswache_success'
+                        :   'sicherheitswache_error';
                     if (
                         (siwa_success && message.success) ||
                         (siwa_error && !message.success)
@@ -235,23 +236,25 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                         vehicle: message.caption,
                         status: message.fms,
                     }).toString();
-                    const clickHandler = message.additionalText
-                        ? extensionCloseCall
-                            ? () => {
-                                  window.lightboxOpen(
-                                      `/missions/${message.mission_id}`
-                                  );
-                                  document
-                                      .querySelector<HTMLLIElement>(
-                                          `.radio_message_vehicle_${message.id}`
-                                      )
-                                      ?.remove();
-                              }
-                            : () =>
-                                  window.lightboxOpen(
-                                      `/missions/${message.mission_id}`
-                                  )
-                        : () => window.lightboxOpen(`/vehicles/${message.id}`);
+                    const clickHandler =
+                        message.additionalText ?
+                            extensionCloseCall ?
+                                () => {
+                                    window.lightboxOpen(
+                                        `/missions/${message.mission_id}`
+                                    );
+                                    document
+                                        .querySelector<HTMLLIElement>(
+                                            `.radio_message_vehicle_${message.id}`
+                                        )
+                                        ?.remove();
+                                }
+                            :   () =>
+                                    window.lightboxOpen(
+                                        `/missions/${message.mission_id}`
+                                    )
+                        :   () =>
+                                window.lightboxOpen(`/vehicles/${message.id}`);
                     if (fmsStatuses.includes(mode)) {
                         events[mode].forEach(alert =>
                             LSSM.$stores.notifications.sendNotification({
@@ -556,20 +559,19 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                         mission.mtid
                     );
                 const icon =
-                    (mission.mission_type
-                        ? window.mission_graphics_lookups.generic[
-                              mission.mission_type
-                          ]
-                        : window.mission_graphics_lookups.regular[
-                              mission.mtid
-                          ])?.[mission.vehicle_state] ||
+                    (mission.mission_type ?
+                        window.mission_graphics_lookups.generic[
+                            mission.mission_type
+                        ]
+                    :   window.mission_graphics_lookups.regular[
+                            mission.mtid
+                        ])?.[mission.vehicle_state] ||
                     `/images/${mission.icon}.png`;
                 const isEventMission =
                     isAllianceMission && mission.user_id === null;
                 const { caption, address, id } = mission;
-                const processedCaption = isAllianceMission
-                    ? `📤 ${caption}`
-                    : caption;
+                const processedCaption =
+                    isAllianceMission ? `📤 ${caption}` : caption;
                 if (color === 'red') {
                     if (!missionElement && !isAllianceMission) {
                         events['mission_new']?.forEach(alert =>

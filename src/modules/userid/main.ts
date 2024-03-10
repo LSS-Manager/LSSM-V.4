@@ -20,9 +20,9 @@ export default (async ({ LSSM, getSetting }) => {
             );
             const small = h1.querySelector<HTMLElement>(`small#${smallId}`);
             const content = `(${
-                redesign
-                    ? h1.getAttribute('id')
-                    : window.location.pathname.replace(/\D+/gu, '')
+                redesign ?
+                    h1.getAttribute('id')
+                :   window.location.pathname.replace(/\D+/gu, '')
             })`;
             if (small) {
                 small.textContent = content;

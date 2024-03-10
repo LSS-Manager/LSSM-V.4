@@ -54,14 +54,16 @@ export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
                 const link = links.shift();
                 if (link) {
                     e.message += `<a href="${link}" ${
-                        new URL(link, window.location.origin).origin ===
-                        window.location.origin
-                            ? 'class="lightbox-open"'
-                            : 'target="_blank"'
+                        (
+                            new URL(link, window.location.origin).origin ===
+                            window.location.origin
+                        ) ?
+                            'class="lightbox-open"'
+                        :   'target="_blank"'
                     }>${
-                        showImg
-                            ? `<img src="${link}" alt="${link}" style="max-width: 10%;"/>`
-                            : link
+                        showImg ?
+                            `<img src="${link}" alt="${link}" style="max-width: 10%;"/>`
+                        :   link
                     }</a>`;
                 }
             });
@@ -81,14 +83,16 @@ export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
                 const link = links.shift();
                 if (link) {
                     newMessage += `<a href="${link}" ${
-                        new URL(link, window.location.origin).origin ===
-                        window.location.origin
-                            ? 'class="lightbox-open"'
-                            : 'target="_blank"'
+                        (
+                            new URL(link, window.location.origin).origin ===
+                            window.location.origin
+                        ) ?
+                            'class="lightbox-open"'
+                        :   'target="_blank"'
                     }>${
-                        showImg
-                            ? `<img src="${link}" alt="${link}" style="max-width: 10%;"/>`
-                            : link
+                        showImg ?
+                            `<img src="${link}" alt="${link}" style="max-width: 10%;"/>`
+                        :   link
                     }</a>`;
                 }
             });

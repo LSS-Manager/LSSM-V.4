@@ -201,7 +201,9 @@ export default Vue.extend<
         buildingVehicles() {
             return Object.values(this.vehicles[this.id] ?? []).toSorted(
                 (a, b) =>
-                    a.caption > b.caption ? 1 : b.caption > a.caption ? -1 : 0
+                    a.caption > b.caption ? 1
+                    : b.caption > a.caption ? -1
+                    : 0
             );
         },
         buildingCells() {

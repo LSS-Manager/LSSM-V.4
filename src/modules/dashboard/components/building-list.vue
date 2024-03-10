@@ -45,9 +45,9 @@
                                 ) && listType === 'building'
                             "
                             :href="`${
-                                building.leitstelle_building_id
-                                    ? `/buildings/${building.leitstelle_building_id}`
-                                    : '#'
+                                building.leitstelle_building_id ?
+                                    `/buildings/${building.leitstelle_building_id}`
+                                :   '#'
                             }`"
                             class="btn btn-default btn-xs lightbox-open"
                             :id="`dispatch-btn-${building.id}`"
@@ -184,16 +184,15 @@ export default Vue.extend<
             }
         >;
         const headingsExtensions = (
-            this.listType === 'extension'
-                ? {
-                      current: { title: this.$m('current'), noSort: true },
-                      unavailable: {
-                          title: this.$m('unavailable'),
-                          noSort: true,
-                      },
-                  }
-                : {}
-        ) as Record<
+            this.listType === 'extension' ?
+                {
+                    current: { title: this.$m('current'), noSort: true },
+                    unavailable: {
+                        title: this.$m('unavailable'),
+                        noSort: true,
+                    },
+                }
+            :   {}) as Record<
             string,
             {
                 title: string;
@@ -201,16 +200,17 @@ export default Vue.extend<
             }
         >;
         const headingsHospital = (
-            this.listType === 'building' &&
-            useTranslationStore().bedBuildings.includes(
-                this.buildings[0]?.building_type
-            )
-                ? {
-                      beds: { title: this.$m('beds') },
-                      bedsFree: { title: this.$m('bedsFree') },
-                  }
-                : {}
-        ) as Record<
+            (
+                this.listType === 'building' &&
+                useTranslationStore().bedBuildings.includes(
+                    this.buildings[0]?.building_type
+                )
+            ) ?
+                {
+                    beds: { title: this.$m('beds') },
+                    bedsFree: { title: this.$m('bedsFree') },
+                }
+            :   {}) as Record<
             string,
             {
                 title: string;
@@ -232,13 +232,10 @@ export default Vue.extend<
             )
         );
         dispatchBuildings.sort((a, b) =>
-            !a.id
-                ? 1
-                : a.caption < b.caption
-                  ? -1
-                  : a.caption > b.caption
-                    ? 1
-                    : 0
+            !a.id ? 1
+            : a.caption < b.caption ? -1
+            : a.caption > b.caption ? 1
+            : 0
         );
         const bedBuildings: Building[] = [];
         const bedBuildingsType = useTranslationStore().bedBuildings;
@@ -289,9 +286,8 @@ export default Vue.extend<
             );
         },
         buildingsSorted() {
-            const buildings = this.search
-                ? this.buildingsFiltered
-                : this.buildings;
+            const buildings =
+                this.search ? this.buildingsFiltered : this.buildings;
             return buildings.sort((a, b) => {
                 const modifier = this.sortDir === 'desc' ? -1 : 1;
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -300,7 +296,11 @@ export default Vue.extend<
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 const s = b[this.sort] || '';
-                return f < s ? -1 * modifier : f > s ? modifier : 0;
+                return (
+                    f < s ? -1 * modifier
+                    : f > s ? modifier
+                    : 0
+                );
             });
         },
     },
@@ -328,9 +328,9 @@ export default Vue.extend<
                     if (!dispatchBtn) return;
                     dispatchBtn.setAttribute(
                         'href',
-                        dispatchBuilding.id
-                            ? `/buildings/${dispatchBuilding.id}`
-                            : '#'
+                        dispatchBuilding.id ?
+                            `/buildings/${dispatchBuilding.id}`
+                        :   '#'
                     );
                     dispatchBtn.textContent = dispatchBuilding.caption;
                 });

@@ -223,13 +223,13 @@ export default Vue.extend<
     },
     computed: {
         friendsFiltered() {
-            return this.search.trim().length
-                ? this.friends.friends.filter(user =>
-                      JSON.stringify(Object.values(user))
-                          .toLowerCase()
-                          .match(this.search.trim().toLowerCase())
-                  )
-                : this.friends.friends;
+            return this.search.trim().length ?
+                    this.friends.friends.filter(user =>
+                        JSON.stringify(Object.values(user))
+                            .toLowerCase()
+                            .match(this.search.trim().toLowerCase())
+                    )
+                :   this.friends.friends;
         },
         friendsSorted() {
             const modifier = this.sortDir === 'desc' ? -1 : 1;
@@ -240,7 +240,11 @@ export default Vue.extend<
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 const s = b[this.sort] ?? '';
-                return f < s ? -1 * modifier : f > s ? modifier : 0;
+                return (
+                    f < s ? -1 * modifier
+                    : f > s ? modifier
+                    : 0
+                );
             });
         },
     },

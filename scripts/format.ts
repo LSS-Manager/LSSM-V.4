@@ -84,10 +84,11 @@ try {
                 else fileCounterYAML++;
 
                 return (
-                    isJson
-                        ? formatJSON(JSON.parse(src), true, tops(file))
-                        : format(src, 'yaml')
-                ).then(formatted => fs.promises.writeFile(filePath, formatted));
+                    isJson ?
+                        formatJSON(JSON.parse(src), true, tops(file))
+                    :   format(src, 'yaml')).then(formatted =>
+                    fs.promises.writeFile(filePath, formatted)
+                );
             })
             .concat(
                 ...[

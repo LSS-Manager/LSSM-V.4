@@ -178,14 +178,19 @@ export default Vue.extend<
             );
         },
         vehiclesSorted() {
-            const vehicles = this.search
-                ? this.vehiclesFiltered
-                : this.vehiclesWithBuildings;
+            const vehicles =
+                this.search ?
+                    this.vehiclesFiltered
+                :   this.vehiclesWithBuildings;
             return vehicles.sort((a, b) => {
                 const modifier = this.sortDir === 'desc' ? -1 : 1;
                 const f = a[this.sort] || '';
                 const s = b[this.sort] || '';
-                return f < s ? -1 * modifier : f > s ? modifier : 0;
+                return (
+                    f < s ? -1 * modifier
+                    : f > s ? modifier
+                    : 0
+                );
             });
         },
     },

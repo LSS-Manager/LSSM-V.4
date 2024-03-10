@@ -70,33 +70,37 @@ export default (
                             )
                         )
                         .map(file => `${langPath}${file}`),
-                    ...(fs.existsSync(
-                        path.posix.join(DOCS_PATH, lang, `contributing.md`)
-                    )
-                        ? [
-                              {
-                                  text: $t(lang, 'contributing').toString(),
-                                  collapsible: true,
-                                  children: [
-                                      `/${lang}/contributing`,
-                                      `/${lang}/contributing/introduction`,
-                                      `/${lang}/contributing/committing`,
-                                      `/${lang}/contributing/prs`,
-                                      `/${lang}/contributing/translations`,
-                                      `/${lang}/contributing/development`,
-                                  ],
-                              },
-                          ]
-                        : []),
+                    ...((
+                        fs.existsSync(
+                            path.posix.join(DOCS_PATH, lang, `contributing.md`)
+                        )
+                    ) ?
+                        [
+                            {
+                                text: $t(lang, 'contributing').toString(),
+                                collapsible: true,
+                                children: [
+                                    `/${lang}/contributing`,
+                                    `/${lang}/contributing/introduction`,
+                                    `/${lang}/contributing/committing`,
+                                    `/${lang}/contributing/prs`,
+                                    `/${lang}/contributing/translations`,
+                                    `/${lang}/contributing/development`,
+                                ],
+                            },
+                        ]
+                    :   []),
                     {
                         text: `${$t(lang, 'apps')} 📦`,
                         collapsible: true,
                         children: [
-                            ...(fs.existsSync(
-                                path.join(DOCS_PATH, lang, 'apps.md')
-                            )
-                                ? [`/${lang}/apps`]
-                                : []),
+                            ...((
+                                fs.existsSync(
+                                    path.join(DOCS_PATH, lang, 'apps.md')
+                                )
+                            ) ?
+                                [`/${lang}/apps`]
+                            :   []),
                             ...modules
                                 .filter(module =>
                                     moduleFile[module].docs.includes(lang)

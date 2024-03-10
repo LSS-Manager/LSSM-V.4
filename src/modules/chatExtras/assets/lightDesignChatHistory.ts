@@ -1,7 +1,8 @@
 export default (redesignActive: boolean, modalName: string) => {
-    const startPhrase = redesignActive
-        ? `#modals-container [data-modal="${modalName}"] + .vm--modal .redesign-wrapper `
-        : '';
+    const startPhrase =
+        redesignActive ?
+            `#modals-container [data-modal="${modalName}"] + .vm--modal .redesign-wrapper `
+        :   '';
     document
         .querySelectorAll<HTMLSpanElement>(
             `${startPhrase}div.well span.pull-right`

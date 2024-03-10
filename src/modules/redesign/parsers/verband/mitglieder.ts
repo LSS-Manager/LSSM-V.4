@@ -75,47 +75,54 @@ export default <RedesignParser<VerbandMitgliederWindow>>(({
                             .map(r => r.trim())
                             .filter(r => r.length)
                             .sort() ?? [],
-                    discount: hasAllianceFunds
-                        ? getIdFromEl(
-                              user.children[3]?.querySelector<HTMLAnchorElement>(
-                                  'a.btn-success[href^="/verband/discount"]'
-                              )
-                          )
-                        : 0,
-                    tax: hasAllianceFunds
-                        ? LSSM.$utils.getNumberFromText(
-                              user.children[4]?.textContent?.trim() ?? ''
-                          )
-                        : 0,
-                    edit: user.children[
-                        editUserCol
-                    ]?.querySelector<HTMLAnchorElement>('.btn_edit_rights')
-                        ? {
-                              kick: !!user.children[
-                                  editUserCol
-                              ].querySelector<HTMLAnchorElement>(
-                                  'a[href^="/verband/kick/"]'
-                              ),
-                              ...Object.fromEntries(
-                                  [
-                                      'admin',
-                                      'coadmin',
-                                      'sprechwunsch_admin',
-                                      'aufsichtsrat',
-                                      'finance',
-                                      'schooling',
-                                      'staff',
-                                  ].map(role => [
-                                      role,
-                                      !!user.children[editUserCol]
-                                          .querySelector<HTMLAnchorElement>(
-                                              `a[href^="/verband/${role}/"]`
-                                          )
-                                          ?.classList.contains('btn-danger'),
-                                  ])
-                              ),
-                          }
-                        : undefined,
+                    discount:
+                        hasAllianceFunds ?
+                            getIdFromEl(
+                                user.children[3]?.querySelector<HTMLAnchorElement>(
+                                    'a.btn-success[href^="/verband/discount"]'
+                                )
+                            )
+                        :   0,
+                    tax:
+                        hasAllianceFunds ?
+                            LSSM.$utils.getNumberFromText(
+                                user.children[4]?.textContent?.trim() ?? ''
+                            )
+                        :   0,
+                    edit:
+                        (
+                            user.children[
+                                editUserCol
+                            ]?.querySelector<HTMLAnchorElement>(
+                                '.btn_edit_rights'
+                            )
+                        ) ?
+                            {
+                                kick: !!user.children[
+                                    editUserCol
+                                ].querySelector<HTMLAnchorElement>(
+                                    'a[href^="/verband/kick/"]'
+                                ),
+                                ...Object.fromEntries(
+                                    [
+                                        'admin',
+                                        'coadmin',
+                                        'sprechwunsch_admin',
+                                        'aufsichtsrat',
+                                        'finance',
+                                        'schooling',
+                                        'staff',
+                                    ].map(role => [
+                                        role,
+                                        !!user.children[editUserCol]
+                                            .querySelector<HTMLAnchorElement>(
+                                                `a[href^="/verband/${role}/"]`
+                                            )
+                                            ?.classList.contains('btn-danger'),
+                                    ])
+                                ),
+                            }
+                        :   undefined,
                 }
         ),
         online: new URL(href, window.location.origin).searchParams.has(

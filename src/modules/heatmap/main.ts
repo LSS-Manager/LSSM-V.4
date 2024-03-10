@@ -65,9 +65,10 @@ export default <ModuleMainFunction>(async ({
     const getLayerOptions = (map: Map) => {
         const subsettings = getSubsettings();
         return {
-            radius: subsettings.staticRadius
-                ? subsettings.radiusPx
-                : subsettings.radiusM / pxPerMeter(map),
+            radius:
+                subsettings.staticRadius ?
+                    subsettings.radiusPx
+                :   subsettings.radiusM / pxPerMeter(map),
             maxZoom: window.map.getMaxZoom() - subsettings.intensityMaxZoom,
         };
     };
@@ -220,9 +221,10 @@ export default <ModuleMainFunction>(async ({
                         selectorText: `#${control.id} ul`,
                         style: {
                             'top': 'auto',
-                            'bottom': settings.position.includes('bottom')
-                                ? '100%'
-                                : 'unset',
+                            'bottom':
+                                settings.position.includes('bottom') ?
+                                    '100%'
+                                :   'unset',
                             'margin-bottom': '2px',
                         },
                     },

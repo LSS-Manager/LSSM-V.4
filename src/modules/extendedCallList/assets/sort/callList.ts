@@ -65,7 +65,9 @@ export default async (
     const missionIdsByAlphabet: Record<string, number> = Object.fromEntries(
         Object.values(missionsById)
             .sort(({ name: nameA }, { name: nameB }) =>
-                nameA > nameB ? 1 : nameA < nameB ? -1 : 0
+                nameA > nameB ? 1
+                : nameA < nameB ? -1
+                : 0
             )
             .map(({ id }, index) => [id, index])
     );
@@ -350,26 +352,26 @@ export default async (
                 display: 'none',
             },
         },
-        ...(CSS.supports('selector(:has(#id))')
-            ? [
-                  {
-                      selectorText: `:where(#missions, #missions_outer):has(.dropdown.open #${sortSelectionList.id})`,
-                      style: {
-                          overflow: 'visible',
-                      },
-                  },
-              ]
-            : [
-                  {
-                      selectorText: `#${sortSelectionList.id}`,
-                      // centers the dropdown to the button to avoid overflowing the available space
-                      style: {
-                          right: 'auto',
-                          left: '50%',
-                          transform: 'translateX(-50%)',
-                      },
-                  },
-              ]),
+        ...(CSS.supports('selector(:has(#id))') ?
+            [
+                {
+                    selectorText: `:where(#missions, #missions_outer):has(.dropdown.open #${sortSelectionList.id})`,
+                    style: {
+                        overflow: 'visible',
+                    },
+                },
+            ]
+        :   [
+                {
+                    selectorText: `#${sortSelectionList.id}`,
+                    // centers the dropdown to the button to avoid overflowing the available space
+                    style: {
+                        right: 'auto',
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                    },
+                },
+            ]),
         {
             selectorText: `#${sortSelectionList.id} > li > a`,
             style: {
@@ -503,27 +505,39 @@ export default async (
                                 ) => {
                                     const position =
                                         elA.compareDocumentPosition(elB);
-                                    return panelBody.classList.contains(
-                                        reverseClass
-                                    )
-                                        ? valueB === valueA
-                                            ? position &
-                                              Node.DOCUMENT_POSITION_FOLLOWING
-                                                ? 1
-                                                : position &
+                                    return (
+                                        (
+                                            panelBody.classList.contains(
+                                                reverseClass
+                                            )
+                                        ) ?
+                                            valueB === valueA ?
+                                                (
+                                                    position &
+                                                    Node.DOCUMENT_POSITION_FOLLOWING
+                                                ) ?
+                                                    1
+                                                : (
+                                                    position &
                                                     Node.DOCUMENT_POSITION_PRECEDING
-                                                  ? -1
-                                                  : 0
-                                            : valueB - valueA
-                                        : valueB === valueA
-                                          ? position &
-                                            Node.DOCUMENT_POSITION_FOLLOWING
-                                              ? -1
-                                              : position &
-                                                  Node.DOCUMENT_POSITION_PRECEDING
-                                                ? 1
-                                                : 0
-                                          : valueA - valueB;
+                                                ) ?
+                                                    -1
+                                                :   0
+                                            :   valueB - valueA
+                                        : valueB === valueA ?
+                                            (
+                                                position &
+                                                Node.DOCUMENT_POSITION_FOLLOWING
+                                            ) ?
+                                                -1
+                                            : (
+                                                position &
+                                                Node.DOCUMENT_POSITION_PRECEDING
+                                            ) ?
+                                                1
+                                            :   0
+                                        :   valueA - valueB
+                                    );
                                 }
                             )
                             .map(([mission]) => mission),

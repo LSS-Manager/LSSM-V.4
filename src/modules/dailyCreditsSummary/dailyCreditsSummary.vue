@@ -104,22 +104,18 @@
                         <td>{{ type.desc }}</td>
                         <td
                             :class="`text-${
-                                type.total > 0
-                                    ? 'success'
-                                    : type.total < 0
-                                      ? 'danger'
-                                      : ''
+                                type.total > 0 ? 'success'
+                                : type.total < 0 ? 'danger'
+                                : ''
                             }`"
                         >
                             {{ type.total.toLocaleString() }}
                         </td>
                         <td
                             :class="`text-${
-                                type.total > 0
-                                    ? 'success'
-                                    : type.total < 0
-                                      ? 'danger'
-                                      : ''
+                                type.total > 0 ? 'success'
+                                : type.total < 0 ? 'danger'
+                                : ''
                             }`"
                         >
                             {{

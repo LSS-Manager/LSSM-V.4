@@ -41,11 +41,11 @@
                             v-if="!item.noSort"
                             class="pull-right"
                             :icon="
-                                key === sort
-                                    ? sortDir === 'asc'
-                                        ? faSortDown
-                                        : faSortUp
-                                    : faSort
+                                key === sort ?
+                                    sortDir === 'asc' ?
+                                        faSortDown
+                                    :   faSortUp
+                                :   faSort
                             "
                         ></font-awesome-icon>
                     </th>

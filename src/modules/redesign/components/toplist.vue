@@ -283,13 +283,13 @@ export default Vue.extend<
                 .toString();
         },
         usersFiltered() {
-            return this.search.trim().length
-                ? this.toplist.users.filter(user =>
-                      JSON.stringify(Object.values(user))
-                          .toLowerCase()
-                          .match(this.search.trim().toLowerCase())
-                  )
-                : this.toplist.users;
+            return this.search.trim().length ?
+                    this.toplist.users.filter(user =>
+                        JSON.stringify(Object.values(user))
+                            .toLowerCase()
+                            .match(this.search.trim().toLowerCase())
+                    )
+                :   this.toplist.users;
         },
         usersSorted() {
             if (this.sort === 'credits' && !this.urlSearch) {
@@ -308,7 +308,11 @@ export default Vue.extend<
                     f = a.alliance.name ?? '';
                     s = b.alliance.name ?? '';
                 }
-                return f < s ? -1 * modifier : f > s ? modifier : 0;
+                return (
+                    f < s ? -1 * modifier
+                    : f > s ? modifier
+                    : 0
+                );
             });
         },
     },

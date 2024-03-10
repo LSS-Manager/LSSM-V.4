@@ -80,21 +80,22 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
                     )
             );
             await setSetting('starredMissions', starredMissions);
-            const addStarrableBtn: AddStarrableButton | null = starrableMissions
-                ? (
-                      await import(
-                          /* webpackChunkName: "modules/extendedCallList/starrableMissions/missionlist" */ './assets/starrableMissions/missionlist'
-                      )
-                  ).default(
-                      LSSM,
-                      MODULE_ID,
-                      starredMissions,
-                      starredMissionBtnClass,
-                      starredMissionPanelClass,
-                      getSetting,
-                      setSetting
-                  )
-                : null;
+            const addStarrableBtn: AddStarrableButton | null =
+                starrableMissions ?
+                    (
+                        await import(
+                            /* webpackChunkName: "modules/extendedCallList/starrableMissions/missionlist" */ './assets/starrableMissions/missionlist'
+                        )
+                    ).default(
+                        LSSM,
+                        MODULE_ID,
+                        starredMissions,
+                        starredMissionBtnClass,
+                        starredMissionPanelClass,
+                        getSetting,
+                        setSetting
+                    )
+                :   null;
 
             const collapsedMissions = (
                 (await getSetting<string[]>('collapsedMissions')) ?? []
@@ -111,24 +112,24 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
                 `${MODULE_ID}_collapsable-missions_btn`
             );
             const addCollapsableBtn: AddCollapsableButton | null =
-                collapsableMissions
-                    ? (
-                          await import(
-                              /* webpackChunkName: "modules/extendedCallList/collapsableMissions" */ './assets/collapsableMissions/missionlist'
-                          )
-                      ).default(
-                          LSSM,
-                          MODULE_ID,
-                          collapsedMissions,
-                          allMissionsCollapsed,
-                          collapsedMissionBtnClass,
-                          sortBtnId,
-                          await getSetting('collapsableMissionsAllBtn'),
-                          getSetting,
-                          setSetting,
-                          $m
-                      )
-                    : null;
+                collapsableMissions ?
+                    (
+                        await import(
+                            /* webpackChunkName: "modules/extendedCallList/collapsableMissions" */ './assets/collapsableMissions/missionlist'
+                        )
+                    ).default(
+                        LSSM,
+                        MODULE_ID,
+                        collapsedMissions,
+                        allMissionsCollapsed,
+                        collapsedMissionBtnClass,
+                        sortBtnId,
+                        await getSetting('collapsableMissionsAllBtn'),
+                        getSetting,
+                        setSetting,
+                        $m
+                    )
+                :   null;
             const activeModules = await LSSM.$stores.storage.get<string[]>({
                 key: 'activeModules',
                 defaultValue: [],
@@ -139,17 +140,18 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
                     moduleId: 'shareAlliancePost',
                     settingId: 'enableCallList',
                 }));
-            const sapMessages = enableSAP
-                ? (
-                      await LSSM.$stores.settings.getSetting<{
-                          value: Message[];
-                          enabled: boolean;
-                      }>({
-                          moduleId: 'shareAlliancePost',
-                          settingId: 'messages',
-                      })
-                  ).value
-                : [];
+            const sapMessages =
+                enableSAP ?
+                    (
+                        await LSSM.$stores.settings.getSetting<{
+                            value: Message[];
+                            enabled: boolean;
+                        }>({
+                            moduleId: 'shareAlliancePost',
+                            settingId: 'messages',
+                        })
+                    ).value
+                :   [];
             const SAPStay =
                 activeModules.includes('shareAlliancePost') &&
                 (await LSSM.$stores.settings.getSetting<boolean>({
@@ -162,24 +164,25 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
             }: {
                 addShareBtn: AddShareBtn | null;
                 updateShareBtn: UpdateShareBtn | null;
-            } = shareMissions
-                ? await (
-                      await import(
-                          /* webpackChunkName: "modules/extendedCallList/shareMissions" */ './assets/shareMissions'
-                      )
-                  ).default(
-                      LSSM,
-                      MODULE_ID,
-                      await getSetting<
-                          ('' | 'alliance' | 'sicherheitswache')[]
-                      >('shareMissionsTypes'),
-                      await getSetting<number>('shareMissionsMinCredits'),
-                      await getSetting<string>('shareMissionsButtonColor'),
-                      enableSAP,
-                      sapMessages,
-                      SAPStay
-                  )
-                : { addShareBtn: null, updateShareBtn: null };
+            } =
+                shareMissions ?
+                    await (
+                        await import(
+                            /* webpackChunkName: "modules/extendedCallList/shareMissions" */ './assets/shareMissions'
+                        )
+                    ).default(
+                        LSSM,
+                        MODULE_ID,
+                        await getSetting<
+                            ('' | 'alliance' | 'sicherheitswache')[]
+                        >('shareMissionsTypes'),
+                        await getSetting<number>('shareMissionsMinCredits'),
+                        await getSetting<string>('shareMissionsButtonColor'),
+                        enableSAP,
+                        sapMessages,
+                        SAPStay
+                    )
+                :   { addShareBtn: null, updateShareBtn: null };
 
             (
                 await import(

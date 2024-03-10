@@ -288,11 +288,9 @@ export default Vue.extend<
                                 ) === index
                         ),
                 ].sort(({ label: labelA }, { label: labelB }) =>
-                    labelA.toUpperCase() > labelB.toUpperCase()
-                        ? 1
-                        : labelA.toUpperCase() < labelB.toUpperCase()
-                          ? -1
-                          : 0
+                    labelA.toUpperCase() > labelB.toUpperCase() ? 1
+                    : labelA.toUpperCase() < labelB.toUpperCase() ? -1
+                    : 0
                 );
             } else if (this.settings.heatmapMode === 'buildings') {
                 const removeNull = <S,>(value: S | null): value is S => !!value;
@@ -315,7 +313,9 @@ export default Vue.extend<
                             ),
                     ])
                     .sort(({ label: labelA }, { label: labelB }) =>
-                        labelA > labelB ? 1 : labelA < labelB ? -1 : 0
+                        labelA > labelB ? 1
+                        : labelA < labelB ? -1
+                        : 0
                     );
             }
             return [];

@@ -112,18 +112,17 @@ export default Vue.extend<
         },
         hotkeysFiltered() {
             const search = this.search.trim().toLowerCase();
-            return search
-                ? this.namedHotkeys.filter(({ name, hotkey }) =>
-                      `${name}:${hotkey}`.toLowerCase().match(search)
-                  )
-                : this.namedHotkeys;
+            return search ?
+                    this.namedHotkeys.filter(({ name, hotkey }) =>
+                        `${name}:${hotkey}`.toLowerCase().match(search)
+                    )
+                :   this.namedHotkeys;
         },
         hotkeysSorted() {
             return (
-                this.search.trim().toLowerCase()
-                    ? this.hotkeysFiltered
-                    : this.namedHotkeys
-            ).sort((a, b) => {
+                this.search.trim().toLowerCase() ?
+                    this.hotkeysFiltered
+                :   this.namedHotkeys).sort((a, b) => {
                 let modifier = 1;
                 if (this.sortDir === 'desc') modifier = -1;
                 const left = a[this.sort];

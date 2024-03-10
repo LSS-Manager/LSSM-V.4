@@ -78,9 +78,9 @@ export default (
                 ?.getTooltip();
             const content = tooltip?.getContent();
             const prevContent =
-                content instanceof HTMLElement
-                    ? content.innerHTML
-                    : content?.toString() ?? '';
+                content instanceof HTMLElement ?
+                    content.innerHTML
+                :   content?.toString() ?? '';
             tooltip?.setContent(
                 `${prevContent.replace(
                     new RegExp(

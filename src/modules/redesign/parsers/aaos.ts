@@ -16,27 +16,28 @@ export interface AAOsWindow {
 
 export default <RedesignParser<AAOsWindow>>(({ doc }) => {
     const getAAOs = (wrapper: HTMLDivElement | null): AAO[] =>
-        wrapper
-            ? Array.from(
-                  wrapper.querySelectorAll<HTMLAnchorElement>(
-                      '.aao_btn_group > a, .aao_searchable'
-                  )
-              ).map(arr => ({
-                  id: parseInt(arr.href.match(/\d+/u)?.[0] ?? '-1'),
-                  bg_color: arr.style.backgroundColor,
-                  color: arr.style.color,
-                  title: arr.textContent?.trim() ?? '',
-                  type: arr.hasAttribute('vehicle_group_id')
-                      ? 'vehicle_group'
-                      : 'arr',
-              }))
-            : [];
+        wrapper ?
+            Array.from(
+                wrapper.querySelectorAll<HTMLAnchorElement>(
+                    '.aao_btn_group > a, .aao_searchable'
+                )
+            ).map(arr => ({
+                id: parseInt(arr.href.match(/\d+/u)?.[0] ?? '-1'),
+                bg_color: arr.style.backgroundColor,
+                color: arr.style.color,
+                title: arr.textContent?.trim() ?? '',
+                type:
+                    arr.hasAttribute('vehicle_group_id') ? 'vehicle_group' : (
+                        'arr'
+                    ),
+            }))
+        :   [];
     const getAAOCategory = (wrapper_id: string): Category => ({
         '0': getAAOs(
             doc.querySelector<HTMLDivElement>(
-                wrapper_id === 'mission_aao_no_category'
-                    ? '#aao_without_category'
-                    : `#${wrapper_id} .pull-right`
+                wrapper_id === 'mission_aao_no_category' ?
+                    '#aao_without_category'
+                :   `#${wrapper_id} .pull-right`
             )
         ),
         ...(Object.fromEntries(

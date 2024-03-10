@@ -88,12 +88,12 @@ export default class TypedWorker<
 // this is the TypedWorker ${this.#workerName}
 
                 ${
-                    this.#importScriptsExpression
-                        ? `
+                    this.#importScriptsExpression ?
+                        `
 // import scripts for this worker
 self.importScripts(${this.#importScriptsExpression});
 `
-                        : ''
+                    :   ''
                 }
 
 // a connection is opened

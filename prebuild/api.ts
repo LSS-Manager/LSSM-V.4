@@ -82,30 +82,31 @@ export default async (): Promise<void> => {
                             wtank: vehicle.waterTank,
                             pumpcap: vehicle.pumpCapacity,
                             ftank: vehicle.foamTank,
-                            schooling: vehicle.staff.training
-                                ? Object.fromEntries(
-                                      Object.entries(
-                                          vehicle.staff.training
-                                      ).map(([school, trainings]) => [
-                                          school,
-                                          Object.fromEntries(
-                                              Object.entries(trainings).map(
-                                                  ([key, value]) => [
-                                                      (
-                                                          t.schoolings as Record<
-                                                              string,
-                                                              Schooling[]
-                                                          >
-                                                      )[school]?.find(
-                                                          s => s.key === key
-                                                      )?.caption,
-                                                      value,
-                                                  ]
-                                              )
-                                          ),
-                                      ])
-                                  )
-                                : null,
+                            schooling:
+                                vehicle.staff.training ?
+                                    Object.fromEntries(
+                                        Object.entries(
+                                            vehicle.staff.training
+                                        ).map(([school, trainings]) => [
+                                            school,
+                                            Object.fromEntries(
+                                                Object.entries(trainings).map(
+                                                    ([key, value]) => [
+                                                        (
+                                                            t.schoolings as Record<
+                                                                string,
+                                                                Schooling[]
+                                                            >
+                                                        )[school]?.find(
+                                                            s => s.key === key
+                                                        )?.caption,
+                                                        value,
+                                                    ]
+                                                )
+                                            ),
+                                        ])
+                                    )
+                                :   null,
                         },
                     ])
                 );

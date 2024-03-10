@@ -253,9 +253,9 @@ export default Vue.extend<
                         return false;
                     return (
                         new URL(
-                            this.url.match(/\/verband\/?$/u)
-                                ? `/alliances/${this.data.meta.id}`
-                                : this.url,
+                            this.url.match(/\/verband\/?$/u) ?
+                                `/alliances/${this.data.meta.id}`
+                            :   this.url,
                             window.location.origin
                         ).pathname.replace(/\/$/gu, '') !==
                         new URL(

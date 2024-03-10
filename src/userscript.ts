@@ -15,11 +15,12 @@ const loadLSSM = () => {
 
     // this is a nice tweak to generate the correct script for local development.
     // Terser will remove the unused one and leave the used one only.
-    script.src = local
-        ? GM_getResourceURL(localCoreName)
-        : `${host}core.js?_=${Math.floor(
-              Date.now() / (1000 * 60 * 10) // Cache the core for 10 minutes
-          )}&branch=${localStorage.getItem(`${prefix}_branch`) ?? 'stable'}`;
+    script.src =
+        local ?
+            GM_getResourceURL(localCoreName)
+        :   `${host}core.js?_=${Math.floor(
+                Date.now() / (1000 * 60 * 10) // Cache the core for 10 minutes
+            )}&branch=${localStorage.getItem(`${prefix}_branch`) ?? 'stable'}`;
     script.setAttribute('type', 'module');
     script.setAttribute('async', '');
 

@@ -23,9 +23,9 @@
                                         :key="type"
                                         class="btn"
                                         :class="`btn-${
-                                            kasse.earnings.type === type
-                                                ? 'success'
-                                                : 'default'
+                                            kasse.earnings.type === type ?
+                                                'success'
+                                            :   'default'
                                         }`"
                                         @click="setEarningsType(type)"
                                     >
@@ -126,9 +126,9 @@
                                         :key="rate"
                                         class="btn btn-xs btn-discount"
                                         :class="`btn-${
-                                            rate - 1 === kasse.rate
-                                                ? 'success'
-                                                : 'default'
+                                            rate - 1 === kasse.rate ?
+                                                'success'
+                                            :   'default'
                                         }`"
                                         @click="changeRate(rate - 1)"
                                     >
@@ -249,12 +249,12 @@ export default Vue.extend<
     },
     computed: {
         entriesSum() {
-            return this.kasse.enabled
-                ? this.kasse.earnings.earnings.reduce(
-                      (sum, { value }) => sum + value,
-                      0
-                  )
-                : 0;
+            return this.kasse.enabled ?
+                    this.kasse.earnings.earnings.reduce(
+                        (sum, { value }) => sum + value,
+                        0
+                    )
+                :   0;
         },
     },
     methods: {

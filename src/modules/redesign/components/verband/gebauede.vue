@@ -35,9 +35,9 @@
                             <span
                                 class="label"
                                 :class="`label-${
-                                    hiddenFilters.has(type)
-                                        ? 'danger'
-                                        : 'success'
+                                    hiddenFilters.has(type) ? 'danger' : (
+                                        'success'
+                                    )
                                 }`"
                                 :key="type"
                                 @click="toggleFilter(type)"
@@ -70,9 +70,9 @@
                     </td>
                     <td
                         :colspan="
-                            gebauede.canOpenSchooling || gebauede.extensions
-                                ? 1
-                                : 2
+                            gebauede.canOpenSchooling || gebauede.extensions ?
+                                1
+                            :   2
                         "
                     >
                         <a lightbox-open :href="`/buildings/${gebauede.id}`">
@@ -218,11 +218,11 @@ export default Vue.extend<
                         name
                             .toLowerCase()
                             .includes(this.search.toLowerCase()) &&
-                        (this.hiddenFilters.size
-                            ? !this.hiddenFilters.has(
-                                  this.allianceBuildings[id]?.building_type
-                              )
-                            : true)
+                        (this.hiddenFilters.size ?
+                            !this.hiddenFilters.has(
+                                this.allianceBuildings[id]?.building_type
+                            )
+                        :   true)
                 );
             } else {
                 return this.gebauede.buildings;

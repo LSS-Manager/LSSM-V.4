@@ -75,26 +75,28 @@ const settingsStore = defineStore('settings', {
                 unit = setting.unit as Unit;
 
             const getValue = (value = setting?.value) =>
-                [
-                    'bigint',
-                    'boolean',
-                    'number',
-                    'string',
-                    ' null',
-                    'undefined',
-                ].includes(typeof value) && unit
-                    ? `${value}${unit}`
-                    : value;
+                (
+                    [
+                        'bigint',
+                        'boolean',
+                        'number',
+                        'string',
+                        ' null',
+                        'undefined',
+                    ].includes(typeof value) && unit
+                ) ?
+                    `${value}${unit}`
+                :   value;
 
-            return ((setting?.type === 'appendable-list'
-                ? {
-                      enabled: setting?.value.enabled ?? true,
-                      value: (setting?.value.value ?? []).map(v => ({
-                          ...setting.defaultItem,
-                          ...v,
-                      })),
-                  }
-                : getValue()) ??
+            return ((setting?.type === 'appendable-list' ?
+                {
+                    enabled: setting?.value.enabled ?? true,
+                    value: (setting?.value.value ?? []).map(v => ({
+                        ...setting.defaultItem,
+                        ...v,
+                    })),
+                }
+            :   getValue()) ??
                 getValue(setting?.default) ??
                 getValue((await this.getModule(moduleId))[settingId]) ??
                 getValue(defaultValue)) as Awaited<

@@ -91,15 +91,13 @@ export default (
     const missionHeader = document.querySelector<HTMLDivElement>(
         '.mission_header_info'
     );
-    const headerHeight = missionHeader
-        ? getComputedStyle(missionHeader).height
-        : '0px';
+    const headerHeight =
+        missionHeader ? getComputedStyle(missionHeader).height : '0px';
     const missionFooter = document.querySelector<HTMLElement>(
         '#container_navbar_alarm'
     );
-    const footerHeight = missionFooter
-        ? getComputedStyle(missionFooter).height
-        : '0px';
+    const footerHeight =
+        missionFooter ? getComputedStyle(missionFooter).height : '0px';
 
     const addField = (list: List) => {
         const amountSpan = document.createElement('span');
@@ -154,9 +152,9 @@ export default (
         const tbody = document.createElement('tbody');
         if (!LSSM.$stores.root.isDarkMode)
             tbody.style.setProperty('color', 'black');
-        (list === 'vehicles'
-            ? Object.keys(total.vehicles)
-            : playerUrlsSorted
+        (list === 'vehicles' ?
+            Object.keys(total.vehicles)
+        :   playerUrlsSorted
         ).forEach(row => {
             const rowTotal = total[list][row];
             const trow = document.createElement('tr');

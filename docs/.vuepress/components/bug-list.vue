@@ -24,14 +24,14 @@
                         class="bug-header-icon"
                         @click="
                             () =>
-                                showContent.includes(bug.id)
-                                    ? showContent.splice(
-                                          showContent.findIndex(
-                                              id => id === bug.id
-                                          ),
-                                          1
-                                      )
-                                    : showContent.push(bug.id)
+                                showContent.includes(bug.id) ?
+                                    showContent.splice(
+                                        showContent.findIndex(
+                                            id => id === bug.id
+                                        ),
+                                        1
+                                    )
+                                :   showContent.push(bug.id)
                         "
                     >
                         <span
@@ -128,11 +128,13 @@ export default defineComponent({
     },
     computed: {
         bugs() {
-            return this.$theme
-                ? this.$theme.variables
-                    ? this.$theme.variables.bugIssues || []
-                    : []
-                : [];
+            return (
+                this.$theme ?
+                    this.$theme.variables ?
+                        this.$theme.variables.bugIssues || []
+                    :   []
+                :   []
+            );
         },
     },
     methods: {

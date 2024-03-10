@@ -317,26 +317,26 @@ export default Vue.extend<
         changeValue(index, value, { name: column, title }, listIndex) {
             const unique = this.setting.listItem[listIndex].unique;
             const uniquenessResponse =
-                typeof unique === 'function'
-                    ? unique(value, index, this.value)
-                    : this.value
-                          .map(item => item[column])
-                          .includes(value[column]);
+                typeof unique === 'function' ?
+                    unique(value, index, this.value)
+                :   this.value
+                        .map(item => item[column])
+                        .includes(value[column]);
             if (this.uniqueColumns.includes(column) && uniquenessResponse) {
                 this.$modal.show('dialog', {
                     title: this.$t(
                         'modules.settings.appendableList.unique.title'
                     ),
                     text:
-                        typeof uniquenessResponse === 'string'
-                            ? uniquenessResponse
-                            : this.$t(
-                                  'modules.settings.appendableList.unique.text',
-                                  {
-                                      value: value[column],
-                                      title,
-                                  }
-                              ),
+                        typeof uniquenessResponse === 'string' ?
+                            uniquenessResponse
+                        :   this.$t(
+                                'modules.settings.appendableList.unique.text',
+                                {
+                                    value: value[column],
+                                    title,
+                                }
+                            ),
                     buttons: [
                         {
                             title: this.$t(

@@ -553,9 +553,9 @@ export default Vue.extend<
         modalName() {
             return `redesign-lightbox-${this.creation}`;
         },
-        lightbox(): typeof this.type extends keyof Redesigns
-            ? RedesignLightboxVue<typeof this.type>
-            : null {
+        lightbox(): typeof this.type extends keyof Redesigns ?
+            RedesignLightboxVue<typeof this.type>
+        :   null {
             if (this.type === '' || this.type === 'default') return null;
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
@@ -728,99 +728,94 @@ export default Vue.extend<
             });
         window['lssmv4-redesign-lightbox'] = this;
         const trySetIframe = (): number | void =>
-            this.$refs.iframe
-                ? this.$nextTick(() => {
-                      this.$set(this, 'src', this.url);
-                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                      // @ts-ignore // Yes, Typescript does not understand that a 'mouseup' event results in a MouseEvent…
-                      this.$el.addEventListener('mouseup', (e: MouseEvent) => {
-                          const target = (e.target as HTMLElement)?.closest<
-                              HTMLAnchorElement | HTMLButtonElement
-                          >('a, button');
-                          const href = target?.getAttribute('href');
-                          if (
-                              !target ||
-                              !href ||
-                              ![0, 1].includes(e.button) ||
-                              target.hasAttribute('download')
-                          )
-                              return;
-                          e.preventDefault();
+            this.$refs.iframe ?
+                this.$nextTick(() => {
+                    this.$set(this, 'src', this.url);
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore // Yes, Typescript does not understand that a 'mouseup' event results in a MouseEvent…
+                    this.$el.addEventListener('mouseup', (e: MouseEvent) => {
+                        const target = (e.target as HTMLElement)?.closest<
+                            HTMLAnchorElement | HTMLButtonElement
+                        >('a, button');
+                        const href = target?.getAttribute('href');
+                        if (
+                            !target ||
+                            !href ||
+                            ![0, 1].includes(e.button) ||
+                            target.hasAttribute('download')
+                        )
+                            return;
+                        e.preventDefault();
 
-                          const targetUrl = new URL(href, window.location.href);
-                          const here = new URL(window.location.toString());
+                        const targetUrl = new URL(href, window.location.href);
+                        const here = new URL(window.location.toString());
 
-                          if (e.ctrlKey || e.button === 1)
-                              return window.open(href, '_blank', 'noopener');
-                          if (
-                              e.button === 0 &&
-                              target.hasAttribute('lightbox-open')
-                          )
-                              return window.lightboxOpen(href);
-                          if (target.hasAttribute('target')) {
-                              if (targetUrl.origin === window.location.origin)
-                                  return window.lightboxOpen(href);
-                              return window.open(
-                                  href,
-                                  target.getAttribute('target') ?? '_blank',
-                                  'noopener'
-                              );
-                          }
+                        if (e.ctrlKey || e.button === 1)
+                            return window.open(href, '_blank', 'noopener');
+                        if (
+                            e.button === 0 &&
+                            target.hasAttribute('lightbox-open')
+                        )
+                            return window.lightboxOpen(href);
+                        if (target.hasAttribute('target')) {
+                            if (targetUrl.origin === window.location.origin)
+                                return window.lightboxOpen(href);
+                            return window.open(
+                                href,
+                                target.getAttribute('target') ?? '_blank',
+                                'noopener'
+                            );
+                        }
 
-                          if (
-                              targetUrl.origin === here.origin &&
-                              targetUrl.pathname === here.pathname &&
-                              targetUrl.search === here.search
-                          ) {
-                              if (!here.hash) here.hash = '#';
-                              if (targetUrl.hash !== here.hash) {
-                                  return (window.location.hash =
-                                      targetUrl.hash);
-                              }
-                              if (targetUrl.href === here.href) return;
-                          }
+                        if (
+                            targetUrl.origin === here.origin &&
+                            targetUrl.pathname === here.pathname &&
+                            targetUrl.search === here.search
+                        ) {
+                            if (!here.hash) here.hash = '#';
+                            if (targetUrl.hash !== here.hash)
+                                return (window.location.hash = targetUrl.hash);
 
-                          this.$set(this, 'src', href);
-                      });
-                      this.$el.addEventListener('click', e => {
-                          const target = (e.target as HTMLElement)?.closest<
-                              HTMLAnchorElement | HTMLButtonElement
-                          >('a, button');
-                          const href = target?.getAttribute('href');
-                          if (
-                              !target ||
-                              !href ||
-                              target.hasAttribute('download')
-                          )
-                              return;
-                          e.preventDefault();
-                      });
-                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                      // @ts-ignore // Yes, Typescript does not understand that a 'auxclick' event results in a MouseEvent…
-                      this.$el.addEventListener('auxclick', (e: MouseEvent) => {
-                          const target = (e.target as HTMLElement)?.closest<
-                              HTMLAnchorElement | HTMLButtonElement
-                          >('a, button');
-                          const href = target?.getAttribute('href');
-                          if (
-                              !target ||
-                              !href ||
-                              target.hasAttribute('download') ||
-                              e.button !== 1
-                          )
-                              return;
-                          e.preventDefault();
-                      });
-                      window.addEventListener('popstate', () => {
-                          const url = new URL(
-                              window.location.href,
-                              window.location.origin
-                          );
-                          url.searchParams.append('ignore-history', 'true');
-                          this.$set(this, 'src', url.toString());
-                      });
-                  })
-                : window.setTimeout(trySetIframe, 100);
+                            if (targetUrl.href === here.href) return;
+                        }
+
+                        this.$set(this, 'src', href);
+                    });
+                    this.$el.addEventListener('click', e => {
+                        const target = (e.target as HTMLElement)?.closest<
+                            HTMLAnchorElement | HTMLButtonElement
+                        >('a, button');
+                        const href = target?.getAttribute('href');
+                        if (!target || !href || target.hasAttribute('download'))
+                            return;
+                        e.preventDefault();
+                    });
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore // Yes, Typescript does not understand that a 'auxclick' event results in a MouseEvent…
+                    this.$el.addEventListener('auxclick', (e: MouseEvent) => {
+                        const target = (e.target as HTMLElement)?.closest<
+                            HTMLAnchorElement | HTMLButtonElement
+                        >('a, button');
+                        const href = target?.getAttribute('href');
+                        if (
+                            !target ||
+                            !href ||
+                            target.hasAttribute('download') ||
+                            e.button !== 1
+                        )
+                            return;
+                        e.preventDefault();
+                    });
+                    window.addEventListener('popstate', () => {
+                        const url = new URL(
+                            window.location.href,
+                            window.location.origin
+                        );
+                        url.searchParams.append('ignore-history', 'true');
+                        this.$set(this, 'src', url.toString());
+                    });
+                })
+            :   window.setTimeout(trySetIframe, 100);
         trySetIframe();
     },
 });

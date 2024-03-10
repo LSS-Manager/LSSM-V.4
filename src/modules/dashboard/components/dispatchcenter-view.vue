@@ -414,14 +414,18 @@ export default Vue.extend<
                     caption: buildingTypes[type].caption,
                 }))
                 .sort((a, b) =>
-                    a.caption > b.caption ? 1 : a.caption < b.caption ? -1 : 0
+                    a.caption > b.caption ? 1
+                    : a.caption < b.caption ? -1
+                    : 0
                 ),
             dispatchBuildings: apiStore.buildingsArray
                 .filter(building =>
                     dispatchCenterBuildings.includes(building.building_type)
                 )
                 .sort((a, b) =>
-                    a.caption > b.caption ? 1 : a.caption < b.caption ? -1 : 0
+                    a.caption > b.caption ? 1
+                    : a.caption < b.caption ? -1
+                    : 0
                 ),
             settingsStore: useSettingsStore(),
             rootStore,
@@ -478,7 +482,9 @@ export default Vue.extend<
                     );
                 })
                 .sort((a, b) =>
-                    a.caption > b.caption ? 1 : a.caption < b.caption ? -1 : 0
+                    a.caption > b.caption ? 1
+                    : a.caption < b.caption ? -1
+                    : 0
                 );
         },
         buildingListHasPrevPage() {
@@ -501,7 +507,9 @@ export default Vue.extend<
                 vehiclesSorted[parseInt(building)] = Object.values(
                     this.vehiclesByBuilding[parseInt(building)]
                 ).toSorted((a, b) =>
-                    a.caption > b.caption ? -1 : a.caption < b.caption ? 1 : 0
+                    a.caption > b.caption ? -1
+                    : a.caption < b.caption ? 1
+                    : 0
                 );
             });
             return vehiclesSorted;
@@ -740,11 +748,12 @@ export default Vue.extend<
                 this.columns.forEach(col =>
                     (async () => {
                         await this.$nextTick();
-                        const column = this.$refs[`building-${col.building}`]
-                            ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                              // @ts-ignore
-                              this.$refs[`building-${col.building}`][0].item
-                            : false;
+                        const column =
+                            this.$refs[`building-${col.building}`] ?
+                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                // @ts-ignore
+                                this.$refs[`building-${col.building}`][0].item
+                            :   false;
                         if (!column) return;
                         this.modifyBuilding({
                             id: column._id,

@@ -222,8 +222,9 @@ export default Vue.extend<
         },
         vehicleTypesSorted() {
             const vehicleTypes = (
-                this.search ? this.vehicleTypesFiltered : this.vehicleTypes
-            ) as TypeList;
+                this.search ?
+                    this.vehicleTypesFiltered
+                :   this.vehicleTypes) as TypeList;
             return Object.entries(vehicleTypes)
                 .sort(([, a], [, b]) => {
                     const modifier = this.sortDir === 'desc' ? -1 : 1;
@@ -235,14 +236,19 @@ export default Vue.extend<
                         f = a[this.sort] || '';
                         s = b[this.sort] || '';
                     }
-                    return f < s ? -1 * modifier : f > s ? modifier : 0;
+                    return (
+                        f < s ? -1 * modifier
+                        : f > s ? modifier
+                        : 0
+                    );
                 })
                 .map(e => e[0]);
         },
         sum() {
             const vehicleTypes = (
-                this.search ? this.vehicleTypesFiltered : this.vehicleTypes
-            ) as TypeList;
+                this.search ?
+                    this.vehicleTypesFiltered
+                :   this.vehicleTypes) as TypeList;
             const FMSsum = {} as Record<string, Vehicle[]>;
             Object.values(this.statuses).forEach(status => {
                 FMSsum[`s${status}`] = Object.values(vehicleTypes).flatMap(

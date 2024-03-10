@@ -115,9 +115,9 @@
                             />
                             <a
                                 :href="`/${
-                                    message.sender.isAlliance
-                                        ? 'alliances'
-                                        : 'profile'
+                                    message.sender.isAlliance ?
+                                        'alliances'
+                                    :   'profile'
                                 }/${message.sender.id}`"
                                 lightbox-open
                             >
@@ -298,15 +298,15 @@ export default Vue.extend<
                             this.$set(
                                 this.lightbox.data,
                                 'messages',
-                                mode === 'next'
-                                    ? [
-                                          ...this.lightbox.data.messages,
-                                          ...result.messages,
-                                      ]
-                                    : [
-                                          ...result.messages,
-                                          ...this.lightbox.data.messages,
-                                      ]
+                                mode === 'next' ?
+                                    [
+                                        ...this.lightbox.data.messages,
+                                        ...result.messages,
+                                    ]
+                                :   [
+                                        ...result.messages,
+                                        ...this.lightbox.data.messages,
+                                    ]
                             );
                             this.lightbox.finishLoading(
                                 `conversation-load${mode}`

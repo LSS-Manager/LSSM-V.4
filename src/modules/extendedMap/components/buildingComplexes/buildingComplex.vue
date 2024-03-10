@@ -58,65 +58,65 @@
                                         'overview.buildings.table.head.name'
                                     ),
                                 },
-                                ...(hasLevelBuildings
-                                    ? {
-                                          level: {
-                                              title: $m(
-                                                  'overview.buildings.table.head.level'
-                                              ),
-                                          },
-                                      }
-                                    : {}),
-                                ...(hasVehicleBuildings
-                                    ? {
-                                          vehicles: {
-                                              title: $m(
-                                                  'overview.buildings.table.head.vehicles'
-                                              ),
-                                          },
-                                      }
-                                    : {}),
-                                ...(hasBedBuildings
-                                    ? {
-                                          beds: {
-                                              title: $m(
-                                                  'overview.buildings.table.head.beds'
-                                              ),
-                                          },
-                                      }
-                                    : {}),
-                                ...(hasClassroomBuildings
-                                    ? {
-                                          classrooms: {
-                                              title: $m(
-                                                  'overview.buildings.table.head.classrooms'
-                                              ),
-                                          },
-                                      }
-                                    : {}),
-                                ...(hasCellBuildings
-                                    ? {
-                                          cells: {
-                                              title: $m(
-                                                  'overview.buildings.table.head.cells'
-                                              ),
-                                          },
-                                      }
-                                    : {}),
-                                ...(hasStaffBuildings
-                                    ? {
-                                          staff: {
-                                              title: $m(
-                                                  'overview.buildings.table.head.staff'
-                                              ),
-                                          },
-                                          hiring: {
-                                              title: $m(
-                                                  'overview.buildings.table.head.hiring'
-                                              ),
-                                          },
-                                      }
-                                    : {}),
+                                ...(hasLevelBuildings ?
+                                    {
+                                        level: {
+                                            title: $m(
+                                                'overview.buildings.table.head.level'
+                                            ),
+                                        },
+                                    }
+                                :   {}),
+                                ...(hasVehicleBuildings ?
+                                    {
+                                        vehicles: {
+                                            title: $m(
+                                                'overview.buildings.table.head.vehicles'
+                                            ),
+                                        },
+                                    }
+                                :   {}),
+                                ...(hasBedBuildings ?
+                                    {
+                                        beds: {
+                                            title: $m(
+                                                'overview.buildings.table.head.beds'
+                                            ),
+                                        },
+                                    }
+                                :   {}),
+                                ...(hasClassroomBuildings ?
+                                    {
+                                        classrooms: {
+                                            title: $m(
+                                                'overview.buildings.table.head.classrooms'
+                                            ),
+                                        },
+                                    }
+                                :   {}),
+                                ...(hasCellBuildings ?
+                                    {
+                                        cells: {
+                                            title: $m(
+                                                'overview.buildings.table.head.cells'
+                                            ),
+                                        },
+                                    }
+                                :   {}),
+                                ...(hasStaffBuildings ?
+                                    {
+                                        staff: {
+                                            title: $m(
+                                                'overview.buildings.table.head.staff'
+                                            ),
+                                        },
+                                        hiring: {
+                                            title: $m(
+                                                'overview.buildings.table.head.hiring'
+                                            ),
+                                        },
+                                    }
+                                :   {}),
                             }"
                             :search="buildingsTable.search"
                             @search="s => (buildingsTable.search = s)"
@@ -238,9 +238,11 @@
                                                     v-if="!building.alliance"
                                                     class="btn btn-sm"
                                                     :class="`btn-${
-                                                        building.is_alliance_shared
-                                                            ? 'danger'
-                                                            : 'success'
+                                                        (
+                                                            building.is_alliance_shared
+                                                        ) ?
+                                                            'danger'
+                                                        :   'success'
                                                     }`"
                                                     @click="
                                                         toggleAllianceShare(
@@ -251,9 +253,11 @@
                                                     {{
                                                         $m(
                                                             `overview.buildings.share.beds.${
-                                                                building.is_alliance_shared
-                                                                    ? 'unShare'
-                                                                    : 'share'
+                                                                (
+                                                                    building.is_alliance_shared
+                                                                ) ?
+                                                                    'unShare'
+                                                                :   'share'
                                                             }`
                                                         )
                                                     }}
@@ -267,10 +271,12 @@
                                                     <a
                                                         class="btn btn-xs"
                                                         :class="`btn-${
-                                                            (n - 1) * 10 ===
-                                                            building.alliance_share_credits_percentage
-                                                                ? 'success'
-                                                                : 'default'
+                                                            (
+                                                                (n - 1) * 10 ===
+                                                                building.alliance_share_credits_percentage
+                                                            ) ?
+                                                                'success'
+                                                            :   'default'
                                                         }`"
                                                         v-for="n in 6"
                                                         :key="n"
@@ -338,9 +344,11 @@
                                                     v-if="!building.alliance"
                                                     class="btn btn-sm"
                                                     :class="`btn-${
-                                                        building.is_alliance_shared
-                                                            ? 'danger'
-                                                            : 'success'
+                                                        (
+                                                            building.is_alliance_shared
+                                                        ) ?
+                                                            'danger'
+                                                        :   'success'
                                                     }`"
                                                     @click="
                                                         toggleAllianceShare(
@@ -351,9 +359,11 @@
                                                     {{
                                                         $m(
                                                             `overview.buildings.share.cells.${
-                                                                building.is_alliance_shared
-                                                                    ? 'unShare'
-                                                                    : 'share'
+                                                                (
+                                                                    building.is_alliance_shared
+                                                                ) ?
+                                                                    'unShare'
+                                                                :   'share'
                                                             }`
                                                         )
                                                     }}
@@ -367,10 +377,12 @@
                                                     <a
                                                         class="btn btn-xs"
                                                         :class="`btn-${
-                                                            (n - 1) * 10 ===
-                                                            building.alliance_share_credits_percentage
-                                                                ? 'success'
-                                                                : 'default'
+                                                            (
+                                                                (n - 1) * 10 ===
+                                                                building.alliance_share_credits_percentage
+                                                            ) ?
+                                                                'success'
+                                                            :   'default'
                                                         }`"
                                                         v-for="n in 6"
                                                         :key="n"
@@ -570,9 +582,9 @@
                                         :class="`building_list_fms_${vehicle.fms_real}`"
                                         @click="
                                             [2, 6].includes(
-                                                vehicle.fms_real
-                                                    ? toggleVehicleFMS(vehicle)
-                                                    : () => {}
+                                                vehicle.fms_real ?
+                                                    toggleVehicleFMS(vehicle)
+                                                :   () => {}
                                             )
                                         "
                                     >
@@ -807,9 +819,9 @@
                                                 {{
                                                     $m(
                                                         `overview.extensions.${
-                                                            extension.enabled
-                                                                ? 'disable'
-                                                                : 'enable'
+                                                            extension.enabled ?
+                                                                'disable'
+                                                            :   'enable'
                                                         }`
                                                     )
                                                 }}
@@ -854,9 +866,9 @@
                                     >
                                         <button
                                             :class="`btn btn-${
-                                                extension.enoughCredits
-                                                    ? 'success'
-                                                    : 'danger'
+                                                extension.enoughCredits ?
+                                                    'success'
+                                                :   'danger'
                                             } btn-sm`"
                                             :disabled="
                                                 !extension.canBuy ||
@@ -881,9 +893,9 @@
                                         <button
                                             v-if="!extension.allianceBuilding"
                                             :class="`btn btn-${
-                                                extension.enoughCoins
-                                                    ? 'success'
-                                                    : 'danger'
+                                                extension.enoughCoins ?
+                                                    'success'
+                                                :   'danger'
                                             } btn-sm`"
                                             :disabled="
                                                 !extension.canBuy ||
@@ -1310,11 +1322,10 @@ type MaybeInterface<
     HasInterface,
     HasNotInterface,
     Has extends Maybe = unknown,
-> = Has extends true
-    ? HasInterface
-    : Has extends false
-      ? HasNotInterface
-      : HasInterface | HasNotInterface;
+> =
+    Has extends true ? HasInterface
+    : Has extends false ? HasNotInterface
+    : HasInterface | HasNotInterface;
 
 type AttributedBuildingHasBeds = HasInterface<'hasBeds'> & {
     beds: number;
@@ -1741,15 +1752,17 @@ export default Vue.extend<
                     const intId = parseInt(buildingId);
                     const isAllianceBuilding =
                         this.allianceBuildings.hasOwnProperty(intId);
-                    const building = isAllianceBuilding
-                        ? this.allianceBuildings[intId]
-                        : this.buildings[intId];
+                    const building =
+                        isAllianceBuilding ?
+                            this.allianceBuildings[intId]
+                        :   this.buildings[intId];
                     if (!building) return null;
 
-                    const realBuildingType = building.small_building
-                        ? smallBuildings[building.building_type] ??
-                          building.building_type
-                        : building.building_type;
+                    const realBuildingType =
+                        building.small_building ?
+                            smallBuildings[building.building_type] ??
+                            building.building_type
+                        :   building.building_type;
 
                     const buildingType =
                         this.buildingTypes[realBuildingType] ?? {};
@@ -1775,9 +1788,9 @@ export default Vue.extend<
 
                     const bedExtensions = {
                         beds:
-                            'startBeds' in buildingType
-                                ? buildingType.startBeds + building.level
-                                : 0,
+                            'startBeds' in buildingType ?
+                                buildingType.startBeds + building.level
+                            :   0,
                         bedsUnavailable: 0,
                     };
                     building.extensions.forEach(extension => {
@@ -1792,23 +1805,23 @@ export default Vue.extend<
                         }
                     });
                     const beds: AttributedBuildingBeds =
-                        'startBeds' in buildingType
-                            ? {
-                                  hasBeds: true,
-                                  ...bedExtensions,
-                                  is_alliance_shared:
-                                      building.is_alliance_shared ?? false,
-                                  alliance_share_credits_percentage:
-                                      building.alliance_share_credits_percentage ??
-                                      0,
-                              }
-                            : { hasBeds: false };
+                        'startBeds' in buildingType ?
+                            {
+                                hasBeds: true,
+                                ...bedExtensions,
+                                is_alliance_shared:
+                                    building.is_alliance_shared ?? false,
+                                alliance_share_credits_percentage:
+                                    building.alliance_share_credits_percentage ??
+                                    0,
+                            }
+                        :   { hasBeds: false };
 
                     const cellExtensions = {
                         cells:
-                            'startCells' in buildingType
-                                ? buildingType.startCells
-                                : 0,
+                            'startCells' in buildingType ?
+                                buildingType.startCells
+                            :   0,
                         cellsUnavailable: 0,
                     };
                     building.extensions.forEach(extension => {
@@ -1824,23 +1837,23 @@ export default Vue.extend<
                     });
 
                     const cells: AttributedBuildingCells =
-                        'startCells' in buildingType
-                            ? {
-                                  hasCells: true,
-                                  ...cellExtensions,
-                                  is_alliance_shared:
-                                      building.is_alliance_shared ?? false,
-                                  alliance_share_credits_percentage:
-                                      building.alliance_share_credits_percentage ??
-                                      0,
-                              }
-                            : { hasCells: false };
+                        'startCells' in buildingType ?
+                            {
+                                hasCells: true,
+                                ...cellExtensions,
+                                is_alliance_shared:
+                                    building.is_alliance_shared ?? false,
+                                alliance_share_credits_percentage:
+                                    building.alliance_share_credits_percentage ??
+                                    0,
+                            }
+                        :   { hasCells: false };
 
                     const classroomExtensions = {
                         classrooms:
-                            'startClassrooms' in buildingType
-                                ? buildingType.startClassrooms
-                                : 0,
+                            'startClassrooms' in buildingType ?
+                                buildingType.startClassrooms
+                            :   0,
                         classRoomsUnavailable: 0,
                     };
                     building.extensions.forEach(extension => {
@@ -1858,66 +1871,66 @@ export default Vue.extend<
                     });
 
                     const classrooms: AttributedBuildingClassrooms =
-                        'startClassrooms' in buildingType
-                            ? {
-                                  hasClassrooms: true,
-                                  ...classroomExtensions,
-                              }
-                            : { hasClassrooms: false };
+                        'startClassrooms' in buildingType ?
+                            {
+                                hasClassrooms: true,
+                                ...classroomExtensions,
+                            }
+                        :   { hasClassrooms: false };
 
                     const level: AttributedBuildingLevel =
-                        buildingType.maxLevel !== 0
-                            ? { hasLevel: true, level: building.level }
-                            : { hasLevel: false };
+                        buildingType.maxLevel !== 0 ?
+                            { hasLevel: true, level: building.level }
+                        :   { hasLevel: false };
 
                     const staff: AttributedBuildingStaff =
-                        'startParkingLots' in buildingType
-                            ? {
-                                  hasStaff: true,
-                                  staff: building.personal_count,
-                                  staffTarget: building.personal_count_target,
-                                  hiring_automatic: building.hiring_automatic,
-                                  hiring_phase: building.hiring_phase,
-                              }
-                            : { hasStaff: false };
+                        'startParkingLots' in buildingType ?
+                            {
+                                hasStaff: true,
+                                staff: building.personal_count,
+                                staffTarget: building.personal_count_target,
+                                hiring_automatic: building.hiring_automatic,
+                                hiring_phase: building.hiring_phase,
+                            }
+                        :   { hasStaff: false };
 
                     const vehicles: AttributedBuildingVehicles =
-                        'startParkingLots' in buildingType
-                            ? {
-                                  hasVehicles: true,
-                                  vehicles: Object.values(
-                                      this.vehiclesByBuilding[building.id] ?? []
-                                  ),
-                                  maxVehicles:
-                                      (buildingType.parkingLotsPerLevel ?? 1) *
-                                          building.level +
-                                      buildingType.startParkingLots +
-                                      building.extensions
-                                          .map(extension => {
-                                              const extensionType: InternalExtension | null =
-                                                  buildingType.extensions[
-                                                      extension.type_id
-                                                  ];
-                                              if (
-                                                  !extensionType ||
-                                                  !extension.available ||
-                                                  !(
-                                                      'isVehicleExtension' in
-                                                      extensionType
-                                                  )
-                                              )
-                                                  return 0;
-                                              return (
-                                                  (extensionType.givesParkingLots ??
-                                                      0) +
-                                                  (extensionType.givesParkingLotsPerLevel ??
-                                                      0) *
-                                                      building.level
-                                              );
-                                          })
-                                          .reduce((a, b) => a + b, 0),
-                              }
-                            : { hasVehicles: false };
+                        'startParkingLots' in buildingType ?
+                            {
+                                hasVehicles: true,
+                                vehicles: Object.values(
+                                    this.vehiclesByBuilding[building.id] ?? []
+                                ),
+                                maxVehicles:
+                                    (buildingType.parkingLotsPerLevel ?? 1) *
+                                        building.level +
+                                    buildingType.startParkingLots +
+                                    building.extensions
+                                        .map(extension => {
+                                            const extensionType: InternalExtension | null =
+                                                buildingType.extensions[
+                                                    extension.type_id
+                                                ];
+                                            if (
+                                                !extensionType ||
+                                                !extension.available ||
+                                                !(
+                                                    'isVehicleExtension' in
+                                                    extensionType
+                                                )
+                                            )
+                                                return 0;
+                                            return (
+                                                (extensionType.givesParkingLots ??
+                                                    0) +
+                                                (extensionType.givesParkingLotsPerLevel ??
+                                                    0) *
+                                                    building.level
+                                            );
+                                        })
+                                        .reduce((a, b) => a + b, 0),
+                            }
+                        :   { hasVehicles: false };
 
                     return {
                         ...buildingAttrs,
@@ -1941,19 +1954,19 @@ export default Vue.extend<
             return this.sortedBuildingsByName.map(({ id }) => id);
         },
         filteredBuildings() {
-            return this.buildingsTable.search
-                ? this.attributedBuildings.filter(building =>
-                      JSON.stringify(Object.values(building))
-                          .toLowerCase()
-                          .includes(this.buildingsTable.search.toLowerCase())
-                  )
-                : this.attributedBuildings;
+            return this.buildingsTable.search ?
+                    this.attributedBuildings.filter(building =>
+                        JSON.stringify(Object.values(building))
+                            .toLowerCase()
+                            .includes(this.buildingsTable.search.toLowerCase())
+                    )
+                :   this.attributedBuildings;
         },
         sortedBuildings() {
             if (this.buildingsTable.sort === 'name') {
-                return this.buildingsTable.sortDir === 'asc'
-                    ? this.sortedBuildingsByName
-                    : [...this.sortedBuildingsByName].reverse();
+                return this.buildingsTable.sortDir === 'asc' ?
+                        this.sortedBuildingsByName
+                    :   [...this.sortedBuildingsByName].reverse();
             }
             return [...this.filteredBuildings].sort((buildingA, buildingB) => {
                 // Workaround for TypeScript <3
@@ -1964,9 +1977,9 @@ export default Vue.extend<
                         case 'cells':
                             return 'cells' in building ? building.cells : -1;
                         case 'classrooms':
-                            return 'classrooms' in building
-                                ? building.classrooms
-                                : -1;
+                            return 'classrooms' in building ?
+                                    building.classrooms
+                                :   -1;
                         case 'hiring':
                             if ('staff' in building) {
                                 if (building.hiring_automatic) return 0;
@@ -1980,13 +1993,13 @@ export default Vue.extend<
                         case 'staff':
                             return 'staff' in building ? building.staff : -1;
                         case 'typeName':
-                            return 'typeName' in building
-                                ? building.typeName
-                                : '';
+                            return 'typeName' in building ?
+                                    building.typeName
+                                :   '';
                         case 'vehicles':
-                            return 'vehicles' in building
-                                ? building.vehicles.length
-                                : -1;
+                            return 'vehicles' in building ?
+                                    building.vehicles.length
+                                :   -1;
                     }
                 };
                 const attributeA = getSortValue(buildingA);
@@ -2047,9 +2060,8 @@ export default Vue.extend<
         overviewTabs() {
             const vehiclesTab = this.hasVehicleBuildings ? 1 : 0;
             const extensionsTab = vehiclesTab + 1;
-            const classroomTab = this.hasClassroomBuildings
-                ? extensionsTab + 1
-                : -1;
+            const classroomTab =
+                this.hasClassroomBuildings ? extensionsTab + 1 : -1;
             const protocolTab =
                 classroomTab > 0 ? classroomTab + 1 : extensionsTab + 1;
             return {
@@ -2072,43 +2084,43 @@ export default Vue.extend<
         },
         vehicles() {
             return this.attributedBuildings.flatMap(building =>
-                building.hasVehicles
-                    ? building.vehicles.map(vehicle => {
-                          const vehicleType =
-                              this.vehicleTypes[vehicle.vehicle_type];
-                          return {
-                              id: vehicle.id,
-                              icon: window.flavouredAsset(
-                                  window.vehicle_graphics[
-                                      vehicle.vehicle_type
-                                  ]?.[0] ?? ''
-                              ),
-                              customTypeName:
-                                  vehicle.vehicle_type_caption ?? undefined,
-                              typeName: vehicleType.caption,
-                              name: vehicle.caption,
-                              fms_show: vehicle.fms_show,
-                              fms_real: vehicle.fms_real,
-                              buildingId: vehicle.building_id,
-                              buildingName:
-                                  this.buildings[vehicle.building_id].caption,
-                              assignedStaff: vehicle.assigned_personnel_count,
-                              maxStaff:
-                                  vehicle.max_personnel_override ??
-                                  vehicleType.maxPersonnel,
-                          };
-                      })
-                    : []
+                building.hasVehicles ?
+                    building.vehicles.map(vehicle => {
+                        const vehicleType =
+                            this.vehicleTypes[vehicle.vehicle_type];
+                        return {
+                            id: vehicle.id,
+                            icon: window.flavouredAsset(
+                                window.vehicle_graphics[
+                                    vehicle.vehicle_type
+                                ]?.[0] ?? ''
+                            ),
+                            customTypeName:
+                                vehicle.vehicle_type_caption ?? undefined,
+                            typeName: vehicleType.caption,
+                            name: vehicle.caption,
+                            fms_show: vehicle.fms_show,
+                            fms_real: vehicle.fms_real,
+                            buildingId: vehicle.building_id,
+                            buildingName:
+                                this.buildings[vehicle.building_id].caption,
+                            assignedStaff: vehicle.assigned_personnel_count,
+                            maxStaff:
+                                vehicle.max_personnel_override ??
+                                vehicleType.maxPersonnel,
+                        };
+                    })
+                :   []
             );
         },
         filteredVehicles() {
-            return this.vehiclesTable.search
-                ? this.vehicles.filter(vehicle =>
-                      JSON.stringify(Object.values(vehicle))
-                          .toLowerCase()
-                          .includes(this.vehiclesTable.search.toLowerCase())
-                  )
-                : this.vehicles;
+            return this.vehiclesTable.search ?
+                    this.vehicles.filter(vehicle =>
+                        JSON.stringify(Object.values(vehicle))
+                            .toLowerCase()
+                            .includes(this.vehiclesTable.search.toLowerCase())
+                    )
+                :   this.vehicles;
         },
         sortedVehicles() {
             return [...this.filteredVehicles].sort((vehicleA, vehicleB) => {
@@ -2248,10 +2260,12 @@ export default Vue.extend<
                                     const available =
                                         boughtExtension?.available ?? false;
                                     const availableAt =
-                                        boughtExtension &&
-                                        !boughtExtension.available
-                                            ? boughtExtension.available_at
-                                            : '';
+                                        (
+                                            boughtExtension &&
+                                            !boughtExtension.available
+                                        ) ?
+                                            boughtExtension.available_at
+                                        :   '';
                                     const canBeAborted =
                                         availableAt === availableAtSorted[0];
 
@@ -2267,89 +2281,88 @@ export default Vue.extend<
                                         buildingName,
                                         name: extensionType.caption,
                                         type: index,
-                                        ...(boughtExtension
-                                            ? {
-                                                  bought: true,
-                                                  ...(available
-                                                      ? { available }
-                                                      : {
-                                                            available,
-                                                            availableAt,
-                                                            availableAtReadable:
-                                                                this.moment(
-                                                                    availableAt
-                                                                ).calendar(),
-                                                            canBeAborted,
-                                                            countdownId,
-                                                            initCountdown: () =>
-                                                                this.$utils.countdown(
-                                                                    countdownId,
-                                                                    Math.floor(
-                                                                        (new Date(
-                                                                            availableAt
-                                                                        ).getTime() -
-                                                                            Date.now()) /
-                                                                            1000
-                                                                    ),
-                                                                    true
+                                        ...(boughtExtension ?
+                                            {
+                                                bought: true,
+                                                ...(available ?
+                                                    { available }
+                                                :   {
+                                                        available,
+                                                        availableAt,
+                                                        availableAtReadable:
+                                                            this.moment(
+                                                                availableAt
+                                                            ).calendar(),
+                                                        canBeAborted,
+                                                        countdownId,
+                                                        initCountdown: () =>
+                                                            this.$utils.countdown(
+                                                                countdownId,
+                                                                Math.floor(
+                                                                    (new Date(
+                                                                        availableAt
+                                                                    ).getTime() -
+                                                                        Date.now()) /
+                                                                        1000
                                                                 ),
-                                                        }),
-                                                  enabled:
-                                                      boughtExtension.enabled,
-                                                  canToggle:
-                                                      !extensionType.cannotDisable,
-                                              }
-                                            : {
-                                                  ...(canBuy
-                                                      ? {
-                                                            canBuy: true,
-                                                        }
-                                                      : {
-                                                            canBuy: false,
-                                                            requirements: [
-                                                                ...(requiredExtensions?.map(
-                                                                    id =>
-                                                                        buildingType
-                                                                            .extensions[
-                                                                            id
-                                                                        ]
-                                                                            ?.caption ??
-                                                                        ''
-                                                                ) ?? []),
-                                                                ...(canBuyByAmount ||
+                                                                true
+                                                            ),
+                                                    }),
+                                                enabled:
+                                                    boughtExtension.enabled,
+                                                canToggle:
+                                                    !extensionType.cannotDisable,
+                                            }
+                                        :   {
+                                                ...(canBuy ?
+                                                    {
+                                                        canBuy: true,
+                                                    }
+                                                :   {
+                                                        canBuy: false,
+                                                        requirements: [
+                                                            ...(requiredExtensions?.map(
+                                                                id =>
+                                                                    buildingType
+                                                                        .extensions[
+                                                                        id
+                                                                    ]
+                                                                        ?.caption ??
+                                                                    ''
+                                                            ) ?? []),
+                                                            ...((
+                                                                canBuyByAmount ||
                                                                 typeof canBuyByAmount ===
                                                                     'undefined'
-                                                                    ? []
-                                                                    : [
-                                                                          this.$mc(
-                                                                              'overview.extensions.limit',
-                                                                              maxExtensionsFunctionResults[
-                                                                                  buildingTypeId
-                                                                              ][
-                                                                                  index
-                                                                              ]
-                                                                          ).toString(),
-                                                                      ]),
-                                                            ],
-                                                        }),
-                                                  duration:
-                                                      extensionType.duration,
-                                                  credits:
-                                                      extensionType.credits,
-                                                  coins: extensionType.coins,
-                                                  enoughCredits:
-                                                      (alliance
-                                                          ? this.apiStore
-                                                                .allianceinfo
-                                                                ?.credits_current ??
-                                                            0
-                                                          : this.rootStore
-                                                                .credits) >=
-                                                      extensionType.credits,
-                                                  enoughCoins:
-                                                      this.rootStore.coins >=
-                                                      extensionType.coins,
-                                              }),
+                                                            ) ?
+                                                                []
+                                                            :   [
+                                                                    this.$mc(
+                                                                        'overview.extensions.limit',
+                                                                        maxExtensionsFunctionResults[
+                                                                            buildingTypeId
+                                                                        ][index]
+                                                                    ).toString(),
+                                                                ]),
+                                                        ],
+                                                    }),
+                                                duration:
+                                                    extensionType.duration,
+                                                credits: extensionType.credits,
+                                                coins: extensionType.coins,
+                                                enoughCredits:
+                                                    (alliance ?
+                                                        this.apiStore
+                                                            .allianceinfo
+                                                            ?.credits_current ??
+                                                        0
+                                                    :   this.rootStore
+                                                            .credits) >=
+                                                    extensionType.credits,
+                                                enoughCoins:
+                                                    this.rootStore.coins >=
+                                                    extensionType.coins,
+                                            }),
                                     };
                                 }
                             )
@@ -2360,16 +2373,13 @@ export default Vue.extend<
         },
         filteredExtensions() {
             return (
-                this.extensionsTable.search
-                    ? this.extensions.filter(extension =>
-                          JSON.stringify(Object.values(extension))
-                              .toLowerCase()
-                              .includes(
-                                  this.extensionsTable.search.toLowerCase()
-                              )
-                      )
-                    : this.extensions
-            ).filter(extension => {
+                this.extensionsTable.search ?
+                    this.extensions.filter(extension =>
+                        JSON.stringify(Object.values(extension))
+                            .toLowerCase()
+                            .includes(this.extensionsTable.search.toLowerCase())
+                    )
+                :   this.extensions).filter(extension => {
                 if (
                     this.extensionsTable.filters.extensionNames !== 'all' &&
                     !this.extensionsTable.filters.extensionNames.includes(
@@ -2548,22 +2558,22 @@ export default Vue.extend<
             ).length;
         },
         extensionsFilterNamesValue() {
-            return this.extensionsTable.filters.extensionNames === 'all'
-                ? ['*']
-                : [...this.extensionsTable.filters.extensionNames];
+            return this.extensionsTable.filters.extensionNames === 'all' ?
+                    ['*']
+                :   [...this.extensionsTable.filters.extensionNames];
         },
         extensionsFilterNamesOptions() {
             return [
-                ...(this.extensionsTable.filters.extensionNames === 'all'
-                    ? []
-                    : [
-                          {
-                              label: this.$m(
-                                  'overview.extensions.filter.all'
-                              ).toString(),
-                              value: '*',
-                          },
-                      ]),
+                ...(this.extensionsTable.filters.extensionNames === 'all' ?
+                    []
+                :   [
+                        {
+                            label: this.$m(
+                                'overview.extensions.filter.all'
+                            ).toString(),
+                            value: '*',
+                        },
+                    ]),
                 ...[...new Set(this.extensions.map(({ name }) => name))]
                     .sort((extensionA, extensionB) =>
                         extensionA.localeCompare(extensionB)
@@ -2572,22 +2582,22 @@ export default Vue.extend<
             ];
         },
         extensionsFilterBuildingsValue() {
-            return this.extensionsTable.filters.buildings === 'all'
-                ? ['*']
-                : [...this.extensionsTable.filters.buildings];
+            return this.extensionsTable.filters.buildings === 'all' ?
+                    ['*']
+                :   [...this.extensionsTable.filters.buildings];
         },
         extensionsFilterBuildingsOptions() {
             return [
-                ...(this.extensionsTable.filters.buildings === 'all'
-                    ? []
-                    : ([
-                          {
-                              label: this.$m(
-                                  'overview.extensions.filter.all'
-                              ).toString(),
-                              value: '*',
-                          },
-                      ] as [{ label: string; value: '*' }])),
+                ...(this.extensionsTable.filters.buildings === 'all' ?
+                    []
+                :   ([
+                        {
+                            label: this.$m(
+                                'overview.extensions.filter.all'
+                            ).toString(),
+                            value: '*',
+                        },
+                    ] as [{ label: string; value: '*' }])),
                 ...[
                     ...new Set(
                         this.extensions.map(({ buildingId }) => buildingId)
@@ -2606,22 +2616,22 @@ export default Vue.extend<
             ];
         },
         extensionsFilterStatesValue() {
-            return this.extensionsTable.filters.states === 'all'
-                ? ['*']
-                : [...this.extensionsTable.filters.states];
+            return this.extensionsTable.filters.states === 'all' ?
+                    ['*']
+                :   [...this.extensionsTable.filters.states];
         },
         extensionsFilterStatesOptions() {
             return [
-                ...(this.extensionsTable.filters.states === 'all'
-                    ? []
-                    : ([
-                          {
-                              label: this.$m(
-                                  'overview.extensions.filter.all'
-                              ).toString(),
-                              value: '*',
-                          },
-                      ] as [{ label: string; value: '*' }])),
+                ...(this.extensionsTable.filters.states === 'all' ?
+                    []
+                :   ([
+                        {
+                            label: this.$m(
+                                'overview.extensions.filter.all'
+                            ).toString(),
+                            value: '*',
+                        },
+                    ] as [{ label: string; value: '*' }])),
                 ...(
                     [
                         'canBuy',
@@ -2715,13 +2725,13 @@ export default Vue.extend<
             return stats;
         },
         filteredProtocol() {
-            return this.protocolTable.search
-                ? this.protocol.filter(entry =>
-                      JSON.stringify(Object.values(entry))
-                          .toLowerCase()
-                          .includes(this.protocolTable.search.toLowerCase())
-                  )
-                : this.protocol;
+            return this.protocolTable.search ?
+                    this.protocol.filter(entry =>
+                        JSON.stringify(Object.values(entry))
+                            .toLowerCase()
+                            .includes(this.protocolTable.search.toLowerCase())
+                    )
+                :   this.protocol;
         },
         sortedProtocol() {
             return [...this.filteredProtocol].sort((entryA, entryB) => {
@@ -2873,37 +2883,45 @@ export default Vue.extend<
         setSortBuildingsTable(sort) {
             const s = sort;
             this.buildingsTable.sortDir =
-                s === this.buildingsTable.sort &&
-                this.buildingsTable.sortDir === 'asc'
-                    ? 'desc'
-                    : 'asc';
+                (
+                    s === this.buildingsTable.sort &&
+                    this.buildingsTable.sortDir === 'asc'
+                ) ?
+                    'desc'
+                :   'asc';
             this.buildingsTable.sort = s;
         },
         setSortVehiclesTable(sort) {
             const s = sort;
             this.vehiclesTable.sortDir =
-                s === this.vehiclesTable.sort &&
-                this.vehiclesTable.sortDir === 'asc'
-                    ? 'desc'
-                    : 'asc';
+                (
+                    s === this.vehiclesTable.sort &&
+                    this.vehiclesTable.sortDir === 'asc'
+                ) ?
+                    'desc'
+                :   'asc';
             this.vehiclesTable.sort = s;
         },
         setSortExtensionsTable(sort) {
             const s = sort;
             this.extensionsTable.sortDir =
-                s === this.extensionsTable.sort &&
-                this.extensionsTable.sortDir === 'asc'
-                    ? 'desc'
-                    : 'asc';
+                (
+                    s === this.extensionsTable.sort &&
+                    this.extensionsTable.sortDir === 'asc'
+                ) ?
+                    'desc'
+                :   'asc';
             this.extensionsTable.sort = s;
         },
         setSortProtocolTable(sort) {
             const s = sort;
             this.protocolTable.sortDir =
-                s === this.protocolTable.sort &&
-                this.protocolTable.sortDir === 'asc'
-                    ? 'desc'
-                    : 'asc';
+                (
+                    s === this.protocolTable.sort &&
+                    this.protocolTable.sortDir === 'asc'
+                ) ?
+                    'desc'
+                :   'asc';
             this.protocolTable.sort = s;
         },
         initExtensionCountdowns() {
@@ -2947,9 +2965,9 @@ export default Vue.extend<
                     }
                 )
                 .then(() =>
-                    allianceBuilding
-                        ? this.apiStore.getAllianceBuilding(buildingId, feature)
-                        : this.apiStore.getBuilding(buildingId, feature)
+                    allianceBuilding ?
+                        this.apiStore.getAllianceBuilding(buildingId, feature)
+                    :   this.apiStore.getBuilding(buildingId, feature)
                 )
                 .then(() => {
                     this.tempDisableAllExtensionButtons = false;
@@ -3118,20 +3136,22 @@ export default Vue.extend<
                                             row.dataset.logTime ?? -1
                                         ).format('ddd, DD.MM LT'),
                                     },
-                                    label: label
-                                        ? {
-                                              color:
-                                                  label.classList
-                                                      .toString()
-                                                      .match(
-                                                          /danger|default|info|link|success|warning/u
-                                                      )?.[0]
-                                                      .toString() ?? 'default',
-                                              text:
-                                                  label.textContent?.trim() ??
-                                                  '',
-                                          }
-                                        : undefined,
+                                    label:
+                                        label ?
+                                            {
+                                                color:
+                                                    label.classList
+                                                        .toString()
+                                                        .match(
+                                                            /danger|default|info|link|success|warning/u
+                                                        )?.[0]
+                                                        .toString() ??
+                                                    'default',
+                                                text:
+                                                    label.textContent?.trim() ??
+                                                    '',
+                                            }
+                                        :   undefined,
                                     text:
                                         row.children[2].textContent?.trim() ??
                                         '',

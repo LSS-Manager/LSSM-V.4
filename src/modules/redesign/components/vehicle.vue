@@ -31,15 +31,15 @@
                                 >
                                     <img
                                         :src="`/images/user_${
-                                            vehicle.user.online
-                                                ? 'green'
-                                                : 'gray'
+                                            vehicle.user.online ?
+                                                'green'
+                                            :   'gray'
                                         }.png`"
                                         :alt="
                                             lightbox.$sm(
-                                                vehicle.user.online
-                                                    ? 'online'
-                                                    : 'offline',
+                                                vehicle.user.online ?
+                                                    'online'
+                                                :   'offline',
                                                 { user: vehicle.user.name }
                                             )
                                         "
@@ -68,9 +68,9 @@
                                 :href="`/fahrzeugfarbe/${
                                     vehicle.vehicleType.id
                                 }?close-after-submit${
-                                    vehicle.vehicleType.custom
-                                        ? `&vehicle_type_caption=${vehicle.vehicleType.caption}`
-                                        : ''
+                                    vehicle.vehicleType.custom ?
+                                        `&vehicle_type_caption=${vehicle.vehicleType.caption}`
+                                    :   ''
                                 }`"
                                 class="btn btn-default btn-xs pull-right"
                                 :title="lightbox.$sm('color')"
@@ -551,11 +551,13 @@
                                 "
                                 class="label"
                                 :class="`label-${
-                                    item.department ??
-                                    item.building?.same ??
-                                    item.home
-                                        ? 'success'
-                                        : 'warning'
+                                    (
+                                        item.department ??
+                                        item.building?.same ??
+                                        item.home
+                                    ) ?
+                                        'success'
+                                    :   'warning'
                                 }`"
                             >
                                 {{
@@ -584,11 +586,13 @@
                                 <button
                                     @click.prevent="dispatch(item.id)"
                                     :class="`btn btn-${
-                                        ['patient', 'prisoner'].includes(
-                                            tableType
-                                        )
-                                            ? item.state
-                                            : 'success'
+                                        (
+                                            ['patient', 'prisoner'].includes(
+                                                tableType
+                                            )
+                                        ) ?
+                                            item.state
+                                        :   'success'
                                     }`"
                                     :disabled="
                                         ['patient', 'prisoner'].includes(
@@ -624,9 +628,9 @@
                 <a
                     :class="navigationBtnClass.prev"
                     :href="
-                        vehicle.id === vehicle.previousVehicle
-                            ? '#'
-                            : `/vehicles/${vehicle.previousVehicle}`
+                        vehicle.id === vehicle.previousVehicle ?
+                            '#'
+                        :   `/vehicles/${vehicle.previousVehicle}`
                     "
                 >
                     <span class="glyphicon glyphicon-arrow-left"></span>
@@ -634,9 +638,9 @@
                 <a
                     :class="navigationBtnClass.next"
                     :href="
-                        vehicle.id === vehicle.nextVehicle
-                            ? '#'
-                            : `/vehicles/${vehicle.nextVehicle}`
+                        vehicle.id === vehicle.nextVehicle ?
+                            '#'
+                        :   `/vehicles/${vehicle.nextVehicle}`
                     "
                 >
                     <span class="glyphicon glyphicon-arrow-right"></span>
@@ -1003,22 +1007,23 @@ export default Vue.extend<
             ];
         },
         filteredItems() {
-            const filteredBySearch = this.search.trim()
-                ? this.items.filter(item =>
-                      JSON.stringify(Object.values(item))
-                          .toLowerCase()
-                          .match(this.search.trim().toLowerCase())
-                  )
-                : this.items;
+            const filteredBySearch =
+                this.search.trim() ?
+                    this.items.filter(item =>
+                        JSON.stringify(Object.values(item))
+                            .toLowerCase()
+                            .match(this.search.trim().toLowerCase())
+                    )
+                :   this.items;
             return filteredBySearch.filter(item =>
                 Object.entries(this.table.filter).every(([filter, value]) => {
                     if (filter === 'distance' && !value) return true;
 
                     const itemValue = {
                         [filter]:
-                            filter in item
-                                ? item[filter as keyof typeof item]
-                                : item,
+                            filter in item ?
+                                item[filter as keyof typeof item]
+                            :   item,
                         participation: this.participatedMissions.includes(
                             item.id.toString()
                         ),
@@ -1028,10 +1033,10 @@ export default Vue.extend<
                                 .replace(/,/gu, '.')
                         ),
                         credits:
-                            'type' in item
-                                ? this.missionTypes[item.type]
-                                      ?.average_credits ?? 0
-                                : Number.MAX_SAFE_INTEGER,
+                            'type' in item ?
+                                this.missionTypes[item.type]?.average_credits ??
+                                0
+                            :   Number.MAX_SAFE_INTEGER,
                         progress: 'progress' in item ? item.progress.width : 0,
                         same: 'building' in item ? item.building.same : false,
                     }[filter];
@@ -1069,26 +1074,25 @@ export default Vue.extend<
                     );
                 } else if (sort === 'credits') {
                     sortValue =
-                        'type' in item
-                            ? this.missionTypes[item.type]?.average_credits ?? 0
-                            : Number.MAX_SAFE_INTEGER;
+                        'type' in item ?
+                            this.missionTypes[item.type]?.average_credits ?? 0
+                        :   Number.MAX_SAFE_INTEGER;
                 } else if (sort === 'progress') {
                     sortValue =
-                        'progress' in item
-                            ? // hacky way to respect progress and status
-                              item.progress.width +
-                              ['', 'green', 'yellow', 'red'].indexOf(
-                                  item.status
-                              ) /
-                                  10_000
-                            : 0;
+                        'progress' in item ?
+                            // hacky way to respect progress and status
+                            item.progress.width +
+                            ['', 'green', 'yellow', 'red'].indexOf(
+                                item.status
+                            ) /
+                                10_000
+                        :   0;
                 } else if (sort === 'patients') {
                     sortValue =
-                        'patients' in item
-                            ? // hacky way to respect current and total
-                              item.patients.current +
-                              item.patients.total / 10_000
-                            : 0;
+                        'patients' in item ?
+                            // hacky way to respect current and total
+                            item.patients.current + item.patients.total / 10_000
+                        :   0;
                 } else if (sort === 'building') {
                     sortValue = 'building' in item ? item.building.id : 0;
                 } else if (sort === 'same') {
@@ -1560,10 +1564,12 @@ export default Vue.extend<
                         this.$set(
                             this.lightbox,
                             'src',
-                            new URL(res.url, window.location.origin)
-                                .pathname === url.pathname
-                                ? `/vehicles/${this.vehicle.id}`
-                                : res.url
+                            (
+                                new URL(res.url, window.location.origin)
+                                    .pathname === url.pathname
+                            ) ?
+                                `/vehicles/${this.vehicle.id}`
+                            :   res.url
                         );
                         this.$modal.hide('dialog');
                     });

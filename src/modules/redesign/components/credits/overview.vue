@@ -13,11 +13,9 @@
                     :key="id"
                     :color="
                         (color = `text-${
-                            entry.total > 0
-                                ? 'success'
-                                : entry.total < 0
-                                  ? 'danger'
-                                  : ''
+                            entry.total > 0 ? 'success'
+                            : entry.total < 0 ? 'danger'
+                            : ''
                         }`)
                     "
                 >

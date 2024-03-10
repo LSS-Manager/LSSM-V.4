@@ -60,9 +60,9 @@ const libraryNames = Object.keys(
 const librariesFiltered = computed(() =>
     libraryNames
         .filter(m =>
-            librarySearch.value.length > 0
-                ? m.toLowerCase().match(librarySearch.value.toLowerCase())
-                : true
+            librarySearch.value.length > 0 ?
+                m.toLowerCase().match(librarySearch.value.toLowerCase())
+            :   true
         )
         .map(libraryName => ({
             url: '',

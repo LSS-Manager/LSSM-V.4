@@ -46,11 +46,10 @@ export type ModuleMainFunction = (parameters: {
         defaultValue: T | undefined,
         addUnit: Unit extends '' ? false | undefined : true
     ): Promise<
-        Unit extends ''
-            ? T
-            : `${T extends bigint | boolean | number | string | null | undefined
-                  ? T
-                  : string}${Unit}`
+        Unit extends '' ? T
+        :   `${T extends bigint | boolean | number | string | null | undefined ?
+                T
+            :   string}${Unit}`
     >;
     setSetting<T = boolean>(settingId: string, value: T): Promise<T>;
 }) => Promise<void> | void;

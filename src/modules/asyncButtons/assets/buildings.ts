@@ -6,9 +6,10 @@ export default (
     $m: $m,
     MODULE_ID: string
 ): void => {
-    const BUILDING_MODE = document.querySelector<HTMLDivElement>('#ausbauten')
-        ? 'building'
-        : 'dispatch';
+    const BUILDING_MODE =
+        document.querySelector<HTMLDivElement>('#ausbauten') ?
+            'building'
+        :   'dispatch';
 
     if (BUILDING_MODE === 'dispatch') return;
 
@@ -92,25 +93,27 @@ export default (
                             extensionStateBtns.forEach(tbtn =>
                                 tbtn.classList.remove('disabled')
                             );
-                            btn.textContent = newState(btn as HTMLElement)
-                                ? ($m('buildings.active') as string)
-                                : ($m('buildings.nonactive') as string);
+                            btn.textContent =
+                                newState(btn as HTMLElement) ?
+                                    ($m('buildings.active') as string)
+                                :   ($m('buildings.nonactive') as string);
                             const label =
                                 btn.parentElement?.querySelector('span');
                             if (!label) return;
-                            label.textContent = newState(btn as HTMLElement)
-                                ? ($m('buildings.active') as string)
-                                : ($m('buildings.nonactive') as string);
+                            label.textContent =
+                                newState(btn as HTMLElement) ?
+                                    ($m('buildings.active') as string)
+                                :   ($m('buildings.nonactive') as string);
                             // eslint-disable-next-line no-unused-expressions
-                            label.classList.contains('label-danger')
-                                ? label.classList.replace(
-                                      'label-danger',
-                                      'label-success'
-                                  )
-                                : label.classList.replace(
-                                      'label-success',
-                                      'label-danger'
-                                  );
+                            label.classList.contains('label-danger') ?
+                                label.classList.replace(
+                                    'label-danger',
+                                    'label-success'
+                                )
+                            :   label.classList.replace(
+                                    'label-success',
+                                    'label-danger'
+                                );
                         }
                     });
             });

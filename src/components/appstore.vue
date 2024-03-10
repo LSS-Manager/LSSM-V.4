@@ -144,15 +144,15 @@ export default Vue.extend<
         },
         modulesFiltered() {
             return this.modulesSorted.filter(m =>
-                this.moduleSearch.length > 0
-                    ? JSON.stringify([
-                          m,
-                          this.$t(`modules.${m}.name`),
-                          this.$t(`modules.${m}.description`),
-                      ])
-                          .toLowerCase()
-                          .match(this.moduleSearch.toLowerCase())
-                    : true
+                this.moduleSearch.length > 0 ?
+                    JSON.stringify([
+                        m,
+                        this.$t(`modules.${m}.name`),
+                        this.$t(`modules.${m}.description`),
+                    ])
+                        .toLowerCase()
+                        .match(this.moduleSearch.toLowerCase())
+                :   true
             );
         },
     },

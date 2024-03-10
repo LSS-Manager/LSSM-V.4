@@ -15,9 +15,8 @@ export default (LSSM: Vue) =>
                 },
                 iconBg: <Color>{
                     type: 'color',
-                    default: LSSM.$stores.root.isPoliceChief
-                        ? '#004997'
-                        : '#C9302C',
+                    default:
+                        LSSM.$stores.root.isPoliceChief ? '#004997' : '#C9302C',
                 },
                 iconBgAsNavBg: <Toggle>{
                     type: 'toggle',

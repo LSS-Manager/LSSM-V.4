@@ -20,7 +20,9 @@
                 :min="min"
                 :max="max"
                 :step="
-                    rangeMode ? step : typeof step === 'number' ? step : 0.001
+                    rangeMode ? step
+                    : typeof step === 'number' ? step
+                    : 0.001
                 "
                 :disabled="disabled"
                 :type="rangeMode ? 'range' : 'number'"
@@ -112,9 +114,9 @@ export default Vue.extend<
     },
     methods: {
         normalize(num) {
-            return this.float
-                ? parseFloat(num.toString())
-                : parseInt(num.toString());
+            return this.float ?
+                    parseFloat(num.toString())
+                :   parseInt(num.toString());
         },
     },
     computed: {

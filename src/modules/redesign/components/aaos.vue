@@ -234,9 +234,9 @@ export default Vue.extend<
                             LSSM.lightbox.apiStore
                                 .request(
                                     `/${
-                                        type === 'arr'
-                                            ? 'aaos'
-                                            : 'vehicle_groups'
+                                        type === 'arr' ? 'aaos' : (
+                                            'vehicle_groups'
+                                        )
                                     }/${id}`,
                                     'redesign-aaos-delete',
                                     {
@@ -247,9 +247,9 @@ export default Vue.extend<
                                             'Upgrade-Insecure-Requests': '1',
                                         },
                                         referrer: new URL(
-                                            type === 'arr'
-                                                ? '/aaos'
-                                                : `/vehicle_groups/${id}/edit`,
+                                            type === 'arr' ? '/aaos' : (
+                                                `/vehicle_groups/${id}/edit`
+                                            ),
                                             window.location.origin
                                         ).toString(),
                                         body: url.searchParams.toString(),

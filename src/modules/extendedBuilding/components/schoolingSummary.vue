@@ -131,14 +131,13 @@ export default Vue.extend<
                 })
             );
             return (
-                this.allSchoolingsSearch
-                    ? schoolings.filter(schooling =>
-                          JSON.stringify(Object.values(schooling))
-                              .toLowerCase()
-                              .match(this.allSchoolingsSearch.toLowerCase())
-                      )
-                    : schoolings
-            ).sort((a, b) => {
+                this.allSchoolingsSearch ?
+                    schoolings.filter(schooling =>
+                        JSON.stringify(Object.values(schooling))
+                            .toLowerCase()
+                            .match(this.allSchoolingsSearch.toLowerCase())
+                    )
+                :   schoolings).sort((a, b) => {
                 let modifier = 1;
                 if (this.sortAllDir === 'desc') modifier = -1;
                 if (a[this.sortAll] < b[this.sortAll]) return -1 * modifier;
@@ -157,14 +156,13 @@ export default Vue.extend<
                 })
             );
             return (
-                this.eachSchoolingsSearch
-                    ? schoolings.filter(schooling =>
-                          JSON.stringify(Object.values(schooling))
-                              .toLowerCase()
-                              .match(this.eachSchoolingsSearch.toLowerCase())
-                      )
-                    : schoolings
-            ).sort((a, b) => {
+                this.eachSchoolingsSearch ?
+                    schoolings.filter(schooling =>
+                        JSON.stringify(Object.values(schooling))
+                            .toLowerCase()
+                            .match(this.eachSchoolingsSearch.toLowerCase())
+                    )
+                :   schoolings).sort((a, b) => {
                 let modifier = 1;
                 if (this.sortEachDir === 'desc') modifier = -1;
                 if (a[this.sortEach] < b[this.sortEach]) return -1 * modifier;
@@ -182,16 +180,16 @@ export default Vue.extend<
         },
         setSortAll(s: SchoolingSummary['sortAll']) {
             this.sortAllDir =
-                s === this.sortAll && this.sortAllDir === 'asc'
-                    ? 'desc'
-                    : 'asc';
+                s === this.sortAll && this.sortAllDir === 'asc' ?
+                    'desc'
+                :   'asc';
             this.sortAll = s;
         },
         setSortEach(s: SchoolingSummary['sortEach']) {
             this.sortEachDir =
-                s === this.sortEach && this.sortEachDir === 'asc'
-                    ? 'desc'
-                    : 'asc';
+                s === this.sortEach && this.sortEachDir === 'asc' ?
+                    'desc'
+                :   'asc';
             this.sortEach = s;
         },
     },

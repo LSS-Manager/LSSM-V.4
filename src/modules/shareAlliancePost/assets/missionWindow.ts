@@ -111,9 +111,9 @@ export default async ({
         event: 'missionCountdown',
         callback(beginInSeconds: number) {
             beginAtDate =
-                beginInSeconds <= 0
-                    ? '–'
-                    : dateToTime(addHoursToNow(beginInSeconds / 60 / 60));
+                beginInSeconds <= 0 ? '–' : (
+                    dateToTime(addHoursToNow(beginInSeconds / 60 / 60))
+                );
         },
     });
 
@@ -252,9 +252,9 @@ export default async ({
                     .map(({ requirement, missing, driving, selected }) => ({
                         requirement,
                         remaining:
-                            (typeof selected === 'number'
-                                ? missing - driving - selected
-                                : missing - driving - selected.max) ?? 0,
+                            (typeof selected === 'number' ?
+                                missing - driving - selected
+                            :   missing - driving - selected.max) ?? 0,
                     }))
                     .filter(({ remaining }) => remaining > 0)
                     .map(
@@ -541,13 +541,14 @@ export default async ({
                         .then(() =>
                             document
                                 .querySelector<HTMLAnchorElement>(
-                                    liElement.closest(
-                                        `#${alarmSharePostGroup.id}`
-                                    )
-                                        ? '#mission_alarm_btn'
-                                        : missionsSorted
-                                          ? `.${sortedMissionClass}`
-                                          : '#alert_next_btn'
+                                    (
+                                        liElement.closest(
+                                            `#${alarmSharePostGroup.id}`
+                                        )
+                                    ) ?
+                                        '#mission_alarm_btn'
+                                    : missionsSorted ? `.${sortedMissionClass}`
+                                    : '#alert_next_btn'
                                 )
                                 ?.click()
                         );

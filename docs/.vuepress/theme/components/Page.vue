@@ -157,9 +157,9 @@ const additionalBlockquote = computed(
             moduleRegistration.value?.dev)
 );
 const moduleI18n = computed(() =>
-    isModule.value
-        ? variables.modules[moduleId.value].translations[lang.value]
-        : null
+    isModule.value ?
+        variables.modules[moduleId.value].translations[lang.value]
+    :   null
 );
 
 const emptyMessageContent = computed(() =>

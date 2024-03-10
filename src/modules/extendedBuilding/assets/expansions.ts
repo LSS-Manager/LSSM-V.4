@@ -69,9 +69,9 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
         if (endTime) {
             label.classList.add(
                 `label-${
-                    expansion.querySelector('a[href*="extension_finish"]')
-                        ? 'warning'
-                        : 'info'
+                    expansion.querySelector('a[href*="extension_finish"]') ?
+                        'warning'
+                    :   'info'
                 }`
             );
         } else if (
@@ -79,9 +79,9 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
             successLabel
         ) {
             label.classList.add(
-                expansion.querySelector('.label-danger')
-                    ? 'label-danger'
-                    : 'label-success'
+                expansion.querySelector('.label-danger') ? 'label-danger' : (
+                    'label-success'
+                )
             );
             label.textContent =
                 successLabel?.textContent ??

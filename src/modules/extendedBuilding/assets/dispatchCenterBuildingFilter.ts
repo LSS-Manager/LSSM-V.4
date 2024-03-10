@@ -55,10 +55,10 @@ export default (LSSM: Vue, MODULE_ID: string) => {
             .map(type => ({
                 type,
                 caption:
-                    typeof type === 'string'
-                        ? `[${type}]`
-                        : LSSM.$stores.translations.vehicles[type]?.caption ??
-                          type,
+                    typeof type === 'string' ?
+                        `[${type}]`
+                    :   LSSM.$stores.translations.vehicles[type]?.caption ??
+                        type,
             }))
             .sort((a, b) => a.caption.localeCompare(b.caption));
 

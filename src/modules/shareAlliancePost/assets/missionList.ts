@@ -98,21 +98,25 @@ export default (
     const replacements: Record<string, string> = {
         credits: missionSpecs.average_credits?.toLocaleString() ?? '–',
         patients: (
-            (mission.element.querySelector(
-                '[id^="mission_patients_"] [id^="patient_"]'
-            )
-                ? mission.element.querySelectorAll('.patient_progress').length
-                : mission.element
-                        .querySelector<HTMLDivElement>(
-                            '[id^="mission_patient_summary_"]'
-                        )
-                        ?.style.getPropertyValue('display') !== 'none'
-                  ? LSSM.$utils.getNumberFromText(
-                        mission.element.querySelector(
-                            '.mission_list_patient_icon + strong'
-                        )?.textContent ?? '0'
+            ((
+                mission.element.querySelector(
+                    '[id^="mission_patients_"] [id^="patient_"]'
+                )
+            ) ?
+                mission.element.querySelectorAll('.patient_progress').length
+            : (
+                mission.element
+                    .querySelector<HTMLDivElement>(
+                        '[id^="mission_patient_summary_"]'
                     )
-                  : 0) || '–'
+                    ?.style.getPropertyValue('display') !== 'none'
+            ) ?
+                LSSM.$utils.getNumberFromText(
+                    mission.element.querySelector(
+                        '.mission_list_patient_icon + strong'
+                    )?.textContent ?? '0'
+                )
+            :   0) || '–'
         ).toLocaleString(),
         remaining,
         remainingSpecial: remaining,
@@ -189,9 +193,9 @@ export default (
             editBtnClass,
             (liElement, sendMessage) => {
                 btn.disabled = true;
-                (isStayMode
-                    ? new Promise<void>(resolve => resolve())
-                    : shareMission(LSSM, mission.id, true)
+                (isStayMode ?
+                    new Promise<void>(resolve => resolve())
+                :   shareMission(LSSM, mission.id, true)
                 )
                     .then(
                         () =>

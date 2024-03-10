@@ -164,9 +164,9 @@ ${stepIds.map(id => `        --${id}) ${getStepName(id)}=true ;;`).join('\n')}
 ${Object.entries(shortcuts)
     .map(
         ([shortcut, steps]) => `        --${shortcut})
-          ${(shortcut === 'full'
-              ? stepIds.filter(step => !excludeFromFullBuild.includes(step))
-              : steps
+          ${(shortcut === 'full' ?
+              stepIds.filter(step => !excludeFromFullBuild.includes(step))
+          :   steps
           )
               .map(step => `${getStepName(step)}=true`)
               .join('\n          ')} ;;`
@@ -218,11 +218,11 @@ fi`,
     print_start_message "${step.name}"
     enable_debugging
     ${
-        (step.id === 'env'
-            ? step.run?.match(
-                  /(?<=# ===BEGIN \$BRANCH===).*?(?=# ===END \$BRANCH===)/su
-              )?.[0]
-            : step.run
+        (step.id === 'env' ?
+            step.run?.match(
+                /(?<=# ===BEGIN \$BRANCH===).*?(?=# ===END \$BRANCH===)/su
+            )?.[0]
+        :   step.run
         )
             ?.trim()
             .replace(/\n/gu, '\n    ')

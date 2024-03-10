@@ -56,9 +56,9 @@ const notificationStore = useNotificationStore();
 
 const id = rootStore.nodeAttribute('app', true);
 const clickHandler = (props, $event) =>
-    (($event.target as HTMLElement).closest('button.close')
-        ? undefined
-        : props.item.data.clickHandler?.(props, $event)) ?? props.close();
+    (($event.target as HTMLElement).closest('button.close') ?
+        undefined
+    :   props.item.data.clickHandler?.(props, $event)) ?? props.close();
 
 onMounted(() => {
     useSettingsStore()

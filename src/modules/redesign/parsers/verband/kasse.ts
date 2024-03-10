@@ -63,73 +63,71 @@ export default <RedesignParser<VerbandskasseWindow>>(({
         ...verbandParser({ doc, getIdFromEl }),
         enabled,
         canToggle: !!doc.querySelector('a[href="/verband/kasse/umschalten"]'),
-        ...(enabled
-            ? <EnabledVerbandskasse>{
-                  value: LSSM.$utils.getNumberFromText(
-                      doc.querySelector<HTMLHeadingElement>(
-                          '#alliance-finances-summary h1'
-                      )?.textContent ?? '0'
-                  ),
-                  rate: getIdFromEl(
-                      doc.querySelector<HTMLAnchorElement>(
-                          '#alliance-finances-summary .btn-discount.btn-success'
-                      )
-                  ),
-                  earnings: {
-                      type:
-                          searchParams.get('type') === 'monthly'
-                              ? 'monthly'
-                              : 'daily',
-                      scroll: parseInt(searchParams.get('scroll') ?? '0'),
-                      earnings: Array.from(
-                          doc.querySelectorAll<HTMLTableRowElement>(
-                              '#alliance-finances-earnings table tbody tr'
-                          )
-                      ).map(row => {
-                          const user =
-                              row.querySelector<HTMLAnchorElement>('a');
-                          return {
-                              user: {
-                                  id: getIdFromEl(user),
-                                  name: user?.textContent ?? '',
-                              },
-                              value: LSSM.$utils.getNumberFromText(
-                                  row.querySelector('td:nth-child(2)')
-                                      ?.textContent ?? '0'
-                              ),
-                          };
-                      }),
-                  },
-                  spendings: {
-                      page: parseInt(searchParams.get('page') ?? '1'),
-                      lastPage: parseInt(
-                          doc
-                              .querySelector<HTMLAnchorElement>(
-                                  '#alliance-finances-spendings .pagination.pagination li:nth-last-of-type(2)'
-                              )
-                              ?.textContent?.trim() ?? '1'
-                      ),
-                      spendings: Array.from(
-                          doc.querySelectorAll<HTMLTableRowElement>(
-                              '#alliance-finances-spendings table tbody tr'
-                          )
-                      ).map(row => {
-                          const user =
-                              row.querySelector<HTMLAnchorElement>('a');
-                          return {
-                              credits: LSSM.$utils.getNumberFromText(
-                                  row.children[0].textContent ?? '0'
-                              ),
-                              user: {
-                                  id: getIdFromEl(user),
-                                  name: user?.textContent ?? '',
-                              },
-                              description: row.children[2].textContent ?? '',
-                              date: row.children[3].textContent ?? '',
-                          };
-                      }),
-                  },
-              }
-            : {}),
+        ...(enabled ?
+            <EnabledVerbandskasse>{
+                value: LSSM.$utils.getNumberFromText(
+                    doc.querySelector<HTMLHeadingElement>(
+                        '#alliance-finances-summary h1'
+                    )?.textContent ?? '0'
+                ),
+                rate: getIdFromEl(
+                    doc.querySelector<HTMLAnchorElement>(
+                        '#alliance-finances-summary .btn-discount.btn-success'
+                    )
+                ),
+                earnings: {
+                    type:
+                        searchParams.get('type') === 'monthly' ?
+                            'monthly'
+                        :   'daily',
+                    scroll: parseInt(searchParams.get('scroll') ?? '0'),
+                    earnings: Array.from(
+                        doc.querySelectorAll<HTMLTableRowElement>(
+                            '#alliance-finances-earnings table tbody tr'
+                        )
+                    ).map(row => {
+                        const user = row.querySelector<HTMLAnchorElement>('a');
+                        return {
+                            user: {
+                                id: getIdFromEl(user),
+                                name: user?.textContent ?? '',
+                            },
+                            value: LSSM.$utils.getNumberFromText(
+                                row.querySelector('td:nth-child(2)')
+                                    ?.textContent ?? '0'
+                            ),
+                        };
+                    }),
+                },
+                spendings: {
+                    page: parseInt(searchParams.get('page') ?? '1'),
+                    lastPage: parseInt(
+                        doc
+                            .querySelector<HTMLAnchorElement>(
+                                '#alliance-finances-spendings .pagination.pagination li:nth-last-of-type(2)'
+                            )
+                            ?.textContent?.trim() ?? '1'
+                    ),
+                    spendings: Array.from(
+                        doc.querySelectorAll<HTMLTableRowElement>(
+                            '#alliance-finances-spendings table tbody tr'
+                        )
+                    ).map(row => {
+                        const user = row.querySelector<HTMLAnchorElement>('a');
+                        return {
+                            credits: LSSM.$utils.getNumberFromText(
+                                row.children[0].textContent ?? '0'
+                            ),
+                            user: {
+                                id: getIdFromEl(user),
+                                name: user?.textContent ?? '',
+                            },
+                            description: row.children[2].textContent ?? '',
+                            date: row.children[3].textContent ?? '',
+                        };
+                    }),
+                },
+            }
+        :   {}),
     };
 });

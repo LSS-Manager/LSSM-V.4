@@ -189,13 +189,13 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
                     )
                 )
                 .then(() =>
-                    redesign
-                        ? redesign.lightbox.$set(
-                              redesign.lightbox,
-                              'src',
-                              `/vehicles/${vehicleID}`
-                          )
-                        : window.location.reload()
+                    redesign ?
+                        redesign.lightbox.$set(
+                            redesign.lightbox,
+                            'src',
+                            `/vehicles/${vehicleID}`
+                        )
+                    :   window.location.reload()
                 )
                 .catch(() => void 0); // if current fms is not 2 or 6, we don't want to do anything
         },

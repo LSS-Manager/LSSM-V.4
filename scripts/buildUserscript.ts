@@ -41,9 +41,9 @@ ${Object.values(config.games)
     .map(
         ({ shortURL, police }) =>
             `// @match        https://www.${shortURL}/*${
-                police
-                    ? `\n// @match        https://${police}.${shortURL}/*`
-                    : ''
+                police ?
+                    `\n// @match        https://${police}.${shortURL}/*`
+                :   ''
             }`
     )
     .join('\n')}
@@ -51,12 +51,12 @@ ${Object.values(config.games)
 // @grant        GM_info
 // @grant        unsafeWindow
 ${
-    local
-        ? `
+    local ?
+        `
 // @grant        GM_getResourceURL
 // @resource     ${localCoreName} ${config.urls.server}core.js
 `.trimStart()
-        : ''
+    :   ''
 }// ==/UserScript==
 /* global I18n, user_id */
 ${

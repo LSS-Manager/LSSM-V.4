@@ -42,12 +42,10 @@ class FetchApiWorker extends TypedWorker<
                 smallBuildingsMap: SmallBuildingsMap
             ): Promise<APIs[Api]> => {
                 // this is not the 5 Minutes used in API store to avoid issues with different transaction times etc.
-                const API_UPDATE_AFTER = [
-                    'schoolings',
-                    'alliance_schoolings',
-                ].includes(api)
-                    ? 30 * 1000 // 30 seconds for schoolings
-                    : 4.5 * 60 * 1000; // 4 Minutes and 30 seconds
+                const API_UPDATE_AFTER =
+                    ['schoolings', 'alliance_schoolings'].includes(api) ?
+                        30 * 1000 // 30 seconds for schoolings
+                    :   4.5 * 60 * 1000; // 4 Minutes and 30 seconds
 
                 // init the last updates map if it doesn't exist
                 self.lastUpdates ??= new Map<APIKey, number>();

@@ -96,11 +96,11 @@ export const registerHotkeys = async (
         const walkedPath: string[] = [];
         const rootScope = path[0] as RootScope;
         const nativeHotkeys =
-            rootScope === '*'
-                ? Object.values(ingameHotkeys).flatMap(hotkeys =>
-                      Object.values(hotkeys)
-                  )
-                : Object.values(ingameHotkeys[rootScope] ?? {});
+            rootScope === '*' ?
+                Object.values(ingameHotkeys).flatMap(hotkeys =>
+                    Object.values(hotkeys)
+                )
+            :   Object.values(ingameHotkeys[rootScope] ?? {});
 
         const validationResult: Record<string, unknown> = {};
 

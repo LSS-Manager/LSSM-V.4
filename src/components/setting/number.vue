@@ -71,9 +71,9 @@ export default Vue.extend<
     },
     methods: {
         normalize(num) {
-            return this.float
-                ? parseFloat(num.toString())
-                : parseInt(num.toString());
+            return this.float ?
+                    parseFloat(num.toString())
+                :   parseInt(num.toString());
         },
     },
     computed: {

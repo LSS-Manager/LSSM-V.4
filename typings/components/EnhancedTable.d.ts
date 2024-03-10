@@ -30,15 +30,15 @@ export interface EnhancedTableMethods {
 export type Column<
     Key extends string,
     TitleRequired extends boolean = true,
-> = (TitleRequired extends true
-    ? {
-          key: Key;
-          title: string;
-      }
-    : {
-          key: Key;
-          title?: string;
-      }) & {
+> = (TitleRequired extends true ?
+    {
+        key: Key;
+        title: string;
+    }
+:   {
+        key: Key;
+        title?: string;
+    }) & {
     attrs?: Record<string, unknown>;
     titleAttr?: string;
     noSort?: boolean;

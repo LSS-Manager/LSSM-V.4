@@ -15,9 +15,8 @@ import type {
 } from 'typings/modules/Redesign';
 
 export type KebabToCamelCase<S extends string> =
-    S extends `${infer T}-${infer U}`
-        ? `${T}${Capitalize<KebabToCamelCase<U>>}`
-        : S;
+    S extends `${infer T}-${infer U}` ? `${T}${Capitalize<KebabToCamelCase<U>>}`
+    :   S;
 
 interface Types {
     mission: {
@@ -121,9 +120,9 @@ interface Types {
 type ItemChooser<
     Type extends keyof Types[keyof Types],
     Window = RedesignVehicleComponent['Props']['vehicle'],
-> = (Window extends TransportRequestWindow
-    ? Types[KebabToCamelCase<Window['transportRequestType']>]
-    : Types['mission'])[Type];
+> = (Window extends TransportRequestWindow ?
+    Types[KebabToCamelCase<Window['transportRequestType']>]
+:   Types['mission'])[Type];
 
 type DistributeListUnion<Item extends ItemChooser<'item'>> =
     Item extends Record<'list', infer List extends string> ? List | '*' : never;
@@ -154,11 +153,13 @@ export type RedesignVehicleComponent = RedesignComponent<
             green: 'success';
         };
         tables: {
-            [key in keyof Types]: (Types[key] extends {
-                additional: Record<never, never>;
-            }
-                ? Types[key]['additional']
-                : Record<never, never>) & {
+            [key in keyof Types]: (Types[key] extends (
+                {
+                    additional: Record<never, never>;
+                }
+            ) ?
+                Types[key]['additional']
+            :   Record<never, never>) & {
                 filter: Types[key]['filter'];
                 sort: Types[key]['sort'];
                 sortDir: 'asc' | 'desc';

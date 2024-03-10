@@ -12,11 +12,11 @@ export type Scope<
     RedesignType extends RedesignKey | undefined = undefined,
 > = Id<
     Partial<{ [scope in Scopes[number]]: Scope<This> }> &
-        (Root extends false
-            ? {
-                  validatorFunction(this: This): Promise<boolean> | boolean;
-              }
-            : Empty) & {
+        (Root extends false ?
+            {
+                validatorFunction(this: This): Promise<boolean> | boolean;
+            }
+        :   Empty) & {
             [command in Commands[number]]: (
                 this: This,
                 ...args: Parameters<CallbackFunction<RedesignType>>

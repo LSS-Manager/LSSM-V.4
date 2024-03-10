@@ -201,48 +201,50 @@ export default <RedesignParser<VehicleWindow>>(({
     );
     const imgVehicleGraphicId = imageEl?.getAttribute('vehicle_graphic_id');
     const image =
-        imageEl?.getAttribute('image_replace_allowed') === 'true'
-            ? // parse the list of graphics for the used set and get the graphic
-              (
-                  JSON.parse(
-                      doc.documentElement.innerHTML.match(
-                          new RegExp(
-                              `(?<=vehicle_graphics${
-                                  imgVehicleGraphicId
-                                      ? `_sorted\\[${imgVehicleGraphicId}]`
-                                      : ''
-                              }\\s*=\\s*)\\[(?:(?:\\[".*?",".*?","(?:true|false)"]|null),?)+]`
-                          )
-                      )?.[0] ?? '[]'
-                  ) as [string, string, 'false' | 'true'][]
-              )[vehicleType.id]?.[0] ??
-              imageEl?.src ??
-              ''
-            : // no replacement? great! use the src attribute directly
-              imageEl?.src ?? '';
+        imageEl?.getAttribute('image_replace_allowed') === 'true' ?
+            // parse the list of graphics for the used set and get the graphic
+            (
+                JSON.parse(
+                    doc.documentElement.innerHTML.match(
+                        new RegExp(
+                            `(?<=vehicle_graphics${
+                                imgVehicleGraphicId ?
+                                    `_sorted\\[${imgVehicleGraphicId}]`
+                                :   ''
+                            }\\s*=\\s*)\\[(?:(?:\\[".*?",".*?","(?:true|false)"]|null),?)+]`
+                        )
+                    )?.[0] ?? '[]'
+                ) as [string, string, 'false' | 'true'][]
+            )[vehicleType.id]?.[0] ??
+            imageEl?.src ??
+            ''
+            // no replacement? great! use the src attribute directly
+        :   imageEl?.src ?? '';
 
     const userEl = doc.querySelector<HTMLAnchorElement>(
         '#vehicle_details a[href^="/profile/"]'
     );
-    const user = userEl
-        ? {
-              name: userEl.textContent?.trim() ?? '',
-              id: getIdFromEl(userEl),
-              online: !!userEl.parentElement?.querySelector(
-                  'img[src="/images/user_green.png"]'
-              ),
-          }
-        : undefined;
+    const user =
+        userEl ?
+            {
+                name: userEl.textContent?.trim() ?? '',
+                id: getIdFromEl(userEl),
+                online: !!userEl.parentElement?.querySelector(
+                    'img[src="/images/user_green.png"]'
+                ),
+            }
+        :   undefined;
 
     const currentMissionEl = doc.querySelector<HTMLAnchorElement>(
         '#vehicle-attr-current-mission a[href^="/missions/"]'
     );
-    const currentMission = currentMissionEl
-        ? {
-              caption: currentMissionEl.textContent?.trim() ?? '',
-              id: getIdFromEl(currentMissionEl),
-          }
-        : undefined;
+    const currentMission =
+        currentMissionEl ?
+            {
+                caption: currentMissionEl.textContent?.trim() ?? '',
+                id: getIdFromEl(currentMissionEl),
+            }
+        :   undefined;
 
     const followupMissions = Array.from(
         doc.querySelectorAll<HTMLAnchorElement>(
@@ -434,16 +436,18 @@ export default <RedesignParser<VehicleWindow>>(({
                             '.label.label-success'
                         ),
                         list,
-                        tax: isOwn
-                            ? 0
-                            : parseInt(
-                                  row.children[3]?.textContent?.trim() ?? '-1'
-                              ),
-                        state: alarmEl?.classList.contains('btn-success')
-                            ? 'success'
-                            : alarmEl?.classList.contains('btn-warning')
-                              ? 'warning'
-                              : 'danger',
+                        tax:
+                            isOwn ? 0 : (
+                                parseInt(
+                                    row.children[3]?.textContent?.trim() ?? '-1'
+                                )
+                            ),
+                        state:
+                            alarmEl?.classList.contains('btn-success') ?
+                                'success'
+                            : alarmEl?.classList.contains('btn-warning') ?
+                                'warning'
+                            :   'danger',
                     } as Hospital;
                 })
                 .filter(removeUndefined);
@@ -487,17 +491,16 @@ export default <RedesignParser<VehicleWindow>>(({
                     id: getIdFromEl(cell),
                     caption: text.replace(/\([^(]*?\)$/u, ''),
                     list,
-                    state: cell.classList.contains('btn-success')
-                        ? 'success'
-                        : cell.classList.contains('btn-warning')
-                          ? 'warning'
-                          : 'danger',
+                    state:
+                        cell.classList.contains('btn-success') ? 'success'
+                        : cell.classList.contains('btn-warning') ? 'warning'
+                        : 'danger',
                     freeCells: parseInt(infos?.groups?.free ?? '-1'),
                     distance: infos?.groups?.distance ?? '-1km',
                     tax:
-                        list === 'own'
-                            ? 0
-                            : parseInt(infos?.groups?.tax ?? '-1'),
+                        list === 'own' ? 0 : (
+                            parseInt(infos?.groups?.tax ?? '-1')
+                        ),
                 };
                 if (list === 'own') ownCells.push(cellinfos);
                 else allianceCells.push(cellinfos);
@@ -575,11 +578,12 @@ export default <RedesignParser<VehicleWindow>>(({
                             home: !!row.querySelector<HTMLSpanElement>(
                                 '.label.label-info'
                             ),
-                            state: alarmEl?.classList.contains('btn-success')
-                                ? 'success'
-                                : alarmEl?.classList.contains('btn-warning')
-                                  ? 'warning'
-                                  : 'danger',
+                            state:
+                                alarmEl?.classList.contains('btn-success') ?
+                                    'success'
+                                : alarmEl?.classList.contains('btn-warning') ?
+                                    'warning'
+                                :   'danger',
                         } as ShoreStation;
                     })
                     .filter(removeUndefined);
@@ -614,11 +618,10 @@ export default <RedesignParser<VehicleWindow>>(({
                     id,
                     caption: text.replace(/\([^(]*?\)$/u, ''),
                     list,
-                    state: station.classList.contains('btn-success')
-                        ? 'success'
-                        : station.classList.contains('btn-warning')
-                          ? 'warning'
-                          : 'danger',
+                    state:
+                        station.classList.contains('btn-success') ? 'success'
+                        : station.classList.contains('btn-warning') ? 'warning'
+                        : 'danger',
                     distance: infos?.groups?.distance ?? '-1km',
                     home: id === vehicle.building.id,
                 };

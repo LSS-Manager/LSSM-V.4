@@ -193,10 +193,9 @@
                                 !!settings[moduleId][settingId].disableable
                             "
                             :appendableListEnabled="
-                                setting.type === 'appendable-list'
-                                    ? settings[moduleId][settingId].value
-                                          .enabled
-                                    : false
+                                setting.type === 'appendable-list' ?
+                                    settings[moduleId][settingId].value.enabled
+                                :   false
                             "
                             :setting-type="setting.type"
                             @toggleEnabled="
@@ -677,12 +676,12 @@ export default Vue.extend<
                                     this.$set(
                                         setting,
                                         'value',
-                                        setting.type === 'appendable-list'
-                                            ? {
-                                                  value: setting.default,
-                                                  enabled: !setting.disableable,
-                                              }
-                                            : setting.default
+                                        setting.type === 'appendable-list' ?
+                                            {
+                                                value: setting.default,
+                                                enabled: !setting.disableable,
+                                            }
+                                        :   setting.default
                                     )
                                 )
                             );
@@ -710,12 +709,12 @@ export default Vue.extend<
                                 this.$set(
                                     setting,
                                     'value',
-                                    setting.type === 'appendable-list'
-                                        ? {
-                                              value: setting.default,
-                                              enabled: !setting.disableable,
-                                          }
-                                        : setting.default
+                                    setting.type === 'appendable-list' ?
+                                        {
+                                            value: setting.default,
+                                            enabled: !setting.disableable,
+                                        }
+                                    :   setting.default
                                 )
                             );
                             this.update();
@@ -738,9 +737,10 @@ export default Vue.extend<
             if (dependence) {
                 const invert = dependence.startsWith('!');
                 dependence = dependence.replace(/^!/u, '');
-                const base = dependence.startsWith('.')
-                    ? this.settings[moduleId]
-                    : this.settings;
+                const base =
+                    dependence.startsWith('.') ?
+                        this.settings[moduleId]
+                    :   this.settings;
                 dependence = dependence.replace(/^\./u, '');
                 const setting = dependence.split('/').reduce(
                     (previousValue, currentValue) =>
@@ -834,11 +834,11 @@ export default Vue.extend<
                 setting.labels = this.branchSelection.labels;
             }
             return setting.values.map((v, vi) => ({
-                label: (setting.noLabelTranslation
-                    ? v
-                    : setting.labels?.[vi] ??
-                      this.$t(`modules.${module}.settings.${settingId}.${v}`) ??
-                      v) as string,
+                label: (setting.noLabelTranslation ? v : (
+                    setting.labels?.[vi] ??
+                    this.$t(`modules.${module}.settings.${settingId}.${v}`) ??
+                    v
+                )) as string,
                 value: v,
             }));
         },

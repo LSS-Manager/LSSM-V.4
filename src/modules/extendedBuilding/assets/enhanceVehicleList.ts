@@ -84,14 +84,13 @@ export default async (
             );
 
             const linkWrapper = (
-                BUILDING_MODE === 'dispatch'
-                    ? document.querySelector<HTMLSpanElement>(
-                          `#vehicle_caption_${vehicleId}`
-                      )
-                    : vehicle.querySelector<HTMLAnchorElement>(
-                          `a[href="/vehicles/${vehicleId}"]`
-                      )
-            )?.parentElement;
+                BUILDING_MODE === 'dispatch' ?
+                    document.querySelector<HTMLSpanElement>(
+                        `#vehicle_caption_${vehicleId}`
+                    )
+                :   vehicle.querySelector<HTMLAnchorElement>(
+                        `a[href="/vehicles/${vehicleId}"]`
+                    ))?.parentElement;
 
             if (!vehicleId || !linkWrapper) return;
 
@@ -105,11 +104,10 @@ export default async (
                         !fmsBtn.classList.contains('building_list_fms_6')
                     )
                         return;
-                    const nextFms = fmsBtn.classList.contains(
-                        'building_list_fms_2'
-                    )
-                        ? 6
-                        : 2;
+                    const nextFms =
+                        fmsBtn.classList.contains('building_list_fms_2') ?
+                            6
+                        :   2;
                     LSSM.$stores.api
                         .request(
                             `/vehicles/${vehicleId}/set_fms/${nextFms}`,
@@ -210,15 +208,14 @@ export default async (
                             internalVehicleTypes[storedVehicle.vehicle_type]
                                 ?.staff.max ??
                             0;
-                        const assignedPersonnel = (await getSetting(
-                            'vehiclesPersonnelColorized'
-                        ))
-                            ? `<span style="color: ${
-                                  assigned_personnel_count < maxPersonnel
-                                      ? 'red'
-                                      : 'green'
-                              };">${assigned_personnel_count}</span>`
-                            : assigned_personnel_count;
+                        const assignedPersonnel =
+                            (await getSetting('vehiclesPersonnelColorized')) ?
+                                `<span style="color: ${
+                                    assigned_personnel_count < maxPersonnel ?
+                                        'red'
+                                    :   'green'
+                                };">${assigned_personnel_count}</span>`
+                            :   assigned_personnel_count;
                         if (vehicle.lastElementChild) {
                             vehicle.lastElementChild.innerHTML = `(${lastRowItems
                                 .map(

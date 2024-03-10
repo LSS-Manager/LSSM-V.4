@@ -20,30 +20,30 @@ export default async (
 
     if (counter || highlight) {
         LSSM.$stores.root.addStyles([
-            ...(counterBadge
-                ? [
-                      {
-                          selectorText: `.${counterClass}`,
-                          style: {
-                              'border-radius': '50%',
-                              'position': 'absolute',
-                              'z-index': 1,
-                              'background': 'red',
-                              'color': 'black',
-                              'min-width': '20px',
-                              'display': 'flex',
-                              'transform': 'translate(calc(-50% - 5px), -50%)',
-                              'font-family': 'monospace',
-                              'justify-content': 'center',
-                              'align-items': 'center',
-                              'padding-left': '0.5ch',
-                              'padding-right': '0.5ch',
-                              'border': '1px solid black',
-                              'scale': 0.9,
-                          },
-                      },
-                  ]
-                : []),
+            ...(counterBadge ?
+                [
+                    {
+                        selectorText: `.${counterClass}`,
+                        style: {
+                            'border-radius': '50%',
+                            'position': 'absolute',
+                            'z-index': 1,
+                            'background': 'red',
+                            'color': 'black',
+                            'min-width': '20px',
+                            'display': 'flex',
+                            'transform': 'translate(calc(-50% - 5px), -50%)',
+                            'font-family': 'monospace',
+                            'justify-content': 'center',
+                            'align-items': 'center',
+                            'padding-left': '0.5ch',
+                            'padding-right': '0.5ch',
+                            'border': '1px solid black',
+                            'scale': 0.9,
+                        },
+                    },
+                ]
+            :   []),
             {
                 selectorText: `.${counterClass}:not([data-amount]), .${counterClass}[data-amount="0"]`,
                 style: {
@@ -53,9 +53,10 @@ export default async (
             {
                 selectorText: `.${counterClass}::after`,
                 style: {
-                    content: counterBadge
-                        ? 'attr(data-amount)'
-                        : '" " attr(data-amount) "x"',
+                    content:
+                        counterBadge ? 'attr(data-amount)' : (
+                            '" " attr(data-amount) "x"'
+                        ),
                 },
             },
             {

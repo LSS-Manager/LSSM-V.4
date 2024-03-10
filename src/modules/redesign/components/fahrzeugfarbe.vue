@@ -77,9 +77,9 @@ export default Vue.extend<
             return this.fahrzeugfarbe.color.length === 7;
         },
         urlSearchParam() {
-            return this.fahrzeugfarbe.customVehicleType
-                ? `?vehicle_type_caption=${this.fahrzeugfarbe.customVehicleType}`
-                : '';
+            return this.fahrzeugfarbe.customVehicleType ?
+                    `?vehicle_type_caption=${this.fahrzeugfarbe.customVehicleType}`
+                :   '';
         },
         closeAfterSubmit() {
             return new URL(this.url, window.location.origin).searchParams.has(

@@ -47,19 +47,23 @@
                                         >
                                             <span v-if="attr === 'cost'">
                                                 {{
-                                                    vehicle.hasOwnProperty(
-                                                        'credits'
-                                                    )
-                                                        ? vehicle.credits.toLocaleString()
-                                                        : NaN
+                                                    (
+                                                        vehicle.hasOwnProperty(
+                                                            'credits'
+                                                        )
+                                                    ) ?
+                                                        vehicle.credits.toLocaleString()
+                                                    :   NaN
                                                 }}
                                                 Credits /
                                                 {{
-                                                    vehicle.hasOwnProperty(
-                                                        'coins'
-                                                    )
-                                                        ? vehicle.coins.toLocaleString()
-                                                        : NaN
+                                                    (
+                                                        vehicle.hasOwnProperty(
+                                                            'coins'
+                                                        )
+                                                    ) ?
+                                                        vehicle.coins.toLocaleString()
+                                                    :   NaN
                                                 }}
                                                 Coins
                                             </span>
@@ -145,11 +149,15 @@
                                             <span
                                                 v-else
                                                 v-html="
-                                                    vehicle.hasOwnProperty(attr)
-                                                        ? vehicle[
-                                                              attr
-                                                          ].toLocaleString()
-                                                        : ''
+                                                    (
+                                                        vehicle.hasOwnProperty(
+                                                            attr
+                                                        )
+                                                    ) ?
+                                                        vehicle[
+                                                            attr
+                                                        ].toLocaleString()
+                                                    :   ''
                                                 "
                                             ></span>
                                         </td>
@@ -190,15 +198,15 @@
                                 >
                                     <span v-if="attr === 'cost'">
                                         {{
-                                            building.hasOwnProperty('credits')
-                                                ? building.credits.toLocaleString()
-                                                : NaN
+                                            building.hasOwnProperty('credits') ?
+                                                building.credits.toLocaleString()
+                                            :   NaN
                                         }}
                                         Credits /
                                         {{
-                                            building.hasOwnProperty('coins')
-                                                ? building.coins.toLocaleString()
-                                                : NaN
+                                            building.hasOwnProperty('coins') ?
+                                                building.coins.toLocaleString()
+                                            :   NaN
                                         }}
                                         Coins
                                     </span>
@@ -236,11 +244,9 @@
                                     <span
                                         v-else
                                         v-html="
-                                            building.hasOwnProperty(attr)
-                                                ? building[
-                                                      attr
-                                                  ].toLocaleString()
-                                                : ''
+                                            building.hasOwnProperty(attr) ?
+                                                building[attr].toLocaleString()
+                                            :   ''
                                         "
                                     ></span>
                                 </td>
@@ -308,15 +314,15 @@
                         <td v-for="(_, attr) in equipmentTab.head" :key="attr">
                             <span v-if="attr === 'credits'">
                                 {{
-                                    equipment.hasOwnProperty('credits')
-                                        ? equipment.credits.toLocaleString()
-                                        : NaN
+                                    equipment.hasOwnProperty('credits') ?
+                                        equipment.credits.toLocaleString()
+                                    :   NaN
                                 }}
                                 Credits /
                                 {{
-                                    equipment.hasOwnProperty('coins')
-                                        ? equipment.coins.toLocaleString()
-                                        : NaN
+                                    equipment.hasOwnProperty('coins') ?
+                                        equipment.coins.toLocaleString()
+                                    :   NaN
                                 }}
                                 Coins
                             </span>
@@ -513,49 +519,55 @@ export default Vue.extend<
                     },
                     cost: { title: this.$m('titles.vehicles.cost') },
                     schooling: { title: this.$m('titles.vehicles.schooling') },
-                    ...([
-                        'de_DE',
-                        'en_US',
-                        'pl_PL',
-                        'nl_NL',
-                        'sv_SE',
-                        'it_IT',
-                        'nb_NO',
-                        'en_AU',
-                        'fr_FR',
-                        'es_ES',
-                    ].includes(locale)
-                        ? {
-                              waterTank: {
-                                  title: this.$m('titles.vehicles.wtank'),
-                              },
-                          }
-                        : null),
-                    ...(['de_DE', 'fr_FR', 'en_GB', 'en_US', 'en_AU'].includes(
-                        locale
-                    )
-                        ? {
-                              pumpCapacity: {
-                                  title: this.$m('titles.vehicles.pumpcap'),
-                              },
-                          }
-                        : null),
-                    ...([
-                        'es_ES',
-                        'pl_PL',
-                        'sv_SE',
-                        'it_IT',
-                        'en_US',
-                        'nl_NL',
-                        'sv_SE',
-                        'en_AU',
-                    ].includes(locale)
-                        ? {
-                              foamTank: {
-                                  title: this.$m('titles.vehicles.ftank'),
-                              },
-                          }
-                        : null),
+                    ...((
+                        [
+                            'de_DE',
+                            'en_US',
+                            'pl_PL',
+                            'nl_NL',
+                            'sv_SE',
+                            'it_IT',
+                            'nb_NO',
+                            'en_AU',
+                            'fr_FR',
+                            'es_ES',
+                        ].includes(locale)
+                    ) ?
+                        {
+                            waterTank: {
+                                title: this.$m('titles.vehicles.wtank'),
+                            },
+                        }
+                    :   null),
+                    ...((
+                        ['de_DE', 'fr_FR', 'en_GB', 'en_US', 'en_AU'].includes(
+                            locale
+                        )
+                    ) ?
+                        {
+                            pumpCapacity: {
+                                title: this.$m('titles.vehicles.pumpcap'),
+                            },
+                        }
+                    :   null),
+                    ...((
+                        [
+                            'es_ES',
+                            'pl_PL',
+                            'sv_SE',
+                            'it_IT',
+                            'en_US',
+                            'nl_NL',
+                            'sv_SE',
+                            'en_AU',
+                        ].includes(locale)
+                    ) ?
+                        {
+                            foamTank: {
+                                title: this.$m('titles.vehicles.ftank'),
+                            },
+                        }
+                    :   null),
                     special: { title: this.$m('titles.vehicles.special') },
                 },
                 search: '',
@@ -636,13 +648,13 @@ export default Vue.extend<
     },
     computed: {
         currentBuildings() {
-            return this.currentType === 1
-                ? this.buildingCategories[
-                      Object.keys(this.buildingCategories)[
-                          this.buildingsTab.current.category
-                      ]
-                  ].buildings
-                : [];
+            return this.currentType === 1 ?
+                    this.buildingCategories[
+                        Object.keys(this.buildingCategories)[
+                            this.buildingsTab.current.category
+                        ]
+                    ].buildings
+                :   [];
         },
         buildingsFiltered() {
             return Object.values(this.currentBuildings).filter(building =>
@@ -653,24 +665,28 @@ export default Vue.extend<
         },
         buildingsSorted() {
             return Object.values(
-                this.buildingsTab.search
-                    ? this.buildingsFiltered
-                    : this.currentBuildings
+                this.buildingsTab.search ?
+                    this.buildingsFiltered
+                :   this.currentBuildings
             ).sort((a, b) => {
                 const modifier = this.buildingsTab.sortDir === 'desc' ? -1 : 1;
                 const f = a[this.buildingsTab.sort] || '';
                 const s = b[this.buildingsTab.sort] || '';
-                return f < s ? -1 * modifier : f > s ? modifier : 0;
+                return (
+                    f < s ? -1 * modifier
+                    : f > s ? modifier
+                    : 0
+                );
             });
         },
         currentSchoolings() {
-            return this.currentType === 2
-                ? this.schoolingCategories[
-                      Object.keys(this.schoolingCategories)[
-                          this.schoolingsTab.current.category
-                      ]
-                  ]
-                : [];
+            return this.currentType === 2 ?
+                    this.schoolingCategories[
+                        Object.keys(this.schoolingCategories)[
+                            this.schoolingsTab.current.category
+                        ]
+                    ]
+                :   [];
         },
         schoolingsFiltered() {
             return Object.values(this.currentSchoolings).filter(building =>
@@ -681,14 +697,18 @@ export default Vue.extend<
         },
         schoolingsSorted() {
             return Object.values(
-                this.schoolingsTab.search
-                    ? this.schoolingsFiltered
-                    : this.currentSchoolings
+                this.schoolingsTab.search ?
+                    this.schoolingsFiltered
+                :   this.currentSchoolings
             ).sort((a, b) => {
                 const modifier = this.schoolingsTab.sortDir === 'desc' ? -1 : 1;
                 const f = a[this.schoolingsTab.sort] || '';
                 const s = b[this.schoolingsTab.sort] || '';
-                return f < s ? -1 * modifier : f > s ? modifier : 0;
+                return (
+                    f < s ? -1 * modifier
+                    : f > s ? modifier
+                    : 0
+                );
             });
         },
         vehicleTypes() {
@@ -706,18 +726,21 @@ export default Vue.extend<
                     ]
                 ];
             return (
-                this.vehiclesTab.search
-                    ? vehicles.filter(vehicle =>
-                          JSON.stringify(Object.values(vehicle))
-                              .toLowerCase()
-                              .match(this.vehiclesTab.search.toLowerCase())
-                      )
-                    : vehicles
-            ).sort((a, b) => {
+                this.vehiclesTab.search ?
+                    vehicles.filter(vehicle =>
+                        JSON.stringify(Object.values(vehicle))
+                            .toLowerCase()
+                            .match(this.vehiclesTab.search.toLowerCase())
+                    )
+                :   vehicles).sort((a, b) => {
                 const modifier = this.vehiclesTab.sortDir === 'desc' ? -1 : 1;
                 const f = a[this.vehiclesTab.sort] || '';
                 const s = b[this.vehiclesTab.sort] || '';
-                return f < s ? -1 * modifier : f > s ? modifier : 0;
+                return (
+                    f < s ? -1 * modifier
+                    : f > s ? modifier
+                    : 0
+                );
             });
         },
         equipmentFiltered() {
@@ -732,7 +755,11 @@ export default Vue.extend<
                 const modifier = this.equipmentTab.sortDir === 'desc' ? -1 : 1;
                 const f = a[this.equipmentTab.sort] || '';
                 const s = b[this.equipmentTab.sort] || '';
-                return f < s ? -1 * modifier : f > s ? modifier : 0;
+                return (
+                    f < s ? -1 * modifier
+                    : f > s ? modifier
+                    : 0
+                );
             });
         },
     },

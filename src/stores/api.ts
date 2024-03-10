@@ -352,9 +352,10 @@ export const defineAPIStore = defineStore('api', () => {
         feature: string
     ): Promise<APIs[Api]> => {
         const lastUpdate = lastUpdates.get(api) ?? 0;
-        const updateAfter = ['schoolings', 'alliance_schoolings'].includes(api)
-            ? API_UPDATE_AFTER_SCHOOLINGS
-            : API_UPDATE_AFTER;
+        const updateAfter =
+            ['schoolings', 'alliance_schoolings'].includes(api) ?
+                API_UPDATE_AFTER_SCHOOLINGS
+            :   API_UPDATE_AFTER;
         if (lastUpdate < Date.now() - updateAfter)
             return _updateAPI(api, feature);
         return Promise.resolve(apiStorage[api].value);
@@ -484,15 +485,14 @@ export const defineAPIStore = defineStore('api', () => {
         vehicle.fms_real = radioMessage.fms_real;
         vehicle.fms_show = radioMessage.fms;
         // update target_type and target_id
-        vehicle.target_type = radioMessage.target_building_id
-            ? 'building'
-            : radioMessage.mission_id
-              ? 'mission'
-              : null;
+        vehicle.target_type =
+            radioMessage.target_building_id ? 'building'
+            : radioMessage.mission_id ? 'mission'
+            : null;
         vehicle.target_id =
-            vehicle.target_type === 'building'
-                ? radioMessage.target_building_id
-                : radioMessage.mission_id;
+            vehicle.target_type === 'building' ?
+                radioMessage.target_building_id
+            :   radioMessage.mission_id;
 
         return _updateVehicle(vehicle, oldVehicle);
     };
@@ -640,11 +640,9 @@ export const defineAPIStore = defineStore('api', () => {
         dialogOnError: boolean = false
     ): Promise<Response> => {
         const requestUrl =
-            inputOrUrl instanceof URL
-                ? inputOrUrl.href
-                : inputOrUrl instanceof Request
-                  ? inputOrUrl.url
-                  : inputOrUrl;
+            inputOrUrl instanceof URL ? inputOrUrl.href
+            : inputOrUrl instanceof Request ? inputOrUrl.url
+            : inputOrUrl;
         const isRequestToLSSMServer = requestUrl.startsWith(SERVER);
         const requestInit = _getRequestInit(
             init,

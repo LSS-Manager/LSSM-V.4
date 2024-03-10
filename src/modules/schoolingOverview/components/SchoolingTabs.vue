@@ -85,14 +85,13 @@ const tabTitles = computed(() => [all, ...Object.keys($t('schoolings'))]);
 const schoolings = computed(() => {
     const schoolings = props.tabs[currentTab.value] || [];
     return (
-        search.value
-            ? schoolings.filter(a =>
-                  JSON.stringify(Object.values(a))
-                      .toLowerCase()
-                      .match(search.value.toLowerCase())
-              )
-            : schoolings
-    ).toSorted((a, b) => {
+        search.value ?
+            schoolings.filter(a =>
+                JSON.stringify(Object.values(a))
+                    .toLowerCase()
+                    .match(search.value.toLowerCase())
+            )
+        :   schoolings).toSorted((a, b) => {
         let modifier = 1;
         if (sortDir.value === 'desc') modifier = -1;
         if (a[sort.value] < b[sort.value]) return -1 * modifier;

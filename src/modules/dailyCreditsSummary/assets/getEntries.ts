@@ -30,15 +30,15 @@ export default async (
                     {
                         ...(!!regex && {
                             regex:
-                                typeof regex === 'string'
-                                    ? new RegExp(
-                                          regex.replace(
-                                              /%missions%/u,
-                                              `(${missionsString})`
-                                          ),
-                                          'u'
-                                      )
-                                    : regex,
+                                typeof regex === 'string' ?
+                                    new RegExp(
+                                        regex.replace(
+                                            /%missions%/u,
+                                            `(${missionsString})`
+                                        ),
+                                        'u'
+                                    )
+                                :   regex,
                         }),
                         ...(!!title && { title }),
                         backgroundColor,

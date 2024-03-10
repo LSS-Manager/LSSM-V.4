@@ -99,13 +99,13 @@ const ownSchoolings = computed(() =>
     }))
 );
 const ownFiltered = computed(() =>
-    ownSearch.value
-        ? ownSchoolings.value.filter(schooling =>
-              JSON.stringify(Object.values(schooling))
-                  .toLowerCase()
-                  .match(ownSearch.value.toLowerCase())
-          )
-        : ownSchoolings.value
+    ownSearch.value ?
+        ownSchoolings.value.filter(schooling =>
+            JSON.stringify(Object.values(schooling))
+                .toLowerCase()
+                .match(ownSearch.value.toLowerCase())
+        )
+    :   ownSchoolings.value
 );
 const ownSorted = computed(() =>
     ownFiltered.value.toSorted((a, b) => {
@@ -133,13 +133,13 @@ const openSchoolings = computed(() =>
     )
 );
 const openFiltered = computed(() =>
-    openSearch.value
-        ? openSchoolings.value.filter(schooling =>
-              JSON.stringify(Object.values(schooling))
-                  .toLowerCase()
-                  .match(openSearch.value.toLowerCase())
-          )
-        : openSchoolings.value
+    openSearch.value ?
+        openSchoolings.value.filter(schooling =>
+            JSON.stringify(Object.values(schooling))
+                .toLowerCase()
+                .match(openSearch.value.toLowerCase())
+        )
+    :   openSchoolings.value
 );
 const openSorted = computed(() =>
     openFiltered.value.toSorted((a, b) => {

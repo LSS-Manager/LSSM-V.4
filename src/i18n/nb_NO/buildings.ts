@@ -6,9 +6,9 @@ const multiplyExtension = (
     extension: Extension | ((index: number) => Extension),
     amount: number
 ): Extension[] =>
-    typeof extension === 'function'
-        ? new Array(amount).fill('0').map((_, index) => extension(index))
-        : new Array(amount).fill(extension);
+    typeof extension === 'function' ?
+        new Array(amount).fill('0').map((_, index) => extension(index))
+    :   new Array(amount).fill(extension);
 
 export default {
     0: {
@@ -244,9 +244,9 @@ export default {
         startPersonnel: 0,
         startVehicles: [],
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-            buildingsAmountTotal < 125
-                ? 4
-                : Math.floor(buildingsAmountTotal / 25),
+            buildingsAmountTotal < 125 ? 4 : (
+                Math.floor(buildingsAmountTotal / 25)
+            ),
         schoolingTypes: ['Redning'],
         schools: [3],
         startParkingLots: 1,
@@ -361,9 +361,9 @@ export default {
         startPersonnel: 3,
         startVehicles: [],
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-            buildingsAmountTotal < 125
-                ? 4
-                : Math.floor(buildingsAmountTotal / 25),
+            buildingsAmountTotal < 125 ? 4 : (
+                Math.floor(buildingsAmountTotal / 25)
+            ),
         schoolingTypes: ['Politi'],
         schools: [8],
         startParkingLots: 1,
@@ -645,9 +645,9 @@ export default {
         startPersonnel: 2,
         startVehicles: ['Skogbrannhelikopter'],
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-            buildingsAmountTotal < 125
-                ? 3
-                : Math.floor(buildingsAmountTotal / 25),
+            buildingsAmountTotal < 125 ? 3 : (
+                Math.floor(buildingsAmountTotal / 25)
+            ),
         startParkingLots: 1,
         schoolingTypes: ['Brannstasjon'],
         schools: [2],

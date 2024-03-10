@@ -36,11 +36,9 @@
                 |
                 <span
                     :class="`text-${
-                        sum.total > 0
-                            ? 'success'
-                            : sum.total < 0
-                              ? 'danger'
-                              : ''
+                        sum.total > 0 ? 'success'
+                        : sum.total < 0 ? 'danger'
+                        : ''
                     }`"
                     >{{
                         (sum.total > 0 ? '+' : '') + sum.total.toLocaleString()
@@ -142,11 +140,9 @@
                 :class="{ hidden: entry.hidden }"
                 :color="
                     (color = `text-${
-                        entry.total > 0
-                            ? 'success'
-                            : entry.total < 0
-                              ? 'danger'
-                              : ''
+                        entry.total > 0 ? 'success'
+                        : entry.total < 0 ? 'danger'
+                        : ''
                     }`)
                 "
                 :sum="
@@ -171,11 +167,9 @@
                 <tr
                     :sum-color="
                         (sum_color = `text-${
-                            shown_sum.total > 0
-                                ? 'success'
-                                : shown_sum.total < 0
-                                  ? 'danger'
-                                  : ''
+                            shown_sum.total > 0 ? 'success'
+                            : shown_sum.total < 0 ? 'danger'
+                            : ''
                         }`)
                     "
                 >
@@ -336,7 +330,11 @@ export default Vue.extend<
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 const s = b[this.sort] ?? '';
-                return f < s ? -1 * modifier : f > s ? modifier : 0;
+                return (
+                    f < s ? -1 * modifier
+                    : f > s ? modifier
+                    : 0
+                );
             });
         },
         sum() {

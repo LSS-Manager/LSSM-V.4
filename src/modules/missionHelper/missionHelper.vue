@@ -150,16 +150,16 @@
                             missionSpecs.additional.possible_patient_min)
                     "
                     :data-amount="
-                        min_is_max
-                            ? null
-                            : missionSpecs.additional.possible_patient
+                        min_is_max ? null : (
+                            missionSpecs.additional.possible_patient
+                        )
                     "
                 >
                     {{
                         $mc(
-                            min_is_max
-                                ? 'patients.possible_patient_exact'
-                                : 'patients.possible_patient',
+                            min_is_max ?
+                                'patients.possible_patient_exact'
+                            :   'patients.possible_patient',
                             missionSpecs.additional.possible_patient
                         )
                     }}
@@ -669,11 +669,13 @@ export default Vue.extend<
                 nonbadge: string[];
             };
             this.settings.noVehicleRequirements?.forEach(req =>
-                reqi18n.hasOwnProperty(req) &&
-                req !== 'title' &&
-                this.missionSpecs?.[reqi18n[req].in][req]
-                    ? reqs[reqi18n[req].badge ? 'badge' : 'nonbadge'].push(req)
-                    : null
+                (
+                    reqi18n.hasOwnProperty(req) &&
+                    req !== 'title' &&
+                    this.missionSpecs?.[reqi18n[req].in][req]
+                ) ?
+                    reqs[reqi18n[req].badge ? 'badge' : 'nonbadge'].push(req)
+                :   null
             );
             return reqs;
         },
@@ -905,13 +907,16 @@ export default Vue.extend<
                             ) {
                                 vehicles[
                                     optionalAlternatives[alt].based_on
-                                ].newline = !vehicles[
-                                    optionalAlternatives[alt].based_on
-                                ].newline
-                                    ? ''
-                                    : (vehicles[
-                                          optionalAlternatives[alt].based_on
-                                      ].newline += ' / ');
+                                ].newline =
+                                    (
+                                        !vehicles[
+                                            optionalAlternatives[alt].based_on
+                                        ].newline
+                                    ) ?
+                                        ''
+                                    :   (vehicles[
+                                            optionalAlternatives[alt].based_on
+                                        ].newline += ' / ');
 
                                 if (missionSpecs.additional[alt] === true) {
                                     if (
@@ -1003,13 +1008,15 @@ export default Vue.extend<
                     ].additionalText =
                         this.$mc(
                             `vehicles.multifunctionals.${vehicle}.additional_text`,
-                            (vehicles[vehicle].old ?? 0) >
+                            (
+                                (vehicles[vehicle].old ?? 0) >
+                                    vehicles[
+                                        multifunctionals[vehicle].reduce_from
+                                    ].amount
+                            ) ?
                                 vehicles[multifunctionals[vehicle].reduce_from]
                                     .amount
-                                ? vehicles[
-                                      multifunctionals[vehicle].reduce_from
-                                  ].amount
-                                : vehicles[vehicle].old || 0
+                            :   vehicles[vehicle].old || 0
                         )?.toString() ?? '';
                 }
             });
@@ -1017,17 +1024,21 @@ export default Vue.extend<
             Object.entries(vehicles)
                 .filter(([, vehicle]) => vehicle.amount > 0)
                 .sort(([, aVehicle], [, bVehicle]) =>
-                    (aVehicle[this.settings.vehicles.sort] || 0) <
-                    (bVehicle[this.settings.vehicles.sort] || 0)
-                        ? this.settings.vehicles.sortDesc
-                            ? 1
-                            : -1
-                        : (aVehicle[this.settings.vehicles.sort] || 0) >
-                            (bVehicle[this.settings.vehicles.sort] || 0)
-                          ? this.settings.vehicles.sortDesc
-                              ? -1
-                              : 1
-                          : 0
+                    (
+                        (aVehicle[this.settings.vehicles.sort] || 0) <
+                        (bVehicle[this.settings.vehicles.sort] || 0)
+                    ) ?
+                        this.settings.vehicles.sortDesc ?
+                            1
+                        :   -1
+                    : (
+                        (aVehicle[this.settings.vehicles.sort] || 0) >
+                        (bVehicle[this.settings.vehicles.sort] || 0)
+                    ) ?
+                        this.settings.vehicles.sortDesc ?
+                            -1
+                        :   1
+                    :   0
                 )
                 .forEach(
                     ([type, vehicle]) => (vehiclesFiltered[type] = vehicle)

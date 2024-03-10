@@ -147,11 +147,10 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
         document.body.append(style);
     };
     refresh_shown_pois();
-    const paddingLeftPOI = [3, 4].includes(
-        LSSM.$stores.api.settings.design_mode ?? 0
-    )
-        ? '25px'
-        : '1ch';
+    const paddingLeftPOI =
+        [3, 4].includes(LSSM.$stores.api.settings.design_mode ?? 0) ? '25px' : (
+            '1ch'
+        );
     const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
             const form = (mutation.target as HTMLElement).querySelector(
@@ -213,11 +212,9 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
                     input.type = 'checkbox';
                     input.name = poi;
                     input.checked =
-                        poi === 'all'
-                            ? shown_types === poi_types
-                            : poi === 'none'
-                              ? !shown_types.length
-                              : shown_types.includes(poi);
+                        poi === 'all' ? shown_types === poi_types
+                        : poi === 'none' ? !shown_types.length
+                        : shown_types.includes(poi);
                     if (poi === 'all') {
                         input.addEventListener('change', () => {
                             if (!input.checked) return;
@@ -264,11 +261,9 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
                         });
                     }
                     label.textContent =
-                        poi === 'all'
-                            ? $m('all').toString()
-                            : poi === 'none'
-                              ? $m('none').toString()
-                              : poi;
+                        poi === 'all' ? $m('all').toString()
+                        : poi === 'none' ? $m('none').toString()
+                        : poi;
                     label.prepend(input);
                     wrapper.append(label);
                     return wrapper;

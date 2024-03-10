@@ -67,11 +67,12 @@ export default <ModuleMainFunction>(async ({
 
     setInterval(() => {
         clocks.forEach(clock => {
-            clock.textContent = timezone
-                ? moment()
-                      .tz(timezone)
-                      .format(clock.getAttribute('format')?.toString())
-                : moment().format(clock.getAttribute('format')?.toString());
+            clock.textContent =
+                timezone ?
+                    moment()
+                        .tz(timezone)
+                        .format(clock.getAttribute('format')?.toString())
+                :   moment().format(clock.getAttribute('format')?.toString());
         });
     }, 1000);
 });

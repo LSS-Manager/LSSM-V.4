@@ -62,20 +62,19 @@ export default (Vue: VueConstructor): void => {
                 allNumbers ? 'g' : ''
             );
             return (
-                allNumbers
-                    ? text
-                          .match(regex)
-                          ?.map(match =>
-                              parseInt(
-                                  match.replace(/[\s,.]/gu, '') ??
-                                      fallback.toString()
-                              )
-                          ) ?? []
-                    : parseInt(
-                          text.match(regex)?.[0]?.replace(/[\s,.]/gu, '') ??
-                              fallback.toString()
-                      )
-            ) as Multiple extends true ? number[] : number;
+                allNumbers ?
+                    text
+                        .match(regex)
+                        ?.map(match =>
+                            parseInt(
+                                match.replace(/[\s,.]/gu, '') ??
+                                    fallback.toString()
+                            )
+                        ) ?? []
+                :   parseInt(
+                        text.match(regex)?.[0]?.replace(/[\s,.]/gu, '') ??
+                            fallback.toString()
+                    )) as Multiple extends true ? number[] : number;
         },
         getTextNodes(
             root: Node,

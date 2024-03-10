@@ -26,9 +26,7 @@ export default (LSSM: Vue, $m: $m): void => {
     const reqStr = Object.entries(requirements)
         .map(
             ([req, amount]) =>
-                `${req}: ${(oncePerMission.includes(req)
-                    ? 1
-                    : amount
+                `${req}: ${(oncePerMission.includes(req) ? 1 : amount
                 ).toLocaleString()}`
         )
         .sort()

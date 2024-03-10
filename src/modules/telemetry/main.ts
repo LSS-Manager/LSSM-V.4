@@ -142,9 +142,9 @@ export default (
                             browser: `${browser.name} ${browserMajor}`,
                             premium: window.user_premium,
                             map:
-                                typeof window.mapkit !== 'undefined'
-                                    ? 'mapkit'
-                                    : 'osm',
+                                typeof window.mapkit !== 'undefined' ?
+                                    'mapkit'
+                                :   'osm',
                             buildings: buildingsAmount,
                             modules: await LSSM.$stores.storage.get<string[]>({
                                 key: 'activeModules',

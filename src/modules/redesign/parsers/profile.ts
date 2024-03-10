@@ -84,24 +84,27 @@ export default <RedesignParser<ProfileWindow>>(({ LSSM, doc, href = '' }) => {
             'img[src="/images/user_green.png"]'
         ),
         self,
-        credits: pageHeader?.dataset.creditsEarned
-            ? parseInt(pageHeader?.dataset.creditsEarned ?? '0')
-            : LSSM.$utils.getNumberFromText(headTexts[1]),
-        alliance: alliance
-            ? {
-                  id: parseInt(
-                      alliance.href.match(/\d+(?=\/?$)/u)?.[0] ?? '-1'
-                  ),
-                  name: alliance.textContent?.trim() ?? '',
-              }
-            : undefined,
-        registration: self
-            ? new Date(
-                  doc
-                      .querySelector<HTMLSpanElement>('#signup_date')
-                      ?.getAttribute('data-signup-date') ?? 0
-              )
-            : undefined,
+        credits:
+            pageHeader?.dataset.creditsEarned ?
+                parseInt(pageHeader?.dataset.creditsEarned ?? '0')
+            :   LSSM.$utils.getNumberFromText(headTexts[1]),
+        alliance:
+            alliance ?
+                {
+                    id: parseInt(
+                        alliance.href.match(/\d+(?=\/?$)/u)?.[0] ?? '-1'
+                    ),
+                    name: alliance.textContent?.trim() ?? '',
+                }
+            :   undefined,
+        registration:
+            self ?
+                new Date(
+                    doc
+                        .querySelector<HTMLSpanElement>('#signup_date')
+                        ?.getAttribute('data-signup-date') ?? 0
+                )
+            :   undefined,
         text: profileText?.textContent?.trim() ?? '',
         image: profileText?.querySelector<HTMLImageElement>('img')?.src ?? '',
         awards: Array.from(
@@ -149,12 +152,12 @@ export default <RedesignParser<ProfileWindow>>(({ LSSM, doc, href = '' }) => {
                             node.expression.arguments[0].properties.map(
                                 prop => [
                                     prop.key.value,
-                                    prop.value.type === 'UnaryExpression'
-                                        ? parseFloat(
-                                              prop.value.operator +
-                                                  prop.value.argument.value
-                                          )
-                                        : prop.value.value,
+                                    prop.value.type === 'UnaryExpression' ?
+                                        parseFloat(
+                                            prop.value.operator +
+                                                prop.value.argument.value
+                                        )
+                                    :   prop.value.value,
                                 ]
                             )
                         ) as unknown as Building

@@ -35,9 +35,13 @@ export default (LSSM: Vue, sticky: boolean, load: boolean): void => {
         if (people_amount && people_amount.parentElement) {
             people_amount.parentElement.classList.add(
                 `col-md-${
-                    head.querySelector('.pull-right [id^="mission_countdown_"]')
-                        ? 5
-                        : 7
+                    (
+                        head.querySelector(
+                            '.pull-right [id^="mission_countdown_"]'
+                        )
+                    ) ?
+                        5
+                    :   7
                 }`
             );
         }

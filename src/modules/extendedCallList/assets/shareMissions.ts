@@ -41,11 +41,12 @@ export default async (
     const sapNoMessage = LSSM.$t(
         'modules.shareAlliancePost.noMessage'
     ).toString();
-    const sapMissionList = enableSap
-        ? await import(
-              /* webpackChunkName: "modules/shareAlliancePost/missionlist" */ '../../shareAlliancePost/assets/missionList'
-          ).then(({ default: missionList }) => missionList)
-        : null;
+    const sapMissionList =
+        enableSap ?
+            await import(
+                /* webpackChunkName: "modules/shareAlliancePost/missionlist" */ '../../shareAlliancePost/assets/missionList'
+            ).then(({ default: missionList }) => missionList)
+        :   null;
 
     const addShareBtn: AddShareBtn = mission => {
         if (

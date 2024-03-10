@@ -9,9 +9,9 @@ export default (add: Record<string, unknown>): void =>
         FILE_PATH,
         JSON.stringify({
             ...JSON.parse(
-                fs.existsSync(FILE_PATH)
-                    ? fs.readFileSync(FILE_PATH).toString() ?? '{}'
-                    : '{}'
+                fs.existsSync(FILE_PATH) ?
+                    fs.readFileSync(FILE_PATH).toString() ?? '{}'
+                :   '{}'
             ),
             ...add,
         })

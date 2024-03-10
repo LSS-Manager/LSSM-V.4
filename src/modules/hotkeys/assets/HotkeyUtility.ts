@@ -13,9 +13,9 @@ export type CallbackFunction<
     RedesignType extends RedesignKey | undefined = undefined,
 > = (
     sequence: string[],
-    redesign?: RedesignType extends RedesignKey
-        ? RedesignParameter<RedesignType>
-        : undefined
+    redesign?: RedesignType extends RedesignKey ?
+        RedesignParameter<RedesignType>
+    :   undefined
 ) => void;
 type Listener =
     | [
@@ -36,13 +36,13 @@ export interface RedesignParameter<
     data: RedesignLightbox<RedesignType>['Data']['data'];
     lightbox: RedesignLightboxVue<RedesignType>;
     component: Omit<
-        RedesignType extends 'vehicle'
-            ? RedesignVehicleComponent['Computed']['hotkeysParam']
-            : {
-                  data: Record<string, unknown>;
-                  methods: Record<string, (...args: unknown[]) => unknown>;
-                  computed: Record<string, unknown>;
-              },
+        RedesignType extends 'vehicle' ?
+            RedesignVehicleComponent['Computed']['hotkeysParam']
+        :   {
+                data: Record<string, unknown>;
+                methods: Record<string, (...args: unknown[]) => unknown>;
+                computed: Record<string, unknown>;
+            },
         'component'
     >;
 }
@@ -228,13 +228,10 @@ export default class HotkeyUtility {
                 ...this.sequence.map(combo =>
                     combo
                         .sort((a, b) =>
-                            a.length > b.length
-                                ? -1
-                                : a.length < b.length
-                                  ? 1
-                                  : a > b
-                                    ? 1
-                                    : -1
+                            a.length > b.length ? -1
+                            : a.length < b.length ? 1
+                            : a > b ? 1
+                            : -1
                         )
                         .join('+')
                 ),

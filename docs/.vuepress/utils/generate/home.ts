@@ -35,9 +35,9 @@ actions:
 ${PRIMARIES.map(lang =>
     generateAction(
         lang,
-        lang === 'en_US'
-            ? enFlags
-            : langArray.find(([locale]) => locale === lang)?.[1] ?? ''
+        lang === 'en_US' ? enFlags : (
+            langArray.find(([locale]) => locale === lang)?.[1] ?? ''
+        )
     )
 ).join('\n')}
   - text: " "

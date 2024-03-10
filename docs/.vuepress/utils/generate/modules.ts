@@ -120,12 +120,13 @@ const modulesFile: ModulesFile = {};
             );
             const DOCS_MODULE_FILE = path.join(DOCS_MODULE_FOLDER, 'README.md');
 
-            const MODULE_DOCS_FILE = lang.startsWith('en_')
-                ? [lang, 'en_US', 'en_GB', 'en_AU']
-                      .map(l => path.join(MODULE_DOCS_FOLDER, `${l}.md`))
-                      .find(file => fs.existsSync(file)) ||
-                  path.join(MODULE_DOCS_FOLDER, `${lang}.md`)
-                : path.join(MODULE_DOCS_FOLDER, `${lang}.md`);
+            const MODULE_DOCS_FILE =
+                lang.startsWith('en_') ?
+                    [lang, 'en_US', 'en_GB', 'en_AU']
+                        .map(l => path.join(MODULE_DOCS_FOLDER, `${l}.md`))
+                        .find(file => fs.existsSync(file)) ||
+                    path.join(MODULE_DOCS_FOLDER, `${lang}.md`)
+                :   path.join(MODULE_DOCS_FOLDER, `${lang}.md`);
 
             if (!fs.existsSync(DOCS_MODULE_FOLDER))
                 fs.mkdirSync(DOCS_MODULE_FOLDER, { recursive: true });

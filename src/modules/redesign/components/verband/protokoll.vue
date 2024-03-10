@@ -91,9 +91,9 @@
                         <a
                             lightbox-open
                             :href="`/${
-                                entry.affected.type === 'user'
-                                    ? 'profile'
-                                    : 'buildings'
+                                entry.affected.type === 'user' ?
+                                    'profile'
+                                :   'buildings'
                             }/${entry.affected.id}`"
                         >
                             {{ entry.affected.name }}
@@ -222,7 +222,11 @@ export default Vue.extend<
                             s as VerbandProtokollWindow['entries'][0]['executor']
                         )?.name?.toLowerCase() ?? '';
                 }
-                return f < s ? -1 * modifier : f > s ? modifier : 0;
+                return (
+                    f < s ? -1 * modifier
+                    : f > s ? modifier
+                    : 0
+                );
             });
         },
     },

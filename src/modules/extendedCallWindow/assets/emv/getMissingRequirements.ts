@@ -70,9 +70,10 @@ const getMissingRequirements = (
 
     const numRegex = '\\d{1,3}(([,.]|\\s)?\\d{3})*x?';
     const getRequirementRegex = (text: string[] | string) => {
-        const textRegex = Array.isArray(text)
-            ? text.map(LSSM.$utils.escapeRegex).join('|')
-            : LSSM.$utils.escapeRegex(text);
+        const textRegex =
+            Array.isArray(text) ?
+                text.map(LSSM.$utils.escapeRegex).join('|')
+            :   LSSM.$utils.escapeRegex(text);
         // detects requirements in the forms "x VehicleType" and "VehicleType: x"
         return new RegExp(
             `((${numRegex}\\s+(${textRegex}))|(${textRegex}):\\s*${numRegex})(?=[,.]|$)`,
@@ -157,9 +158,9 @@ const getMissingRequirements = (
         // get all requirements for this group
         const groupReqs = $m(
             `enhancedMissingVehicles.${
-                group === 'vehicles' || group === 'other'
-                    ? 'vehiclesByRequirement'
-                    : group
+                group === 'vehicles' || group === 'other' ?
+                    'vehiclesByRequirement'
+                :   group
             }`
         ) as unknown as GroupTranslation | string;
         // there is no translation for this group

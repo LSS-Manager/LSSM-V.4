@@ -22,7 +22,11 @@ export default (LSSM: Vue): void => {
                 key => parseInt(key)
             )
         )
-        .sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
+        .sort((a, b) =>
+            a < b ? -1
+            : a > b ? 1
+            : 0
+        );
     const position = buildings.indexOf(buildingId);
     if (position < 0) return;
     const btnGroup = document.querySelector<HTMLDivElement>(

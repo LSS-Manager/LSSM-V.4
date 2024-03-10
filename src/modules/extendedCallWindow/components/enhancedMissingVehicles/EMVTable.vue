@@ -28,16 +28,16 @@
             <td v-if="typeof requirement.selected !== 'number'">
                 <!-- yeah, for some reason TS does not get that number check above -->
                 {{
-                    (typeof requirement.selected !== 'number'
-                        ? requirement.selected.min
-                        : 0
+                    (typeof requirement.selected !== 'number' ?
+                        requirement.selected.min
+                    :   0
                     ).toLocaleString()
                 }}
                 -
                 {{
-                    (typeof requirement.selected !== 'number'
-                        ? requirement.selected.max
-                        : 0
+                    (typeof requirement.selected !== 'number' ?
+                        requirement.selected.max
+                    :   0
                     ).toLocaleString()
                 }}
             </td>
@@ -82,11 +82,9 @@ const $emit = defineEmits<{ (event: 'sort', key: Column): void }>();
 
 const reqIsFulfilled = (req: MissionRequirement) =>
     req.missing - req.driving <=
-    (typeof req.selected === 'number'
-        ? req.selected
-        : props.calcMaxStaff
-          ? req.selected.max
-          : req.selected.min);
+    (typeof req.selected === 'number' ? req.selected
+    : props.calcMaxStaff ? req.selected.max
+    : req.selected.min);
 </script>
 
 <style scoped lang="sass">

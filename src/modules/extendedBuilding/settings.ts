@@ -102,14 +102,14 @@ export default ((MODULE_ID: string) => ({
         type: 'toggle',
         default: false,
     },
-    ...(!['de_DE', 'nl_NL'].includes(useRootStore().locale)
-        ? {
-              renewAllStagingAreas: <Toggle>{
-                  type: 'toggle',
-                  default: false,
-              },
-          }
-        : null),
+    ...(!['de_DE', 'nl_NL'].includes(useRootStore().locale) ?
+        {
+            renewAllStagingAreas: <Toggle>{
+                type: 'toggle',
+                default: false,
+            },
+        }
+    :   null),
 
     //autoBuyLevels: {
     //    type: 'toggle',

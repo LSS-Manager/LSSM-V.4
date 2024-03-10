@@ -319,7 +319,11 @@ export default (
                         amount,
                     ]) as [string, string, number][]
                 )
-                    .sort(([, a], [, b]) => (a < b ? -1 : a > b ? 1 : 0))
+                    .sort(([, a], [, b]) =>
+                        a < b ? -1
+                        : a > b ? 1
+                        : 0
+                    )
                     .map(([attr, name, amount]) => {
                         const rowElement = document.createElement('tr');
                         const available = availabilities[attr] || 0;

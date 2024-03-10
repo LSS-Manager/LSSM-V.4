@@ -25,9 +25,10 @@ export default (
         return hsp > (256 * 2) / 3;
     })();
 
-    const hoverColor = isBrightColor
-        ? { r: r - 25.6, g: g - 25.6, b: b - 25.6 }
-        : { r: r + 25.6, g: g + 25.6, b: b + 25.6 };
+    const hoverColor =
+        isBrightColor ?
+            { r: r - 25.6, g: g - 25.6, b: b - 25.6 }
+        :   { r: r + 25.6, g: g + 25.6, b: b + 25.6 };
 
     const labelSelector = `#chat_panel_body a.label[href="/profile/${window.user_id}"]`;
 
@@ -37,11 +38,9 @@ export default (
             style: {
                 'background-color': `${color} !important`,
                 'color': `${
-                    customColor
-                        ? customColorColor
-                        : isBrightColor
-                          ? '#333'
-                          : '#fff'
+                    customColor ? customColorColor
+                    : isBrightColor ? '#333'
+                    : '#fff'
                 } !important`,
             },
         },

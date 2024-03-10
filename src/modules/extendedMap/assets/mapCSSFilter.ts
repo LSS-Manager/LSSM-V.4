@@ -60,19 +60,19 @@ export const getFilter = (
 ) =>
     settings
         .map(({ filterFunction, filterValue }) =>
-            filterFunction.startsWith('preset.')
-                ? predefinedFilters[
-                      filterFunction.replace(
-                          /^preset\./gu,
-                          ''
-                      ) as keyof typeof predefinedFilters
-                  ]
-                : `${filterFunction.replace(
-                      /[A-Z]/gu,
-                      $0 => `-${$0.toLowerCase()}`
-                  )}(${filterValue}${
-                      sliders[filterFunction as FilterFunction].unit
-                  })`
+            filterFunction.startsWith('preset.') ?
+                predefinedFilters[
+                    filterFunction.replace(
+                        /^preset\./gu,
+                        ''
+                    ) as keyof typeof predefinedFilters
+                ]
+            :   `${filterFunction.replace(
+                    /[A-Z]/gu,
+                    $0 => `-${$0.toLowerCase()}`
+                )}(${filterValue}${
+                    sliders[filterFunction as FilterFunction].unit
+                })`
         )
         .join(' ');
 

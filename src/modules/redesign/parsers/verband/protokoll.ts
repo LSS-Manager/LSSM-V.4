@@ -70,26 +70,21 @@ export default <RedesignParser<VerbandProtokollWindow>>(async ({
     const getUser = (
         cell: HTMLTableCellElement | null
     ): Building | User | undefined =>
-        cell?.textContent?.trim()
-            ? cell?.querySelector<HTMLAnchorElement>('a[href^="/profile/"]')
-                ? {
-                      icon:
-                          cell.querySelector<HTMLImageElement>('img')?.src ??
-                          '',
-                      name: cell.textContent?.trim() ?? '',
-                      id: getIdFromEl(
-                          cell.querySelector<HTMLAnchorElement>('a')
-                      ),
-                      type: 'user',
-                  }
-                : {
-                      name: cell.textContent?.trim() ?? '',
-                      id: getIdFromEl(
-                          cell.querySelector<HTMLAnchorElement>('a')
-                      ),
-                      type: 'building',
-                  }
-            : void 0;
+        cell?.textContent?.trim() ?
+            cell?.querySelector<HTMLAnchorElement>('a[href^="/profile/"]') ?
+                {
+                    icon:
+                        cell.querySelector<HTMLImageElement>('img')?.src ?? '',
+                    name: cell.textContent?.trim() ?? '',
+                    id: getIdFromEl(cell.querySelector<HTMLAnchorElement>('a')),
+                    type: 'user',
+                }
+            :   {
+                    name: cell.textContent?.trim() ?? '',
+                    id: getIdFromEl(cell.querySelector<HTMLAnchorElement>('a')),
+                    type: 'building',
+                }
+        :   void 0;
     return {
         ...verbandParser({ doc, getIdFromEl }),
         entries: Array.from(

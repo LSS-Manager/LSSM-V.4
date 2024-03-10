@@ -44,7 +44,9 @@ export default (async ({ LSSM, MODULE_ID }) => {
             vehiclesByBuilding[marker.building_id] ?? []
         );
         vehicles.sort((a, b) =>
-            a.caption > b.caption ? 1 : b.caption > a.caption ? -1 : 0
+            a.caption > b.caption ? 1
+            : b.caption > a.caption ? -1
+            : 0
         );
         const building =
             presetBuilding ?? buildings.find(b => b.id === marker.building_id);
@@ -97,9 +99,9 @@ export default (async ({ LSSM, MODULE_ID }) => {
                     }</td><td>(&nbsp;${
                         vehicleTypes[vehicle.vehicle_type]?.caption ?? '🦄'
                     }${
-                        vehicle.vehicle_type_caption
-                            ? `&nbsp;<small>[&nbsp;${vehicle.vehicle_type_caption}&nbsp;]</small>`
-                            : ``
+                        vehicle.vehicle_type_caption ?
+                            `&nbsp;<small>[&nbsp;${vehicle.vehicle_type_caption}&nbsp;]</small>`
+                        :   ``
                     }&nbsp;)</td></tr>`;
                 });
                 data += `</table>`;

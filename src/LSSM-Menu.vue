@@ -489,10 +489,11 @@ export default Vue.extend<
                 if (iconBgAsNavBg) {
                     this.navbg.navbar =
                         document.querySelector<HTMLElement>('#main_navbar');
-                    const bgImg = this.navbg.navbar
-                        ? window.getComputedStyle(this.navbg.navbar)
-                              .backgroundImage
-                        : false;
+                    const bgImg =
+                        this.navbg.navbar ?
+                            window.getComputedStyle(this.navbg.navbar)
+                                .backgroundImage
+                        :   false;
                     if (!this.navbg.navbar || !bgImg || bgImg === 'none')
                         return;
 
@@ -502,7 +503,10 @@ export default Vue.extend<
                         if (!context) return;
                         const colors = getColors(context);
                         const mainColor = Object.entries(colors).sort(
-                            ([, a], [, b]) => (a < b ? 1 : a > b ? -1 : 0)
+                            ([, a], [, b]) =>
+                                a < b ? 1
+                                : a > b ? -1
+                                : 0
                         )?.[0]?.[0];
                         if (!mainColor) return (this.navbg.aborted = true);
                         const r = parseInt(mainColor.slice(0, 2), 16);

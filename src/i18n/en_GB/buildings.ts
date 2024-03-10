@@ -6,9 +6,9 @@ const multiplyExtension = (
     extension: Extension | ((index: number) => Extension),
     amount: number
 ): Extension[] =>
-    typeof extension === 'function'
-        ? new Array(amount).fill('0').map((_, index) => extension(index))
-        : new Array(amount).fill(extension);
+    typeof extension === 'function' ?
+        new Array(amount).fill('0').map((_, index) => extension(index))
+    :   new Array(amount).fill(extension);
 
 export default {
     0: {
@@ -391,9 +391,9 @@ export default {
         schoolingTypes: ['Rescue'],
         schools: [3],
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-            buildingsAmountTotal < 125
-                ? 4
-                : Math.floor(buildingsAmountTotal / 25),
+            buildingsAmountTotal < 125 ? 4 : (
+                Math.floor(buildingsAmountTotal / 25)
+            ),
         icon: 'circle-h',
     },
     6: {
@@ -602,9 +602,9 @@ export default {
         schools: [8],
         startParkingLots: 1,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-            buildingsAmountTotal < 125
-                ? 4
-                : Math.floor(buildingsAmountTotal / 25),
+            buildingsAmountTotal < 125 ? 4 : (
+                Math.floor(buildingsAmountTotal / 25)
+            ),
         icon: 'helicopter',
     },
     14: {
@@ -1376,9 +1376,9 @@ export default {
         schools: [29],
         startParkingLots: 1,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-            buildingsAmountTotal < 125
-                ? 4
-                : Math.floor(buildingsAmountTotal / 25),
+            buildingsAmountTotal < 125 ? 4 : (
+                Math.floor(buildingsAmountTotal / 25)
+            ),
         icon: 'helicopter',
     },
     31: {

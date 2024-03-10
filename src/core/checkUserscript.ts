@@ -15,9 +15,9 @@ export default (LSSM: Vue) => {
                 semverLt(userscript_version, userscript_latest_update))
         ) {
             const userscriptLink =
-                MODE === 'stable'
-                    ? `${SERVER}lssm-v4.user.js`
-                    : `${LSSM.$stores.root.githubUrl}/raw/dev/static/lssm-v4.user.js`;
+                MODE === 'stable' ?
+                    `${SERVER}lssm-v4.user.js`
+                :   `${LSSM.$stores.root.githubUrl}/raw/dev/static/lssm-v4.user.js`;
             LSSM.$modal.show('dialog', {
                 title: LSSM.$t('global.updateUserscript.title'),
                 text: LSSM.$t('global.updateUserscript.text', {

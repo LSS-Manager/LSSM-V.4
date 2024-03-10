@@ -104,9 +104,9 @@ export default (
     lang: Locale = 'en_US'
 ) =>
     md.replace(
-        md.includes('==START_FOOTER==')
-            ? /\n<!-- ==START_FOOTER==.*?-->.*$/su
-            : /$/u,
+        md.includes('==START_FOOTER==') ?
+            /\n<!-- ==START_FOOTER==.*?-->.*$/su
+        :   /$/u,
         `
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 ${getCommonLinks(config, lang)}

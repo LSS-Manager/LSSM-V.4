@@ -76,11 +76,11 @@ entry.plugins?.unshift(
         new RegExp(
             `(${locales
                 .map(l =>
-                    l !== 'en_US'
-                        ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                          // @ts-ignore
-                          moment.localeData(l)._abbr
-                        : 'en-gb'
+                    l !== 'en_US' ?
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
+                        moment.localeData(l)._abbr
+                    :   'en-gb'
                 )
                 .join('|')})$`
         )

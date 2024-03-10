@@ -41,9 +41,9 @@
                             :title="
                                 lightbox.$sm(
                                     `buttons.alliance_ignore.${
-                                        !profile.alliance_ignored
-                                            ? 'add'
-                                            : 'destroy'
+                                        !profile.alliance_ignored ? 'add' : (
+                                            'destroy'
+                                        )
                                     }`
                                 )
                             "
@@ -280,9 +280,8 @@
                                 <span
                                     class="label"
                                     :class="`label-${
-                                        hiddenFilters.includes(type)
-                                            ? 'danger'
-                                            : 'success'
+                                        hiddenFilters.includes(type) ? 'danger'
+                                        :   'success'
                                     }`"
                                     :key="type"
                                     @click="toggleFilter(type)"
@@ -343,9 +342,8 @@
                                 <span
                                     class="label"
                                     :class="`label-${
-                                        hiddenFilters.includes(type)
-                                            ? 'danger'
-                                            : 'success'
+                                        hiddenFilters.includes(type) ? 'danger'
+                                        :   'success'
                                     }`"
                                     :key="type"
                                     @click="toggleFilter(type)"
@@ -368,14 +366,14 @@
                             <div
                                 class="panel-heading"
                                 @click="
-                                    expandedDispatches.includes(dc.id)
-                                        ? expandedDispatches.splice(
-                                              expandedDispatches.findIndex(
-                                                  n => n === dc.id
-                                              ),
-                                              1
-                                          )
-                                        : expandedDispatches.push(dc.id)
+                                    expandedDispatches.includes(dc.id) ?
+                                        expandedDispatches.splice(
+                                            expandedDispatches.findIndex(
+                                                n => n === dc.id
+                                            ),
+                                            1
+                                        )
+                                    :   expandedDispatches.push(dc.id)
                                 "
                             >
                                 <span class="pull-right">{{
@@ -415,9 +413,9 @@
                                     <img
                                         loading="lazy"
                                         :src="
-                                            dc.id
-                                                ? dc.icon
-                                                : '/images/building_leitstelle.png'
+                                            dc.id ?
+                                                dc.icon
+                                            :   '/images/building_leitstelle.png'
                                         "
                                         :alt="dc.name"
                                     />
@@ -560,14 +558,14 @@
                     ref="map"
                     :id="`profile-${profile.id}-map-${lightbox.creation}`"
                     :start-lat="
-                        profile.buildings.length
-                            ? profile.buildings[0].latitude
-                            : void 0
+                        profile.buildings.length ?
+                            profile.buildings[0].latitude
+                        :   void 0
                     "
                     :start-long="
-                        profile.buildings.length
-                            ? profile.buildings[0].longitude
-                            : void 0
+                        profile.buildings.length ?
+                            profile.buildings[0].longitude
+                        :   void 0
                     "
                     :layers="
                         Object.entries(mapLayerGroups)
@@ -709,11 +707,9 @@ export default Vue.extend<
             buildingTypesSorted: Object.keys(buildingTypes)
                 .map(t => parseInt(t))
                 .sort((a, b) =>
-                    buildingTypes[a].caption < buildingTypes[b].caption
-                        ? -1
-                        : buildingTypes[a].caption > buildingTypes[b].caption
-                          ? 1
-                          : 0
+                    buildingTypes[a].caption < buildingTypes[b].caption ? -1
+                    : buildingTypes[a].caption > buildingTypes[b].caption ? 1
+                    : 0
                 ),
             mapLayerGroups: Object.fromEntries(
                 Object.keys(buildingTypes).map(type => [
@@ -928,7 +924,9 @@ export default Vue.extend<
         dispatchCentersSorted() {
             return Object.values(this.buildings).sort(
                 ({ name: a }, { name: b }) =>
-                    (a ?? '') < (b ?? '') ? -1 : (a ?? '') > (b ?? '') ? 1 : 0
+                    (a ?? '') < (b ?? '') ? -1
+                    : (a ?? '') > (b ?? '') ? 1
+                    : 0
             );
         },
     },

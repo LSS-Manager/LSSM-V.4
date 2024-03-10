@@ -83,17 +83,19 @@ export default (
                         `#missions-panel-body button.${
                             msg.data.collapsableMissionBtnClass
                         }${
-                            msg.data.missionId !== '-1'
-                                ? `[data-mission="${msg.data.missionId}"]`
-                                : `.${
-                                      (msg.data.btnClassList as string)
-                                          .split(' ')
-                                          .includes(
-                                              msg.data.BTN_ACTIVE as string
-                                          )
-                                          ? msg.data.BTN_ACTIVE
-                                          : msg.data.BTN_INACTIVE
-                                  }`
+                            msg.data.missionId !== '-1' ?
+                                `[data-mission="${msg.data.missionId}"]`
+                            :   `.${
+                                    (
+                                        (msg.data.btnClassList as string)
+                                            .split(' ')
+                                            .includes(
+                                                msg.data.BTN_ACTIVE as string
+                                            )
+                                    ) ?
+                                        msg.data.BTN_ACTIVE
+                                    :   msg.data.BTN_INACTIVE
+                                }`
                         }`
                     )
                     .forEach(btn =>
@@ -138,9 +140,9 @@ export default (
             document
                 .querySelectorAll<HTMLButtonElement>(
                     `#missions-panel-body button.${collapsableMissionBtnClass}.${
-                        btn.classList.contains(BTN_ACTIVE)
-                            ? BTN_ACTIVE
-                            : BTN_INACTIVE
+                        btn.classList.contains(BTN_ACTIVE) ?
+                            BTN_ACTIVE
+                        :   BTN_INACTIVE
                     }`
                 )
                 .forEach(btn => {

@@ -257,11 +257,9 @@ const alertColor = computed<`alert-${'danger' | 'success'}`>(() => {
             reqs.every(
                 req =>
                     req.missing - req.driving <=
-                    (typeof req.selected === 'number'
-                        ? req.selected
-                        : calcMaxStaff.value
-                          ? req.selected.max
-                          : req.selected.min)
+                    (typeof req.selected === 'number' ? req.selected
+                    : calcMaxStaff.value ? req.selected.max
+                    : req.selected.min)
             )
         )
     )

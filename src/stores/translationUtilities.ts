@@ -54,9 +54,9 @@ const translationStore = defineStore('translationUtilities', () => {
     const cellExtensions = cellBuildings.flatMap(building =>
         buildings[building].extensions
             .map((extension, index) =>
-                extension && 'newCells' in extension
-                    ? `${building}_${index}`
-                    : ''
+                extension && 'newCells' in extension ?
+                    `${building}_${index}`
+                :   ''
             )
             .filter(e => !!e)
     );
