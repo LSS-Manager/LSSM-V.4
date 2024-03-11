@@ -849,4 +849,6 @@ export const defineAPIStore = defineStore('api', () => {
 });
 
 export const useAPIStore: () => ReturnType<typeof defineAPIStore> = () =>
-    (window[PREFIX] as Vue)?.$stores?.api ?? defineAPIStore();
+    (window.top?.[PREFIX] as Vue)?.$stores?.api ??
+    (window[PREFIX] as Vue)?.$stores?.api ??
+    defineAPIStore();
