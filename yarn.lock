@@ -5364,9 +5364,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-regexp@npm:2.2.0":
-  version: 2.2.0
-  resolution: "eslint-plugin-regexp@npm:2.2.0"
+"eslint-plugin-regexp@npm:2.3.0":
+  version: 2.3.0
+  resolution: "eslint-plugin-regexp@npm:2.3.0"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.2.0"
     "@eslint-community/regexpp": "npm:^4.9.1"
@@ -5377,7 +5377,7 @@ __metadata:
     scslre: "npm:^0.3.0"
   peerDependencies:
     eslint: ">=8.44.0"
-  checksum: 10c0/31b1fc66556998377e4f4a6f31fbdeef07a0fe5f3d35e3ed437dfee31e75d0a808f2713c2d29fb177dd182e81f73ad2e49e4fad45a6fd4765d19e1c613da165c
+  checksum: 10c0/b598b522038ade15e788a318d6f82588a57edc3050fd3dd82e9ab7e3bf94070534611cd7a263eb4576e40726a5f658557fca25a1024528aa33af70fea5ed4785
   languageName: node
   linkType: hard
 
@@ -7622,7 +7622,7 @@ __metadata:
     eslint-plugin-jsdoc: "npm:48.2.1"
     eslint-plugin-markdownlint: "npm:0.5.0"
     eslint-plugin-prettier: "npm:5.1.3"
-    eslint-plugin-regexp: "npm:2.2.0"
+    eslint-plugin-regexp: "npm:2.3.0"
     eslint-plugin-tsdoc: "npm:0.2.17"
     eslint-plugin-unicorn: "npm:51.0.1"
     eslint-plugin-vue: "npm:9.22.0"
