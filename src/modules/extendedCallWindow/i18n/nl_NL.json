@@ -223,10 +223,7 @@
                 "texts": ["SAR-helicopter", "SAR-helicopters"],
                 "vehicles": [80]
             },
-            {
-                "texts": ["FBO Heli", "FBO-Helicopters"],
-                "vehicles": [85]
-            },
+            { "texts": ["FBO Heli", "FBO-Helicopters"], "vehicles": [85] },
             { "texts": ["DA-LA-NB", "DA-LA-NBs"], "vehicles": [87] },
             { "texts": ["NHT"], "vehicles": [101] },
             { "texts": ["GGB"], "vehicles": [100] },
