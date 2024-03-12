@@ -110,6 +110,18 @@ export default {
             staffList: 'Hondengeleider USAR',
             key: 'rescue_dogs',
         },
+        {
+            caption: 'Noodhulpteam',
+            duration: '5 Dagen',
+            staffList: 'Noodhulpteamlid',
+            key: 'mass_casualty',
+        },
+        {
+            caption: 'Geneeskundige bijstandsverlener',
+            duration: '7 Dagen',
+            staffList: 'Geneeskundige bijstandsverlener',
+            key: 'mass_casualty_and_emergency_doctor',
+        },
     ],
     Politie: [
         {
@@ -197,6 +209,18 @@ export default {
             duration: '10 Dagen',
             staffList: 'Officier van Dienst Geneeskunde',
             key: 'orgl',
+        },
+        {
+            caption: 'Noodhulpteam',
+            duration: '5 Dagen',
+            staffList: 'Noodhulpteamlid',
+            key: 'mass_casualty',
+        },
+        {
+            caption: 'Geneeskundige bijstandsverlener',
+            duration: '7 Dagen',
+            staffList: 'Geneeskundige bijstandsverlener',
+            key: 'mass_casualty_and_emergency_doctor',
         },
     ],
     Waterredding: [

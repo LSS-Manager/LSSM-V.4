@@ -223,15 +223,16 @@
                 "texts": ["SAR-helicopter", "SAR-helicopters"],
                 "vehicles": [80]
             },
-            { "texts": ["FBO Heli", "FBO Helis"], "vehicles": [85] },
             {
-                "texts": ["FBO-Helicopter", "FBO-Helicopters"],
+                "texts": ["FBO Heli", "FBO-Helicopters"],
                 "vehicles": [85]
             },
             { "texts": ["DA-LA-NB", "DA-LA-NBs"], "vehicles": [87] },
+            { "texts": ["NHT"], "vehicles": [101] },
+            { "texts": ["GGB"], "vehicles": [100] },
             {
                 "texts": [
-                    "Natuurbrandbestrijding Vrachtwagen of Haakarmbakken",
+                    "Natuurbrandbestrijding Vrachtwagen of Haakarmbak",
                     "Natuurbrandbestrijding Vrachtwagens of Haakarmbakken"
                 ],
                 "vehicles": [89]

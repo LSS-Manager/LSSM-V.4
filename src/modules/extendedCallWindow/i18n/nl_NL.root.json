@@ -235,7 +235,7 @@
             { "name": "Vliegveld", "vehicleTypes": [41, 42, 43, 44] },
             {
                 "name": "Ambulance",
-                "vehicleTypes": [16, 52, 57, 30, 23, 37, 38, 63]
+                "vehicleTypes": [16, 52, 57, 30, 23, 37, 38, 63, 100, 101, 102]
             },
             {
                 "name": "Politie Noodhulp",
