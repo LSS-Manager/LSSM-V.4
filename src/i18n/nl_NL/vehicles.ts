@@ -1534,4 +1534,61 @@ export default {
         icon: 'car-side',
         possibleBuildings: [5, 18],
     },
+    100: {
+        caption: 'GGB',
+        color: '#b16b00',
+        credits: 45000,
+        coins: 25,
+        staff: {
+            min: 6,
+            max: 6,
+            training: {
+                Brandweer: {
+                    mass_casualty_and_emergency_doctor: {
+                        all: true,
+                    },
+                },
+                Ambulance: {
+                    mass_casualty_and_emergency_doctor: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 3, 13],
+    },
+    101: {
+        caption: 'NHT',
+        color: '#b16b00',
+        credits: 15000,
+        coins: 15,
+        staff: {
+            min: 4,
+            max: 8,
+            training: {
+                Brandweer: {
+                    mass_casualty: {
+                        all: true,
+                    },
+                },
+                Ambulance: {
+                    mass_casualty: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 3, 13],
+    },
+    102: {
+        caption: 'MC-Ambulance',
+        color: '#b16b00',
+        credits: 5000,
+        coins: 25,
+        staff: { min: 2, max: 2 },
+        icon: 'car-side',
+        possibleBuildings: [3, 13],
+    },
 } satisfies Record<number, InternalVehicle>;
