@@ -107,7 +107,8 @@
     },
     "packageManager": "yarn@4.1.0",
     "workspaces": [
-        "./docs/.vuepress/"
+        "./docs/.vuepress/",
+        "./docsvite/.vitepress/"
     ],
     "prettier": {
         "arrowParens": "avoid",
