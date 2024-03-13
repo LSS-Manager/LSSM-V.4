@@ -101,29 +101,19 @@ LANGS.forEach(lang => {
   localeConfigs.pwaPopupConfigs[`/${lang}/`] = pwaPopupConfig;
 });
 localeConfigs.siteConfigs['root'] = localeConfigs.siteConfigs['en_US'];
-console.log(localeConfigs.siteConfigs);
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "LSS-Manager V.4 Wiki",
   description: "The Wiki for LSS-Manager V.4",
+  outDir: "../dist/docs",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' },
       { text: `v${versions.short}`, link: `https://github.com/${config.github.repo}/releases/tag/v${versions.short}` }
     ],
 
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
-    ],
+    sidebar: {},
 
     socialLinks: [
       { icon: 'github', link: `https://github.com/${config.github.repo}` },
