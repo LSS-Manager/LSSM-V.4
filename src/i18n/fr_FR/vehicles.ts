@@ -1201,4 +1201,17 @@ export default {
         icon: 'car-side',
         possibleBuildings: [29],
     },
+    78: {
+        caption: 'VPI',
+        color: '#cc0000',
+        credits: 14_000,
+        coins: 15,
+        staff: {
+            min: 2,
+            max: 4
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 18],
+
+    },
 } satisfies Record<number, InternalVehicle>;
