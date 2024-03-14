@@ -1179,4 +1179,39 @@ export default {
         icon: 'car-side',
         possibleBuildings: [28],
     },
+    77: {
+        caption: 'SA 330 PUMA',
+        color: '#225CB5',
+        credits: 300_000,
+        coins: 30,
+        staff: {
+            min: 8,
+            max: 8,
+            training: {
+                'Poste de police': {
+                    polizeihubschrauber: {
+                        min: 2,
+                    },
+                    swat: {
+                        min: 6,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [29],
+    },
+    78: {
+        caption: 'VPI',
+        color: '#cc0000',
+        credits: 14_000,
+        coins: 15,
+        staff: {
+            min: 2,
+            max: 4
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 18],
+
+    },
 } satisfies Record<number, InternalVehicle>;

@@ -672,7 +672,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 18],
         waterTank: 14_000,
-        foamTank: 1_400,
+        foamTank: 1400,
     },
     44: {
         caption: 'RIV',
@@ -834,7 +834,7 @@ export default {
     55: {
         caption: 'CAFS Pumper',
         color: '#cc0000',
-        credits: 20000,
+        credits: 20_000,
         coins: 25,
         staff: { min: 1, max: 5 },
         icon: 'car-side',
@@ -845,7 +845,7 @@ export default {
     56: {
         caption: 'CAFS Aerial Pumper',
         color: '#cc0000',
-        credits: 27000,
+        credits: 27_000,
         coins: 25,
         staff: { min: 1, max: 5 },
         icon: 'car-side',
@@ -867,7 +867,7 @@ export default {
     58: {
         caption: 'Foam Logistics Vehicle',
         color: '#cc0000',
-        credits: 28000,
+        credits: 28_000,
         coins: 20,
         staff: { min: 1, max: 2 },
         icon: 'car-side',
