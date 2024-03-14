@@ -156,7 +156,7 @@ export interface BuildingMarkerAdd {
     latitude: number;
     icon: string;
     vgi: number | null; // ID of assigned vehicle graphic set
-    lbid: number;
+    lbid: number; // leitstelle building ID
     show_vehicles_at_startpage: boolean;
     level: number;
     personal_count: number;

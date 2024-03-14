@@ -193,9 +193,10 @@ import { faListUl } from '@fortawesome/free-solid-svg-icons/faListUl';
 import { faPiggyBank } from '@fortawesome/free-solid-svg-icons/faPiggyBank';
 import { faTable } from '@fortawesome/free-solid-svg-icons/faTable';
 import { mapState } from 'pinia';
-import { useAPIStore } from '@stores/api';
+import { defineAPIStore, useAPIStore } from '@stores/api';
 import { defineRootStore, useRootStore } from '@stores/index';
 
+import type { CreditsInfo } from 'typings/api/Credits';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type VueI18n from 'vue-i18n';
 
@@ -217,13 +218,6 @@ export default Vue.extend<
         coinsInNav: boolean;
         showToplistPosition: boolean;
         saleActive: boolean;
-        creditsAPI: {
-            credits_user_total: number;
-            user_toplist_position: number;
-            credits_alliance_active: boolean;
-            credits_alliance_current: number;
-            credits_alliance_total: number;
-        };
         hideAllianceFunds: boolean;
         showAlertProgressBar: boolean;
         alertProgressPercentage: number;
@@ -236,6 +230,7 @@ export default Vue.extend<
         highlight(): void;
     },
     {
+        creditsAPI: CreditsInfo;
         credits: number;
         creditsLocalized: string;
         coins: number;
@@ -278,13 +273,6 @@ export default Vue.extend<
             coinsInNav: false,
             showToplistPosition: false,
             saleActive: false,
-            creditsAPI: {
-                credits_user_total: 0,
-                user_toplist_position: 0,
-                credits_alliance_active: false,
-                credits_alliance_current: 0,
-                credits_alliance_total: 0,
-            },
             hideAllianceFunds: false,
             showAlertProgressBar: false,
             alertProgressPercentage: 0,
@@ -310,6 +298,9 @@ export default Vue.extend<
     },
     computed: {
         ...mapState(defineRootStore, ['credits', 'coins']),
+        ...mapState(defineAPIStore, {
+            creditsAPI: 'credits',
+        }),
         creditsLocalized() {
             return this.credits.toLocaleString();
         },
@@ -371,26 +362,6 @@ export default Vue.extend<
         )?.src;
         if (coinsIcon) this.coinsIcon = coinsIcon;
 
-        useAPIStore().autoUpdateCredits(
-            this.MODULE_ID,
-            ({
-                value: {
-                    credits_user_total,
-                    user_toplist_position,
-                    credits_alliance_active,
-                    credits_alliance_current,
-                    credits_alliance_total,
-                },
-            }) =>
-                this.$set(this, 'creditsAPI', {
-                    credits_user_total,
-                    user_toplist_position,
-                    credits_alliance_active,
-                    credits_alliance_current,
-                    credits_alliance_total,
-                })
-        );
-
         this.getSetting('creditsInNavbar').then(value =>
             this.$set(this, 'creditsInNav', value)
         );
@@ -410,7 +381,9 @@ export default Vue.extend<
         this.getSetting<{ enabled: boolean; value: { credits: number }[] }>(
             'alerts'
         ).then(({ value: alerts }) => {
-            if (!alerts.length) return;
+            if (!alerts.length)
+                return useAPIStore().getCredits('creditsextension-initial');
+
             const alertValues = alerts.map(({ credits }) => credits).sort();
 
             const findNextAlertValue = (current: number) =>
@@ -432,7 +405,7 @@ export default Vue.extend<
             useAPIStore()
                 .getCredits('creditsextension-alerts-initial')
                 .then(
-                    ({ value: { credits_user_current } }) =>
+                    ({ credits_user_current }) =>
                         (this.alertProgressPercentage =
                             (credits_user_current /
                                 findNextAlertValue(credits_user_current)) *

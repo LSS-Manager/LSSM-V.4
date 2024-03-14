@@ -146,6 +146,10 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         sortMissionsInMissionwindowChecked: <Hidden>{
             type: 'hidden',
         },
+        sortMissionsOrder: <Hidden>{
+            type: 'hidden',
+            default: {},
+        },
         currentPatients: <Toggle>{
             type: 'toggle',
             default: false,

@@ -14,10 +14,7 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
         t: HTMLAnchorElement
     ) => {
         await LSSM.$stores.api
-            .request({
-                url: t.getAttribute('href') ?? '',
-                feature: `${MODULE_ID}-memberlist`,
-            })
+            .request(t.getAttribute('href') ?? '', `${MODULE_ID}-memberlist`)
             .then(({ status }) => {
                 if (status !== 200) return;
                 const href = t.getAttribute('href')?.split('/');

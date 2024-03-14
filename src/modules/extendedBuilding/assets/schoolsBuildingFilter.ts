@@ -19,7 +19,7 @@ export default async (LSSM: Vue) => {
 
     const buildings: BuildingInfos[] = [];
 
-    const buildingsById = LSSM.$stores.api.buildingsById;
+    const buildingsById = LSSM.$stores.api.buildings;
     const vehiclesByBuilding = LSSM.$stores.api.vehiclesByBuilding;
 
     const buildingTypes = LSSM.$stores.translations.buildings;
@@ -45,7 +45,7 @@ export default async (LSSM: Vue) => {
             dispatchCenter: buildingsById[buildingId].leitstelle_building_id,
             vehicleTypes: Array.from(
                 new Set(
-                    vehiclesByBuilding[buildingId]?.map(
+                    Object.values(vehiclesByBuilding[buildingId] ?? []).map(
                         ({ vehicle_type }) => vehicle_type
                     ) ?? []
                 )

@@ -165,11 +165,13 @@ export default (
 
     const sortBtn = document.querySelector<HTMLButtonElement>(`#${sortBtnId}`);
     if (sortBtn) {
-        sortBtn.before(allBtn);
+        sortBtn.parentElement?.before(allBtn);
     } else {
         document
-            .querySelector<HTMLDivElement>('#btn-group-mission-select')
-            ?.append(allBtn);
+            .querySelector<HTMLDivElement>(
+                '.missions-panel-main .mission_selection:not(:has(~.mission_selection))'
+            )
+            ?.after(allBtn);
     }
 
     return (mission, collapsableMissionBtnClass) => {

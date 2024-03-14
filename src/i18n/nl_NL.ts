@@ -104,8 +104,9 @@ export default {
         },
         Ambulance: {
             vehicles: {
-                'Ambulances': [16, 30, 38, 52, 57, 63],
+                'Ambulances': [16, 30, 38, 52, 57, 63, 102],
                 'MMT voertuigen': [23, 37],
+                'GGB': [100, 101],
             },
             color: '#ffa500',
         },

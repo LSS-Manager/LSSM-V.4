@@ -405,10 +405,7 @@ export default Vue.extend<
                 let redirected = false;
 
                 this.apiStore
-                    .request({
-                        url,
-                        feature: `redesign-${type}`,
-                    })
+                    .request(url, `redesign-${type}`)
                     .then((res: Response) => {
                         if (res.redirected && type !== 'einsatz') {
                             redirected = true;
@@ -717,7 +714,6 @@ export default Vue.extend<
         this.apiStore.getAllianceInfo(mountFeature).then();
         this.apiStore.getBuildings(mountFeature).then();
         this.apiStore.getCredits(mountFeature).then();
-        this.apiStore.getMissions(mountFeature).then();
         this.apiStore.getVehicles(mountFeature).then();
     },
     mounted() {

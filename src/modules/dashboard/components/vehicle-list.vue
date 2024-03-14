@@ -146,7 +146,7 @@ export default Vue.extend<
                 )
             ),
             vehiclesWithBuildings: [],
-            buildings: apiStore.buildings,
+            buildings: apiStore.buildingsArray,
             search: '',
             sort: 'caption',
             sortDir: 'asc',
@@ -203,10 +203,10 @@ export default Vue.extend<
             if (![2, 6].includes(vehicle.fms_real)) return;
             const target = vehicle.fms_real === 2 ? 6 : 2;
             this.apiStore
-                .request({
-                    url: `/vehicles/${vehicle.id}/set_fms/${target}`,
-                    feature: `dashboard-vehicleList-setfms`,
-                })
+                .request(
+                    `/vehicles/${vehicle.id}/set_fms/${target}`,
+                    `dashboard-vehicleList-setfms`
+                )
                 .then(() => {
                     vehicle.fms_real = target;
                     vehicle.fms_show = (
@@ -222,10 +222,10 @@ export default Vue.extend<
             this.resolving = window.setTimeout(
                 () =>
                     this.apiStore
-                        .request({
-                            url: `/${type}s/${id}`,
-                            feature: 'dashboard-vehiclelist-resolve-title',
-                        })
+                        .request(
+                            `/${type}s/${id}`,
+                            'dashboard-vehiclelist-resolve-title'
+                        )
                         .then(res => res.text())
                         .then(html => {
                             const doc = new DOMParser().parseFromString(

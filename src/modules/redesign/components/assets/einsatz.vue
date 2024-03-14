@@ -13,8 +13,6 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { useAPIStore } from '@stores/api';
-
 import type { Mission } from 'typings/Mission';
 import type { DefaultData, DefaultMethods } from 'vue/types/options';
 
@@ -32,9 +30,7 @@ export default Vue.extend<
     name: 'lssmv4-redesign-einsatz-component',
     computed: {
         mission() {
-            return useAPIStore().missionsArray.find(
-                ({ id }) => id === this.type.toString()
-            );
+            return undefined;
         },
     },
     props: {

@@ -205,7 +205,7 @@ export default <ModuleMainFunction>(async ({
                             )
                             ?.getAttribute('data-building_id') ?? '-1'
                     );
-                    if (buildingsByType[small]?.find(b => b.id === id)) {
+                    if (buildingsByType[small]?.[id]) {
                         building.setAttribute(
                             'building_type_id',
                             small.toString()

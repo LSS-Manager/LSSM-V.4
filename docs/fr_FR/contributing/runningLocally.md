@@ -8,7 +8,6 @@ sidebarDepth: 2
 Si vous souhaitez vérifier que vos modifications fonctionnent correctement, vous pouvez les exécuter localement.
 ::: warning Attention
 Sachez que cette partie est une partie avancé, vous devez savoir ce que vous faites.
-:::
 
 ## Configuration
 1. Une version supportée de node.js doit être installée.

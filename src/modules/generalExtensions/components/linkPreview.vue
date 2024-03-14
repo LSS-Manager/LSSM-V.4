@@ -129,7 +129,6 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import cloneDeep from 'lodash/cloneDeep';
 import { defineAPIStore } from '@stores/api';
 import { faBorderAll } from '@fortawesome/free-solid-svg-icons/faBorderAll';
 import { faCar } from '@fortawesome/free-solid-svg-icons/faCar';
@@ -196,14 +195,13 @@ export default Vue.extend<
             return this.$el.parentElement;
         },
         ...mapState(defineAPIStore, {
-            buildings: 'buildings',
             vehicles: 'vehiclesByBuilding',
+            buildings: 'buildingsArray',
         }),
         buildingVehicles() {
-            return (
-                cloneDeep(this.vehicles[this.id])?.sort((a, b) =>
+            return Object.values(this.vehicles[this.id] ?? []).toSorted(
+                (a, b) =>
                     a.caption > b.caption ? 1 : b.caption > a.caption ? -1 : 0
-                ) || []
             );
         },
         buildingCells() {

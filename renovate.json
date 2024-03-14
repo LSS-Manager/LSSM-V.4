@@ -24,6 +24,7 @@
             "matchManagers": ["npm"],
             "matchPackageNames": [
                 "@fortawesome/vue-fontawesome",
+                "highcharts-vue",
                 "vue",
                 "vue-i18n",
                 "vue-loader",

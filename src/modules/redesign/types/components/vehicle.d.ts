@@ -1,6 +1,5 @@
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { StarrableButton } from '../../../extendedCallList/assets/starrableMissions/createBtn';
-import type { useAPIStore } from '@stores/api';
 import type { useSettingsStore } from '@stores/settings';
 import type {
     Cell,
@@ -166,10 +165,10 @@ export type RedesignVehicleComponent = RedesignComponent<
                 list: DistributeListUnion<Types[key]['item']> | '*';
             };
         };
-        apiStore: ReturnType<typeof useAPIStore>;
         settingsStore: ReturnType<typeof useSettingsStore>;
         starredMissionsEnabled: boolean;
         starredMissions: string[];
+        missionTypes: Record<string, Mission>;
     },
     {
         getUrl(item: ItemChooser<'item'>): string;
@@ -210,7 +209,7 @@ export type RedesignVehicleComponent = RedesignComponent<
         sortedItems: ItemChooser<'item'>[];
         shownItems: ItemChooser<'item'>[];
 
-        participatedMissions: number[];
+        participatedMissions: string[];
 
         hotkeysParam: {
             component: RedesignVueInstance<RedesignVehicleComponent>;

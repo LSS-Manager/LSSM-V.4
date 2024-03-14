@@ -2,7 +2,6 @@ import type Vue from 'vue';
 
 import { defineStore } from 'pinia';
 import { useAPIStore } from '@stores/api';
-import { useBroadcastStore } from '@stores/broadcast';
 import { useEventStore } from '@stores/event';
 
 import config from '../config';
@@ -102,12 +101,6 @@ export const defineRootStore = defineStore('root', {
                     })
                 );
                 if (diff > 0) apiStore.credits.credits_user_total += diff;
-                useBroadcastStore()
-                    .apiBroadcast('credits', {
-                        value: apiStore.credits,
-                        lastUpdate: apiStore.lastUpdates.credits ?? Date.now(),
-                    })
-                    .then();
             }
         },
         updateCoins(coins: number) {

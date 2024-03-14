@@ -73,7 +73,7 @@ export default <ModuleMainFunction>(async ({
     };
 
     const setData = (heatLayer: HeatLayer) => {
-        const buildings = LSSM.$stores.api.buildings;
+        const buildings = LSSM.$stores.api.buildingsArray;
         const buildingsById = Object.fromEntries(
             buildings.map(({ id, latitude, longitude }) => [
                 id,
@@ -104,7 +104,7 @@ export default <ModuleMainFunction>(async ({
             const vehicleTypes = vehicleSettings.includes.map(
                 ({ value }) => value
             );
-            LSSM.$stores.api.vehicles.forEach(
+            LSSM.$stores.api.vehiclesArray.forEach(
                 ({ building_id, vehicle_type, vehicle_type_caption = '' }) => {
                     if (
                         !(

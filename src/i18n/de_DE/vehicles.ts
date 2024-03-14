@@ -2254,4 +2254,96 @@ export default {
         possibleBuildings: [11, 24],
         special: 'Kann den Anh Pferdetransport ziehen.',
     },
+    138: {
+        caption: 'GW-Verpflegung',
+        color: '#a34100',
+        credits: 20_000,
+        coins: 25,
+        staff: {
+            min: 3,
+            max: 6,
+            training: {
+                Feuerwehr: {
+                    fire_care_service: {
+                        min: 1,
+                    },
+                    care_service_equipment: {
+                        min: 2,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 18],
+        special: '',
+    },
+    139: {
+        caption: 'GW-Küche',
+        color: '#a34100',
+        credits: 35_000,
+        coins: 25,
+        staff: {
+            min: 3,
+            max: 3,
+            training: {
+                Feuerwehr: {
+                    fire_care_service: {
+                        min: 1,
+                    },
+                    care_service_equipment: {
+                        min: 2,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 18],
+        special: '',
+    },
+    140: {
+        caption: 'MTW-Verpflegung',
+        color: '#a34100',
+        credits: 15_000,
+        coins: 13,
+        staff: {
+            min: 6,
+            max: 6,
+            training: {
+                Feuerwehr: {
+                    fire_care_service: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 18],
+    },
+    141: {
+        caption: 'Anhänger Feldherdkoch',
+        color: '#a34100',
+        credits: 10_000,
+        coins: 15,
+        staff: {
+            min: 0,
+            max: 0,
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 18],
+        isTrailer: true,
+        tractiveVehicles: [138],
+        special:
+            'Der Anhänger Feldherdkoch kann zur Versorgung von Einsatzkräften eingesetzt werden und ist Teil des Verpflegungsdienstes.',
+    },
+    142: {
+        caption: 'AB-Küche',
+        color: '#9d2424',
+        credits: 7000,
+        coins: 12,
+        staff: { min: 0, max: 0 },
+        icon: 'square',
+        possibleBuildings: [0, 18],
+        isTrailer: true,
+        tractiveVehicles: [46],
+    },
 } satisfies Record<number, InternalVehicle>;

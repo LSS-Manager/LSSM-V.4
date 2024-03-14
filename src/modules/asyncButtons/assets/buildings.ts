@@ -22,10 +22,10 @@ export default (
                 e.preventDefault();
                 taxBtns.forEach(taxBtn => taxBtn.classList.add('disabled'));
                 await LSSM.$stores.api
-                    .request({
-                        url: btn.getAttribute('href') ?? '',
-                        feature: `${MODULE_ID}-buildings`,
-                    })
+                    .request(
+                        btn.getAttribute('href') ?? '',
+                        `${MODULE_ID}-buildings`
+                    )
                     .then(({ status }) => {
                         if (status === 200) {
                             document
@@ -72,9 +72,10 @@ export default (
                         ?.getAttribute('content') || ''
                 );
                 await LSSM.$stores.api
-                    .request({
-                        url: btn.getAttribute('href') ?? '',
-                        init: {
+                    .request(
+                        btn.getAttribute('href') ?? '',
+                        'ab-buildings-extensionState',
+                        {
                             method: 'POST',
                             body: url.searchParams.toString(),
                             headers: {
@@ -84,9 +85,8 @@ export default (
                                     'application/x-www-form-urlencoded',
                                 'Upgrade-Insecure-Requests': '1',
                             },
-                        },
-                        feature: 'ab-buildings-extensionState',
-                    })
+                        }
+                    )
                     .then(({ status }) => {
                         if (status === 200) {
                             extensionStateBtns.forEach(tbtn =>

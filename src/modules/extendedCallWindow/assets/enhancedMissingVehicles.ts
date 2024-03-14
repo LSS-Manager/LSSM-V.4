@@ -13,11 +13,14 @@ export default (
 
     import(
         /* webpackChunkName: "modules/extendedCallWindow/enhancedMissingVehicles/getMissingRequirements"*/ './emv/getMissingRequirements'
-    ).then(({ default: getMissingRequirements }) => {
+    ).then(async ({ default: getMissingRequirements }) => {
         const props = getMissingRequirements(
             LSSM,
             missingDialog,
-            LSSM.$utils.getMissionTypeInMissionWindow(),
+            await LSSM.$stores.api.getMissionType(
+                LSSM.$utils.getMissionTypeInMissionWindow(),
+                'ecw-emv'
+            ),
             $m
         );
         if (!props) return;

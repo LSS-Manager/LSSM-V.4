@@ -183,10 +183,10 @@ export default <Scope<Empty, ['goto', 'alarm', 'other'], [], true, 'vehicle'>>{
                     throw new Error('FMS is not 2 or 6');
                 })
                 .then(fms =>
-                    LSSM.$stores.api.request({
-                        url: `/vehicles/${vehicleID}/set_fms/${fms}`,
-                        feature: `hotkeys-toggleFMS`,
-                    })
+                    LSSM.$stores.api.request(
+                        `/vehicles/${vehicleID}/set_fms/${fms}`,
+                        `hotkeys-toggleFMS`
+                    )
                 )
                 .then(() =>
                     redesign

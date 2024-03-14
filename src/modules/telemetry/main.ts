@@ -118,21 +118,21 @@ export default (
         browser: UAParser.IBrowser,
         browserMajor: number
     ) => {
-        await LSSM.$stores.api._setSecretKey();
         const buildingsAmount = await LSSM.$stores.api
             .getBuildings('telemetry')
-            .then(({ value: buildings }) => buildings.length);
+            .then(buildings => Object.values(buildings).length);
 
         LSSM.$stores.api
-            .request({
-                url: LSSM.$stores.root.lssmUrl(`/telemetry.php`, true),
-                init: {
+            .request(
+                LSSM.$stores.root.lssmUrl(`/telemetry.php`, true),
+                'telemetry',
+                {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        id: LSSM.$stores.api.secretKey,
+                        id: await LSSM.$stores.api.awaitSecretKey(),
                         uid: window.user_id,
                         game: LSSM.$stores.root.locale,
                         police: LSSM.$stores.root.isPoliceChief,
@@ -159,9 +159,8 @@ export default (
                             ) ?? '4.0.0',
                         branch: BRANCH,
                     }),
-                },
-                feature: 'telemetry',
-            })
+                }
+            )
             .then(res => res.json())
             .catch(() => {
                 // Don't do anything
@@ -170,7 +169,7 @@ export default (
 
     LSSM.$stores.api
         .getCredits('telemetry')
-        .then(async ({ value: { user_directplay_registered } }) => {
+        .then(async ({ user_directplay_registered }) => {
             if (user_directplay_registered) return;
 
             const ua = new UAParser(window.navigator.userAgent);

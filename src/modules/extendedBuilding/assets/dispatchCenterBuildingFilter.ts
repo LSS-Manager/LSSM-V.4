@@ -19,9 +19,10 @@ export default (LSSM: Vue, MODULE_ID: string) => {
                 ),
                 vehicleTypes: Array.from(
                     new Set(
-                        LSSM.$stores.api.vehiclesByBuilding[buildingId]?.map(
-                            v => v.vehicle_type_caption || v.vehicle_type
-                        ) ?? []
+                        Object.values(
+                            LSSM.$stores.api.vehiclesByBuilding[buildingId] ??
+                                []
+                        ).map(v => v.vehicle_type_caption || v.vehicle_type)
                     )
                 ),
             };

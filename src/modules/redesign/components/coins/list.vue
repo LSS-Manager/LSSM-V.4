@@ -143,10 +143,7 @@ export default Vue.extend<
             this.startPage--;
             const url = `/coins/list?page=${this.startPage}`;
             this.lightbox.apiStore
-                .request({
-                    url,
-                    feature: `redesign-coins-list-load-prev-${this.startPage}`,
-                })
+                .request(url, `redesign-coins-list-load-prev-${this.startPage}`)
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/coins/list').then(async parser => {
@@ -179,10 +176,7 @@ export default Vue.extend<
             this.endPage++;
             const url = `/coins/list?page=${this.endPage}`;
             this.lightbox.apiStore
-                .request({
-                    url,
-                    feature: `redesign-coins-list-load-next-${this.endPage}`,
-                })
+                .request(url, `redesign-coins-list-load-next-${this.endPage}`)
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/coins/list').then(async parser => {

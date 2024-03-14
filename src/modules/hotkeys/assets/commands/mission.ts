@@ -214,19 +214,19 @@ export default <
         validatorFunction: () => true,
         allVehicles() {
             document
-                .querySelector<HTMLAnchorElement>("a[href$='backalarmAll']")
+                .querySelector<HTMLAnchorElement>("a[href*='backalarmAll']")
                 ?.click();
         },
         onlyAmbulance() {
             document
                 .querySelector<HTMLAnchorElement>(
-                    "a[href$='backalarmRettungsdienst']"
+                    "a[href*='backalarmRettungsdienst']"
                 )
                 ?.click();
         },
         abortApproach() {
             document
-                .querySelector<HTMLAnchorElement>("a[href$='backalarmDriving']")
+                .querySelector<HTMLAnchorElement>("a[href*='backalarmDriving']")
                 ?.click();
         },
     },

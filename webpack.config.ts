@@ -13,6 +13,7 @@ export default {
             'vue$': 'vue/dist/vue.runtime.esm.js',
             'vue.esm.js$': 'vue/dist/vue.runtime.esm.js',
             '@stores': path.resolve('src/stores'),
+            '@workers': path.resolve('src/workers'),
         },
         extensions: ['.tsx', '.ts', '.js', '.vue', '.json'],
         // modules: ['node_modules', path.resolve(__dirname, 'src')],

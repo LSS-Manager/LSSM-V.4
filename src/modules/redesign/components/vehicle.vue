@@ -72,7 +72,7 @@
                                         ? `&vehicle_type_caption=${vehicle.vehicleType.caption}`
                                         : ''
                                 }`"
-                                class="btn btn-default btn-xs lightbox-open pull-right"
+                                class="btn btn-default btn-xs pull-right"
                                 :title="lightbox.$sm('color')"
                                 lightbox-open
                             >
@@ -474,7 +474,9 @@
                                 v-else-if="col === 'participation'"
                                 :icon="
                                     participationIcon[
-                                        participatedMissions.includes(item.id)
+                                        participatedMissions.includes(
+                                            item.id.toString()
+                                        )
                                     ]
                                 "
                             >
@@ -489,11 +491,11 @@
                                 </template>
                             </template>
                             <template v-else-if="col === 'credits'">
-                                <template v-if="apiStore.missions[item.type]">
+                                <template v-if="missionTypes[item.type]">
                                     ~
                                     {{
                                         (
-                                            apiStore.missions[item.type]
+                                            missionTypes[item.type]
                                                 .average_credits ?? 0
                                         ).toLocaleString()
                                     }}
@@ -797,10 +799,10 @@ export default Vue.extend<
                     showEach: 0,
                 },
             },
-            apiStore: useAPIStore(),
             settingsStore: useSettingsStore(),
             starredMissionsEnabled: false,
             starredMissions: [],
+            missionTypes: {},
         };
     },
     computed: {
@@ -1018,7 +1020,7 @@ export default Vue.extend<
                                 ? item[filter as keyof typeof item]
                                 : item,
                         participation: this.participatedMissions.includes(
-                            item.id
+                            item.id.toString()
                         ),
                         distance: parseFloat(
                             item.distance
@@ -1027,7 +1029,7 @@ export default Vue.extend<
                         ),
                         credits:
                             'type' in item
-                                ? this.apiStore.missions[item.type]
+                                ? this.missionTypes[item.type]
                                       ?.average_credits ?? 0
                                 : Number.MAX_SAFE_INTEGER,
                         progress: 'progress' in item ? item.progress.width : 0,
@@ -1056,7 +1058,9 @@ export default Vue.extend<
                 let sortValue: boolean | number | string = 0;
 
                 if (sort === 'participation') {
-                    sortValue = this.participatedMissions.includes(item.id);
+                    sortValue = this.participatedMissions.includes(
+                        item.id.toString()
+                    );
                 } else if (sort === 'distance') {
                     sortValue = parseFloat(
                         item.distance
@@ -1066,8 +1070,7 @@ export default Vue.extend<
                 } else if (sort === 'credits') {
                     sortValue =
                         'type' in item
-                            ? this.apiStore.missions[item.type]
-                                  ?.average_credits ?? 0
+                            ? this.missionTypes[item.type]?.average_credits ?? 0
                             : Number.MAX_SAFE_INTEGER;
                 } else if (sort === 'progress') {
                     sortValue =
@@ -1135,9 +1138,7 @@ export default Vue.extend<
             }
             return this.sortedItems;
         },
-        ...mapState(defineAPIStore, {
-            participatedMissions: 'participatedMissions',
-        }),
+        ...mapState(defineAPIStore, ['participatedMissions']),
         hotkeysParam() {
             return {
                 component: this,
@@ -1248,9 +1249,10 @@ export default Vue.extend<
             );
             url.searchParams.append('vehicle_return', '1');
             this.lightbox.apiStore
-                .request({
-                    url: `/missions/${missionId}/alarm`,
-                    init: {
+                .request(
+                    `/missions/${missionId}/alarm`,
+                    `redesign-vehicle-alarm-${this.vehicle.id}-to-${missionId}`,
+                    {
                         credentials: 'include',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
@@ -1262,9 +1264,8 @@ export default Vue.extend<
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
-                    },
-                    feature: `redesign-vehicle-alarm-${this.vehicle.id}-to-${missionId}`,
-                })
+                    }
+                )
                 .then(() =>
                     this.$set(
                         this.lightbox,
@@ -1297,10 +1298,7 @@ export default Vue.extend<
         },
         approach(url, followRedirect = true) {
             this.lightbox.apiStore
-                .request({
-                    url,
-                    feature: `redesign-vehicle-approach`,
-                })
+                .request(url, `redesign-vehicle-approach`)
                 .then((res: Response) => {
                     if (res.redirected && followRedirect) {
                         if (
@@ -1394,9 +1392,10 @@ export default Vue.extend<
                                 LSSM.vehicle.authenticity_token
                             );
                             LSSM.lightbox.apiStore
-                                .request({
-                                    url: `/vehicles/${LSSM.vehicle.id}`,
-                                    init: {
+                                .request(
+                                    `/vehicles/${LSSM.vehicle.id}`,
+                                    `redesign-vehicle-delete-${LSSM.vehicle.id}`,
+                                    {
                                         credentials: 'include',
                                         headers: {
                                             'Content-Type':
@@ -1409,9 +1408,8 @@ export default Vue.extend<
                                         body: url.searchParams.toString(),
                                         method: 'POST',
                                         mode: 'cors',
-                                    },
-                                    feature: `redesign-vehicle-delete-${LSSM.vehicle.id}`,
-                                })
+                                    }
+                                )
                                 .then(() => {
                                     LSSM.$modal.hide('dialog');
                                     LSSM.$set(
@@ -1427,10 +1425,10 @@ export default Vue.extend<
         },
         backalarm() {
             this.lightbox.apiStore
-                .request({
-                    url: `/vehicles/${this.vehicle.id}/backalarm`,
-                    feature: `redesign-vehicle-alarm-${this.vehicle.id}-backalarm`,
-                })
+                .request(
+                    `/vehicles/${this.vehicle.id}/backalarm`,
+                    `redesign-vehicle-alarm-${this.vehicle.id}-backalarm`
+                )
                 .then(() =>
                     this.$set(
                         this.lightbox,
@@ -1441,10 +1439,10 @@ export default Vue.extend<
         },
         backalarmFollowUp(missionId) {
             this.lightbox.apiStore
-                .request({
-                    url: `/vehicles/${this.vehicle.id}/backalarm?only_mission_id=${missionId}`,
-                    feature: `redesign-vehicle-backalarm-only_mission`,
-                })
+                .request(
+                    `/vehicles/${this.vehicle.id}/backalarm?only_mission_id=${missionId}`,
+                    `redesign-vehicle-backalarm-only_mission`
+                )
                 .then(() => {
                     this.$set(
                         this.lightbox,
@@ -1455,10 +1453,10 @@ export default Vue.extend<
         },
         backalarmCurrent() {
             this.lightbox.apiStore
-                .request({
-                    url: `/vehicles/${this.vehicle.id}/backalarm?next_mission=1`,
-                    feature: `redesign-vehicle-backalarm-next_mission`,
-                })
+                .request(
+                    `/vehicles/${this.vehicle.id}/backalarm?next_mission=1`,
+                    `redesign-vehicle-backalarm-next_mission`
+                )
                 .then(() => {
                     this.$set(
                         this.lightbox,
@@ -1471,10 +1469,10 @@ export default Vue.extend<
             if (![2, 6].includes(this.vehicle.fms)) return;
             const target = this.vehicle.fms === 2 ? 6 : 2;
             this.lightbox.apiStore
-                .request({
-                    url: `/vehicles/${this.vehicle.id}/set_fms/${target}`,
-                    feature: `redesign-vehicle-setfms`,
-                })
+                .request(
+                    `/vehicles/${this.vehicle.id}/set_fms/${target}`,
+                    `redesign-vehicle-setfms`
+                )
                 .then(() => {
                     this.$set(
                         this.lightbox,
@@ -1540,9 +1538,10 @@ export default Vue.extend<
                     this.vehicle.authenticity_token
                 );
                 this.lightbox.apiStore
-                    .request({
-                        url: `${url.pathname}?vehicle_id=${this.vehicle.id}`,
-                        init: {
+                    .request(
+                        `${url.pathname}?vehicle_id=${this.vehicle.id}`,
+                        `redesign-vehicle-release-prisoners`,
+                        {
                             credentials: 'include',
                             headers: {
                                 'Content-Type':
@@ -1555,9 +1554,8 @@ export default Vue.extend<
                             body: url.searchParams.toString(),
                             method: 'POST',
                             mode: 'cors',
-                        },
-                        feature: `redesign-vehicle-release-prisoners`,
-                    })
+                        }
+                    )
                     .then((res: Response) => {
                         this.$set(
                             this.lightbox,
@@ -1607,10 +1605,7 @@ export default Vue.extend<
                 window.location.origin
             );
             this.lightbox.apiStore
-                .request({
-                    url,
-                    feature: `redesign-vehicle-load_all_hospitals`,
-                })
+                .request(url, `redesign-vehicle-load_all_hospitals`)
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../parsers/vehicle').then(async parser => {
@@ -1728,6 +1723,10 @@ export default Vue.extend<
     },
     mounted() {
         this.updateStarredMissions().then();
+
+        useAPIStore()
+            .getMissionTypes('redesign-vehicle')
+            .then(missionTypes => (this.missionTypes = missionTypes));
 
         this.lightbox.setHotkeyRedesignParam('vehicles', this.hotkeysParam);
         this.lightbox.finishLoading('vehicle-mounted');

@@ -341,12 +341,12 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { useAPIStore } from '@stores/api';
+import { mapState } from 'pinia';
 import { useRootStore } from '@stores/index';
 import { useSettingsStore } from '@stores/settings';
 import { useTranslationStore } from '@stores/translationUtilities';
+import { defineAPIStore, useAPIStore } from '@stores/api';
 
-import type { Building } from 'typings/Building';
 import type { DefaultProps } from 'vue/types/options';
 import type { Vehicle } from 'typings/Vehicle';
 import type {
@@ -398,7 +398,7 @@ export default Vue.extend<
         const dispatchCenterBuildings =
             translationStore.dispatchCenterBuildings;
         return {
-            buildings: apiStore.buildings,
+            buildings: apiStore.buildingsArray,
             selectedBuilding: null,
             boards: [],
             buildingLimit: 50,
@@ -416,7 +416,7 @@ export default Vue.extend<
                 .sort((a, b) =>
                     a.caption > b.caption ? 1 : a.caption < b.caption ? -1 : 0
                 ),
-            dispatchBuildings: apiStore.buildings
+            dispatchBuildings: apiStore.buildingsArray
                 .filter(building =>
                     dispatchCenterBuildings.includes(building.building_type)
                 )
@@ -424,7 +424,6 @@ export default Vue.extend<
                     a.caption > b.caption ? 1 : a.caption < b.caption ? -1 : 0
                 ),
             settingsStore: useSettingsStore(),
-            apiStore,
             rootStore,
             translationStore,
         } as DispatchcenterView;
@@ -439,13 +438,9 @@ export default Vue.extend<
         buildingSelection() {
             return this.board ? this.board.buildingSelection : {};
         },
-        buildingsById() {
-            const buildings = {} as Record<number, Building>;
-            Object.values(this.buildings).forEach(
-                building => (buildings[building.id] = building)
-            );
-            return buildings;
-        },
+        ...mapState(defineAPIStore, {
+            buildingsById: 'buildings',
+        }),
         buildingList() {
             return this.buildingListFiltered.slice(
                 this.buildingListOffset,
@@ -503,9 +498,9 @@ export default Vue.extend<
         vehiclesByBuildingSorted() {
             const vehiclesSorted = {} as Record<number, Vehicle[]>;
             Object.keys(this.vehiclesByBuilding).forEach(building => {
-                vehiclesSorted[parseInt(building)] = this.vehiclesByBuilding[
-                    parseInt(building)
-                ].sort((a, b) =>
+                vehiclesSorted[parseInt(building)] = Object.values(
+                    this.vehiclesByBuilding[parseInt(building)]
+                ).toSorted((a, b) =>
                     a.caption > b.caption ? -1 : a.caption < b.caption ? 1 : 0
                 );
             });
@@ -627,8 +622,9 @@ export default Vue.extend<
                 (async () => {
                     const height = Math.ceil(
                         14 +
-                            (this.vehiclesByBuilding[building.id] || [])
-                                .length *
+                            Object.values(
+                                this.vehiclesByBuilding[building.id] || []
+                            ).length *
                                 1.5
                     );
                     if (height > currentRow) currentRow = height;

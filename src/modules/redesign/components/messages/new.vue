@@ -159,23 +159,19 @@ export default Vue.extend<
             url.searchParams.append('message[subject]', this.subject.value);
             url.searchParams.append('message[body]', this.content.value);
             this.lightbox.apiStore
-                .request({
-                    url: `/messages`,
-                    init: {
-                        credentials: 'include',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                            'Upgrade-Insecure-Requests': '1',
-                        },
-                        referrer: new URL(
-                            `/messages/new`,
-                            window.location.origin
-                        ).toString(),
-                        body: url.searchParams.toString(),
-                        method: 'POST',
-                        mode: 'cors',
+                .request(`/messages`, 'redesign-messages-new', {
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Upgrade-Insecure-Requests': '1',
                     },
-                    feature: 'redesign-messages-new',
+                    referrer: new URL(
+                        `/messages/new`,
+                        window.location.origin
+                    ).toString(),
+                    body: url.searchParams.toString(),
+                    method: 'POST',
+                    mode: 'cors',
                 })
                 .then(({ url }: Response) =>
                     this.$set(this.lightbox, 'src', url)

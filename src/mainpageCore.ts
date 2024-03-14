@@ -1,5 +1,3 @@
-import he from 'he';
-
 import loadingIndicatorStorageKey from '../build/plugins/LoadingProgressPluginStorageKey';
 import LSSMMenu from './LSSM-Menu.vue';
 import telemetry from './modules/telemetry/main';
@@ -115,7 +113,7 @@ export default async (LSSM: Vue): Promise<void> => {
                 control.style.setProperty('cursor', 'pointer');
                 LSSM.$stores.api
                     .getSettings('mainPage-core_map-expand')
-                    .then(({ value: { design_mode } }) =>
+                    .then(({ design_mode }) =>
                         control.addEventListener('click', () => {
                             window.mapExpand(design_mode >= 3);
                         })
@@ -142,51 +140,28 @@ export default async (LSSM: Vue): Promise<void> => {
         event: 'radioMessage',
         post: false,
         callback(radioMessage: RadioMessage) {
-            if (
-                radioMessage.type === 'vehicle_fms' &&
-                radioMessage.user_id === window.user_id
-            )
-                LSSM.$stores.api.radioMessage(radioMessage);
+            LSSM.$stores.api.updateVehicleFromRadioMessage(radioMessage);
         },
     });
 
-    await LSSM.$stores.api.getBuildings('mainPage-core_initial-update');
-    await LSSM.$stores.api.getMissions('mainPage-core_initial-update', true);
+    LSSM.$stores.api.getBuildings('mainPage-core_initial-update').then();
 
     LSSM.$stores.root.hook({
         event: 'buildingMarkerAdd',
-        callback(buildingMarker: BuildingMarkerAdd) {
-            if (buildingMarker.user_id !== window.user_id) return;
-            const buildings = LSSM.$stores.api.buildings;
-            const building = buildings.find(
-                ({ id }) => id === buildingMarker.id
-            );
-            if (
-                !building ||
-                building.caption !== he.decode(buildingMarker.name)
-            ) {
-                LSSM.$stores.api
-                    .getBuilding(
-                        buildingMarker.id,
-                        'mainPage-core_buildingMarkerAdd'
-                    )
-                    .then(building =>
-                        LSSM.$stores.api
-                            .getVehiclesAtBuilding(
-                                building.id,
-                                'mainPage-core_buildingMarkerAdd'
-                            )
-                            .then(() =>
-                                LSSM.$stores.event.createAndDispatchEvent({
-                                    name: 'buildingMarkerAdd',
-                                    detail: {
-                                        marker: buildingMarker,
-                                        building,
-                                    },
-                                })
-                            )
-                    );
-            }
+        async callback(buildingMarker: BuildingMarkerAdd) {
+            const building =
+                await LSSM.$stores.api.updateBuildingFromBuildingMarkerAdd(
+                    buildingMarker
+                );
+
+            if (!building) return;
+            LSSM.$stores.event.createAndDispatchEvent({
+                name: 'buildingMarkerAdd',
+                detail: {
+                    marker: buildingMarker,
+                    building,
+                },
+            });
         },
     });
 };

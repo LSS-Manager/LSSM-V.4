@@ -28,7 +28,7 @@ interface StringSorting {
     order: number[];
 }
 
-export default (
+export default async (
     LSSM: Vue,
     MODULE_ID: string,
     sort: Sort,
@@ -59,7 +59,9 @@ export default (
         Record<string, { order: number; el: HTMLDivElement }>
     > = {};
 
-    const missionsById = LSSM.$stores.api.missions;
+    const missionsById = await LSSM.$stores.api.getMissionTypes(
+        `${MODULE_ID}-sort-callList`
+    );
     const missionIdsByAlphabet: Record<string, number> = Object.fromEntries(
         Object.values(missionsById)
             .sort(({ name: nameA }, { name: nameB }) =>
@@ -78,7 +80,9 @@ export default (
             0,
             dispatchCenters.length,
             ...LSSM.$stores.translations.dispatchCenterBuildings
-                .flatMap(type => LSSM.$stores.api.buildingsByType[type])
+                .flatMap(type =>
+                    Object.values(LSSM.$stores.api.buildingsByType[type] ?? {})
+                )
                 .filter(b => !!b)
         );
         dispatchCenterLatLngs.splice(
@@ -94,7 +98,9 @@ export default (
             0,
             vehicleBuildings.length,
             ...LSSM.$stores.translations.vehicleBuildings
-                .flatMap(type => LSSM.$stores.api.buildingsByType[type])
+                .flatMap(type =>
+                    Object.values(LSSM.$stores.api.buildingsByType[type] ?? {})
+                )
                 .filter(b => !!b)
         );
         vehicleBuildingLatLngs.splice(
@@ -257,9 +263,8 @@ export default (
         descBtn.append(descIcon);
 
         const btnGroup = document.createElement('div');
-        btnGroup.classList.add('btn-group', 'pull-right');
+        btnGroup.classList.add('btn-group');
         btnGroup.append(ascBtn, descBtn);
-        btnGroup.style.setProperty('margin-left', '1em');
 
         if (sort === sortingType) {
             if (sortingDirection === 'asc') ascBtn.setAttribute('disabled', '');
@@ -343,6 +348,48 @@ export default (
             selectorText: `#${sortIcon.id}[data-icon="face-rolling-eyes"], #${sortSelectionList.id} [data-icon="face-rolling-eyes"]`,
             style: {
                 display: 'none',
+            },
+        },
+        ...(CSS.supports('selector(:has(#id))')
+            ? [
+                  {
+                      selectorText: `:where(#missions, #missions_outer):has(.dropdown.open #${sortSelectionList.id})`,
+                      style: {
+                          overflow: 'visible',
+                      },
+                  },
+              ]
+            : [
+                  {
+                      selectorText: `#${sortSelectionList.id}`,
+                      // centers the dropdown to the button to avoid overflowing the available space
+                      style: {
+                          right: 'auto',
+                          left: '50%',
+                          transform: 'translateX(-50%)',
+                      },
+                  },
+              ]),
+        {
+            selectorText: `#${sortSelectionList.id} > li > a`,
+            style: {
+                'display': 'flex',
+                'flex-flow': 'row',
+                'width': '100%',
+            },
+        },
+        {
+            selectorText: `#${sortSelectionList.id} > li > a > .btn-group`,
+            style: {
+                'margin-left': 'auto',
+                'flex-shrink': '0',
+                'display': 'inline-flex',
+            },
+        },
+        {
+            selectorText: `#${sortSelectionList.id} > li > a > .btn-group > .btn:first-child`,
+            style: {
+                'margin-left': '1em',
             },
         },
     ]);
@@ -442,47 +489,45 @@ export default (
     };
 
     const updateOrderList = () =>
-        localStorage.setItem(
-            `${PREFIX}_${MODULE_ID}_sort_order`,
-            JSON.stringify(
-                Object.fromEntries(
-                    Object.entries(missionOrderValuesById).map(
-                        ([list, missions]) => [
-                            list,
-                            Object.entries(missions)
-                                .sort(
-                                    (
-                                        [, { order: valueA, el: elA }],
-                                        [, { order: valueB, el: elB }]
-                                    ) => {
-                                        const position =
-                                            elA.compareDocumentPosition(elB);
-                                        return panelBody.classList.contains(
-                                            reverseClass
-                                        )
-                                            ? valueB === valueA
-                                                ? position &
-                                                  Node.DOCUMENT_POSITION_FOLLOWING
-                                                    ? 1
-                                                    : position &
-                                                        Node.DOCUMENT_POSITION_PRECEDING
-                                                      ? -1
-                                                      : 0
-                                                : valueB - valueA
-                                            : valueB === valueA
-                                              ? position &
-                                                Node.DOCUMENT_POSITION_FOLLOWING
+        setSetting(
+            'sortMissionsOrder',
+            Object.fromEntries(
+                Object.entries(missionOrderValuesById).map(
+                    ([list, missions]) => [
+                        list,
+                        Object.entries(missions)
+                            .sort(
+                                (
+                                    [, { order: valueA, el: elA }],
+                                    [, { order: valueB, el: elB }]
+                                ) => {
+                                    const position =
+                                        elA.compareDocumentPosition(elB);
+                                    return panelBody.classList.contains(
+                                        reverseClass
+                                    )
+                                        ? valueB === valueA
+                                            ? position &
+                                              Node.DOCUMENT_POSITION_FOLLOWING
+                                                ? 1
+                                                : position &
+                                                    Node.DOCUMENT_POSITION_PRECEDING
                                                   ? -1
-                                                  : position &
-                                                      Node.DOCUMENT_POSITION_PRECEDING
-                                                    ? 1
-                                                    : 0
-                                              : valueA - valueB;
-                                    }
-                                )
-                                .map(([mission]) => mission),
-                        ]
-                    )
+                                                  : 0
+                                            : valueB - valueA
+                                        : valueB === valueA
+                                          ? position &
+                                            Node.DOCUMENT_POSITION_FOLLOWING
+                                              ? -1
+                                              : position &
+                                                  Node.DOCUMENT_POSITION_PRECEDING
+                                                ? 1
+                                                : 0
+                                          : valueA - valueB;
+                                }
+                            )
+                            .map(([mission]) => mission),
+                    ]
                 )
             )
         );
@@ -524,9 +569,16 @@ export default (
 
     resetOrder();
 
+    const sortBtnWrapper = document.createElement('div');
+    sortBtnWrapper.classList.add('dropdown');
+    sortBtnWrapper.style.setProperty('display', 'inline-block');
+    sortBtnWrapper.append(sortBtn, sortSelectionList);
+
     document
-        .querySelector<HTMLDivElement>('#btn-group-mission-select')
-        ?.append(sortBtn, sortSelectionList);
+        .querySelector<HTMLDivElement>(
+            '.missions-panel-main .mission_selection:not(:has(~.mission_selection))'
+        )
+        ?.after(sortBtnWrapper);
 
     LSSM.$stores.root.hook({
         event: 'missionMarkerAdd',

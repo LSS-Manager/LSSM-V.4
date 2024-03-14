@@ -104,9 +104,10 @@ export default Vue.extend<
                 this.fahrzeugfarbe.authenticity_token
             );
             this.lightbox.apiStore
-                .request({
-                    url: `/fahrzeugfarbe/${this.fahrzeugfarbe.vehicleType}/update${this.urlSearchParam}`,
-                    init: {
+                .request(
+                    `/fahrzeugfarbe/${this.fahrzeugfarbe.vehicleType}/update${this.urlSearchParam}`,
+                    `redesign-update-fahrzeugfarbe-${this.fahrzeugfarbe.vehicleType}`,
+                    {
                         credentials: 'include',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
@@ -116,9 +117,8 @@ export default Vue.extend<
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
-                    },
-                    feature: `redesign-update-fahrzeugfarbe-${this.fahrzeugfarbe.vehicleType}`,
-                })
+                    }
+                )
                 .then(() => {
                     if (this.closeAfterSubmit)
                         return window.lightboxClose(this.lightbox.creation);
@@ -132,9 +132,10 @@ export default Vue.extend<
         },
         resetColor() {
             this.lightbox.apiStore
-                .request({
-                    url: `/fahrzeugfarbe/${this.fahrzeugfarbe.vehicleType}/destroy${this.urlSearchParam}`,
-                    init: {
+                .request(
+                    `/fahrzeugfarbe/${this.fahrzeugfarbe.vehicleType}/destroy${this.urlSearchParam}`,
+                    `redesign-destroy-fahrzeugfarbe-${this.fahrzeugfarbe.vehicleType}`,
+                    {
                         credentials: 'include',
                         headers: {
                             'Upgrade-Insecure-Requests': '1',
@@ -142,9 +143,8 @@ export default Vue.extend<
                         referrer: `https://www.leitstellenspiel.de/fahrzeugfarbe/${this.fahrzeugfarbe.vehicleType}${this.urlSearchParam}`,
                         method: 'GET',
                         mode: 'cors',
-                    },
-                    feature: `redesign-destroy-fahrzeugfarbe-${this.fahrzeugfarbe.vehicleType}`,
-                })
+                    }
+                )
                 .then(() => {
                     if (this.closeAfterSubmit)
                         return window.lightboxClose(this.lightbox.creation);
