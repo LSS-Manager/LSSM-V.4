@@ -6,9 +6,8 @@ sidebarDepth: 2
 
 # Testez vos modifications localement
 Si vous souhaitez vérifier que vos modifications fonctionnent correctement, vous pouvez les exécuter localement.
-::: warning Attentions
+::: warning Attention
 Sachez que cette partie est une partie avancé, vous devez savoir ce que vous faites.
-:::
 
 ## Configuration
 1. Une version supportée de node.js doit être installée.
