@@ -415,8 +415,12 @@ export const defineAPIStore = defineStore('api', () => {
         const vehicleRef = apiStorage.vehicles.value[vehicle.id];
 
         // update the fake computed values
-        vehicleStates.value[vehicle.fms_real] ||= 0;
-        vehicleStates.value[vehicle.fms_real]++;
+        if (!vehicleStates.value[vehicle.fms_real]) {
+            vehicleStates.value[vehicle.fms_real] ||= 0;
+            vehicleStates.value = Object.assign({}, vehicleStates.value);
+        }
+        if (!oldVehicle || oldVehicle.fms_real !== vehicle.fms_real)
+            vehicleStates.value[vehicle.fms_real]++;
 
         if (vehicle.target_type && vehicle.target_id) {
             vehiclesByTarget.value[vehicle.target_type][vehicle.target_id] ||=
@@ -426,15 +430,30 @@ export const defineAPIStore = defineStore('api', () => {
             ] = vehicleRef;
         }
 
-        vehiclesByType.value[vehicle.vehicle_type] ||= {};
+        if (!(vehicle.vehicle_type in vehiclesByType.value)) {
+            vehiclesByType.value[vehicle.vehicle_type] ||= {};
+            vehiclesByType.value = Object.assign({}, vehiclesByType.value);
+        }
         vehiclesByType.value[vehicle.vehicle_type][vehicle.id] = vehicleRef;
 
-        vehiclesByBuilding.value[vehicle.building_id] ||= {};
+        if (!(vehicle.building_id in vehiclesByBuilding.value)) {
+            vehiclesByBuilding.value[vehicle.building_id] ||= {};
+            vehiclesByBuilding.value = Object.assign(
+                {},
+                vehiclesByBuilding.value
+            );
+        }
         vehiclesByBuilding.value[vehicle.building_id][vehicle.id] = vehicleRef;
 
         const building = apiStorage.buildings.value[vehicle.building_id];
         const leitstelle = building?.leitstelle_building_id ?? -1;
-        vehiclesByDispatchCenter.value[leitstelle] ||= {};
+        if (!(leitstelle in vehiclesByDispatchCenter.value)) {
+            vehiclesByDispatchCenter.value[leitstelle] ||= {};
+            vehiclesByDispatchCenter.value = Object.assign(
+                {},
+                vehiclesByDispatchCenter.value
+            );
+        }
         vehiclesByDispatchCenter.value[leitstelle][vehicle.id] = vehicleRef;
 
         return vehicle;
@@ -526,19 +545,34 @@ export const defineAPIStore = defineStore('api', () => {
         const buildingRef = apiStorage.buildings.value[building.id];
 
         // update the fake computed values
-        buildingsByType.value[building.building_type] ||= {};
+        if (!(building.building_type in buildingsByType.value)) {
+            buildingsByType.value[building.building_type] ||= {};
+            buildingsByType.value = Object.assign({}, buildingsByType.value);
+        }
         buildingsByType.value[building.building_type][building.id] =
             buildingRef;
 
         const leitstelle = building.leitstelle_building_id ?? -1;
-        buildingsByDispatchCenter.value[leitstelle] ||= {};
+        if (!(leitstelle in buildingsByDispatchCenter.value)) {
+            buildingsByDispatchCenter.value[leitstelle] ||= {};
+            buildingsByDispatchCenter.value = Object.assign(
+                {},
+                buildingsByDispatchCenter.value
+            );
+        }
         buildingsByDispatchCenter.value[leitstelle][building.id] = buildingRef;
 
         const category =
             useTranslationStore().buildingCategoryByType[
                 building.building_type
             ];
-        buildingsByCategory.value[category] ||= {};
+        if (!(category in buildingsByCategory.value)) {
+            buildingsByCategory.value[category] ||= {};
+            buildingsByCategory.value = Object.assign(
+                {},
+                buildingsByCategory.value
+            );
+        }
         buildingsByCategory.value[category][building.id] = buildingRef;
 
         return building;

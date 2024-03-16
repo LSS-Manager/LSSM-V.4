@@ -79,13 +79,19 @@ export const doBuildingCalculations = (
         }
     }
 
-    return {
-        buildingsArray,
-        buildingsByType,
-        buildingsByDispatchCenter,
-        buildingsByCategory,
-        vehiclesByDispatchCenter,
-    };
+    // reactivity wörkaround
+    buildingsByType.value = Object.assign({}, buildingsByType.value);
+    buildingsByDispatchCenter.value = Object.assign(
+        {},
+        buildingsByDispatchCenter.value
+    );
+    buildingsByCategory.value = Object.assign({}, buildingsByCategory.value);
+    if (Object.keys(vehicles.value).length) {
+        vehiclesByDispatchCenter.value = Object.assign(
+            {},
+            vehiclesByDispatchCenter.value
+        );
+    }
 };
 
 export const FetchSingleBuildingWorker = new TypedWorker(

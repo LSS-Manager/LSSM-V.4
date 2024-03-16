@@ -73,14 +73,15 @@ export const doVehicleCalculations = (
         }
     }
 
-    return {
-        vehiclesArray,
-        vehicleStates,
-        vehiclesByTarget,
-        vehiclesByType,
-        vehiclesByBuilding,
-        vehiclesByDispatchCenter,
-    };
+    // reactivity wörkaround
+    vehicleStates.value = Object.assign({}, vehicleStates.value);
+    vehiclesByTarget.value = Object.assign({}, vehiclesByTarget.value);
+    vehiclesByType.value = Object.assign({}, vehiclesByType.value);
+    vehiclesByBuilding.value = Object.assign({}, vehiclesByBuilding.value);
+    vehiclesByDispatchCenter.value = Object.assign(
+        {},
+        vehiclesByDispatchCenter.value
+    );
 };
 
 export const FetchSingleVehicleWorker = new TypedWorker(
