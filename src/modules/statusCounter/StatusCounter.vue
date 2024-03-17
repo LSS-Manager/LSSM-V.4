@@ -35,15 +35,13 @@ const fmsReal2Show = useI18n().$t('fmsReal2Show') as unknown as Record<
 >;
 
 const apiStore = useAPIStore();
-const vehicles = apiStore.vehiclesArray.length;
-const vehicleStates = apiStore.vehicleStates;
 
 const props = defineProps<{
     settings: Record<string, boolean> & { percentRounding: number };
 }>();
 
 const getPercentageString = (amount: number) =>
-    (amount / vehicles).toLocaleString(undefined, {
+    (amount / apiStore.vehiclesArray.length).toLocaleString(undefined, {
         style: 'percent',
         minimumFractionDigits: props.settings.percentRounding,
         maximumFractionDigits: props.settings.percentRounding,
@@ -51,7 +49,7 @@ const getPercentageString = (amount: number) =>
 
 const states = computed(() =>
     Object.entries(fmsReal2Show).map(([fms_real, fms_show]) => {
-        const amount = vehicleStates[fms_show] ?? 0;
+        const amount = apiStore.vehicleStates[fms_show] ?? 0;
         return {
             fms_show,
             fms_real,

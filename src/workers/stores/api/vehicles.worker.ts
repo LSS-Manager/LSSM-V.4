@@ -28,13 +28,21 @@ export type VehiclesByDispatchCenter = Record<
 export const doVehicleCalculations = (
     vehicles: Ref<APIs['vehicles']>,
     buildings: Ref<APIs['buildings']>,
-    vehicleStates: Ref<VehicleStates>,
-    vehiclesByTarget: Ref<VehiclesByTarget>,
-    vehiclesByType: Ref<VehiclesByType>,
-    vehiclesByBuilding: Ref<VehiclesByBuilding>,
-    vehiclesByDispatchCenter: Ref<VehiclesByDispatchCenter>
+    vehicleStatesRef: Ref<VehicleStates>,
+    vehiclesByTargetRef: Ref<VehiclesByTarget>,
+    vehiclesByTypeRef: Ref<VehiclesByType>,
+    vehiclesByBuildingRef: Ref<VehiclesByBuilding>,
+    vehiclesByDispatchCenterRef: Ref<VehiclesByDispatchCenter>
 ) => {
     const vehiclesArray = Object.values(vehicles.value);
+    const vehicleStates: VehicleStates = {};
+    const vehiclesByTarget: VehiclesByTarget = {
+        building: {},
+        mission: {},
+    };
+    const vehiclesByType: VehiclesByType = {};
+    const vehiclesByBuilding: VehiclesByBuilding = {};
+    const vehiclesByDispatchCenter: VehiclesByDispatchCenter = {};
 
     for (const vehicle of vehiclesArray) {
         const {
@@ -47,40 +55,39 @@ export const doVehicleCalculations = (
         } = vehicle;
 
         // vehicle states
-        vehicleStates.value[fms_real] =
-            (vehicleStates.value[fms_real] || 0) + 1;
+        vehicleStates[fms_real] = (vehicleStates[fms_real] || 0) + 1;
 
         // by target
         if (target_type && target_id) {
-            vehiclesByTarget.value[target_type][target_id] ||= {};
-            vehiclesByTarget.value[target_type][target_id][id] = vehicle;
+            vehiclesByTarget[target_type][target_id] ||= {};
+            vehiclesByTarget[target_type][target_id][id] = vehicle;
         }
 
         // by type
-        vehiclesByType.value[vehicle_type] ||= {};
-        vehiclesByType.value[vehicle_type][id] = vehicle;
+        vehiclesByType[vehicle_type] ||= {};
+        vehiclesByType[vehicle_type][id] = vehicle;
 
         // by building
-        vehiclesByBuilding.value[building_id] ||= {};
-        vehiclesByBuilding.value[building_id][id] = vehicle;
+        vehiclesByBuilding[building_id] ||= {};
+        vehiclesByBuilding[building_id][id] = vehicle;
 
         // by dispatch center
         const building = buildings.value[building_id];
         if (building) {
             const leitstelle = building.leitstelle_building_id ?? -1;
-            vehiclesByDispatchCenter.value[leitstelle] ||= {};
-            vehiclesByDispatchCenter.value[leitstelle][id] = vehicle;
+            vehiclesByDispatchCenter[leitstelle] ||= {};
+            vehiclesByDispatchCenter[leitstelle][id] = vehicle;
         }
     }
 
     // reactivity wörkaround
-    vehicleStates.value = Object.assign({}, vehicleStates.value);
-    vehiclesByTarget.value = Object.assign({}, vehiclesByTarget.value);
-    vehiclesByType.value = Object.assign({}, vehiclesByType.value);
-    vehiclesByBuilding.value = Object.assign({}, vehiclesByBuilding.value);
-    vehiclesByDispatchCenter.value = Object.assign(
+    vehicleStatesRef.value = Object.assign({}, vehicleStates);
+    vehiclesByTargetRef.value = Object.assign({}, vehiclesByTarget);
+    vehiclesByTypeRef.value = Object.assign({}, vehiclesByType);
+    vehiclesByBuildingRef.value = Object.assign({}, vehiclesByBuilding);
+    vehiclesByDispatchCenterRef.value = Object.assign(
         {},
-        vehiclesByDispatchCenter.value
+        vehiclesByDispatchCenter
     );
 };
 

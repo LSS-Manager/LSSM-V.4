@@ -43,29 +43,34 @@ export const updateBuildingTypeIfSmall = (
 export const doBuildingCalculations = (
     buildings: Ref<APIs['buildings']>,
     vehicles: Ref<APIs['vehicles']>,
-    buildingsByType: Ref<BuildingsByType>,
-    buildingsByDispatchCenter: Ref<BuildingsByDispatchCenter>,
-    buildingsByCategory: Ref<BuildingsByCategory>,
-    vehiclesByDispatchCenter: Ref<VehiclesByDispatchCenter>,
+    buildingsByTypeRef: Ref<BuildingsByType>,
+    buildingsByDispatchCenterRef: Ref<BuildingsByDispatchCenter>,
+    buildingsByCategoryRef: Ref<BuildingsByCategory>,
+    vehiclesByDispatchCenterRef: Ref<VehiclesByDispatchCenter>,
     buildingCategoryByType: Record<Building['building_type'], string>
 ) => {
     const buildingsArray = Object.values(buildings.value);
+
+    const buildingsByType: BuildingsByType = {};
+    const buildingsByDispatchCenter: BuildingsByDispatchCenter = {};
+    const buildingsByCategory: BuildingsByCategory = {};
+    const vehiclesByDispatchCenter: VehiclesByDispatchCenter = {};
 
     for (const building of buildingsArray) {
         const { id, building_type, leitstelle_building_id } = building;
 
         // by type
-        buildingsByType.value[building_type] ||= {};
-        buildingsByType.value[building_type][id] = building;
+        buildingsByType[building_type] ||= {};
+        buildingsByType[building_type][id] = building;
 
         // by dispatch center
         const leitstelle = leitstelle_building_id ?? -1;
-        buildingsByDispatchCenter.value[leitstelle] ||= {};
-        buildingsByDispatchCenter.value[leitstelle][id] = building;
+        buildingsByDispatchCenter[leitstelle] ||= {};
+        buildingsByDispatchCenter[leitstelle][id] = building;
 
         // by category
-        buildingsByCategory.value[buildingCategoryByType[building_type]] ||= {};
-        buildingsByCategory.value[buildingCategoryByType[building_type]][id] =
+        buildingsByCategory[buildingCategoryByType[building_type]] ||= {};
+        buildingsByCategory[buildingCategoryByType[building_type]][id] =
             building;
     }
 
@@ -74,22 +79,22 @@ export const doBuildingCalculations = (
         const building = buildings.value[vehicle.building_id];
         if (building) {
             const leitstelle = building.leitstelle_building_id ?? -1;
-            vehiclesByDispatchCenter.value[leitstelle] ||= {};
-            vehiclesByDispatchCenter.value[leitstelle][vehicle.id] = vehicle;
+            vehiclesByDispatchCenter[leitstelle] ||= {};
+            vehiclesByDispatchCenter[leitstelle][vehicle.id] = vehicle;
         }
     }
 
     // reactivity wörkaround
-    buildingsByType.value = Object.assign({}, buildingsByType.value);
-    buildingsByDispatchCenter.value = Object.assign(
+    buildingsByTypeRef.value = Object.assign({}, buildingsByType);
+    buildingsByDispatchCenterRef.value = Object.assign(
         {},
-        buildingsByDispatchCenter.value
+        buildingsByDispatchCenter
     );
-    buildingsByCategory.value = Object.assign({}, buildingsByCategory.value);
+    buildingsByCategoryRef.value = Object.assign({}, buildingsByCategory);
     if (Object.keys(vehicles.value).length) {
-        vehiclesByDispatchCenter.value = Object.assign(
+        vehiclesByDispatchCenterRef.value = Object.assign(
             {},
-            vehiclesByDispatchCenter.value
+            vehiclesByDispatchCenter
         );
     }
 };
