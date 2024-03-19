@@ -1,0 +1,60 @@
+{
+    "action": {
+        "importFromRenameFz": "Importiere Einstellungen",
+        "rename": "Umbenennen in: {caption}",
+        "rename_all": "Alle Fahrzeuge umbenennen"
+    },
+    "description": "Benenne Gebäude und Fahrzeuge nach deinem System oder nach einem Standard um.",
+    "name": "Namens-Schema",
+    "notification": {
+        "importFromRenameFzSuccess": "Einstellungen erfolgreich importiert. Es wurden {count} Aliase übernommen."
+    },
+    "settings": {
+        "buildingAliases": {
+            "alias": "Alias-Bezeichnung",
+            "description": "Hier kannst du für jeden Gebäudetyp ein Alias definieren. Dieser Alias wird dann im Template für <code>buildingAlias</code> verwendet.<br>Wenn du hier nichts einträgst, wird die Standard-Bezeichnung des Gebäudetyps verwendet.",
+            "title": "Aliase für Gebäudetypen",
+            "type": "Gebäudetyp"
+        },
+        "buildingTemplates": {
+            "description": "Hier kannst du für jedes Gebäude ein eigenes Template definieren. Die verfügbaren Platzhalter findest du im <a class=\"lightbox-open\" href=\"{wiki}modules/{MODULE_ID}/variables.html\">Wiki</a>.",
+            "template": "Template",
+            "title": "Gebäudespezifische Templates",
+            "type": "Gebäudetyp"
+        },
+        "defaultBuildingTemplate": {
+            "defaultValue": "{{buildingAlias}} {{buildingTypeIndex}}",
+            "description": "Dieses Template wird für alle Gebäude verwendet, für die kein spezifisches Template definiert wurde.",
+            "title": "Standard Template für Gebäude"
+        },
+        "defaultVehicleTemplate": {
+            "defaultValue": "{{ vehicle.alias }} {{ vehicle | index: groupBy: \"buildingVehicleType\" }}",
+            "description": "Dieses Template wird für alle Fahrzeuge verwendet, für die kein spezifisches Template definiert wurde.",
+            "title": "Standard Template für Fahrzeuge"
+        },
+        "excludeBuildings": {
+            "description": "Hier kannst du Gebäude ausschließen, die nicht umbenannt werden sollen.",
+            "title": "Gebäude ausschließen"
+        },
+        "excludeVehicles": {
+            "description": "Hier kannst du Fahrzeugtypen ausschließen, die nicht umbenannt werden sollen.",
+            "title": "Fahrzeugtyp ausschließen"
+        },
+        "importFromRenameFz": {
+            "description": "Falls erkannt, kannst du hier die Einstellungen aus dem v3 RenameFz Modul importieren. Die Einstellungen werden überschrieben!",
+            "title": "Import v3"
+        },
+        "vehicleAliases": {
+            "alias": "Alias-Bezeichnung",
+            "description": "Hier kannst du für jeden Fahrzeugtypen ein Alias definieren. Dieser Alias wird dann im Template für <code>{{ vehicle.alias }}</code> verwendet.<br>Wenn du hier nichts einträgst, wird die Standard-Bezeichnung des Fahrzeugtyps verwendet.",
+            "title": "Aliase für Fahrzeugtypen",
+            "type": "Fahrzeugtyp"
+        },
+        "vehicleTemplates": {
+            "description": "Hier kannst du für jeden Fahrzeugtypen ein eigenes Template definieren. Die verfügbaren Platzhalter findest du in der Hilfe.",
+            "template": "Template",
+            "title": "Fahrzeugspezifische Templates",
+            "type": "Fahrzeugtyp"
+        }
+    }
+}

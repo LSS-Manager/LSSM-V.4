@@ -39,6 +39,7 @@
         "overview": { "module": "overview" },
         "Redesign01": { "module": "redesign" },
         "releaseNotes": { "module": "" },
+        "RenameFz": { "module": "nameSchema" },
         "ShareAlliancePost": { "module": "shareAlliancePost" },
         "showChatButtonAbove": {
             "module": "chatExtras",
@@ -65,7 +66,6 @@
         "Layout02",
         "Layout03",
         "Layout04",
-        "RenameFZ",
         "WachenplanungOnMap",
         "fms7Target",
         "geoBorders",

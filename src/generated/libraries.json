@@ -274,6 +274,10 @@
         "url": "https://github.com/Leaflet/Leaflet.heat",
         "version": "0.2.0"
     },
+    "liquidjs": {
+        "url": "https://github.com/harttle/liquidjs#readme",
+        "version": "10.10.0"
+    },
     "local-web-server": {
         "version": "5.3.1"
     },
