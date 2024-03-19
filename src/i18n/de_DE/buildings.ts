@@ -207,6 +207,21 @@ export default {
                 parkingLotReservations: [[138, 139, 140, 141], [138, 139, 140, 141]],
                 unlocksVehicleTypes: [138, 139, 140, 141, 142],
             },
+            ...multiplyExtension(
+                {
+                    caption: 'Anhänger-Stellplatz',
+                    credits: 75_000,
+                    coins: 15,
+                    duration: '3 Tage',
+                    isVehicleExtension: true,
+                    givesParkingLots: 1,
+                    unlocksVehicleTypes: [143],
+                    parkingLotReservations: [[143]],
+                    cannotDisable: true,
+                    unlockedVehiclesOnReservedLotsOnly: true,
+                },
+                5
+            ),
         ],
         storageUpgrades: {
             initial_containers: {
@@ -1475,6 +1490,21 @@ export default {
                 parkingLotReservations: [[138, 139, 140, 141],[138, 139, 140, 141]],
                 unlocksVehicleTypes: [138, 139, 140, 141, 142],
             },
+            ...multiplyExtension(
+                {
+                    caption: 'Anhänger-Stellplatz',
+                    credits: 75_000,
+                    coins: 15,
+                    duration: '3 Tage',
+                    isVehicleExtension: true,
+                    givesParkingLots: 1,
+                    unlocksVehicleTypes: [143],
+                    parkingLotReservations: [[143]],
+                    cannotDisable: true,
+                    unlockedVehiclesOnReservedLotsOnly: true,
+                },
+                2
+            ),
         ],
         storageUpgrades: {
             initial_containers: {
