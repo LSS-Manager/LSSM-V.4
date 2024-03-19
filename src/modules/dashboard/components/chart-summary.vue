@@ -24,6 +24,7 @@
                     {{ $sm('maxMissions.title') }}:
                     {{ maxMissions.toLocaleString() }}
                 </b>
+                |
                 <b>
                     {{ $sm('maxTimedMissions.title') }}:
                     {{ maxTimedMissions.toLocaleString() }}
