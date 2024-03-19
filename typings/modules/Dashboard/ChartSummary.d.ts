@@ -34,6 +34,7 @@ export interface ChartSummaryMethods {
 export interface ChartSummaryComputed {
     personalCount: number;
     maxMissions: number;
+    maxTimedMissions: number;
     waterInVersion: boolean;
     water: number;
     waterWithBonus: number;

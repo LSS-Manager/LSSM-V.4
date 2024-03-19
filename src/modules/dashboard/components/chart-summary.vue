@@ -24,6 +24,10 @@
                     {{ $sm('maxMissions.title') }}:
                     {{ maxMissions.toLocaleString() }}
                 </b>
+                <b>
+                    {{ $sm('maxTimedMissions.title') }}:
+                    {{ maxTimedMissions.toLocaleString() }}
+                </b>
                 <label class="pull-right">
                     <input
                         type="checkbox"
@@ -226,6 +230,9 @@ export default Vue.extend<
         }),
         maxMissions() {
             return window.mission_count_max;
+        },
+        maxTimedMissions() {
+            return window.timed_mission_count_max;
         },
         waterInVersion() {
             return Object.keys(this.waterByType).length > 0;

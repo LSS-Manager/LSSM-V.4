@@ -24,6 +24,7 @@
             "title": "Bygninger"
         },
         "maxMissions": { "title": "Maximum missions" },
+        "maxTimedMissions":  { "title": "Maximum Timed Missions" },
         "vehicles": {
             "empty": "Du har ingen kjøretøy i kategorien {category} ennå!",
             "foam": "Foam",
