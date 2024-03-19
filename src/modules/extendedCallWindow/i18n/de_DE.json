@@ -230,7 +230,7 @@
                     "Schlauchwagen (GW-L2 Wasser, SW 1000, SW 2000 oder Ähnliches)",
                     "Schlauchwagen (GW-L2 Wasser oder SW)"
                 ],
-                "vehicles": [11, 13, 14, 15, 16, 62, 101, 102]
+                "vehicles": [11, 13, 14, 15, 16, 62, 101, 102, 143]
             },
             {
                 "texts": ["Schmutzwasserpumpe", "Schmutzwasserpumpen"],

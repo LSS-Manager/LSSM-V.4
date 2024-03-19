@@ -2346,4 +2346,23 @@ export default {
         isTrailer: true,
         tractiveVehicles: [46],
     },
+    143: {
+        caption: 'Anh Schlauch',
+        color: '#b62e2e',
+        credits: 5_000,
+        coins: 10,
+        staff: {
+            min: 0,
+            max: 0,
+        },
+        icon: 'trailer',
+        special:
+            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (HLF 10, RW, GW-Gefahrgut, Dekon-P, GW-L1, GW-L2, LF 10, LF 8/6, LF 10/6, LF 16-TS, SW 2000-Tr, SW Kats, TLF 3000, TLF 16/24-Tr, TLF 16/25, MTW)',
+        isTrailer: true,
+        waterBonus: 10,
+        tractiveVehicles: [
+            90, 4, 27, 53, 104, 105, 6, 8, 9, 15, 16, 18, 21, 22, 36
+        ],
+        possibleBuildings: [0, 18],
+    },
 } satisfies Record<number, InternalVehicle>;
