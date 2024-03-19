@@ -25,7 +25,7 @@
             "title": "Rakennukset"
         },
         "maxMissions": { "title": "Maximum missions" },
-        "maxTimedMissions":  { "title": "Maximum Timed Missions" },
+        "maxTimedMissions": { "title": "Maximum Timed Missions" },
         "vehicles": {
             "empty": "Sinulla ei ole vielä kategoriassa {category} ajoneuvoja!",
             "foam": "Foam",

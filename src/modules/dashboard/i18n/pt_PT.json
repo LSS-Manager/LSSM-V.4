@@ -25,7 +25,7 @@
             "title": "Edifícios"
         },
         "maxMissions": { "title": "Máximo de missões" },
-        "maxTimedMissions":  { "title": "Maximum Timed Missions" },
+        "maxTimedMissions": { "title": "Maximum Timed Missions" },
         "vehicles": {
             "empty": "Ainda não tens veículos na categoria {category}.",
             "tip": "Clica num grupo de veículos para visualizar apenas este grupo.",

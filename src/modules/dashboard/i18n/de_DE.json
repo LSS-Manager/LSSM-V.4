@@ -25,7 +25,7 @@
             "title": "Gebäude"
         },
         "maxMissions": { "title": "Maximale Einsätze" },
-        "maxTimedMissions":  { "title": "Maximale Sicherheitswachen" },
+        "maxTimedMissions": { "title": "Maximale Sicherheitswachen" },
         "vehicles": {
             "empty": "Du hast in der Kategorie {category} noch keine Fahrzeuge!",
             "foam": "Schaummenge",
