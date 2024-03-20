@@ -2444,13 +2444,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prettier@npm:2.7.3":
-  version: 2.7.3
-  resolution: "@types/prettier@npm:2.7.3"
-  checksum: 10c0/0960b5c1115bb25e979009d0b44c42cf3d792accf24085e4bfce15aef5794ea042e04e70c2139a2c3387f781f18c89b5706f000ddb089e9a4a2ccb7536a2c5f0
-  languageName: node
-  linkType: hard
-
 "@types/qrcode@npm:1.5.5":
   version: 1.5.5
   resolution: "@types/qrcode@npm:1.5.5"
@@ -7605,7 +7598,6 @@ __metadata:
     "@types/lodash": "npm:4.17.0"
     "@types/node": "npm:20.11.30"
     "@types/pdfmake": "npm:0.2.9"
-    "@types/prettier": "npm:2.7.3"
     "@types/qrcode": "npm:1.5.5"
     "@types/semver": "npm:7.5.8"
     "@types/showdown": "npm:2.0.6"

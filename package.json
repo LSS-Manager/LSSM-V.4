@@ -57,7 +57,6 @@
         "@types/lodash": "4.17.0",
         "@types/node": "20.11.30",
         "@types/pdfmake": "0.2.9",
-        "@types/prettier": "2.7.3",
         "@types/qrcode": "1.5.5",
         "@types/semver": "7.5.8",
         "@types/showdown": "2.0.6",
