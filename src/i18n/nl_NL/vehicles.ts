@@ -1537,7 +1537,7 @@ export default {
     100: {
         caption: 'GGB',
         color: '#b16b00',
-        credits: 45000,
+        credits: 45_000,
         coins: 25,
         staff: {
             min: 6,
@@ -1561,7 +1561,7 @@ export default {
     101: {
         caption: 'NHT',
         color: '#b16b00',
-        credits: 15000,
+        credits: 15_000,
         coins: 15,
         staff: {
             min: 4,

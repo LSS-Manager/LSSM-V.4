@@ -1208,10 +1208,9 @@ export default {
         coins: 15,
         staff: {
             min: 2,
-            max: 4
+            max: 4,
         },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-
     },
 } satisfies Record<number, InternalVehicle>;
