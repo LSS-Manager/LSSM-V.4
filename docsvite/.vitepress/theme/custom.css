@@ -1,6 +1,5 @@
 .VPHome .VPHero.has-image .actions {
     justify-content: center;
-    gap: 0.5rem 1rem;
 
     .action:nth-last-child(2),
     .action:nth-child(4) {

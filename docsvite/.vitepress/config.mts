@@ -55,14 +55,6 @@ const versions: Versions = JSON.parse(fs.readFileSync(versionsFile).toString());
 // Generate modules
 
 const modulesFile = path.join(DOCS_TEMP_PATH, '.modules.json');
-run(
-  'generate/modules',
-  modulesFile,
-  MODULES_PATH,
-  DOCS_PATH,
-  JSON.stringify(LANGS),
-  JSON.stringify(MODULES)
-);
 
 // Generate i18n
 
@@ -120,5 +112,6 @@ export default defineConfig({
       { icon: 'discord', link: `https://discord.gg/${config.discord.invite}` }
     ]
   },
-  locales: localeConfigs.siteConfigs 
+  locales: localeConfigs.siteConfigs ,
+  srcDir: 'src'
 })

@@ -148,10 +148,10 @@ ${Object.entries(vars)
                     .readFileSync(MODULE_DOCS_FILE)
                     .toString();
                 frontMatterVars.empty = docsContent.trim() === '';
-                fs.writeFileSync(
+                /*fs.writeFileSync(
                     DOCS_MODULE_FILE,
                     getHead(frontMatterVars) + docsContent
-                );
+                );*/
                 if (!frontMatterVars.empty) modulesFile[module].docs.push(lang);
                 const MODULE_DOCS_ASSETS = path.join(
                     MODULE_DOCS_FOLDER,
@@ -197,9 +197,9 @@ ${Object.entries(vars)
                 }
             } else {
                 frontMatterVars.empty = true;
-                fs.writeFileSync(DOCS_MODULE_FILE, getHead(frontMatterVars));
+                //fs.writeFileSync(DOCS_MODULE_FILE, getHead(frontMatterVars));
             }
         }
     }
-    fs.writeFileSync(file, JSON.stringify(modulesFile));
+    //fs.writeFileSync(file, JSON.stringify(modulesFile));
 })();
