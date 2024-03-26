@@ -5,7 +5,7 @@ Um es zu erweitern, gibt es dieses Modul mit vielen verschiedenen Features:
 
 Dir wird der Generierungszeitpunkt oben neben der Einsatzadresse angezeigt.
 
-![Generierungszeitpunkt](./zeitpunkt.png)
+![Generierungszeitpunkt](assets/de_DE/zeitpunkt.png)
 
 ### Gelbe Umrandung
 
@@ -13,7 +13,7 @@ Die Generierungszeit wird gelb umrandet, wenn seit der Generierung mehr als x (e
 Die Einstellung "Generierungszeitpunkt" muss aktiviert sein.
 Du kannst dieses Feature deaktivieren, indem du bei Einstellungen `0` einträgst.
 
-![Gelb umrandete Generierungszeit](./markerYellow.png)
+![Gelb umrandete Generierungszeit](assets/de_DE/markerYellow.png)
 
 ### Rote Umrandung
 
@@ -29,7 +29,7 @@ dauert es noch länger, bis der Einsatz abgearbeitet wird.
 Dieses Feature hilft dir dabei, bei jedem Einsatz den Überblick zu bewahren,
 indem es die noch benötigten fahrzeuge übersichtlich als Tabelle darstellt.
 
-![Tabelle mit zusätzlich benötigten Fahrzeugen](./enhancedmissingvehicles/fahrzeugeVerschoenern.png)
+![Tabelle mit zusätzlich benötigten Fahrzeugen](assets/de_DE/enhancedmissingvehicles/fahrzeugeVerschoenern.png)
 
 ### Maximalbesetzung
 
@@ -46,7 +46,7 @@ die erscheinen, sobald man die Maus kurz auf dem jeweiligen Button ruhen lässt.
 
 Dieses Feature ist perfekt für alle Spieler, die bei vielen Patienten gerne den Überblick behalten.
 Es zeigt, wie viele Rettungsfahrzeuge welcher Art noch am Einsatzort benötigt werden.
-![Patientenliste mit Zusammenfassung](./patientList.png)
+![Patientenliste mit Zusammenfassung](assets/de_DE/patientList.png)
 
 ## Patienten einklappen
 
@@ -55,7 +55,7 @@ Deswegen kannst du mit diesem Feature die Patienten einklappen.
 Stattdessen wird eine Zusammenfassung angezeigt.
 Mit dem kleinen Icon unten links kannst du die Patienten jederzeit anzeigen und ausblenden:
 
-![Patienten einklappen](./patientcollapse/patientcollapse.png)
+![Patienten einklappen](assets/de_DE/patientcollapse/patientcollapse.png)
 
 ## AAO-Zähler
 
@@ -63,7 +63,7 @@ Du willst wissen, wie oft bereits auf eine AAO geklickt wurde?
 Dann aktiviere dieses Modul, es zählt nämlich, wie oft auf eine AAO geklickt wurde.
 Natürlich gibt es auch einen Knopf zum Zurücksetzen des Zählers.
 
-![AAO-Zähler](./arrcounter/aao2.png)
+![AAO-Zähler](assets/de_DE/arrcounter/aao2.png)
 
 ### AAO-Zähler als Badge
 
@@ -72,14 +72,14 @@ Seine Funktion ist, dass die Anzahl, wie oft auf eine AAO geklickt wurde,
 neben der AAO als kleiner roter Kreis angezeigt wird.
 Hierfür muss "AAO-Zähler" aktiviert sein.
 
-![AAO mit Fahrzeugzähler als Badge](./arrcounter/aao3.png)
+![AAO mit Fahrzeugzähler als Badge](assets/de_DE/arrcounter/aao3.png)
 
 ## angeklickte AAOs hervorheben
 
 Vielleicht kennst du das ja, du willst schnell wissen, welche AAO du schon angeklickt hast.
 Dieses Modul ist perfekt dafür, man sieht nämlich mit einem farbigen Rand, welche AAO man schon angeklickt hat.
 
-![Hervorgehobene AAO](./arrcounter/aao1.png)
+![Hervorgehobene AAO](assets/de_DE/arrcounter/aao1.png)
 
 ### Farbe der Hervorhebung
 
@@ -92,14 +92,14 @@ Natürlich kannst du dir auch die Breite der Hervorhebung anpassen. gemessen wir
 
 Hier ein Bild, wie es mit einem lilanen Farbton (RGB: 230, 51, 197) und einem 5 Pixel breitem Rand aussieht:
 
-![Bild einer hervorgehobenen AAO mit einem lilanen Farbton (RGB: 230, 51, 197) und einem 5 Pixel breitem Rand](./arrcounter/aao4.png)
+![Bild einer hervorgehobenen AAO mit einem lilanen Farbton (RGB: 230, 51, 197) und einem 5 Pixel breitem Rand](assets/de_DE/arrcounter/aao4.png)
 
 ## Fahrzeugauswahl zurücksetzen
 
 Neben dem Button `Hilfe zu diesem Einsatz` erscheint wie von Zauberhand ein weiterer Button,
 der alle bereits ausgewählten Fahrzeuge zurücksetzt.
 
-![Zurücksetzen-Button](./arrcounter/fahrzeugwahlReset.png)
+![Zurücksetzen-Button](assets/de_DE/arrcounter/fahrzeugwahlReset.png)
 
 ## Unpassende AAOs ausgrauen
 
@@ -107,27 +107,27 @@ Suchst du immer Ewigkeiten die passende AAO, weil du für jeden Einsatz eine and
 Dieses Feature wirst du lieben:
 Es graut alle AAOs, in denen nicht mindestens ein Teil des Einsatzstichwortes vorkommt, aus.
 
-![ausgegraute AAOs](./aao5.png)
+![ausgegraute AAOs](assets/de_DE/aao5.png)
 
 ## AAO-Anfahrtszeit anzeigen
 
 Diese Einstellung zeigt an, wie lange das am längsten brauchende Fahrzeug der AAO braucht.
 Erscheint, wenn du die Maus kurz auf der AAO ruhen lässt.
 
-![AAO mit angezeigter Anfahrtszeit des am längsten brauchenden Fahrzeuges](./arrtime/aao6.png)
+![AAO mit angezeigter Anfahrtszeit des am längsten brauchenden Fahrzeuges](assets/de_DE/arrtime/aao6.png)
 
 ## AAO Details anzeigen
 
 Dieses Modul zeigt dir viele Details zu einer AAO, unter anderem welche Fahrzeuge mit dieser AAO alarmiert werden.
 Dieses Popup erscheint, wenn du mit der Maus kurz auf der AAO ruhst.
 
-![Beispielbild einer AAO mit Details](./arrhover/aao8.png)
+![Beispielbild einer AAO mit Details](assets/de_DE/arrhover/aao8.png)
 
 ## Längste Anfahrtszeit
 
 Dieses Modul zeigt unten im Alarm-Button die Anfahrtszeit des Fahrzeuges, welches am längsten zum Einsatzort braucht.
 
-![Alarmleiste mit Anzeige der Dauer, bis alle Fahrzeuge am Einsatzort sind](./alarmfenster1.png)
+![Alarmleiste mit Anzeige der Dauer, bis alle Fahrzeuge am Einsatzort sind](assets/de_DE/alarmfenster1.png)
 
 ## Kopfleiste immer anzeigen
 
@@ -137,47 +137,47 @@ Mit diesem Modul wird euch die Kopfleiste immer angezeigt, auch wenn ihr im Eins
 
 Diese Einstellung erlaubt es euch, Fahrzeuge direkt in der Kopfleiste nachzuladen.
 
-![Fahrzeuge nachladen in Kopfleiste](./alarmfenster2.png)
+![Fahrzeuge nachladen in Kopfleiste](assets/de_DE/alarmfenster2.png)
 
 ## Fahrzeugliste verstecken
 
 Dieses Modul erlaubt es dir, die komplette Fahrzeugliste zu verstecken und nur die AAO anzuzeigen.
 
-![Fahrzeugliste angezeigt](./hidevehiclelist/fahrzeugliste2.png)
+![Fahrzeugliste angezeigt](assets/de_DE/hidevehiclelist/fahrzeugliste2.png)
 
-![Fahrzeugliste versteckt](./hidevehiclelist/fahrzeugliste1.png)
+![Fahrzeugliste versteckt](assets/de_DE/hidevehiclelist/fahrzeugliste1.png)
 
 ## Karte zentrieren
 
 Mit diesem Modul kannst du ganz einfach aus der Kopfleiste heraus die Karte im Hauptfenster auf den Einsatz zentrieren.
 
-![Symbol Karte zentrieren](./kartezentrieren.png)
+![Symbol Karte zentrieren](assets/de_DE/kartezentrieren.png)
 
 ## Zähler im Bereitstellungsraum
 
 Dieses Modul sorgt dafür, dass auch im Bereitstellungsraum neben dem `Alarmieren`-Button angezeigt wird,
 wie viele Fahrzeuge alarmiert werden.
 
-![Anzeige der Anzahl der alarmierten Fahrzeuge im Bereitstellungsraum](./bsr.png)
+![Anzeige der Anzahl der alarmierten Fahrzeuge im Bereitstellungsraum](assets/de_DE/bsr.png)
 
 ## Fahrzeugtyp anzeigen
 
 Dieses Feature ist dafür da, um euch in der Fahrzeugauswahl den Fahrzeugtyp zu zeigen.
 
-![Fahrzeugtypenanzeige](./fahrzeugtyp.png)
+![Fahrzeugtypenanzeige](assets/de_DE/fahrzeugtyp.png)
 
 ## Patientenbehandlungsdauer
 
 Dieses Modul zeigt neben einem Patienten seine Restbehandlungsdauer an.
 
-![Patientenbehandlungsdauer](./patientdauer.png)
+![Patientenbehandlungsdauer](assets/de_DE/patientdauer.png)
 
 ## Fahrzeugzähler
 
 Der Fahrzeugzähler zählt, wie viele Fahrzeuge vor Ort sind.
 Bei Klick öffnet sich eine Tabelle mit vielen Detailangaben zu den aktuell vor Ort befindlichen Fahrzeugen.
 
-![Fahrzeugzähler](./fahrzeugzähler.png)
+![Fahrzeugzähler](assets/de_DE/fahrzeugzähler.png)
 
 ### Farbe
 
@@ -188,7 +188,7 @@ Natürlich kannst du dir die Farbe einstellen, die das Label des Fahrzeugzähler
 Der Spielerzähler zählt, wie viele Spieler grade am Einsatz anwesend sind.
 Auch er verbirgt viele Informationen, die man auf Klick öffnen kann.
 
-![Spielerzähler](./spielerzähler.png)
+![Spielerzähler](assets/de_DE/spielerzähler.png)
 
 ### Farbe
 
@@ -198,9 +198,9 @@ Auch hier kann man einstellen, in welcher Farbe das Label des Spielerzählers er
 
 Dieses Feature fügt eine Suche über den AAO hinzu, welche eine schnelle Filterung der AAO ermöglicht:
 
-![AAO-Suche: Keine Suche](./arrSearch/text_no_search.png)
+![AAO-Suche: Keine Suche](assets/de_DE/arrSearch/text_no_search.png)
 
-![AAO-Suche: Aktiv](./arrSearch/text_search.png)
+![AAO-Suche: Aktiv](assets/de_DE/arrSearch/text_search.png)
 
 ### Automatisch fokussieren
 
@@ -213,11 +213,11 @@ Diese Option verwandelt die komplette AAO in ein einziges kompaktes Dropdown.
 Die Suche wird natürlich weiterhin unterstützt,
 genauso wie alle weiteren AAO-Features (Klickzähler, Ausgrauen, Details, ...)!
 
-![AAO-Suche: Dropdown: Keine Suche](./arrSearch/dropdown_no_search.png)
+![AAO-Suche: Dropdown: Keine Suche](assets/de_DE/arrSearch/dropdown_no_search.png)
 
-![AAO-Suche: Dropdown: Suche aktiv](./arrSearch/dropdown_search.png)
+![AAO-Suche: Dropdown: Suche aktiv](assets/de_DE/arrSearch/dropdown_search.png)
 
-![AAO-Suche: Dropdown: Ausgewählte AAOs](./arrSearch/dropdown_selected.png)
+![AAO-Suche: Dropdown: Ausgewählte AAOs](assets/de_DE/arrSearch/dropdown_selected.png)
 
 ## Eigene Fahrzeugkategorien
 
@@ -228,7 +228,7 @@ Du entscheidest!
 Sollen die Rettungshunde mit zur SEG oder soll es einen eigenen Tab `Hunde` geben?
 Du hast die freie Wahl.
 
-![eigene Fahrzeugkategorien](./tailoredtabs/fahrzeugkategorien.png)
+![eigene Fahrzeugkategorien](assets/de_DE/tailoredtabs/fahrzeugkategorien.png)
 
 ## Einsatzstichworte
 
@@ -238,25 +238,25 @@ Guck dir am besten unten auf dem Bild die Einstellungsmöglichkeiten an.
 **Wichtig:** Damit es funktioniert, müsst ihr ganz rechts Einsätze auswählen,
 auf die diese Einstellung angewendet werden soll.
 
-![Eigene Einsatzstichworte](./missionkeywords/einsatzstichworte.png)
+![Eigene Einsatzstichworte](assets/de_DE/missionkeywords/einsatzstichworte.png)
 
-![Einsatzstichworte Einstellungen](./missionkeywords/einsatzstichworteSettings.png)
+![Einsatzstichworte Einstellungen](assets/de_DE/missionkeywords/einsatzstichworteSettings.png)
 
 ### Variablen
 
-`{{type}}` - wird durch die MissionTypeID ersetzt, dies ist eine Nummer, die jeden Einsatztyp im Spiel kennzeichnet,
+<span v-pre>`{{type}}`</span> - wird durch die MissionTypeID ersetzt, dies ist eine Nummer, die jeden Einsatztyp im Spiel kennzeichnet,
 der Mülleimerbrand als beispiel hat die 0, der Containerbrand die 1, und so weiter
 
-`{{credits}}` - wird durch die durchschnittlichen Credits des Einsatzes ersetzt.
+<span v-pre>`{{credits}}`</span> - wird durch die durchschnittlichen Credits des Einsatzes ersetzt.
 
 ## Alarm-Icons
 
 Auswählbare Alarm-Icons, welche auf dem Alarmieren-Button als extra Symbole erscheinen, in Abhängigkeit davon,
 welche Fahrzeuge aktiviert sind.
 Es stehen alle kostenlosen Icons von
-<a :href="$theme.variables.fontAwesomeIconSearchLink" target="_blank">FontAwesome</a> zur Verfügung.
+[FontAwesome](https://fontawesome.com/v6/search?m=free) zur Verfügung.
 
-![Alarm-Icon](./alarmbutton.png)
+![Alarm-Icon](assets/de_DE/alarmbutton.png)
 
 ## Gefärbte AAO-Kategorien
 
@@ -264,4 +264,4 @@ Zur besseren Übersicht kann man die Tabs der AAO-Kategorien individuell anpasse
 Sowohl für die Hintergrund-,
 als auch die Schriftfarbe können entweder Standard- oder benutzerdefinierte Farben ausgewählt werden.
 
-![Färbbare AAO-Kategorien](./färbbareAAO-Kategorien.png)
+![Färbbare AAO-Kategorien](assets/de_DE/färbbareAAO-Kategorien.png)

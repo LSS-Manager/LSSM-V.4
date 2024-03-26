@@ -15,7 +15,7 @@ Cette fonctionnalité intègre le module "Show chatbutton above" de la V3 dans l
 
 Il vous permet d'afficher le bouton "Historique de chat" dans la partie supérieure du chat, de sorte que vous n'ayez pas besoin de faire défiler la page pour atteindre le bouton.
 
-![Afficher le bouton d'historique de chat dans l'en-tête](./cloneHistoryBtnToHeader.png)
+![Afficher le bouton d'historique de chat dans l'en-tête](assets/fr_FR/cloneHistoryBtnToHeader.png)
 
 ## Design léger de l'historique du chat
 

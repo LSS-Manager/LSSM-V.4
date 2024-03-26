@@ -17,4 +17,4 @@ Questo può essere fatto sia dalla lista delle missioni che dalla schermata di i
 
 Questo mostrerà i guadagni medi di quel tipo di missione.
 
-![Elenco esteso delle chiamate](./missionList.png)
+![Elenco esteso delle chiamate](assets/it_IT/missionList.png)

@@ -5,10 +5,10 @@ Questo modulo sostituisce il `Totale per il sommario giornaliero` in V3, che mos
 Questo modulo è stato leggermente ravvivato per la V4.
 
 Ci sono i "badge" visualizzati di default (questi possono essere disattivati nelle impostazioni):
-![badge](./badges.png)
+![badge](assets/it_IT/badges.png)
 
 Se si fa clic sulla piccola `i`, allora vi verrà mostrata una tabella ordinabile:
-![tabella](./table.png)
+![tabella](assets/it_IT/table.png)
 
 Questo modulo utilizza le seguenti categorie:
 

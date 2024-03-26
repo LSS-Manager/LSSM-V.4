@@ -3,7 +3,7 @@ Das Modul "User-ID" ermöglicht dir das, indem es einen Link zu deinem Profil de
 Um ein Überfüllen der Navigationsleiste zu vermeiden, kann diese Funktion in den Einstellungen, mittels
 `Eigene ID in der Navigationsleiste anzeigen` (de-)aktiviert werden.
 
-![User-ID in der Navigationsleiste](./navbar.png)
+![User-ID in der Navigationsleiste](assets/de_DE/navbar.png)
 
 Zusätzlich wird in jedem Profil die ID des jeweiligen Nutzers angezeigt.
-![User-ID im Profil eines Nutzers](./profile.png)
+![User-ID im Profil eines Nutzers](assets/de_DE/profile.png)

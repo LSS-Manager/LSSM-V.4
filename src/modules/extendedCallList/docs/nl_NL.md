@@ -2,7 +2,7 @@ Deze module breidt de meldingenlijst uit met enkele nuttige functies.
 
 ## Resterende inzettijdDeze functie toont hoe lang een inzet nog duurt tot het einde
 
-![Resterende inzettijd](./remainingTime.png)
+![Resterende inzettijd](assets/nl_NL/remainingTime.png)
 
 ## Patiëntenbehandelingstijd
 
@@ -32,7 +32,7 @@ Sorteet de meldingen op basis van verschillende opties. De knop om de sorteervol
 ### Sorteren in inzetvenster
 
 Met deze instelling wordt de sortering in het inzetvenster overgenomen,
-Je kan ook de [Sneltoetsen](../hotkeys/) voor de aangepaste knoppen vastleggen.
+Je kan ook de [Sneltoetsen](assets/nl_NL./hotkeys/) voor de aangepaste knoppen vastleggen.
 Met een vinkje kan je snel schakelen tussen wel of niet met gesorteerde meldingen te werken.
 
 Heeft u geen sortering gekozen, dan worden de knoppen niet gewijzigd en er wordt geen vinkje getoond.

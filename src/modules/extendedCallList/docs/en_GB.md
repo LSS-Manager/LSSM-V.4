@@ -4,7 +4,7 @@ This module aims to enhance the mission list, as it is very basic within the cor
 
 This setting shows you the exact time left until completion of the mission.
 
-![Remaining Mission Time](./remainingTime.png)
+![Remaining Mission Time](assets/en_GB/remainingTime.png)
 
 ### Remaining Time Only For Green Missions
 
@@ -18,25 +18,25 @@ Displays how much time left until patients are fully treated.
 
 You can press the star icon next to a mission name to make it appear at the top of the mission list. This can be done from either the mission list or in the dispatch screen.
 
-![Mark Missions](./markMissions.png)
+![Mark Missions](assets/en_GB/markMissions.png)
 
 ## Show Average Credits
 
 This will show the average earnings of that type of mission.
 
-![Extended Call List](./missionList.png)
+![Extended Call List](assets/en_GB/missionList.png)
 
 ## Collapse Missions
 
 Allows you to collapse missions so they take up less room in your mission list.
 
-![Collapse Missions](./collapseMissions.png)
+![Collapse Missions](assets/en_GB/collapseMissions.png)
 
 ## Share Missions
 
 Allows you to share missions to your alliance directly from the mission list.
 
-![Share Missions](./shareMissions.png)
+![Share Missions](assets/en_GB/shareMissions.png)
 
 ### Mission Types
 
@@ -61,7 +61,7 @@ Sort the list by many factors.
 * Distance to Dispatch Centre
 * Distance to next Station
 
-![Sort Missions](./sortMissions.png)
+![Sort Missions](assets/en_GB/sortMissions.png)
 
 ### Button Colour
 
@@ -75,7 +75,7 @@ This adds the sorting in the mission window so that the next and previous button
 
 Shows the current amount of patients in the mission list.
 
-![Patients](./patients.png)
+![Patients](assets/en_GB/patients.png)
 
 ### Hide 0 Patients
 
@@ -85,10 +85,10 @@ Doesn't show that there is 0 patients.
 
 Show the current patient amount when hovering over a mission on the map.
 
-![Tooltip](./tooltip.png)
+![Tooltip](assets/en_GB/tooltip.png)
 
 ## Mark Seasonal Missions
 
 Adds an emoji before seasonal missions names, alternatively you can customise this for any mission in the game.
 
-![Seasonal Missions](./seasonal.png)
+![Seasonal Missions](assets/en_GB/seasonal.png)

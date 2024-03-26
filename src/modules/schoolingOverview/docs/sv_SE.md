@@ -6,7 +6,7 @@ Med modulen 'Kursöversikt' försöker vi lösa detta problem.
 Överst hittar du ett litet "i" som öppnar en sammanfattning.
 Naturligtvis har vi integrerat en sökfunktion och tabellerna kan sorteras. Hela saken ser ut så här:
 
-![Kursöversikt](./overview.png)
+![Kursöversikt](assets/de_DE/overview.png)
 
 Dessutom är kurserna med egna deltagare och öppna kurser indelade i kategorier.
 Det betyder helt enkelt enligt respektive skolor, dvs.
@@ -19,8 +19,8 @@ Och alltid i den här ordningen.
 
 Så här ser det till exempel ut för kurser med dina egna deltagare:
 
-![Kurser med egna deltagare](./own.png)
+![Kurser med egna deltagare](assets/de_DE/own.png)
 
 Och så med öppna kurser:
 
-![öppna kurser](./alliance.png)
+![öppna kurser](assets/de_DE/alliance.png)

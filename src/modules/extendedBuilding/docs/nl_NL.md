@@ -23,13 +23,13 @@ Deze functie geeft het huidige, toegewezen en maximale personeel weer,
  als het maximum of groen als het gelijk is aan het maximum.
 
 Hieronder een voorbeeld van de bovenstaande functies:
-![Voertuig](./vehicle.png)
+![Voertuig](assets/nl_NL/vehicle.png)
 
 ### Personeel benodigd
 
 Laat zien hoeveel personeel minimaal en maximaal nodig is voor de voertuigen.
 
-![Personeel Benodigd](./personalNeeded.png)
+![Personeel Benodigd](assets/nl_NL/personalNeeded.png)
 
 ### Personeelssamenvatting
 
@@ -37,7 +37,7 @@ Geeft in het personeelsoverzicht een samenvatting van hoeveel personen welke opl
 In de linkertabel zie je per combinatie hoeveel personeel die combinatie heeft
  en in de rechtertabel zie je per opleiding hoeveel personeel die opleiding heeft.
 
-![Personeelssamenvatting](./schoolingSummary.png)
+![Personeelssamenvatting](assets/nl_NL/schoolingSummary.png)
 
 ### Verbeterd personeel toewijzen
 
@@ -47,16 +47,16 @@ Geeft een optie om het personeel zonder de juiste opleiding te verbergen.
 
 Laat direct de status van alle uitbreidingen zien in het gebouwenscherm.
 
-![Uitbreidingen](./expensions.png)
+![Uitbreidingen](assets/nl_NL/expensions.png)
 
 ### Aantal gebouwen van hetzelfde type
 
 Geeft in de navigatieknoppen weer hoeveel gebouwen van hetzelfde type er voor en na zijn.
 
-![Gebouwen van hetzelfde type](./buildingsLeftRight.png)
+![Gebouwen van hetzelfde type](assets/nl_NL/buildingsLeftRight.png)
 
 ### Snelle selectie van de meldkamer
 
 Deze optie geeft een dropdown van je meldkamers, waardoor je die makkelijk kan wisselen in het gebouw.
 
-![Snelle meldkamer selectie](./fastDispatchChooser.png)
+![Snelle meldkamer selectie](assets/nl_NL/fastDispatchChooser.png)

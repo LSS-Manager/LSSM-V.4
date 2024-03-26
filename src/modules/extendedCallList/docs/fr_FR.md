@@ -7,7 +7,7 @@ Avec ce module, nous souhaitons la rendre un peu plus attrayante. Voici les para
 
 Vous voulez savoir combien de temps il faut encore à une mission pour être complètement traitée ?
 Ce paramètre t'indique exactement cette information :
-![durée dans la liste des missions](./remainingtime/einsatzdauer.png)
+![durée dans la liste des missions](assets/fr_FR/remainingtime/einsatzdauer.png)
 
 ### Durée des missions uniquement pour les missions vertes
 
@@ -33,13 +33,13 @@ Ceci permet d'afficher en petit le temps nécessaire aux patients pour être com
 Cette fonction te permet de marquer les missions afin qu'elles apparaissent toujours en haut de la liste des missions.
 Vous pouvez marquer les missions aussi bien dans la liste des missions que dans la fenêtre des missions.
 Une étoile jaune indique qu'une intervention est marquée.
-![Marquer dans la liste des affectations](./starrablemissions/markieren.png)
-![Marquer dans la fenêtre d'intervention](./starrablemissions/markieren_einsatz.png)
+![Marquer dans la liste des affectations](assets/fr_FR/starrablemissions/markieren.png)
+![Marquer dans la fenêtre d'intervention](assets/fr_FR/starrablemissions/markieren_einsatz.png)
 
 ## Afficher les gains
 
 Cette fonctionnalité t'indique combien rapporte en moyenne une mission :
-![Afficher les gains](./averagecredits/verdienst.png)
+![Afficher les gains](assets/fr_FR/averagecredits/verdienst.png)
 
 ## Réduire les missions
 
@@ -49,7 +49,7 @@ Vous pouvez réduire ou ouvrir les missions à ta guise ou les réduire toutes e
 Le bouton situé sur le bord droit de la barre de boutons supérieure permet de basculer toutes les missions en une seule fois.
 Voici à quoi cela ressemble :
 
-![Réduire les missions](./collapsablemissions/einklappen.png)
+![Réduire les missions](assets/fr_FR/collapsablemissions/einklappen.png)
 
 ## Partager les missions
 
@@ -59,7 +59,7 @@ Vous pouvez ainsi partager des missions au sein de l'alliance directement à par
 Avec les paramètres suivants, vous pouvez limiter les missions pour lesquelles un bouton "partager" doit être affiché.
 Vous pouvez également choisir la couleur des boutons :
 
-![Partager les missions](./sharemissions/shareMissions.png)
+![Partager les missions](assets/fr_FR/sharemissions/shareMissions.png)
 
 ### Partager les missions : Types de missions
 
@@ -74,12 +74,12 @@ Vous pouvez régler cela via ce paramètre.
 
 Trie ta liste de missions selon certains critères ! Ici aussi, la couleur du bouton peut être adaptée.
 
-![Trier les missions](./missionsort/missionSort.png)
+![Trier les missions](assets/fr_FR/missionsort/missionSort.png)
 
 ### Tri dans la fenêtre de déploiement
 
 Avec ce paramètre, vous pouvez reprendre le tri dans la fenêtre de déploiement.
-Bien entendu, vous pouvez aussi définir [Raccourcis](../hotkeys/) pour les boutons modifiés.
+Bien entendu, vous pouvez aussi définir [Raccourcis](assets/fr_FR./hotkeys/) pour les boutons modifiés.
 Une petite case à cocher te permet de changer à tout moment le mode
  des boutons entre "trier" et "standard" dans la fenêtre de déploiement.
 
@@ -87,16 +87,16 @@ Si vous n'avez pas choisi de tri, les boutons ne seront pas modifiés et aucune 
 
 Le mode actuel des boutons est indiqué par la couleur : `Vert → Standard` et `Bleu → Trié` :
 
-![Trier les missions dans la fenêtre déploiement : non triées](./missionsort/missionSortMissionsStandard.png)
+![Trier les missions dans la fenêtre déploiement : non triées](assets/fr_FR/missionsort/missionSortMissionsStandard.png)
 
-![Trier les missions dans la fenêtre déploiement : triées](./missionsort/missionSortMissionsModified.png)
+![Trier les missions dans la fenêtre déploiement : triées](assets/fr_FR/missionsort/missionSortMissionsModified.png)
 
 ## Nombre de patients
 
 Affiche sur le bord droit d'une missions un petit nombre
  indiquant combien de patients se trouvent actuellement sur le lieu d'intervention :
 
-![Nombre de patients](./patientenzahl.png)
+![Nombre de patients](assets/fr_FR/patientenzahl.png)
 
 ### Masquer 0 patient
 
@@ -106,7 +106,7 @@ Si ce paramètre est activé, le nombre de patients n'est affiché que s'il est 
 
 Avec ce réglage, le nombre actuel de patients est également affiché dans les infobulles sur la carte :
 
-![Nombre de patients dans les infobulles](./patienten-tooltip.png)
+![Nombre de patients dans les infobulles](assets/fr_FR/patienten-tooltip.png)
 
 ## Marquer les missions saisonnières
 
@@ -115,4 +115,4 @@ Avec ce paramètre, vous pouvez noter pour chaque mission autant de brèves indi
 Par défaut, les missions saisonnières sont inscrites ici (été, Halloween, football, etc.), d'où le nom.
 
 Voici par exemple comment se présente le paramètre par défaut pour une mission de type Anniversaire :
-![Mission saisonnières lors d'une mission d'Anniversaire](./eventmissions/eventMission.png)
+![Mission saisonnières lors d'une mission d'Anniversaire](assets/fr_FR/eventmissions/eventMission.png)

@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 import { defineConfig } from 'vitepress'
+import { createRequire } from 'node:module'
 
 import childProcess from './utils/childProcess';
 import config from '../../src/config';
@@ -13,6 +14,7 @@ import localeConfig, {
 } from './utils/localeConfig';
 
 import type { Versions } from './utils/generate/versions';
+const require = createRequire(import.meta.url)
 
 const {
   DOCS_URL,
@@ -113,5 +115,20 @@ export default defineConfig({
     ]
   },
   locales: localeConfigs.siteConfigs ,
-  srcDir: 'src'
+  srcDir: 'src',
+  rewrites: {
+    'modules/:module/docs/:lang.md': ':lang/modules/:module.md',
+    'modules/:module/docs/assets/:lang/:file': ':lang/modules/:file'
+  },
+  ignoreDeadLinks: true, //TODO: Remove this line when all links are fixed
+  
+  // This allows the server renderer to be found. Even inside the modules directory which is outside the workspace
+  vite: {
+    resolve: {
+      alias: {
+        'vue/server-renderer': require.resolve('vue/server-renderer'),
+        'vue': require.resolve('vue')
+      }
+    }
+  }
 })

@@ -9,7 +9,7 @@ In de instellingen kan je nieuwe templates aanmaken, daarvoor kan je gebruik mak
 
 ### Gebruikersnaam
 
-Daarvoor kan je de variabele `{{username}}` gebruiken,
+Daarvoor kan je de variabele <span v-pre>`{{username}}`</span> gebruiken,
 deze wordt **bij nieuwe berichten** door de gebruikersnaam van de ontvanger vervangen.
 
 :::tip Waarom werkt het alleen bij nieuwe berichten?
@@ -18,11 +18,11 @@ Heel eenvoudig: Momenteel hebben we niet bij bestaande berichten de mogelijkheid
 
 ### Datum
 
-Met `{{today}}` Kan je heel eenvoud de datum van vandaag invoegen.
+Met <span v-pre>`{{today}}`</span> Kan je heel eenvoud de datum van vandaag invoegen.
 
 Wil je een datum in de toekomst toevoegen, bijvoorbeeld vandaag over 2 weken?
-Dan gebruik je daarvoor: `{{today+14}}`, om vandaag + 14 dagen te gebruiken.
-Hetzelfde werkt bijvoorbeeld: `{{today-436}}`, om 436 dagen voor vandaag in te voegen.
+Dan gebruik je daarvoor: <span v-pre>`{{today+14}}`</span>, om vandaag + 14 dagen te gebruiken.
+Hetzelfde werkt bijvoorbeeld: <span v-pre>`{{today-436}}`</span>, om 436 dagen voor vandaag in te voegen.
 
 ## Gebruik templates
 

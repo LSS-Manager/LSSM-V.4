@@ -26,17 +26,17 @@ Het werkt alleen met een directe link naar afbeeldingen! Daarnaast werkt deze fu
 Soms wil je gewoon korte informatie over een gebouw, gebruiker o.i.d., zonder de link te moeten openen.
 Daarom kan je link voorbeelden activeren in de instellingen:
 
-![Instellingen voor Link Voorbeeld](./linkPreview_setting.png)
+![Instellingen voor Link Voorbeeld](assets/nl_NL/linkPreview_setting.png)
 
 Hieronder een aantal voorbeelden:
 
 ### Gebouwen
 
-![Link Voorbeeld gebouw](./linkPreview_building.png)
+![Link Voorbeeld gebouw](assets/nl_NL/linkPreview_building.png)
 
 ### Voertuigen
 
-![Link Voorbeeld voertuig](./linkPreview_vehicle.png)
+![Link Voorbeeld voertuig](assets/nl_NL/linkPreview_vehicle.png)
 
 ### Spelers
 
@@ -60,7 +60,7 @@ Er zijn een aantal momenten in het spel, dat de kaart op een andere locatie gece
 Met deze instellingen worden deze verplaatsingen opgeslagen en zijn terug
 te vinden onder een kleine knop rechtsboven in de kaart.
 
-![Kaart verplaatsings historie](./mapUndo.png)
+![Kaart verplaatsings historie](assets/nl_NL/mapUndo.png)
 
 Als u met de muis kort op hetzelfde adres blijft, wordt het op de kaart weergegeven,
 maar de kaart springt alleen naar dit adres als op het adres klikt.
@@ -78,14 +78,14 @@ Door op de groene `+` te drukken, kan je de huidige locatie opslaan.
 Door daarna over een opgeslagen locatie te gaan met je muis, krijg je een voorvertoning van de locatie.
 Door er op te klikken ga je naar die locatie toe.
 
-![Bladwijzers voor de kaart](./ownMapMarkers.png)
+![Bladwijzers voor de kaart](assets/nl_NL/ownMapMarkers.png)
 
 ## Titel van het browsertabblad
 
 Met deze functie kunt u in de titel van het browsertabblad zien welk venster van het spel momenteel geopend is.
 Hieronder een voorbeeld:
 
-![Browsertitel bij een gebouw](./browsertitle.png)
+![Browsertitel bij een gebouw](assets/nl_NL/browsertitle.png)
 
 ## Emoji-kiezer
 
@@ -98,7 +98,7 @@ Houd er rekening mee dat momenteel alleen de officiële namen worden gebruikt vo
 Bijvoobreeld: `slightly_smiling_face` voor `🙂`.
 De belangrijkste namen zul je echter snel onthouden als je het regelmatig gebruikt. 😉
 
-![Emoji-Kiezer](./emojipicker.png)
+![Emoji-Kiezer](assets/nl_NL/emojipicker.png)
 
 :::tip Selectie via het toetsenbord
 Middels de `←` en `→` toetsen kan je ook door de suggesties heen bladeren en deze selecteren met `enter`.

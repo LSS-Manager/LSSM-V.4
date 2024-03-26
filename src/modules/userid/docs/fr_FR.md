@@ -5,7 +5,7 @@ via Afficher son propre ID dans la barre de navigation être (dés)activé.
 
 ## Affiche l'ID de l'utilisateur dans la barre de navigation  
 
-![ID de l'utilisateur dans la barre de navigation](./navbar.png)
+![ID de l'utilisateur dans la barre de navigation](assets/fr_FR/navbar.png)
 
 En outre, l'ID de l'utilisateur respectif est affiché dans chaque profil.
-![ID de l'utilisateur dans le profil d'un utilisateur](./profile.png)
+![ID de l'utilisateur dans le profil d'un utilisateur](assets/fr_FR/profile.png)

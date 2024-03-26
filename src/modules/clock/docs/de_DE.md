@@ -6,7 +6,7 @@ Eine Hilfestellung zur Konfiguration findest du unter [Einstellungen: Moment.js]
 
 Aktuell bieten wir dir die Möglichkeit von Uhren an folgenden Stellen:
 
-* Navigationsleiste *Format hier: `LLLL:ss`*  ![Uhr in der Navigationsleiste](./navbar.png)
+* Navigationsleiste *Format hier: `LLLL:ss`*  ![Uhr in der Navigationsleiste](assets/de_DE/navbar.png)
 * Als Overlay über allen Elementen
     * Das hatten wir in der V3 schon für die Karte, hier ist die Uhr jetzt im gesamten Fenster erreichbar.
 

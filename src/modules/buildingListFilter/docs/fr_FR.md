@@ -17,8 +17,8 @@ Ce paramètres permet d'afficher les filtres même si vous faites défiler la li
 
 Exemple :
 
-![Exemple de disposition des filtres](./example.png)
+![Exemple de disposition des filtres](assets/fr_FR/example.png)
 
 L'écran des paramètres :
 
-![Paramètres](./settings.png)
+![Paramètres](assets/fr_FR/settings.png)

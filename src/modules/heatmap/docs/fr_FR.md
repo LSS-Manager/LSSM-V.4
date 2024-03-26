@@ -13,7 +13,7 @@ Selon les réglages, l'icône apparaît dans l'un des quatre coins de la carte.
 En cliquant sur celle-ci, une fenêtre s'ouvre avec une case pour l'activation de la carte.
 Activer la carte thermique et le bouton pour les réglages.
 
-![Heatmap-Icon](./heatmapicon.png)
+![Heatmap-Icon](assets/fr_FR/heatmapicon.png)
 
 ## Paramètres de la carte thermique
 
@@ -38,9 +38,9 @@ Le curseur "Amplification de l'intensité" influence l'épaisseur du cercle gén
 Les deux réglages peuvent être effectués en faisant glisser le curseur,
 ou en cliquant sur l'icône `123` de droite par saisie directe et touches "plus bas/plus haut".
 
-![Paramètres](./heatmapeinstellungen.png)
+![Paramètres](assets/fr_FR/heatmapeinstellungen.png)
 
 Le dernier champ permet de sélectionner le véhicule, le poste ou une extension du poste recherché.
 Cela se fait soit en choisissant dans la liste déroulante, soit plus confortablement par saisie directe.
 
-![Liste déroulante](./heatmapliste.png)
+![Liste déroulante](assets/fr_FR/heatmapliste.png)

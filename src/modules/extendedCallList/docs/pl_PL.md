@@ -17,4 +17,4 @@ Można to zrobić z listy misji lub na ekranie wezwania.
 
 To pokaże średnie zarobki tego typu misji.
 
-![Rozszerzona lista połączeń](./missionList.png)
+![Rozszerzona lista połączeń](assets/pl_PL/missionList.png)

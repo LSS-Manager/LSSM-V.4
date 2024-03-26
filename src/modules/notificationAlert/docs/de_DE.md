@@ -15,7 +15,7 @@ Wir bieten vier verschiedene Farben an:
 * Warnung (orange)
 
 So sieht das Ganze beispielsweise am linken Bildschirmrand aus:
-![Typen im hellen Design](./types_light.png) ![Typen im dunklen Design](./types_dark.png)
+![Typen im hellen Design](assets/de_DE/types_light.png) ![Typen im dunklen Design](assets/de_DE/types_dark.png)
 
 ## Anzeigedauer
 
@@ -40,7 +40,7 @@ Hier legst du die Position für Ingame-Benachrichtigungen fest. Du kannst aus 6 
 
 So kann eine Konfiguration zum Beispiel aussehen:
 
-![Beispielhafte Konfiguration](./example.png)
+![Beispielhafte Konfiguration](assets/de_DE/example.png)
 
 # Ereignisse
 

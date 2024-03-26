@@ -19,4 +19,4 @@ Följande information ingår:
 
 Så här ser det till exempel ut på en polisstation som har en utvecklad cell och en cell under uppbyggnad:
 
-![Ett exempel på polisstation](./polizei.png)
+![Ett exempel på polisstation](assets/de_DE/example.png)

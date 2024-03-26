@@ -8,4 +8,4 @@ Ten moduł pozwala na łatwiejsze ustawianie punktów UM.
 * Możesz pokazać i ukryć każdy typ UM
     * Można to kontrolować, otwierając menu `Ustaw nowe UM`
 
-![Przykład](./poi.png)
+![Przykład](assets/pl_PL/poi.png)

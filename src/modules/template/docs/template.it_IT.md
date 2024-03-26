@@ -7,4 +7,4 @@ lang: it
 
 Questo modulo dovrebbe semplicemente servire come modello!
 
-![LSSM](../../.vuepress/public/img/lssm.png)
+![LSSM]()

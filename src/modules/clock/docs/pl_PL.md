@@ -5,9 +5,9 @@ Pomoc dotyczącą konfiguracji znajdziesz w [ustawieniach](../../settings.md#mom
 Zegar można umieścić w dwóch miejscach:
 
 * Po lewej stronie paska nawigacyjnego
-    ![Zegar na pasku nawigacyjnym](./navbar.png)
+    ![Zegar na pasku nawigacyjnym](assets/pl_PL/navbar.png)
 * Jako nakładka
-    ![Zegar jako nakładka na czacie](./chatOverlay.png)
+    ![Zegar jako nakładka na czacie](assets/pl_PL/chatOverlay.png)
 
 Format na powyższych obrazach to `DD[th] MMM YYYY LTS`.
 

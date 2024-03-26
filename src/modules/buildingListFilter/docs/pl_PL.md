@@ -7,7 +7,7 @@ Masz możliwość dodania dodatkowych filtrów nad listą budynków. Będziesz w
 * Wybierać, które budynki mają być wyświetlane dla każdego filtra
 
 Przykład:
-![Przykładowe układy filtrów](./example.png)
+![Przykładowe układy filtrów](assets/pl_PL/example.png)
 
 Ekran ustawień:
-![Ustawienia](./settings.png)
+![Ustawienia](assets/pl_PL/settings.png)

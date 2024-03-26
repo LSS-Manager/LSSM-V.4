@@ -6,4 +6,4 @@ För att göra placeringen enklare erbjuder denna modul följande förenklingar:
 * Alla befintliga intressepunkter av den valda typen är färgade.
 * Om markören rör sig utanför bildens räckvidd centreras kartan automatiskt på markören.
 
-![Exempel: Bos](./poi.png)
+![Exempel: Bos](assets/de_DE/poi.png)

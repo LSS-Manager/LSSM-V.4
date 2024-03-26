@@ -14,13 +14,13 @@ Die Nachrichten werden nicht direkt in den Chat gepostet, sondern lassen sich vo
 
 In den Einstellungen lassen sich verschiedene Templates anlegen:
 
-![Einstellungen](./settings.png)
+![Einstellungen](assets/de_DE/settings.png)
 
 ### Variablen
 
 #### Nutzername
 
-Dabei kannst du den Platzhalter `{{username}}` verwenden,
+Dabei kannst du den Platzhalter <span v-pre>`{{username}}`</span> verwenden,
 dieser wird **bei neuen Nachrichten** gegen den Nutzernamen des Empfängers ausgetauscht.
 
 :::tip Warum geht das nur bei neuen Nachrichten?
@@ -29,22 +29,22 @@ Ganz einfach: Aktuell haben wir leider keine Möglichkeit bei existierenden Konv
 
 #### Datum
 
-Mittels `{{today}}` kannst du ganz einfach das heutige Datum einfügen.
+Mittels <span v-pre>`{{today}}`</span> kannst du ganz einfach das heutige Datum einfügen.
 
-Du möchtest ein zukünftiges oder vergangenes Datum einfügen, z.&nbsp;B. heute in 2 Wochen? Dann nutze dafür `{{today+14}}`,
+Du möchtest ein zukünftiges oder vergangenes Datum einfügen, z.&nbsp;B. heute in 2 Wochen? Dann nutze dafür <span v-pre>`{{today+14}}`</span>,
 um heute in 14 Tagen einzufügen.
-Genauso geht z.&nbsp;B. `{{today-436}}`, um heute vor 436 Tagen einzufügen.
+Genauso geht z.&nbsp;B. <span v-pre>`{{today-436}}`</span>, um heute vor 436 Tagen einzufügen.
 
 ### Beispiele
 
 Bei neuen Nachrichten sieht das dann beispielsweise so aus:
 
-![Konversation starten](./new_message.png)
+![Konversation starten](assets/de_DE/new_message.png)
 
 bzw. nach dem Einfügen des ersten Templates:
 
-![Template eingefügt](./entered.png)
+![Template eingefügt](assets/de_DE/entered.png)
 
 Und so bei bestehenden Konversationen:
 
-![bestehende Konversation](./existing_messages.png)
+![bestehende Konversation](assets/de_DE/existing_messages.png)

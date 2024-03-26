@@ -28,17 +28,17 @@ Parfois, on aimerait simplement avoir de brèves informations sur un bâtiment o
 sans avoir à ouvrir directement le lien.
 Pour cela, il est possible d'activer nos aperçus de liens dans les paramètres :
 
-![Paramètres pour les aperçus de liens](./linkPreview_setting.png)
+![Paramètres pour les aperçus de liens](assets/fr_FR/linkPreview_setting.png)
 
 Voici quelques impressions :
 
 ### Bâtiment
 
-![Aperçu des Bâtiment](./linkPreview_building.png)
+![Aperçu des Bâtiment](assets/fr_FR/linkPreview_building.png)
 
 ### Véhicules
 
-![Aperçu des Véhicules](./linkPreview_vehicle.png)
+![Aperçu des Véhicules](assets/fr_FR/linkPreview_vehicle.png)
 
 ### Profils
 
@@ -61,7 +61,7 @@ Malheureusement, ce paramètre n'est actuellement pas compatible avec le type de
 Il y a quelques endroits dans le jeu où la carte est centrée sur une autre position.
 Avec ce réglage, les centrage sont enregistrés et sont accessibles via un petit bouton en haut à droite de la carte :
 
-![L'historique des centrages](./mapUndo.png)
+![L'historique des centrages](assets/fr_FR/mapUndo.png)
 
 Si l'on reste brièvement avec la souris sur l'adresse concernée, celle-ci est affichée sur la carte,
 mais ce n'est qu'en cliquant dessus que la carte saute réellement à cette position.
@@ -86,7 +86,7 @@ Cette fonctionnalité fonctionne de manière assez similaire à
 Cette fonction permet d'indiquer dans le navigateur quelle fenêtre du jeu est actuellement ouverte.
 Voici un petit exemple :
 
-![titre du navigateur pour un véhicule](./browsertitle.png)
+![titre du navigateur pour un véhicule](assets/fr_FR/browsertitle.png)
 
 ## Emoji picker
 
@@ -99,7 +99,7 @@ Note qu'actuellement, seuls les noms officiels des emojis sont utilisés pour la
 par exemple `slightly_smiling_face` pour `🙂`.
 Vous pourrez cependant te souvenir très rapidement des noms les plus importants 😉
 
-![Emoji-Picker](./emojipicker.png)
+![Emoji-Picker](assets/fr_FR/emojipicker.png)
 
 ::: tip Sélection au moyen du clavier
 Avec `←` et `→`, vous pouvez aussi parcourir les propositions et les insérer ensuite avec `Enter`.
@@ -136,7 +136,7 @@ Ce paramètre déplace la recherche de lieu de la barre de navigation vers la ca
 Vous pouvez choisir la position par réglage.
 En cliquant sur la loupe, vous ouvrez et fermez la fenêtre de saisie.
 
-![recherche de lieu sur la carte](./mapsearch.png)
+![recherche de lieu sur la carte](assets/fr_FR/mapsearch.png)
 
 ## RAI-Exporter en tant que QR-Code
 

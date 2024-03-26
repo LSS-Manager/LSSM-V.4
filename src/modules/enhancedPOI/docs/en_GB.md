@@ -8,4 +8,4 @@ This module allows you to set POIs easier.
 * You can show and hide each POI type
     * This can be controlled when you open the `Set a new POI` menu
 
-![Example of bar](./poi.png)
+![Example of bar](assets/en_GB/poi.png)

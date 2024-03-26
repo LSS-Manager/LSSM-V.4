@@ -40,8 +40,8 @@ Daarnaast heb je in de instellingen de volgende opties:
 
 Hieronder aantal voorbeelden:
 
-![Notificatie forum bericht](./notificationForum.png)
+![Notificatie forum bericht](assets/nl_NL/notificationForum.png)
 
-![Notificatie prive bericht](./notificationNieuwBericht.png)
+![Notificatie prive bericht](assets/nl_NL/notificationNieuwBericht.png)
 
-![Notificatie Spraakaanvraag](./notificationSpraakaanvraag.png)
+![Notificatie Spraakaanvraag](assets/nl_NL/notificationSpraakaanvraag.png)

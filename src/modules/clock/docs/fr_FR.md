@@ -6,10 +6,10 @@ Tu trouveras une aide à la configuration sous [Paramètres : Moment.js](../../s
 
 Actuellement, nous t'offrons la possibilité de mettre l'horloge aux endroits suivants :
 
-* Barre de navigation *Format ici : `DD[th] MMM YYYY LTS`* ![Horloge dans la barre de navigation](./navbar.png)
+* Barre de navigation *Format ici : `DD[th] MMM YYYY LTS`* ![Horloge dans la barre de navigation](assets/fr_FR/navbar.png)
 * En tant qu'overlay au-dessus de tous les éléments
     * Nous avions déjà cela dans la V3 pour la carte, ici l'horloge est maintenant accessible dans toute la fenêtre.
-      ![Horloge en tant que fenêtre](./chatOverlay.png)
+      ![Horloge en tant que fenêtre](assets/fr_FR/chatOverlay.png)
 
 ## Configuration
 

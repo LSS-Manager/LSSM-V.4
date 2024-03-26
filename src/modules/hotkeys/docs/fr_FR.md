@@ -24,17 +24,17 @@ Pour définir une touche de raccourci, il te suffit de cliquer sur le champ de s
 Appuie sur la combinaison de touches ou la séquence de touches que vous souhaitez.
 La combinaison de touches apparaît dans le champ de saisie 0,5 seconde après que vous ayez relâché la dernière touche.
 
-![paramètres des touches de raccourci](./settings.png)
+![paramètres des touches de raccourci](assets/fr_FR/settings.png)
 
 Avec la touche `F1`,
 vous pouvez à tout moment afficher un aperçu rapide des touches de raccourci que vous avez définies :
 
-![Aperçu des touches de raccourci](./overview.png)
+![Aperçu des touches de raccourci](assets/fr_FR/overview.png)
 
 Les actions disponibles jusqu'à présent sont listées ci-dessous.
 N'hésite pas à nous faire part d'autres propositions sur le
 [Forum](https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/), sur notre <discord/> ou dans le
-<a :href="$theme.variables.github + '/issues/15'" target="_blank">GitHub Issue #15</a>.
+[GitHub Issue #15](https://github.com/LSS-Manager/LSSM-V.4/issues/15).
 Vérifie d'abord dans le GitHub Issue si ta demande a déjà été notée, afin d'éviter les doublons.
 
 ## Général
@@ -164,7 +164,7 @@ Ces touches de raccourci ne sont disponibles que dans la fenêtre principale
 ### Mission triées
 
 Ces touches de raccourci sont là pour les boutons modifiés du tri des interventions dans le module
-[Liste de mission étendue](../extendedCallList/#trier-les-missions) :
+[Liste de mission étendue](assets/fr_FR./extendedCallList/#trier-les-missions) :
 
 * Déployer et allez à la mission suivante
 * Déployer, partager et allez à la mission suivante

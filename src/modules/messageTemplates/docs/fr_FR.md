@@ -12,13 +12,13 @@ Les messages ne sont pas directement postés dans le chat, mais peuvent bien sû
 
 Dans les paramètres, il est possible de créer différents modèles :
 
-![Paramètres](./settings.png)
+![Paramètres](assets/fr_FR/settings.png)
 
 ### Variables
 
 #### Nom d'utilisateur
 
-La variable `{{username}}` insère le nom d'utilisateur destinataire.
+La variable <span v-pre>`{{username}}`</span> insère le nom d'utilisateur destinataire.
 Attention elle n'est utilisable que pour les **nouveaux messages**, et pas pour les réponses à un message reçu.
 
 :::tip Pourquoi n'est-ce disponible que pour les nouveaux messages ?
@@ -28,21 +28,21 @@ il n'est facile d'identifier avec certitude le destinataire des messages envoyé
 
 #### Date
 
-La variable `{{today}}` insère la date courante au format JJ/MM/AAAA.
+La variable <span v-pre>`{{today}}`</span> insère la date courante au format JJ/MM/AAAA.
 
 On peut également calculer des dates dans le passé ou le futur en indiquant le décalage en nombre de jours.
-Par exemple `{{today+14}}` insère la date dans deux semaines, et `{{today-436}}` la date d'il y a 436 jours.
+Par exemple <span v-pre>`{{today+14}}`</span> insère la date dans deux semaines, et <span v-pre>`{{today-436}}`</span> la date d'il y a 436 jours.
 
 ### Exemples
 
 Pour les nouveaux messages, cela ressemble par exemple à ceci :
 
-![Démarrer la conversation](./new_message.png)
+![Démarrer la conversation](assets/fr_FR/new_message.png)
 
 ou après l'insertion du premier modèle :
 
-![Modèle inséré](./entered.png)
+![Modèle inséré](assets/fr_FR/entered.png)
 
 Et ainsi pour les conversations existantes :
 
-![Conversation existante](./existing_messages.png)
+![Conversation existante](assets/fr_FR/existing_messages.png)

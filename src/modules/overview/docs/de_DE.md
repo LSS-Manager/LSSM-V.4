@@ -3,7 +3,7 @@ Mit dabei ist auch eine Suche, und die Tabellen lassen sich sortieren, wie man e
 
 Die Übersicht lässt sich, wenn aktiviert, über das LSSM-Menü unter dem Punkt "Übersicht" erreichen:
 
-![Öffnen über das LSSM-Menü](./menu.png)
+![Öffnen über das LSSM-Menü](assets/de_DE/menu.png)
 
 ## Fahrzeuge
 
@@ -17,7 +17,7 @@ Die folgenden Informationen sind in der Fahrzeugübersicht vorhanden:
 * Wassertank
 * Besonderheiten
 
-![Die Fahrzeugübersicht](./fahrzeuge.png)
+![Die Fahrzeugübersicht](assets/de_DE/fahrzeuge.png)
 
 ## Gebäude
 
@@ -33,7 +33,7 @@ Alle Gebäude sind in einer gemeinsamen Tabelle gelistet, welche folgende Inform
 * Ausbauten
 * Besonderes
 
-![Die Gebäudeübersicht](./gebaeude.png)
+![Die Gebäudeübersicht](assets/de_DE/gebaeude.png)
 
 ## Lehrgänge
 
@@ -43,4 +43,4 @@ Die Listen möglicher Lehrgänge enthalten folgende Informationen:
 * Welche Fahrzeuge diese Ausbildung benötigen
 * Wie lange die Ausbildung dauert
 
-![Die Lehrgangsübersicht](./lehrgaenge.png)
+![Die Lehrgangsübersicht](assets/de_DE/lehrgaenge.png)

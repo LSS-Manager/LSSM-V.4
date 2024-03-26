@@ -20,11 +20,11 @@ unbrauchbar macht.
 
 |                        Eigenes Profil                         |                       Profil eines Verbandsmitglieds                        |                       Profil anderer Nutzer                        |
 | :-----------------------------------------------------------: | :-------------------------------------------------------------------------: | :----------------------------------------------------------------: |
-|       ![eigenes Profil: Text](./profiles/self/text.png)       |       ![Verbandsmitglied: Text](./profiles/alliance_members/text.png)       |       ![sonstiger Spieler: Text](./profiles/others/text.png)       |
-|       ![eigenes Profil: Karte](./profiles/self/map.png)       |       ![Verbandsmitglied: Karte](./profiles/alliance_members/map.png)       |                                                                    |
-|   ![eigenes Profil: Gebäude](./profiles/self/buildings.png)   |   ![Verbandsmitglied: Gebäude](./profiles/alliance_members/buildings.png)   |                                                                    |
-| ![eigenes Profil: Auszeichnungen](./profiles/self/awards.png) | ![Verbandsmitglied: Auszeichnungen](./profiles/alliance_members/awards.png) | ![sonstiger Spieler: Auszeichnungen](./profiles/others/awards.png) |
-|                                                               |                                                                             |   ![sonstiger Spieler: ignoriert](./profiles/others/ignore.png)    |
+|       ![eigenes Profil: Text](assets/de_DE/profiles/self/text.png)       |       ![Verbandsmitglied: Text](assets/de_DE/profiles/alliance_members/text.png)       |       ![sonstiger Spieler: Text](assets/de_DE/profiles/others/text.png)       |
+|       ![eigenes Profil: Karte](assets/de_DE/profiles/self/map.png)       |       ![Verbandsmitglied: Karte](assets/de_DE/profiles/alliance_members/map.png)       |                                                                    |
+|   ![eigenes Profil: Gebäude](assets/de_DE/profiles/self/buildings.png)   |   ![Verbandsmitglied: Gebäude](assets/de_DE/profiles/alliance_members/buildings.png)   |                                                                    |
+| ![eigenes Profil: Auszeichnungen](assets/de_DE/profiles/self/awards.png) | ![Verbandsmitglied: Auszeichnungen](assets/de_DE/profiles/alliance_members/awards.png) | ![sonstiger Spieler: Auszeichnungen](assets/de_DE/profiles/others/awards.png) |
+|                                                               |                                                                             |   ![sonstiger Spieler: ignoriert](assets/de_DE/profiles/others/ignore.png)    |
 
 <!-- markdownlint-enable line-length -->
 
@@ -61,7 +61,7 @@ wie wir uns das
 ganze schlussendlich vorstellen.
 :::
 
-![AAO Übersicht](./aao/overview.png)
+![AAO Übersicht](assets/de_DE/aao/overview.png)
 
 ## Verbandsliste & Spielerliste
 
@@ -69,8 +69,8 @@ ganze schlussendlich vorstellen.
 
 |                     Verbandsliste                      |                  Spielerliste                   |
 | :----------------------------------------------------: | :---------------------------------------------: |
-|       ![Verbandsliste](./alliance_list/list.png)       |       ![Spielerliste](./toplist/list.png)       |
-| ![Verbandsliste mit Suche](./alliance_list/search.png) | ![Spielerliste mit Suche](./toplist/search.png) |
+|       ![Verbandsliste](assets/de_DE/alliance_list/list.png)       |       ![Spielerliste](assets/de_DE/toplist/list.png)       |
+| ![Verbandsliste mit Suche](assets/de_DE/alliance_list/search.png) | ![Spielerliste mit Suche](assets/de_DE/toplist/search.png) |
 
 <!-- markdownlint-enable line-length -->
 
@@ -80,12 +80,12 @@ ganze schlussendlich vorstellen.
 
 |                            Beispielbilder                            |                           Beispielbilder                           |
 | :------------------------------------------------------------------: | :----------------------------------------------------------------: |
-|          ![Vorstellung des Verbands](./alliances/intro.png)          |                  ![Regeln](./alliances/rules.png)                  |
-|             ![Bewerbungen](./alliances/applications.png)             |            ![Mitgliederliste](./alliances/members.png)             |
-|    ![Verbandskasse (deaktiviert)](./alliances/funds_disabled.png)    |    ![Verbandskasse (aktiviert)](./alliances/funds_enabled.png)     |
-|        ![Bereitstellungsräume](./alliances/staging_areas.png)        |           ![Verbandsgebäude](./alliances/buildings.png)            |
-|                ![Protokoll](./alliances/protocol.png)                | ![Lehrgänge: Zusammenfassung](./alliances/schoolings/overview.png) |
-| ![Lehrgänge mit eigenen Teilnehmern](./alliances/schoolings/own.png) |      ![Offene Lehrgänge](./alliances/schoolings/alliance.png)      |
+|          ![Vorstellung des Verbands](assets/de_DE/alliances/intro.png)          |                  ![Regeln](assets/de_DE/alliances/rules.png)                  |
+|             ![Bewerbungen](assets/de_DE/alliances/applications.png)             |            ![Mitgliederliste](assets/de_DE/alliances/members.png)             |
+|    ![Verbandskasse (deaktiviert)](assets/de_DE/alliances/funds_disabled.png)    |    ![Verbandskasse (aktiviert)](assets/de_DE/alliances/funds_enabled.png)     |
+|        ![Bereitstellungsräume](assets/de_DE/alliances/staging_areas.png)        |           ![Verbandsgebäude](assets/de_DE/alliances/buildings.png)            |
+|                ![Protokoll](assets/de_DE/alliances/protocol.png)                | ![Lehrgänge: Zusammenfassung](assets/de_DE/alliances/schoolings/overview.png) |
+| ![Lehrgänge mit eigenen Teilnehmern](assets/de_DE/alliances/schoolings/own.png) |      ![Offene Lehrgänge](assets/de_DE/alliances/schoolings/alliance.png)      |
 
 <!-- markdownlint-enable line-length -->
 
@@ -95,12 +95,12 @@ ganze schlussendlich vorstellen.
 
 |                            Beispielbilder                             |                               Beispielbilder                                |
 | :-------------------------------------------------------------------: | :-------------------------------------------------------------------------: |
-|          ![Einzeltransaktionen](./credits/credits_list.png)           |      ![Einzeltransaktionen](./credits/credits_list_multiple_pages.png)      |
-|              ![Übersicht](./credits/credits_summary.png)              |                                                                             |
-|         ![Tageszusammenfassung](./credits/credits_daily.png)          |         ![Tageszusammenfassung](./credits/credits_daily_filter.png)         |
-| ![Tageszusammenfassung](./credits/credits_daily_filter_yesterday.png) |                                                                             |
-|            Mittlerweile gibt es sogar einen neuen Filter:             | ![Der neue Filter der Tageszusammenfassung](./credits/daily_new_filter.png) |
-|                     ![Coins](./credits/coins.png)                     |                ![Coins](./credits/coins_multiple_pages.png)                 |
+|          ![Einzeltransaktionen](assets/de_DE/credits/credits_list.png)           |      ![Einzeltransaktionen](assets/de_DE/credits/credits_list_multiple_pages.png)      |
+|              ![Übersicht](assets/de_DE/credits/credits_summary.png)              |                                                                             |
+|         ![Tageszusammenfassung](assets/de_DE/credits/credits_daily.png)          |         ![Tageszusammenfassung](assets/de_DE/credits/credits_daily_filter.png)         |
+| ![Tageszusammenfassung](assets/de_DE/credits/credits_daily_filter_yesterday.png) |                                                                             |
+|            Mittlerweile gibt es sogar einen neuen Filter:             | ![Der neue Filter der Tageszusammenfassung](assets/de_DE/credits/daily_new_filter.png) |
+|                     ![Coins](assets/de_DE/credits/coins.png)                     |                ![Coins](assets/de_DE/credits/coins_multiple_pages.png)                 |
 
 <!-- markdownlint-enable line-length -->
 
@@ -110,11 +110,11 @@ ganze schlussendlich vorstellen.
 
 |                         Beispielbilder                          |                     Bemerkungen                     |
 | :-------------------------------------------------------------: | :-------------------------------------------------: |
-|              ![Einsätze](./vehicles/missions.png)               |                                                     |
-|     ![Einsätze (sortiert)](./vehicles/missions_sorted.png)      |     sortiert nach durchschnittlichem Verdienst      |
-|    ![Krankenhaus auswählen](./vehicles/choose_hospital.png)     | Sprechwunsch (Patienten) inklusive Filterfunktionen |
-|        ![Zellen auswählen](./vehicles/choose_prison.png)        |  Sprechwunsch (Gefangene) inklusive Filterfunktion  |
-| ![Fahrzeug eines anderen Spielers](./vehicles/other_player.png) |           Fahrzeug eines anderen Spielers           |
+|              ![Einsätze](assets/de_DE/vehicles/missions.png)               |                                                     |
+|     ![Einsätze (sortiert)](assets/de_DE/vehicles/missions_sorted.png)      |     sortiert nach durchschnittlichem Verdienst      |
+|    ![Krankenhaus auswählen](assets/de_DE/vehicles/choose_hospital.png)     | Sprechwunsch (Patienten) inklusive Filterfunktionen |
+|        ![Zellen auswählen](assets/de_DE/vehicles/choose_prison.png)        |  Sprechwunsch (Gefangene) inklusive Filterfunktion  |
+| ![Fahrzeug eines anderen Spielers](assets/de_DE/vehicles/other_player.png) |           Fahrzeug eines anderen Spielers           |
 
 <!-- markdownlint-enable line-length -->
 
@@ -123,6 +123,6 @@ ganze schlussendlich vorstellen.
 Wir haben auch die Seite
 [Aufgaben und Events](https://leitstellenspiel.de/tasks/index) redesigned:
 
-![Aufgaben](./tasks/full_size.png)
+![Aufgaben](assets/de_DE/tasks/full_size.png)
 
-![Aufgaben im eingeklappten Status](./tasks/collapsed.png)
+![Aufgaben im eingeklappten Status](assets/de_DE/tasks/collapsed.png)

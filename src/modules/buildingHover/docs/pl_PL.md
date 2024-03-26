@@ -19,4 +19,4 @@ Uwzględniono następujące informacje:
 
 Tak to wygląda np. na stacji pogotowia:
 
-![Przykładowa stacja pogotowia](./przyklad_PL.png)
+![Przykładowa stacja pogotowia](assets/pl_PL/example.png)

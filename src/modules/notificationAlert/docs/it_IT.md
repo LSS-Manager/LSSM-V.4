@@ -39,8 +39,8 @@ Inoltre, nelle impostazioni sono disponibili le seguenti opzioni:
 
 Esempi qui sotto:
 
-![Notifica Messaggio del Forum](./notificationForum.png)
+![Notifica Messaggio del Forum](assets/it_IT/notificationForum.png)
 
-![Notifica Messaggio privato](./notificationNieuwBericht.png)
+![Notifica Messaggio privato](assets/it_IT/notificationNieuwBericht.png)
 
-![Notifica Richiesta vocale](./notificationSpraakaanvraag.png)
+![Notifica Richiesta vocale](assets/it_IT/notificationSpraakaanvraag.png)

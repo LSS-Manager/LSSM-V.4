@@ -2,7 +2,7 @@
 
 De samenvatting zal een snel overzicht over je aantal gebouwen en voertuigen geven.
 
-![Samenvatting](./dashboardSamenvatting.png)
+![Samenvatting](assets/nl_NL/dashboardSamenvatting.png)
 
 ### Gebouwen
 
@@ -25,9 +25,9 @@ Als je met je muis over de tabel heen gaat zie je een knopje met een autootje, a
  krijg je een lijst te zien van alle voertuigen die overeenkomen met de soort en status.
 Je kan in het statusoverzicht ook snel voertuigen van status 5 naar 6 zetten of andersom.
 
-![Statusoverzicht](./dashboardStatusoverzicht.png)
+![Statusoverzicht](assets/nl_NL/dashboardStatusoverzicht.png)
 
-![Statusoverzicht voertuigen](./dashboardVehicles.png)
+![Statusoverzicht voertuigen](assets/nl_NL/dashboardVehicles.png)
 
 ## Gebouw overzicht
 
@@ -37,7 +37,7 @@ Je zult per type gebouw zien hoeveel je er van hebt en hoeveel uitbreidingen je 
 Achter het aantal uitbreidingen staat tussen haakjes `()` hoeveel er actief van zijn.
 Tevens berekent het Dashboard automatisch het maximaal aantal mogelijke gebouwen en/of uitbreidingen van een type.
 
-![Gebouw overzicht](./dashboardBuildings.png)
+![Gebouw overzicht](assets/nl_NL/dashboardBuildings.png)
 
 ## Meldkameroverzicht
 

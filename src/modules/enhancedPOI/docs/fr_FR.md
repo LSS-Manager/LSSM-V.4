@@ -9,4 +9,4 @@ Ce module vous permet de définir des POIs plus facilement.
 * Vous pouvez afficher et masquer chaque type de POI.
     * Ceci peut être contrôlé lorsque vous ouvrez le menu "Définir un nouveau POI".
 
-![Exemple](./POI.png)
+![Exemple](assets/fr_FR/POI.png)

@@ -9,4 +9,4 @@ Questo modulo ti permette di impostare i PDI in modo più semplice.
 * Puoi mostrare e nascondere ogni tipo di POI
     * Questo può essere controllato quando si apre il `Impostare un nuovo menu PDI`
 
-![Esempio di barra](./POI.png)
+![Esempio di barra](assets/it_IT/POI.png)

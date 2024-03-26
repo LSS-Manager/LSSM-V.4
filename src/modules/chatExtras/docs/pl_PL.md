@@ -13,13 +13,13 @@ Ta funkcja integruje moduł „Pokaż przycisk czatu powyżej” z LSSM v3 do v4
 
 Pozwala wyświetlić przycisk „Historia czatu” u góry czatu, dzięki czemu nie musisz go już przewijać, aby dotrzeć do przycisku.
 
-![Pokaż historię czatu w nagłówku](./cloneHistoryBtnToHeader.png)
+![Pokaż historię czatu w nagłówku](assets/pl_PL/cloneHistoryBtnToHeader.png)
 
 ## Prosty projekt historii czatu
 
 Ta funkcja umożliwia wyświetlanie historii czatów w kompaktowej formie.
 Całość jest oczywiście zgodna z [przeprojektowaniem](../redesign/)!
 
-![Prosty projekt historii czatu bez przeprojektowania](./chat_light_design.png)
+![Prosty projekt historii czatu bez przeprojektowania](assets/pl_PL/chat_light_design.png)
 
-![Prosty projekt historii czatu z przeprojektowaniem](./chat_light_design_redesign.png)
+![Prosty projekt historii czatu z przeprojektowaniem](assets/pl_PL/chat_light_design_redesign.png)

@@ -4,13 +4,13 @@ Poiché ciò è spesso fastidioso, con questo modulo **Modello News**, che prima
 
 Nelle impostazioni è possibile inserire diversi template:
 
-![Impostazioni](./settings.png)
+![Impostazioni](assets/it_IT/settings.png)
 
 ## Variabili
 
 ### Nome utente
 
-Puoi usare il segnaposto `{{username}}` che, in caso di **nuovi messaggi** viene scambiato con il nome utente del destinatario.
+Puoi usare il segnaposto <span v-pre>`{{username}}`</span> che, in caso di **nuovi messaggi** viene scambiato con il nome utente del destinatario.
 
 :::tip Perché succede solo ai nuovi messaggi?
 È molto semplice: al momento non abbiamo purtroppo la possibilità di individuare
@@ -19,22 +19,22 @@ chiaramente il destinatario durante le conversazioni esistenti!
 
 ### Data
 
-Con `{{today}}` puoi inserire semplicemente la data di oggi.
+Con <span v-pre>`{{today}}`</span> puoi inserire semplicemente la data di oggi.
 
-Vuoi aggiungere una data futura o una data precedente, per esempio oggi tra due settimane? Usa per questo `{{today+14}}`,
+Vuoi aggiungere una data futura o una data precedente, per esempio oggi tra due settimane? Usa per questo <span v-pre>`{{today+14}}`</span>,
 da inserire oggi tra 14 giorni.
-È la stessa cosa, per esempio. `{{today-436}}`, da inserire oggi 436 giorni fa.
+È la stessa cosa, per esempio. <span v-pre>`{{today-436}}`</span>, da inserire oggi 436 giorni fa.
 
 ## Esempi
 
 Per esempio, in caso di nuove notizie le cose stanno così:
 
-![Avvia conversazione](./new_message.png)
+![Avvia conversazione](assets/it_IT/new_message.png)
 
 dopo l'inserimento del primo template:
 
-![Aggiunta del template](./entered.png)
+![Aggiunta del template](assets/it_IT/entered.png)
 
 E quindi, nelle conversazioni esistenti:
 
-![Conversazione esistente](./existing_messages.png)
+![Conversazione esistente](assets/it_IT/existing_messages.png)

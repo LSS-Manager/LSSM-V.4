@@ -2,7 +2,7 @@
 
 Le résumé a pour but de te donner un aperçu rapide du nombre de tes bâtiments et véhicules.
 
-![Résumé](./summary.png)
+![Résumé](assets/fr_FR/summary.png)
 
 ### Bâtiment
 
@@ -22,44 +22,44 @@ Cela te permet d'avoir une meilleure vue d'ensemble des différentes catégories
 Dans l'aperçu des statuts, vous trouvez un tableau dans lequel vous pouvez voir de quel type de véhicule vous disposez,
  combien de véhicules et également combien ont quel statut.
 Le tableau peut être filtré et trié.
-![aperçu du statut](./status_table.png)
+![aperçu du statut](assets/fr_FR/status_table.png)
 
 Sous le tableau se trouve une petite icône.
 Un clic sur celle-ci ouvre et ferme un diagramme circulaire qui visualise la répartition actuelle des statuts :
 
-![répartition des statuts](./statuschart.png)
+![répartition des statuts](assets/fr_FR/statuschart.png)
 
 Si l'on passe la souris sur une cellule du tableau, un bouton apparaît, avec lequel on peut ouvrir une liste de véhicules.
 En voici quelques exemples :
 
 ### Tous les véhicules d'un type
 
-![Tous les véhicules d'un type](./vehiclelist.png)
+![Tous les véhicules d'un type](assets/fr_FR/vehiclelist.png)
 
 ### Tous les véhicules d'un type dans un état donné
 
-![Tous les véhicules d'un type dans un état donné](./vehiclelist_status.png)
+![Tous les véhicules d'un type dans un état donné](assets/fr_FR/vehiclelist_status.png)
 
 ### Tous les véhicules dans un statut
 
-![Tous les véhicules dans un statut](./vehiclelist_status_all.png)
+![Tous les véhicules dans un statut](assets/fr_FR/vehiclelist_status_all.png)
 
 ## Aperçu des bâtiments
 
 L'aperçu des bâtiments liste les types de bâtiments que vous avez et en quelle quantité.
 Vous pouvez également voir le nombre d'extensions :
 
-![aperçu des bâtiments](./buildinglist.png)
+![aperçu des bâtiments](assets/fr_FR/buildinglist.png)
 
 Les boutons "Bâtiments" permettent d'afficher des listes :
 
 ### Tous les bâtiments d'un type
 
-![Tous les bâtiments d'un type](./buildinglist_type.png)
+![Tous les bâtiments d'un type](assets/fr_FR/buildinglist_type.png)
 
 ### Tous les bâtiments avec une certaine extension
 
-![Tous les bâtiments avec une extension spécifique](./buildinglist_extension.png)
+![Tous les bâtiments avec une extension spécifique](assets/fr_FR/buildinglist_extension.png)
 
 ## Vue du centre de contrôle
 

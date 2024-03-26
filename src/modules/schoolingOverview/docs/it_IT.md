@@ -6,7 +6,7 @@ Con il modulo `Panoramica del Corso` cerchiamo di risolvere questo problema.
 In alto si trova un piccolo `i`, che apre un sommario.
 Naturalmente abbiamo integrato una funzione di ricerca e le tabelle possono essere ordinati. L'intera faccenda è questa:
 
-![Panoramica del corso](./overview.png)
+![Panoramica del corso](assets/it_IT/overview.png)
 
 Inoltre, i corsi con i propri partecipanti e i corsi aperti sono suddivisi in categorie.
 Ciò significa semplicemente secondo le rispettive scuole, vale a dire.
@@ -20,8 +20,8 @@ in modo da poter trovare rapidamente il corso giusto.
 
 Per esempio, questo è come si presenta per i corsi con i propri partecipanti:
 
-![Corsi con i propri partecipanti](./own.png)
+![Corsi con i propri partecipanti](assets/it_IT/own.png)
 
 Durante i corsi a porte aperte:
 
-![Corsi aperti](./alliance.png)
+![Corsi aperti](assets/it_IT/alliance.png)

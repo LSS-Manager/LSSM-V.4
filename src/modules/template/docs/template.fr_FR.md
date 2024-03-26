@@ -7,4 +7,4 @@ lang: fr
 
 Ce module doit simplement servir de modèle !
 
-![LSSM](../../.vuepress/public/img/lssm.png)
+![LSSM]()

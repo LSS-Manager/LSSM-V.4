@@ -1,12 +1,12 @@
 This module turns your map into a heatmap. This allows you to see the coverage that you have over the map.
 
-![Heatmap](./heatmap.png)
+![Heatmap](assets/en_GB/heatmap.png)
 
 ## Settings
 
 By going into the heatmap icon, and then the settings icon (gears), you will be able to change some settings.
 
-![Settings](./settings.png)
+![Settings](assets/en_GB/settings.png)
 
 ### Live-Preview
 

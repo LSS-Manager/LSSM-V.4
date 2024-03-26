@@ -5,9 +5,9 @@ You can find help on configuration under [Settings: Moment.js](../../settings.md
 The clock can be placed in two locations:
 
 * On the left of the navigation bar
-    ![Clock in the Navigation Bar](./navbar.png)
+    ![Clock in the Navigation Bar](assets/en_US/navbar.png)
 * As an overlay
-    ![Clock as an Overlay Over Chat](./chatOverlay.png)
+    ![Clock as an Overlay Over Chat](assets/en_US/chatOverlay.png)
 
 The format in the above images is `DD[th] MMM YYYY LTS`.
 

@@ -5,9 +5,9 @@ Ci sono un sacco di impostazioni diverse che è possibile utilizzare per persona
 L'orologio può essere posizionato in due posizioni:
 
 * Sulla sinistra della barra di navigazione
-    ![Orologio nella barra di navigazione](./navbar.png)
+    ![Orologio nella barra di navigazione](assets/it_IT/navbar.png)
 * Come una sovrapposizione
-    ![Orologio come una sovrapposizione sulla chat](./chatOverlay.png)
+    ![Orologio come una sovrapposizione sulla chat](assets/it_IT/chatOverlay.png)
 
 Il formato nelle immagini di cui sopra è `DD[th] MMM YYYY LTS`.
 

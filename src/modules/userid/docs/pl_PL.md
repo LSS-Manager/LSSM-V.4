@@ -3,7 +3,7 @@ Moduł „Identyfikator użytkownika” umożliwia Ci to poprzez dodanie linku d
 Aby uniknąć przepełnienia paska nawigacyjnego, funkcję tę można wyłączyć w ustawieniach,
 poprzez `Pokaż swój identyfikator na pasku nawigacyjnym`.
 
-![Identyfikator użytkownika na pasku nawigacyjnym](./navbar.png)
+![Identyfikator użytkownika na pasku nawigacyjnym](assets/pl_PL/navbar.png)
 
 Ponadto na profilu każdego użytkownika wyświetlany jest jego identyfikator.
-![Identyfikator użytkownika na profilu użytkownika](./profile.png)
+![Identyfikator użytkownika na profilu użytkownika](assets/pl_PL/profile.png)

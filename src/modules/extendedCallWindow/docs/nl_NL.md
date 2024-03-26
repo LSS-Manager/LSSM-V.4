@@ -14,7 +14,7 @@ ouder is dan het ingestelde aantal uren of een rood kader als de inzet in de kom
 Geeft de benodigde voertuigen weer in een overzichtelijke tabel.
 Daardoor kan je makkelijk zien welke voertuigen nog onderweg zijn en nog nodig zijn.
 
-![Benodigde voertuigen](./enhancedMissingVehicles.png)
+![Benodigde voertuigen](assets/nl_NL/enhancedMissingVehicles.png)
 
 ### Patiëntensamenvatting
 
@@ -32,7 +32,7 @@ Indien de inzetvoorsteltellers of inzetvoorstellen markeren aan staat, zal dit t
 
 Laat in de knop `Alarm` zien hoe lang het langste voertuig onderweg is.
 
-![Langste aanrijdtijd](./alarmTime.png)
+![Langste aanrijdtijd](assets/nl_NL/alarmTime.png)
 
 ### Koptekst altijd laten zien
 
@@ -46,7 +46,7 @@ Geeft de oranje balk, om meer voertuigen te laden, weer in de koptekst.
 
 Deze functie verbergt de voertuigenlijst. Met een druk op de knop, worden de voertuigen weer zichtbaar.
 
-![Voertuigenlijst verbergen](./hideVehicleList.png)
+![Voertuigenlijst verbergen](assets/nl_NL/hideVehicleList.png)
 
 ### Kaart centreren op melding
 
@@ -83,7 +83,7 @@ Daarnaast staat bovenin hoe vaak dat inzetvoorstel kan worden gekozen voordat 1 
 Hieronder een voorbeeld van een aantal van deze functies,
 waaronder de inzetvoorstelklikteller als badge, markeren en de details:
 
-![Inzetvoorstel](./arr.png)
+![Inzetvoorstel](assets/nl_NL/arr.png)
 
 ## Voertuigcategoriën
 
@@ -97,7 +97,7 @@ Het tabblad `Alle` en `Dooralarmeren` zullen altijd zichtbaar blijven.
 Indien er nieuwe voertuigen in het spel komen, moet je ze zelf toevoegen aan de tabbladen.
 Dit kan vanaf het moment dat ze zijn toegevoegd.
 
-![Voertuigcategoriën](./tailoredTabs.png)
+![Voertuigcategoriën](assets/nl_NL/tailoredTabs.png)
 
 ## Meldingstrefwoord
 
@@ -105,15 +105,15 @@ Deze functie geeft de mogelijkheid om trefwoorden bij de naam van de melding te 
 Je hebt de keuze om deze vóór of ná de naam weer te geven.
 Je kan makkelijk voor meerdere meldingen 1 trefwoord gebruiken door de meldingen allemaal te selecteren.
 
-![Meldingstrefwoord](./missionKeyword.png)
+![Meldingstrefwoord](assets/nl_NL/missionKeyword.png)
 
 ## Alarm-iconen
 
 Koppel hiermee icoontjes aan de voertuigen welke dan in de alarmknop worden getoond als je ze geselecteerd hebt.
 Je kan kiezen uit alle gratis iconen van font-awesome.
-Die zijn <a :href="$theme.variables.fontAwesomeIconSearchLink" target="_blank">hier</a> te vinden.
+Die zijn [hier](https://fontawesome.com/v6/search?m=free) te vinden.
 Je moet de naam exact overnemen van de naam op die site en daarbij het goede type selecteren.
 Dat type kan je vinden door op de site op het icoon te drukken,
 maar je kan ze ook alle 3 proberen tot het icoontje zichtbaar wordt in de voorvertoning.
 
-![Alarm-iconen](./alarmIcons.png)
+![Alarm-iconen](assets/nl_NL/alarmIcons.png)

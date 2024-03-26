@@ -6,7 +6,7 @@ Mit dem Modul `Lehrgangsübersicht` versuchen wir dieses Problem zu beheben.
 Ganz oben findet sich ein kleines `i`, über das eine Zusammenfassung geöffnet wird.
 Natürlich haben wir eine Suche integriert und die Tabellen lassen sich sortieren. Das ganze sieht beispielsweise so aus:
 
-![Lehrangsübersicht](./overview.png)
+![Lehrangsübersicht](assets/de_DE/overview.png)
 
 Zudem werden die Lehrgänge mit eigenen Teilnehmern und offene Lehrgänge in Kategorien aufgeteilt.
 Das heisst ganz einfach nach den jeweiligen Schulen, also
@@ -21,8 +21,8 @@ Auch hier haben wir wieder Sortiermöglichkeiten und Suchfunktionen eingebaut, d
 
 So schaut das beispielsweise bei Lehrgängen mit eigenen Teilnehmern aus:
 
-![Lehrgängen mit eigenen Teilnehmern](./own.png)
+![Lehrgängen mit eigenen Teilnehmern](assets/de_DE/own.png)
 
 Und so bei offenen Lehrgängen:
 
-![offene Lehrgänge](./alliance.png)
+![offene Lehrgänge](assets/de_DE/alliance.png)

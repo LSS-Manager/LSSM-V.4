@@ -12,13 +12,13 @@ To set a hotkey, go into the settings for hotkeys, and press the `+` icon.
 
 There you select an action, and the hotkey for that action.
 
-![Settings](./settings.png)
+![Settings](assets/en_GB/settings.png)
 
 ## View Hotkeys
 
 By pressing the `F1` key at any time, you can see your hotkeys.
 
-![View Hotkeys](./f1.png)
+![View Hotkeys](assets/en_GB/f1.png)
 
 ## Available Actions
 

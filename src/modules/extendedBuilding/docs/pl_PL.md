@@ -22,7 +22,7 @@ Wyświetla ilość obecnego, przydzielonego i maksymalnego personelu.
 Możesz również pokolorować liczbę przydzielonych pracowników na czerwono,
  jeśli liczba jest niższa niż maksymalna liczba personelu, a na zielono, jeśli jest równa.
 
-![Lista pojazdów](./vehicleList.png)
+![Lista pojazdów](assets/pl_PL/vehicleList.png)
 
 ## Przegląd budynków
 
@@ -30,22 +30,22 @@ Możesz również pokolorować liczbę przydzielonych pracowników na czerwono,
 
 Pokazuje liczbę pracowników wymaganych dla pojazdów na tej stacji.
 
-![Potrzebny personel](./personnelNeeded.png)
+![Potrzebny personel](assets/pl_PL/personnelNeeded.png)
 
 ### Zmiana CPR
 
 Pozwala to na szybką zmianę CPR, do którego przypisany jest budynek.
 
-![Zmiana CPR](./dispatchCenter.png)
+![Zmiana CPR](assets/pl_PL/dispatchCenter.png)
 
 ### Budynki tego samego typu
 
 Pokazuje na przyciskach nawigacyjnych, ile budynków tego samego typu znajduje się przed i po.
 
-![Przyciski nawigacyjne](./navigation.png)
+![Przyciski nawigacyjne](assets/pl_PL/navigation.png)
 
 ### Rozszerzenia
 
 Wyraźnie pokazuje stan wszystkich rozszerzeń.
 
-![Rozszerzenia](./expansions.png)
+![Rozszerzenia](assets/pl_PL/expansions.png)

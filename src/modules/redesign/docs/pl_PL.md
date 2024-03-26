@@ -20,9 +20,9 @@ ponieważ przeprojektowanie szybko powoduje,
 
 |                      Własny profil                       |                            Profil członka sojuszu                             |                   Profil innych użytkowników                    |
 | :------------------------------------------------------: | :---------------------------------------------------------------------------: | :-------------------------------------------------------------: |
-|    ![Własny profil: tekst](./profiles/self/text.png)     |    ![Profil członka sojuszu: tekst](./profiles/alliance_members/text.png)     | ![Profil innych użytkowników: Text](./profiles/others/text.png) |
-|     ![Własny profil: mapa](./profiles/self/map.png)      |     ![Profil członka sojuszu: mapa](./profiles/alliance_members/map.png)      |               ***Brak dostępu do podglądu mapy***               |
-| ![Własny profil: budynki](./profiles/self/buildings.png) | ![Profil członka sojuszu: budynki](./profiles/alliance_members/buildings.png) |             ***Brak dostępu do podglądu budynków***             |
-|  ![Własny profil: nagrody](./profiles/self/awards.png)   |  ![Profil członka sojuszu: nagrody](./profiles/alliance_members/awards.png)   |   ![Profil innych użytkowników](./profiles/others/awards.png)   |
+|    ![Własny profil: tekst](assets/de_DE/profiles/self/text.png)     |    ![Profil członka sojuszu: tekst](assets/de_DE/profiles/alliance_members/text.png)     | ![Profil innych użytkowników: Text](assets/de_DE/profiles/others/text.png) |
+|     ![Własny profil: mapa](assets/de_DE/profiles/self/map.png)      |     ![Profil członka sojuszu: mapa](assets/de_DE/profiles/alliance_members/map.png)      |               ***Brak dostępu do podglądu mapy***               |
+| ![Własny profil: budynki](assets/de_DE/profiles/self/buildings.png) | ![Profil członka sojuszu: budynki](assets/de_DE/profiles/alliance_members/buildings.png) |             ***Brak dostępu do podglądu budynków***             |
+|  ![Własny profil: nagrody](assets/de_DE/profiles/self/awards.png)   |  ![Profil członka sojuszu: nagrody](assets/de_DE/profiles/alliance_members/awards.png)   |   ![Profil innych użytkowników](assets/de_DE/profiles/others/awards.png)   |
 
 <!-- markdownlint-enable md013 line-length -->

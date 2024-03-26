@@ -7,4 +7,4 @@ lang: us
 
 This module should simply serve as a template!
 
-![LSSM](../../.vuepress/public/img/lssm.png)
+![LSSM]()

@@ -6,32 +6,32 @@ This shows the time that the mission was generated next to the address.
 You can also set it to have a yellow border if the mission is older than a configurable number of hours,
 and a red frame if the mission expires the following night.
 
-![Time Generated](./time.png)
+![Time Generated](assets/en_GB/time.png)
 
 ### Required Vehicle Table
 
 This displays the required vehicles in a table, rather than the normal list format.
 This table includes how many is needed, how many are selected and how many are enroute.
 
-![Vehicles Table](./vehicles.png)
+![Vehicles Table](assets/en_GB/vehicles.png)
 
 ### Patient Summary
 
 This shows a brief overview of patients, this shows if someone needs HEMS, Ambulance, or Critical Care.
 
-![Patients Summary](./patients.png)
+![Patients Summary](assets/en_GB/patients.png)
 
 ### Reset Selection
 
 This adds a button to clear the selected vehicles, this will also reset the ARR counters if enabled.
 
-![Reset Selection](./reset.png)
+![Reset Selection](assets/en_GB/reset.png)
 
 ### Longest Arrival Time
 
 This adds the time for the furthest away vehicle to arrive to the mission in the dispatch button.
 
-![Longest Arrival Time](./longest.png)
+![Longest Arrival Time](assets/en_GB/longest.png)
 
 ### Always Show Header
 
@@ -41,19 +41,19 @@ This looks the header so that it will always be visible when you scroll down the
 
 This adds a button to load additional vehicles in the header.
 
-![Limited Display](./limited.png)
+![Limited Display](assets/en_GB/limited.png)
 
 ### Hide Vehicle List
 
 This adds a button to hide/show the vehicle list.
 
-![Hide Vehicle List](./hide.png)
+![Hide Vehicle List](assets/en_GB/hide.png)
 
 ### Centre Map To Mission
 
 This adds a button the left of the mission name to centre the map on the mission.
 
-![Centre Map](./centre.png)
+![Centre Map](assets/en_GB/centre.png)
 
 ## Alarm and Response Regulations (ARR)
 
@@ -79,7 +79,7 @@ This will pop up information about that ARR:
 * The longest response time
 * How many times you're able to use this ARR
 
-![Hover on ARR](./ARRHover.png)
+![Hover on ARR](assets/en_GB/ARRHover.png)
 
 ## Vehicle Categories
 
@@ -87,19 +87,19 @@ This allows you to create your own vehicle categories that will show in the vehi
 Vehicles can be placed in multiple categories at once, the `ALL` and `Follow Up` categories cannot be deleted,
 but the other categories can be deleted or modified.
 
-![Vehicle Categories](./vehicleCategories.png)
+![Vehicle Categories](assets/en_GB/vehicleCategories.png)
 
 ## Mission Keywords
 
 This allows you to place a keyword before or after the name of the mission in the dispatch screen.
 You can use the same keyword for different missions, as well as customise the text and background colour.
 
-![Mission Keywords](./keyword.png)
+![Mission Keywords](assets/en_GB/keyword.png)
 
 ## Dispatch Icons
 
 This will add an icon before the dispatch button if you have that type of vehicle selected.
 You can customise which vehicles give which icon, you're able to choose a range of (free) icons from
-<a :href="$theme.variables.fontAwesomeIconSearchLink" target="_blank">FontAwesome</a>.
+[FontAwesome](https://fontawesome.com/v6/search?m=free).
 
-![Dispatch Icons](./dispatchIcon.png)
+![Dispatch Icons](assets/en_GB/dispatchIcon.png)

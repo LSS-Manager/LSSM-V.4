@@ -4,7 +4,7 @@ This module adds some cool features to the map.
 
 Show the current map scale & zoom.
 
-![Scale](./scale.png)
+![Scale](assets/en_GB/scale.png)
 
 ### Position
 
@@ -18,7 +18,7 @@ Open missions in a new tab through the use of middle click, or CTRL+click.
 
 Centre the map on a specific location.
 
-![Centre Map](./centre.png)
+![Centre Map](assets/en_GB/centre.png)
 
 ### Mode
 

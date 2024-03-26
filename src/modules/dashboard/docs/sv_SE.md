@@ -2,7 +2,7 @@
 
 Sammanfattningen ger en snabb översikt över ditt antal byggnader och fordon.
 
-![Sammanfattning](./summary.png)
+![Sammanfattning](assets/de_DE/summary.png)
 
 ### Byggnader
 
@@ -25,9 +25,9 @@ Om du flyttar musen över bordet ser du en knapp med en bil,
  om du trycker på den knappen kommer du att se en lista över alla fordon som matchar typ och status.
 Du kan också snabbt växla fordon från status 5 till 6 eller vice versa i statusöversikten.
 
-![Statusöversikt](./status_table.png)
+![Statusöversikt](assets/de_DE/status_table.png)
 
-![Fordonsstatusöversikt](./vehiclelist.png)
+![Fordonsstatusöversikt](assets/de_DE/vehiclelist.png)
 
 ## Byggnadsöversikt
 
@@ -37,7 +37,7 @@ Du ser per byggnadstyp hur många du har och hur många tillägg du har för den
 Efter antalet förlängningar, mellan parentes `()` kan du se hur många som är aktiva.
 Instrumentpanelen beräknar också automatiskt det maximala antalet möjliga byggnader och / eller tillägg av en typ.
 
-![Byggnadsöversikt](./buildinglist.png)
+![Byggnadsöversikt](assets/de_DE/buildinglist.png)
 
 ## Översikt över kontrollrummet
 

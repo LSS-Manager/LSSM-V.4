@@ -7,7 +7,7 @@ Tout en haut se trouve un petit `i` qui permet d'ouvrir un résumé.
 Nous avons bien sûr intégré une recherche et les tableaux peuvent être triés.
 Le tout ressemble par exemple à ceci :
 
-![Aperçu des formations](./overview.png)
+![Aperçu des formations](assets/fr_FR/overview.png)
 
 En outre, les formations avec vos propres participants et les formations ouvertes sont réparties en catégories.
 C'est-à-dire tout simplement selon les écoles respectives, donc
@@ -22,8 +22,8 @@ que vous puissiez trouver rapidement le cours qui vous convient.
 
 Voici par exemple ce qui se passe pour les formations avec vos propres participants :
 
-![Formations avec vos propres participants](./own.png)
+![Formations avec vos propres participants](assets/fr_FR/own.png)
 
 Et pour les formations ouvertes :
 
-![Formations ouvertes](./alliance.png)
+![Formations ouvertes](assets/fr_FR/alliance.png)

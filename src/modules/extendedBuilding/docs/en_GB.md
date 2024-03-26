@@ -22,7 +22,7 @@ This displays the amount of current, assigned, and maximum personnel.
 You can also colour the number of assigned personnel red if the amount is lower than the maximum personnel,
  and green if it is equal.
 
-![Vehicle List](./vehicleList.png)
+![Vehicle List](assets/en_GB/vehicleList.png)
 
 ## Building Overview
 
@@ -30,25 +30,25 @@ You can also colour the number of assigned personnel red if the amount is lower 
 
 Shows you the number of staff required for the vehicles in that station.
 
-![Staff Needed](./personnelNeeded.png)
+![Staff Needed](assets/en_GB/personnelNeeded.png)
 
 ### Change Dispatch Centre
 
 This allows you to quickly change the dispatch centre that the building is assigned to.
 
-![Change Dispatch](./dispatchCenter.png)
+![Change Dispatch](assets/en_GB/dispatchCenter.png)
 
 ### Buildings of The Same Type
 
 Shows in the navigation buttons how many buildings of the same type are before and after.
 
-![Navigation Buttons](./navigation.png)
+![Navigation Buttons](assets/en_GB/navigation.png)
 
 ### Expansions
 
 Clearly shows the status of all expansions.
 
-![Expansions](./expansions.png)
+![Expansions](assets/en_GB/expansions.png)
 
 ## Personnel
 
@@ -57,7 +57,7 @@ Clearly shows the status of all expansions.
 This provides a summary of all the training.
 The left table shows each combination of training, the right table shows each individual training.
 
-![Personnel Overview](./personnelOverview.png)
+![Personnel Overview](assets/en_GB/personnelOverview.png)
 
 ### Filter Untrained Staff
 

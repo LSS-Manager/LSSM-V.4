@@ -24,7 +24,7 @@ Cet écran affiche le nombre d'employés actuels, affectés et maximum.
 Vous pouvez également colorer le nombre de personnel assigné en rouge si la quantité est inférieure au personnel maximum,
  et en vert si elle est égale.
 
-![Liste des véhicules](./vehicleList.png)
+![Liste des véhicules](assets/fr_FR/vehicleList.png)
 
 ## Vue d'ensemble du bâtiment
 
@@ -32,25 +32,25 @@ Vous pouvez également colorer le nombre de personnel assigné en rouge si la qu
 
 Vous montre le nombre de personnel requis pour les véhicules de cette station.
 
-![Personnel nécessaire](./personnelNeeded.png)
+![Personnel nécessaire](assets/fr_FR/personnelNeeded.png)
 
 ### Changement de centre d'appels
 
 Vous permet de changer rapidement le centre d'appels auquel le bâtiment est affecté.
 
-![centre d'appels](./dispatchCenter.png)
+![centre d'appels](assets/fr_FR/dispatchCenter.png)
 
 ### Bâtiments de même type
 
 Indique dans les boutons de navigation combien de bâtiments du même type se trouvent avant et après.
 
-![Boutons de navigation](./navigation.png)
+![Boutons de navigation](assets/fr_FR/navigation.png)
 
 ### Expansions
 
 Montre clairement le statut de toutes les expansions.
 
-![Expansions](./expansions.png)
+![Expansions](assets/fr_FR/expansions.png)
 
 ### Personnel
 
@@ -59,7 +59,7 @@ Montre clairement le statut de toutes les expansions.
 Ceci fournit un résumé de toutes les formations.
 Le tableau de gauche montre chaque combinaison de formation, le tableau de droite montre chaque formation individuelle.
 
-![Aperçu du personnel](./personnelOverview.png)
+![Aperçu du personnel](assets/fr_FR/personnelOverview.png)
 
 ### Filtrer le personnel non formé
 

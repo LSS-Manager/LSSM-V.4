@@ -7,4 +7,4 @@ lang: nl
 
 Deze module moet gewoon als sjabloon dienen!
 
-![LSSM](../../.vuepress/public/img/lssm.png)
+![LSSM]()

@@ -3,8 +3,8 @@ Il modulo "User-ID" ti permette di farlo aggiungendo un link al tuo profilo nell
 Per evitare di sovraccaricare la barra di navigazione, questa funzione può essere disattivata nelle impostazioni,
 tramite Mostra il proprio ID nella barra di navigazione essere (de)attivato.
 
-![User-ID nella barra di navigazione](./navbar.png)
+![User-ID nella barra di navigazione](assets/it_IT/navbar.png)
 
 In addition, the ID of the respective user is displayed in each profile.
 
-![User-ID nel profilo di un utente](./profile.png)
+![User-ID nel profilo di un utente](assets/it_IT/profile.png)

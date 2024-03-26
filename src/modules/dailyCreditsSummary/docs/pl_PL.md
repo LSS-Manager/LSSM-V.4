@@ -4,10 +4,10 @@ Ten moduł zastępuje `Podsumowanie dzienne` w wersji 3, które zostało pokazan
 Ten moduł został nieco podrasowany dla V4.
 
 Domyślnie wyświetlane są „plakietki” (można je wyłączyć w ustawieniach):
-![plakietki](./badges.png)
+![plakietki](assets/pl_PL/badges.png)
 
 Jeśli klikniesz małe `i`, zobaczysz tabelę, którą można sortować:
-![tabela](./table.png)
+![tabela](assets/pl_PL/table.png)
 
 Ten moduł wykorzystuje następujące kategorie:
 

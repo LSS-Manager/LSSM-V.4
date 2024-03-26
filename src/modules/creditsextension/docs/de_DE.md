@@ -9,13 +9,13 @@ Zeigt die aktuellen Credits anstelle eines Sparschweins an.
 
 |      **inaktiv** (Standard)      |                    **aktiv**                     |
 |:--------------------------------:|:------------------------------------------------:|
-| ![Sparschwein](./piggy-mode.png) | ![Credits statt Sparschwein](./credits-mode.png) |
+| ![Sparschwein](assets/de_DE/piggy-mode.png) | ![Credits statt Sparschwein](assets/de_DE/credits-mode.png) |
 
 ## Toplisten-Position in Creditserweiterung
 
 Zeigt deine aktuelle Position in der Topliste an. Der Wert wird alle 5 Minuten aktualisiert:
 
-![mit Toplisten-Position](./toplist.png)
+![mit Toplisten-Position](assets/de_DE/toplist.png)
 
 ## Ziele
 
@@ -24,4 +24,4 @@ Jedes Mal, wenn du eines der eingestellten Credits-Ziele erreicht hast,
 
 |                     Sparschwein                     |                      Credits                      |
 |:---------------------------------------------------:|:-------------------------------------------------:|
-| ![Credits-Ziel Sparschwein](./alert-piggy-mode.png) | ![Credits-Ziel Credits](./alert-credits-mode.png) |
+| ![Credits-Ziel Sparschwein](assets/de_DE/alert-piggy-mode.png) | ![Credits-Ziel Credits](assets/de_DE/alert-credits-mode.png) |

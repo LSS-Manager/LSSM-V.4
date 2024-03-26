@@ -15,7 +15,7 @@ Nous proposons quatre couleurs différentes :
 * Avertissement (orange)
 
 Voici par exemple ce que cela donne sur le bord gauche de l'écran :
-![types en design clair](./types_light.png) ![types en design foncé](./types_dark.png)
+![types en design clair](assets/fr_FR/types_light.png) ![types en design foncé](assets/fr_FR/types_dark.png)
 
 ## Durée d'affichage
 
@@ -40,7 +40,7 @@ Définis ici la position des notifications ingame. Vous pouvez choisir parmi 6 p
 
 Voici à quoi peut ressembler une configuration :
 
-![exemple de configuration](./example.png)
+![exemple de configuration](assets/fr_FR/example.png)
 
 # Événements
 

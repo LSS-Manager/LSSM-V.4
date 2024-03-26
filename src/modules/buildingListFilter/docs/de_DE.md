@@ -13,8 +13,8 @@ Das heißt konkret:
 
 Beispiel:
 
-![Eine Beispielhafte Filter-Konfiguration](./btns.png)
+![Eine Beispielhafte Filter-Konfiguration](assets/de_DE/example.png)
 
 Die Konfiguration dafür sieht so aus:
 
-![Konfiguration](./settings.png)
+![Konfiguration](assets/de_DE/settings.png)

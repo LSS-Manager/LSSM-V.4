@@ -24,17 +24,17 @@ Es funktioniert nur der Direktlink zu Bildern!
 Manchmal möchte man einfach kurze Informationen über z.&nbsp;B. ein Gebäude oder einen Nutzer haben, ohne direkt den Link zu öffnen.
 Dafür lassen sich unsere Link-Vorschauen in den Einstellungen aktivieren:
 
-![Einstellungen für Link-Vorschauen](./linkPreview_setting.png)
+![Einstellungen für Link-Vorschauen](assets/de_DE/linkPreview_setting.png)
 
 Hier ein paar Eindrücke:
 
 ### Gebäude
 
-![Link-Vorschau Gebäude](./linkPreview_building.png)
+![Link-Vorschau Gebäude](assets/de_DE/linkPreview_building.png)
 
 ### Fahrzeuge
 
-![Link-Vorschau Gebäude](./linkPreview_vehicle.png)
+![Link-Vorschau Gebäude](assets/de_DE/linkPreview_vehicle.png)
 
 ### Spieler
 
@@ -57,7 +57,7 @@ Diese Einstellung ist derzeit leider nicht mit dem Kartentyp `Mapkit` kompatibel
 Es gibt einige Stellen im Spiel, bei denen die Karte auf eine andere Position zentriert wird.
 Mit dieser Einstellung werden diese Sprünge gespeichert und sind über einen kleinen Knopf oben rechts in der Karte erreichbar:
 
-![Die Sprung-Historie](./mapUndo.png)
+![Die Sprung-Historie](assets/de_DE/mapUndo.png)
 
 Bleibt man mit der Maus kurzzeitig auf der jeweiligen Adresse, wird sie auf der Karte angezeigt,
 aber erst bei einem Klick springt die Karte tatsächlich an diese Position.
@@ -87,7 +87,7 @@ dass du die Lesezeichen selber setzt und diese auch nach einem Neuladen noch vor
 
 Mit dieser Funktion wird im Browser angezeigt, welches Fenster des Spiels gerade offen ist. Hier ein kleines Beispiel:
 
-![Browsertitel bei einem Fahrzeug](./browsertitle.png)
+![Browsertitel bei einem Fahrzeug](assets/de_DE/browsertitle.png)
 
 ## Emoji-Picker
 
@@ -100,7 +100,7 @@ Beachte dabei bitte, dass aktuell nur die offiziellen Namen der Emojis für die 
 z.&nbsp;B. `slightly_smiling_face` für `🙂`.
 Die wichtigsten Namen wirst du dir aber sehr schnell merken können 😉
 
-![Emoji-Picker](./emojipicker.png)
+![Emoji-Picker](assets/de_DE/emojipicker.png)
 
 :::tip Auswahl mittels Tastatur
 Mittels `←` und `→` kannst du auch durch die Vorschläge durchwechseln und mittels `Enter` dann einfügen.
@@ -138,7 +138,7 @@ Diese Einstellung verschiebt die Ortssuche von der Navigationsleiste auf die Kar
 Die Position kannst du per Einstellung wählen.
 Mit einem Klick auf die Lupe öffnest und schließt du das Eingabefenster.
 
-![Ortssuche in der Karte](./mapsearch.png)
+![Ortssuche in der Karte](assets/de_DE/mapsearch.png)
 
 ## AAO-Export als QR-Code
 

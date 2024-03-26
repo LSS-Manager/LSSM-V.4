@@ -5,16 +5,16 @@ Deze module maakt een mooi overzicht van alle benodigdheden en de overige gegeve
 
 Indien de inzethelper laadt, maar geen gegevens laat zien,
 kan je ze proberen te herladen door op het herlaad knopje te drukken.
-![Herlaad](./missionHelperReload.png)  
+![Herlaad](assets/nl_NL/missionHelperReload.png)  
 Indien je de inzethelper wilt loskoppelen van het meldingenscherm,
 zodat je die kan verplaatsen, dan druk je op de volgende knop:
-![Loskoppelen](./missionHelperLos.png)  
+![Loskoppelen](assets/nl_NL/missionHelperLos.png)  
 Indien je de inzethelper wilt inklappen tot een klein formaat waar de informatie verborgen is,
 dan druk je op de volgende knop:
-![Inklappen](./missionHelperExpand.png)  
+![Inklappen](assets/nl_NL/missionHelperExpand.png)  
 Indien je het maximaal aantal mogelijke benodigdheden wilt zien,
 dan klik je op de volgende knop:
-![Uitbreiding](./missionHelperMax.png)
+![Uitbreiding](assets/nl_NL/missionHelperMax.png)
 
 ## Mogelijke instellingen
 
@@ -56,8 +56,8 @@ Hieronder zal ik de mogelijkheden opsommen, deze zijn per stuk in en uit te scha
 
 ## Voorbeelden
 
-![Voorbeeld 1](./missionHelper1.png)
+![Voorbeeld 1](assets/nl_NL/missionHelper1.png)
 
-![Voorbeeld 2](./missionHelper2.png)
+![Voorbeeld 2](assets/nl_NL/missionHelper2.png)
 
-![Voorbeeld 3](./missionHelper3.png)
+![Voorbeeld 3](assets/nl_NL/missionHelper3.png)

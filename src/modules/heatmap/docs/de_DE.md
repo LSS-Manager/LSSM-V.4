@@ -14,7 +14,7 @@ Je nach Einstellung erscheint in einer der vier Ecken der Karte das Icon.
 Mit einem Klick auf dieses öffnet sich ein Fenster mit einem Kästchen zur
 Aktivierung der Heatmap und dem Button für die Einstellungen.
 
-![Heatmap-Icon](./heatmapicon.png)
+![Heatmap-Icon](assets/de_DE/heatmapicon.png)
 
 ## Heatmap Einstellungen
 
@@ -42,9 +42,9 @@ von durchsichtigen Hellblau bis hin zu deckend Rot.
 Beide Einstellungen lassen sich sowohl per Ziehen des Reglers,
 als auch nach einem Klick auf das jeweilige rechte `123` Icon per Direkteingabe und "niedriger/höher" Tasten konfigurieren.
 
-![Einstellungen](./heatmapeinstellungen.png)
+![Einstellungen](assets/de_DE/heatmapeinstellungen.png)
 
 Im letzten Feld wird das gesuchte Fahrzeug oder die Wache, den Wachausbau ausgewählt.
 Dies geschieht entweder per Aussuchen aus der klappbaren Liste oder bequemer per Direkteingabe.
 
-![Ausklappbare Liste](./heatmapliste.png)
+![Ausklappbare Liste](assets/de_DE/heatmapliste.png)

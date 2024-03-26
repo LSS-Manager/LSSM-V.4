@@ -7,7 +7,7 @@ Mit diesem Modul möchten wir sie etwas aufpeppen. Dies sind die möglichen Eins
 
 Du möchtest wissen, wie lange ein Einsatz noch braucht, bis er vollständig abgearbeitet ist?
 Diese Einstellung zeigt dir genau diese Information an:
-![Einsatzdauer in der Einsatzliste](./remainingtime/einsatzdauer.png)
+![Einsatzdauer in der Einsatzliste](assets/de_DE/remainingtime/einsatzdauer.png)
 
 ### Einsatzdauer nur bei grünen Einsätzen
 
@@ -37,13 +37,13 @@ Mit diesem Feature hast du die Möglichkeit, dir Einsätze zu markieren,
  sodass sie stets oben in der Einsatzliste angezeigt werden.
 Du kannst die Markierung sowohl in der Einsatzliste als auch im Einsatzfenster vornehmen.
 Ein gelber Stern zeigt an, dass ein Einsatz markiert ist.
-![Markieren in der Einsatzliste](./starrablemissions/markieren.png)
-![Markieren im Einsatzfenster](./starrablemissions/markieren_einsatz.png)
+![Markieren in der Einsatzliste](assets/de_DE/starrablemissions/markieren.png)
+![Markieren im Einsatzfenster](assets/de_DE/starrablemissions/markieren_einsatz.png)
 
 ## Verdienst anzeigen
 
 Dieses Feature zeigt dir an, wie viel ein Einsatz im Durchschnitt gibt:
-![Verdienst anzeigen](./averagecredits/verdienst.png)
+![Verdienst anzeigen](assets/de_DE/averagecredits/verdienst.png)
 
 ## Einsätze einklappen
 
@@ -53,7 +53,7 @@ Du kannst die Einsätze nach Belieben ein- und ausklappen oder eben alle auf ein
 Mit dem Knopf am rechten Rand der oberen Knopf-Leiste lassen sich alle Einsätze auf einmal umschalten.
 So sieht das ganze zum Beispiel aus:
 
-![Einsätze einklappen](./collapsablemissions/einklappen.png)
+![Einsätze einklappen](assets/de_DE/collapsablemissions/einklappen.png)
 
 ## Einsätze teilen
 
@@ -63,14 +63,14 @@ Du kannst damit Einsätze direkt aus der Einsatzliste heraus im Verband freigebe
 Mit den folgenden Einstellungen kannst du begrenzen, bei welchen Einsätzen ein "Teilen"-Knopf angezeigt werden soll.
 Zudem kannst du dir die Farbe der Knöpfe anpassen:
 
-![Einsätze teilen](./sharemissions/shareMissions.png)
+![Einsätze teilen](assets/de_DE/sharemissions/shareMissions.png)
 
 ### Einsätze teilen: Einsatztypen
 
 Wähle, ob die Knöpfe bei Notfalleinsätzen, bei Sicherheitswachen oder bei beiden erscheinen soll.
 
 Die Option `Verbandseinsätze` ist dafür gedacht, wenn man im Modul
- [Share-Alliance-Post](../shareAlliancePost/) die Einstellung `In Einsatzliste bleiben` aktiv hat.
+ [Share-Alliance-Post](assets/de_DE./shareAlliancePost/) die Einstellung `In Einsatzliste bleiben` aktiv hat.
 
 ### Einsätze teilen: Minimale Credits
 
@@ -81,12 +81,12 @@ Das kannst du über diese Einstellung regeln.
 
 Sortiere deine Einsatzliste nach bestimmten Kriterien! Auch hier lässt sich die Farbe des Knopfes anpassen.
 
-![Einsätze sortieren](./missionsort/missionSort.png)
+![Einsätze sortieren](assets/de_DE/missionsort/missionSort.png)
 
 ### Sortierung im Einsatzfenster
 
 Mit dieser Einstellung kannst du die Sortierung ins Einsatzfenster übernehmen.
-Selbstverständlich kannst du auch [Hotkeys](../hotkeys/) für die modifizierten Knöpfe festlegen.
+Selbstverständlich kannst du auch [Hotkeys](assets/de_DE./hotkeys/) für die modifizierten Knöpfe festlegen.
 Mit einer kleinen Checkbox kannst du im Einsatzfenster jederzeit zwischen den Modus der Knöpfe zwischen
  "sortiert" und "Standard" umschalten.
 
@@ -94,15 +94,15 @@ Hast du keine Sortierung ausgewählt, werden die Knöpfe nicht modifiziert und e
 
 Den aktuellen Modus der Knöpfe kannst du ganz einfach der Farbe entnehmen: `Grün → Standard` und `Blau → Sortiert`:
 
-![Einsätze sortieren im Einsatzfenster: unsortiert](./missionsort/missionSortMissionsStandard.png)
+![Einsätze sortieren im Einsatzfenster: unsortiert](assets/de_DE/missionsort/missionSortMissionsStandard.png)
 
-![Einsätze sortieren im Einsatzfenster: sortiert](./missionsort/missionSortMissionsModified.png)
+![Einsätze sortieren im Einsatzfenster: sortiert](assets/de_DE/missionsort/missionSortMissionsModified.png)
 
 ## Patientenzahl
 
 Zeigt am rechten Rand eines Einsatzes eine kleine Zahl an, wie viele Patienten gerade am Einsatzort sind:
 
-![Patientenzahl](./patientenzahl.png)
+![Patientenzahl](assets/de_DE/patientenzahl.png)
 
 ### Verstecke 0 Patienten
 
@@ -112,7 +112,7 @@ Ist diese Einstellung aktiv, wird die Zahl der Patienten nur dann angezeigt, wen
 
 Mit dieser Einstellung wird die aktuelle Zahl der Patienten auch in den Tooltips auf der Karte angezeigt:
 
-![Patientenzahl in Tooltips](./patienten-tooltip.png)
+![Patientenzahl in Tooltips](assets/de_DE/patienten-tooltip.png)
 
 ## Saisonale Einsätze markieren
 
@@ -121,4 +121,4 @@ Mit dieser Einstellung kannst du für jeden einzelnen Einsatz beliebig viele kur
 Standardmäßig sind hier saisonale Einsätze eingetragen (Sommer, Halloween, Fußball etc.), daher auch der Name.
 
 So sieht das z.&nbsp;B. bei Standardeinstellung für einen Fußball-Einsatz aus:
-![Eventmission bei einem Fußalleinsatz](./eventmissions/eventMission.png)
+![Eventmission bei einem Fußalleinsatz](assets/de_DE/eventmissions/eventMission.png)

@@ -279,7 +279,7 @@
                 "markdownlint/md033": ["error", {
                     "allowed_elements": [
                         "discord",
-                        "a"
+                        "span"
                     ] // These are Vue elements used in the docs
                 }],
                 // Bare URL used

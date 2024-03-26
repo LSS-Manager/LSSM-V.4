@@ -22,13 +22,13 @@ Denna funktion visar aktuell, tilldelad och maximal personal,
  dessutom kan antalet tilldelade personal vara rött om det är mindre än max eller grönt om det är lika med maximalt.
 
 Nedan följer ett exempel på ovanstående funktioner:
-![Fordon](./vehicleList.png)
+![Fordon](assets/en_GB/vehicleList.png)
 
 ### Personal krävs
 
 Visa det minsta och högsta antalet personer som krävs för fordonen.
 
-![Personal krävs](./personnelNeeded.png)
+![Personal krävs](assets/en_GB/personnelNeeded.png)
 
 ### Personalöversikt
 
@@ -36,7 +36,7 @@ Ger en sammanfattning i personalöversikten över hur många personer som har n�
 I den vänstra tabellen kan du se hur mycket personal den kombinationen har per kombination
  och i den högra tabellen ser du hur mycket personal som utbildningen har per program.
 
-![Personalöversikt](./personnelOverview.png)
+![Personalöversikt](assets/en_GB/personnelOverview.png)
 
 ### Tilldela förbättrad personal
 
@@ -46,16 +46,16 @@ Ger möjlighet att dölja personal utan ordentlig utbildning.
 
 Visar omedelbart status för alla tillägg på byggnadsskärmen.
 
-![Extensions](./expansions.png)
+![Extensions](assets/en_GB/expansions.png)
 
 ### Antal byggnader av samma typ
 
 Visar i navigeringsknapparna hur många byggnader av samma typ som finns före och efter.
 
-![Byggnader av samma typ](./navigation.png)
+![Byggnader av samma typ](assets/en_GB/navigation.png)
 
 ### Snabbval av övervakningsstation
 
 Det här alternativet ger en rullgardinsmeny över dina kontrollrum så att du enkelt kan byta dem i byggnaden.
 
-![Snabbval av val av kontrollrum](./dispatchCenter.png)
+![Snabbval av val av kontrollrum](assets/en_GB/dispatchCenter.png)

@@ -20,4 +20,4 @@ The following information is included:
 
 This is how it looks for example at a police station, which has 1 developed cell and a cell under construction:
 
-![An example police station](./polizei.png)
+![An example ambulance station](assets/en_US/example.png)

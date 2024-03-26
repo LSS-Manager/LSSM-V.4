@@ -18,15 +18,15 @@ Only direct image links work!
 
 This allows you to see brief information of buildings, vehicles, users, and missions.
 
-![Link Preview Setting](./linkPreview.png)
+![Link Preview Setting](assets/en_GB/linkPreview.png)
 
 ### Building
 
-![Building](./building.png)
+![Building](assets/en_GB/building.png)
 
 ### Vehicle
 
-![Vehicle](./vehicle.png)
+![Vehicle](assets/en_GB/vehicle.png)
 
 ### Player
 
@@ -50,7 +50,7 @@ This feature saves all the locations that your map has been jumped to. Hover ove
 
 Once reloaded, these will be lost. If you want a location to be saved, use the bookmark feature.
 
-![Map History](./history.png)
+![Map History](assets/en_GB/history.png)
 
 ## Bookmarks For The Map
 
@@ -64,7 +64,7 @@ This works the same as the 'Save Map Jumps' feature, however, you save the jumps
 
 This changes the title of the tab depending on what is currently displayed on screen.
 
-![Tab](./tab.png)
+![Tab](assets/en_GB/tab.png)
 
 ## Emoji Picker
 
@@ -86,7 +86,7 @@ When creating new buildings, the last selected dispatch centre will be saved to 
 
 This moves the location search into a small icon ontop of you map. Click on the search icon to search a location.
 
-![Search](./search.png)
+![Search](assets/en_GB/search.png)
 
 ### Position of Map Search
 

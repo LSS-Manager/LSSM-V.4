@@ -5,12 +5,12 @@ Der, aus der V3 bekannte, Status-Zähler zeigt euch über eurem Funk an,
 welcher Anteil an Fahrzeugen sich gerade im jeweiligen Status befindet.
 Das ganze sieht dann so aus:
 
-![Statuszähler](./statuscounter.png)
+![Statuszähler](assets/de_DE/statuscounter.png)
 
 Das ganze Modul ist mit zahlreichen Einstellungen versehen,
 damit du dir den Statuszähler so gut wie möglich an deine Bedürfnisse anpassen kannst:
 
-![Statuszähler](./settings.png)
+![Statuszähler](assets/de_DE/settings.png)
 
 ## Prozente runden
 

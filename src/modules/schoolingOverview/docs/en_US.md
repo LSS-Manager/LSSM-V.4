@@ -6,7 +6,7 @@ With the module `Course overview` we try to fix this problem.
 At the top you find a small `i`, which opens a summary.
 Of course, we have integrated a search function and the tables can be sorted. The whole thing looks like this:
 
-![Course overview](./overview.png)
+![Course overview](assets/de_DE/overview.png)
 
 In addition, the courses with their own participants and open courses are divided into categories.
 That means simply according to the respective schools, i.e.
@@ -19,8 +19,8 @@ Again, we have built in sorting options and search functions so that you can qui
 
 For example, this is how it looks for courses with your own participants:
 
-![Courses with own participants](./own.png)
+![Courses with own participants](assets/de_DE/own.png)
 
 Und so bei offenen Lehrgängen:
 
-![open courses](./alliance.png)
+![open courses](assets/de_DE/alliance.png)
