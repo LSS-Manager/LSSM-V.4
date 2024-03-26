@@ -1541,8 +1541,8 @@ export default {
         coins: 35,
         credits: 300_000,
         levelPrices: {
-            levelcost: ['1. 10.000', '2. 15.000', '3. 50.000', '4.-5. 100.000'],
-            coins: [5, 15, 25, 40, 60],
+            levelcost: [],
+            coins: [],
         },
         extensions: [],
         storageUpgrades: {
@@ -1554,7 +1554,7 @@ export default {
                 duration: '5 Days',
             },
         },
-        levelcost: [],
+        levelcost: ['1. 10.000', '2. 15.000', '3. 50.000', '4.-5. 100.000'],
         maxBuildings: '',
         maxLevel: 5,
         special: '',
