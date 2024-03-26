@@ -256,6 +256,10 @@
                 "vehicles": [85]
             },
             {
+                "texts": ["Crashed Car", "Crashed Cars"],
+                "vehicles": [105, 106, 107, 108]
+            },
+            {
                 "equipment": ["flood_equipment"],
                 "texts": ["Flood Equipment"],
                 "vehicles": [91]

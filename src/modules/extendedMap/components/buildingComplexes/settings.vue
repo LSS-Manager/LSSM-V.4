@@ -384,6 +384,7 @@ export default Vue.extend<
                             'thw_school',
                             'wasserwacht',
                             'water_rescue_school',
+                            'tow_trucks'
                         ]
                             .sort()
                             .map(icon => `/images/building_${icon}.png`)
@@ -393,11 +394,14 @@ export default Vue.extend<
                             'spec_police_station_game_warden',
                             'spec_police_station_water_police',
                             'spec_police_station_riot_police',
+                            'spec_police_station_tow_trucks',
                             'spec_fire_station_airport',
                             'spec_fire_station_factory_fire_dept',
                             'spec_fire_station_water_rescue',
                             'spec_fire_station_fire_support',
                             'spec_fire_station_forestry',
+                            'spec_fire_station_water_damage_and_flood',
+                            'spec_fire_station_tow_trucks',
                         ]
                             .sort()
                             .map(icon => `/images/${icon}.png`)
