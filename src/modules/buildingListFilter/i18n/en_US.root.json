@@ -7,6 +7,7 @@
         { "ids": [1], "name": "Dispatch Center" },
         { "ids": [18], "name": "FBI" },
         { "ids": [23, 25, 26], "name": "Water Rescue" },
+        { "ids": [27], "name": "Tow Trucks" },
         { "ids": [20, 21], "name": "Complex" }
     ],
     "description": "Customize filters of the buildinglist!",

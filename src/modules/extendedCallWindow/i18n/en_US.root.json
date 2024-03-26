@@ -246,6 +246,10 @@
             {
                 "name": "FBI",
                 "vehicleTypes": [42, 43, 44, 45, 46, 51, 52, 53, 54]
+            },
+            {
+                "name": "Tow Trucks",
+                "vehicleTypes": [105, 106, 107, 108]
             }
         ],
         "noCustoms": "own vehicle categories excluded"
