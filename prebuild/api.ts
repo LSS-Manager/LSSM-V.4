@@ -55,6 +55,32 @@ export default async (): Promise<void> => {
         const jsPath = path.join(i18nPath, `${locale}.js`);
         if (!fs.existsSync(outputPath)) fs.mkdirSync(outputPath);
 
+        // read from missionHelper translations
+        const mhPath = path.join(
+            rootPath,
+            'src',
+            'modules',
+            'missionHelper',
+            'i18n',
+            `${locale}.json`
+        );
+        if (fs.existsSync(mhPath)) {
+            const mh = JSON.parse(fs.readFileSync(mhPath)?.toString() || '{}');
+            const specs = {
+                missionCategories: mh.mission_categories,
+                prerequisites: mh.prerequisites,
+                requirements: mh.vehicles.captions,
+            };
+            delete specs.missionCategories.title;
+            delete specs.prerequisites.title;
+
+            fs.writeFileSync(
+                path.join(outputPath, 'einsaetze.json'),
+                JSON.stringify(specs)
+            );
+        }
+
+        // read from src/i18n
         const t = await getTSFile(
             path.join(distI18nPath, `${locale}.js`),
             jsPath
