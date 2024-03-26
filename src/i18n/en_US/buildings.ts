@@ -1541,7 +1541,7 @@ export default {
         coins: 35,
         credits: 300_000,
         levelPrices: {
-            levelcost: [],
+            credits: [],
             coins: [],
         },
         extensions: [],
