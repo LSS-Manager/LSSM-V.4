@@ -34,7 +34,7 @@ export default (LSSM: Vue) =>
                     messages.push('***');
                 else if (Array.isArray(args)) messages.push(...args);
                 else messages.push(args);
-                LSSM.$stores.console.debug({
+                LSSM.$stores?.console.debug({
                     messages,
                 });
             };
