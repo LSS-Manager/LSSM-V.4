@@ -2,8 +2,8 @@ import type { ModuleMainFunction } from 'typings/Module';
 
 export default <ModuleMainFunction>(({ getSetting }) => {
     if (
-        window.location.pathname.match(
-            /^\/vehicles\/\d+(\/(gefangener|patient)\/\d+)?\/?$/u
+        /^\/vehicles\/\d+(?:\/(?:gefangener|patient)\/\d+)?\/?$/u.test(
+            window.location.pathname
         )
     ) {
         getSetting('autoClickSuccessBtns').then(autoClickSuccessBtns => {
@@ -17,7 +17,7 @@ export default <ModuleMainFunction>(({ getSetting }) => {
         });
     }
 
-    if (window.location.pathname.match(/\/missions\/\d+\/?$/u)) {
+    if (/\/missions\/\d+\/?$/u.test(window.location.pathname)) {
         getSetting('autoOpenTransportRequest').then(
             autoOpenTransportRequest => {
                 if (autoOpenTransportRequest) {

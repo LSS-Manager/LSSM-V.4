@@ -226,12 +226,12 @@ fi`,
         )
             ?.trim()
             .replace(/\n/gu, '\n    ')
-            .replace(/\$\{\{ env\.MODE \}\}/gu, '$MODE')
-            .replace(/\$\{\{ env\.BRANCH \}\}/gu, '$BRANCH')
-            .replace(/\$\{\{ env\.NODE_VERSION \}\}/gu, '$NODE_VERSION')
-            .replace(/\$\{\{ env\.YARN_VERSION \}\}/gu, '$YARN_VERSION')
+            .replace(/\$\{\{ env\.MODE \}\}/gu, '$$MODE')
+            .replace(/\$\{\{ env\.BRANCH \}\}/gu, '$$BRANCH')
+            .replace(/\$\{\{ env\.NODE_VERSION \}\}/gu, '$$NODE_VERSION')
+            .replace(/\$\{\{ env\.YARN_VERSION \}\}/gu, '$$YARN_VERSION')
             .replace(/\$BranchLabel/gu, '"🦄 branch label"')
-            .replace(/\$\{\{ (github|inputs)\.ref \}\}/gu, '$REF') ?? ''
+            .replace(/\$\{\{ (?:github|inputs)\.ref \}\}/gu, '$$REF') ?? ''
     }
     disable_debugging
     print_end_message "${step.name}" "$start_time"

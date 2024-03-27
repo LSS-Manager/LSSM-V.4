@@ -23,7 +23,7 @@ const fetchStableVersion = (): Promise<{ version: string }> =>
             JSON.stringify(<Versions>{
                 beta: version,
                 stable,
-                short: stable.match(/4(\.(x|\d+)){2}/u)?.[0] ?? '4.x.x',
+                short: stable.match(/4(?:\.(?:x|\d+)){2}/u)?.[0] ?? '4.x.x',
             })
         )
     ))();

@@ -318,7 +318,7 @@ export default Vue.extend<
                     e.total <= this.filter.total.max &&
                     JSON.stringify(Object.values(e))
                         .toLowerCase()
-                        .match(this.search.trim().toLowerCase()) &&
+                        .includes(this.search.trim().toLowerCase()) &&
                     this.filter.type.types.some(a => e.types.includes(a))
                 ),
             }));

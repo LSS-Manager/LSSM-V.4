@@ -4,7 +4,7 @@ import type { ModuleMainFunction } from 'typings/Module';
 
 export default (async ({ LSSM, $m, $mc, getSetting, setSetting }) => {
     if (
-        !window.location.href.match(/\/missions\/\d+/u) ||
+        !/\/missions\/\d+/u.test(window.location.href) ||
         document.querySelector('.missionNotFound')
     )
         return;

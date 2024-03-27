@@ -228,7 +228,7 @@ export default Vue.extend<
                 .sort(([, a], [, b]) => {
                     const modifier = this.sortDir === 'desc' ? -1 : 1;
                     let f, s;
-                    if (this.sort.match(/s\d+/u)) {
+                    if (/s\d+/u.test(this.sort)) {
                         f = a.fms[this.sort].length;
                         s = b.fms[this.sort].length;
                     } else {

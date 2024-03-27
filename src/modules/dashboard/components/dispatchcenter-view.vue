@@ -668,7 +668,7 @@ export default Vue.extend<
         removeTitle(id) {
             this.board.titles.splice(
                 this.board.titles.findIndex(
-                    title => title.title === id.replace(/(^\d+_)|(_\d+$)/gu, '')
+                    title => title.title === id.replace(/^\d+_|_\d+$/gu, '')
                 ),
                 1
             );
@@ -692,7 +692,7 @@ export default Vue.extend<
             this.saveBoards();
         },
         modifyTitle({ id, width, height, x, y }) {
-            const checked_id = id?.replace(/(^\d+_)|(_\d+$)/gu, '');
+            const checked_id = id?.replace(/^\d+_|_\d+$/gu, '');
             this.$set(
                 this.board.titles,
                 this.board.titles.findIndex(

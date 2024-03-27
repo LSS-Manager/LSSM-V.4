@@ -6,5 +6,5 @@
         "target": "ESNext",
         "types": ["node", "vue"]
     },
-    "include": ["**/*.ts"]
+    "include": ["**/*.ts", "**/*.vue"]
 }
