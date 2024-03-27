@@ -1544,6 +1544,7 @@ export default {
             credits: [],
             coins: [],
         },
+        levelcost: ['1. 10.000', '2. 15.000', '3. 50.000', '4.-5. 100.000'],
         extensions: [],
         storageUpgrades: {
             initial_containers: {
@@ -1554,12 +1555,13 @@ export default {
                 duration: '5 Days',
             },
         },
-        levelcost: ['1. 10.000', '2. 15.000', '3. 50.000', '4.-5. 100.000'],
         maxBuildings: '',
         maxLevel: 5,
         special: '',
         startPersonnel: 2,
         startVehicles: [],
+        schoolingTypes: [''],
+        schools: [],
         startParkingLots: 1,
         icon: 'life-ring',
     },
