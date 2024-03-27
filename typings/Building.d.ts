@@ -70,7 +70,7 @@ interface BaseExtension {
     coins: number;
     duration: string;
     cannotDisable?: true;
-    maxExtensionsFunction?(buildingsByType?: BuildingsByType): number;
+    maxExtensionsFunction?(buildingsByType: BuildingsByType): number;
     canBuyByAmount?(
         boughtExtensionsAmountByType: Record<number, Record<number, number>>,
         maxExtensions: number
