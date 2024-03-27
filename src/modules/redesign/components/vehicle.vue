@@ -664,6 +664,8 @@ import type {
 const kebabToCamelCase = <Kebab extends string = string>(
     kebab: Kebab
 ): KebabToCamelCase<Kebab> =>
+    // eslint does not seem to know that we're actually using the group
+    // eslint-disable-next-line regexp/no-unused-capturing-group
     kebab.replace(/-([a-z])/gu, g =>
         g[1].toUpperCase()
     ) as KebabToCamelCase<Kebab>;

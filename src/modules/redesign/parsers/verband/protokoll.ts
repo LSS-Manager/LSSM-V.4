@@ -99,7 +99,7 @@ export default <RedesignParser<VerbandProtokollWindow>>(async ({
                 row
                     .querySelector<HTMLTableCellElement>('td:nth-child(3)')
                     ?.textContent?.trim()
-                    .split(/\n/gu)
+                    .split(/\n/u)
                     .map(t => t.trim())
                     .join(' ') ?? '';
             const time = new Date(

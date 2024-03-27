@@ -97,7 +97,7 @@ export default async ({
             ?.dataset.address?.trim() ??
             document
                 .querySelector<HTMLElement>('#missionH1 + small')
-                ?.textContent?.replace(/\|(.|\n)*$/u, '')
+                ?.textContent?.replace(/\|(?:.|\n)*$/u, '')
                 .trim() ??
             '–'
     );
@@ -279,10 +279,7 @@ export default async ({
     const getModifiedMessage = (message: string) => {
         let newMessage = message;
         Object.entries(variables).forEach(([variable, replacer]) => {
-            if (
-                variable.startsWith('/') &&
-                variable.match(/\/[ADJUgimux]*$/u)
-            ) {
+            if (variable.startsWith('/') && /\/[ADJUgimux]*$/u.test(variable)) {
                 newMessage = newMessage.replace(
                     new RegExp(
                         `{{${variable.replace(/^\/|\/[ADJUgimux]*$/gu, '')}}}`,

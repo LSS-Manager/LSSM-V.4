@@ -150,7 +150,7 @@ utils(Vue);
             core => core.default(LSSM)
         );
     } else if (
-        window.location.pathname.match(/^\/(buildings|schoolings)\/\d+\/?/u)
+        /^\/(?:buildings|schoolings)\/\d+\/?/u.test(window.location.pathname)
     ) {
         LSSM.$stores.api.getSchoolings('core-update-schoolings').then();
     }

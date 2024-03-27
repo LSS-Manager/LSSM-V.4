@@ -78,7 +78,7 @@ const getMissingRequirements = (
     };
 
     const splitMissingFromVehicle = (req: string) => {
-        const isColonMode = !!req.match(/^.*:\s*\d+$/u);
+        const isColonMode = !!/^.*:\s*\d+$/u.test(req);
         return {
             vehicle: req
                 .replace(isColonMode ? /:\s*\d+$/u : /^\d+x?/u, '')

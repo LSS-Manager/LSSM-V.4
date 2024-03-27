@@ -9,7 +9,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     );
 
     if (
-        window.location.pathname.match(/^\/buildings\/\d+\/?$/u) &&
+        /^\/buildings\/\d+\/?$/u.test(window.location.pathname) &&
         !document.querySelectorAll('[href*="profile"]').length &&
         buildings.length
     ) {
@@ -21,7 +21,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     }
 
     if (
-        window.location.pathname.match(/^\/buildings\/\d+\/personals\/?$/u) &&
+        /^\/buildings\/\d+\/personals\/?$/u.test(window.location.pathname) &&
         (await getSetting('buildingPersonal'))
     ) {
         import(
@@ -32,7 +32,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     }
 
     if (
-        window.location.pathname.match(/^\/missions\/\d+\/?$/u) &&
+        /^\/missions\/\d+\/?$/u.test(window.location.pathname) &&
         missions.length
     ) {
         import(
@@ -43,7 +43,9 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     }
 
     if (
-        window.location.pathname.match(/^\/verband\/mitglieder(\/\d+)?\/?$/u) &&
+        /^\/verband\/mitglieder(?:\/\d+)?\/?$/u.test(
+            window.location.pathname
+        ) &&
         (await getSetting('memberlistManageUser'))
     ) {
         import(
@@ -51,8 +53,8 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
         ).then(({ default: memberlist }) => memberlist(LSSM, $m, MODULE_ID));
     }
     if (
-        window.location.pathname.match(
-            /^\/alliance_threads\/\d+\/?(\?page=\d+)?$/u
+        /^\/alliance_threads\/\d+\/?(?:\?page=\d+)?$/u.test(
+            window.location.pathname
         ) &&
         (await getSetting('deleteForumPost'))
     ) {
@@ -61,7 +63,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
         ).then(({ default: forumpost }) => forumpost(LSSM, $m, MODULE_ID));
     }
 
-    if (window.location.pathname.match(/^\/aaos/u)) {
+    if (/^\/aaos/u.test(window.location.pathname)) {
         import(
             /* webpackChunkName: "modules/asyncButtons/arr" */ './assets/arr'
         ).then(({ default: arr }) => arr(LSSM, $m, MODULE_ID));

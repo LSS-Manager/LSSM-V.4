@@ -364,11 +364,11 @@ export default <ModuleMainFunction>(async ({
                 () =>
                     buildings.forEach(([building, caption]) =>
                         building.classList[
-                            caption.match(
+                            new RegExp(
                                 LSSM.$utils.escapeRegex(
                                     search.value.trim().toLowerCase()
                                 )
-                            )
+                            ).test(caption)
                                 ? 'remove'
                                 : 'add'
                         ](searchHideClass)

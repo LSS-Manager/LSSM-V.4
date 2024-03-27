@@ -18,19 +18,19 @@ export default (async ({
     }
 
     if (
-        (!window.location.pathname.match(
-            /^\/buildings\/\d+(\/(personals|vehicles\/new))?\/?$/u
+        (!/^\/buildings\/\d+(?:\/(?:personals|vehicles\/new))?\/?$/u.test(
+            window.location.pathname
         ) &&
-            !window.location.pathname.match(
-                /^\/vehicles\/\d+\/zuweisung\/?$/u
+            !/^\/vehicles\/\d+\/zuweisung\/?$/u.test(
+                window.location.pathname
             ) &&
-            !window.location.pathname.match(/^\/schoolings\/\d+\/?$/u)) ||
+            !/^\/schoolings\/\d+\/?$/u.test(window.location.pathname)) ||
         (!document.querySelector('#bereitstellungsraumReset') &&
             document.querySelectorAll('[href*="profile"]').length)
     )
         return;
 
-    if (window.location.pathname.match(/^\/buildings\/\d+\/?$/u)) {
+    if (/^\/buildings\/\d+\/?$/u.test(window.location.pathname)) {
         const BUILDING_MODE = document.querySelector<HTMLDivElement>(
             '#tab_protocol'
         )
@@ -141,7 +141,7 @@ export default (async ({
             }
         }
     } else if (
-        window.location.pathname.match(/^\/buildings\/\d+\/personals\/?$/u)
+        /^\/buildings\/\d+\/personals\/?$/u.test(window.location.pathname)
     ) {
         if (await getSetting('schoolingSummary')) {
             import(
@@ -151,7 +151,7 @@ export default (async ({
             );
         }
     } else if (
-        window.location.pathname.match(/^\/buildings\/\d+\/vehicles\/new\/?$/u)
+        /^\/buildings\/\d+\/vehicles\/new\/?$/u.test(window.location.pathname)
     ) {
         if (await getSetting('autoBuyLevels')) {
             import(
@@ -166,7 +166,7 @@ export default (async ({
             personalAssignmentButton()
         );
     } else if (
-        window.location.pathname.match(/^\/vehicles\/\d+\/zuweisung\/?$/u)
+        /^\/vehicles\/\d+\/zuweisung\/?$/u.test(window.location.pathname)
     ) {
         if (await getSetting('enhancedPersonnelAssignment')) {
             import(
@@ -181,7 +181,7 @@ export default (async ({
                 )
             );
         }
-    } else if (window.location.pathname.match(/^\/schoolings\/\d+\/?$/u)) {
+    } else if (/^\/schoolings\/\d+\/?$/u.test(window.location.pathname)) {
         if (await getSetting('schoolsBuildingFilter')) {
             import(
                 /* webpackChunkName: "modules/extendedBuilding/schoolsBuildingFilter" */ './assets/schoolsBuildingFilter'

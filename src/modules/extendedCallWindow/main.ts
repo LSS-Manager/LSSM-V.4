@@ -19,15 +19,18 @@ export default <ModuleMainFunction>(async ({
     getSetting,
     setSetting,
 }) => {
-    const isVehicleWindow =
-        !!window.location.pathname.match(/^\/vehicles\/\d+\/?$/u);
-    const isMissionWindow =
-        !!window.location.pathname.match(/^\/missions\/\d+\/?$/u);
-    const isBuildingWindow = !!window.location.pathname.match(
-        /^\/buildings\/\d+\/?$/u
+    const isVehicleWindow = !!/^\/vehicles\/\d+\/?$/u.test(
+        window.location.pathname
     );
-    const isARRCategoriesWindow =
-        !!window.location.pathname.match(/^\/aao_categorys\/?$/u);
+    const isMissionWindow = !!/^\/missions\/\d+\/?$/u.test(
+        window.location.pathname
+    );
+    const isBuildingWindow = !!/^\/buildings\/\d+\/?$/u.test(
+        window.location.pathname
+    );
+    const isARRCategoriesWindow = !!/^\/aao_categorys\/?$/u.test(
+        window.location.pathname
+    );
 
     if (isVehicleWindow) {
         if (await getSetting('moreReleasePatientButtons')) {
