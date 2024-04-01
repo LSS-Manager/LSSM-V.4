@@ -85,7 +85,7 @@
         "html-loader": "5.0.0",
         "husky": "9.0.11",
         "js-yaml": "4.1.0",
-        "local-web-server": "5.3.1",
+        "local-web-server": "5.3.3",
         "moment-timezone": "0.5.45",
         "prettier": "3.2.5",
         "sass": "1.72.0",
