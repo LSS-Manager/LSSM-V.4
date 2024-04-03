@@ -12,6 +12,11 @@
             "in": "additional",
             "text": "Polizisten ⌀ mind. benötigt"
         },
+        "average_min_thw_personnel": {
+            "badge": false,
+            "in": "additional",
+            "text": "THWler ⌀ mind. benötigt"
+        },
         "min_pump_speed": {
             "badge": true,
             "in": "requirements",

@@ -1145,6 +1145,12 @@ export default Vue.extend<
                             .average_min_police_personnel ?? 0,
                         specs?.additional.average_min_police_personnel ?? 0
                     );
+                this.maxMissionSpecs.additional.average_min_thw_personnel =
+                    Math.max(
+                        this.maxMissionSpecs.additional
+                            .average_min_thw_personnel ?? 0,
+                        specs?.additional.average_min_thw_personnel ?? 0
+                    );
                 this.maxMissionSpecs.additional.average_min_fire_personnel =
                     Math.max(
                         this.maxMissionSpecs.additional

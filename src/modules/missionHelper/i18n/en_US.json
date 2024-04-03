@@ -100,6 +100,12 @@
         "overlay": "overlay",
         "reload": "reload"
     },
+    "towtruck": {
+        "possible_crashed_car_exact": "exact {n} crashed car | exact {n} crashed cars",
+        "possible_crashed_car_max": "Maximum crashed cars",
+        "possible_crashed_car_min": "Minimum crashed car",
+        "title": "Crashed car | {n} Crashed car| {n} Crashed cars"
+    },
     "vehicles": {
         "captions": {
             "ambulances": "Ambulance | Ambulances",

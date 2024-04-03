@@ -29,6 +29,7 @@ interface Additional {
     // Personnel
     average_min_police_personnel?: number;
     average_min_fire_personnel?: number;
+    average_min_thw_personnel?: number;
     swat_personnel?: number;
     height_rescue_personnel?: number;
     personnel_educations?: Record<string, number>;
