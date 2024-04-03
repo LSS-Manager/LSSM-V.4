@@ -312,8 +312,8 @@
                     {{
                         $mc(
                             min_is_max
-                                ? 'patients.possible_crashed_car_exact'
-                                : 'patients.possible_crashed_car_max',
+                                ? 'towtruck.possible_crashed_car_exact'
+                                : 'towtruck.possible_crashed_car_max',
                             missionSpecs.additional.possible_crashed_car_max
                         )
                     }}
@@ -643,6 +643,10 @@ export default Vue.extend<
                     title: false,
                     content: false,
                     live: false,
+                },
+                towtruck: {
+                    title: false,
+                    content: false,
                 },
                 generatedBy: false,
                 credits: false,
