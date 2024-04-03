@@ -287,7 +287,9 @@
                         missionSpecs.additional.possible_crashed_car_min !==
                             missionSpecs.additional.possible_crashed_car_max
                     "
-                    :data-amount="missionSpecs.additional.possible_crashed_car_min"
+                    :data-amount="
+                        missionSpecs.additional.possible_crashed_car_min
+                    "
                 >
                     {{
                         $mc(
@@ -318,7 +320,6 @@
                         )
                     }}
                 </li>
-                
             </ul>
             <h4 v-if="settings.prerequisites">
                 {{

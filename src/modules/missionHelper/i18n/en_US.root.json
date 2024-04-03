@@ -157,16 +157,6 @@
                 "title": "Patients (Title)"
             }
         },
-        "towtruck": {
-            "content": {
-                "description": "Shows details about possible towtruck.",
-                "title": "Details of potential towtruck"
-            },
-            "title": {
-                "description": "Shows the heading \"towtruck\" above the details about possible patients.",
-                "title": "towtruck (Title)"
-            }
-        },
         "place": {
             "description": "Shows next to the title which POI is required for this mission.",
             "title": "POI"
@@ -196,6 +186,16 @@
         "title": {
             "description": "Shows the mission name, e.g. \"Trashcan fire\" as title.",
             "title": "mission name"
+        },
+        "towtruck": {
+            "content": {
+                "description": "Shows details about possible towtruck.",
+                "title": "Details of potential towtruck"
+            },
+            "title": {
+                "description": "Shows the heading \"towtruck\" above the details about possible patients.",
+                "title": "towtruck (Title)"
+            }
         },
         "type": {
             "description": "Shows the type number of the mission next to the title.",
