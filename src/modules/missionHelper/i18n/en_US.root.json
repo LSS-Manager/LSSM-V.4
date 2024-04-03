@@ -189,12 +189,12 @@
         },
         "towtruck": {
             "content": {
-                "description": "Shows details about possible towtruck.",
-                "title": "Details of potential towtruck"
+                "description": "Shows details about possible Crashed cars.",
+                "title": "Details of potential Crashed cars"
             },
             "title": {
-                "description": "Shows the heading \"towtruck\" above the details about possible patients.",
-                "title": "towtruck (Title)"
+                "description": "Shows the heading \"Crashed cars\" above the details about possible Crashed cars.",
+                "title": "Crashed car (Title)"
             }
         },
         "type": {

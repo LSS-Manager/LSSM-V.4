@@ -94,11 +94,10 @@
         "reload": "reload"
     },
     "towtruck": {
-        "possible_crashed_car_exact": "exact {n} car | exact {n} Pastient",
-        "possible_crashed_car_max": "Maximum cars",
-        "possible_crashed_car_min": "Minimum Pcars",
-        "specializations": "Specialization",
-        "title": "cars | {n} cars| {n} carsdfs"
+        "possible_crashed_car_exact": "exact {n} crashed car | exact {n} crashed cars",
+        "possible_crashed_car_max": "Maximum crashed cars",
+        "possible_crashed_car_min": "Minimum crashed car",
+        "title": "Crashed car | {n} Crashed car| {n} Crashed cars"
     },
     "vehicles": {
         "captions": {
