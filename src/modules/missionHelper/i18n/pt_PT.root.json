@@ -9,7 +9,7 @@
         },
         "foam_needed": {
             "badge": true,
-            "in": "requisitos",
+            "in": "requirements",
             "text": "Espuma necesaria: {n} l"
         },
         "title": "Requisitos especiais",
