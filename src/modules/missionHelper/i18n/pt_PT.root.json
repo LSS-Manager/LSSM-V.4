@@ -4,7 +4,7 @@
     "noVehicleRequirements": {
         "average_min_fire_personnel": {
             "badge": false,
-            "in": "adicional",
+            "in": "additional",
             "text": "Número médio de bombeiros mínimo."
         },
         "foam_needed": {
@@ -15,7 +15,7 @@
         "title": "Requisitos especiais",
         "water_needed": {
             "badge": true,
-            "in": "requisitos",
+            "in": "requirements",
             "text": "Água: {n} l"
         }
     },
