@@ -36,6 +36,13 @@
         "specializations": "Specialization",
         "title": "Patients | {n} Patient | {n} Patients"
     },
+    "towtruck": {
+        "possible_crashed_car_max": "Maximum cars",
+        "possible_crashed_car_exact": "exact {n} car | exact {n} Pastient",
+        "possible_crashed_car_min": "Minimum Pcars",
+        "specializations": "Specialization",
+        "title": "cars | {n} cars| {n} carsdfs"
+    },
     "prerequisites": {
         "airport": "Airport Extension | Airport Extensions",
         "atf_count": "ATF Expansion | ATF Expansions",

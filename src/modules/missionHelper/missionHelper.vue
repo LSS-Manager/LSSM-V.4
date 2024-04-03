@@ -277,6 +277,49 @@
                     }}
                 </li>
             </ul>
+            <h4 v-if="settings.towtruck.title">
+                {{ $mc('towtruck.title', 0) }}
+            </h4>
+            <ul v-if="settings.towtruck.content">
+                <li
+                    v-if="
+                        missionSpecs.additional.possible_crashed_car_min &&
+                        missionSpecs.additional.possible_crashed_car_min !==
+                            missionSpecs.additional.possible_crashed_car_max
+                    "
+                    :data-amount="missionSpecs.additional.possible_crashed_car_min"
+                >
+                    {{
+                        $mc(
+                            'towtruck.possible_crashed_car_min',
+                            missionSpecs.additional.possible_crashed_car_min
+                        )
+                    }}
+                </li>
+                <li
+                    v-if="missionSpecs.additional.possible_crashed_car_max"
+                    :min-is-max="
+                        (min_is_max =
+                            missionSpecs.additional.possible_crashed_car_max ===
+                            missionSpecs.additional.possible_crashed_car_min)
+                    "
+                    :data-amount="
+                        min_is_max
+                            ? null
+                            : missionSpecs.additional.possible_crashed_car_max
+                    "
+                >
+                    {{
+                        $mc(
+                            min_is_max
+                                ? 'patients.possible_crashed_car_exact'
+                                : 'patients.possible_crashed_car_max',
+                            missionSpecs.additional.possible_crashed_car_max
+                        )
+                    }}
+                </li>
+                
+            </ul>
             <h4 v-if="settings.prerequisites">
                 {{
                     $mc(
