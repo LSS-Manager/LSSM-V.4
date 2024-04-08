@@ -7,6 +7,9 @@ sidebarDepth: 2
 # Deploy API
 To start your own API, run `yarn build:api` or `./build/build.sh --api`. This will create a folder named `dist/api`. The API data will be in this folder. The `_redirects` file is used for basic URL rewriting as we are using Cloudflare pages. If you don't use it, you can delete this file. For apache2 and nginx there are rewrite examples below.
 
+## Update data
+If new things are added to the game you need to run `yarn build:api` again, to get all the new stuff in the api.
+
 ## Rewrite rules for nginx
 To mimic the same behavior on nginx, you can use
 
@@ -22,4 +25,5 @@ To mimic the same behavior on apache2, you can use
 ```bash
 RewriteEngine on
 RewriteRule "^/([a-z]{2}_[A-Z]{2})/*" "/$1/$2.json"
+```
 
