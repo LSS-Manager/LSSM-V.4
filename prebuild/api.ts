@@ -1,6 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-ignore
+import copyDir from 'copy-dir';
+
 import config from '../src/config';
 
 import type { Schooling } from 'typings/Schooling';
@@ -34,6 +38,7 @@ const getTSFile = async (
 
 export default async (): Promise<void> => {
     if (!fs.existsSync(apiPath)) fs.mkdirSync(apiPath);
+    copyDir.sync(path.join(__dirname, 'api'), apiPath);
 
     const types = [
         'schoolings',
