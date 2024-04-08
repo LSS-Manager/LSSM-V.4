@@ -7,6 +7,7 @@
         "dev": "./build/build.sh --full",
         "dev:serve": "./build/build.sh --serve",
         "build": "./build/build.sh --full --production",
+        "build:api": "./build/build.sh --api",
         "docs": "./build/build.sh --docs",
         "format": "./build/build.sh --format",
         "eslint:fix": "./build/build.sh --eslint",
