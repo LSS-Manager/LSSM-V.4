@@ -1,1 +1,2 @@
+/:lang/*.json /:lang/:splat.json 200
 /:lang/* /:lang/:splat.json 200
