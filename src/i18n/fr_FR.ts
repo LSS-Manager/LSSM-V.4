@@ -72,7 +72,7 @@ export default {
             color: '#ffa500',
         },
         'Police': {
-            buildings: [6, 8, 11, 13, 19,27,28,29],
+            buildings: [6, 8, 11, 13, 19, 27, 28, 29],
             color: '#00ac00',
         },
         'Secours nautique': {
@@ -114,9 +114,11 @@ export default {
                 ['Choucas']: [18],
                 ['Équipes cynophiles']: [19],
                 ["Maintien de l'Ordre"]: [39, 40, 41, 42, 43, 44, 45],
-				["U.I.I.S.C"]:[61,62,63,64,65,66,67,68,69,70,71,72,73],
-				["GIGN"]:[74,75,76],
-				["GIH"]:[77,78]
+                ['U.I.I.S.C']: [
+                    61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73,
+                ],
+                ['GIGN']: [74, 75, 76],
+                ['GIH']: [77, 78],
             },
             color: '#00ac00',
         },
