@@ -1,3 +1,5 @@
+import fs from 'fs';
+
 import buildAPI from './api';
 import collectFAIconNames from './collectFAIconNames';
 import copyStatic from './copyStatic';
@@ -18,13 +20,26 @@ const timeWrap = async (name: string, fn: () => Promise<unknown> | unknown) => {
     console.log('--');
 };
 
+const emptyDist = () => {
+    emptyFolder('./dist');
+    if (!fs.existsSync('./dist')) fs.mkdirSync('./dist');
+};
+
 (async () => {
     console.time('prebuild');
     console.log('Running LSSM-Prebuild-Scripts...');
 
+    if (process.env.LSSM_ARGS?.toLowerCase().includes('--api')) {
+        await timeWrap('emptyDir', emptyDist);
+        await timeWrap('build API', buildAPI);
+        console.timeEnd('prebuild');
+        console.log('Built the API, skipping other prebuild steps!');
+        return;
+    }
+
     await timeWrap('setVersion', setVersion);
     await timeWrap('update latest browser versions', updateBrowserVersions);
-    await timeWrap('emptyDir', () => emptyFolder('./dist'));
+    await timeWrap('emptyDir', emptyDist);
     await timeWrap('download missions', downloadMissions);
     await timeWrap('download releasenotes', downloadReleasenotes);
     await timeWrap('create dumy branches.json', createBranchesJson);
