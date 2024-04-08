@@ -18,7 +18,7 @@ location / {
 as code block.
 
 ## Rewrite rules for apache2
-To mimic the same behavior on nginx, you can use
+To mimic the same behavior on apache2, you can use
 ```bash
 RewriteEngine on
 RewriteRule "^/([a-z]{2}_[A-Z]{2})/*" "/$1/$2.json"
