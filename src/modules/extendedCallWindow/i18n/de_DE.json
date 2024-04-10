@@ -148,7 +148,7 @@
                 "vehicles": [103]
             },
             { "texts": ["FwK"], "vehicles": [57] },
-            { "texts": ["FüKw"], "vehicles": [51] },
+            { "texts": ["FüKw (Polizei)"], "vehicles": [51] },
             {
                 "equipment": ["breathing_protection"],
                 "texts": ["GW-Atemschutz"],
