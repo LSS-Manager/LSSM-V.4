@@ -95,9 +95,7 @@ export default (
                               {
                                   text: $t(lang, 'Deployment').toString(),
                                   collapsible: true,
-                                  children: [
-                                      `/${lang}/deployment/api`,
-                                  ],
+                                  children: [`/${lang}/deployment/api`],
                               },
                           ]
                         : []),
