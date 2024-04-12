@@ -4089,9 +4089,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001524, caniuse-lite@npm:^1.0.30001587, caniuse-lite@npm:^1.0.30001599":
-  version: 1.0.30001608
-  resolution: "caniuse-lite@npm:1.0.30001608"
-  checksum: 10c0/eb77c78fb5b0f75b0fdfcc7c40b9d7d11aeb9514091347b42dda4c13c81d14579495939e8ee00572b4ce6af21b3ab4b8ceb68c43f0caf8a2c478f3dcc085e74a
+  version: 1.0.30001609
+  resolution: "caniuse-lite@npm:1.0.30001609"
+  checksum: 10c0/a7631f6c9a741c7cb16100e115572f70e3d28622af9749891b7285d392113fcb8683ba2ded29e2e9d8e9fa215139d06d2bf15151b0b83df3bbfbbf2b495b74e5
   languageName: node
   linkType: hard
 
@@ -4522,27 +4522,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-loader@npm:6.10.0":
-  version: 6.10.0
-  resolution: "css-loader@npm:6.10.0"
+"css-loader@npm:7.1.1":
+  version: 7.1.1
+  resolution: "css-loader@npm:7.1.1"
   dependencies:
     icss-utils: "npm:^5.1.0"
     postcss: "npm:^8.4.33"
-    postcss-modules-extract-imports: "npm:^3.0.0"
-    postcss-modules-local-by-default: "npm:^4.0.4"
-    postcss-modules-scope: "npm:^3.1.1"
+    postcss-modules-extract-imports: "npm:^3.1.0"
+    postcss-modules-local-by-default: "npm:^4.0.5"
+    postcss-modules-scope: "npm:^3.2.0"
     postcss-modules-values: "npm:^4.0.0"
     postcss-value-parser: "npm:^4.2.0"
     semver: "npm:^7.5.4"
   peerDependencies:
     "@rspack/core": 0.x || 1.x
-    webpack: ^5.0.0
+    webpack: ^5.27.0
   peerDependenciesMeta:
     "@rspack/core":
       optional: true
     webpack:
       optional: true
-  checksum: 10c0/acadd2a93f505bf8a8d1c6912a476ef953585f195412b6aa1f2581053bcce8563b833f2a6666c1e1521f4b35fb315176563495a38933becc89e3143cfa7dce45
+  checksum: 10c0/ebb4ffe68e9df0036fcce66ae182648d4d16b2fdfdc04a5bf7d7783776d389a23be161bb7139a3f842dc75466882544f46d2183bc9399d0bacf83b66a1802b41
   languageName: node
   linkType: hard
 
@@ -5407,9 +5407,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-unicorn@npm:51.0.1":
-  version: 51.0.1
-  resolution: "eslint-plugin-unicorn@npm:51.0.1"
+"eslint-plugin-unicorn@npm:52.0.0":
+  version: 52.0.0
+  resolution: "eslint-plugin-unicorn@npm:52.0.0"
   dependencies:
     "@babel/helper-validator-identifier": "npm:^7.22.20"
     "@eslint-community/eslint-utils": "npm:^4.4.0"
@@ -5429,7 +5429,7 @@ __metadata:
     strip-indent: "npm:^3.0.0"
   peerDependencies:
     eslint: ">=8.56.0"
-  checksum: 10c0/e3b019e55d60511c18aec081ff512366f917d0162db3ee122e1f881657b9a1c89e0d505bb7aec968d612ff3c757c055d5b734aaf0b3078a283315bb7db56ca04
+  checksum: 10c0/c68055ccbbdd4af50fd902f4fd88737f4047cbb727c8135efc578f747007a6c30a65c30af460b667f86e7a8f68d5a8ca031631018a4bdc719bb85114c77d319e
   languageName: node
   linkType: hard
 
@@ -7628,7 +7628,7 @@ __metadata:
     all-contributors-cli: "npm:6.26.1"
     broadcast-channel: "npm:4.20.2"
     copy-dir: "npm:1.3.0"
-    css-loader: "npm:6.10.0"
+    css-loader: "npm:7.1.1"
     emoji-toolkit: "npm:8.0.0"
     eslint: "npm:8.57.0"
     eslint-config-prettier: "npm:9.1.0"
@@ -7640,7 +7640,7 @@ __metadata:
     eslint-plugin-prettier: "npm:5.1.3"
     eslint-plugin-regexp: "npm:2.5.0"
     eslint-plugin-tsdoc: "npm:0.2.17"
-    eslint-plugin-unicorn: "npm:51.0.1"
+    eslint-plugin-unicorn: "npm:52.0.0"
     eslint-plugin-vue: "npm:9.24.1"
     he: "npm:1.2.0"
     highcharts: "npm:11.4.1"
@@ -7658,8 +7658,8 @@ __metadata:
     pinia: "npm:2.1.7"
     prettier: "npm:3.2.5"
     qrcode: "npm:1.5.3"
-    sass: "npm:1.74.1"
-    sass-loader: "npm:14.1.1"
+    sass: "npm:1.75.0"
+    sass-loader: "npm:14.2.0"
     semver: "npm:7.6.0"
     showdown: "npm:2.1.0"
     simpleheat: "npm:0.4.0"
@@ -8925,7 +8925,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-modules-extract-imports@npm:^3.0.0":
+"postcss-modules-extract-imports@npm:^3.1.0":
   version: 3.1.0
   resolution: "postcss-modules-extract-imports@npm:3.1.0"
   peerDependencies:
@@ -8934,7 +8934,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-modules-local-by-default@npm:^4.0.4":
+"postcss-modules-local-by-default@npm:^4.0.5":
   version: 4.0.5
   resolution: "postcss-modules-local-by-default@npm:4.0.5"
   dependencies:
@@ -8947,7 +8947,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-modules-scope@npm:^3.1.1":
+"postcss-modules-scope@npm:^3.2.0":
   version: 3.2.0
   resolution: "postcss-modules-scope@npm:3.2.0"
   dependencies:
@@ -9643,9 +9643,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass-loader@npm:14.1.1":
-  version: 14.1.1
-  resolution: "sass-loader@npm:14.1.1"
+"sass-loader@npm:14.2.0":
+  version: 14.2.0
+  resolution: "sass-loader@npm:14.2.0"
   dependencies:
     neo-async: "npm:^2.6.2"
   peerDependencies:
@@ -9665,11 +9665,24 @@ __metadata:
       optional: true
     webpack:
       optional: true
-  checksum: 10c0/303ae65c38019723c1d534d6c70ba051b2744ea52c9e07c1c761303962540e8f3147bd73ff0ce2767c7435bc76f544f5cbc5db03617689f30ec9ffb26494289d
+  checksum: 10c0/03363149c93a216c727f9d62176e95bd97da0f913f5d2480c69244a8047a9de58e7b67ff876edd19e8a5481c89809ffdeb8a06eb3f32712ed8ed5019761dd0c3
   languageName: node
   linkType: hard
 
-"sass@npm:1.74.1, sass@npm:^1.70.0":
+"sass@npm:1.75.0":
+  version: 1.75.0
+  resolution: "sass@npm:1.75.0"
+  dependencies:
+    chokidar: "npm:>=3.0.0 <4.0.0"
+    immutable: "npm:^4.0.0"
+    source-map-js: "npm:>=0.6.2 <2.0.0"
+  bin:
+    sass: sass.js
+  checksum: 10c0/1564ab2c8041c99a330cec93127fe8abcf65ac63eecb471610ed7f3126a2599a58b788a3a98eb8719f7f40b9b04e00c92bc9e11a9c2180ad582b8cba9fb030b0
+  languageName: node
+  linkType: hard
+
+"sass@npm:^1.70.0":
   version: 1.74.1
   resolution: "sass@npm:1.74.1"
   dependencies:
