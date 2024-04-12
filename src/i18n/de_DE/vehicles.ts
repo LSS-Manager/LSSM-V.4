@@ -668,7 +668,7 @@ export default {
         possibleBuildings: [11],
     },
     51: {
-        caption: 'FüKw',
+        caption: 'FüKw (Polizei)',
         color: '#31af31',
         credits: 17_500,
         coins: 25,

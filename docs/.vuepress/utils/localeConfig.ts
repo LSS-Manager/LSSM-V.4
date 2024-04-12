@@ -88,6 +88,17 @@ export default (
                               },
                           ]
                         : []),
+                    ...(fs.existsSync(
+                        path.posix.join(DOCS_PATH, lang, `deployment`, `api.md`)
+                    )
+                        ? [
+                              {
+                                  text: $t(lang, 'Deployment').toString(),
+                                  collapsible: true,
+                                  children: [`/${lang}/deployment/api`],
+                              },
+                          ]
+                        : []),
                     {
                         text: `${$t(lang, 'apps')} 📦`,
                         collapsible: true,
