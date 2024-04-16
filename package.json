@@ -1,6 +1,6 @@
 {
     "name": "lss-manager-v4",
-    "version": "4.7.12+20240412.1103",
+    "version": "4.7.12+20240415.0716",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "quickbuild": "./build/build.sh --quick",
@@ -54,7 +54,7 @@
         "@types/i18n-js": "3.8.9",
         "@types/jquery": "3.5.29",
         "@types/js-yaml": "4.0.9",
-        "@types/leaflet": "1.9.9",
+        "@types/leaflet": "1.9.11",
         "@types/lodash": "4.17.0",
         "@types/node": "20.12.7",
         "@types/pdfmake": "0.2.9",
@@ -82,7 +82,7 @@
         "eslint-plugin-regexp": "2.5.0",
         "eslint-plugin-tsdoc": "0.2.17",
         "eslint-plugin-unicorn": "52.0.0",
-        "eslint-plugin-vue": "9.24.1",
+        "eslint-plugin-vue": "9.25.0",
         "html-loader": "5.0.0",
         "husky": "9.0.11",
         "js-yaml": "4.1.0",
