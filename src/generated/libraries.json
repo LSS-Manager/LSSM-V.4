@@ -317,7 +317,7 @@
     "sass-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack-contrib/sass-loader",
-        "version": "14.2.0"
+        "version": "14.2.1"
     },
     "semver": {
         "version": "7.6.0"
@@ -419,7 +419,7 @@
     "vue3": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/core/tree/main/packages/vue#readme",
-        "version": "3.4.21"
+        "version": "3.4.23"
     },
     "vuepress": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
