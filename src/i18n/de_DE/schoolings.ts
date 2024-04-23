@@ -314,5 +314,11 @@ export default {
             staffList: 'Tr UL',
             key: 'thw_drone',
         },
+        {
+            caption: 'Führung und Kommunikation',
+            duration: '7 Tage',
+            staffList: 'Führung und Kommunikation',
+            key: 'thw_command',
+        },
     ],
 } satisfies SchoolingsBySchool;

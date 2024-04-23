@@ -206,6 +206,8 @@ export default {
         'Akvarium',
         'Fängelse',
         'Bastu',
+        'Tvättstuga',
+        'Rörledning',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [169],

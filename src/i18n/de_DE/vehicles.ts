@@ -2320,7 +2320,7 @@ export default {
         possibleBuildings: [0, 18],
     },
     141: {
-        caption: 'Anhänger Feldherdkoch',
+        caption: 'FKH',
         color: '#a34100',
         credits: 10_000,
         coins: 15,
@@ -2333,7 +2333,7 @@ export default {
         isTrailer: true,
         tractiveVehicles: [138],
         special:
-            'Der Anhänger Feldherdkoch kann zur Versorgung von Einsatzkräften eingesetzt werden und ist Teil des Verpflegungsdienstes.',
+            'Der FKH kann zur Versorgung von Einsatzkräften eingesetzt werden und ist Teil des Verpflegungsdienstes.',
     },
     142: {
         caption: 'AB-Küche',
@@ -2364,5 +2364,95 @@ export default {
             90, 4, 27, 53, 104, 105, 6, 8, 9, 15, 16, 18, 21, 22, 36,
         ],
         possibleBuildings: [0, 18],
+    },
+    144: {
+        caption: 'FüKw (THW)',
+        color: '#36759e',
+        credits: 15_000,
+        coins: 15,
+        staff: {
+            min: 1,
+            max: 4,
+            training: {
+                THW: {
+                    thw_command: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [9],
+    },
+    145: {
+        caption: 'FüKomKW',
+        color: '#36759e',
+        credits: 25_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 7,
+            training: {
+                THW: {
+                    thw_command: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [9],
+    },
+    146: {
+        caption: 'Anh FüLa',
+        color: '#36759e',
+        credits: 10_000,
+        coins: 10,
+        staff: {
+            min: 0,
+            max: 0
+        },
+        icon: 'truck',
+        isTrailer: true,
+        tractiveVehicles: [145],
+        possibleBuildings: [9],
+    },
+    147: {
+        caption: 'FmKW',
+        color: '#36759e',
+        credits: 20_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 7,
+            training: {
+                THW: {
+                    thw_command: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [9],
+    },
+    148: {
+        caption: 'MTW FGr K',
+        color: '#36759e',
+        credits: 20_000,
+        coins: 25,
+        staff: {
+            min: 4,
+            max: 4,
+            training: {
+                THW: {
+                    thw_command: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [9],
     },
 } satisfies Record<number, InternalVehicle>;
