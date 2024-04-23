@@ -143,6 +143,7 @@ export default {
                 'Netzersatzanlagen': [112, 122],
                 'MTW-OV': [124],
                 'Tr UL': [125],
+                'Fachzug Führung und Kommunikation': [144, 145, 146, 147, 148],
             },
             color: '#0000ff',
         },

@@ -235,6 +235,7 @@ export default {
         'Bibliothèque',
         'Aquarium',
         'Prison',
+        'Pipeline',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [325, 326],

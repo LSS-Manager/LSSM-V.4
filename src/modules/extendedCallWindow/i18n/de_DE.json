@@ -247,6 +247,11 @@
             { "texts": ["NEA50"], "vehicles": [110, 111, 112, 113] },
             { "texts": ["NEA200"], "vehicles": [112, 113] },
             { "texts": ["MzGW SB"], "vehicles": [109] },
+            { "texts": ["FüKW"], "vehicles": [144] },
+            { "texts": ["FüKomKW"], "vehicles": [145] },
+            { "texts": ["Anh FüLa"], "vehicles": [146] },
+            { "texts": ["FmKW"], "vehicles": [147] },
+            { "texts": ["MTW FGr K"], "vehicles": [148] },
             { "texts": ["Lüfter"], "vehicles": [114, 115, 116] },
             {
                 "equipment": ["drone"],
