@@ -315,9 +315,9 @@ export default {
             key: 'thw_drone',
         },
         {
-            caption: 'Fachzug Führung und Kommunikation	',
+            caption: 'Fachzug Führung und Kommunikation',
             duration: '7 Tage',
-            staffList: 'Fachzug Führung und Kommunikation	',
+            staffList: 'Fachzug Führung und Kommunikation',
             key: 'thw_command',
         },
     ],
