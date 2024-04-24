@@ -97,7 +97,7 @@
             },
             { "texts": ["Boot", "Boote"], "vehicles": [66, 67, 68, 70, 71] },
             { "texts": ["Bt-Kombi", "Bt-Kombis"], "vehicles": [131] },
-            { "texts": ["DHuFüKw"], "vehicles": [94] },
+            { "texts": ["DHuFüKW"], "vehicles": [94] },
             {
                 "equipment": ["decon"],
                 "texts": ["Dekon-P"],
@@ -148,7 +148,7 @@
                 "vehicles": [103]
             },
             { "texts": ["FwK"], "vehicles": [57] },
-            { "texts": ["FüKw (Polizei)"], "vehicles": [51] },
+            { "texts": ["FüKW (Polizei)"], "vehicles": [51] },
             {
                 "equipment": ["breathing_protection"],
                 "texts": ["GW-Atemschutz"],
