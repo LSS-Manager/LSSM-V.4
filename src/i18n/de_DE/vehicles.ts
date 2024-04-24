@@ -668,7 +668,7 @@ export default {
         possibleBuildings: [11],
     },
     51: {
-        caption: 'FüKw (Polizei)',
+        caption: 'FüKW (Polizei)',
         color: '#31af31',
         credits: 17_500,
         coins: 25,
@@ -1497,7 +1497,7 @@ export default {
         possibleBuildings: [9],
     },
     94: {
-        caption: 'DHuFüKw',
+        caption: 'DHuFüKW',
         color: '#339900',
         credits: 15_000,
         coins: 10,
@@ -2366,7 +2366,7 @@ export default {
         possibleBuildings: [0, 18],
     },
     144: {
-        caption: 'FüKw (THW)',
+        caption: 'FüKW (THW)',
         color: '#36759e',
         credits: 15_000,
         coins: 15,
@@ -2437,7 +2437,7 @@ export default {
         possibleBuildings: [9],
     },
     148: {
-        caption: 'MTW FGr K',
+        caption: 'MTW-FGr K',
         color: '#36759e',
         credits: 20_000,
         coins: 25,
