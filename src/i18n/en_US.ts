@@ -141,9 +141,9 @@ export default {
         },
         'Tow Trucks': {
             vehicles: {
-                'Normal': [105, 106],
-                'Fire': [107],
-                'Police': [108],
+                Normal: [105, 106],
+                Fire: [107],
+                Police: [108],
             },
             color: '#6d34a9',
         },

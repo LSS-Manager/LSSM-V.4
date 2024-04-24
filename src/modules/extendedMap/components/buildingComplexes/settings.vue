@@ -384,7 +384,7 @@ export default Vue.extend<
                             'thw_school',
                             'wasserwacht',
                             'water_rescue_school',
-                            'tow_trucks'
+                            'tow_trucks',
                         ]
                             .sort()
                             .map(icon => `/images/building_${icon}.png`)

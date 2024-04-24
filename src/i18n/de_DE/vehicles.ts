@@ -2410,7 +2410,7 @@ export default {
         coins: 10,
         staff: {
             min: 0,
-            max: 0
+            max: 0,
         },
         icon: 'truck',
         isTrailer: true,

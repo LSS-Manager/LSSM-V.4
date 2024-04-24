@@ -157,16 +157,6 @@
                 "title": "Patients (Title)"
             }
         },
-        "towtruck": {
-            "content": {
-                "description": "Shows details about possible towtruck.",
-                "title": "Details of potential towtruck"
-            },
-            "title": {
-                "description": "Shows the heading \"towtruck\" above the details about possible patients.",
-                "title": "towtruck (Title)"
-            }
-        },
         "place": {
             "description": "Shows next to the title which POI is required for this mission.",
             "title": "POI"
