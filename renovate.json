@@ -21,7 +21,6 @@
         {
             "description": "Disable updating vue on main repo. Updates require vue 3",
             "enabled": false,
-            "matchManagers": ["npm"],
             "matchDepNames": [
                 "@fortawesome/vue-fontawesome",
                 "highcharts-vue",
@@ -30,6 +29,7 @@
                 "vue-loader",
                 "vue-template-compiler"
             ],
+            "matchManagers": ["npm"],
             "matchPaths": ["+(package.json)"]
         },
         {
@@ -62,8 +62,8 @@
             "enabled": false,
             "groupName": "vuepress",
             "lockFileMaintenance": { "enabled": true },
-            "matchManagers": ["npm"],
             "matchDepNames": ["vuepress"],
+            "matchManagers": ["npm"],
             "matchPackagePrefixes": ["@vuepress"],
             "rangeStrategy": "pin",
             "separateMajorMinor": false
@@ -73,8 +73,8 @@
             "extends": ["schedule:monthly"],
             "groupName": "engines",
             "lockFileMaintenance": { "enabled": true },
-            "matchManagers": ["npm"],
             "matchDepNames": ["node", "npm", "yarn"],
+            "matchManagers": ["npm"],
             "rangeStrategy": "pin",
             "reviewers": ["jxn-30"],
             "separateMajorMinor": false
