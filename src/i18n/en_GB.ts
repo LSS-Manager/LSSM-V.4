@@ -104,7 +104,7 @@ export default {
                 'HEMS': [9],
                 'Rapid Response Vehicles': [10, 19, 20, 22, 83],
                 'HART Units': [23, 27, 28, 29, 30, 31, 32, 33, 34],
-                'GP': [21, 95, 96]
+                'GP': [21, 95, 96],
             },
             color: '#ffa500',
         },

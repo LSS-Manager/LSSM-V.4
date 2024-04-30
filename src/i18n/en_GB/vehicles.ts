@@ -1551,7 +1551,7 @@ export default {
     95: {
         caption: 'Community Midwife',
         color: '#b89d14',
-        credits: 10000,
+        credits: 10_000,
         coins: 10,
         staff: {
             min: 1,
@@ -1566,13 +1566,12 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [2, 20, 21, 22, 32],
-        special:
-            '',
+        special: '',
     },
     96: {
         caption: 'Specialist Paramedic RRV',
         color: '#b89d14',
-        credits: 10000,
+        credits: 10_000,
         coins: 10,
         staff: {
             min: 1,
@@ -1587,7 +1586,6 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [2, 20, 21, 22, 32],
-        special:
-            '',
+        special: '',
     },
 } satisfies Record<number, InternalVehicle>;
