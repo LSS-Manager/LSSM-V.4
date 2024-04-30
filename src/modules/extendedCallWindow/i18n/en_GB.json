@@ -265,6 +265,20 @@
                     "Medical cycle responders"
                 ],
                 "vehicles": [83]
+            },
+            {
+                "texts": [
+                    "Community Midwife",
+                    "Community Midwifes"
+                ],
+                "vehicles": [95]
+            },
+            {
+                "texts": [
+                    "Specialist Paramedic RRV",
+                    "Specialist Paramedic RRVs"
+                ],
+                "vehicles": [96]
             }
         ]
     },

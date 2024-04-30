@@ -1548,4 +1548,46 @@ export default {
         possibleBuildings: [31],
         special: 'A rapid response vehicle based in the SAR HQ',
     },
+    95: {
+        caption: 'Community Midwife',
+        color: '#b89d14',
+        credits: 10000,
+        coins: 10,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Rescue: {
+                    midwife: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [2, 20, 21, 22, 32],
+        special:
+            '',
+    },
+    96: {
+        caption: 'Specialist Paramedic RRV',
+        color: '#b89d14',
+        credits: 10000,
+        coins: 10,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Rescue: {
+                    paramedic_advanced: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [2, 20, 21, 22, 32],
+        special:
+            '',
+    },
 } satisfies Record<number, InternalVehicle>;

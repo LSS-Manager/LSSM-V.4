@@ -68,7 +68,7 @@ export default {
             color: '#ff2d2d',
         },
         'Ambulance Stations': {
-            buildings: [2, 3, 5, 20, 21, 25],
+            buildings: [2, 3, 5, 20, 21, 25, 32, 4],
             color: '#ffa500',
         },
         'Police Stations': {
@@ -80,7 +80,7 @@ export default {
             color: '#88ecc4',
         },
         'Other': {
-            buildings: [7, 4, 14, 22, 23, 24],
+            buildings: [7, 14, 22, 23, 24],
             color: '#02a18c',
         },
     },
@@ -102,8 +102,9 @@ export default {
             vehicles: {
                 'Ambulances': [5],
                 'HEMS': [9],
-                'Rapid Response Vehicles': [10, 19, 20, 21, 22, 83],
+                'Rapid Response Vehicles': [10, 19, 20, 22, 83],
                 'HART Units': [23, 27, 28, 29, 30, 31, 32, 33, 34],
+                'GP': [21, 95, 96]
             },
             color: '#ffa500',
         },
