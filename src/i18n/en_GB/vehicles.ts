@@ -326,7 +326,7 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [21, 22],
+        possibleBuildings: [21, 22, 32],
         special:
             'Can only be placed at the Home Response Location and Clinic. A General Practitioner that can respond as a on call doctor and a Rapid Response Vehicle.',
     },

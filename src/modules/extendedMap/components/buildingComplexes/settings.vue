@@ -351,6 +351,7 @@ export default Vue.extend<
                             'clinic',
                             'coastal_guard',
                             'coastal_rescue_heli_port',
+                            'coastal_rescue_school',
                             'commerce_police',
                             'complex',
                             'customs_heliport',
@@ -385,6 +386,9 @@ export default Vue.extend<
                             'wasserwacht',
                             'water_rescue_school',
                             'tow_trucks',
+                            'swat',
+                            'swat_airport',
+                            'general_practitioner',
                         ]
                             .sort()
                             .map(icon => `/images/building_${icon}.png`)
