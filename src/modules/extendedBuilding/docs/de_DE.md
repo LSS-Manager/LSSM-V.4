@@ -64,7 +64,7 @@ Die linke Tabelle zeigt alle vorhandenen Kombinationen (doppelausbildungen usw) 
 
 Gibt dir die Möglichkeit, Personal ohne die passende Ausbildung auszublenden.
 
-### Gebäudefilter bei Lehrgangsauswahl 
+### Gebäudefilter bei Lehrgangsauswahl
 
 Nützliche Filter, um die Gebäudeliste im Lehrgangsfenster zu kürzen
 
