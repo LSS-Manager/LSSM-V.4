@@ -23,7 +23,6 @@ Färbt außerdem die Zugewiesene Besatzung rot ein, wenn diese kleiner als maxim
 
 ![Vehicle List](./vehicleList.png)
 
-
 ## Gebäudeansicht
 
 ### Personalbedarf
