@@ -5017,13 +5017,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"entities@npm:~3.0.1":
-  version: 3.0.1
-  resolution: "entities@npm:3.0.1"
-  checksum: 10c0/2d93f48fd86de0b0ed8ee34456aa47b4e74a916a5e663cfcc7048302e2c7e932002926daf5a00ad6d5691e3c90673a15d413704d86d7e1b9532f9bc00d975590
-  languageName: node
-  linkType: hard
-
 "env-paths@npm:^2.2.0":
   version: 2.2.1
   resolution: "env-paths@npm:2.2.1"
@@ -5396,14 +5389,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-markdownlint@npm:0.5.0":
-  version: 0.5.0
-  resolution: "eslint-plugin-markdownlint@npm:0.5.0"
+"eslint-plugin-markdownlint@npm:0.6.0":
+  version: 0.6.0
+  resolution: "eslint-plugin-markdownlint@npm:0.6.0"
   dependencies:
-    markdownlint: "npm:0.29.0"
+    markdownlint: "npm:0.34.0"
   peerDependencies:
     eslint: ">=7.5.0"
-  checksum: 10c0/c60ff274e3d24868593e02bc1cdd6d7da7fc337dfc9b57adbb8b9169009a206c2c6f486be688d7e221ed3b30196b4cb5bf9cca647bc1e87f49d5dd6cef911278
+  checksum: 10c0/d7d2320f725f9ab8b39ca3fbcd6ce0550d73d02fa26568566707cb7daa1226738db1a35c53160f46567c91bbe1d08a1cf03b64fd3c4c3dfc2f5d671b54c4c664
   languageName: node
   linkType: hard
 
@@ -7391,15 +7384,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"linkify-it@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "linkify-it@npm:4.0.1"
-  dependencies:
-    uc.micro: "npm:^1.0.1"
-  checksum: 10c0/f1949ee2c7c2979c4f80c8c08f507d813f50775ebc5adfdb7ee662f28e0ee53dbd4a329d5231be67414405fc60d4e99b37536d6949702d311fe509a6bcbcf4a6
-  languageName: node
-  linkType: hard
-
 "linkify-it@npm:^5.0.0":
   version: 5.0.0
   resolution: "linkify-it@npm:5.0.0"
@@ -7673,7 +7657,7 @@ __metadata:
     eslint-plugin-compat: "npm:4.2.0"
     eslint-plugin-import: "npm:2.29.1"
     eslint-plugin-jsdoc: "npm:48.2.3"
-    eslint-plugin-markdownlint: "npm:0.5.0"
+    eslint-plugin-markdownlint: "npm:0.6.0"
     eslint-plugin-prettier: "npm:5.1.3"
     eslint-plugin-regexp: "npm:2.5.0"
     eslint-plugin-tsdoc: "npm:0.2.17"
@@ -7957,22 +7941,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdown-it@npm:13.0.1":
-  version: 13.0.1
-  resolution: "markdown-it@npm:13.0.1"
-  dependencies:
-    argparse: "npm:^2.0.1"
-    entities: "npm:~3.0.1"
-    linkify-it: "npm:^4.0.1"
-    mdurl: "npm:^1.0.1"
-    uc.micro: "npm:^1.0.5"
-  bin:
-    markdown-it: bin/markdown-it.js
-  checksum: 10c0/3e21f9782cc5c7af55d0c822b1d938fb918ad3397653dee746a33ad6a245fb31068fcc5f719e66ebc579d01dd47ea9e3e019c398650e592d7ce5e613147f4f1d
-  languageName: node
-  linkType: hard
-
-"markdown-it@npm:^14.0.0, markdown-it@npm:^14.1.0":
+"markdown-it@npm:14.1.0, markdown-it@npm:^14.0.0, markdown-it@npm:^14.1.0":
   version: 14.1.0
   resolution: "markdown-it@npm:14.1.0"
   dependencies:
@@ -7988,27 +7957,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdownlint-micromark@npm:0.1.5":
-  version: 0.1.5
-  resolution: "markdownlint-micromark@npm:0.1.5"
-  checksum: 10c0/3ab909dd0ec8537534b215933b9d5f7e6eacdaf4bde125ff4d8fa62ce247ef798dd92b68203a9ca46ce8ed126ee7a9999cb21f8bb331820fd363e522af028f8f
+"markdownlint-micromark@npm:0.1.9":
+  version: 0.1.9
+  resolution: "markdownlint-micromark@npm:0.1.9"
+  checksum: 10c0/97daaf14d0d8c6568d33be18c92a0cfbf1b9111e2967d44e6785052ea10aebe547dd80a3288c96818228d08213f2e2345dc1e237f6a2bc3b86a37bd316eca5cf
   languageName: node
   linkType: hard
 
-"markdownlint@npm:0.29.0":
-  version: 0.29.0
-  resolution: "markdownlint@npm:0.29.0"
+"markdownlint@npm:0.34.0":
+  version: 0.34.0
+  resolution: "markdownlint@npm:0.34.0"
   dependencies:
-    markdown-it: "npm:13.0.1"
-    markdownlint-micromark: "npm:0.1.5"
-  checksum: 10c0/5e8a08efa744196f290d8c4e7a20ca5f5d95ab21988a4d9110929bd1c31bc9ee53b3b12e3b5c3d3ca06f52d09557b9875b9512bab373050aa7c96c2425cdd516
-  languageName: node
-  linkType: hard
-
-"mdurl@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "mdurl@npm:1.0.1"
-  checksum: 10c0/ea8534341eb002aaa532a722daef6074cd8ca66202e10a2b4cda46722c1ebdb1da92197ac300bc953d3ef1bf41cd6561ef2cc69d82d5d0237dae00d4a61a4eee
+    markdown-it: "npm:14.1.0"
+    markdownlint-micromark: "npm:0.1.9"
+  checksum: 10c0/9dc3ee3b43b8a061b15e5c3631a963deb62397d0fa555dfb0dd3fc28c54ffa1a884938a21a34ae69399e030b9ccae10734275aac6888d661024c98ad2c3de43e
   languageName: node
   linkType: hard
 
@@ -10835,13 +10797,6 @@ __metadata:
   version: 1.0.37
   resolution: "ua-parser-js@npm:1.0.37"
   checksum: 10c0/dac8cf82a55b2e097bd2286954e01454c4cfcf23c9d9b56961ce94bda3cec5a38ca536e6e84c20a4000a9d4b4a4abcbd98ec634ccebe21be36595ea3069126e4
-  languageName: node
-  linkType: hard
-
-"uc.micro@npm:^1.0.1, uc.micro@npm:^1.0.5":
-  version: 1.0.6
-  resolution: "uc.micro@npm:1.0.6"
-  checksum: 10c0/9bde2afc6f2e24b899db6caea47dae778b88862ca76688d844ef6e6121dec0679c152893a74a6cfbd2e6fde34654e6bd8424fee8e0166cdfa6c9ae5d42b8a17b
   languageName: node
   linkType: hard
 
