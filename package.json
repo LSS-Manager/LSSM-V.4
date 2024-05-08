@@ -52,7 +52,7 @@
     "devDependencies": {
         "@types/he": "1.2.3",
         "@types/i18n-js": "3.8.9",
-        "@types/jquery": "3.5.29",
+        "@types/jquery": "3.5.30",
         "@types/js-yaml": "4.0.9",
         "@types/leaflet": "1.9.12",
         "@types/lodash": "4.17.1",
@@ -65,7 +65,7 @@
         "@types/tampermonkey": "5.0.2",
         "@types/ua-parser-js": "0.7.39",
         "@types/vue-select": "3.16.8",
-        "@types/webpack-env": "1.18.4",
+        "@types/webpack-env": "1.18.5",
         "@typescript-eslint/eslint-plugin": "7.3.1",
         "@typescript-eslint/parser": "7.3.1",
         "all-contributors-cli": "6.26.1",

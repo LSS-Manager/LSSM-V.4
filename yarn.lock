@@ -2345,12 +2345,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jquery@npm:3.5.29":
-  version: 3.5.29
-  resolution: "@types/jquery@npm:3.5.29"
+"@types/jquery@npm:3.5.30":
+  version: 3.5.30
+  resolution: "@types/jquery@npm:3.5.30"
   dependencies:
     "@types/sizzle": "npm:*"
-  checksum: 10c0/17409b551956c54d641264895790b9e63a2179bacdabe2a87d5f8f2baebe2f16625d111b17b1441cdffbf9e059e683bb25bf04ba6ea56b36e39ea50cc77f5b8c
+  checksum: 10c0/7355b2b2cb44eba7a2afa4a1c653157e4bc055be1f14a4c8874e349e6860dd36ca237e538294c2d709f1ffa0d5b12a39ea97be179f3f7fb445e17e12949ccb33
   languageName: node
   linkType: hard
 
@@ -2605,10 +2605,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/webpack-env@npm:1.18.4":
-  version: 1.18.4
-  resolution: "@types/webpack-env@npm:1.18.4"
-  checksum: 10c0/3fa77dbff0ed71685404576b0a1cf74587567fe2ee1cfd11d56d6eefcab7a61e4c9ead0eced264e289d2cf0fc74296dbd55ed6c95774fe0fd6264d156c5a59f0
+"@types/webpack-env@npm:1.18.5":
+  version: 1.18.5
+  resolution: "@types/webpack-env@npm:1.18.5"
+  checksum: 10c0/b9e4876e8c7cae419896249f9ed795db283c008fe1d38efa679cbbf05194fc2eea2a5bfb4ff4393d109e3a9895416dadf5f3ddd5c22931b678062230f860454e
   languageName: node
   linkType: hard
 
@@ -7644,7 +7644,7 @@ __metadata:
     "@fortawesome/vue-fontawesome": "npm:2.0.10"
     "@types/he": "npm:1.2.3"
     "@types/i18n-js": "npm:3.8.9"
-    "@types/jquery": "npm:3.5.29"
+    "@types/jquery": "npm:3.5.30"
     "@types/js-yaml": "npm:4.0.9"
     "@types/leaflet": "npm:1.9.12"
     "@types/lodash": "npm:4.17.1"
@@ -7657,7 +7657,7 @@ __metadata:
     "@types/tampermonkey": "npm:5.0.2"
     "@types/ua-parser-js": "npm:0.7.39"
     "@types/vue-select": "npm:3.16.8"
-    "@types/webpack-env": "npm:1.18.4"
+    "@types/webpack-env": "npm:1.18.5"
     "@typescript-eslint/eslint-plugin": "npm:7.3.1"
     "@typescript-eslint/parser": "npm:7.3.1"
     acorn: "npm:8.11.3"
