@@ -277,6 +277,50 @@
                     }}
                 </li>
             </ul>
+            <h4 v-if="settings.towtruck.title">
+                {{ $mc('towtruck.title', 0) }}
+            </h4>
+            <ul v-if="settings.towtruck.content">
+                <li
+                    v-if="
+                        missionSpecs.additional.possible_crashed_car_min &&
+                        missionSpecs.additional.possible_crashed_car_min !==
+                            missionSpecs.additional.possible_crashed_car_max
+                    "
+                    :data-amount="
+                        missionSpecs.additional.possible_crashed_car_min
+                    "
+                >
+                    {{
+                        $mc(
+                            'towtruck.possible_crashed_car_min',
+                            missionSpecs.additional.possible_crashed_car_min
+                        )
+                    }}
+                </li>
+                <li
+                    v-if="missionSpecs.additional.possible_crashed_car_max"
+                    :min-is-max="
+                        (min_is_max =
+                            missionSpecs.additional.possible_crashed_car_max ===
+                            missionSpecs.additional.possible_crashed_car_min)
+                    "
+                    :data-amount="
+                        min_is_max
+                            ? null
+                            : missionSpecs.additional.possible_crashed_car_max
+                    "
+                >
+                    {{
+                        $mc(
+                            min_is_max
+                                ? 'towtruck.possible_crashed_car_exact'
+                                : 'towtruck.possible_crashed_car_max',
+                            missionSpecs.additional.possible_crashed_car_max
+                        )
+                    }}
+                </li>
+            </ul>
             <h4 v-if="settings.prerequisites">
                 {{
                     $mc(
@@ -600,6 +644,10 @@ export default Vue.extend<
                     title: false,
                     content: false,
                     live: false,
+                },
+                towtruck: {
+                    title: false,
+                    content: false,
                 },
                 generatedBy: false,
                 credits: false,
@@ -1097,6 +1145,12 @@ export default Vue.extend<
                         this.maxMissionSpecs.additional
                             .average_min_police_personnel ?? 0,
                         specs?.additional.average_min_police_personnel ?? 0
+                    );
+                this.maxMissionSpecs.additional.average_min_thw_personnel =
+                    Math.max(
+                        this.maxMissionSpecs.additional
+                            .average_min_thw_personnel ?? 0,
+                        specs?.additional.average_min_thw_personnel ?? 0
                     );
                 this.maxMissionSpecs.additional.average_min_fire_personnel =
                     Math.max(

@@ -1,4 +1,4 @@
-import type { Building, InternalBuilding } from 'typings/Building';
+import type { InternalBuilding } from 'typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
@@ -72,9 +72,10 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [41, 42, 43, 44],
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number => Math.floor((buildingsByType[0]?.length ?? 0) / 10),
+                maxExtensionsFunction: buildingsByType =>
+                    Math.floor(
+                        (Object.keys(buildingsByType[0] ?? {}).length ?? 0) / 10
+                    ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[0][8] ?? 0) +
                         (boughtExtensionsAmountByType[17][8] ?? 0) <
@@ -131,7 +132,6 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [92, 93, 94, 95, 96, 97],
-                cannotDisable: true,
             },
             {
                 caption: 'Specialisme Technische Hulpverlening',
@@ -148,12 +148,11 @@ export default {
                 credits: 1_000_000,
                 coins: 50,
                 duration: '7 dagen',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
+                maxExtensionsFunction: buildingsByType =>
                     Math.floor(
-                        ((buildingsByType[0]?.length ?? 0) +
-                            (buildingsByType[17]?.length ?? 0)) /
+                        ((Object.keys(buildingsByType[0] ?? {}).length ?? 0) +
+                            (Object.keys(buildingsByType[17] ?? {}).length ??
+                                0)) /
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
@@ -161,6 +160,16 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 10,
                 cannotDisable: true,
+            },
+            {
+                caption: 'Grootschalige Geneeskundige Bijstand',
+                credits: 200_000,
+                coins: 25,
+                duration: '5 Dagen',
+                requiredExtensions: [0],
+                isVehicleExtension: true,
+                givesParkingLots: 2,
+                unlocksVehicleTypes: [100, 101],
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
@@ -291,9 +300,10 @@ export default {
                 credits: 200_000,
                 coins: 50,
                 duration: '7 Dagen',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number => Math.floor((buildingsByType[2]?.length ?? 2) / 5),
+                maxExtensionsFunction: buildingsByType =>
+                    Math.floor(
+                        (Object.keys(buildingsByType[2] ?? {}).length ?? 2) / 5
+                    ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[4][9] ?? 0) < maxExtensions,
                 newBeds: 10,
@@ -323,12 +333,11 @@ export default {
                 credits: 1_000_000,
                 coins: 50,
                 duration: '7 Dagen',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
+                maxExtensionsFunction: buildingsByType =>
                     Math.floor(
-                        ((buildingsByType[3]?.length ?? 0) +
-                            (buildingsByType[13]?.length ?? 0)) /
+                        ((Object.keys(buildingsByType[3] ?? {}).length ?? 0) +
+                            (Object.keys(buildingsByType[13] ?? {}).length ??
+                                0)) /
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
@@ -336,6 +345,15 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 10,
                 cannotDisable: true,
+            },
+            {
+                caption: 'Grootschalige Geneeskundige Bijstand',
+                credits: 200_000,
+                coins: 25,
+                duration: '5 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 2,
+                unlocksVehicleTypes: [100, 101],
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
@@ -412,12 +430,11 @@ export default {
                 credits: 1_000_000,
                 coins: 50,
                 duration: '7 Dagen',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
+                maxExtensionsFunction: buildingsByType =>
                     Math.floor(
-                        ((buildingsByType[5]?.length ?? 0) +
-                            (buildingsByType[18]?.length ?? 0)) /
+                        ((Object.keys(buildingsByType[5] ?? {}).length ?? 0) +
+                            (Object.keys(buildingsByType[18] ?? {}).length ??
+                                0)) /
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
@@ -431,12 +448,11 @@ export default {
                 credits: 200_000,
                 coins: 50,
                 duration: '7 Dagen',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
+                maxExtensionsFunction: buildingsByType =>
                     Math.floor(
-                        ((buildingsByType[5]?.length ?? 0) +
-                            (buildingsByType[18]?.length ?? 0)) /
+                        ((Object.keys(buildingsByType[5] ?? {}).length ?? 0) +
+                            (Object.keys(buildingsByType[18] ?? {}).length ??
+                                0)) /
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
@@ -743,10 +759,11 @@ export default {
                 credits: 200_000,
                 coins: 50,
                 duration: '7 Dagen',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
-                    Math.floor((buildingsByType[12]?.length ?? 0) / 10),
+                maxExtensionsFunction: buildingsByType =>
+                    Math.floor(
+                        (Object.keys(buildingsByType[12] ?? {}).length ?? 0) /
+                            10
+                    ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
                 newCells: 10,
@@ -770,7 +787,17 @@ export default {
             credits: [10_000],
             coins: [10],
         },
-        extensions: [],
+        extensions: [
+            {
+                caption: 'Grootschalige Geneeskundige Bijstand',
+                credits: 200_000,
+                coins: 25,
+                duration: '5 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 2,
+                unlocksVehicleTypes: [100, 101],
+            },
+        ],
         levelcost: ['1. 10.000', 'Upgraden naar normale post: 100.000'],
         maxBuildings: 'Geen limiet',
         maxLevel: 1,
@@ -934,9 +961,10 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [41, 42, 43, 44],
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number => Math.floor((buildingsByType[0]?.length ?? 0) / 10),
+                maxExtensionsFunction: buildingsByType =>
+                    Math.floor(
+                        (Object.keys(buildingsByType[0] ?? {}).length ?? 0) / 10
+                    ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[0][8] ?? 0) +
                         (boughtExtensionsAmountByType[17][8] ?? 0) <

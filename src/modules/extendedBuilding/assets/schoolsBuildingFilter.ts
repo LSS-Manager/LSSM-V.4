@@ -8,10 +8,21 @@ interface BuildingInfos {
 }
 
 export default async (LSSM: Vue) => {
-    const accordion = document.querySelector<HTMLDivElement>(
-        'form[action$="/education"] #accordion'
-    );
+    const getAccordion = () =>
+        document.querySelector<HTMLDivElement>(
+            'form[action$="/education"] #accordion'
+        );
 
+    // wait for Ausbildungs-Mausschoner to append buildings
+    if (!getAccordion()) {
+        await new Promise(resolve =>
+            document.addEventListener(
+                'ausbildungs-mausschoner:buildings-appended',
+                resolve
+            )
+        );
+    }
+    const accordion = getAccordion();
     if (!accordion) return;
 
     await LSSM.$stores.api.getBuildings('eb-sbf');

@@ -221,6 +221,9 @@ export default {
         'Knihovna',
         'Akvárium',
         'Sauna',
+        'Hora',
+        'Prádelna',
+        'Potrubí',
     ],
     only_alliance_missions: [57, 74],
 };

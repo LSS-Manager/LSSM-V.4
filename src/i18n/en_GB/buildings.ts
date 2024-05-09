@@ -1,4 +1,4 @@
-import type { Building, InternalBuilding } from 'typings/Building';
+import type { InternalBuilding } from 'typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
@@ -115,12 +115,11 @@ export default {
                 credits: 1_000_000,
                 coins: 50,
                 duration: '7 Days',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
+                maxExtensionsFunction: buildingsByType =>
                     Math.floor(
-                        ((buildingsByType[0]?.length ?? 0) +
-                            (buildingsByType[18]?.length ?? 0)) /
+                        ((Object.keys(buildingsByType[0] ?? {}).length ?? 0) +
+                            (Object.keys(buildingsByType[18] ?? {}).length ??
+                                0)) /
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
@@ -213,12 +212,11 @@ export default {
                 credits: 1_000_000,
                 coins: 50,
                 duration: '7 Days',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
+                maxExtensionsFunction: buildingsByType =>
                     Math.floor(
-                        ((buildingsByType[2]?.length ?? 0) +
-                            (buildingsByType[20]?.length ?? 0)) /
+                        ((Object.keys(buildingsByType[2] ?? {}).length ?? 0) +
+                            (Object.keys(buildingsByType[20] ?? {}).length ??
+                                0)) /
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
@@ -226,6 +224,14 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 10,
                 cannotDisable: true,
+            },
+            {
+                caption: 'General Practitioner',
+                credits: 100_000,
+                coins: 15,
+                duration: '5 Days',
+                unlocksVehicleTypes: [95, 96],
+                isVehicleExtension: true,
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
@@ -353,18 +359,90 @@ export default {
                 credits: 200_000,
                 coins: 50,
                 duration: '7 Days',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number => Math.floor((buildingsByType[4]?.length ?? 4) / 5),
+                maxExtensionsFunction: buildingsByType =>
+                    Math.floor(
+                        (Object.keys(buildingsByType[4] ?? {}).length ?? 4) / 3
+                    ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[4][9] ?? 0) < maxExtensions,
                 newBeds: 10,
                 cannotDisable: true,
             },
+            {
+                caption: 'PPCI',
+                credits: 70_000,
+                coins: 15,
+                duration: '7 Days',
+                requiredExtensions: [9],
+                cannotDisable: true,
+            },
+            {
+                caption: 'Stroke Center',
+                credits: 70_000,
+                coins: 15,
+                duration: '7 Days',
+                requiredExtensions: [9],
+                cannotDisable: true,
+            },
+            {
+                caption: 'Burns',
+                credits: 70_000,
+                coins: 15,
+                duration: '7 Days',
+                requiredExtensions: [9],
+                cannotDisable: true,
+            },
+            {
+                caption: 'Children',
+                credits: 70_000,
+                coins: 15,
+                duration: '7 Days',
+                requiredExtensions: [9],
+                cannotDisable: true,
+            },
+            {
+                caption: 'Critical Care',
+                credits: 70_000,
+                coins: 15,
+                duration: '7 Days',
+                requiredExtensions: [9],
+                cannotDisable: true,
+            },
+            {
+                caption: 'Central Delivery Suite',
+                credits: 70_000,
+                coins: 15,
+                duration: '7 Days',
+                requiredExtensions: [9],
+                cannotDisable: true,
+            },
+            {
+                caption: 'Major Trauma Centre',
+                credits: 70_000,
+                coins: 15,
+                duration: '7 Days',
+                requiredExtensions: [16],
+                cannotDisable: true,
+            },
+            {
+                caption: 'Major Hospital',
+                credits: 500_000,
+                coins: 50,
+                duration: '7 Days',
+                maxExtensionsFunction: buildingsByType =>
+                    Math.floor(
+                        (Object.keys(buildingsByType[4] ?? {}).length ?? 4) / 9
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[4][9] ?? 0) < maxExtensions,
+                newBeds: 10,
+                requiredExtensions: [9],
+                cannotDisable: true,
+            },
         ],
         levelcost: ['1.-20. 19.000 Credits / 11 Coins'],
         maxBuildings: 'No limit',
-        maxLevel: 20,
+        maxLevel: 30,
         special:
             'Finance ministers and admins can (expand) association hospitals with the help of credits from the association treasury.',
         startBeds: 10,
@@ -469,12 +547,11 @@ export default {
                 credits: 1_000_000,
                 coins: 50,
                 duration: '7 Days',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
+                maxExtensionsFunction: buildingsByType =>
                     Math.floor(
-                        ((buildingsByType[6]?.length ?? 0) +
-                            (buildingsByType[19]?.length ?? 0)) /
+                        ((Object.keys(buildingsByType[6] ?? {}).length ?? 0) +
+                            (Object.keys(buildingsByType[19] ?? {}).length ??
+                                0)) /
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
@@ -488,12 +565,11 @@ export default {
                 credits: 200_000,
                 coins: 50,
                 duration: '7 Days',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
+                maxExtensionsFunction: buildingsByType =>
                     Math.floor(
-                        ((buildingsByType[6]?.length ?? 0) +
-                            (buildingsByType[19]?.length ?? 0)) /
+                        ((Object.keys(buildingsByType[6] ?? {}).length ?? 0) +
+                            (Object.keys(buildingsByType[19] ?? {}).length ??
+                                0)) /
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
@@ -671,10 +747,11 @@ export default {
                 credits: 200_000,
                 coins: 50,
                 duration: '7 Days',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
-                    Math.floor((buildingsByType[16]?.length ?? 0) / 10),
+                maxExtensionsFunction: buildingsByType =>
+                    Math.floor(
+                        (Object.keys(buildingsByType[16] ?? {}).length ?? 0) /
+                            10
+                    ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
                 newCells: 10,
@@ -918,6 +995,14 @@ export default {
                 isVehicleExtension: true,
                 parkingLotReservations: [[33], [34]],
             },
+            {
+                caption: 'General Practitioner',
+                credits: 100_000,
+                coins: 15,
+                duration: '5 Days',
+                unlocksVehicleTypes: [95, 96],
+                isVehicleExtension: true,
+            },
         ],
         levelcost: [
             '1. 10.000',
@@ -936,7 +1021,7 @@ export default {
         icon: 'house-medical',
     },
     21: {
-        caption: 'Clinic',
+        caption: 'Urgent Treatment Center',
         color: '#e2e53b',
         coins: 25,
         credits: 100_000,
@@ -951,6 +1036,14 @@ export default {
                 coins: 10,
                 duration: '7 Days',
                 cannotDisable: true,
+            },
+            {
+                caption: 'General Practitioner (UTC)',
+                credits: 100_000,
+                coins: 15,
+                duration: '5 Days',
+                unlocksVehicleTypes: [95, 96],
+                isVehicleExtension: true,
             },
         ],
         levelcost: ['1-5. 20.000'],
@@ -992,8 +1085,8 @@ export default {
             'It can only Store: Fire Officer, Rapid Response Vehicle, Operational Team Leader, General Practitioner, Community First Responder, Ambulance Officer and the Dog Support Unit (DSU)',
         startPersonnel: 1,
         startVehicles: [''],
-        schoolingTypes: ['Rescue', 'Police', 'Fire'],
-        schools: [2, 3, 8],
+        schoolingTypes: ['Rescue', 'Police', 'Fire', 'Water Rescue'],
+        schools: [2, 3, 8, 29],
         startParkingLots: 1,
         icon: 'house-flag',
     },
@@ -1453,5 +1546,26 @@ export default {
         schools: [29],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
+    },
+    32: {
+        caption: 'GP Surgery',
+        color: '#eeb611',
+        coins: 35,
+        credits: 200_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
+        extensions: [],
+        levelcost: ['not expandable'],
+        maxBuildings: 'No limit',
+        maxLevel: 3,
+        special: '',
+        startPersonnel: 2,
+        startVehicles: [''],
+        schoolingTypes: ['Rescue'],
+        schools: [3],
+        startParkingLots: 1,
+        icon: 'house-flag',
     },
 } satisfies Record<number, InternalBuilding>;

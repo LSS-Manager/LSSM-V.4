@@ -99,6 +99,7 @@ declare global {
             { from: string; to: string }[]
         >;
         mission_count_max: number;
+        timed_mission_count_max: number;
         breadcrumbnav: {
             init(id: string): void;
             add(id: string): void;

@@ -1,10 +1,10 @@
 {
     "default": [
-        { "ids": [0, 17], "name": "Brandweer" },
+        { "ids": [0, 17, 22, 23], "name": "Brandweer" },
         { "ids": [3, 13], "name": "Ambulance" },
         { "ids": [5, 11, 18], "name": "Politie" },
-        { "ids": [16], "name": "Waterredding" },
-        { "ids": [4, 7, 8], "name": "Scholen" },
+        { "ids": [16, 19, 21], "name": "Waterredding" },
+        { "ids": [4, 7, 8, 20], "name": "Scholen" },
         { "ids": [1], "name": "Meldkamer" },
         { "ids": [9], "name": "Politiehelikopter" },
         { "ids": [6], "name": "MMT" },

@@ -50,6 +50,9 @@ print_end_message () {
     echo "${bold}${green}=== $1: $(ms_elapsed "$2") [$(date +"%Y-%m-%d %H:%M:%S %Z")] ===${normal}"
 }
 
+# add an environment variable containing all args
+export LSSM_ARGS="'$*'"
+
 
 # default values of variables set from params
 _RUN_STEP_NODE=false
@@ -118,6 +121,12 @@ while :; do
           _RUN_STEP_FORMAT=true
           _RUN_STEP_ESLINT=true
           _RUN_STEP_TSC=true ;;
+        --api)
+          _RUN_STEP_NODE=true
+          _RUN_STEP_YARN_SETUP=true
+          _RUN_STEP_YARN_INSTALL=true
+          _RUN_STEP_TSC=true
+          _RUN_STEP_PREBUILD=true ;;
         --full)
           _RUN_STEP_NODE=true
           _RUN_STEP_YARN_SETUP=true

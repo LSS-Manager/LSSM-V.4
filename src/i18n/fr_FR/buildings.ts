@@ -1,4 +1,4 @@
-import type { Building, InternalBuilding } from 'typings/Building';
+import type { InternalBuilding } from 'typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
@@ -69,12 +69,11 @@ export default {
                 credits: 1_000_000,
                 coins: 50,
                 duration: '7 jours',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
+                maxExtensionsFunction: buildingsByType =>
                     Math.floor(
-                        ((buildingsByType[0]?.length ?? 0) +
-                            (buildingsByType[18]?.length ?? 0)) /
+                        ((Object.keys(buildingsByType[0] ?? {}).length ?? 0) +
+                            (Object.keys(buildingsByType[18] ?? {}).length ??
+                                0)) /
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
@@ -141,12 +140,11 @@ export default {
                 credits: 1_000_000,
                 coins: 50,
                 duration: '7 jours',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
+                maxExtensionsFunction: buildingsByType =>
                     Math.floor(
-                        ((buildingsByType[2]?.length ?? 0) +
-                            (buildingsByType[20]?.length ?? 0)) /
+                        ((Object.keys(buildingsByType[2] ?? {}).length ?? 0) +
+                            (Object.keys(buildingsByType[20] ?? {}).length ??
+                                0)) /
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
@@ -282,9 +280,10 @@ export default {
                 credits: 200_000,
                 coins: 50,
                 duration: '7 jours',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number => Math.floor((buildingsByType[4]?.length ?? 0) / 5),
+                maxExtensionsFunction: buildingsByType =>
+                    Math.floor(
+                        (Object.keys(buildingsByType[4] ?? {}).length ?? 0) / 5
+                    ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[4][10] ?? 0) < maxExtensions,
                 newBeds: 10,
@@ -360,12 +359,11 @@ export default {
                 credits: 1_000_000,
                 coins: 50,
                 duration: '7 jours',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
+                maxExtensionsFunction: buildingsByType =>
                     Math.floor(
-                        ((buildingsByType[6]?.length ?? 0) +
-                            (buildingsByType[19]?.length ?? 0)) /
+                        ((Object.keys(buildingsByType[6] ?? {}).length ?? 0) +
+                            (Object.keys(buildingsByType[19] ?? {}).length ??
+                                0)) /
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
@@ -379,12 +377,11 @@ export default {
                 credits: 200_000,
                 coins: 50,
                 duration: '7 jours',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
+                maxExtensionsFunction: buildingsByType =>
                     Math.floor(
-                        ((buildingsByType[6]?.length ?? 0) +
-                            (buildingsByType[19]?.length ?? 0)) /
+                        ((Object.keys(buildingsByType[6] ?? {}).length ?? 0) +
+                            (Object.keys(buildingsByType[19] ?? {}).length ??
+                                0)) /
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
@@ -636,10 +633,11 @@ export default {
                 credits: 200_000,
                 coins: 50,
                 duration: '7 jours',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
-                    Math.floor((buildingsByType[16]?.length ?? 0) / 10),
+                maxExtensionsFunction: buildingsByType =>
+                    Math.floor(
+                        (Object.keys(buildingsByType[16] ?? {}).length ?? 0) /
+                            10
+                    ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[16][20] ?? 0) < maxExtensions,
                 newCells: 10,

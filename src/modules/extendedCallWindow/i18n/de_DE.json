@@ -97,7 +97,7 @@
             },
             { "texts": ["Boot", "Boote"], "vehicles": [66, 67, 68, 70, 71] },
             { "texts": ["Bt-Kombi", "Bt-Kombis"], "vehicles": [131] },
-            { "texts": ["DHuFüKw"], "vehicles": [94] },
+            { "texts": ["DHuFüKW"], "vehicles": [94] },
             {
                 "equipment": ["decon"],
                 "texts": ["Dekon-P"],
@@ -148,7 +148,7 @@
                 "vehicles": [103]
             },
             { "texts": ["FwK"], "vehicles": [57] },
-            { "texts": ["FüKw"], "vehicles": [51] },
+            { "texts": ["FüKW (Polizei)"], "vehicles": [51] },
             {
                 "equipment": ["breathing_protection"],
                 "texts": ["GW-Atemschutz"],
@@ -230,7 +230,7 @@
                     "Schlauchwagen (GW-L2 Wasser, SW 1000, SW 2000 oder Ähnliches)",
                     "Schlauchwagen (GW-L2 Wasser oder SW)"
                 ],
-                "vehicles": [11, 13, 14, 15, 16, 62, 101, 102]
+                "vehicles": [11, 13, 14, 15, 16, 62, 101, 102, 143]
             },
             {
                 "texts": ["Schmutzwasserpumpe", "Schmutzwasserpumpen"],
@@ -247,6 +247,11 @@
             { "texts": ["NEA50"], "vehicles": [110, 111, 112, 113] },
             { "texts": ["NEA200"], "vehicles": [112, 113] },
             { "texts": ["MzGW SB"], "vehicles": [109] },
+            { "texts": ["FüKW"], "vehicles": [144] },
+            { "texts": ["FüKomKW"], "vehicles": [145] },
+            { "texts": ["Anh FüLa"], "vehicles": [146] },
+            { "texts": ["FmKW"], "vehicles": [147] },
+            { "texts": ["MTW FGr K"], "vehicles": [148] },
             { "texts": ["Lüfter"], "vehicles": [114, 115, 116] },
             {
                 "equipment": ["drone"],

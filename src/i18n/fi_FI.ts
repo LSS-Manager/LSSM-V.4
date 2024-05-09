@@ -232,6 +232,8 @@ export default {
         'Kirjaston',
         'Akvaario',
         'Vankila',
+        'Pesula',
+        'Putkisto',
     ],
     only_alliance_missions: [57, 74, 89],
     transfer_missions: [77],

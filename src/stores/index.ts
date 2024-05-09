@@ -249,14 +249,14 @@ export const defineRootStore = defineStore('root', {
                 bar.classList.add('leaflet-bar', 'leaflet-control');
                 document
                     .querySelector(positionSelector)
-                    ?.[position.match(/bottom/u) ? 'prepend' : 'append'](bar);
+                    ?.[/bottom/u.test(position) ? 'prepend' : 'append'](bar);
                 if (!this.osmBars.hasOwnProperty(mapId))
                     this.osmBars[mapId] = {};
                 this.osmBars[mapId][position] = bar;
             }
             const control = document.createElement('a');
             this.osmBars[mapId][position][
-                position.match(/bottom/u) ? 'prepend' : 'append'
+                /bottom/u.test(position) ? 'prepend' : 'append'
             ](control);
             return new Promise<HTMLAnchorElement>(resolve => resolve(control));
         },

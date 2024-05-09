@@ -39,5 +39,5 @@ export default (async ({ LSSM, getSetting }) => {
             if (e.detail.type === 'profile') addProfileId(true);
         },
     });
-    if (window.location.pathname.match(/\/profile\/\d+/u)) addProfileId();
+    if (/\/profile\/\d+/u.test(window.location.pathname)) addProfileId();
 }) as ModuleMainFunction;

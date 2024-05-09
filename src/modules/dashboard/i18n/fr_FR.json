@@ -25,6 +25,7 @@
             "title": "Bâtiments"
         },
         "maxMissions": { "title": "Missions maximum" },
+        "maxTimedMissions": { "title": "Maximum Timed Missions" },
         "vehicles": {
             "empty": "Vous n'avez pas encore de véhicule dans la catégorie {category} !",
             "foam": "Foam",

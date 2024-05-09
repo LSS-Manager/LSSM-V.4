@@ -1,4 +1,4 @@
-import type { Building, InternalBuilding } from 'typings/Building';
+import type { InternalBuilding } from 'typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
@@ -124,12 +124,11 @@ export default {
                 credits: 1_000_000,
                 coins: 50,
                 duration: '7 Days',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
+                maxExtensionsFunction: buildingsByType =>
                     Math.floor(
-                        ((buildingsByType[0]?.length ?? 0) +
-                            (buildingsByType[13]?.length ?? 0)) /
+                        ((Object.keys(buildingsByType[0] ?? {}).length ?? 0) +
+                            (Object.keys(buildingsByType[13] ?? {}).length ??
+                                0)) /
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
@@ -150,6 +149,16 @@ export default {
                     [103, 104],
                     [103, 104],
                 ],
+            },
+            {
+                caption: 'Tow Truck Extension',
+                credits: 150_000,
+                coins: 25,
+                duration: '5 Days',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                unlocksVehicleTypes: [107],
+                parkingLotReservations: [[107]],
             },
         ],
         storageUpgrades: {
@@ -317,9 +326,10 @@ export default {
                 credits: 200_000,
                 coins: 50,
                 duration: '7 Days',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number => Math.floor((buildingsByType[2]?.length ?? 2) / 5),
+                maxExtensionsFunction: buildingsByType =>
+                    Math.floor(
+                        (Object.keys(buildingsByType[2] ?? {}).length ?? 2) / 5
+                    ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[4][9] ?? 0) < maxExtensions,
                 newBeds: 10,
@@ -362,12 +372,11 @@ export default {
                 credits: 1_000_000,
                 coins: 50,
                 duration: '7 Days',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
+                maxExtensionsFunction: buildingsByType =>
                     Math.floor(
-                        ((buildingsByType[3]?.length ?? 0) +
-                            (buildingsByType[16]?.length ?? 0)) /
+                        ((Object.keys(buildingsByType[3] ?? {}).length ?? 0) +
+                            (Object.keys(buildingsByType[16] ?? {}).length ??
+                                0)) /
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
@@ -531,12 +540,11 @@ export default {
                 credits: 1_000_000,
                 coins: 50,
                 duration: '7 Days',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
+                maxExtensionsFunction: buildingsByType =>
                     Math.floor(
-                        ((buildingsByType[5]?.length ?? 0) +
-                            (buildingsByType[15]?.length ?? 0)) /
+                        ((Object.keys(buildingsByType[5] ?? {}).length ?? 0) +
+                            (Object.keys(buildingsByType[15] ?? {}).length ??
+                                0)) /
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
@@ -550,12 +558,11 @@ export default {
                 credits: 200_000,
                 coins: 50,
                 duration: '7 Days',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
+                maxExtensionsFunction: buildingsByType =>
                     Math.floor(
-                        ((buildingsByType[5]?.length ?? 0) +
-                            (buildingsByType[15]?.length ?? 0)) /
+                        ((Object.keys(buildingsByType[5] ?? {}).length ?? 0) +
+                            (Object.keys(buildingsByType[15] ?? {}).length ??
+                                0)) /
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
@@ -575,6 +582,16 @@ export default {
                     [101, 102],
                     [101, 102],
                 ],
+            },
+            {
+                caption: 'Tow Truck Extension',
+                credits: 150_000,
+                coins: 25,
+                duration: '5 Days',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                unlocksVehicleTypes: [108],
+                parkingLotReservations: [[108]],
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
@@ -724,10 +741,11 @@ export default {
                 credits: 200_000,
                 coins: 50,
                 duration: '7 Days',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
-                    Math.floor((buildingsByType[10]?.length ?? 0) / 10),
+                maxExtensionsFunction: buildingsByType =>
+                    Math.floor(
+                        (Object.keys(buildingsByType[10] ?? {}).length ?? 0) /
+                            10
+                    ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
                 newCells: 10,
@@ -894,6 +912,16 @@ export default {
                     [103, 104],
                     [103, 104],
                 ],
+            },
+            {
+                caption: 'Tow Truck Extension',
+                credits: 150_000,
+                coins: 25,
+                duration: '5 Days',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                unlocksVehicleTypes: [107],
+                parkingLotReservations: [[107]],
             },
         ],
         storageUpgrades: {
@@ -1076,6 +1104,16 @@ export default {
                     [101, 102],
                     [101, 102],
                 ],
+            },
+            {
+                caption: 'Tow Truck Extension',
+                credits: 150_000,
+                coins: 25,
+                duration: '5 Days',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                unlocksVehicleTypes: [108],
+                parkingLotReservations: [[108]],
             },
         ],
         levelcost: [
@@ -1492,6 +1530,36 @@ export default {
         startVehicles: [],
         schoolingTypes: ['Water Rescue School'],
         schools: [24],
+        startParkingLots: 1,
+        icon: 'life-ring',
+    },
+    27: {
+        caption: 'Tow Truck Station',
+        color: '#4d118d',
+        coins: 35,
+        credits: 300_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
+        levelcost: ['1. 10.000', '2. 15.000', '3. 50.000', '4.-5. 100.000'],
+        extensions: [],
+        storageUpgrades: {
+            initial_containers: {
+                caption: 'Initial Storage Room',
+                additionalStorage: 40,
+                credits: 25_000,
+                coins: 10,
+                duration: '5 Days',
+            },
+        },
+        maxBuildings: '',
+        maxLevel: 5,
+        special: '',
+        startPersonnel: 2,
+        startVehicles: [],
+        schoolingTypes: [''],
+        schools: [],
         startParkingLots: 1,
         icon: 'life-ring',
     },

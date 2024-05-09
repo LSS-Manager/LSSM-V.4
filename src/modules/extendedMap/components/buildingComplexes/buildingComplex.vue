@@ -2217,7 +2217,11 @@ export default Vue.extend<
                                             buildingTypeId
                                         ][index] ??=
                                             extensionType.maxExtensionsFunction(
-                                                this.apiStore.buildingsByType
+                                                alliance
+                                                    ? this.apiStore
+                                                          .allianceBuildingsByType
+                                                    : this.apiStore
+                                                          .buildingsByType
                                             );
                                     }
 

@@ -150,6 +150,18 @@ export default {
             staffList: 'Ambulance Officer',
             key: 'ems_mobile_command',
         },
+        {
+            caption: 'Midwifery Training',
+            duration: '5 Days',
+            staffList: 'Midwife',
+            key: 'midwife',
+        },
+        {
+            caption: 'Specialist Paramedic Training',
+            duration: '5 Days',
+            staffList: 'Specialist Paramedic',
+            key: 'paramedic_advanced',
+        },
     ],
     'Water Rescue': [
         {

@@ -286,6 +286,22 @@ export default ((MODULE_ID, LSSM, $m) => {
             type: 'toggle',
             default: true,
         },
+        ...(['en_US'].includes(locale)
+            ? {
+                  'towtruck.title': <Toggle>{
+                      type: 'toggle',
+                      default: true,
+                  },
+              }
+            : null),
+        ...(['en_US'].includes(locale)
+            ? {
+                  'towtruck.content': <Toggle>{
+                      type: 'toggle',
+                      default: true,
+                  },
+              }
+            : null),
         'noVehicleRequirements': <MultiSelect>{
             type: 'multiSelect',
             default: noVehicleRequirements,

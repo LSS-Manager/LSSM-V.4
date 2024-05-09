@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LSS-Manager API</title>
+</head>
+<body>
+    <h1>LSS-Manager API</h1>
+    <p>
+        Usage: <code>GET https://api.lss-manager.de/{lang}/{type}</code>
+    </p>
+    <div>
+        <p>
+            The following values are allowed for <code>{lang}</code>:
+        </p>
+        <ul>
+            <li><code>cs_CZ</code></li>
+            <li><code>de_DE</code></li>
+            <li><code>en_AU</code></li>
+            <li><code>en_GB</code></li>
+            <li><code>en_US</code></li>
+            <li><code>es_ES</code></li>
+            <li><code>fr_FR</code></li>
+            <li><code>it_IT</code></li>
+            <li><code>nb_NO</code></li>
+            <li><code>nl_NL</code></li>
+            <li><code>pl_PL</code></li>
+            <li><code>sv_SE</code></li>
+        </ul>
+    </div>
+    <div>
+        <p>
+            The following values are allowed for <code>{type}</code>:
+        </p>
+        <ul>
+            <li>
+                <code>vehicles</code>
+                <ul>
+                    <li>Types: <a href="https://github.com/LSS-Manager/LSSM-V.4/blob/dev/typings/Vehicle.d.ts" target="_blank">interface <code>BackwardsCompatibilityVehicle</code></a></li>
+                </ul>
+            </li>
+            <li>
+                <code>vehicleCategories</code>
+                <ul>
+                    <li>Types: <a href="https://github.com/LSS-Manager/LSSM-V.4/blob/dev/typings/Vehicle.d.ts" target="_blank">interface <code>VehicleCategory</code></a></li>
+                </ul>
+            </li>
+            <li>
+                <code>buildings</code>
+                <ul>
+                    <li>Types: <a href="https://github.com/LSS-Manager/LSSM-V.4/blob/dev/typings/Building.d.ts" target="_blank">interface <code>InternalBuilding</code></a></li>
+                </ul>
+            </li>
+            <li>
+                <code>buildingCategories</code>
+                <ul>
+                    <li>Types: <a href="https://github.com/LSS-Manager/LSSM-V.4/blob/dev/typings/Building.d.ts" target="_blank">interface <code>BuildingCategory</code></a></li>
+                </ul>
+            </li>
+            <li>
+                <code>schoolings</code>
+                <ul>
+                    <li>Types: <a href="https://github.com/LSS-Manager/LSSM-V.4/blob/dev/typings/Schooling.d.ts" target="_blank">interface <code>SchoolingsBySchool</code></a></li>
+                </ul>
+            </li>
+            <li>
+                <code>ranks</code>
+                <ul>
+                    <li>Type: <code>{ missionchief: Record&lt;number, string>; policechief: Record&lt;number, string>; }</code></li>
+                </ul>
+            </li>
+            <li>
+                <code>pois</code>
+                <ul>
+                    <li>Type: <code>string[]</code></li>
+                </ul>
+            </li>
+            <li>
+                <code>small_buildings</code>
+                <ul>
+                    <li>Type: <code>Record&lt;number, number></code></li>
+                </ul>
+            </li>
+            <li>
+                <code>einsaetze</code>
+                <ul>
+                    <li>giving translations to the keys in the <code>/einsaetze.json</code> file of each language</li>
+                </ul>
+            </li>
+        </ul>
+        <small><em>Note, that not all languages may provide values for all types. Values returned are always similar to those in the latest LSS-Manager V.4 beta build</em></small>
+    </div>
+</body>
+</html>

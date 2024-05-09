@@ -57,18 +57,15 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                 const ucmsg = message.toUpperCase();
                 const ucun = window.username.toUpperCase();
                 const isWhispered = whisper === window.user_id;
-                const isMentioned = !!(
+                const isMentioned =
                     !whisper &&
-                    (ucmsg.match(
-                        new RegExp(
-                            `@(${LSSM.$utils.escapeRegex(ucun)}|all[ :])`
-                        )
-                    ) ||
-                        (ucmsg.match(/@admin/u) &&
+                    (new RegExp(
+                        `@(${LSSM.$utils.escapeRegex(ucun)}|all[ :])`
+                    ).test(ucmsg) ||
+                        (/@admin/u.test(ucmsg) &&
                             (window.alliance_admin ||
                                 window.alliance_coadmin ||
-                                window.alliance_owner)))
-                );
+                                window.alliance_owner)));
                 const title = `${
                     mission_id ? '🔔 ' : ''
                 }<a href="/profile/${user_id}" class="lightbox-open">${username}</a>${
@@ -367,7 +364,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                             '#alliance_candidature_count'
                         )
                         ?.textContent?.trim()
-                        ?.replace(/(^\()|\)$/gu, '') || '-1'
+                        ?.replace(/^\(|\)$/gu, '') || '-1'
                 );
                 if (newAmount <= prevAmount) return;
                 events['allianceCandidature'].forEach(async alert =>

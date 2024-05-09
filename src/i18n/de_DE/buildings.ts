@@ -1,4 +1,4 @@
-import type { Building, InternalBuilding } from 'typings/Building';
+import type { InternalBuilding } from 'typings/Building';
 
 type Extension = InternalBuilding['extensions'][0];
 
@@ -82,12 +82,11 @@ export default {
                 credits: 300_000,
                 coins: 25,
                 duration: '7 Tage',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
+                maxExtensionsFunction: buildingsByType =>
                     Math.floor(
-                        ((buildingsByType[0]?.length ?? 0) +
-                            (buildingsByType[18]?.length ?? 0)) /
+                        ((Object.keys(buildingsByType[0] ?? {}).length ?? 0) +
+                            (Object.keys(buildingsByType[18] ?? {}).length ??
+                                0)) /
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
@@ -103,12 +102,11 @@ export default {
                 credits: 1_000_000,
                 coins: 50,
                 duration: '7 Tage',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
+                maxExtensionsFunction: buildingsByType =>
                     Math.floor(
-                        ((buildingsByType[0]?.length ?? 0) +
-                            (buildingsByType[18]?.length ?? 0)) /
+                        ((Object.keys(buildingsByType[0] ?? {}).length ?? 0) +
+                            (Object.keys(buildingsByType[18] ?? {}).length ??
+                                0)) /
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
@@ -216,6 +214,21 @@ export default {
                 ],
                 unlocksVehicleTypes: [138, 139, 140, 141, 142],
             },
+            ...multiplyExtension(
+                {
+                    caption: 'Anhänger-Stellplatz',
+                    credits: 75_000,
+                    coins: 15,
+                    duration: '3 Tage',
+                    isVehicleExtension: true,
+                    givesParkingLots: 1,
+                    unlocksVehicleTypes: [143],
+                    parkingLotReservations: [[143]],
+                    cannotDisable: true,
+                    unlockedVehiclesOnReservedLotsOnly: true,
+                },
+                5
+            ),
         ],
         storageUpgrades: {
             initial_containers: {
@@ -343,12 +356,11 @@ export default {
                 credits: 1_000_000,
                 coins: 50,
                 duration: '7 Tage',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
+                maxExtensionsFunction: buildingsByType =>
                     Math.floor(
-                        ((buildingsByType[2]?.length ?? 0) +
-                            (buildingsByType[20]?.length ?? 0)) /
+                        ((Object.keys(buildingsByType[2] ?? {}).length ?? 0) +
+                            (Object.keys(buildingsByType[20] ?? {}).length ??
+                                0)) /
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
@@ -484,9 +496,10 @@ export default {
                 credits: 200_000,
                 coins: 50,
                 duration: '7 Tage',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number => Math.floor((buildingsByType[4]?.length ?? 4) / 5),
+                maxExtensionsFunction: buildingsByType =>
+                    Math.floor(
+                        (Object.keys(buildingsByType[4] ?? {}).length ?? 4) / 5
+                    ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[4][9] ?? 0) < maxExtensions,
                 newBeds: 10,
@@ -601,12 +614,11 @@ export default {
                 credits: 1_000_000,
                 coins: 50,
                 duration: '7 Tage',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
+                maxExtensionsFunction: buildingsByType =>
                     Math.floor(
-                        ((buildingsByType[6]?.length ?? 0) +
-                            (buildingsByType[19]?.length ?? 0)) /
+                        ((Object.keys(buildingsByType[6] ?? {}).length ?? 0) +
+                            (Object.keys(buildingsByType[19] ?? {}).length ??
+                                0)) /
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
@@ -620,12 +632,11 @@ export default {
                 credits: 200_000,
                 coins: 50,
                 duration: '7 Tage',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
+                maxExtensionsFunction: buildingsByType =>
                     Math.floor(
-                        ((buildingsByType[6]?.length ?? 0) +
-                            (buildingsByType[19]?.length ?? 0)) /
+                        ((Object.keys(buildingsByType[6] ?? {}).length ?? 0) +
+                            (Object.keys(buildingsByType[19] ?? {}).length ??
+                                0)) /
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
@@ -864,6 +875,18 @@ export default {
                 givesParkingLots: 1,
                 parkingLotReservations: [[125]],
                 unlocksVehicleTypes: [125],
+                requiredExtensions: [0, 1],
+                unlockedVehiclesOnReservedLotsOnly: true,
+            },
+            {
+                caption: 'Fachzug Führung und Kommunikation',
+                credits: 300_000,
+                coins: 25,
+                duration: '7 Tage',
+                isVehicleExtension: true,
+                givesParkingLots: 5,
+                unlocksVehicleTypes: [144, 145, 146, 147, 148],
+                parkingLotReservations: [[144], [145], [146], [147], [148]],
                 requiredExtensions: [0, 1],
                 unlockedVehiclesOnReservedLotsOnly: true,
             },
@@ -1274,9 +1297,10 @@ export default {
                 credits: 200_000,
                 coins: 50,
                 duration: '7 Tage',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number => Math.floor((buildingsByType[16]?.length ?? 0) / 5),
+                maxExtensionsFunction: buildingsByType =>
+                    Math.floor(
+                        (Object.keys(buildingsByType[16] ?? {}).length ?? 0) / 5
+                    ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
                 newCells: 10,
@@ -1425,12 +1449,11 @@ export default {
                 credits: 300_000,
                 coins: 25,
                 duration: '7 Tage',
-                maxExtensionsFunction: (
-                    buildingsByType: Record<number, Building[]>
-                ): number =>
+                maxExtensionsFunction: buildingsByType =>
                     Math.floor(
-                        ((buildingsByType[0]?.length ?? 0) +
-                            (buildingsByType[18]?.length ?? 0)) /
+                        ((Object.keys(buildingsByType[0] ?? {}).length ?? 0) +
+                            (Object.keys(buildingsByType[18] ?? {}).length ??
+                                0)) /
                             10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
@@ -1491,6 +1514,21 @@ export default {
                 ],
                 unlocksVehicleTypes: [138, 139, 140, 141, 142],
             },
+            ...multiplyExtension(
+                {
+                    caption: 'Anhänger-Stellplatz',
+                    credits: 75_000,
+                    coins: 15,
+                    duration: '3 Tage',
+                    isVehicleExtension: true,
+                    givesParkingLots: 1,
+                    unlocksVehicleTypes: [143],
+                    parkingLotReservations: [[143]],
+                    cannotDisable: true,
+                    unlockedVehiclesOnReservedLotsOnly: true,
+                },
+                2
+            ),
         ],
         storageUpgrades: {
             initial_containers: {

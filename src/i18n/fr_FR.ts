@@ -72,7 +72,7 @@ export default {
             color: '#ffa500',
         },
         'Police': {
-            buildings: [6, 8, 11, 13, 19],
+            buildings: [6, 8, 11, 13, 19, 27, 28, 29],
             color: '#00ac00',
         },
         'Secours nautique': {
@@ -96,7 +96,7 @@ export default {
                 ['Feux de Forêt']: [21, 22, 23, 24, 32, 33, 34, 35],
                 ['Aéroport']: [51, 52, 53, 54, 55],
                 ["Bombardier d'eau"]: [58, 59, 60],
-                ['Autres véhicules']: [56, 57],
+                ['Autres véhicules']: [56, 57, 78],
             },
             color: '#ff2d2d',
         },
@@ -114,6 +114,11 @@ export default {
                 ['Choucas']: [18],
                 ['Équipes cynophiles']: [19],
                 ["Maintien de l'Ordre"]: [39, 40, 41, 42, 43, 44, 45],
+                ['U.I.I.S.C']: [
+                    61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73,
+                ],
+                ['GIGN']: [74, 75, 76],
+                ['GIH']: [77],
             },
             color: '#00ac00',
         },
@@ -230,6 +235,7 @@ export default {
         'Bibliothèque',
         'Aquarium',
         'Prison',
+        'Pipeline',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [325, 326],

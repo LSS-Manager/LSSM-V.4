@@ -1,4 +1,4 @@
-import counter from './counter.vue';
+import counter from './StatusCounter.vue';
 
 import type { ModuleMainFunction } from 'typings/Module';
 

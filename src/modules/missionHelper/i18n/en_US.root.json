@@ -187,6 +187,16 @@
             "description": "Shows the mission name, e.g. \"Trashcan fire\" as title.",
             "title": "mission name"
         },
+        "towtruck": {
+            "content": {
+                "description": "Shows details about possible Crashed cars.",
+                "title": "Details of potential Crashed cars"
+            },
+            "title": {
+                "description": "Shows the heading \"Crashed cars\" above the details about possible Crashed cars.",
+                "title": "Crashed car (Title)"
+            }
+        },
         "type": {
             "description": "Shows the type number of the mission next to the title.",
             "title": "Type number"

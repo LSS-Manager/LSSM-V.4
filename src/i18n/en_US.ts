@@ -79,6 +79,10 @@ export default {
             buildings: [23, 25, 26],
             color: '#00ac00',
         },
+        'Tow Trucks': {
+            buildings: [27],
+            color: '#481f9a',
+        },
         'Other': {
             buildings: [1, 2, 9, 14, 20, 21, 24],
             color: '#02a18c',
@@ -134,6 +138,14 @@ export default {
                 'Helicopter and Planes': [71, 72],
             },
             color: '#58b658',
+        },
+        'Tow Trucks': {
+            vehicles: {
+                Normal: [105, 106],
+                Fire: [107],
+                Police: [108],
+            },
+            color: '#6d34a9',
         },
     },
     small_buildings: {

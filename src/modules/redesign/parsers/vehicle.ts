@@ -481,7 +481,7 @@ export default <RedesignParser<VehicleWindow>>(({
                 const infos = text
                     .trim()
                     .match(
-                        /(?<=\()[^(]*?\s(?<free>\d+),\s.*?\s(?<distance>\d+([,.]\d+)?\s(km|miles))(,\s.*?\s(?<tax>\d+)\s*%)?(?=\)$)/u
+                        /(?<=\()[^(]*?\s(?<free>\d+),\s.*?\s(?<distance>\d+(?:[,.]\d+)?\s(?:km|miles))(?:,\s.*?\s(?<tax>\d+)\s*%)?(?=\)$)/u
                     );
                 const cellinfos: Cell = {
                     id: getIdFromEl(cell),
@@ -607,7 +607,7 @@ export default <RedesignParser<VehicleWindow>>(({
                 const infos = text
                     .trim()
                     .match(
-                        /(?<=\()[^(].*?\s(?<distance>\d+([,.]\d+)?\s(km|miles))(?=\)$)/u
+                        /(?<=\()[^(].*?\s(?<distance>\d+(?:[,.]\d+)?\s(?:km|miles))(?=\)$)/u
                     );
                 const id = getIdFromEl(station);
                 const stationInfos: ShoreStation = {

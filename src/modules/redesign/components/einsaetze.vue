@@ -419,7 +419,7 @@ export default Vue.extend<
                         .map<
                             [string, Record<'diff' | 'have' | 'need', number>]
                         >(([req, amount]) => {
-                            const have = req.match(/\d+\.\d+/u)
+                            const have = /\d+\.\d+/u.test(req)
                                 ? Object.values(
                                       this.buildings[
                                           mission.prerequisites.main_building

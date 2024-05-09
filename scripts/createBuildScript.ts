@@ -41,6 +41,7 @@ const shortcuts = {
         'serve',
     ],
     'pre-commit': ['format', 'eslint', 'tsc'],
+    'api': ['node', 'yarn_setup', 'yarn_install', 'tsc', 'prebuild'],
     'full': [],
 };
 const extraConditions: Record<string, string[]> = {
@@ -100,6 +101,8 @@ fi`,
     `print_end_message () {
     echo "\${bold}$\{green}=== $1: $(ms_elapsed "$2") [$(date +"%Y-%m-%d %H:%M:%S %Z")] ===$\{normal}"
 }`,
+    `# add an environment variable containing all args
+export LSSM_ARGS="'$*'"`,
 ];
 
 const getStepName = (step: string) => `_run_step_${step}`.toUpperCase();
@@ -226,12 +229,12 @@ fi`,
         )
             ?.trim()
             .replace(/\n/gu, '\n    ')
-            .replace(/\$\{\{ env\.MODE \}\}/gu, '$MODE')
-            .replace(/\$\{\{ env\.BRANCH \}\}/gu, '$BRANCH')
-            .replace(/\$\{\{ env\.NODE_VERSION \}\}/gu, '$NODE_VERSION')
-            .replace(/\$\{\{ env\.YARN_VERSION \}\}/gu, '$YARN_VERSION')
+            .replace(/\$\{\{ env\.MODE \}\}/gu, '$$MODE')
+            .replace(/\$\{\{ env\.BRANCH \}\}/gu, '$$BRANCH')
+            .replace(/\$\{\{ env\.NODE_VERSION \}\}/gu, '$$NODE_VERSION')
+            .replace(/\$\{\{ env\.YARN_VERSION \}\}/gu, '$$YARN_VERSION')
             .replace(/\$BranchLabel/gu, '"🦄 branch label"')
-            .replace(/\$\{\{ (github|inputs)\.ref \}\}/gu, '$REF') ?? ''
+            .replace(/\$\{\{ (?:github|inputs)\.ref \}\}/gu, '$$REF') ?? ''
     }
     disable_debugging
     print_end_message "${step.name}" "$start_time"

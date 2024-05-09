@@ -29,6 +29,7 @@ interface Additional {
     // Personnel
     average_min_police_personnel?: number;
     average_min_fire_personnel?: number;
+    average_min_thw_personnel?: number;
     swat_personnel?: number;
     height_rescue_personnel?: number;
     personnel_educations?: Record<string, number>;
@@ -161,7 +162,7 @@ interface Requirements {
     grukw?: number; // de_DE: GruKw
     lebefkw?: number; // de_DE: leBefKw
     gefkw?: number; // de_DE: GefKw
-    fukw?: number; // de_DE: FüKw
+    fukw?: number; // de_DE: FüKw (Polizei)
     ambulances?: number; // de_DE: RTW oder KTW oder KTW-B
     gw_san?: number; // de_DE: GW-San
     police_helicopters?: number; // de_DE: Polizeihubschrauber

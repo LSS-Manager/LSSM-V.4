@@ -91,7 +91,7 @@ export default {
                 ['Tanklöschfahrzeuge']: [
                     17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 87, 121,
                 ],
-                Schlauchwagen: [11, 13, 14, 15, 16],
+                Schlauchwagen: [11, 13, 14, 15, 16, 143],
                 Sonderfahrzeuge: [
                     2, 3, 4, 5, 10, 12, 27, 33, 34, 36, 53, 57, 114, 115, 118,
                     120, 126, 128, 129,
@@ -143,6 +143,7 @@ export default {
                 'Netzersatzanlagen': [112, 122],
                 'MTW-OV': [124],
                 'Tr UL': [125],
+                'Fachzug Führung und Kommunikation': [144, 145, 146, 147, 148],
             },
             color: '#0000ff',
         },
