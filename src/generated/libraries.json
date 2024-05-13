@@ -423,7 +423,7 @@
     "vue3": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/core/tree/main/packages/vue#readme",
-        "version": "3.4.26"
+        "version": "3.4.27"
     },
     "vuepress": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
