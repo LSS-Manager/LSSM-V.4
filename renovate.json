@@ -86,6 +86,7 @@
             "separateMajorMinor": false
         }
     ],
+    "postUpdateOptions": ["yarnDedupeHighest"],
     "rangeStrategy": "pin",
     "reviewers": ["Suchty112"],
     "schedule": ["before 3am every weekday"],
