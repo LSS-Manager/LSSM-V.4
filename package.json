@@ -76,7 +76,7 @@
         "eslint-import-resolver-typescript": "3.6.1",
         "eslint-plugin-compat": "4.2.0",
         "eslint-plugin-import": "2.29.1",
-        "eslint-plugin-jsdoc": "48.2.5",
+        "eslint-plugin-jsdoc": "48.2.6",
         "eslint-plugin-markdownlint": "0.6.0",
         "eslint-plugin-prettier": "5.1.3",
         "eslint-plugin-regexp": "2.6.0",
