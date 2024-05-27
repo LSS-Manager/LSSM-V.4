@@ -25,7 +25,7 @@
         "version": "2.0.10"
     },
     "@primer/octicons": {
-        "icon": "https://primer.style/design/icons/icon-512x512.png",
+        "icon": "https://primer.style/icons/icon-512x512.png",
         "url": "https://primer.style/octicons",
         "version": "19.9.0"
     },
@@ -355,7 +355,7 @@
         "version": "5.3.3"
     },
     "ua-parser-js": {
-        "icon": "https://faisalman.github.io/ua-parser-js/images/logo.png",
+        "icon": "https://uaparser.js.org/images/logo.png",
         "url": "https://github.com/faisalman/ua-parser-js",
         "version": "1.0.37"
     },
