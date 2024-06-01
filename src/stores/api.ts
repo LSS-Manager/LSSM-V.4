@@ -6,7 +6,6 @@ import type Vue from 'vue';
 import { defineStore } from 'pinia';
 import FetchApiWorker from '@workers/stores/api/fetchApi.worker';
 import he from 'he';
-import { SchoolingsWorker } from '@workers/stores/api/schoolings.worker';
 import { useTranslationStore } from '@stores/translationUtilities';
 import {
     type BuildingsByCategory,
@@ -262,11 +261,14 @@ export const defineAPIStore = defineStore('api', () => {
                 useTranslationStore().buildingCategoryByType
             );
         } else if (api === 'schoolings' || api === 'alliance_schoolings') {
-            const calculations = await SchoolingsWorker.run(
-                apiStorage.schoolings.value,
-                apiStorage.alliance_schoolings.value
+            const processedSchoolings = new Set<number>(
+                apiStorage.schoolings.value.map(s => s.id)
             );
-            allSchoolings.value = calculations.allSchoolings;
+            const newAllSchoolings = [...apiStorage.schoolings.value];
+            for (const s of apiStorage.alliance_schoolings.value)
+                if (!processedSchoolings.has(s.id)) newAllSchoolings.push(s);
+
+            allSchoolings.value = newAllSchoolings;
         }
     };
 

@@ -81,6 +81,7 @@ jobs:
               run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
             - name: '[💽] restore cache'
+              if: github.ref != 'refs/heads/master'
               uses: actions/cache@v4
               id: yarn_cache
               with:
