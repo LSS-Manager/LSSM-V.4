@@ -170,7 +170,7 @@
             {
                 "equipment": ["hight_rescue"],
                 "texts": ["GW-Höhenrettung"],
-                "vehicles": [33]
+                "vehicles": [33, 155, 158]
             },
             { "texts": ["GW-Messtechnik"], "vehicles": [12] },
             { "texts": ["GW-San"], "vehicles": [60] },
@@ -265,7 +265,12 @@
                 "equipment": ["drone"],
                 "texts": ["Drohneneinheit", "Drohneneinheiten"],
                 "vehicles": [125, 126, 127, 128, 129]
-            }
+            },
+            { "texts": ["ATV"], "vehicles": [152] },
+            { "texts": ["ELW Bergrettung"], "vehicles": [151] },
+            { "texts": ["GW Bergrettung"], "vehicles": [149, 150] },
+            { "texts": ["Höhenrettung (Bergrettung)"], "vehicles": [155,158] },
+            { "texts": ["Bergrettungsfahrzeug"], "vehicles": [149, 150, 151, 152, 158] }
         ],
         "water": "l. Wasser"
     },

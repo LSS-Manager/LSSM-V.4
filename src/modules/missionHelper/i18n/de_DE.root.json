@@ -17,6 +17,11 @@
             "in": "additional",
             "text": "THWler ⌀ mind. benötigt"
         },
+        "average_min_ambulance_personnel": {
+            "badge": false,
+            "in": "additional",
+            "text": "Rettungsdienstler ⌀ mind. benötigt"
+        },
         "min_pump_speed": {
             "badge": true,
             "in": "requirements",

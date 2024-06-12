@@ -389,6 +389,7 @@ export default Vue.extend<
                             'swat',
                             'swat_airport',
                             'general_practitioner',
+                            'mountain_rescue',
                         ]
                             .sort()
                             .map(icon => `/images/building_${icon}.png`)
