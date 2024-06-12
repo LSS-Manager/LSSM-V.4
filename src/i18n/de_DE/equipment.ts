@@ -115,4 +115,43 @@ export default registerEquipment({
             },
         },
     },
+    police_lift: {
+        id: 'police_lift',
+        caption: 'Rettungswinde',
+        size: 10,
+        credits: 100000,
+        coins: 10,
+        staff: {
+            min: 1,
+            training: {
+                Polizei: 'police_helicopter_lift',
+            },
+        },
+    },
+    rescue_lift: {
+        id: 'rescue_lift',
+        caption: 'Rettungswinde',
+        size: 10,
+        credits: 100000,
+        coins: 10,
+        staff: {
+            min: 1,
+            training: {
+                Rettungsdienst: 'rescue_helicopter_lift',
+            },
+        },
+    },
+    mountain_drone: {
+        id: 'mountain_drone',
+        caption: 'Drohnen',
+        size: 10,
+        credits: 8000,
+        coins: 10,
+        staff: {
+            min: 4,
+            training: {
+                Rettungsdienst: 'seg_drone',
+            },
+        },
+    },
 });
