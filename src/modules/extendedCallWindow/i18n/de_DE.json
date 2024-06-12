@@ -269,8 +269,11 @@
             { "texts": ["ATV"], "vehicles": [152] },
             { "texts": ["ELW Bergrettung"], "vehicles": [151] },
             { "texts": ["GW Bergrettung"], "vehicles": [149, 150] },
-            { "texts": ["Höhenrettung (Bergrettung)"], "vehicles": [155,158] },
-            { "texts": ["Bergrettungsfahrzeug"], "vehicles": [149, 150, 151, 152, 158] }
+            { "texts": ["Höhenrettung (Bergrettung)"], "vehicles": [155, 158] },
+            {
+                "texts": ["Bergrettungsfahrzeug"],
+                "vehicles": [149, 150, 151, 152, 158]
+            }
         ],
         "water": "l. Wasser"
     },

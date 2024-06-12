@@ -1860,7 +1860,7 @@ export default {
                 duration: '5 Tage',
                 isVehicleExtension: true,
                 givesParkingLots: 2,
-                unlocksVehicleTypes: [155,158],
+                unlocksVehicleTypes: [155, 158],
                 parkingLotReservations: [[155], [158], [155], [158]],
                 unlockedVehiclesOnReservedLotsOnly: true,
             },

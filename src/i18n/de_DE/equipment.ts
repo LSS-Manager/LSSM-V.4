@@ -119,7 +119,7 @@ export default registerEquipment({
         id: 'police_lift',
         caption: 'Rettungswinde',
         size: 10,
-        credits: 100000,
+        credits: 100_000,
         coins: 10,
         staff: {
             min: 1,
@@ -132,7 +132,7 @@ export default registerEquipment({
         id: 'rescue_lift',
         caption: 'Rettungswinde',
         size: 10,
-        credits: 100000,
+        credits: 100_000,
         coins: 10,
         staff: {
             min: 1,
