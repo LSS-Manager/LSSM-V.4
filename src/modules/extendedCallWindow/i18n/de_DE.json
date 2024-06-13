@@ -124,8 +124,8 @@
             },
             {
                 "texts": [
-                    "Feuerlöschpumpe (z.B. LF)",
-                    "Feuerlöschpumpen (z.B. LF)",
+                    "Feuerlöschpumpe (z. B. LF)",
+                    "Feuerlöschpumpen (z. B. LF)",
                     "Feuerlöschpumpe (z. B. LF)",
                     "Feuerlöschpumpen (z. B. LF)"
                 ],
@@ -264,8 +264,14 @@
             { "texts": ["ATV"], "vehicles": [152] },
             { "texts": ["ELW Bergrettung"], "vehicles": [151] },
             { "texts": ["GW Bergrettung"], "vehicles": [149, 150] },
-            { "texts": ["Höhenrettung (Bergrettung)"], "vehicles": [155,158] },
-            { "texts": ["Bergrettungsfahrzeug"], "vehicles": [149, 150, 151, 152, 158] }
+            { "texts": ["Höhenrettung (Bergrettung)"], "vehicles": [155, 158] },
+            {
+                "equipment": ["rescue_lift","police_lift"],
+                "texts": ["Hubschrauber mit Winde"], "vehicles": [156, 157] },
+            {
+                "texts": ["Bergrettungsfahrzeug"],
+                "vehicles": [149, 150, 151, 152, 158]
+            }
         ],
         "water": "l. Wasser"
     },
