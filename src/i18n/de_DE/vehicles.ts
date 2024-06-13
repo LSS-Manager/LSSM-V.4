@@ -2599,8 +2599,8 @@ export default {
         credits: 400_000,
         coins: 30,
         staff: {
-            min: 4,
-            max: 4,
+            min: 1,
+            max: 2,
             training: {
                 Rettungsdienst: {
                     rescue_helicopter_lift: {
