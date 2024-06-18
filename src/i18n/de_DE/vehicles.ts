@@ -2476,7 +2476,7 @@ export default {
         possibleBuildings: [25],
     },
     150: {
-        caption: 'GW Bergrettung',
+        caption: 'GW-Bergrettung',
         color: '#bc7f52',
         credits: 15_000,
         coins: 15,
