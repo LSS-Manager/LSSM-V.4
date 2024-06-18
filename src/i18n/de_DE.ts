@@ -116,7 +116,9 @@ export default {
                 'Rettungshundefahrzeuge': [91],
                 'Drohne': [127],
                 ['BT & VPF']: [130, 131, 132, 133],
-                'Bergrettung': [149, 150, 151, 152, 153, 154, 155, 156, 157, 158],
+                'Bergrettung': [
+                    149, 150, 151, 152, 153, 154, 155, 156, 157, 158,
+                ],
             },
             color: '#ffa500',
         },

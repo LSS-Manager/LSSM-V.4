@@ -2510,7 +2510,7 @@ export default {
     152: {
         caption: 'ATV',
         color: '#bc7f52',
-        credits: 5_000,
+        credits: 5000,
         coins: 15,
         staff: {
             min: 1,
@@ -2608,7 +2608,7 @@ export default {
                     },
                     notarzt: {
                         min: 1,
-                    }
+                    },
                 },
             },
         },
