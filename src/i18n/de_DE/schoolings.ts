@@ -186,7 +186,7 @@ export default {
         },
         {
             caption: 'Windenoperator',
-            duration: '3 Tage',
+            duration: '5 Tage',
             staffList: 'Windenoperator',
             key: 'police_helicopter_lift',
         },
