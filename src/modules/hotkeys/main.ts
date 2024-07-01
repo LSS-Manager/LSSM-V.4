@@ -150,15 +150,14 @@ export const registerHotkeys = async (
             if (doubledHotkeys.size)
                 disabledNativeHotkeys.push(...doubledHotkeys);
 
-            hotkeyUtility.addListener(
+            const listener = hotkeyUtility.addListener(
                 HotkeyUtility.createListener(
                     command,
                     hotkey.split(' '),
                     callback.bind(validationResult)
                 )
             );
-            if (redesignParam)
-                HotkeyUtility.activeCommands[command][3] = redesignParam;
+            if (redesignParam) listener[3] = redesignParam;
         } else {
             LSSM.$stores.console.error(
                 `Hotkeys: ${command} is not a function! Cannot add it with hotkey »${hotkey}«`
