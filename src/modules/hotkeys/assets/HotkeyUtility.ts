@@ -147,8 +147,9 @@ export default class HotkeyUtility {
         window.addEventListener('keyup', this.eventListener);
     }
 
-    public addListener(listener: Listener): void {
+    public addListener(listener: Listener): Listener {
         HotkeyUtility.activeCommands[listener[0]] = listener;
+        return listener;
     }
 
     public removeListener(listener: Listener): void {
