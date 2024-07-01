@@ -2456,7 +2456,7 @@ export default {
         possibleBuildings: [9],
     },
     149: {
-        caption: 'GW Bergrettung (NEF)',
+        caption: 'GW-Bergrettung (NEF)',
         color: '#bc7f52',
         credits: 25_000,
         coins: 25,

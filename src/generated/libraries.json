@@ -355,7 +355,7 @@
         "version": "5.5.2"
     },
     "ua-parser-js": {
-        "icon": "https://uaparser.js.org/images/logo.png",
+        "icon": "https://uaparser.dev/images/logo.png",
         "url": "https://github.com/faisalman/ua-parser-js",
         "version": "1.0.38"
     },
