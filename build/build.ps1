@@ -377,7 +377,7 @@ if ($_RUN_STEP_ESLINT) {
     $start_time = now
     print_start_message "[🚨] run ESLint"
     enable_debugging
-    yarn eslint ./docs/.vuepress/ ./static/ ./prebuild/ ./build/ ./src/ ./scripts/ ./typings/ --ext .js, .ts, .vue, .md --no-error-on-unmatched-pattern --exit-on-fatal-error --report-unused-disable-directives --cache --cache-strategy content --fix
+    yarn eslint ./docs/.vuepress/ ./static/ ./prebuild/ ./build/ ./src/ ./scripts/ ./typings/ --no-error-on-unmatched-pattern --exit-on-fatal-error --report-unused-disable-directives --cache --cache-strategy content --fix
     if (!$?) {
         exit 1
     }
