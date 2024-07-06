@@ -26,7 +26,8 @@ module.exports = [
         files: ['./src/**/*.+(js|ts|vue|md)'],
         ignores: [
             'node_modules/*',
-            '*/dist/*',
+            'dist/*',
+            'typings/dist/*',
             '**/*.user.js',
             'build/**/*.js',
             'docs/.vuepress/*.js',
@@ -42,6 +43,7 @@ module.exports = [
             'static/fontawesome_*.min.js',
             'static/missions/*',
             'static/releasenotes/*',
+            'static/lssm-v4.user.js',
             'src/modules/support/*',
             'src/modules/renameFz/*',
         ],
@@ -58,6 +60,14 @@ module.exports = [
             'prettier'
         )
     ),
+    {
+        files: ['docs/.vuepress/**/*.+(ts|vue)'],
+        languageOptions: {
+            globals: {
+                __VAR__: 'readonly',
+            }
+        }
+    },
     {
         plugins: {
             '@typescript-eslint': fixupPluginRules(typescriptEslint),
