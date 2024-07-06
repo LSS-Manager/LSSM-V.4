@@ -1846,14 +1846,6 @@ export default {
         },
         extensions: [
             {
-                caption: 'Rettungsdienst',
-                coins: 20,
-                credits: 100_000,
-                duration: '7 Tage',
-                isVehicleExtension: true,
-                unlocksVehicleTypes: [28, 29, 38, 73, 74, 97],
-            },
-            {
                 caption: 'Höhenrettung',
                 coins: 25,
                 credits: 50_000,
@@ -1861,7 +1853,10 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [155, 158],
-                parkingLotReservations: [[155], [158], [155], [158]],
+                parkingLotReservations: [
+                    [155, 158],
+                    [155, 158],
+                ],
                 unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
@@ -1880,6 +1875,14 @@ export default {
                 unlocksVehicleTypes: [153],
                 parkingLotReservations: [[153], [153]],
                 unlockedVehiclesOnReservedLotsOnly: true,
+            },
+            {
+                caption: 'Rettungsdienst',
+                coins: 20,
+                credits: 100_000,
+                duration: '7 Tage',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [28, 29, 38, 73, 74, 97],
             },
         ],
         levelcost: [],
