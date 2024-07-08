@@ -12,15 +12,11 @@
                 :class="message.self ? 'pull-right' : 'pull-left'"
             >
                 <img
-                    :src="
-                        `https://placehold.it/50/${
-                            message.color
-                        }/${getTextColor(
-                            message.color
-                        )}?text=${message.author.name
-                            .split('')[0]
-                            .toUpperCase()}`
-                    "
+                    :src="`https://placehold.it/50/${
+                        message.color
+                    }/${getTextColor(message.color)}?text=${message.author.name
+                        .split('')[0]
+                        .toUpperCase()}`"
                     alt="User Avatar"
                     class="img-circle"
                 />
@@ -73,8 +69,9 @@
 </template>
 
 <script>
-const moment = require('moment');
-const config = require('../../../config');
+import moment from 'moment';
+
+import config from '../../../config';
 
 moment.locale(window.I18n.locale);
 

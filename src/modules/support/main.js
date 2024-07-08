@@ -12,13 +12,13 @@ const get_support_chats = (loop = false) =>
                 window.lssmv4.$store.getters.nodeId('support-badge')
             );
             const badgeCounter = window.lssmv4.$store.getters.supportCounter;
-            badge.innerText = badgeCounter;
+            badge.textContent = badgeCounter;
             badge.classList[badgeCounter ? 'add' : 'remove'](
                 'lssm_notice_bg',
                 'highlight'
             );
             if (loop)
-                setTimeout(async () => await get_support_chats(loop), 10000);
+                setTimeout(async () => await get_support_chats(loop), 10_000);
         })
         .catch(() => {});
 
@@ -41,6 +41,6 @@ menuItem.innerHTML = `${window.lssmv4.$t(
 )}" class="badge">0</span>`;
 window.lssmv4.$store.dispatch('addMenuItem', { menuItem }).then();
 
-menuItem.onclick = openSupport;
+menuItem.addEventListener('click', openSupport);
 
 get_support_chats(true);
