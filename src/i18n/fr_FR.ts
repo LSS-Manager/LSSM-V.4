@@ -245,6 +245,7 @@ export default {
         'Aquarium',
         'Prison',
         'Pipeline',
+        "Parc d'attractions",
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [325, 326],

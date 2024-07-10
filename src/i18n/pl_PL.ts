@@ -239,6 +239,7 @@ export default {
         'Sauna',
         'Pralnia',
         'Rurociąg',
+        'Park rozrywki',
     ],
     only_alliance_missions: [57, 74, 351],
     transfer_missions: [373],

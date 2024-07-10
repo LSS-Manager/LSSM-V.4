@@ -224,6 +224,7 @@ export default {
         'Hora',
         'Prádelna',
         'Potrubí',
+        'Zábavní park',
     ],
     only_alliance_missions: [57, 74],
 };

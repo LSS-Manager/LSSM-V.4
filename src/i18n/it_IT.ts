@@ -210,6 +210,7 @@ export default {
         'prigione',
         'Lavanderia',
         'Pipeline',
+        'Parco divertimenti',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [214],

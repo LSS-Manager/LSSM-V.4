@@ -129,6 +129,7 @@
             "mobile_air_vehicles": "GW-Atemschutz",
             "mobile_command_vehicles": "ELW 2",
             "mountain": "Bergrettungsfahrzeug",
+            "mountain_atv": "ATV",
             "mountain_command": "ELW Bergrettung",
             "mountain_equipment": "GW-Bergrettung",
             "mountain_height_rescue": "Höhenrettung (Bergrettung)",
