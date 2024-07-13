@@ -141,7 +141,7 @@ export default Vue.extend<
     data() {
         moment.locale(this.lightbox.rootStore.locale);
         const apiStore = useAPIStore();
-        apiStore.getCredits('redesign/coins/list').then();
+        apiStore.getUserInfo('redesign/coins/list').then();
         return {
             moment,
             search: '',
@@ -247,7 +247,7 @@ export default Vue.extend<
             }).toString();
         },
         timestamps() {
-            let lastCoins = this.apiStore.credits.coins_user_current;
+            let lastCoins = this.apiStore.userinfo.coins_user_current;
 
             const timestamps: [number, number][] = [[Date.now(), lastCoins]];
 

@@ -92,15 +92,15 @@ export const defineRootStore = defineStore('root', {
             const old = this.credits;
             this.credits = credits;
             const apiStore = useAPIStore();
-            if (apiStore.credits) {
-                apiStore.credits.credits_user_current = credits;
+            if (apiStore.userinfo) {
+                apiStore.userinfo.credits_user_current = credits;
                 const diff = credits - old;
                 window.dispatchEvent(
                     new CustomEvent(`${PREFIX}_credits_update`, {
                         detail: { old, new: credits, diff },
                     })
                 );
-                if (diff > 0) apiStore.credits.credits_user_total += diff;
+                if (diff > 0) apiStore.userinfo.credits_user_total += diff;
             }
         },
         updateCoins(coins: number) {
