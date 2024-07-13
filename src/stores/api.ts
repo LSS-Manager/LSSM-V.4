@@ -104,6 +104,7 @@ export const defineAPIStore = defineStore('api', () => {
             user_apple_registered: false,
             user_level: 0,
             user_level_title: '',
+            coins_user_current: 0,
         }),
         settings: ref<APIs['settings']>({
             aao_big: false,

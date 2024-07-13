@@ -6,6 +6,7 @@ interface Entry {
     amount: number;
     desc: string;
     date: string;
+    timestamp: string;
 }
 
 export interface CoinsListWindow {

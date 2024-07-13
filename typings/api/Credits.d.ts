@@ -17,4 +17,5 @@ export interface CreditsInfo {
     user_apple_registered: boolean;
     user_level: number;
     user_level_title: string;
+    coins_user_current: number;
 }
