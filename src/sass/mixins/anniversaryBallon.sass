@@ -54,14 +54,6 @@ $cord-length-factor: 0.6 !default
             $zipfel-rotation: $i-neg * math.div(3, 4)
             rotate: $i + deg
 
-            &:before
-                transform: rotate($cord-rotation + deg)
-                transform-origin: 0 0
-
-            &:after
-                transform: rotate($zipfel-rotation + deg)
-                transform-origin: top center
-
             @if $animation
                 animation-name: float, rotate-float-#{$i}
 
@@ -70,6 +62,14 @@ $cord-length-factor: 0.6 !default
                         transform: translateX(0)
                     to
                         transform: translateX($i * 30%)
+
+            &:before
+                transform: rotate($cord-rotation + deg)
+                transform-origin: 0 0
+
+            &:after
+                transform: rotate($zipfel-rotation + deg)
+                transform-origin: top center
 
     &:before, &:after
         display: block
