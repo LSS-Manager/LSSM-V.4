@@ -288,14 +288,16 @@
             },
             {
                 "equipment": ["search_and_rescue"],
-                "texts": ["SAR Equipment", "SAR Equipments"]
+                "texts": ["SAR Equipment", "SAR Equipments"],
+                "vehicles": []
             },
             {
                 "equipment": ["technical_rescue"],
                 "texts": [
                     "Technical Rescue Equipment",
                     "Technical Rescue Equipments"
-                ]
+                ],
+                "vehicles": []
             }
         ],
         "water": "gal. water"
