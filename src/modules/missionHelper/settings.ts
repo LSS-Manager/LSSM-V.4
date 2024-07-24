@@ -193,6 +193,7 @@ export default ((MODULE_ID, LSSM, $m) => {
             'fr_FR',
             'nb_NO',
             'fi_FI',
+            'en_AU',
         ].includes(locale)
             ? {
                   'optionalAlternatives.allow_ktw_instead_of_rtw': <Toggle>{

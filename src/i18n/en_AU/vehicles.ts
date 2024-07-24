@@ -907,4 +907,13 @@ export default {
         tractiveVehicles: [3],
         foamTank: 1000,
     },
+    61: {
+        caption: 'Ambulance Transport',
+        color: '#9c691c',
+        credits: 5000,
+        coins: 12,
+        staff: { min: 2, max: 2 },
+        icon: 'car-side',
+        possibleBuildings: [0, 2, 20],
+    },
 } satisfies Record<number, InternalVehicle>;
