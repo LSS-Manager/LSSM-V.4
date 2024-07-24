@@ -128,7 +128,9 @@
             {
                 "texts": [
                     "Airborne firefighting vehicle",
-                    "Airborne firefighting vehicles"
+                    "Airborne firefighting vehicles",
+                    "Water Bomber Plane",
+                    "Water Bomber Planes"
                 ],
                 "vehicles": [35, 36, 37]
             },
@@ -142,8 +144,8 @@
             },
             {
                 "texts": [
-                    "FBI Investigation wagon or Surveillance Drone",
-                    "FBI Investigation wagons or Surveillance Drones"
+                    "FBI Drone or FBI Investigation Wagon",
+                    "FBI Drones or FBI Investigation Wagons"
                 ],
                 "vehicles": [43, 46]
             },
@@ -256,7 +258,7 @@
                 "vehicles": [85]
             },
             {
-                "texts": ["Crashed Car", "Crashed Cars"],
+                "texts": ["Crashed Car", "Crashed Cars", "Tow Truck", "Tow Trucks"],
                 "vehicles": [105, 106, 107, 108]
             },
             {
@@ -266,7 +268,7 @@
             },
             {
                 "equipment": ["energy_supply"],
-                "texts": ["Energy Supplie", "Energy Supplies"],
+                "texts": ["Energy Generator", "Energy Generators"],
                 "vehicles": [94]
             },
             {
@@ -278,6 +280,14 @@
                     "Light Tower Trailers"
                 ],
                 "vehicles": [93]
+            },
+            {
+                "equipment": ["search_and_rescue"],
+                "texts": ["SAR Equipment", "SAR Equipments"]
+            },
+            {
+                "equipment": ["technical_rescue"],
+                "texts":["Technical Rescue Equipment", "Technical Rescue Equipments"]
             }
         ],
         "water": "gal. water"
