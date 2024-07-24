@@ -352,7 +352,7 @@
     "typescript": {
         "icon": "https://www.typescriptlang.org/icons/icon-512x512.png",
         "url": "https://www.typescriptlang.org/",
-        "version": "5.5.3"
+        "version": "5.5.4"
     },
     "ua-parser-js": {
         "icon": "https://uaparser.dev/images/logo.png",
