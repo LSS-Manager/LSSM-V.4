@@ -258,7 +258,12 @@
                 "vehicles": [85]
             },
             {
-                "texts": ["Crashed Car", "Crashed Cars", "Tow Truck", "Tow Trucks"],
+                "texts": [
+                    "Crashed Car",
+                    "Crashed Cars",
+                    "Tow Truck",
+                    "Tow Trucks"
+                ],
                 "vehicles": [105, 106, 107, 108]
             },
             {
@@ -287,7 +292,10 @@
             },
             {
                 "equipment": ["technical_rescue"],
-                "texts":["Technical Rescue Equipment", "Technical Rescue Equipments"]
+                "texts": [
+                    "Technical Rescue Equipment",
+                    "Technical Rescue Equipments"
+                ]
             }
         ],
         "water": "gal. water"
