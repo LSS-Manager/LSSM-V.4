@@ -134,6 +134,7 @@
             "oneof_lf_rw": "Fire engines or Rescue Support Vehicles",
             "oneof_lf_rw_dlk": "Fire engines, Rescue Support Vehicles or Aerial Appliance Trucks",
             "oneof_police_swat": "Police Cars or ARVs",
+            "oneof_paramedic_or_paramedic_advanced": "RRV or Specialist Paramedic RRV",
             "oneof_riv_arff": "RIVs or Major Foam Tenders",
             "platform_trucks": "Aerial Appliance | Aerial Appliances ",
             "police_cars": "Police Car | Police Cars",
