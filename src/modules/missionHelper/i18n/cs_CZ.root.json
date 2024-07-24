@@ -80,13 +80,13 @@
                 "description": "Určuje, zda lze použít na misi Letištní Speciály namísto CAS.",
                 "title": "Zobrazit, zda je poloveno použit Letištní speciál místo CAS"
             },
+            "allow_police_motorcycle_instead_of_fustw": {
+                "description": "Určuje, zda lze použít na misi Policejní Motocykl namísto Policejního Automobilu.",
+                "title": "Zobrazit zda je poloveno použit Policejní Motocykl místo Policejního Automobilu"
+            },
             "allow_rw_instead_of_lf": {
                 "description": "Určuje, zda lze použít na misi TA namísto CAS.",
                 "title": "Zobrazit zda je poloveno použit TA místo CAS"
-            },
-				"allow_police_motorcycle_instead_of_fustw": {
-                "description": "Určuje, zda lze použít na misi Policejní Motocykl namísto Policejního Automobilu.",
-                "title": "Zobrazit zda je poloveno použit Policejní Motocykl místo Policejního Automobilu"
             }
         },
         "patients": {
