@@ -113,6 +113,8 @@
             "mass_casualty_advanced": "GGB",
             "mobile_air_vehicles": "Adembeschermingsvoertuig | Adembeschermingsvoertuigen",
             "mobile_command_vehicles": "Hoofd Officier van Dienst -  Brandweer | Hoofd Officieren van Dienst -  Brandweer",
+            "need_oneof_fire_engine_or_rescue": "Tankautospuiten of hulpverleningsvoertuigen",
+            "need_oneof_wildfire_engine_or_airport_fire_engine": "Tankautospuiten (Terreinvaardig) of Crashtender",
             "ovdp": "Officier van Dienst - Politie | Officieren van Dienst - Politie",
             "platform_trucks": "Redvoertuig | Redvoertuigen",
             "police_cars": "Noodhulpvoertuig | Noodhulpvoertuigen",
@@ -132,9 +134,7 @@
             "water_tankers": "Slangenwagen of watertankwagen | Slangenwagens of watertankwagens",
             "wildfire": "Handcrew",
             "wildfire_command": "DA-LA-NB",
-            "wildfire_equipment": "Natuurbrandbestrijding Uitrusting",
-            "need_oneof_fire_engine_or_rescue": "Tankautospuiten of hulpverleningsvoertuigen",
-            "need_oneof_wildfire_engine_or_airport_fire_engine": "Tankautospuiten (Terreinvaardig) of Crashtender"
+            "wildfire_equipment": "Natuurbrandbestrijding Uitrusting"
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {
