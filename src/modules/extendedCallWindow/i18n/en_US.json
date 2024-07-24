@@ -74,6 +74,17 @@
                 "vehicles": [4, 8, 18, 21, 28, 61, 67, 96, 97]
             },
             {
+                "equipment": ["fire_rescue", "fire_engine"],
+                "texts": [
+                    "Heavy Rescue Vehicle or Platform Truck",
+                    "Heavy Rescue Vehicles or Platform Trucks"
+                ],
+                "vehicles": [
+                    0, 1, 13, 18, 30, 33, 48, 4, 8, 18, 21, 28, 61, 67, 96, 97,
+                    2, 13, 100
+                ]
+            },
+            {
                 "equipment": ["breathing_protection"],
                 "texts": ["Mobile Air"],
                 "vehicles": [6, 92]
@@ -128,7 +139,9 @@
             {
                 "texts": [
                     "Airborne firefighting vehicle",
-                    "Airborne firefighting vehicles"
+                    "Airborne firefighting vehicles",
+                    "Water Bomber Plane",
+                    "Water Bomber Planes"
                 ],
                 "vehicles": [35, 36, 37]
             },
@@ -142,8 +155,8 @@
             },
             {
                 "texts": [
-                    "FBI Investigation wagon or Surveillance Drone",
-                    "FBI Investigation wagons or Surveillance Drones"
+                    "FBI Drone or FBI Investigation Wagon",
+                    "FBI Drones or FBI Investigation Wagons"
                 ],
                 "vehicles": [43, 46]
             },
@@ -256,7 +269,12 @@
                 "vehicles": [85]
             },
             {
-                "texts": ["Crashed Car", "Crashed Cars"],
+                "texts": [
+                    "Crashed Car",
+                    "Crashed Cars",
+                    "Tow Truck",
+                    "Tow Trucks"
+                ],
                 "vehicles": [105, 106, 107, 108]
             },
             {
@@ -266,7 +284,7 @@
             },
             {
                 "equipment": ["energy_supply"],
-                "texts": ["Energy Supplie", "Energy Supplies"],
+                "texts": ["Energy Generator", "Energy Generators"],
                 "vehicles": [94]
             },
             {
@@ -278,6 +296,19 @@
                     "Light Tower Trailers"
                 ],
                 "vehicles": [93]
+            },
+            {
+                "equipment": ["search_and_rescue"],
+                "texts": ["SAR Equipment", "SAR Equipments"],
+                "vehicles": []
+            },
+            {
+                "equipment": ["technical_rescue"],
+                "texts": [
+                    "Technical Rescue Equipment",
+                    "Technical Rescue Equipments"
+                ],
+                "vehicles": []
             }
         ],
         "water": "gal. water"
