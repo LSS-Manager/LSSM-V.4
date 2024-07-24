@@ -172,6 +172,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Tobi-Continued"><img src="https://avatars.githubusercontent.com/u/142994500?v=4?s=100" width="100px;" alt="Tobi-Continued"/><br /><sub><b>Tobi-Continued</b></sub></a><br /><a href="https://www.leitstellenspiel.de" title="Translations for Leitstellenspiel.de (de_DE)">🇩🇪</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/buffcode"><img src="https://avatars.githubusercontent.com/u/2863518?v=4?s=100" width="100px;" alt="buffcode"/><br /><sub><b>buffcode</b></sub></a><br /><a href="https://github.com/LSS-Manager/LSSM-V.4/commits?author=buffcode" title="Code">💻</a></td>
     </tr>
+    <tr>
+        <td align="center" valign="top" width="14.28%"><a href="https://github.com/Tadjinton"><img src="https://avatars1.githubusercontent.com/u/176471391?v=4?s=100" width="100px;" alt="Tadjinton"/><br /><sub><b>Tadjinton</b></sub></a><br /><a href="#translation-Tadjinton" title="Translation">🌍</a> <a href="https://www.operacni-stredisko.cz" title="Translations for Operacni-Stredisko.cz (cs_CZ)">🇨🇿</a></td>
+    </tr>
   </tbody>
 </table>
 
