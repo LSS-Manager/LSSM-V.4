@@ -57,8 +57,8 @@ export default (LSSM: Vue, MODULE_ID: string) => {
                 caption:
                     typeof type === 'string'
                         ? `[${type}]`
-                        : LSSM.$stores.translations.vehicles[type]?.caption ??
-                          type,
+                        : (LSSM.$stores.translations.vehicles[type]?.caption ??
+                          type),
             }))
             .sort((a, b) => a.caption.localeCompare(b.caption));
 

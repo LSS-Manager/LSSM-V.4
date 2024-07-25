@@ -63,7 +63,7 @@ export default (
             const prevContent =
                 content instanceof HTMLElement
                     ? content.innerHTML
-                    : content?.toString() ?? '';
+                    : (content?.toString() ?? '');
             tooltip?.setContent(
                 `${prevContent.replace(
                     new RegExp(

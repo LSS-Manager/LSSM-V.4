@@ -63,14 +63,14 @@ export default (Vue: VueConstructor): void => {
             );
             return (
                 allNumbers
-                    ? text
+                    ? (text
                           .match(regex)
                           ?.map(match =>
                               parseInt(
                                   match.replace(/[\s,.]/gu, '') ??
                                       fallback.toString()
                               )
-                          ) ?? []
+                          ) ?? [])
                     : parseInt(
                           text.match(regex)?.[0]?.replace(/[\s,.]/gu, '') ??
                               fallback.toString()
