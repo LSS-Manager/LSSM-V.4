@@ -6373,15 +6373,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-loader@npm:5.0.0":
-  version: 5.0.0
-  resolution: "html-loader@npm:5.0.0"
+"html-loader@npm:5.1.0":
+  version: 5.1.0
+  resolution: "html-loader@npm:5.1.0"
   dependencies:
     html-minifier-terser: "npm:^7.2.0"
     parse5: "npm:^7.1.2"
   peerDependencies:
     webpack: ^5.0.0
-  checksum: 10c0/f0a8accb6c9e5d9f03b517e74db5daf27c6ff3291ccc8f78f817ff5f7e2b08e17e8b7c35400a8eff360bfc1c667e793a70465bae9192c0c6e7d34b9c6212a11f
+  checksum: 10c0/23fc23f08206d70e9d0bd3d0107524a3a37fd220f951e01de74ac9a5d5fed41d51517170545801dca5762bb3b60853482ec026c72e34d2bca16e7a3ab994f03c
   languageName: node
   linkType: hard
 
@@ -7739,7 +7739,7 @@ __metadata:
     he: "npm:1.2.0"
     highcharts: "npm:11.4.6"
     highcharts-vue: "npm:1.4.3"
-    html-loader: "npm:5.0.0"
+    html-loader: "npm:5.1.0"
     husky: "npm:9.0.11"
     js-yaml: "npm:4.1.0"
     leaflet.heat: "npm:0.2.0"
