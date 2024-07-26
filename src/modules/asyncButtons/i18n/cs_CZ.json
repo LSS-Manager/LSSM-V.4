@@ -7,10 +7,7 @@
             "title": "Propustit?"
         }
     },
-    "buildings": {
-        "active": "Připraven",
-        "nonactive": "Nepřipraven"
-    },
+    "buildings": { "active": "Připraven", "nonactive": "Nepřipraven" },
     "deleteARR": {
         "deleteModal": {
             "btnCancel": "Zrušit",
