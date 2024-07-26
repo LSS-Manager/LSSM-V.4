@@ -256,7 +256,7 @@
     "html-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack-contrib/html-loader",
-        "version": "5.0.0"
+        "version": "5.1.0"
     },
     "husky": {
         "url": "https://typicode.github.io/husky",
