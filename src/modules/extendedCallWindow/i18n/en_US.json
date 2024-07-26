@@ -75,8 +75,14 @@
             },
             {
                 "equipment": ["fire_rescue", "fire_engine"],
-                "texts": ["Heavy Rescue Vehicle or Platform Truck", "Heavy Rescue Vehicles or Platform Trucks"],
-                "vehicles": [0, 1, 13, 18, 30, 33, 48, 4, 8, 18, 21, 28, 61, 67, 96, 97, 2, 13, 100]
+                "texts": [
+                    "Heavy Rescue Vehicle or Platform Truck",
+                    "Heavy Rescue Vehicles or Platform Trucks"
+                ],
+                "vehicles": [
+                    0, 1, 13, 18, 30, 33, 48, 4, 8, 18, 21, 28, 61, 67, 96, 97,
+                    2, 13, 100
+                ]
             },
             {
                 "equipment": ["breathing_protection"],
@@ -263,7 +269,12 @@
                 "vehicles": [85]
             },
             {
-                "texts": ["Crashed Car", "Crashed Cars", "Tow Truck", "Tow Trucks"],
+                "texts": [
+                    "Crashed Car",
+                    "Crashed Cars",
+                    "Tow Truck",
+                    "Tow Trucks"
+                ],
                 "vehicles": [105, 106, 107, 108]
             },
             {
