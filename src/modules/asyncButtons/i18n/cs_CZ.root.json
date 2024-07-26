@@ -1,0 +1,32 @@
+{
+    "description": "Zabraňte s tímto modulem tomu, aby se hra znovu načetla, když stisknete určité tlačítka.",
+    "name": "Asynchronní tlačítka",
+    "settings": {
+        "buildingPersonal": {
+            "description": "Zabraňuje znovu načtení webu při propouštění personálu.",
+            "title": "Propouštění personálu"
+        },
+        "buildingTax": {
+            "description": "Zabraňuje znovu načtení webu při nastavení alianční daně na vlastní cely nebo nemocniční lůžka.",
+            "title": "Alianční daně na cely a lůžky"
+        },
+        "deleteARR": {
+            "description": "Zabraňuje znovu načtení webu při odstranění pravidla nouzových výjezdů.",
+            "title": "Odstranění PNV"
+        },
+        "deleteForumPost": {
+            "description": "Zabraňuje znovu načtení webu při odstranění příspěvku v diskuzi.",
+            "title": "Příspěvek v diskuzi"
+        },
+        "memberlistManageUser": {
+            "description": "Zabraňuje znovu načtení webu při vyhození člena Aliance nebo úprava jeho práv.",
+            "title": "Práva členů Aliance"
+        },
+        "missionPrisoners": { "title": "Vězni v okně mise" },
+        "missionReply": { "title": "\"Podnět k misi\" v misi" },
+        "switchExtensionState": {
+            "description": "Zabraňuje znovu načtení webu při změně stavu rozšíření.",
+            "title": "(Ne-)připraveno rozšíření"
+        }
+    }
+}
