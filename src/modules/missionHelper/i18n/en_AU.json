@@ -94,6 +94,7 @@
             "mobile_air_vehicles": "BASU Unit | BASU Units",
             "mobile_command_vehicles": "Mobile Command Vehicle or SES Mobile Command Vehicle | Mobile Command Vehicles or SES Mobile Command Vehicles",
             "oneof_fire_engine_or_airport_fire_engine_large": "Fire Engine or ULFV Crash Tender | Fire Engines or ULFV Crash Tenders",
+            "oneof_fire_engine_or_airport_fire_engine_or_airport_fire_engine_large": "Fire Engines, ULFV Crash Tenders or RIVs",
             "oneof_fire_engine_or_fire_rescue": "Fire Engines or Rescue Unit | Fire Engines or Rescue Units",
             "oneof_fire_engine_or_ladder": "Fire Engines or Ladder Platform Trucks",
             "oneof_fire_engine_or_rescue": "Fire Engines or Rescue Units",
