@@ -180,7 +180,7 @@ export default {
         startClassrooms: 1,
         school: '',
         special:
-            "Správci financí a administrátoři mohou stavět / rozšiřovat hasičské školy pomocí kreditů z alianční pokladny. Správci školení a administrátoři mohou zahájit školení na hasičských školách aliance.",
+            'Správci financí a administrátoři mohou stavět / rozšiřovat hasičské školy pomocí kreditů z alianční pokladny. Správci školení a administrátoři mohou zahájit školení na hasičských školách aliance.',
         icon: 'graduation-cap',
     },
     2: {
@@ -249,7 +249,7 @@ export default {
         startClassrooms: 1,
         school: '',
         special:
-            "Správci financí a administrátoři mohou stavět / rozšiřovat zdravotnické akademie pomocí kreditů z alianční pokladny. Správci školení a administrátoři mohou zahájit školení na zdravotnické akademii aliance.",
+            'Správci financí a administrátoři mohou stavět / rozšiřovat zdravotnické akademie pomocí kreditů z alianční pokladny. Správci školení a administrátoři mohou zahájit školení na zdravotnické akademii aliance.',
         icon: 'graduation-cap',
     },
     4: {
@@ -513,7 +513,7 @@ export default {
         startClassrooms: 1,
         school: '',
         special:
-            "Správci financí a administrátoři mohou stavět / rozšiřovat policejní akademie pomocí kreditů z alianční pokladny. Správci školení a administrátoři mohou zahájit školení na policejní akademii aliance.",
+            'Správci financí a administrátoři mohou stavět / rozšiřovat policejní akademie pomocí kreditů z alianční pokladny. Správci školení a administrátoři mohou zahájit školení na policejní akademii aliance.',
         icon: 'graduation-cap',
     },
     13: {
@@ -705,7 +705,7 @@ export default {
         maxBuildings: 'Bez limitu',
         maxLevel: 0,
         special:
-            "Správci financí a administrátoři mohou stavět / rozšiřovat školící středisko VZS ČČK pomocí kreditů z alianční pokladny. Správci školení a administrátoři mohou zahájit školení na školící středisko VZS ČČK aliance.",
+            'Správci financí a administrátoři mohou stavět / rozšiřovat školící středisko VZS ČČK pomocí kreditů z alianční pokladny. Správci školení a administrátoři mohou zahájit školení na školící středisko VZS ČČK aliance.',
         startClassrooms: 1,
         school: '',
         icon: 'graduation-cap',

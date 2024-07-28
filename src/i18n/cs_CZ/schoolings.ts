@@ -98,7 +98,7 @@ export default {
             caption: 'Školení Jezdece na koni',
             duration: '4 dny',
             staffList: 'Jezdec na koni',
-            key: 'police_horse', 
+            key: 'police_horse',
         },
         {
             caption: 'Školení pořádkové policie',

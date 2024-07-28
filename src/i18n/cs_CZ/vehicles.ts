@@ -85,16 +85,16 @@ export default {
         color: '#990000',
         credits: 19_200,
         coins: 25,
-        staff: { 
+        staff: {
             min: 1,
             max: 4,
             training: {
-                'Hasiči': {
+                Hasiči: {
                     gw_gefahrgut: {
                         all: false,
                     },
                 },
-            }, 
+            },
         },
         special: 'Požadováno po vybudování 11 požárních stanic',
         icon: 'car-side',
@@ -114,16 +114,16 @@ export default {
         color: '#e61919',
         credits: 300_000,
         coins: 30,
-        staff: { 
+        staff: {
             min: 3,
             max: 5,
             training: {
-                'Záchranáři': {
+                Záchranáři: {
                     critical_care: {
                         all: false,
                     },
                 },
-            }, 
+            },
         },
         icon: 'car-side',
         possibleBuildings: [5],
@@ -146,7 +146,7 @@ export default {
             min: 1,
             max: 3,
             training: {
-                'Policie': {
+                Policie: {
                     polizeihubschrauber: {
                         all: false,
                     },
@@ -165,7 +165,7 @@ export default {
             min: 6,
             max: 6,
             training: {
-                'Policie': {
+                Policie: {
                     swat: {
                         all: true,
                     },
@@ -185,7 +185,7 @@ export default {
             min: 1,
             max: 2,
             training: {
-                'Policie': {
+                Policie: {
                     k9: {
                         all: false,
                     },
@@ -205,7 +205,7 @@ export default {
             min: 1,
             max: 1,
             training: {
-                'Policie': {
+                Policie: {
                     police_motorcycle: {
                         all: true,
                     },
@@ -224,12 +224,12 @@ export default {
             min: 2,
             max: 4,
             training: {
-                'Policie': {
+                Policie: {
                     swat: {
                         all: false,
                     },
                 },
-            }
+            },
         },
         special: 'Požadováno po vybudování 8 Obvodních oddělení Policie',
         icon: 'car-side',
@@ -254,12 +254,12 @@ export default {
             min: 1,
             max: 6,
             training: {
-                'Hasiči': {
+                Hasiči: {
                     elw2: {
                         all: false,
                     },
                 },
-            }
+            },
         },
         special: 'Požadováno po vybudování 13 požárních stanic',
         icon: 'car-side',
@@ -274,12 +274,12 @@ export default {
             min: 2,
             max: 3,
             training: {
-                'Policie': {
+                Policie: {
                     traffic_police: {
                         all: false,
                     },
                 },
-            }
+            },
         },
         icon: 'car-side',
         possibleBuildings: [6, 19],
@@ -293,12 +293,12 @@ export default {
             min: 2,
             max: 3,
             training: {
-                'Policie': {
+                Policie: {
                     fbi_bomb_tech: {
                         all: false,
                     },
                 },
-            }
+            },
         },
         icon: 'car-side',
         possibleBuildings: [21],
@@ -309,7 +309,8 @@ export default {
         credits: 6000,
         coins: 12,
         staff: { min: 0, max: 0 },
-        special: 'Je potřeba tažné vozidlo (CAS 20, Potápěčský automobil, DA) s minimální posádkou 3 členů vyškolenou v oboru (Záchrana z vody).',
+        special:
+            'Je potřeba tažné vozidlo (CAS 20, Potápěčský automobil, DA) s minimální posádkou 3 členů vyškolenou v oboru (Záchrana z vody).',
         icon: 'trailer',
         possibleBuildings: [0, 18],
         isTrailer: true,
@@ -321,7 +322,8 @@ export default {
         credits: 6000,
         coins: 12,
         staff: { min: 0, max: 0 },
-        special: 'Je potřeba tažné vozidlo (SUV VZS ČČK, Dodávka VZS ČČK). Vyžaduje osoby(4) se speciálním vzděláním v oboru (Vodní záchranná služba)',
+        special:
+            'Je potřeba tažné vozidlo (SUV VZS ČČK, Dodávka VZS ČČK). Vyžaduje osoby(4) se speciálním vzděláním v oboru (Vodní záchranná služba)',
         icon: 'trailer',
         possibleBuildings: [15],
         isTrailer: true,
@@ -336,12 +338,12 @@ export default {
             min: 2,
             max: 4,
             training: {
-                'Hasiči': {
+                Hasiči: {
                     gw_taucher: {
                         all: false,
                     },
                 },
-            }
+            },
         },
         icon: 'car-side',
         possibleBuildings: [0, 18],
@@ -352,15 +354,15 @@ export default {
         credits: 10_000,
         coins: 25,
         staff: {
-            min: 1, 
-            max: 4, 
+            min: 1,
+            max: 4,
             training: {
                 'VZS ČČK': {
                     water_rescue_service: {
                         all: false,
                     },
                 },
-            }
+            },
         },
         icon: 'car-side',
         possibleBuildings: [15],
@@ -371,15 +373,15 @@ export default {
         credits: 10_000,
         coins: 25,
         staff: {
-            min: 2, 
-            max: 4, 
+            min: 2,
+            max: 4,
             training: {
                 'VZS ČČK': {
                     water_rescue_service: {
                         all: false,
                     },
                 },
-            }
+            },
         },
         icon: 'car-side',
         possibleBuildings: [15],
@@ -390,15 +392,15 @@ export default {
         credits: 4000,
         coins: 20,
         staff: {
-            min: 1, 
-            max: 2, 
+            min: 1,
+            max: 2,
             training: {
-                'Záchranáři': {
+                Záchranáři: {
                     critical_care: {
                         all: false,
                     },
                 },
-            }
+            },
         },
         special: 'Požadováno po vybudování 6 výjezdových stanovišť ZZS',
         icon: 'ambulance',
@@ -410,15 +412,15 @@ export default {
         credits: 25_000,
         coins: 25,
         staff: {
-            min: 1, 
-            max: 2, 
+            min: 1,
+            max: 2,
             training: {
-                'Záchranáři': {
+                Záchranáři: {
                     orgl: {
                         all: false,
                     },
                 },
-            }
+            },
         },
         special: 'Požadováno po vybudování 10 výjezdových stanovišť ZZS',
         icon: 'ambulance',
@@ -430,15 +432,15 @@ export default {
         credits: 10_000,
         coins: 30,
         staff: {
-            min: 2, 
-            max: 3, 
+            min: 2,
+            max: 3,
             training: {
-                'Záchranáři': {
+                Záchranáři: {
                     critical_care: {
                         all: false,
                     },
                 },
-            }
+            },
         },
         icon: 'ambulance',
         possibleBuildings: [2, 20],
@@ -449,15 +451,15 @@ export default {
         credits: 35_000,
         coins: 10,
         staff: {
-            min: 1, 
-            max: 2, 
+            min: 1,
+            max: 2,
             training: {
-                'Hasiči': {
+                Hasiči: {
                     fwk: {
                         all: false,
                     },
                 },
-            }
+            },
         },
         icon: 'truck',
         possibleBuildings: [0, 18],
@@ -471,12 +473,12 @@ export default {
             min: 1,
             max: 2,
             training: {
-                'Hasiči': {
+                Hasiči: {
                     fwk: {
                         all: false,
                     },
                 },
-            }
+            },
         },
         icon: 'truck',
         possibleBuildings: [0, 18],
@@ -508,12 +510,12 @@ export default {
             min: 1,
             max: 9,
             training: {
-                'Policie': {
+                Policie: {
                     riot_police: {
                         all: false,
                     },
                 },
-            }
+            },
         },
         icon: 'car-side',
         possibleBuildings: [6, 19],
@@ -545,12 +547,12 @@ export default {
             min: 1,
             max: 2,
             training: {
-                'Policie': {
+                Policie: {
                     riot_police_command: {
                         all: false,
                     },
                 },
-            }
+            },
         },
         icon: 'car-side',
         possibleBuildings: [6, 19],
@@ -582,12 +584,12 @@ export default {
             min: 2,
             max: 2,
             training: {
-                'Policie': {
+                Policie: {
                     police_horse: {
                         all: true,
                     },
                 },
-            }
+            },
         },
         icon: 'horse',
         possibleBuildings: [6, 19],
@@ -601,12 +603,12 @@ export default {
             min: 6,
             max: 6,
             training: {
-                'Policie': {
+                Policie: {
                     police_horse: {
                         all: true,
                     },
                 },
-            }
+            },
         },
         icon: 'horse',
         possibleBuildings: [6, 19],
@@ -620,16 +622,16 @@ export default {
             min: 2,
             max: 4,
             training: {
-                'Hasiči': {
+                Hasiči: {
                     arff: {
                         all: false,
                     },
                 },
-            }
+            },
         },
         icon: 'truck-moving',
         possibleBuildings: [0, 18],
-        waterTank: 12000,
+        waterTank: 12_000,
         foamTank: 1500,
         pumpCapacity: 6000,
         pumpType: 'fire',
@@ -643,12 +645,12 @@ export default {
             min: 2,
             max: 2,
             training: {
-                'Hasiči': {
+                Hasiči: {
                     rettungstreppe: {
                         all: true,
                     },
                 },
-            }
+            },
         },
         icon: 'truck',
         possibleBuildings: [0, 18],
@@ -676,12 +678,12 @@ export default {
             min: 1,
             max: 3,
             training: {
-                'Hasiči': {
+                Hasiči: {
                     pod_tractive: {
                         all: false,
                     },
                 },
-            }
+            },
         },
         icon: 'truck-field',
         possibleBuildings: [0, 18],
@@ -689,7 +691,7 @@ export default {
     44: {
         caption: 'Sorbentový kontejner',
         color: '#cc0000',
-        credits: 5_000,
+        credits: 5000,
         coins: 8,
         staff: { min: 0, max: 0 },
         icon: 'truck-ramp-box',
@@ -700,7 +702,7 @@ export default {
     45: {
         caption: 'Chemický kontejner',
         color: '#cc0000',
-        credits: 5_000,
+        credits: 5000,
         coins: 8,
         staff: { min: 0, max: 0 },
         icon: 'truck-ramp-box',
@@ -711,7 +713,7 @@ export default {
     46: {
         caption: 'Plynový hasící kontejner',
         color: '#cc0000',
-        credits: 5_000,
+        credits: 5000,
         coins: 8,
         staff: { min: 0, max: 0 },
         icon: 'truck-ramp-box',
@@ -722,7 +724,7 @@ export default {
     47: {
         caption: 'Pěnidlový kontejner',
         color: '#cc0000',
-        credits: 5_000,
+        credits: 5000,
         coins: 8,
         staff: { min: 0, max: 0 },
         icon: 'truck-ramp-box',
@@ -733,7 +735,7 @@ export default {
     48: {
         caption: 'Hadicový kontejner',
         color: '#cc0000',
-        credits: 5_000,
+        credits: 5000,
         coins: 8,
         staff: { min: 0, max: 0 },
         icon: 'truck-ramp-box',
@@ -744,7 +746,7 @@ export default {
     49: {
         caption: 'Technický kontejner',
         color: '#cc0000',
-        credits: 5_000,
+        credits: 5000,
         coins: 8,
         staff: { min: 0, max: 0 },
         icon: 'truck-ramp-box',
@@ -755,7 +757,7 @@ export default {
     50: {
         caption: 'Týlový kontejner',
         color: '#cc0000',
-        credits: 5_000,
+        credits: 5000,
         coins: 8,
         staff: { min: 0, max: 0 },
         icon: 'truck-ramp-box',
@@ -766,7 +768,7 @@ export default {
     51: {
         caption: 'Kontejnerová elektrocentrála',
         color: '#cc0000',
-        credits: 5_000,
+        credits: 5000,
         coins: 8,
         staff: { min: 0, max: 0 },
         icon: 'truck-ramp-box',
@@ -777,7 +779,7 @@ export default {
     52: {
         caption: 'Kontejner pro nouzové zastřešení',
         color: '#cc0000',
-        credits: 5_000,
+        credits: 5000,
         coins: 8,
         staff: { min: 0, max: 0 },
         icon: 'truck-ramp-box',
@@ -800,7 +802,7 @@ export default {
     54: {
         caption: 'Přeprava ambulancí',
         color: '#9c1c1c',
-        credits: 5_000,
+        credits: 5000,
         coins: 12,
         staff: { min: 2, max: 2 },
         icon: 'ambulance',
@@ -815,12 +817,12 @@ export default {
             min: 2,
             max: 2,
             training: {
-                'Záchranáři': {
+                Záchranáři: {
                     critical_care: {
                         all: false,
                     },
                 },
-            }
+            },
         },
         icon: 'ambulance',
         possibleBuildings: [2, 20],

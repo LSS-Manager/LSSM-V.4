@@ -58,35 +58,37 @@ const modules = {
 export default {
     modules,
     buildingCategories: {
-        'Hasiči': {
+        Hasiči: {
             buildings: [0, 1, 18],
             color: '#ff2d2d',
         },
-        'Záchranáři': {
+        Záchranáři: {
             buildings: [2, 3, 5, 15, 20, 22],
             color: '#ffa500',
         },
-        'Policie': {
+        Policie: {
             buildings: [6, 8, 13, 19, 21, 25],
             color: '#00ac00',
         },
-        'Other': {
+        Other: {
             buildings: [4, 7, 23, 24],
             color: '#02a18c',
         },
     },
     vehicleCategories: {
-        'Hasiči': {
+        Hasiči: {
             vehicles: {
                 'Hasičský vůz': [0, 1],
-                'Vodní záchranná služba': [20,22],
+                'Vodní záchranná služba': [20, 22],
                 'Letiště': [40, 41],
                 'Kontejner': [43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53],
-                'Další vozidla': [2, 3, 4, 6, 7, 10, 16, 17, 28, 29, 30, 31, 42],
+                'Další vozidla': [
+                    2, 3, 4, 6, 7, 10, 16, 17, 28, 29, 30, 31, 42,
+                ],
             },
             color: '#ff2d2d',
         },
-        'Záchranáři': {
+        Záchranáři: {
             vehicles: {
                 'Sanitka': [5, 25, 26, 27, 54, 55],
                 'Záchranný vrtulník': [9],
@@ -94,7 +96,7 @@ export default {
             },
             color: '#ffa500',
         },
-        'Policie': {
+        Policie: {
             vehicles: {
                 'Policejní automobil': [8, 18],
                 'URNA': [12, 15],
