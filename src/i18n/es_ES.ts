@@ -200,6 +200,7 @@ export default {
         'Sauna',
         'Lavandería',
         'Tubería',
+        'Parque de atracciones',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [],

@@ -41,8 +41,8 @@ export default <RedesignParser<VerbandHomeWindow>>(({
                 ?.innerHTML ?? '',
         appliable: !!applyBtn,
         no_apply_box: applyBtn?.classList.contains('disabled')
-            ? doc.querySelector<HTMLDivElement>('.alert.alert-info')
-                  ?.innerHTML ?? ''
+            ? (doc.querySelector<HTMLDivElement>('.alert.alert-info')
+                  ?.innerHTML ?? '')
             : '',
         applied: !!doc.querySelector<HTMLAnchorElement>(
             `a[href="/verband/bewerben/${id}/zurueckziehen"]`

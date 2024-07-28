@@ -168,7 +168,7 @@ export default (
     };
 
     LSSM.$stores.api
-        .getCredits('telemetry')
+        .getUserInfo('telemetry')
         .then(async ({ user_directplay_registered }) => {
             if (user_directplay_registered) return;
 

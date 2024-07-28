@@ -28,7 +28,7 @@ export default {
                 duration: '7 Days',
                 isVehicleExtension: true,
                 givesParkingLots: 0,
-                unlocksVehicleTypes: [5, 23, 24, 25, 26, 27],
+                unlocksVehicleTypes: [5, 23, 24, 25, 26, 27, 61],
             },
             {
                 caption: 'Bushfire Expansion',

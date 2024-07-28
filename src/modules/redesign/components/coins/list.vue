@@ -24,6 +24,27 @@
         >
             {{ $sm('load.next') }}
         </button>
+        <button class="btn btn-default" @click="() => (showChart = !showChart)">
+            <font-awesome-icon :icon="faChartLine"></font-awesome-icon>
+        </button>
+        <highcharts
+            v-show="showChart"
+            :options="{
+                title: { text: 'Coins' },
+                chart: { type: 'line' },
+                xAxis: {
+                    type: 'datetime',
+                },
+                legend: {
+                    enabled: false,
+                },
+                series: {
+                    data: timestamps,
+                    name: 'Coins',
+                    step: 'left',
+                },
+            }"
+        ></highcharts>
         <enhanced-table
             :head="head"
             :table-attrs="{ class: 'table table-striped' }"
@@ -44,11 +65,16 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine';
+import Highcharts from 'highcharts';
 import moment from 'moment';
+import { useAPIStore } from '@stores/api';
+import { useRootStore } from '@stores/index';
 
 import type { CoinsListWindow } from '../../parsers/coins/list';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { RedesignLightboxVue } from 'typings/modules/Redesign';
-import type VueI18n from 'vue-i18n';
+import type { TranslateResult, default as VueI18n } from 'vue-i18n';
 
 export default Vue.extend<
     {
@@ -65,6 +91,9 @@ export default Vue.extend<
         >;
         startPage: number;
         endPage: number;
+        apiStore: ReturnType<typeof useAPIStore>;
+        showChart: boolean;
+        faChartLine: IconDefinition;
     },
     {
         $sm(
@@ -76,13 +105,13 @@ export default Vue.extend<
             amount: number,
             args?: Record<string, unknown>
         ): VueI18n.TranslateResult;
-        setSort(type: string): void;
         loadPrev(): void;
         loadNext(): void;
     },
     {
         page: number;
         subtitle: string;
+        timestamps: [number, number][];
     },
     {
         coins: CoinsListWindow;
@@ -107,9 +136,12 @@ export default Vue.extend<
             import(
                 /* webpackChunkName: "components/enhanced-table" */ '../../../../components/enhanced-table.vue'
             ),
+        Highcharts: () => import('highcharts-vue').then(m => m.Chart),
     },
     data() {
         moment.locale(this.lightbox.rootStore.locale);
+        const apiStore = useAPIStore();
+        apiStore.getUserInfo('redesign/coins/list').then();
         return {
             moment,
             search: '',
@@ -118,6 +150,9 @@ export default Vue.extend<
             head: {},
             startPage: 0,
             endPage: 0,
+            apiStore,
+            showChart: false,
+            faChartLine,
         };
     },
     methods: {
@@ -126,17 +161,6 @@ export default Vue.extend<
         },
         $smc(key: string, amount: number, args?: Record<string, unknown>) {
             return this.$mc(`coins/list.${key}`, amount, args);
-        },
-        setSort(type) {
-            if (this.sort === type) {
-                this.sortDir = this.sortDir === 'asc' ? 'desc' : 'asc';
-            } else {
-                this.sort = type;
-                this.sortDir = 'asc';
-            }
-            this.setSetting('sort', type).then(() =>
-                this.setSetting('sortDir', this.sortDir).then()
-            );
         },
         loadPrev() {
             this.$set(this.lightbox, 'loading', true);
@@ -222,6 +246,22 @@ export default Vue.extend<
                 totalPages: this.coins.lastPage.toLocaleString(),
             }).toString();
         },
+        timestamps() {
+            let lastCoins = this.apiStore.userinfo.coins_user_current;
+
+            const timestamps: [number, number][] = [[Date.now(), lastCoins]];
+
+            this.coins.entries.forEach(entry => {
+                timestamps.push([
+                    new Date(entry.timestamp).getTime(),
+                    lastCoins,
+                ]);
+                lastCoins -= entry.amount;
+            });
+            timestamps.push([(timestamps.at(-1)?.[0] ?? 1) - 1, lastCoins]);
+
+            return timestamps.toReversed();
+        },
     },
     props: {
         coins: {
@@ -273,6 +313,16 @@ export default Vue.extend<
         };
     },
     mounted() {
+        if (useRootStore().isDarkMode) {
+            Highcharts.setOptions(
+                (window[PREFIX] as Vue).$utils.highChartsDarkMode
+            );
+        }
+        Highcharts.setOptions({
+            lang: {
+                ...(this.$t('highcharts') as Record<string, TranslateResult>),
+            },
+        });
         this.$el.addEventListener('click', e => {
             e.preventDefault();
             const target = (e.target as HTMLElement)?.closest<
@@ -290,3 +340,8 @@ export default Vue.extend<
     },
 });
 </script>
+
+<style scoped lang="sass">
+:deep(.highcharts-root)
+    font-size: 1em !important
+</style>

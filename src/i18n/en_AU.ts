@@ -97,7 +97,7 @@ export default {
         },
         'Ambulance Vehicles': {
             vehicles: {
-                'Ambulances': [5],
+                'Ambulances': [5, 61],
                 'Intensive Care Vehicles': [9, 24, 25],
                 'Other Ambulance Vehicles': [23, 26, 27],
             },
@@ -242,7 +242,7 @@ export default {
         'Pipeline',
     ],
     only_alliance_missions: [57, 74],
-    transfer_missions: [],
+    transfer_missions: [701, 702],
     ranks: {
         missionchief: {
             0: 'Probie',

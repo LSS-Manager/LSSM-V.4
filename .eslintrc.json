@@ -194,7 +194,7 @@
         "unicorn/prefer-native-coercion-functions": ["error"],
         "unicorn/prefer-negative-index": ["error"],
         "unicorn/prefer-object-from-entries": ["error"],
-        "unicorn/prefer-query-selector": ["error"],
+        "unicorn/prefer-query-selector": ["off"],
         "unicorn/switch-case-braces": ["error", "avoid"],
         "vue/no-unused-refs": "warn",
         "vue/prefer-true-attribute-shorthand": "warn",

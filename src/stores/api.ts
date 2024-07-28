@@ -33,10 +33,10 @@ import MissionsWorker, {
 
 import type { AllianceInfo } from 'typings/api/AllianceInfo';
 import type { Building } from 'typings/Building';
-import type { CreditsInfo } from 'typings/api/Credits';
 import type { Mission } from 'typings/Mission';
 import type { Schooling } from 'typings/api/Schoolings';
 import type { Settings } from 'typings/api/Settings';
+import type { UserInfo } from 'typings/api/UserInfo';
 import type { Vehicle } from 'typings/Vehicle';
 import type { BuildingMarkerAdd, RadioMessage } from 'typings/Ingame';
 
@@ -46,7 +46,7 @@ export interface APIs {
     buildings: Record<Building['id'], Building>;
     alliance_buildings: Record<Building['id'], Building>;
     allianceinfo: AllianceInfo;
-    credits: CreditsInfo;
+    userinfo: UserInfo;
     settings: Settings;
     schoolings: Schooling[];
     alliance_schoolings: Schooling[];
@@ -92,7 +92,7 @@ export const defineAPIStore = defineStore('api', () => {
             finance_active: false,
             users: [],
         }),
-        credits: ref<APIs['credits']>({
+        userinfo: ref<APIs['userinfo']>({
             credits_user_current: 0,
             credits_user_total: 0,
             user_name: '',
@@ -104,6 +104,7 @@ export const defineAPIStore = defineStore('api', () => {
             user_apple_registered: false,
             user_level: 0,
             user_level_title: '',
+            coins_user_current: 0,
         }),
         settings: ref<APIs['settings']>({
             aao_big: false,
@@ -856,8 +857,9 @@ export const defineAPIStore = defineStore('api', () => {
         // allianceinfo
         getAllianceInfo: (feature: string) =>
             _getStoredOrFetch('allianceinfo', feature),
-        // credits API
-        getCredits: (feature: string) => _getStoredOrFetch('credits', feature),
+        // userinfo API
+        getUserInfo: (feature: string) =>
+            _getStoredOrFetch('userinfo', feature),
         // settings API
         getSettings: (feature: string) =>
             _getStoredOrFetch('settings', feature),

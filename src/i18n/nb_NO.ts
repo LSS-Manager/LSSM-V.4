@@ -216,6 +216,7 @@ export default {
         'Badstue',
         'Vaskeri',
         'Rørledning',
+        'Fornøyelsespark',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [306, 307],

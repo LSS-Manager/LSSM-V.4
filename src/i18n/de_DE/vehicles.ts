@@ -350,7 +350,7 @@ export default {
         coins: 25,
         staff: { min: 1, max: 2 },
         icon: 'ambulance',
-        possibleBuildings: [0, 18, 2, 12, 20],
+        possibleBuildings: [0, 18, 2, 12, 20, 25],
     },
     29: {
         caption: 'NEF',
@@ -374,7 +374,7 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [0, 18, 2, 20],
+        possibleBuildings: [0, 18, 2, 20, 25],
         special: 'Wird ab 3 Rettungswachen benötigt.',
     },
     30: {
@@ -504,7 +504,7 @@ export default {
         coins: 25,
         staff: { min: 1, max: 2 },
         icon: 'ambulance',
-        possibleBuildings: [0, 2, 18, 20],
+        possibleBuildings: [0, 2, 18, 20, 25],
     },
     39: {
         caption: 'GKW',
@@ -1130,7 +1130,7 @@ export default {
             },
         },
         icon: 'ambulance',
-        possibleBuildings: [0, 2, 18, 20],
+        possibleBuildings: [0, 2, 18, 20, 25],
         special:
             'Der GRTW kann in zwei verschiedenen Modi alarmiert werden:<br>1. Für leichtverletzte Personen, die keinen Notarzt benötigen. Dann können in dem GRTW 7 Patienten gleichzeitig behandelt und abtransportiert werden. Es wird kein Notarzt zum Ausrücken benötigt.<br>2. Für schwerverletzte Personen, die einen Notarzt benötigen. Dann können in dem GRTW 3 Patienten gleichzeitig behandelt werden. Es wird mind. 1 Notarzt zum Ausrücken benötigt.<br>Pro 20 Rettungswachen (bzw. 15 Rettungswachen mit Premium-Account) kann ein GRTW gekauft werden.',
     },
@@ -1156,7 +1156,7 @@ export default {
             },
         },
         icon: 'ambulance',
-        possibleBuildings: [0, 2, 18, 20],
+        possibleBuildings: [0, 2, 18, 20, 25],
         special:
             'Insgesamt so viele NAW kaufbar wie Rettungswachen (und auf einsatzbereit gestellte Rettungsdienst-Erweiterungen) vorhanden. Alle auch auf einer Wache platzierbar.',
     },
@@ -1588,7 +1588,7 @@ export default {
             },
         },
         icon: 'ambulance',
-        possibleBuildings: [0, 2, 18, 20],
+        possibleBuildings: [0, 2, 18, 20, 25],
         special:
             'Kann auch als NAW eingesetzt werden. Verdienst bei der Mission: 30 Credits pro km, max. 1.500 Credits. Hat das angefahrene Krankenhaus nicht die erforderliche Abteilung, wird der Verdienst 30% weniger betragen. Kann alle 15 (10 mit Premium) Rettungswachen gekauft werden. 2 Leute brauchen die "Intensivpflege" Ausbildung, Eine weitere Person davon die Notarzt Ausbildung',
     },
@@ -2179,7 +2179,7 @@ export default {
     },
     134: {
         caption: 'Pferdetransporter klein',
-        color: '#835243',
+        color: '#438350',
         credits: 20_000,
         coins: 20,
         staff: {
@@ -2199,7 +2199,7 @@ export default {
     },
     135: {
         caption: 'Pferdetransporter groß',
-        color: '#835243',
+        color: '#438350',
         credits: 120_000,
         coins: 25,
         staff: {
@@ -2220,7 +2220,7 @@ export default {
     },
     136: {
         caption: 'Anh Pferdetransport',
-        color: '#835243',
+        color: '#438350',
         credits: 15_000,
         coins: 15,
         staff: {
@@ -2243,7 +2243,7 @@ export default {
     },
     137: {
         caption: 'Zugfahrzeug Pferdetransport',
-        color: '#835243',
+        color: '#438350',
         credits: 5000,
         coins: 10,
         staff: {
@@ -2454,5 +2454,184 @@ export default {
         },
         icon: 'truck',
         possibleBuildings: [9],
+    },
+    149: {
+        caption: 'GW-Bergrettung (NEF)',
+        color: '#bc7f52',
+        credits: 25_000,
+        coins: 25,
+        staff: {
+            min: 3,
+            max: 6,
+            training: {
+                Rettungsdienst: {
+                    notarzt: {
+                        min: 1,
+                    },
+                },
+            },
+        },
+        equipmentCapacity: 10,
+        icon: 'truck',
+        possibleBuildings: [25],
+    },
+    150: {
+        caption: 'GW-Bergrettung',
+        color: '#bc7f52',
+        credits: 15_000,
+        coins: 15,
+        staff: {
+            min: 3,
+            max: 6,
+        },
+        equipmentCapacity: 10,
+        icon: 'truck',
+        possibleBuildings: [25],
+    },
+    151: {
+        caption: 'ELW Bergrettung',
+        color: '#bc7f52',
+        credits: 25_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 3,
+            training: {
+                Rettungsdienst: {
+                    mountain_command: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [25],
+    },
+    152: {
+        caption: 'ATV',
+        color: '#bc7f52',
+        credits: 5000,
+        coins: 15,
+        staff: {
+            min: 1,
+            max: 1,
+        },
+        icon: 'truck',
+        possibleBuildings: [25],
+    },
+    153: {
+        caption: 'Hundestaffel (Bergrettung)',
+        color: '#bc7f52',
+        credits: 25_000,
+        coins: 25,
+        staff: {
+            min: 4,
+            max: 5,
+            training: {
+                Rettungsdienst: {
+                    seg_rescue_dogs: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [25],
+    },
+    154: {
+        caption: 'Schneefahrzeug',
+        color: '#bc7f52',
+        credits: 10_000,
+        coins: 15,
+        staff: {
+            min: 1,
+            max: 1,
+        },
+        icon: 'truck',
+        possibleBuildings: [25],
+    },
+    155: {
+        caption: 'Anh Höhenrettung (Bergrettung)',
+        color: '#bc7f52',
+        credits: 10_000,
+        coins: 15,
+        staff: {
+            min: 4,
+            max: 4,
+            training: {
+                Rettungsdienst: {
+                    mountain_height_rescue: {
+                        min: 4,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        isTrailer: true,
+        tractiveVehicles: [149, 150],
+        possibleBuildings: [25],
+    },
+    156: {
+        caption: 'Polizeihubschrauber mit verbauter Winde',
+        color: '#bc7f52',
+        credits: 400_000,
+        coins: 30,
+        staff: {
+            min: 1,
+            max: 3,
+            training: {
+                Polizei: {
+                    polizeihubschrauber: {
+                        min: 1,
+                    },
+                    police_helicopter_lift: {
+                        min: 1,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [13],
+    },
+    157: {
+        caption: 'RTH Winde',
+        color: '#bc7f52',
+        credits: 400_000,
+        coins: 30,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Rettungsdienst: {
+                    rescue_helicopter_lift: {
+                        min: 1,
+                    },
+                    notarzt: {
+                        min: 1,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [5],
+    },
+    158: {
+        caption: 'GW-Höhenrettung (Bergrettung)',
+        color: '#bc7f52',
+        credits: 25_000,
+        coins: 25,
+        staff: {
+            min: 4,
+            max: 4,
+            training: {
+                Rettungsdienst: {
+                    mountain_height_rescue: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [25],
     },
 } satisfies Record<number, InternalVehicle>;

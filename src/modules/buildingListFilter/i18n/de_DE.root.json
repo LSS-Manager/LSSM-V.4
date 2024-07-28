@@ -7,7 +7,7 @@
         { "ids": [15], "name": "Wasserrettung" },
         { "ids": [1, 3, 8, 10], "name": "Schulen" },
         { "ids": [7], "name": "Leitstelle" },
-        { "ids": [5, 12, 21], "name": "SEG/RTH" },
+        { "ids": [5, 12, 21, 25], "name": "SEG/RTH" },
         { "ids": [11, 24], "name": "Bepol" },
         { "ids": [13, 17], "name": "PolHeli/Pol-Sonder" },
         { "ids": [4], "name": "Krankenhäuser" },

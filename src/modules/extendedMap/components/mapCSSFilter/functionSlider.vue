@@ -89,18 +89,18 @@ export default Vue.extend<
         updateValue: {
             get() {
                 return this.value === -1
-                    ? this.slider?.default ?? -1
+                    ? (this.slider?.default ?? -1)
                     : Number.isNaN(this.value)
-                      ? this.min ?? this.max ?? 0
+                      ? (this.min ?? this.max ?? 0)
                       : this.value;
             },
             set(value) {
                 this.$emit(
                     'input',
                     this.updateValue === -1
-                        ? this.slider?.default ?? -1
+                        ? (this.slider?.default ?? -1)
                         : Number.isNaN(value)
-                          ? this.min ?? this.max ?? 0
+                          ? (this.min ?? this.max ?? 0)
                           : value
                 );
             },

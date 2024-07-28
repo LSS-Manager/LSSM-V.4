@@ -836,9 +836,9 @@ export default Vue.extend<
             return setting.values.map((v, vi) => ({
                 label: (setting.noLabelTranslation
                     ? v
-                    : setting.labels?.[vi] ??
+                    : (setting.labels?.[vi] ??
                       this.$t(`modules.${module}.settings.${settingId}.${v}`) ??
-                      v) as string,
+                      v)) as string,
                 value: v,
             }));
         },

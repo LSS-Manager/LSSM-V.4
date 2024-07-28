@@ -9,7 +9,10 @@
     "dependencyDashboardHeader": "# ℹ️ Renovate Dependency-Dashboard ℹ\nScheduled and currently open dependency updates are listed here\n",
     "dependencyDashboardLabels": ["dependencies"],
     "dependencyDashboardTitle": "⬆ℹ️ Renovate Dependency-Dashboard ℹ️",
-    "extends": ["workarounds:typesNodeVersioning"],
+    "extends": [
+        "mergeConfidence:all-badges",
+        "workarounds:typesNodeVersioning"
+    ],
     "labels": ["dependencies"],
     "lockFileMaintenance": {
         "assignees": ["jxn-30"],
@@ -29,8 +32,8 @@
                 "vue-loader",
                 "vue-template-compiler"
             ],
-            "matchManagers": ["npm"],
-            "matchPaths": ["+(package.json)"]
+            "matchFileNames": ["+(package.json)"],
+            "matchManagers": ["npm"]
         },
         {
             "excludePackageNames": ["@types/node"],
@@ -86,6 +89,7 @@
             "separateMajorMinor": false
         }
     ],
+    "postUpdateOptions": ["yarnDedupeHighest"],
     "rangeStrategy": "pin",
     "reviewers": ["Suchty112"],
     "schedule": ["before 3am every weekday"],

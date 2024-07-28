@@ -18,6 +18,7 @@
         "water_rescue": "SES Missions"
     },
     "patients": {
+        "allow_ktw_instead_of_rtw": "Ambulance Transport can replace Ambulance",
         "critical_care": "Intensive Care Chance",
         "helicopter": "Probability for Air Ambulance",
         "patient_allow_first_responder_chance": "First Responder Probability",
@@ -98,6 +99,7 @@
             "oneof_fire_engine_or_ladder": "Fire Engines or Ladder Platform Trucks",
             "oneof_fire_engine_or_rescue": "Fire Engines or Rescue Units",
             "oneof_fire_engine_or_rescue_or_ladder": "Fire Engines, Rescue Units or Ladder Platform Trucks",
+            "oneof_police_patrol_or_swat": "Police Cars or TOGs",
             "platform_trucks": "Ladder Platform Truck | Ladder Platform Trucks",
             "police_cars": "Police Car | Police Cars",
             "police_helicopters": "Police Helicopter | Police Helicopters",
@@ -130,6 +132,9 @@
         "optional_alternatives": {
             "allow_arff_instead_of_lf": {
                 "firetrucks": "Fire Engine or ULFV | Fire Engine or ULFV"
+            },
+            "allow_ktw_instead_of_rtw": {
+                "ambulances": "Ambulance Transport or replace Ambulance"
             },
             "allow_police_motorcycle_instead_of_fustw": {
                 "additional_text": "of max. {n} Motorcycle |  of max. {n} Motorcycles",

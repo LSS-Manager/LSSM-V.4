@@ -208,6 +208,7 @@ export default {
         'Bastu',
         'Tvättstuga',
         'Rörledning',
+        'Nöjespark',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [169],

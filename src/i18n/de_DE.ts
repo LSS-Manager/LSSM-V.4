@@ -68,7 +68,7 @@ export default {
             color: '#ff2d2d',
         },
         Rettungsdienst: {
-            buildings: [2, 3, 5, 12, 15, 20, 21],
+            buildings: [2, 3, 5, 12, 15, 20, 21, 25],
             color: '#ffa500',
         },
         Polizei: {
@@ -116,6 +116,9 @@ export default {
                 'Rettungshundefahrzeuge': [91],
                 'Drohne': [127],
                 ['BT & VPF']: [130, 131, 132, 133],
+                'Bergrettung': [
+                    149, 150, 151, 152, 153, 154, 155, 156, 157, 158,
+                ],
             },
             color: '#ffa500',
         },
@@ -258,6 +261,7 @@ export default {
         'Hüttenwerk',
         'Kraftwerk',
         'Werksgelände',
+        'Seilbahn',
     ],
     only_alliance_missions: [41, 43, 59, 75, 99, 207, 221, 222, 256, 350],
     transfer_missions: [147, 613],

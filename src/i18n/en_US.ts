@@ -267,6 +267,7 @@ export default {
         'Prison',
         'Festival',
         'Sauna',
+        'Amusement Park',
     ],
     only_alliance_missions: [41, 61, 62, 112],
     transfer_missions: [246],

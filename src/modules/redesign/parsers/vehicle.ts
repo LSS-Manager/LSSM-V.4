@@ -203,7 +203,7 @@ export default <RedesignParser<VehicleWindow>>(({
     const image =
         imageEl?.getAttribute('image_replace_allowed') === 'true'
             ? // parse the list of graphics for the used set and get the graphic
-              (
+              ((
                   JSON.parse(
                       doc.documentElement.innerHTML.match(
                           new RegExp(
@@ -217,9 +217,9 @@ export default <RedesignParser<VehicleWindow>>(({
                   ) as [string, string, 'false' | 'true'][]
               )[vehicleType.id]?.[0] ??
               imageEl?.src ??
-              ''
+              '')
             : // no replacement? great! use the src attribute directly
-              imageEl?.src ?? '';
+              (imageEl?.src ?? '');
 
     const userEl = doc.querySelector<HTMLAnchorElement>(
         '#vehicle_details a[href^="/profile/"]'

@@ -50,6 +50,20 @@
                 "vehicles": [
                     32, 35, 50, 51, 52, 61, 72, 79, 80, 81, 82, 94, 95, 98, 103
                 ]
+            },
+            {
+                "texts": ["THW-Einsatzkräfte"],
+                "vehicles": [
+                    39, 40, 41, 42, 45, 65, 69, 93, 100, 109, 122, 123, 124,
+                    125, 144, 145, 147, 148
+                ]
+            },
+            {
+                "texts": ["Rettungsdienstler"],
+                "vehicles": [
+                    28, 29, 31, 38, 55, 56, 58, 59, 60, 73, 74, 91, 97, 127,
+                    130, 131, 133, 149, 150, 151, 152, 153, 154, 157, 158
+                ]
             }
         ],
         "staffPrefix": ["Wir benötigen noch min."],
@@ -79,7 +93,8 @@
             "92": [93],
             "96": [61],
             "110": [41],
-            "116": [46]
+            "116": [46],
+            "146": [145]
         },
         "vehicle": "Fahrzeugtyp",
         "vehiclesByRequirement": [
@@ -162,7 +177,7 @@
             {
                 "equipment": ["hight_rescue"],
                 "texts": ["GW-Höhenrettung"],
-                "vehicles": [33]
+                "vehicles": [33, 155, 158]
             },
             { "texts": ["GW-Messtechnik"], "vehicles": [12] },
             { "texts": ["GW-San"], "vehicles": [60] },
@@ -247,7 +262,7 @@
             { "texts": ["NEA50"], "vehicles": [110, 111, 112, 113] },
             { "texts": ["NEA200"], "vehicles": [112, 113] },
             { "texts": ["MzGW SB"], "vehicles": [109] },
-            { "texts": ["FüKW"], "vehicles": [144] },
+            { "texts": ["FüKW (THW)"], "vehicles": [144] },
             { "texts": ["FüKomKW"], "vehicles": [145] },
             { "texts": ["Anh FüLa"], "vehicles": [146] },
             { "texts": ["FmKW"], "vehicles": [147] },
@@ -257,6 +272,19 @@
                 "equipment": ["drone"],
                 "texts": ["Drohneneinheit", "Drohneneinheiten"],
                 "vehicles": [125, 126, 127, 128, 129]
+            },
+            { "texts": ["ATV"], "vehicles": [152] },
+            { "texts": ["ELW Bergrettung"], "vehicles": [151] },
+            { "texts": ["GW-Bergrettung"], "vehicles": [149, 150] },
+            { "texts": ["Höhenrettung (Bergrettung)"], "vehicles": [155, 158] },
+            {
+                "equipment": ["rescue_lift", "police_lift"],
+                "texts": ["Hubschrauber mit Winde"],
+                "vehicles": [156, 157]
+            },
+            {
+                "texts": ["Bergrettungsfahrzeug"],
+                "vehicles": [149, 150, 151, 152, 158]
             }
         ],
         "water": "l. Wasser"

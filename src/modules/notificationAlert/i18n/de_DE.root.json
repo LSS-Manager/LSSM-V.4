@@ -51,6 +51,10 @@
         "duration": "Anzeigedauer (Millisekunden, -1 für \"dauerhaft\")",
         "eventTypes": "Events",
         "ingame": "Ingame-Benachrichtigung senden",
+        "maxAlertsPerGroup": {
+            "description": "Wie viele Benachrichtigungen pro Position maximal gleichzeitig angezeigt werden sollen (0 = alle).",
+            "title": "Maximale Anzahl an angezeigten Benachrichtigungen"
+        },
         "position": "Position"
     }
 }

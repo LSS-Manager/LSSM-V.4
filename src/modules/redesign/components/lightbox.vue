@@ -713,7 +713,7 @@ export default Vue.extend<
         const mountFeature = 'redesign-lightbox-mount';
         this.apiStore.getAllianceInfo(mountFeature).then();
         this.apiStore.getBuildings(mountFeature).then();
-        this.apiStore.getCredits(mountFeature).then();
+        this.apiStore.getUserInfo(mountFeature).then();
         this.apiStore.getVehicles(mountFeature).then();
     },
     mounted() {

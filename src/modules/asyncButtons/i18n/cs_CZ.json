@@ -1,0 +1,47 @@
+{
+    "buildingPersonal": {
+        "deleteModal": {
+            "btnCancel": "Zrušit",
+            "btnConfirm": "Propustit",
+            "text": "Opravdu chcete propustit tuto osobu?",
+            "title": "Propustit?"
+        }
+    },
+    "buildings": { "active": "Připraven", "nonactive": "Nepřipraven" },
+    "deleteARR": {
+        "deleteModal": {
+            "btnCancel": "Zrušit",
+            "btnConfirm": "Odstranit",
+            "text": "Opravdu chcete odstranit toto Pravidlo nouzových výjezdů?",
+            "title": "Odstranit?"
+        }
+    },
+    "forumPost": {
+        "deleteModal": {
+            "btnCancel": "Zrušit",
+            "btnConfirm": "Odstranit",
+            "text": "Opravdu chcete odstranit tento příspěvku z diskuze?",
+            "title": "Odstranit?"
+        }
+    },
+    "memberlistManageUser": {
+        "hide": "Zavřít",
+        "kickModal": {
+            "btnCancel": "Zrušit",
+            "btnConfirm": "Vyhodit",
+            "text": "Opravdu chcete tohoto hráče vyhodit z Aliance?",
+            "title": "Vyhodit?"
+        },
+        "set": "Nastavit",
+        "unset": "Odebrat"
+    },
+    "memberlistRoles": {
+        "admin": "Správce aliance",
+        "aufsichtsrat": "Moderační protokol",
+        "coadmin": "Spolusprávce aliance",
+        "finance": "Hlavní správce financí",
+        "schooling": "Školitel aliance",
+        "sprechwunsch_admin": "Správce žádostí o převoz",
+        "staff": "Alianční štáb"
+    }
+}

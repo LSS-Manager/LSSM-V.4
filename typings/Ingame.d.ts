@@ -72,14 +72,21 @@ interface MissionMarkerAddBase {
     finish_url: string;
     icon: string;
     id: number;
+    created_at: number;
+    alliance_shared_at: number | null;
+    average_credits: number;
     kt: boolean;
     latitude: number;
     longitude: number;
     live_current_value: number;
+    live_current_water_damage_pump_value: number;
+    water_damage_pump_value: number;
     missing_text: string;
     missing_text_short: string;
     patients_count: number;
+    possible_patients_count: number;
     prisoners_count: number;
+    possible_prisoners_count: number;
     sw: boolean;
     sw_start_in: number;
     tlat: number | null;
@@ -92,6 +99,7 @@ interface MissionMarkerAddBase {
     pumping_mission_value: number;
     pumping_date_start: number;
     pumping_date_end: number;
+    handoff: boolean;
 }
 
 interface RegularMissionMarkerAdd extends MissionMarkerAddBase {

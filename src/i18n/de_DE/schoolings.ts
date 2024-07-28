@@ -184,6 +184,12 @@ export default {
             staffList: 'Reiterstaffel',
             key: 'police_horse',
         },
+        {
+            caption: 'Windenoperator',
+            duration: '5 Tage',
+            staffList: 'Windenoperator',
+            key: 'police_helicopter_lift',
+        },
     ],
     Rettungsdienst: [
         {
@@ -229,9 +235,9 @@ export default {
             key: 'gw_taucher',
         },
         {
-            caption: 'Rettungshundeführer (SEG)',
+            caption: 'Rettungshundeführer',
             duration: '5 Tage',
-            staffList: 'Rettungshundeführer (SEG)',
+            staffList: 'Rettungshundeführer',
             key: 'seg_rescue_dogs',
         },
         {
@@ -241,9 +247,9 @@ export default {
             key: 'intensive_care',
         },
         {
-            caption: 'SEG Drohne',
+            caption: 'Drohnenoperator',
             duration: '3 Tage',
-            staffList: 'SEG Drohne',
+            staffList: 'Drohnenoperator',
             key: 'seg_drone',
         },
         {
@@ -257,6 +263,24 @@ export default {
             duration: '3 Tage',
             staffList: 'Verpflegungshelfer',
             key: 'care_service_equipment',
+        },
+        {
+            caption: 'Höhenretter',
+            duration: '5 Tage',
+            staffList: 'Höhenretter',
+            key: 'mountain_height_rescue',
+        },
+        {
+            caption: 'Windenoperator',
+            duration: '5 Tage',
+            staffList: 'Windenoperator',
+            key: 'rescue_helicopter_lift',
+        },
+        {
+            caption: 'Einsatzleiter Bergrettung',
+            duration: '5 Tage',
+            staffList: 'EL Bergrettung',
+            key: 'mountain_command',
         },
     ],
     THW: [

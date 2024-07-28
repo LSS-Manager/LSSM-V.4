@@ -138,6 +138,7 @@
             "oneof_fire_engine_or_rescue": "Fire Engines or Rescue Support Vehicles",
             "oneof_fire_engine_or_rescue_or_ladder": "Fire Engines, Rescue Support Vehicles or Aerial Appliance Trucks",
             "oneof_fire_ladder_or_rescue_stairs": "Aerial Appliance Trucks or Rescue Stairs",
+            "oneof_paramedic_or_paramedic_advanced": "RRV or Specialist Paramedic RRV",
             "oneof_police_drone_or_helicopter": "Police Helicopters or Drones",
             "oneof_police_patrol_or_swat": "Police Cars or Armed Response Vehicles (ARVs)",
             "platform_trucks": "Aerial Appliance | Aerial Appliances ",
