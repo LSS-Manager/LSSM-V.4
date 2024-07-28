@@ -1,4 +1,4 @@
----serve
+---
 title: Local development
 lang: en_US
 sidebarDepth: 2
