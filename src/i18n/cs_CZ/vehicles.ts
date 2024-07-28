@@ -353,7 +353,7 @@ export default {
         coins: 25,
         staff: {
             min: 1, 
-            max: 4 
+            max: 4, 
             training: {
                 'VZS ČČK': {
                     water_rescue_service: {
@@ -372,7 +372,7 @@ export default {
         coins: 25,
         staff: {
             min: 2, 
-            max: 4 
+            max: 4, 
             training: {
                 'VZS ČČK': {
                     water_rescue_service: {
@@ -391,7 +391,7 @@ export default {
         coins: 20,
         staff: {
             min: 1, 
-            max: 2 
+            max: 2, 
             training: {
                 'Záchranáři': {
                     critical_care: {
@@ -411,7 +411,7 @@ export default {
         coins: 25,
         staff: {
             min: 1, 
-            max: 2 
+            max: 2, 
             training: {
                 'Záchranáři': {
                     orgl: {
@@ -431,7 +431,7 @@ export default {
         coins: 30,
         staff: {
             min: 2, 
-            max: 3 
+            max: 3, 
             training: {
                 'Záchranáři': {
                     critical_care: {
@@ -450,7 +450,7 @@ export default {
         coins: 10,
         staff: {
             min: 1, 
-            max: 2 
+            max: 2, 
             training: {
                 'Hasiči': {
                     fwk: {
