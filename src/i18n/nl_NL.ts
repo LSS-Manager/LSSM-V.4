@@ -104,7 +104,7 @@ export default {
         },
         Ambulance: {
             vehicles: {
-                'Ambulances': [16, 30, 38, 52, 57, 63, 102],
+                'Ambulances': [16, 30, 38, 52, 57, 63, 102, 103],
                 'MMT voertuigen': [23, 37],
                 'GGB': [100, 101],
             },
@@ -255,7 +255,7 @@ export default {
         'Nucleaire installatie',
     ],
     only_alliance_missions: [41, 43, 59, 145, 234, 346, 347],
-    transfer_missions: [137],
+    transfer_missions: [137, 1103],
     ranks: {
         missionchief: {
             0: 'Aspirant',

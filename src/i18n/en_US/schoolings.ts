@@ -128,6 +128,12 @@ export default {
             staffList: 'Technical Rescue Training',
             key: 'technical_rescue',
         },
+        {
+            caption: 'Critical Care',
+            duration: '5 Days',
+            staffList: 'Critical Care',
+            key: 'critical_care',
+        },
     ],
     'Police': [
         {
@@ -251,6 +257,12 @@ export default {
             duration: '2 Days',
             staffList: "Truck Driver's License",
             key: 'truck_drivers_license',
+        },
+        {
+            caption: 'Critical Care',
+            duration: '5 Days',
+            staffList: 'Critical Care',
+            key: 'critical_care',
         },
     ],
     'Water Rescue School': [

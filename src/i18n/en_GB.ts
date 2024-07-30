@@ -101,7 +101,7 @@ export default {
         },
         'Ambulance Vehicles': {
             vehicles: {
-                'Ambulances': [5],
+                'Ambulances': [5, 97, 98],
                 'HEMS': [9],
                 'Rapid Response Vehicles': [10, 19, 20, 21, 22, 83],
                 'HART Units': [23, 27, 28, 29, 30, 31, 32, 33, 34],
@@ -260,7 +260,7 @@ export default {
         'Pipeline',
     ],
     only_alliance_missions: [57, 74, 89],
-    transfer_missions: [77],
+    transfer_missions: [77, 716],
     ranks: {
         missionchief: {
             0: 'Probie',

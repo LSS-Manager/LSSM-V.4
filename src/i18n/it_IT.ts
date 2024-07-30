@@ -212,7 +212,7 @@ export default {
         'Pipeline',
     ],
     only_alliance_missions: [57, 74],
-    transfer_missions: [214],
+    transfer_missions: [214, 713],
     ranks: {
         missionchief: {
             0: 'Vigile del fuoco',
