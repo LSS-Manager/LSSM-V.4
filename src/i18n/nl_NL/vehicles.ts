@@ -1591,4 +1591,23 @@ export default {
         icon: 'car-side',
         possibleBuildings: [3, 13],
     },
+    103: {
+        caption: 'MICU',
+        color: '#b16b00',
+        credits: 30_000,
+        coins: 20,
+        staff: {
+            min: 3,
+            max: 3,
+            training: {
+                Ambulance: {
+                    intensive_care: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [3, 13],
+    },
 } satisfies Record<number, InternalVehicle>;

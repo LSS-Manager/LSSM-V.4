@@ -1588,4 +1588,37 @@ export default {
         possibleBuildings: [2, 20, 21, 22, 32],
         special: '',
     },
+    97: {
+        caption: 'Patient Transport Service Ambulance',
+        color: '#b89d14',
+        credits: 10_000,
+        coins: 10,
+        staff: {
+            min: 1,
+            max: 2,
+        },
+        icon: 'car-side',
+        possibleBuildings: [2, 20, 21],
+        special: '',
+    },
+    98: {
+        caption: 'Critical Care Transfer Ambulance',
+        color: '#b89d14',
+        credits: 15_000,
+        coins: 20,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Rescue: {
+                    critical_care: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [2, 20, 21],
+        special: '',
+    },
 } satisfies Record<number, InternalVehicle>;

@@ -270,7 +270,7 @@ export default {
         'Amusement Park',
     ],
     only_alliance_missions: [41, 61, 62, 112],
-    transfer_missions: [246],
+    transfer_missions: [246, 983],
     ranks: {
         missionchief: {
             0: 'Probie',
