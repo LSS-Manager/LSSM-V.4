@@ -122,12 +122,6 @@ export default {
             staffList: 'Geneeskundige bijstandsverlener',
             key: 'mass_casualty_and_emergency_doctor',
         },
-        {
-            caption: 'Intensive Care Team',
-            duration: '3 Dagen',
-            staffList: 'Intensive Care Teamlid',
-            key: 'intensive_care',
-        },
     ],
     Politie: [
         {
