@@ -1302,7 +1302,7 @@ export default {
         credits: 30_000,
         coins: 25,
         staff: {
-            min: 0,
+            min: 1,
             max: 1,
             training: {
                 Brandweer: {
@@ -1464,7 +1464,7 @@ export default {
         credits: 5000,
         coins: 25,
         staff: {
-            min: 0,
+            min: 1,
             max: 2,
             training: {
                 Brandweer: {
