@@ -1,6 +1,6 @@
 {
     "name": "lss-manager-v4",
-    "version": "4.7.12+20240801.0613",
+    "version": "4.7.12+20240803.0822",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "quickbuild": "./build/build.sh --quick",
@@ -104,9 +104,9 @@
         "webpack": "5.93.0"
     },
     "engines": {
-        "node": "20.15.0"
+        "node": "20.16.0"
     },
-    "packageManager": "yarn@4.3.1",
+    "packageManager": "yarn@4.4.0",
     "workspaces": [
         "./docs/.vuepress/"
     ],
