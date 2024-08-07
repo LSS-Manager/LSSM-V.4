@@ -133,8 +133,8 @@
     },
     "@vuepress/plugin-pwa-popup": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
-        "url": "https://github.com/vuepress",
-        "version": "2.0.0-rc.3"
+        "url": "https://ecosystem.vuejs.press/plugins/pwa-popup.html",
+        "version": "2.0.0-rc.14"
     },
     "@vuepress/plugin-register-components": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
