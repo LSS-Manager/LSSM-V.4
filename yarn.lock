@@ -3201,14 +3201,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vuepress/plugin-register-components@npm:2.0.0-rc.3":
-  version: 2.0.0-rc.3
-  resolution: "@vuepress/plugin-register-components@npm:2.0.0-rc.3"
+"@vuepress/plugin-register-components@npm:2.0.0-rc.37":
+  version: 2.0.0-rc.37
+  resolution: "@vuepress/plugin-register-components@npm:2.0.0-rc.37"
   dependencies:
-    chokidar: "npm:^3.5.3"
+    chokidar: "npm:^3.6.0"
   peerDependencies:
-    vuepress: 2.0.0-rc.2
-  checksum: 10c0/2f5a215d5b378459b9bd7b1e3131ec7ee0ef7b2ed3206c789023ce61350a5675305f47b2a05a2e32df2e7006667ebaf54d52b5b9ae645dbb9a243a81c1aa8ca1
+    vuepress: 2.0.0-rc.14
+  checksum: 10c0/bbade64868ddef1c00fc9b3210bd553cc7ffe89086bd9cf6e981ab64d0dc4519c7160335a4b0bcd2aa82813d5be8e12b2ba79a5934801839f516b6c557d0e48c
   languageName: node
   linkType: hard
 
@@ -4303,7 +4303,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chokidar@npm:>=3.0.0 <4.0.0, chokidar@npm:^3.5.3":
+"chokidar@npm:>=3.0.0 <4.0.0, chokidar@npm:^3.5.3, chokidar@npm:^3.6.0":
   version: 3.6.0
   resolution: "chokidar@npm:3.6.0"
   dependencies:
@@ -7714,7 +7714,7 @@ __metadata:
     "@vuepress/client": "npm:2.0.0-rc.2"
     "@vuepress/plugin-pwa": "npm:2.0.0-rc.3"
     "@vuepress/plugin-pwa-popup": "npm:2.0.0-rc.14"
-    "@vuepress/plugin-register-components": "npm:2.0.0-rc.3"
+    "@vuepress/plugin-register-components": "npm:2.0.0-rc.37"
     "@vuepress/plugin-search": "npm:2.0.0-rc.3"
     "@vuepress/theme-default": "npm:2.0.0-rc.6"
     cloc: "npm:2.11.0"
