@@ -3161,15 +3161,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vuepress/plugin-pwa-popup@npm:2.0.0-rc.3":
-  version: 2.0.0-rc.3
-  resolution: "@vuepress/plugin-pwa-popup@npm:2.0.0-rc.3"
+"@vuepress/plugin-pwa-popup@npm:2.0.0-rc.14":
+  version: 2.0.0-rc.14
+  resolution: "@vuepress/plugin-pwa-popup@npm:2.0.0-rc.14"
   dependencies:
-    "@vuepress/plugin-pwa": "npm:2.0.0-rc.3"
-    vue: "npm:^3.4.15"
+    "@vuepress/plugin-pwa": "npm:2.0.0-rc.14"
+    vue: "npm:^3.4.16"
   peerDependencies:
-    vuepress: 2.0.0-rc.2
-  checksum: 10c0/5bdf999a6e2ed01b2b2ff2331728a2d1f7e59cc2314b8d1440a18694ef7b40a5207ac46e0ed1f6fd4a8e8302d342dd49a4a78a41308486e744958f2ee5f2340b
+    vuepress: 2.0.0-rc.7
+  checksum: 10c0/4f046bcb1759d5ae32658570dfd4379d53c578d117c295721bcd0975d55c1a40271188b4a3f58e9105a472dc68432ae627c370da5cd7e6804481457dcca95b71
+  languageName: node
+  linkType: hard
+
+"@vuepress/plugin-pwa@npm:2.0.0-rc.14":
+  version: 2.0.0-rc.14
+  resolution: "@vuepress/plugin-pwa@npm:2.0.0-rc.14"
+  dependencies:
+    mitt: "npm:^3.0.1"
+    register-service-worker: "npm:^1.7.2"
+    vue: "npm:^3.4.16"
+    workbox-build: "npm:^7.0.0"
+  peerDependencies:
+    vuepress: 2.0.0-rc.7
+  checksum: 10c0/58f7b98e7c1a4ca75d940d23c9cb61b3750bf5cd2d002125094854afab276893ec5b4cce4258b3a438f2b145dc612a907cfd83464de546b17ac373d8f93d9510
   languageName: node
   linkType: hard
 
@@ -7699,7 +7713,7 @@ __metadata:
     "@vuepress/bundler-vite": "npm:2.0.0-rc.7"
     "@vuepress/client": "npm:2.0.0-rc.2"
     "@vuepress/plugin-pwa": "npm:2.0.0-rc.3"
-    "@vuepress/plugin-pwa-popup": "npm:2.0.0-rc.3"
+    "@vuepress/plugin-pwa-popup": "npm:2.0.0-rc.14"
     "@vuepress/plugin-register-components": "npm:2.0.0-rc.3"
     "@vuepress/plugin-search": "npm:2.0.0-rc.3"
     "@vuepress/theme-default": "npm:2.0.0-rc.6"
@@ -11305,7 +11319,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:3.4.36, vue@npm:^3.4.15":
+"vue@npm:3.4.36, vue@npm:^3.4.15, vue@npm:^3.4.16":
   version: 3.4.36
   resolution: "vue@npm:3.4.36"
   dependencies:
