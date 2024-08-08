@@ -2882,7 +2882,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/shared@npm:3.4.36, @vue/shared@npm:^3.4.15":
+"@vue/shared@npm:3.4.36, @vue/shared@npm:^3.4.15, @vue/shared@npm:^3.4.34":
   version: 3.4.36
   resolution: "@vue/shared@npm:3.4.36"
   checksum: 10c0/57eb86ddc8933214de2bbc901ab12998c61e83adb438179ec1886b343958810017ace10a0d7aa634df7bfa1dd23232d3abadc164410ce4a346b946de1203da3b
@@ -2976,6 +2976,21 @@ __metadata:
     "@vuepress/utils": "npm:2.0.0-rc.7"
     vue: "npm:^3.4.15"
   checksum: 10c0/28e6d59d490f58c1362271871991d0d04eae818b9798968c6216425c21bdef4f042e79317f121f19e17845143316449b7d08036fdf4ad3f005c21c9f89c1a0d6
+  languageName: node
+  linkType: hard
+
+"@vuepress/helper@npm:2.0.0-rc.40":
+  version: 2.0.0-rc.40
+  resolution: "@vuepress/helper@npm:2.0.0-rc.40"
+  dependencies:
+    "@vue/shared": "npm:^3.4.34"
+    cheerio: "npm:1.0.0-rc.12"
+    fflate: "npm:^0.8.2"
+    gray-matter: "npm:^4.0.3"
+    vue: "npm:^3.4.34"
+  peerDependencies:
+    vuepress: 2.0.0-rc.14
+  checksum: 10c0/5fd0267bbb63d80aad20e9239115ae6f554e7ec86b6c8b216afb8814544a40fb910b79e2cf7180a9b9781440636cb2b82907b37daeda770ca0a3b32032bc5548
   languageName: node
   linkType: hard
 
@@ -3187,17 +3202,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vuepress/plugin-pwa@npm:2.0.0-rc.3":
-  version: 2.0.0-rc.3
-  resolution: "@vuepress/plugin-pwa@npm:2.0.0-rc.3"
+"@vuepress/plugin-pwa@npm:2.0.0-rc.40":
+  version: 2.0.0-rc.40
+  resolution: "@vuepress/plugin-pwa@npm:2.0.0-rc.40"
   dependencies:
+    "@vuepress/helper": "npm:2.0.0-rc.40"
+    "@vueuse/core": "npm:^10.11.0"
     mitt: "npm:^3.0.1"
     register-service-worker: "npm:^1.7.2"
-    vue: "npm:^3.4.15"
-    workbox-build: "npm:^7.0.0"
+    vue: "npm:^3.4.34"
+    workbox-build: "npm:^7.1.1"
   peerDependencies:
-    vuepress: 2.0.0-rc.2
-  checksum: 10c0/a91f5723b94a14cf2524bc7b4b8ab8d5da4a05528d055ddc63cb592c4e4c90a63530223d3469f982d27f79058a6e371aa6cbfadf941106515c8aff3f8b2ff817
+    vuepress: 2.0.0-rc.14
+  checksum: 10c0/eb20b96b5fd48c3dd9720d62911c3264fe878c18a979a64a0aebc6b339d761da92deb710726583509fb422e51c7060bef573be21afcf516e698faf9ee33b8b70
   languageName: node
   linkType: hard
 
@@ -3348,7 +3365,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/core@npm:^10.7.2":
+"@vueuse/core@npm:^10.11.0, @vueuse/core@npm:^10.7.2":
   version: 10.11.0
   resolution: "@vueuse/core@npm:10.11.0"
   dependencies:
@@ -5881,7 +5898,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fflate@npm:^0.8.1":
+"fflate@npm:^0.8.1, fflate@npm:^0.8.2":
   version: 0.8.2
   resolution: "fflate@npm:0.8.2"
   checksum: 10c0/03448d630c0a583abea594835a9fdb2aaf7d67787055a761515bf4ed862913cfd693b4c4ffd5c3f3b355a70cf1e19033e9ae5aedcca103188aaff91b8bd6e293
@@ -7712,7 +7729,7 @@ __metadata:
     "@primer/octicons": "npm:19.11.0"
     "@vuepress/bundler-vite": "npm:2.0.0-rc.7"
     "@vuepress/client": "npm:2.0.0-rc.2"
-    "@vuepress/plugin-pwa": "npm:2.0.0-rc.3"
+    "@vuepress/plugin-pwa": "npm:2.0.0-rc.40"
     "@vuepress/plugin-pwa-popup": "npm:2.0.0-rc.14"
     "@vuepress/plugin-register-components": "npm:2.0.0-rc.37"
     "@vuepress/plugin-search": "npm:2.0.0-rc.3"
@@ -11319,7 +11336,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:3.4.36, vue@npm:^3.4.15, vue@npm:^3.4.16":
+"vue@npm:3.4.36, vue@npm:^3.4.15, vue@npm:^3.4.16, vue@npm:^3.4.34":
   version: 3.4.36
   resolution: "vue@npm:3.4.36"
   dependencies:
@@ -11591,7 +11608,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"workbox-build@npm:^7.0.0":
+"workbox-build@npm:^7.0.0, workbox-build@npm:^7.1.1":
   version: 7.1.1
   resolution: "workbox-build@npm:7.1.1"
   dependencies:
