@@ -209,7 +209,7 @@
         "version": "2.29.1"
     },
     "eslint-plugin-jsdoc": {
-        "version": "48.11.0"
+        "version": "50.2.1"
     },
     "eslint-plugin-markdownlint": {
         "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",
@@ -337,7 +337,7 @@
     "terser": {
         "icon": "https://terser.org/img/terser-square-logo.png",
         "url": "https://terser.org",
-        "version": "5.31.3"
+        "version": "5.31.6"
     },
     "ts-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
