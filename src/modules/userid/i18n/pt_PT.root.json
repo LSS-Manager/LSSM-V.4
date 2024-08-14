@@ -1,5 +1,7 @@
 {
     "description": "Mostra o respetivo User-ID no perfil, se necessário, também mostra o próprio ID na barra de navegação",
     "name": "User-ID",
-    "settings": { "navbar": { "title": "Mostra o próprio ID na barra de navegação" } }
+    "settings": {
+        "navbar": { "title": "Mostra o próprio ID na barra de navegação" }
+    }
 }
