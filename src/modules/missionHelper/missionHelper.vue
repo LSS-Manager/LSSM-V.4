@@ -730,8 +730,7 @@ export default Vue.extend<
         async reloadSpecs() {
             this.isReloading = true;
 
-            const missionHelpBtn =
-                document.querySelector<HTMLAnchorElement>('#mission_help');
+            const missionHelpBtn = document.getElementById('mission_help');
             this.isDiyMission = !missionHelpBtn;
 
             this.missionSpecs = undefined;

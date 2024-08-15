@@ -1,6 +1,5 @@
 export default (LSSM: Vue): void => {
-    const alarmBtn =
-        document.querySelector<HTMLAnchorElement>('#mission_alarm_btn');
+    const alarmBtn = document.getElementById('mission_alarm_btn');
     if (!alarmBtn) return;
 
     LSSM.$stores.root.addStyle({
@@ -59,8 +58,7 @@ export default (LSSM: Vue): void => {
 
     const amountObserver = new MutationObserver(update);
 
-    const amountElement =
-        document.querySelector<HTMLSpanElement>('#vehicle_amount');
+    const amountElement = document.getElementById('vehicle_amount');
 
     if (amountElement) {
         amountObserver.observe(amountElement, {

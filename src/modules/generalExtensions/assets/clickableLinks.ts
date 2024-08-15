@@ -14,11 +14,12 @@ export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
 
     if (window.location.pathname === '/') {
         await scopedClickableLinks(
-            document.querySelector('#chat_panel_body') ?? document
+            document.getElementById('chat_panel_body') ?? document
         );
     } else if (/^\/note\/?/u.test(window.location.pathname)) {
-        const input =
-            document.querySelector<HTMLTextAreaElement>('#note_message');
+        const input = document.getElementById(
+            'note_message'
+        ) as HTMLTextAreaElement;
         if (input) {
             const preview = document.createElement('pre');
             preview.classList.add('input-group', 'form-control');
@@ -32,7 +33,7 @@ export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
         await scopedClickableLinks(document);
     }
 
-    document.querySelector('#chat_panel_body')?.addEventListener(
+    document.getElementById('chat_panel_body')?.addEventListener(
         'error',
         e => {
             const img = e.target as HTMLElement | null;
@@ -53,14 +54,14 @@ export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
                 if (text) e.message += text;
                 const link = links.shift();
                 if (link) {
-                    e.message += `<a href="${link}" ${
+                    e.message += `<a href='${link}' ${
                         new URL(link, window.location.origin).origin ===
                         window.location.origin
                             ? 'class="lightbox-open"'
                             : 'target="_blank"'
                     }>${
                         showImg
-                            ? `<img src="${link}" alt="${link}" style="max-width: 10%;"/>`
+                            ? `<img src='${link}' alt='${link}' style='max-width: 10%;'/>`
                             : link
                     }</a>`;
                 }
@@ -80,14 +81,14 @@ export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
                 if (text) newMessage += he.escape(text);
                 const link = links.shift();
                 if (link) {
-                    newMessage += `<a href="${link}" ${
+                    newMessage += `<a href='${link}' ${
                         new URL(link, window.location.origin).origin ===
                         window.location.origin
                             ? 'class="lightbox-open"'
                             : 'target="_blank"'
                     }>${
                         showImg
-                            ? `<img src="${link}" alt="${link}" style="max-width: 10%;"/>`
+                            ? `<img src='${link}' alt='${link}' style='max-width: 10%;'/>`
                             : link
                     }</a>`;
                 }

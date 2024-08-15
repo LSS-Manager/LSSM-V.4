@@ -9,8 +9,7 @@ export default async (
         missions: (number | string)[];
     }[]
 ): Promise<void> => {
-    const missionTitle =
-        document.querySelector<HTMLHeadingElement>('#missionH1');
+    const missionTitle = document.getElementById('missionH1');
     if (!missionTitle) return;
 
     const missionType = LSSM.$utils.getMissionTypeInMissionWindow();

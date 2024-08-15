@@ -9,8 +9,7 @@ export default (Vue: VueConstructor): void => {
             return s.replace(/[$()*+.?[\\\]^|]/gu, '\\$&');
         },
         getMissionTypeInMissionWindow() {
-            const missionHelpBtn =
-                document.querySelector<HTMLAnchorElement>('#mission_help');
+            const missionHelpBtn = document.getElementById('mission_help');
             if (!missionHelpBtn) return '-1';
 
             let missionType = new URL(
@@ -115,7 +114,7 @@ export default (Vue: VueConstructor): void => {
             const $utils = (window[PREFIX] as Vue).$utils;
             if (initialCall && $utils.activeCountdowns.includes(id)) return;
 
-            const element = document.querySelector<HTMLElement>(`#${id}`);
+            const element = document.getElementById(`${id}`);
             const activeIndex = $utils.activeCountdowns.indexOf(id);
             if (!element || countdown <= 0) {
                 if (activeIndex >= 0)

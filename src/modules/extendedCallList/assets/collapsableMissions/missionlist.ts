@@ -163,7 +163,7 @@ export default (
 
     if (allMissionsCollapsed) allBtn.click();
 
-    const sortBtn = document.querySelector<HTMLButtonElement>(`#${sortBtnId}`);
+    const sortBtn = document.getElementById(`${sortBtnId}`);
     if (sortBtn) {
         sortBtn.parentElement?.before(allBtn);
     } else {
