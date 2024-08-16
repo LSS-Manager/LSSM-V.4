@@ -1,0 +1,42 @@
+{
+    "enhancedPersonnelAssignment": {
+        "toggleFittingEquipment": "Zahrnout školení pro možnou výbavu",
+        "toggleFittingPersonnel": "Skrýt personál bez odpovídajícího školení",
+        "toggleFittingTrailers": "Zahrnout školení pro možné přívěsy a konteinery"
+    },
+    "expansions": { "notBuild": "Zatím nepostaveno" },
+    "fastDispatchChooser": { "noDispatch": "Žádné operační středisko" },
+    "personnelDemands": {
+        "additional": "Hodnota v závorce je bez vozidel se stavem 6",
+        "demand": "Požadovaný personál:"
+    },
+    "renewAllStagingAreas": { "title": "Obnovit všechny přípravné oblasti" },
+    "schoolingSummary": {
+        "all": "Všechny kombinace",
+        "amount": "Počet",
+        "bound": "Přiřazeno",
+        "each": "Kurzy jednotlivě",
+        "max": "aktuálně maximálně potřeba",
+        "min": "aktuálně minimálně potřeba",
+        "noSchooling": "Žádný kurz",
+        "schooling": "Školení",
+        "title": "Přehled personálu"
+    },
+    "startPatrols": {
+        "duration": "1 hodina | {n} hodin",
+        "title": "Hlídky"
+    },
+    "upgradeConfirmation": {
+        "modal": {
+            "btnCancel": "Zrušit",
+            "btnConfirm": "Potvrdit",
+            "text": "Opravdu chcete budovu rozšířit?",
+            "title": "Rozšířit budovu?"
+        }
+    },
+    "vehiclePersonnel": {
+        "vehiclesPersonnelAssigned": "Přiřazeno",
+        "vehiclesPersonnelCurrent": "Aktuálně",
+        "vehiclesPersonnelMax": "Max"
+    }
+}
