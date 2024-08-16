@@ -60,7 +60,7 @@ Pokud myš chvíli necháte na příslušné adrese, zobrazí se na mapě, ale a
 
 <!-- markdownlint-disable link-fragments -->
 
-Záznamy zmizí po obnovení stránky a nejsou perzistentní! Pro trvalé pozice použijte prosím [Záložky pro mapu](#zloky-pro-mapu)
+Záznamy zmizí po obnovení stránky a nejsou perzistentní! Pro trvalé pozice použijte prosím [Záložky pro mapu](#záložky-pro-mapu)
 
 <!-- markdownlint-enable link-fragments -->
 
@@ -73,7 +73,7 @@ Toto nastavení bohužel zatím není kompatibilní s typem mapy Mapkit!
 <!-- markdownlint-disable link-fragments -->
 
 Touto funkcí si můžete ručně nastavit záložky na mapě.
-Tato funkce funguje velmi podobně jako [Uložit historii "Hledání lokace"](#uloit-historii-hledn-lokace") s tím rozdílem, že záložky nastavujete sami a zůstanou i po obnovení stránky.
+Tato funkce funguje velmi podobně jako [Uložit historii "Hledání lokace"](#uložit-historii-hledání-lokace) s tím rozdílem, že záložky nastavujete sami a zůstanou i po obnovení stránky.
 
 <!-- markdownlint-enable link-fragments -->
 
@@ -107,7 +107,7 @@ Toto nastavení udrží v nabídce "Nová budova" vybraný typ budovy, který js
 
 <!-- markdownlint-disable link-fragments -->
 
-Funguje podobně jako [Zapamatování typu budovy](#zapamatovn-typu-budovy), ale pro výběr operačního střediska.
+Funguje podobně jako [Zapamatování typu budovy](#zapamatování-typu-budovy), ale pro výběr operačního střediska.
 
 <!-- markdownlint-enable link-fragments -->
 
