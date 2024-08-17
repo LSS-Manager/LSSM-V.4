@@ -19,7 +19,8 @@
         "title": "Kategorie vytvořené mise",
         "water_damage_and_flood": "Škody způsobené vodou a povodně",
         "water_rescue": "Vodní záchranné mise",
-        "water_rescue_2": "Mise pobřežní stráže"
+        "water_rescue_2": "Mise pobřežní stráže",
+        "divers_specialization": "Mise vodní záchranné služby (Specializace)"	
     },
     "patients": {
         "code_possible": "Možné kódy pacientů",
@@ -152,6 +153,7 @@
             "traffic_car": "Vyšetřovatel DN | Vyšetřovatelé DN",
             "wasserwerfer": "Vozidlo Vodního Děla | Vozidla Vodního Děla",
             "water_needed": "Potřeba Vody",
+					"min_pump_speed": "Min. Kapacita čerpadla",
             "water_tankers": "KHA | KHA"
         },
         "multifunctionals": {

@@ -1,0 +1,16 @@
+{
+    "inputMaxLen": "Toto pole musí mít mezi {min} a {max} znaky!",
+    "protocolDeletionConfirmation": {
+        "all": {
+            "text": "Opravdu chcete kompletně smazat protokol? Toto nelze vrátit zpět!",
+            "title": "Smazat protokol"
+        },
+        "cancel": "Zrušit",
+        "confirm": "Pokračovat",
+        "single": {
+            "text": "Opravdu chcete kompletně smazat tento záznam v protokolu? Tato akce později nelze vrátit zpět!",
+            "title": "Smazat záznam v protokolu"
+        },
+        "toggleSingle": "Potvrzení i u jednotlivých záznamů"
+    }
+}

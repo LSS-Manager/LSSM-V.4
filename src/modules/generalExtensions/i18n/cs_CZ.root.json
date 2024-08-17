@@ -1,0 +1,72 @@
+{
+    "description": "Umožňuje aktivovat obecná vylepšení, jako je např. možnost kliknout na odkazy v celé hře.",
+    "name": "Obecná vylepšení",
+    "positions": {
+        "bottom-left": "Vlevo dole 🡧",
+        "bottom-right": "Vpravo dole 🡦",
+        "top-left": "Vlevo nahoře 🡤",
+        "top-right": "Vpravo nahoře 🡥"
+    },
+    "settings": {
+        "aaoExportQr": {
+            "description": "Zobrazí QR kód s odkazem pro export Pravidel Nouzových Výjezdů.",
+            "title": "PNV export jako QR kód"
+        },
+        "browserTitle": {
+            "description": "Přizpůsobí název záložky prohlížeče, aby ukazoval, co je právě ve hře otevřené.",
+            "title": "Název záložky prohlížeče"
+        },
+        "clickableLinks": {
+            "description": "Odkazy, které jsou zobrazeny pouze jako text (např. v chatu, fóru, zprávách, atd.) budou klikatelné. Otevřou se automaticky v nové záložce.",
+            "title": "Klikatelné odkazy"
+        },
+        "emojiPicker": {
+            "description": "Zobrazí výběr emoji, když zadáš : následované textem.",
+            "title": "Výběr Emoji"
+        },
+        "extensionCloseCall": {
+            "description": "Uzavře žádosti o převoz i po kliknutí na tlačítko \"k misi\".",
+            "title": "Rozšíření vylepšeného stavu 5"
+        },
+        "linkPreviews": {
+            "buildings": "Budovy",
+            "description": "Po krátkém najetí myši na odkaz, se zobrazí malý informační box. Můžeš nastavit, pro které odkazy má být tato funkce aktivována:",
+            "missions": "Mise",
+            "profile": "Uživatelé",
+            "title": "Náhled odkazu",
+            "vehicles": "Vozidla"
+        },
+        "mapSearchOnMap": {
+            "description": "Umístí textové pole pro vyhledávání míst do okna mapy.",
+            "title": "Vyhledávání míst na mapě"
+        },
+        "mapSearchOnMapPosition": {
+            "description": "Vyber, kde na mapě se má zobrazovat textové pole pro vyhledávání míst.",
+            "title": "Pozice vyhledávání na mapě"
+        },
+        "mapUndo": {
+            "description": "Vycentruje mapu na předchozí pozice, na které byla dříve vycentrována. – Funkční pouze pro typ mapy \"OpenStreetMap\"",
+            "title": "Uložení pohybů mapy"
+        },
+        "notePreview": {
+            "description": "Na odkazy v poznámkách lze kliknout zobrazením náhledu poznámek.",
+            "title": "Poznámky"
+        },
+        "ownMapMarkers": {
+            "description": "Ulož si vlastní body na mapě, aby byly rychle a snadno dostupné na jeden klik!",
+            "title": "Záložky na mapě"
+        },
+        "saveLastBuildingType": {
+            "description": "Uloží, který typ budovy jsi naposledy vybral v nabídce \"Nová budova\", a automaticky jej vybere.",
+            "title": "Zapamatovat typ budovy"
+        },
+        "saveLastDispatchCenter": {
+            "description": "Uloží, které operační středisko jsi naposledy vybral v nabídce \"Nová budova\", a automaticky ji vybere.",
+            "title": "Zapamatovat operační středisko"
+        },
+        "showImg": {
+            "description": "Pokouší se vygenerovat náhled obrázku. Funguje pouze ve spojení s funkcí \"Odkazy klikatelné\"!",
+            "title": "Aktivovat náhled obrázku"
+        }
+    }
+}
