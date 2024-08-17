@@ -22,10 +22,7 @@
         "schooling": "Školení",
         "title": "Přehled personálu"
     },
-    "startPatrols": {
-        "duration": "1 hodina | {n} hodin",
-        "title": "Hlídky"
-    },
+    "startPatrols": { "duration": "1 hodina | {n} hodin", "title": "Hlídky" },
     "upgradeConfirmation": {
         "modal": {
             "btnCancel": "Zrušit",

@@ -19,7 +19,7 @@ Funguje pouze přímý odkaz na obrázek!
 
 ## Náhled odkazů
 
-Někdy chcete jen stručnou informaci o např. o budově nebo uživateli, aniž byste přímo otevřeli odkaz. 
+Někdy chcete jen stručnou informaci o např. o budově nebo uživateli, aniž byste přímo otevřeli odkaz.
 K tomu lze aktivovat naše náhledy odkazů v nastavení:
 
 ![Nastavení pro náhledy odkazů](./linkPreview_setting.png)
@@ -87,8 +87,8 @@ S touto funkcí se přepíše název karty prohlížeče, na název okna hry ve 
 
 Potřebujete jednoduchý, ale dobře fungující okno pro výběr emoji? Nabízíme vám ho!
 
-Stačí zadat dvojtečku `:` v libovolném textovém poli a začít psát. Po 500 ms, kdy nebudete stiskávat žádné klávesy, se zobrazí návrhy emoji. Kliknutím na návrh se odpovídající emoji vloží. 
-Všimněte si, že aktuálně se pro vyhledávání používají pouze oficiální názvy emoji, např. `slightly_smiling_face` pro `🙂`. 
+Stačí zadat dvojtečku `:` v libovolném textovém poli a začít psát. Po 500 ms, kdy nebudete stiskávat žádné klávesy, se zobrazí návrhy emoji. Kliknutím na návrh se odpovídající emoji vloží.
+Všimněte si, že aktuálně se pro vyhledávání používají pouze oficiální názvy emoji, např. `slightly_smiling_face` pro `🙂`.
 Nejdůležitější názvy si jistě rychle zapamatujete 😉
 
 ![Výběr Emoji](./emojipicker.png)
@@ -127,5 +127,5 @@ Toto nastavení přesune textové pole "Hledání lokace" z navigační lišty n
 
 ## PNV export jako QR kód
 
-Chcete rychle sdílet své "Pravidla Nouzových Výjezdů" (PNV)? S tímto nastavením bude přímo pod vytvořeným exportním odkazem vygenerován QR kód. 
+Chcete rychle sdílet své "Pravidla Nouzových Výjezdů" (PNV)? S tímto nastavením bude přímo pod vytvořeným exportním odkazem vygenerován QR kód.
 Tento kód lze buď přímo naskenovat z obrazovky, nebo stáhnout jako obrázek a mít ho tak vždy po ruce.

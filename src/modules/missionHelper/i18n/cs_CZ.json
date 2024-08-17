@@ -10,6 +10,7 @@
         "coastal_rescue": "Pobřežní záchranné mise",
         "coastal_rescue_ocean": "Oceánské záchranné mise",
         "disaster_response_specialization": "Mise při přírodních katastrofách (Specializace)",
+        "divers_specialization": "Mise vodní záchranné služby (Specializace)",
         "fire": "Hasičské mise",
         "fire_support_specialization": "Chemické a Průmyslové hasičské mise (Specializace)",
         "general_practitioner_transfer": "Praktický lékař",
@@ -19,8 +20,7 @@
         "title": "Kategorie vytvořené mise",
         "water_damage_and_flood": "Škody způsobené vodou a povodně",
         "water_rescue": "Vodní záchranné mise",
-        "water_rescue_2": "Mise pobřežní stráže",
-        "divers_specialization": "Mise vodní záchranné služby (Specializace)"	
+        "water_rescue_2": "Mise pobřežní stráže"
     },
     "patients": {
         "code_possible": "Možné kódy pacientů",
@@ -130,6 +130,7 @@
             "hose": "Hadicový Kontejner | Hadicové Kontejnery",
             "k9": "Vozidlo Kynologa | Vozidla Kynologa",
             "kdow_orgl": "Inspektor Provozu | Inspektoři Provozu",
+            "min_pump_speed": "Min. Kapacita čerpadla",
             "mobile_air_vehicles": "PPLA | PPLA",
             "mobile_command_vehicles": "MOS | MOS",
             "mobile_shelter": "Týlový Kontejner | Týlové Kontejnery",
@@ -153,7 +154,6 @@
             "traffic_car": "Vyšetřovatel DN | Vyšetřovatelé DN",
             "wasserwerfer": "Vozidlo Vodního Děla | Vozidla Vodního Děla",
             "water_needed": "Potřeba Vody",
-					"min_pump_speed": "Min. Kapacita čerpadla",
             "water_tankers": "KHA | KHA"
         },
         "multifunctionals": {

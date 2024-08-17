@@ -33,7 +33,7 @@
             "title": "Šířka zvýraznění"
         },
         "arrCounter": {
-            "description": "Počítá, kolikrát bylo na PNV nebo jednotku kliknuto. Všechny počítadla mohou být resetovány tlačítkem vpravo dole \"Reset počítadla PNV \/ Reset výběru vozidel\".",
+            "description": "Počítá, kolikrát bylo na PNV nebo jednotku kliknuto. Všechny počítadla mohou být resetovány tlačítkem vpravo dole \"Reset počítadla PNV / Reset výběru vozidel\".",
             "title": "PNV počítadlo"
         },
         "arrCounterAsBadge": {
