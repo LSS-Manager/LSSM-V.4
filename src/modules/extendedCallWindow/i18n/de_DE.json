@@ -285,6 +285,10 @@
             {
                 "texts": ["Bergrettungsfahrzeug"],
                 "vehicles": [149, 150, 151, 152, 158]
+            },
+            {
+                "texts": ["Schneefahrzeug","Schneefahrzeug"],
+                "vehicles": [154]
             }
         ],
         "water": "l. Wasser"
