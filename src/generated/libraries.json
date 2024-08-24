@@ -62,7 +62,7 @@
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-        "version": "20.14.15"
+        "version": "20.16.1"
     },
     "@types/pdfmake": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -139,7 +139,7 @@
     "@vuepress/plugin-register-components": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://ecosystem.vuejs.press/plugins/tools/register-components.html",
-        "version": "2.0.0-rc.37"
+        "version": "2.0.0-rc.42"
     },
     "@vuepress/plugin-search": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
@@ -260,7 +260,7 @@
     },
     "husky": {
         "url": "https://typicode.github.io/husky",
-        "version": "9.1.4"
+        "version": "9.1.5"
     },
     "js-yaml": {
         "version": "4.1.0"
@@ -298,7 +298,7 @@
     "pinia": {
         "icon": "https://pinia.vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/pinia#readme",
-        "version": "2.2.1"
+        "version": "2.2.2"
     },
     "prettier": {
         "icon": "https://prettier.io/icon.png",
@@ -317,7 +317,7 @@
     "sass-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack-contrib/sass-loader",
-        "version": "14.2.1"
+        "version": "16.0.1"
     },
     "semver": {
         "version": "7.6.3"
@@ -419,7 +419,7 @@
     "vue3": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/core/tree/main/packages/vue#readme",
-        "version": "3.4.37"
+        "version": "3.4.38"
     },
     "vuepress": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",

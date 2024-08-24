@@ -396,7 +396,7 @@ export default {
         coins: 30,
         staff: {
             min: 1,
-            max: 1,
+            max: 2,
             training: {
                 Rettungsdienst: {
                     notarzt: {
@@ -406,6 +406,7 @@ export default {
             },
         },
         icon: 'helicopter',
+        equipmentCapacity: 10,
         possibleBuildings: [5],
     },
     32: {
@@ -869,6 +870,7 @@ export default {
             },
         },
         icon: 'helicopter',
+        equipmentCapacity: 10,
         possibleBuildings: [13],
     },
     62: {

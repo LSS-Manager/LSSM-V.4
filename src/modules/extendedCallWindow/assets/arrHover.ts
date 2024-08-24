@@ -144,6 +144,9 @@ export default (
         ]);
     }
 
+    const isStringifiedIDArray = (str: string) =>
+        /^\[\s*\d+(?:,\s*\d+)*,?\s*\]$/u.test(str);
+
     const check_amount_available = (
         buildings: number[],
         attributes: Record<string, number>,
@@ -218,7 +221,19 @@ export default (
                                 }
                                 break;
                             default:
-                                if (
+                                if (isStringifiedIDArray(attr)) {
+                                    const ids = JSON.parse(attr) as number[];
+                                    if (
+                                        ids.includes(
+                                            parseInt(
+                                                vehicle.getAttribute(
+                                                    'vehicle_type_id'
+                                                ) || '-1'
+                                            )
+                                        )
+                                    )
+                                        amounts[attr]++;
+                                } else if (
                                     (!Number.isNaN(parseInt(attr)) &&
                                         attr ===
                                             vehicle.getAttribute(
@@ -305,36 +320,31 @@ export default (
             const vehicleTypeCaptionsAttr: Record<string, string> = JSON.parse(
                 arr.getAttribute('vehicle_type_captions') ?? '{}'
             );
-            arrSpecs.append(
-                ...(
-                    Object.entries({
-                        ...ingameSpecs,
-                        ...customSpecs,
-                    }).map(([name, amount]) => [
+            Object.entries({
+                ...ingameSpecs,
+                ...customSpecs,
+            })
+                .map<[string, string, number]>(([name, amount]) => [
+                    name,
+                    ARRSpecTranslations[name] ??
+                        vehicleTypeCaptionsAttr[name] ??
                         name,
-                        ARRSpecTranslations[name] ??
-                            vehicleTypeCaptionsAttr[name] ??
-                            name,
-                        amount,
-                    ]) as [string, string, number][]
-                )
-                    .sort(([, a], [, b]) => (a < b ? -1 : a > b ? 1 : 0))
-                    .map(([attr, name, amount]) => {
-                        const rowElement = document.createElement('tr');
-                        const available = availabilities[attr] || 0;
-                        if (available < amount)
-                            rowElement.classList.add('bg-danger');
-                        rowElement.insertCell().textContent = `${amount.toLocaleString()}x`;
-                        rowElement.insertCell().textContent = name;
-                        rowElement.insertCell().textContent =
-                            available.toLocaleString();
-                        const max = Math.floor(available / amount);
-                        rowElement.insertCell().textContent =
-                            max.toLocaleString();
-                        if (max < minimumAvailable) minimumAvailable = max;
-                        return rowElement;
-                    })
-            );
+                    amount,
+                ])
+                .sort(([, a], [, b]) => a.localeCompare(b))
+                .forEach(([attr, name, amount]) => {
+                    const rowElement = arrSpecs.insertRow();
+                    const available = availabilities[attr] || 0;
+                    if (available < amount)
+                        rowElement.classList.add('bg-danger');
+                    rowElement.insertCell().textContent = `${amount.toLocaleString()}x`;
+                    rowElement.insertCell().textContent = name;
+                    rowElement.insertCell().textContent =
+                        available.toLocaleString();
+                    const max = Math.floor(available / amount);
+                    rowElement.insertCell().textContent = max.toLocaleString();
+                    if (max < minimumAvailable) minimumAvailable = max;
+                });
             if (maxAmountNode)
                 maxAmountNode.textContent = minimumAvailable.toLocaleString();
         }
