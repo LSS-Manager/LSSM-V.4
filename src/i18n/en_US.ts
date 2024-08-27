@@ -105,7 +105,7 @@ export default {
         },
         'Rescue Vehicles': {
             vehicles: {
-                'Ambulances': [5, 27, 48, 49, 50, 57, 58, 61],
+                'Ambulances': [5, 27, 48, 49, 50, 57, 58, 61, 109],
                 'HEMS': [11],
                 'First Responder': [15],
                 'Rescue Boat': [25],
@@ -270,7 +270,7 @@ export default {
         'Amusement Park',
     ],
     only_alliance_missions: [41, 61, 62, 112],
-    transfer_missions: [246],
+    transfer_missions: [246, 983],
     ranks: {
         missionchief: {
             0: 'Probie',

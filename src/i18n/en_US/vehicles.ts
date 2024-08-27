@@ -1699,4 +1699,28 @@ export default {
         icon: 'car-side',
         possibleBuildings: [5, 15],
     },
+    109: {
+        caption: 'CCTU',
+        color: '#bc893d',
+        credits: 10_000,
+        coins: 30,
+        staff: {
+            min: 2,
+            max: 2,
+            training: {
+                'Fire Station': {
+                    critical_care: {
+                        all: true,
+                    },
+                },
+                'Rescue': {
+                    critical_care: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 3, 13, 14, 16],
+    },
 } satisfies Record<number, InternalVehicle>;

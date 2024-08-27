@@ -1,0 +1,27 @@
+{
+    "description": "Alarme, Partilha esta missão e publica a nota de incidente com um único clique.",
+    "lsam": { "help": "Variables are replaced same way as in missions list." },
+    "name": "Partilha-Publicação-Aliança",
+    "noMessage": "Sem nota de incidência",
+    "settings": {
+        "enableCallList": {
+            "description": "Integra este módulo no \"Share missions\" na lista de chamadas expandida.",
+            "title": "Integrar na Lista de chamadas"
+        },
+        "enableLSAM": {
+            "description": "Ativa a opção de selecionar uma nota de incidência ao criar uma missão de aliança de larga escala.",
+            "title": "Missões de Aliança em larga escala"
+        },
+        "message": "Nota incidência",
+        "messages": {
+            "description": "Estebele as suas notas de incidência aqui. Pode usar variáveis, por favor vê o <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost/#variables\">Wiki</a> antes! Por favor escolhe um nome úncico para cada resposta, para identificar rapidamente na janela de alarmes.",
+            "title": "Respostas"
+        },
+        "name": "Nome",
+        "postInChat": "Publicar a nota no chat?",
+        "stayInCallList": {
+            "description": "Com esta opção ativada, podes enviar notas de icidência incluídas nas missões partilhadas.",
+            "title": "Ficar na lista de chamadas"
+        }
+    }
+}

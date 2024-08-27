@@ -7,8 +7,10 @@ const modules = {
         dev: 'Tento modul je v současné době ve vývoji. Aktivací může vést k neúplným funkcím.',
         closeWarning: {
             title: 'Neulozené změny',
-            text: 'Ve sbírce aplikací jste provedli změny, které nejsou uloženy. Resetujte je nebo uložte a ukončete sbírku aplikací.',
-            close: 'Zavřít zprávu',
+            text: 'V AppStore jste provedli změny, které ještě nejsou uloženy. Resetováním nebo uložením zavřete AppStore.',
+            abort: 'Zrušit',
+            saveAndExit: 'Uložit a Zavřít',
+            exit: 'Zavřít bez uložení',
         },
     },
     settings: {
@@ -18,7 +20,14 @@ const modules = {
         reset: 'Resetovat',
         export: 'Export',
         import: 'Import',
-        donate: 'donate voluntarily',
+        donate: 'Dobrovolné dary',
+        appendableList: {
+            unique: {
+                title: 'Dvojnásobná hodnota',
+                text: 'Ve sloupci **{title}** se nesmí objevit žádné duplicitní hodnoty. Hodnota **{value}** již existuje!',
+                confirm: 'OK',
+            },
+        },
         resetWarning: {
             title: 'Resetovat nastavení',
             text: 'Opravdu chcete resetovat nastavení do počátečních hodnot? Tento krok nelze vrátit!',
@@ -35,7 +44,9 @@ const modules = {
         closeWarning: {
             title: 'Neuložené změny',
             text: 'V nastavení jste provedli změny, které nejsou uloženy. Resetujte je nebo uložte a zavřete nastavení.',
-            close: 'Zavřít zprávu',
+            abort: 'Zrušit',
+            saveAndExit: 'Uložit a Zavřít',
+            exit: 'Zavřít bez uložení',
         },
         changeList: {
             true: 'Aktivovat',
@@ -47,55 +58,54 @@ const modules = {
 export default {
     modules,
     buildingCategories: {
-        'Fire Department': {
-            buildings: [0, 4, 11, 13, 17],
+        Hasiči: {
+            buildings: [0, 1, 18],
             color: '#ff2d2d',
         },
-        'Rescue Stations': {
-            buildings: [3, 6, 12, 16],
+        Záchranáři: {
+            buildings: [2, 3, 5, 15, 20, 22],
             color: '#ffa500',
         },
-        'Police Stations': {
-            buildings: [5, 7, 8, 15, 18],
+        Policie: {
+            buildings: [6, 8, 13, 19, 21, 25],
             color: '#00ac00',
         },
-        'Other': {
-            buildings: [2, 9, 14],
+        Other: {
+            buildings: [4, 7, 23, 24],
             color: '#02a18c',
         },
     },
     vehicleCategories: {
-        'Firefighters': {
+        Hasiči: {
             vehicles: {
-                'Fire trucks': [0, 1, 13, 18],
-                'WaterTanker': [7],
-                'Special vehicles': [2, 3, 4, 6, 8, 9, 12],
-                'Wildland vehicles': [30, 31, 32, 33, 34, 38, 39, 40, 41],
-                'Airport Vehicles': [17],
-                'Boats': [21, 22, 24],
-                'Fire Aviation': [35, 36, 37],
+                'Hasičský vůz': [0, 1],
+                'Vodní záchranná služba': [20, 22],
+                'Letiště': [40, 41],
+                'Kontejner': [43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53],
+                'Další vozidla': [
+                    2, 3, 4, 6, 7, 10, 16, 17, 28, 29, 30, 31, 42,
+                ],
             },
             color: '#ff2d2d',
         },
-        'Rescue Vehicles': {
+        Záchranáři: {
             vehicles: {
-                'Ambulances': [5, 27],
-                'HEMS': [11],
-                'First Responder': [15],
-                'Rescue Boat': [25],
-                'Other EMS Vehicle': [20, 28, 29],
+                'Sanitka': [5, 25, 26, 27, 54, 55],
+                'Záchranný vrtulník': [9],
+                'VZS ČČK': [21, 23, 24],
             },
             color: '#ffa500',
         },
-        'Police Vehicles': {
+        Policie: {
             vehicles: {
-                'Patrol Car': [10],
-                'SWAT': [16, 26],
-                'Police Motorcycle': [23],
-                'Police helicopter': [14],
-                'K-9 Unit': [19],
-                'FBI': [42, 43, 44, 45, 46],
-                'Sheriff': [47],
+                'Policejní automobil': [8, 18],
+                'URNA': [12, 15],
+                'Policejní motocykl': [14],
+                'Kynolog': [13],
+                'Pořádková jednotka': [32, 33, 34, 35, 36, 37],
+                'Policejní vrtulník': [11],
+                'Pyrotechnici': [19],
+                'Stáje policie': [38, 39],
             },
             color: '#00ac00',
         },
@@ -105,25 +115,25 @@ export default {
         2: 20,
         6: 19,
     },
-    amount: 'Quantity',
-    search: 'Search',
-    alliance: 'Alliance',
+    amount: 'Množství',
+    search: 'Hledat',
+    alliance: 'Aliance',
     premiumNotice:
         'This feature extends a premium feature of the game and is therefore only available for players with a Missionchief game premium account!',
     credits: 'Kredity',
     coins: 'Mincí',
-    close: 'Close',
+    close: 'Zavřít',
     fullscreen: {
-        expand: 'Activate full screen mode',
-        compress: 'Disable full screen mode',
+        expand: 'Aktivovat mód na celou obrazovku',
+        compress: 'Dektivovat mód na celou obrazovku',
     },
-    hideTitle: 'Show heading | Hide heading',
-    vehicle: 'Cars | Car | Cars',
-    building: 'Buildings',
-    station: 'Stations | Station | Stations',
-    distance: 'Distance | Distances',
-    vehicleType: 'Vehicle type',
-    noOptions: 'Sorry, no matching options.',
+    hideTitle: 'Zobrazit záhlaví | Skrýt záhlaví',
+    vehicle: 'Vozidla | Vozidlo | Vozidla',
+    building: 'Budovy',
+    station: 'Stanice | Stanice | Stanice',
+    distance: 'Vzdálenost | Vzdálenosti',
+    vehicleType: 'Typ vozidla',
+    noOptions: 'Litujeme, žádné odpovídající možnosti.',
     fmsReal2Show: {
         1: 1,
         2: 2,
@@ -227,4 +237,19 @@ export default {
         'Zábavní park',
     ],
     only_alliance_missions: [57, 74],
+    ranks: {
+        missionchief: {
+            0: 'Strážmistr',
+            200: 'Nadstrážmistr',
+            10_000: 'Podpraporčík',
+            100_000: 'Praporčík',
+            1_000_000: 'Nadpraporčík',
+            5_000_000: 'Podporučík',
+            20_000_000: 'Poručík',
+            50_000_000: 'Nadporučík',
+            1_000_000_000: 'Kapitán',
+            2_000_000_000: 'Major',
+            5_000_000_000: 'Plukovník',
+        },
+    },
 };
