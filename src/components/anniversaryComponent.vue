@@ -190,7 +190,7 @@ onMounted(() => {
     navbar.classList.add('lssmv4-anniversary-navbar');
     for (let i = 0; i < window.innerWidth / 100; i++)
         navbar.append(createBalloon(false, true, false).balloon);
-    document.querySelector<HTMLElement>('#main_navbar')?.prepend(navbar);
+    document.getElementById('main_navbar')?.prepend(navbar);
 });
 </script>
 

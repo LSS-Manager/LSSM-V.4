@@ -120,7 +120,7 @@ export default async (
     );
 
     const panelBodyId = 'missions-panel-body';
-    const panelBody = document.querySelector<HTMLDivElement>(`#${panelBodyId}`);
+    const panelBody = document.getElementById(panelBodyId);
 
     if (!panelBody) return;
 

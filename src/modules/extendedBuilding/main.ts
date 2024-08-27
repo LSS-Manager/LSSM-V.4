@@ -25,17 +25,15 @@ export default (async ({
                 window.location.pathname
             ) &&
             !/^\/schoolings\/\d+\/?$/u.test(window.location.pathname)) ||
-        (!document.querySelector('#bereitstellungsraumReset') &&
+        (!document.getElementById('bereitstellungsraumReset') &&
             document.querySelectorAll('[href*="profile"]').length)
     )
         return;
 
     if (/^\/buildings\/\d+\/?$/u.test(window.location.pathname)) {
-        const BUILDING_MODE = document.querySelector<HTMLDivElement>(
-            '#tab_protocol'
-        )
+        const BUILDING_MODE = document.getElementById('tab_protocol')
             ? 'dispatch'
-            : document.querySelector<HTMLDivElement>('#schooling_running')
+            : document.getElementById('schooling_running')
               ? 'schooling'
               : 'building';
 
@@ -64,7 +62,7 @@ export default (async ({
         if (BUILDING_MODE === 'building') {
             if (
                 (await getSetting('personnelDemands')) &&
-                document.querySelector<HTMLTableElement>('#vehicle_table')
+                document.getElementById('vehicle_table')
             ) {
                 import(
                     /* webpackChunkName: "modules/extendedBuilding/personnelDemands" */ './assets/personnelDemands'
@@ -86,7 +84,7 @@ export default (async ({
 
         if (
             (await getSetting('expansions')) &&
-            document.querySelector('#ausbauten')
+            document.getElementById('ausbauten')
         ) {
             import(
                 /* webpackChunkName: "modules/extendedBuilding/expansions" */ './assets/expansions'

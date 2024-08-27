@@ -140,7 +140,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
             'poi-hider-style',
             true
         );
-        document.querySelector<HTMLStyleElement>(`#${extraStyleId}`)?.remove();
+        document.getElementById(extraStyleId)?.remove();
         const style = document.createElement('style');
         style.id = extraStyleId;
         style.textContent = `${selector} {display: block !important;}`;
@@ -168,9 +168,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
             }
             if (
                 isPOIWindow &&
-                document.querySelector<HTMLDivElement>(
-                    `#${poiSettingsWrapperId}`
-                )
+                document.getElementById(poiSettingsWrapperId) as HTMLDivElement
             )
                 return;
             isPOIWindow = true;
@@ -277,8 +275,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
         });
     });
 
-    const buildingsElement =
-        document.querySelector<HTMLDivElement>('#buildings');
+    const buildingsElement = document.getElementById('buildings');
     if (buildingsElement)
         observer.observe(buildingsElement, { childList: true });
 }) as ModuleMainFunction;

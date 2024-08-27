@@ -67,7 +67,7 @@ export default (LSSM: Vue, MODULE_ID: string, btnVehicles: string[]): void => {
         );
     });
 
-    document.querySelector('#navbar-alarm-spacer')?.before(holder);
+    document.getElementById('navbar-alarm-spacer')?.before(holder);
 
     LSSM.$stores.root.addStyle({
         selectorText: `#${table.id} tr:nth-child(1) td`,

@@ -9,13 +9,12 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     btn.setAttribute('id', toggleBtnId);
     btn.classList.add('btn', 'btn-success');
     const toggleHidden = () => {
-        const free_vehicles = document.querySelector('#h2_free_vehicles');
+        const free_vehicles = document.getElementById('h2_free_vehicles');
         free_vehicles?.classList.toggle('hidden');
-        const vehicle_list_step = document.querySelector('#vehicle_list_step');
+        const vehicle_list_step = document.getElementById('vehicle_list_step');
         vehicle_list_step?.classList.toggle('hidden');
-        const group_max_distance = document.querySelector(
-            '#group_max_distance'
-        );
+        const group_max_distance =
+            document.getElementById('group_max_distance');
         group_max_distance?.classList.toggle('hidden');
         btn.textContent = $m(
             `hideVehicleList.${
