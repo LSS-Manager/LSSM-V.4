@@ -54,14 +54,14 @@ export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
                 if (text) e.message += text;
                 const link = links.shift();
                 if (link) {
-                    e.message += `<a href='${link}' ${
+                    e.message += `<a href="${link}" ${
                         new URL(link, window.location.origin).origin ===
                         window.location.origin
                             ? 'class="lightbox-open"'
                             : 'target="_blank"'
                     }>${
                         showImg
-                            ? `<img src='${link}' alt='${link}' style='max-width: 10%;'/>`
+                            ? `<img src="${link}" alt="${link}" style="max-width: 10%;"/>`
                             : link
                     }</a>`;
                 }
@@ -81,14 +81,14 @@ export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
                 if (text) newMessage += he.escape(text);
                 const link = links.shift();
                 if (link) {
-                    newMessage += `<a href='${link}' ${
+                    newMessage += `<a href="${link}" ${
                         new URL(link, window.location.origin).origin ===
                         window.location.origin
                             ? 'class="lightbox-open"'
                             : 'target="_blank"'
                     }>${
                         showImg
-                            ? `<img src='${link}' alt='${link}' style='max-width: 10%;'/>`
+                            ? `<img src="${link}" alt="${link}" style="max-width: 10%;"/>`
                             : link
                     }</a>`;
                 }

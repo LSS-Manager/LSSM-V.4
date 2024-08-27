@@ -58,7 +58,7 @@ export default <
             if (
                 (
                     document.getElementById(
-                        `${this.toggleId}`
+                        this.toggleId
                     ) as HTMLInputElement
                 )?.checked
             ) {
@@ -75,7 +75,7 @@ export default <
             if (
                 (
                     document.getElementById(
-                        `${this.toggleId}`
+                        this.toggleId
                     ) as HTMLInputElement
                 )?.checked
             ) {
@@ -92,7 +92,7 @@ export default <
             if (
                 (
                     document.getElementById(
-                        `${this.toggleId}`
+                        this.toggleId
                     ) as HTMLInputElement
                 )?.checked
             ) {
@@ -109,7 +109,7 @@ export default <
             if (
                 (
                     document.getElementById(
-                        `${this.toggleId}`
+                        this.toggleId
                     ) as HTMLInputElement
                 )?.checked
             ) {

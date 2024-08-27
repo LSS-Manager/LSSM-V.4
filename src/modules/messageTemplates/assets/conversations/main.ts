@@ -13,7 +13,7 @@ export default (messages: ConversationMessageTemplate[], $m: $m) => {
     const insert = document.createElement('button');
     insert.classList.add('btn', 'btn-default', 'dropdown-toggle');
     insert.setAttribute('data-toggle', 'dropdown');
-    insert.innerHTML = `${$m('name')}&nbsp;<span class='caret'></span>`;
+    insert.innerHTML = `${$m('name')}&nbsp;<span class="caret"></span>`;
     const optionList = document.createElement('ul');
     optionList.classList.add('dropdown-menu');
     fillDropdown(

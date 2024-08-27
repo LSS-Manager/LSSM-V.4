@@ -34,7 +34,7 @@ export default async (
 
         const internalVehicleTypes = LSSM.$stores.translations.vehicles;
 
-        const tableHead = document.getElementById('vehicle_table thead tr');
+        const tableHead = document.querySelector('#vehicle_table thead tr');
 
         if (!tableHead) return;
 
