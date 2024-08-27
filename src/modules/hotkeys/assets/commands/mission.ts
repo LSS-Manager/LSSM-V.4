@@ -56,11 +56,8 @@ export default <
         },
         alert_next() {
             if (
-                (
-                    document.getElementById(
-                        this.toggleId
-                    ) as HTMLInputElement
-                )?.checked
+                (document.getElementById(this.toggleId) as HTMLInputElement)
+                    ?.checked
             ) {
                 document
                     .querySelector<HTMLAnchorElement>(
@@ -73,11 +70,8 @@ export default <
         },
         prev() {
             if (
-                (
-                    document.getElementById(
-                        this.toggleId
-                    ) as HTMLInputElement
-                )?.checked
+                (document.getElementById(this.toggleId) as HTMLInputElement)
+                    ?.checked
             ) {
                 document
                     .querySelector<HTMLAnchorElement>(
@@ -90,11 +84,8 @@ export default <
         },
         next() {
             if (
-                (
-                    document.getElementById(
-                        this.toggleId
-                    ) as HTMLInputElement
-                )?.checked
+                (document.getElementById(this.toggleId) as HTMLInputElement)
+                    ?.checked
             ) {
                 document
                     .querySelector<HTMLAnchorElement>(
@@ -107,11 +98,8 @@ export default <
         },
         alert_share_next() {
             if (
-                (
-                    document.getElementById(
-                        this.toggleId
-                    ) as HTMLInputElement
-                )?.checked
+                (document.getElementById(this.toggleId) as HTMLInputElement)
+                    ?.checked
             ) {
                 document
                     .querySelector<HTMLAnchorElement>(

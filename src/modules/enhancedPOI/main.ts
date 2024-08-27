@@ -168,7 +168,9 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
             }
             if (
                 isPOIWindow &&
-                document.getElementById(poiSettingsWrapperId) as HTMLDivElement
+                (document.getElementById(
+                    poiSettingsWrapperId
+                ) as HTMLDivElement)
             )
                 return;
             isPOIWindow = true;

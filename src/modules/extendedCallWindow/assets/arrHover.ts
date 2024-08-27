@@ -409,7 +409,9 @@ export default (
     LSSM.$stores.root.hook({
         event: 'aao_available',
         callback(id: number) {
-            const arr = document.getElementById(`aao_${id}`) as HTMLAnchorElement;
+            const arr = document.getElementById(
+                `aao_${id}`
+            ) as HTMLAnchorElement;
             if (!arr) return;
             const buildingIds: number[] = JSON.parse(
                 arr.getAttribute('building_ids') || '[]'
