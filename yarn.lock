@@ -3206,16 +3206,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vuepress/plugin-search@npm:2.0.0-rc.3":
-  version: 2.0.0-rc.3
-  resolution: "@vuepress/plugin-search@npm:2.0.0-rc.3"
+"@vuepress/plugin-search@npm:2.0.0-rc.43":
+  version: 2.0.0-rc.43
+  resolution: "@vuepress/plugin-search@npm:2.0.0-rc.43"
   dependencies:
-    chokidar: "npm:^3.5.3"
-    vue: "npm:^3.4.15"
-    vue-router: "npm:^4.2.5"
+    chokidar: "npm:^3.6.0"
+    vue: "npm:^3.5.4"
   peerDependencies:
-    vuepress: 2.0.0-rc.2
-  checksum: 10c0/00bcafcf342754d5ffd85da6ef1b606dff78318f1cc5e115c654364820ed33e0fad8c7aad290fd8c89ef491861647be4cd17f87d92004e39d5eed36a0820a692
+    vuepress: 2.0.0-rc.15
+  checksum: 10c0/64534c773cb7d9bcda800b0e8b275fb3ee720afae8937b50d7464683cf5d1b7db89cf40fbeb530a64b81b625ebcc76ec36385433dd730968f6135c081a545ae4
   languageName: node
   linkType: hard
 
@@ -7719,7 +7718,7 @@ __metadata:
     "@vuepress/plugin-pwa": "npm:2.0.0-rc.3"
     "@vuepress/plugin-pwa-popup": "npm:2.0.0-rc.14"
     "@vuepress/plugin-register-components": "npm:2.0.0-rc.42"
-    "@vuepress/plugin-search": "npm:2.0.0-rc.3"
+    "@vuepress/plugin-search": "npm:2.0.0-rc.43"
     "@vuepress/theme-default": "npm:2.0.0-rc.6"
     cloc: "npm:2.11.0"
     moment: "npm:2.30.1"
@@ -11325,7 +11324,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:3.5.4, vue@npm:^3.4.15, vue@npm:^3.4.16":
+"vue@npm:3.5.4, vue@npm:^3.4.15, vue@npm:^3.4.16, vue@npm:^3.5.4":
   version: 3.5.4
   resolution: "vue@npm:3.5.4"
   dependencies:
