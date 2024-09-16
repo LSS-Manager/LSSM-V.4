@@ -356,8 +356,8 @@
     },
     "ua-parser-js": {
         "icon": "https://uaparser.dev/images/logo.png",
-        "url": "https://github.com/faisalman/ua-parser-js",
-        "version": "1.0.38"
+        "url": "https://uaparser.dev",
+        "version": "1.0.39"
     },
     "url-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
