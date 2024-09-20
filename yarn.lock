@@ -7733,7 +7733,7 @@ __metadata:
     cloc: "npm:2.11.0"
     moment: "npm:2.30.1"
     showdown: "npm:2.1.0"
-    simple-git: "npm:3.26.0"
+    simple-git: "npm:3.27.0"
     vue: "npm:3.5.6"
     vuepress: "npm:2.0.0-rc.2"
     vuepress-plugin-sitemap2: "npm:2.0.0-rc.16"
@@ -9986,14 +9986,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"simple-git@npm:3.26.0":
-  version: 3.26.0
-  resolution: "simple-git@npm:3.26.0"
+"simple-git@npm:3.27.0":
+  version: 3.27.0
+  resolution: "simple-git@npm:3.27.0"
   dependencies:
     "@kwsites/file-exists": "npm:^1.1.1"
     "@kwsites/promise-deferred": "npm:^1.1.1"
     debug: "npm:^4.3.5"
-  checksum: 10c0/fa45c9ff26c45aa7390f69610e27c1ae474b3881977828009fe41b7ffe8ce371cc108b818b2153815299deffefed591e9148cfdad92d8ddb60ca29eaefaf5827
+  checksum: 10c0/ef56cabea585377d3e0ca30e4e93447f465d91f23eaf751693cc31f366b5f7636facf52ad5bcd598bfdf295fa60732e7a394303d378995b52e2d221d92e5f9f4
   languageName: node
   linkType: hard
 
