@@ -57,7 +57,7 @@
     "@types/lodash": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/lodash",
-        "version": "4.17.7"
+        "version": "4.17.9"
     },
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
