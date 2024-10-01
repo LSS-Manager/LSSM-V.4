@@ -139,7 +139,7 @@
     "@vuepress/plugin-register-components": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
         "url": "https://ecosystem.vuejs.press/plugins/tools/register-components.html",
-        "version": "2.0.0-rc.44"
+        "version": "2.0.0-rc.52"
     },
     "@vuepress/plugin-search": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
