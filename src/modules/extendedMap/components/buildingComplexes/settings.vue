@@ -417,6 +417,8 @@ export default Vue.extend<
                             'spec_police_station_water_police',
                             'spec_technical_aid_water_damage_and_flood',
                             'spec_water_rescue_water_damage_and_flood',
+                            'spec_fire_station_rural',
+                            'spec_fire_station_urban',
                         ]
                             .sort()
                             .map(icon => `/images/${icon}.png`)
