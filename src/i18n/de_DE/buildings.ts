@@ -696,11 +696,11 @@ export default {
         },
         extensions: [],
         levelcost: [],
-        maxBuildings: 'Alle 25 Gebäude eine Leitstelle',
+        maxBuildings: 'Alle 10 Gebäude eine Leitstelle',
         maxLevel: 0,
         special: 'Die Leitstelle ist die Verwaltungszentrale.',
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-            Math.floor(buildingsAmountTotal / 25) + 1,
+            Math.floor(buildingsAmountTotal / 10) + 1,
         isDispatchCenter: true,
         icon: 'tower-broadcast',
     },

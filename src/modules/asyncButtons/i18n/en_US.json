@@ -45,6 +45,7 @@
         "finance": "Alliance Finances",
         "schooling": "Alliance Educator",
         "sprechwunsch_admin": "Transport Request - Admin",
-        "staff": "Alliance Staff"
+        "staff": "Alliance Staff",
+        "event_manager": "Event Manager"
     }
 }

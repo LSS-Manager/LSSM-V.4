@@ -37,6 +37,7 @@
         "finance": "Finanse sojuszu",
         "schooling": "Szkoleniowy sojuszu",
         "sprechwunsch_admin": "Żądanie transportu - Administrator",
-        "staff": "Personel sojuszu"
+        "staff": "Personel sojuszu",
+        "event_manager": "Event Manager"
     }
 }

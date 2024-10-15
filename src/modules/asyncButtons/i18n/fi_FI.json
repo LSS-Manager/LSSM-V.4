@@ -45,6 +45,7 @@
         "finance": "Liittoutuman raha-asiat",
         "schooling": "Liittouman kouluttaja",
         "sprechwunsch_admin": "Kuljetuspyyntö - ylläpitäjä",
-        "staff": "Liittouman henkilöstö"
+        "staff": "Liittouman henkilöstö",
+        "event_manager": "Event Manager"
     }
 }

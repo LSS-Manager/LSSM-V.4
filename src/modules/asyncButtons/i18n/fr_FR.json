@@ -42,6 +42,7 @@
         "finance": "Finances de l'alliance",
         "schooling": "Formateur de l'alliance",
         "sprechwunsch_admin": "Demande de transport - administrateur",
-        "staff": "Personnel de l'alliance"
+        "staff": "Personnel de l'alliance",
+        "event_manager": "gestionnaire d'événements"
     }
 }

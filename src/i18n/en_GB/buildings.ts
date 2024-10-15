@@ -622,12 +622,12 @@ export default {
         extensions: [],
         levelcost: [],
         maxBuildings:
-            'For every 25 buildings, you can build one control center',
+            'For every 10 buildings, you can build one control center',
         maxLevel: 0,
         special: 'The control center is the administrative center.',
         isDispatchCenter: true,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-            Math.floor(buildingsAmountTotal / 25) + 1,
+            Math.floor(buildingsAmountTotal / 10) + 1,
         icon: 'tower-broadcast',
     },
     8: {

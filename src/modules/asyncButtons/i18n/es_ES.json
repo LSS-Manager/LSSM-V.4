@@ -41,6 +41,7 @@
         "finance": "Economía de la alianza",
         "schooling": "Formador de alianza",
         "sprechwunsch_admin": "Petición de transporte (admin.)",
-        "staff": "Personal de la alianza"
+        "staff": "Personal de la alianza",
+        "event_manager": "Event Manager"
     }
 }

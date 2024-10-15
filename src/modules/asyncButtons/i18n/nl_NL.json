@@ -42,6 +42,7 @@
         "finance": "Penningmeester",
         "schooling": "Docent",
         "sprechwunsch_admin": "Spraakaanvraag-Admin",
-        "staff": "Medewerker alliantie"
+        "staff": "Medewerker alliantie",
+        "event_manager": "Evenement Manager"
     }
 }

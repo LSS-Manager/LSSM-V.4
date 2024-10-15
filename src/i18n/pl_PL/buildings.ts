@@ -385,13 +385,13 @@ export default {
         },
         extensions: [],
         levelcost: [],
-        maxBuildings: 'Maksymalnie 1 na 25 pozostałych zbudowanych budynków',
+        maxBuildings: 'Maksymalnie 1 na 10 pozostałych zbudowanych budynków',
         maxLevel: 0,
         special:
             'CPR służy m.in. do dzielenia budynków na różne obszary np. powiat.',
         isDispatchCenter: true,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-            Math.floor(buildingsAmountTotal / 25) + 1,
+            Math.floor(buildingsAmountTotal / 10) + 1,
         icon: 'tower-broadcast',
     },
     8: {
