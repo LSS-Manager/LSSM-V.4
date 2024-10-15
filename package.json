@@ -83,7 +83,7 @@
         "eslint-plugin-regexp": "2.6.0",
         "eslint-plugin-tsdoc": "0.3.0",
         "eslint-plugin-unicorn": "56.0.0",
-        "eslint-plugin-vue": "9.28.0",
+        "eslint-plugin-vue": "9.29.0",
         "html-loader": "5.1.0",
         "husky": "9.1.6",
         "js-yaml": "4.1.0",
