@@ -334,12 +334,12 @@ export default {
         },
         extensions: [],
         levelcost: [],
-        maxBuildings: 'En CTA för varje 25 buildings',
+        maxBuildings: 'En CTA för varje 10 buildings',
         maxLevel: 0,
         special: 'CTA är det administrativa centrumet.',
         isDispatchCenter: true,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-            Math.floor(buildingsAmountTotal / 25) + 1,
+            Math.floor(buildingsAmountTotal / 10) + 1,
         icon: 'tower-broadcast',
     },
     8: {

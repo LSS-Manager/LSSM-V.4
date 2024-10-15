@@ -394,12 +394,12 @@ export default {
             coins: [],
         },
         levelcost: [],
-        maxBuildings: 'Todos 25 edifícios controlados num centro',
+        maxBuildings: 'Todos 10 edifícios controlados num centro',
         maxLevel: 0,
         special: 'O Centro de Comando é um centro administrativo.',
         isDispatchCenter: true,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-            Math.floor(buildingsAmountTotal / 25) + 1,
+            Math.floor(buildingsAmountTotal / 10) + 1,
         icon: 'tower-broadcast',
     },
     8: {

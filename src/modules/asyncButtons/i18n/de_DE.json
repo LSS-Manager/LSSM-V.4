@@ -45,6 +45,7 @@
         "finance": "Finanzminister",
         "schooling": "Lehrgangsmeister",
         "sprechwunsch_admin": "Sprechwunsch-Admin",
-        "staff": "Verbands-Personal"
+        "staff": "Verbands-Personal",
+        "event_manager": "Event Manager"
     }
 }

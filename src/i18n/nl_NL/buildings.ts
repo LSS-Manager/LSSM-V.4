@@ -206,13 +206,13 @@ export default {
         },
         extensions: [],
         levelcost: [],
-        maxBuildings: 'Elke 25 gebouwen mag je 1 meldkamer bouwen',
+        maxBuildings: 'Elke 10 gebouwen mag je 1 meldkamer bouwen',
         maxLevel: 0,
         special:
             'De meldkamer is het administratief centrum. Hier kan je diverse instellingen bewerken.',
         isDispatchCenter: true,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-            Math.floor(buildingsAmountTotal / 25) + 1,
+            Math.floor(buildingsAmountTotal / 10) + 1,
         icon: 'tower-broadcast',
     },
     2: {

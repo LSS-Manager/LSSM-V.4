@@ -176,6 +176,7 @@
                                 'finance',
                                 'schooling',
                                 'staff',
+                                'event_manager',
                             ]"
                         >
                             <br :key="`${user.id}_${right}_br`" />
@@ -260,7 +261,8 @@ type Component = RedesignSubComponent<
                 | 'finance'
                 | 'schooling'
                 | 'sprechwunsch_admin'
-                | 'staff',
+                | 'staff'
+                | 'event_manager',
             new_state: 0 | 1
         ): void;
         kick(user_id: number, username: string): void;

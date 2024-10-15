@@ -42,6 +42,7 @@
         "finance": "Ekonomiansvarig",
         "schooling": "Utbildare",
         "sprechwunsch_admin": "Transportansvarig",
-        "staff": "Allianspersonal"
+        "staff": "Allianspersonal",
+        "event_manager": "Event Manager"
     }
 }

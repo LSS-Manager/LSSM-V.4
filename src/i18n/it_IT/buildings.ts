@@ -415,12 +415,12 @@ export default {
         },
         extensions: [],
         levelcost: [],
-        maxBuildings: 'Ogni 25 edifici una centrale operativa',
+        maxBuildings: 'Ogni 10 edifici una centrale operativa',
         maxLevel: 0,
         special: 'La Centrale operativa è il centro amministrativo.',
         isDispatchCenter: true,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-            Math.floor(buildingsAmountTotal / 25) + 1,
+            Math.floor(buildingsAmountTotal / 10) + 1,
         icon: 'tower-broadcast',
     },
     8: {

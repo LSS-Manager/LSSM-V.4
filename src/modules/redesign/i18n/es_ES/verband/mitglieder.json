@@ -27,6 +27,7 @@
         "aufsichtsrat": "Registro de acciones del moderador",
         "coadmin": "Co-administrador de la alianza",
         "edit": "Editar derechos de administración",
+        "event_manager": "gestor de eventos",
         "finance": "Finanzas de la alianza",
         "hide": "Cerrar",
         "kick": { "btn": "Expulsar" },

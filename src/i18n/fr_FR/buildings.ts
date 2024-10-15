@@ -415,12 +415,12 @@ export default {
         },
         extensions: [],
         levelcost: [],
-        maxBuildings: 'Un CTA tous les 25 batiments',
+        maxBuildings: 'Un CTA tous les 10 batiments',
         maxLevel: 0,
         special: 'Le CTA est le centre administratif.',
         isDispatchCenter: true,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-            Math.floor(buildingsAmountTotal / 25) + 1,
+            Math.floor(buildingsAmountTotal / 10) + 1,
         icon: 'tower-broadcast',
     },
     8: {

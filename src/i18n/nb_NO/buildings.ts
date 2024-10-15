@@ -306,12 +306,12 @@ export default {
         },
         extensions: [],
         levelcost: [],
-        maxBuildings: 'Alle 25 bygningene ett kontrollsenter',
+        maxBuildings: 'Alle 10 bygningene ett kontrollsenter',
         maxLevel: 0,
         special: 'Kontrollsenteret er administrasjonssenteret.',
         isDispatchCenter: true,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-            Math.floor(buildingsAmountTotal / 25) + 1,
+            Math.floor(buildingsAmountTotal / 10) + 1,
         icon: 'tower-broadcast',
     },
     8: {
