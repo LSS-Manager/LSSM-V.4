@@ -1162,14 +1162,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@es-joy/jsdoccomment@npm:~0.48.0":
-  version: 0.48.0
-  resolution: "@es-joy/jsdoccomment@npm:0.48.0"
+"@es-joy/jsdoccomment@npm:~0.49.0":
+  version: 0.49.0
+  resolution: "@es-joy/jsdoccomment@npm:0.49.0"
   dependencies:
     comment-parser: "npm:1.4.1"
     esquery: "npm:^1.6.0"
     jsdoc-type-pratt-parser: "npm:~4.1.0"
-  checksum: 10c0/8d87c7c0426fade009c30ab429d4ede53fd253d40b55079c02bdacdaa4c0fe904aaea5e3084cd98052f2bed6b3030c381d84f4a3251b343a71fee6f681a08bee
+  checksum: 10c0/16717507d557d37e7b59456fedeefbe0a3bc93aa2d9c043d5db91e24e076509b6fcb10ee6fd1dafcb0c5bbe50ae329b45de5b83541cb5994a98c9e862a45641e
   languageName: node
   linkType: hard
 
@@ -5422,11 +5422,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsdoc@npm:50.3.2":
-  version: 50.3.2
-  resolution: "eslint-plugin-jsdoc@npm:50.3.2"
+"eslint-plugin-jsdoc@npm:50.4.1":
+  version: 50.4.1
+  resolution: "eslint-plugin-jsdoc@npm:50.4.1"
   dependencies:
-    "@es-joy/jsdoccomment": "npm:~0.48.0"
+    "@es-joy/jsdoccomment": "npm:~0.49.0"
     are-docs-informative: "npm:^0.0.2"
     comment-parser: "npm:1.4.1"
     debug: "npm:^4.3.6"
@@ -5439,7 +5439,7 @@ __metadata:
     synckit: "npm:^0.9.1"
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
-  checksum: 10c0/4a649984e1a7dc957ccd71260a309d4a68e473cbac4de9268f11cbfc73e13fa4c2d1aa9ef4175962a1df2a396594a87a6ae4598452e9f36e23d9bcb47f0c4174
+  checksum: 10c0/d3b3947fc71acac2a790774729d96da4bd61dfc783558a998fca0b581b4dec059b5cdb048cd5873a8f188c5da1929307643909dd4f51063d2d6a00487b8b8940
   languageName: node
   linkType: hard
 
@@ -7722,7 +7722,7 @@ __metadata:
     eslint-import-resolver-typescript: "npm:3.6.3"
     eslint-plugin-compat: "npm:6.0.1"
     eslint-plugin-import: "npm:2.31.0"
-    eslint-plugin-jsdoc: "npm:50.3.2"
+    eslint-plugin-jsdoc: "npm:50.4.1"
     eslint-plugin-markdownlint: "npm:0.6.0"
     eslint-plugin-prettier: "npm:5.2.1"
     eslint-plugin-regexp: "npm:2.6.0"
