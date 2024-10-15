@@ -38,10 +38,10 @@
         "admin": "Administrador de alianza",
         "aufsichtsrat": "Registro de acciones de moderación",
         "coadmin": "Coadministrador de alianza",
+        "event_manager": "Event Manager",
         "finance": "Economía de la alianza",
         "schooling": "Formador de alianza",
         "sprechwunsch_admin": "Petición de transporte (admin.)",
-        "staff": "Personal de la alianza",
-        "event_manager": "Event Manager"
+        "staff": "Personal de la alianza"
     }
 }

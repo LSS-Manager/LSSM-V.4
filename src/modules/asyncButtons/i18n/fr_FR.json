@@ -39,10 +39,10 @@
         "admin": "Administrateur d'alliance",
         "aufsichtsrat": "Journal de modération",
         "coadmin": "Coadministrateur d'alliance",
+        "event_manager": "gestionnaire d'événements",
         "finance": "Finances de l'alliance",
         "schooling": "Formateur de l'alliance",
         "sprechwunsch_admin": "Demande de transport - administrateur",
-        "staff": "Personnel de l'alliance",
-        "event_manager": "gestionnaire d'événements"
+        "staff": "Personnel de l'alliance"
     }
 }

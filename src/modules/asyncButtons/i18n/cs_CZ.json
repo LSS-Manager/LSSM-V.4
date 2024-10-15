@@ -39,10 +39,10 @@
         "admin": "Správce aliance",
         "aufsichtsrat": "Moderační protokol",
         "coadmin": "Spolusprávce aliance",
+        "event_manager": "Event Manager",
         "finance": "Hlavní správce financí",
         "schooling": "Školitel aliance",
         "sprechwunsch_admin": "Správce žádostí o převoz",
-        "staff": "Alianční štáb",
-        "event_manager": "Event Manager"
+        "staff": "Alianční štáb"
     }
 }

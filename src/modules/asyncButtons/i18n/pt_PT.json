@@ -39,10 +39,10 @@
         "admin": "Administrador da aliança",
         "aufsichtsrat": "Registro de ações de moderação",
         "coadmin": "Coadministrador da aliança",
+        "event_manager": "Event Manager",
         "finance": "Finanças da aliança",
         "schooling": "Educador da aliança",
         "sprechwunsch_admin": "Pedido de transporte - Administrador",
-        "staff": "Equipa da Aliança",
-        "event_manager": "Event Manager"
+        "staff": "Equipa da Aliança"
     }
 }

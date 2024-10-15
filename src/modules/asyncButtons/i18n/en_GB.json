@@ -42,10 +42,10 @@
         "admin": "Alliance Admin",
         "aufsichtsrat": "Moderator action log",
         "coadmin": "Alliance Co-Admin",
+        "event_manager": "Event Manager",
         "finance": "Alliance Finances",
         "schooling": "Alliance Educator",
         "sprechwunsch_admin": "Transport Request - Admin",
-        "staff": "Alliance Staff",
-        "event_manager": "Event Manager"
+        "staff": "Alliance Staff"
     }
 }

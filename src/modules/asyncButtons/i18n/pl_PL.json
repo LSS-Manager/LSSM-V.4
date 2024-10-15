@@ -34,10 +34,10 @@
         "admin": "Administrator sojuszu",
         "aufsichtsrat": "Dziennik działań moderatora",
         "coadmin": "Współadministrator sojuszu",
+        "event_manager": "Event Manager",
         "finance": "Finanse sojuszu",
         "schooling": "Szkoleniowy sojuszu",
         "sprechwunsch_admin": "Żądanie transportu - Administrator",
-        "staff": "Personel sojuszu",
-        "event_manager": "Event Manager"
+        "staff": "Personel sojuszu"
     }
 }

@@ -42,10 +42,10 @@
         "admin": "Verbands-Admin",
         "aufsichtsrat": "Aufsichtsrat",
         "coadmin": "Verbands-Co-Admin",
+        "event_manager": "Event Manager",
         "finance": "Finanzminister",
         "schooling": "Lehrgangsmeister",
         "sprechwunsch_admin": "Sprechwunsch-Admin",
-        "staff": "Verbands-Personal",
-        "event_manager": "Event Manager"
+        "staff": "Verbands-Personal"
     }
 }

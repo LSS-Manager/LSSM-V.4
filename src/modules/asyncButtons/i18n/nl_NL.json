@@ -39,10 +39,10 @@
         "admin": "Team-Admin",
         "aufsichtsrat": "Toezichthouder",
         "coadmin": "Team-Co-Admin",
+        "event_manager": "Evenement Manager",
         "finance": "Penningmeester",
         "schooling": "Docent",
         "sprechwunsch_admin": "Spraakaanvraag-Admin",
-        "staff": "Medewerker alliantie",
-        "event_manager": "Evenement Manager"
+        "staff": "Medewerker alliantie"
     }
 }

@@ -258,11 +258,11 @@ type Component = RedesignSubComponent<
                 | 'admin'
                 | 'aufsichtsrat'
                 | 'coadmin'
+                | 'event_manager'
                 | 'finance'
                 | 'schooling'
                 | 'sprechwunsch_admin'
-                | 'staff'
-                | 'event_manager',
+                | 'staff',
             new_state: 0 | 1
         ): void;
         kick(user_id: number, username: string): void;
