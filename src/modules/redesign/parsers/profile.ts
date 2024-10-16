@@ -125,7 +125,9 @@ export default <RedesignParser<ProfileWindow>>(({ LSSM, doc, href = '' }) => {
         })),
         has_map: !!doc.querySelector<HTMLDivElement>('#profile_map'),
         buildings: Array.from(doc.scripts)
-            .filter(script => script.textContent?.includes('buildingMarkerAddSingle'))
+            .filter(script =>
+                script.textContent?.includes('buildingMarkerAddSingle')
+            )
             .flatMap(script => {
                 const tree = parse(script.textContent ?? '', {
                     ecmaVersion: 'latest',
@@ -139,7 +141,8 @@ export default <RedesignParser<ProfileWindow>>(({ LSSM, doc, href = '' }) => {
                         'expression' in node &&
                         node.expression.type === 'CallExpression' &&
                         node.expression.callee.type === 'Identifier' &&
-                        node.expression.callee.name === 'buildingMarkerAddSingle' &&
+                        node.expression.callee.name ===
+                            'buildingMarkerAddSingle' &&
                         markerNodes.push(node)
                 );
 
