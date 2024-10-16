@@ -30,10 +30,10 @@
         "admin": "Allianse Admin",
         "aufsichtsrat": "Moderator handlingslogg",
         "coadmin": "Allianse Co-Admin",
+        "event_manager": "Event Manager",
         "finance": "Allianse Økonomi",
         "schooling": "Allianse Lærer",
         "sprechwunsch_admin": "Transport Forespørsel - Admin",
-        "staff": "Alliansepersonell",
-        "event_manager": "Event Manager"
+        "staff": "Alliansepersonell"
     }
 }

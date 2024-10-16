@@ -39,10 +39,10 @@
         "admin": "Administratör",
         "aufsichtsrat": "Moderator-logg",
         "coadmin": "Vice administratör",
+        "event_manager": "Event Manager",
         "finance": "Ekonomiansvarig",
         "schooling": "Utbildare",
         "sprechwunsch_admin": "Transportansvarig",
-        "staff": "Allianspersonal",
-        "event_manager": "Event Manager"
+        "staff": "Allianspersonal"
     }
 }
