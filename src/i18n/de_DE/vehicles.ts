@@ -2650,7 +2650,7 @@ export default {
                 },
             },
         },
-        icon: 'boat',
+        icon: 'ship',
         possibleBuildings: [26],
     },
     160: {
@@ -2662,7 +2662,7 @@ export default {
             min: 1,
             max: 2,
         },
-        icon: 'boat',
+        icon: 'ship',
         possibleBuildings: [26],
     },
     161: {
