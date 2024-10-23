@@ -2636,4 +2636,60 @@ export default {
         icon: 'truck',
         possibleBuildings: [25],
     },
+    159: {
+        caption: 'Seenotrettungskreuzer',
+        color: '#cf871a',
+        credits: 75_000,
+        coins: 25,
+        staff: {
+            min: 4,
+            max: 9,
+            training: {
+                Wasserrettung: {
+                    coastal_rescue: {
+                        min: 4,
+                    },
+                },
+            },
+        },
+        icon: 'boat',
+        possibleBuildings: [26],
+    },
+    160: {
+        caption: 'Seenotrettungsboot',
+        color: '#cf871a',
+        credits: 50_000,
+        coins: 10,
+        staff: {
+            min: 1,
+            max: 2,
+        },
+        icon: 'boat',
+        possibleBuildings: [26],
+    },
+    161: {
+        caption: 'Hubschrauber (Seenotrettung)',
+        color: '#cf871a',
+        credits: 400_000,
+        coins: 30,
+        staff: {
+            min: 3,
+            max: 4,
+            training: {
+                Wasserrettung: {
+                    coastal_helicopter: {
+                        min: 1,
+                    },
+                    coastal_helicopter_lift: {
+                        min: 1,
+                    },
+                    emergency_paramedic_water_rescue: {
+                        min: 1,
+                    },
+                },
+            },
+        },
+        icon: 'helicopter',
+        possibleBuildings: [28],
+    },
 } satisfies Record<number, InternalVehicle>;

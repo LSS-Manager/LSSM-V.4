@@ -79,6 +79,10 @@ export default {
             buildings: [9, 10],
             color: '#0000ff',
         },
+        Seenotrettung: {
+            buildings: [26, 27, 28],
+            color: '#87530a',
+        },
         Sonstiges: {
             buildings: [4, 7, 14, 16, 22, 23],
             color: '#02a18c',
@@ -156,6 +160,13 @@ export default {
                 THW: [65, 66, 67, 68, 69],
             },
             color: '#02a18c',
+        },
+        Seenotrettung: {
+            vehicles: {
+                Boote: [159, 160],
+                Hubschrauber: [161],
+            },
+            color: '#ac640a',
         },
     },
     small_buildings: {

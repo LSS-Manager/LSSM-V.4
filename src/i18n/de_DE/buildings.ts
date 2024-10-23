@@ -1897,4 +1897,84 @@ export default {
         schools: [3],
         icon: 'house-medical-flag',
     },
+    26: {
+        caption: 'Seenotrettungswache',
+        color: '#ba8030',
+        coins: 35,
+        credits: 100_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(2).fill(100_000)],
+            coins: [10, 15, ...Array(2).fill(20)],
+        },
+        extensions: [],
+        levelcost: ['1. 10.000', '2. 50.000', '3.-4. 100.000'],
+        maxBuildings: 'Keine Grenze',
+        maxLevel: 4,
+        special:
+            'Beim Bau bekommst du 2 Leute geschenkt. Wird ab der 10ten Wache teurer. Formel reichen wir nach',
+        startPersonnel: 2,
+        startParkingLots: 1,
+        startVehicles: [''],
+        schoolingTypes: ['Wasserrettung'],
+        schools: [27],
+        icon: 'person-swimming',
+    },
+    27: {
+        caption: 'Schule für Seefahrt und Seenotrettung',
+        color: '#ba8030',
+        coins: 50,
+        credits: 500_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
+        extensions: multiplyExtension(
+            index => ({
+                caption: 'Weiterer Klassenraum',
+                credits: 400_000,
+                coins: 40,
+                duration: '7 Tage',
+                newClassrooms: 1,
+                requiredExtensions: index ? [index - 1] : [],
+                cannotDisable: true,
+            }),
+            3
+        ),
+        levelcost: [],
+        maxBuildings: 'Keine Grenze',
+        maxLevel: 0,
+        startClassrooms: 1,
+        school: 'Wasserrettung',
+        special:
+            'Finanzminister und Admins können Verbands-Seenotschulen mit Hilfe von Credits aus der Verbandskasse (aus-)bauen. Lehrgangsmeister und Admins können Lehrgänge an Verbands-Seenotschulen starten.',
+        icon: 'graduation-cap',
+    },
+    28: {
+        caption: 'Hubschrauberstation (Seenotrettung)',
+        color: '#ba8030',
+        coins: 50,
+        credits: 1_000_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
+        extensions: [],
+        storageUpgrades: {},
+        levelcost: [''],
+        maxBuildings: 'siehe Besonderheiten',
+        maxLevel: 0,
+        special:
+            'Alle 5 Seenotrettungswachen, kann eine Hubschrauberstation (Seenotrettung) gebaut werden. 2 können direkt gebaut werden. Ab der 15ten die 3te und ab da Jede 5te Wache eine weitere',
+        startPersonnel: 1,
+        startParkingLots: 1,
+        startVehicles: [],
+        schoolingTypes: ['Wasserrettung'],
+        schools: [27],
+//      TODO: MaxBuildingzählung muss angepasst werden
+//        maxBuildingsFunction: (buildingsAmountTotal: number): number =>
+//            buildingsAmountTotal < 125
+//                ? 4
+//                : Math.floor(buildingsAmountTotal / 25),
+        icon: 'helicopter',
+    },
 } satisfies Record<number, InternalBuilding>;
