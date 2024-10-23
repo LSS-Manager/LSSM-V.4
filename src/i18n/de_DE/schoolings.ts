@@ -345,4 +345,30 @@ export default {
             key: 'thw_command',
         },
     ],
+    Wasserrettung: [
+        {
+            caption: 'Seenotretter',
+            duration: '5 Tage',
+            staffList: 'Seenotretter',
+            key: 'coastal_rescue',
+        },
+        {
+            caption: 'Hubschrauberpilot (Seenotrettung)',
+            duration: '5 Tage',
+            staffList: 'Hubschrauberpilot (Seenotrettung)',
+            key: 'coastal_helicopter',
+        },
+        {
+            caption: 'Windenoperator',
+            duration: '5 Tage',
+            staffList: 'Windenoperator',
+            key: 'coastal_helicopter_lift',
+        },
+        {
+            caption: 'Wasserrettungsausbildung für Notfallsanitäter',
+            duration: '7 Tage',
+            staffList: 'Notfallsanitäter mit Wasserrettungsausbildung',
+            key: 'emergency_paramedic_water_rescue',
+        },
+    ],
 } satisfies SchoolingsBySchool;

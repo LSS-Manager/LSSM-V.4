@@ -7,6 +7,7 @@
         "airport": "Flughafenfeuerwehr-Einsätze",
         "airport_specialization": "Flughafenfeuerwehr-Einsätze (Spezialisierung)",
         "ambulance": "Rettungseinsätze",
+        "coastal": "Seenotrettungseinsätze",
         "criminal_investigation": "Kriminalpolizei-Einsätze",
         "energy_supply": "NEA50-Einsätze",
         "energy_supply_2": "NEA200-Einsätze",
@@ -41,6 +42,7 @@
     "prerequisites": {
         "bereitschaftspolizei": "Bereitschaftspolizei-Standort | Bereitschaftspolizei-Standorte",
         "care_service": "Betreuungs- und Verpflegungsdienst-Erweiterung | Betreuungs- und Verpflegungsdienst-Erweiterungen",
+        "coastal_rescue_count": "Seenotrettungswache | Seenotrettungswachen",
         "criminal_investigation_count": "Kriminalpolizei-Ausbau | Kriminalpolizei-Ausbauten",
         "detention_unit_count": "Sonderfahrzeug: Gefangenenkraftwagen",
         "drone": "Drohnen-Erweiterung (FW, THW, SEG) | Drohnen-Erweiterungen (FW, THW, SEG)",
@@ -75,6 +77,7 @@
         "wasserrettung": "Wasserrettung | Wasserrettungen",
         "water_cannon": "Technischer Zug: Wasserwerfer| Technische Züge: Wasserwerfer",
         "water_damage_pump_count": "THW-Ausbau: Fachgruppe Wasserschaden/Pumpen| THW-Ausbauten: Fachgruppen Wasserschaden/Pumpen",
+        "water_rescue_heliport_count": "Hubschrauberstation (Seenotrettung) | Hubschrauberstationen (Seenotrettung)",
         "werkfeuerwehr": "Werkfeuerwehr | Werkfeuerwehren"
     },
     "prisoners": {
@@ -100,6 +103,8 @@
             "care_affected_people_min": "Kommt später",
             "care_includes_staff_members": "Kommt später",
             "civil_patrolcar": "Zivilstreifenwagen",
+            "coastal_boat_large": "Seenotrettungskreuzer",
+            "coastal_helicopter": "Hubschrauber (Seenotrettung)",
             "diver_units": "GW-Taucher oder Tauchkraftwagen",
             "drone": "Drohneneinheit | Drohneneinheiten",
             "energy_supply": "NEA50",
@@ -132,6 +137,7 @@
             "mountain_equipment": "GW-Bergrettung",
             "mountain_height_rescue": "Höhenrettung (Bergrettung)",
             "mountain_snow": "Schneefahrzeug | Schneefahrzeuge",
+            "oneof_coastal_rescue_boat_or_boat_large": "Seenotrettungsboot oder Seenotrettungskreuzer | Seenotrettungsboote oder Seenotrettungskreuzer",
             "platform_trucks": "Drehleiter | Drehleitern",
             "police_cars": "Funkstreifenwagen",
             "police_helicopters": "Polizeihubschrauber",

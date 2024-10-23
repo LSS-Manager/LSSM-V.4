@@ -260,6 +260,12 @@
                 "vehicleTypes": [
                     149, 150, 151, 152, 153, 154, 155, 156, 157, 158
                 ]
+            },
+            {
+                "name": "Seenotrettung",
+                "vehicleTypes": [
+                    159, 160, 161
+                ]
             }
         ],
         "noCustoms": "eigene Fahrzeugklassen ausgenommen"
