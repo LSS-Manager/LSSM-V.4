@@ -1970,11 +1970,11 @@ export default {
         startVehicles: [],
         schoolingTypes: ['Wasserrettung'],
         schools: [27],
-//      TODO: MaxBuildingzählung muss angepasst werden
-//        maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-//            buildingsAmountTotal < 125
-//                ? 4
-//                : Math.floor(buildingsAmountTotal / 25),
+        //      TODO: MaxBuildingzählung muss angepasst werden
+        //        maxBuildingsFunction: (buildingsAmountTotal: number): number =>
+        //            buildingsAmountTotal < 125
+        //                ? 4
+        //                : Math.floor(buildingsAmountTotal / 25),
         icon: 'helicopter',
     },
 } satisfies Record<number, InternalBuilding>;
