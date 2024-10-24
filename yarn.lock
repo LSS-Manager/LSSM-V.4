@@ -2267,12 +2267,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jquery@npm:3.5.31":
-  version: 3.5.31
-  resolution: "@types/jquery@npm:3.5.31"
+"@types/jquery@npm:3.5.32":
+  version: 3.5.32
+  resolution: "@types/jquery@npm:3.5.32"
   dependencies:
     "@types/sizzle": "npm:*"
-  checksum: 10c0/94a6e209382908e102199aa32d261147c97bf578693a6e7657d12a35e1304940b18bebadb21c207cd3efa51b4d16eb117be36af235c27f399be09cc56ed125b5
+  checksum: 10c0/4a17ad6819b89026c21323656ab01b0b263f9d470910a87c8740920ff98319d503c7352b85b50134a39724ecbfccabc73aa4c741dfdd460cf8bbe714f9259054
   languageName: node
   linkType: hard
 
@@ -2306,12 +2306,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/leaflet@npm:1.9.12":
-  version: 1.9.12
-  resolution: "@types/leaflet@npm:1.9.12"
+"@types/leaflet@npm:1.9.14":
+  version: 1.9.14
+  resolution: "@types/leaflet@npm:1.9.14"
   dependencies:
     "@types/geojson": "npm:*"
-  checksum: 10c0/067f6c91cd5b97b0bf234e5a2847bd8d00e0333f017451eb646ac2ccb9766c55ad9bd92787877b660bb62890d5ab3af408550b6d56bc5f7e36331f4f460e86bd
+  checksum: 10c0/0c7df77581d62e0c6b106b5f8718001e7f0feec8caea0bfcd03c91204dd5b431a4f32df7b482318c9f7942e892058a8f8decebe8b1a517b9bcdf6ab508c44060
   languageName: node
   linkType: hard
 
@@ -2329,10 +2329,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:4.17.10":
-  version: 4.17.10
-  resolution: "@types/lodash@npm:4.17.10"
-  checksum: 10c0/149b2b9fcc277204393423ed14df28894980c2322ec522fc23f2c6f7edef6ee8d876ee09ed4520f45d128adc0a7a6e618bb0017668349716cd99c6ef54a21621
+"@types/lodash@npm:4.17.12":
+  version: 4.17.12
+  resolution: "@types/lodash@npm:4.17.12"
+  checksum: 10c0/106008f628ea3c74ed7ee7842dee79e230c84e3721ac38c293700031adb5bd130113048c22f476dbde0d0c119506b0fc447d4bd62eca922682d11e00e1377967
   languageName: node
   linkType: hard
 
@@ -7702,10 +7702,10 @@ __metadata:
     "@fortawesome/vue-fontawesome": "npm:2.0.10"
     "@types/he": "npm:1.2.3"
     "@types/i18n-js": "npm:3.8.9"
-    "@types/jquery": "npm:3.5.31"
+    "@types/jquery": "npm:3.5.32"
     "@types/js-yaml": "npm:4.0.9"
-    "@types/leaflet": "npm:1.9.12"
-    "@types/lodash": "npm:4.17.10"
+    "@types/leaflet": "npm:1.9.14"
+    "@types/lodash": "npm:4.17.12"
     "@types/node": "npm:20.16.13"
     "@types/pdfmake": "npm:0.2.9"
     "@types/qrcode": "npm:1.5.5"
