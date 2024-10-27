@@ -391,6 +391,7 @@ export default Vue.extend<
                             'thw_school',
                             'tow_trucks',
                             'wasserwacht',
+                            'water_rescue_heliport',
                             'water_rescue_school',
                         ]
                             .sort()
