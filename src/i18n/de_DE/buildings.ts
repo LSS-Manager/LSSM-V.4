@@ -1888,7 +1888,8 @@ export default {
         levelcost: [],
         maxBuildings: 'Keine Grenze',
         maxLevel: 0,
-        special: 'Beim Bau bekommst du 10 Leute geschenkt. Wird ab der 10/11ten Wache teurer. Formel zum Berechnen: <code>count < 10 ? 100_000 : (100_000 + (100_000 * Math.log(count - 9, 5))).round</code>',
+        special:
+            'Beim Bau bekommst du 10 Leute geschenkt. Wird ab der 10/11ten Wache teurer. Formel zum Berechnen: <code>count < 10 ? 100_000 : (100_000 + (100_000 * Math.log(count - 9, 5))).round</code>',
         startPersonnel: 10,
         startParkingLots: 1,
         startVehicles: [''],
