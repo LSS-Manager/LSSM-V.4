@@ -37,54 +37,44 @@
         },
         {
             "groupName": "types",
-            "lockFileMaintenance": {
-                "enabled": true
-            },
+            "lockFileMaintenance": { "enabled": true },
             "matchManagers": ["npm"],
+            "matchPackageNames": ["!@types/node", "@types/{/,}**"],
             "rangeStrategy": "pin",
-            "separateMajorMinor": false,
-            "matchPackageNames": ["!@types/node", "@types/{/,}**"]
+            "separateMajorMinor": false
         },
         {
             "groupName": "fontawesome",
-            "lockFileMaintenance": {
-                "enabled": true
-            },
+            "lockFileMaintenance": { "enabled": true },
             "matchManagers": ["npm"],
+            "matchPackageNames": ["@fortawesome/{/,}**"],
             "rangeStrategy": "pin",
-            "separateMajorMinor": false,
-            "matchPackageNames": ["@fortawesome/{/,}**"]
+            "separateMajorMinor": false
         },
         {
             "groupName": "typescript-eslint",
-            "lockFileMaintenance": {
-                "enabled": true
-            },
+            "lockFileMaintenance": { "enabled": true },
             "matchManagers": ["npm"],
+            "matchPackageNames": ["@typescript-eslint{/,}**"],
             "rangeStrategy": "pin",
-            "separateMajorMinor": false,
-            "matchPackageNames": ["@typescript-eslint{/,}**"]
+            "separateMajorMinor": false
         },
         {
             "description": "We consider switching to VitePress (see #2884). While that, updates to vuepress are disabled",
             "enabled": false,
             "groupName": "vuepress",
-            "lockFileMaintenance": {
-                "enabled": true
-            },
+            "lockFileMaintenance": { "enabled": true },
             "matchDepNames": ["vuepress"],
             "matchManagers": ["npm"],
+            "matchPackageNames": ["@vuepress{/,}**"],
             "rangeStrategy": "pin",
-            "separateMajorMinor": false,
-            "matchPackageNames": ["@vuepress{/,}**"]
+            "separateMajorMinor": false
         },
         {
             "assignees": ["jxn-30"],
             "extends": ["schedule:monthly"],
             "groupName": "engines",
-            "lockFileMaintenance": {
-                "enabled": true
-            },
+            "lockFileMaintenance": { "enabled": true },
             "matchDepNames": ["node", "npm", "yarn"],
             "matchManagers": ["npm"],
             "rangeStrategy": "pin",
@@ -92,9 +82,7 @@
             "separateMajorMinor": false
         },
         {
-            "lockFileMaintenance": {
-                "enabled": true
-            },
+            "lockFileMaintenance": { "enabled": true },
             "matchManagers": ["npm"],
             "rangeStrategy": "pin",
             "separateMajorMinor": false
