@@ -104,9 +104,9 @@
         "webpack": "5.95.0"
     },
     "engines": {
-        "node": "20.17.0"
+        "node": "22.11.0"
     },
-    "packageManager": "yarn@4.5.0",
+    "packageManager": "yarn@4.5.1",
     "workspaces": [
         "./docs/.vuepress/"
     ],
