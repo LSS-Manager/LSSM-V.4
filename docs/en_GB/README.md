@@ -67,7 +67,7 @@ If you have any problems you can always contact [Support][docs.support].
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/
 [lssm.discord]: https://discord.gg/RcTNjpB
-[lssm.userscript]: https://v4.lssm.ledbrain.de/lssm-v4.user.js
+[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
 [docs.home]: /en_GB/
