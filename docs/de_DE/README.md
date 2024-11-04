@@ -54,6 +54,9 @@ Wenn Tampermonkey in deinem Browser erfolgreich installiert wurde, kannst du ent
 
 @[code js](@userscript)
 
+#### Schritt 2,5: Entwicklermodus aktivieren oder auf Firefox umsteigen
+Nutzt du "Google Chrome" oder einen auf Chromium basierenden Browser, so kann es notwendig sein, den Entwicklermodus zu aktivieren, um Userscripte auszufüren. Falls du nicht auf Firefox umsteigen möchtest, findest du unter [https://www.tampermonkey.net/faq.php?locale=de#Q209](https://www.tampermonkey.net/faq.php?locale=de#Q209) eine Anleitung, wie du den Entwicklermodus aktivieren kannst.
+
 ### Schritt 3: Aktivieren
 Der LSSM-Indikator ist das LSSM-Logo oder (falls in den [Einstellungen](settings.md#label-statt-icon-im-menu) entsprechend eingestellt) ein grün hinterlegter Text `LSSM V.4`.
 
@@ -66,7 +69,7 @@ Bei Problemen kannst du dich jederzeit an den [Support][docs.support] wenden.
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/
 [lssm.discord]: https://discord.gg/RcTNjpB
-[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.userscript]: https://v4.lssm.ledbrain.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
 [docs.home]: /de_DE/

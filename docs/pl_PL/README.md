@@ -56,6 +56,10 @@ Jeśli Tampermonkey został pomyślnie zainstalowany w twojej przeglądarce, mo�
 
 @[code js](@userscript)
 
+#### Step 2.5: Activate developer mode or switch to Firefox
+
+If you use "Google Chrome" or a browser based on Chromium, it may be necessary to activate developer mode in order to execute userscripts. If you don't want to switch to Firefox, you can find the following at [https://www.tampermonkey.net/faq.php?locale=en#Q209](https://www.tampermonkey.net/faq.php?locale=en#Q209) for instructions on how to activate developer mode.
+
 ### Krok 3: Aktywuj
 Wskaźnik LSSM to podświetlony na zielono tekst „LSSM V.4”, znajdujący się w prawym górnym rogu OperatoraRatunkowego.
 Jeśli nie możesz znaleźć tego wskaźnika, kliknij ikonę tampermonkey w przeglądarce i sprawdź, czy przełącznik skryptu LSS-Manager jest ustawiony na `on`.
@@ -65,7 +69,7 @@ Jeśli masz jakiekolwiek problemy, skontaktuj się z nami: [Support][docs.suppor
 <!-- ==START_FOOTER== Do NOT edit anything below this line! Any edits will be removed as content is auto generated! -->
 [lssm.status]: https://status.lss-manager.de/
 [lssm.discord]: https://discord.gg/RcTNjpB
-[lssm.userscript]: https://v4.lss-manager.de/lssm-v4.user.js
+[lssm.userscript]: https://v4.lssm.ledbrain.de/lssm-v4.user.js
 [lssm.donations]: https://donate.lss-manager.de/
 [docs]: https://docs.lss-manager.de/
 [docs.home]: /pl_PL/
