@@ -91,7 +91,7 @@
         "moment-timezone": "0.5.46",
         "prettier": "3.3.3",
         "sass": "1.80.5",
-        "sass-loader": "16.0.2",
+        "sass-loader": "16.0.3",
         "simpleheat": "0.4.0",
         "terser": "5.36.0",
         "ts-loader": "9.5.1",
