@@ -1346,7 +1346,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint-community/regexpp@npm:^4.5.1, @eslint-community/regexpp@npm:^4.6.1, @eslint-community/regexpp@npm:^4.8.0, @eslint-community/regexpp@npm:^4.9.1":
+"@eslint-community/regexpp@npm:^4.11.0, @eslint-community/regexpp@npm:^4.5.1, @eslint-community/regexpp@npm:^4.6.1, @eslint-community/regexpp@npm:^4.8.0":
   version: 4.12.1
   resolution: "@eslint-community/regexpp@npm:4.12.1"
   checksum: 10c0/a03d98c246bcb9109aec2c08e4d10c8d010256538dcb3f56610191607214523d4fb1b00aa81df830b6dffb74c5fa0be03642513a289c567949d3e550ca11cdf6
@@ -5470,12 +5470,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-regexp@npm:2.6.0":
-  version: 2.6.0
-  resolution: "eslint-plugin-regexp@npm:2.6.0"
+"eslint-plugin-regexp@npm:2.7.0":
+  version: 2.7.0
+  resolution: "eslint-plugin-regexp@npm:2.7.0"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.2.0"
-    "@eslint-community/regexpp": "npm:^4.9.1"
+    "@eslint-community/regexpp": "npm:^4.11.0"
     comment-parser: "npm:^1.4.0"
     jsdoc-type-pratt-parser: "npm:^4.0.0"
     refa: "npm:^0.12.1"
@@ -5483,7 +5483,7 @@ __metadata:
     scslre: "npm:^0.3.0"
   peerDependencies:
     eslint: ">=8.44.0"
-  checksum: 10c0/475a398c8947faa94b64cf52102a839c752bc08f86ff6f718aba0234b24a47feb702a11048506311987657d9fea1cdcb71dbe08a62481dbab8c47df3acc6d0b6
+  checksum: 10c0/c4882b441bab92e89c82cb27d6650540ad318750df5e99b42989f0fdf9ea381a9156de8470f1221483f98b5dc9cd6c493da73ccc18d94dee8d4a0f0ce78bd122
   languageName: node
   linkType: hard
 
@@ -7714,7 +7714,7 @@ __metadata:
     eslint-plugin-jsdoc: "npm:50.5.0"
     eslint-plugin-markdownlint: "npm:0.6.0"
     eslint-plugin-prettier: "npm:5.2.1"
-    eslint-plugin-regexp: "npm:2.6.0"
+    eslint-plugin-regexp: "npm:2.7.0"
     eslint-plugin-tsdoc: "npm:0.3.0"
     eslint-plugin-unicorn: "npm:56.0.0"
     eslint-plugin-vue: "npm:9.31.0"
