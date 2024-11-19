@@ -260,7 +260,7 @@
     },
     "husky": {
         "url": "https://typicode.github.io/husky",
-        "version": "9.1.6"
+        "version": "9.1.7"
     },
     "js-yaml": {
         "version": "4.1.0"
