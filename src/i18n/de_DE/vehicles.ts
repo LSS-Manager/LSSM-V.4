@@ -2647,7 +2647,7 @@ export default {
             training: {
                 Wasserrettung: {
                     coastal_rescue: {
-                        min: 4,
+                        all: true,
                     },
                 },
             },
