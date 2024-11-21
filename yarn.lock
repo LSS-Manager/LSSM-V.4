@@ -1377,44 +1377,44 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/fontawesome-common-types@npm:6.7.0":
-  version: 6.7.0
-  resolution: "@fortawesome/fontawesome-common-types@npm:6.7.0"
-  checksum: 10c0/c1834f9c7fae906dc7519b3e0e101c5772a35e0e087e7f9f24383bd8007b024a874ec800f0ff8ce761923e989135079d55713dd2fe1613791e8254b99377130f
+"@fortawesome/fontawesome-common-types@npm:6.7.1":
+  version: 6.7.1
+  resolution: "@fortawesome/fontawesome-common-types@npm:6.7.1"
+  checksum: 10c0/0345b896ad8df26fb823893ce0a405dd513e9ef34878dd7b94fbbbabe370379bf680a32199bcaaf7346acbcd2a10bf0072e305829b49e5d9b0bf1c5315d07c96
   languageName: node
   linkType: hard
 
-"@fortawesome/fontawesome-free@npm:6.7.0":
-  version: 6.7.0
-  resolution: "@fortawesome/fontawesome-free@npm:6.7.0"
-  checksum: 10c0/a84139660dc0c23811de3f63cab7325ca0f6cb56a538daf81673af3485fd577a19a5fb42b337656672684be06af892c433291b0fa8cf347ec14756bc8073633a
+"@fortawesome/fontawesome-free@npm:6.7.1":
+  version: 6.7.1
+  resolution: "@fortawesome/fontawesome-free@npm:6.7.1"
+  checksum: 10c0/5bebf5f9684fc377fb7df36cf7ee37e112a8987e592228ac464b81edc0eb002e1fa8675977b82d15d304cda813da4fafbc38cf0c3ca2744c710390a58a460495
   languageName: node
   linkType: hard
 
-"@fortawesome/fontawesome-svg-core@npm:6.7.0":
-  version: 6.7.0
-  resolution: "@fortawesome/fontawesome-svg-core@npm:6.7.0"
+"@fortawesome/fontawesome-svg-core@npm:6.7.1":
+  version: 6.7.1
+  resolution: "@fortawesome/fontawesome-svg-core@npm:6.7.1"
   dependencies:
-    "@fortawesome/fontawesome-common-types": "npm:6.7.0"
-  checksum: 10c0/4c49c6e7c1e2aba312cd0bbb77840af86612dd5c773d62fac45f13419fc81a67c083845d2ace2e92c4d8c7e1efbb4f1467869668948011583a4491b09a7c5792
+    "@fortawesome/fontawesome-common-types": "npm:6.7.1"
+  checksum: 10c0/7a1dc40fc5ef380eb0f83d89dfcb26dc5b49f6a6545970e46e413d81dfa9764006a056cfcd49c2e8113dbd2c95d429db873710424a150e4a923b2496e11707ca
   languageName: node
   linkType: hard
 
-"@fortawesome/free-regular-svg-icons@npm:6.7.0":
-  version: 6.7.0
-  resolution: "@fortawesome/free-regular-svg-icons@npm:6.7.0"
+"@fortawesome/free-regular-svg-icons@npm:6.7.1":
+  version: 6.7.1
+  resolution: "@fortawesome/free-regular-svg-icons@npm:6.7.1"
   dependencies:
-    "@fortawesome/fontawesome-common-types": "npm:6.7.0"
-  checksum: 10c0/5b101edb75ee6f8735c1be312ee440586d7808bc6bfd216cb857193f6ea7ced8dbbc09074036d028fa7be1f3d62205f9ec2685d3ea6ad636b251112a18300016
+    "@fortawesome/fontawesome-common-types": "npm:6.7.1"
+  checksum: 10c0/6d770622cd6519835d8557a0a562c5f2f877527bb65671a6136a558ce61024bf7baaeb8e29420f29da4893b815c3af8173c6f45064bbcc040db613998d77502e
   languageName: node
   linkType: hard
 
-"@fortawesome/free-solid-svg-icons@npm:6.7.0":
-  version: 6.7.0
-  resolution: "@fortawesome/free-solid-svg-icons@npm:6.7.0"
+"@fortawesome/free-solid-svg-icons@npm:6.7.1":
+  version: 6.7.1
+  resolution: "@fortawesome/free-solid-svg-icons@npm:6.7.1"
   dependencies:
-    "@fortawesome/fontawesome-common-types": "npm:6.7.0"
-  checksum: 10c0/48c8bd1c62eb9972fc170307a9e2831268ef73ff13fc21e4bacedf5abcda70bbfdc469bf5ac62a80ddb78e3d6d9ed3f47eb9e7fd109611bc4f457c39b8f90393
+    "@fortawesome/fontawesome-common-types": "npm:6.7.1"
+  checksum: 10c0/9b6e6ba383dfc456020b77a600edcccaf8131ebd472038bd6b6f2425f011c8c63c0a6049d798dc120512b9c5332043eb46bb815d9d55c56ebdf8ecc94afb0184
   languageName: node
   linkType: hard
 
@@ -7676,10 +7676,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "lss-manager-v4@workspace:."
   dependencies:
-    "@fortawesome/fontawesome-free": "npm:6.7.0"
-    "@fortawesome/fontawesome-svg-core": "npm:6.7.0"
-    "@fortawesome/free-regular-svg-icons": "npm:6.7.0"
-    "@fortawesome/free-solid-svg-icons": "npm:6.7.0"
+    "@fortawesome/fontawesome-free": "npm:6.7.1"
+    "@fortawesome/fontawesome-svg-core": "npm:6.7.1"
+    "@fortawesome/free-regular-svg-icons": "npm:6.7.1"
+    "@fortawesome/free-solid-svg-icons": "npm:6.7.1"
     "@fortawesome/vue-fontawesome": "npm:2.0.10"
     "@types/he": "npm:1.2.3"
     "@types/i18n-js": "npm:3.8.9"
