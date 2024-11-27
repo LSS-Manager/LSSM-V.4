@@ -209,7 +209,8 @@
         "version": "2.31.0"
     },
     "eslint-plugin-jsdoc": {
-        "version": "50.5.0"
+        "url": "https://github.com/gajus/eslint-plugin-jsdoc#readme",
+        "version": "50.6.0"
     },
     "eslint-plugin-markdownlint": {
         "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",
