@@ -89,7 +89,7 @@
         "js-yaml": "4.1.0",
         "local-web-server": "5.4.0",
         "moment-timezone": "0.5.46",
-        "prettier": "3.3.3",
+        "prettier": "3.4.1",
         "sass": "1.81.0",
         "sass-loader": "16.0.3",
         "simpleheat": "0.4.0",
