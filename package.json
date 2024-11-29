@@ -28,7 +28,7 @@
         "broadcast-channel": "4.20.2",
         "emoji-toolkit": "9.0.1",
         "he": "1.2.0",
-        "highcharts": "12.0.1",
+        "highcharts": "11.4.8",
         "highcharts-vue": "1.4.3",
         "leaflet.heat": "0.2.0",
         "localforage": "1.10.0",
