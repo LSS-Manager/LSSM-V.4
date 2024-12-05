@@ -133,8 +133,8 @@
             "wildfire": "Handcrew",
             "wildfire_command": "DA-LA-NB",
             "wildfire_equipment": "Natuurbrandbestrijding Uitrusting",
-            "need_oneof_fire_engine_or_rescue": "Tankautospuiten of hulpverleningsvoertuigen",
-            "need_oneof_wildfire_engine_or_airport_fire_engine": "Tankautospuiten (Terreinvaardig) of Crashtender"
+            "oneof_fire_engine_or_rescue": "Tankautospuiten of hulpverleningsvoertuigen",
+            "oneof_wildfire_engine_or_airport_fire_engine": "Tankautospuiten (Terreinvaardig) of Crashtender"
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {
