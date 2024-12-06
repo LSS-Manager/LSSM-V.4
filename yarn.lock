@@ -2352,12 +2352,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/leaflet@npm:1.9.14":
-  version: 1.9.14
-  resolution: "@types/leaflet@npm:1.9.14"
+"@types/leaflet@npm:1.9.15":
+  version: 1.9.15
+  resolution: "@types/leaflet@npm:1.9.15"
   dependencies:
     "@types/geojson": "npm:*"
-  checksum: 10c0/0c7df77581d62e0c6b106b5f8718001e7f0feec8caea0bfcd03c91204dd5b431a4f32df7b482318c9f7942e892058a8f8decebe8b1a517b9bcdf6ab508c44060
+  checksum: 10c0/6537da4107f833e38359ca9e98e2c161d686af58ff8873c65c102e146b881761ca6212b08fae4e755380ee001073f856ee46c5ea25592a53f39e2b9e5d934d42
   languageName: node
   linkType: hard
 
@@ -2464,13 +2464,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/pdfmake@npm:0.2.9":
-  version: 0.2.9
-  resolution: "@types/pdfmake@npm:0.2.9"
+"@types/pdfmake@npm:0.2.10":
+  version: 0.2.10
+  resolution: "@types/pdfmake@npm:0.2.10"
   dependencies:
     "@types/node": "npm:*"
     "@types/pdfkit": "npm:*"
-  checksum: 10c0/6b76e101f078882190064edeaa9f0c99de2212f94484fba17b92dad9e93007f939e1ff201f9934ae1f878efbeedead66ba41e497fd292914511236a1823af495
+  checksum: 10c0/44f216c3d285c642b9a697268455b57981ee1a358f9c0d3983437ff8a743bacb6f30b3c1637984ee14cb3a30b3f52bc2236dcc1c841c65093b5dc64939078e86
   languageName: node
   linkType: hard
 
@@ -7736,10 +7736,10 @@ __metadata:
     "@types/i18n-js": "npm:3.8.9"
     "@types/jquery": "npm:3.5.32"
     "@types/js-yaml": "npm:4.0.9"
-    "@types/leaflet": "npm:1.9.14"
+    "@types/leaflet": "npm:1.9.15"
     "@types/lodash": "npm:4.17.13"
     "@types/node": "npm:22.10.1"
-    "@types/pdfmake": "npm:0.2.9"
+    "@types/pdfmake": "npm:0.2.10"
     "@types/qrcode": "npm:1.5.5"
     "@types/semver": "npm:7.5.8"
     "@types/showdown": "npm:2.0.6"
