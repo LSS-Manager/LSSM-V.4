@@ -269,7 +269,7 @@
             { "texts": ["MTW FGr K"], "vehicles": [148] },
             { "texts": ["Lüfter"], "vehicles": [114, 115, 116] },
             {
-                "equipment": ["drone"],
+                "equipment": ["drone", "mountain_drone"],
                 "texts": ["Drohneneinheit", "Drohneneinheiten"],
                 "vehicles": [125, 126, 127, 128, 129]
             },
@@ -302,6 +302,11 @@
                     "Seenotrettungsboote oder Seenotrettungskreuzer"
                 ],
                 "vehicles": [159, 160]
+            },
+            {
+                "equipment": ["railway_fire"],
+                "texts": ["Bahnrettungsfahrzeug", "Bahnrettungsfahrzeuge"],
+                "vehicles": [162, 163, 164]
             }
         ],
         "water": "l. Wasser"

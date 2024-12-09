@@ -2692,4 +2692,56 @@ export default {
         icon: 'helicopter',
         possibleBuildings: [28],
     },
+    162: {
+        caption: 'RW-Schiene',
+        color: '#992b22',
+        credits: 18_500,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 3,
+            training: {
+                Feuerwehr: {
+                    railway_fire: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [25],
+    },
+    163: {
+        caption: 'HLF Schiene',
+        color: '#992b22',
+        credits: 30_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 9,
+            training: {
+                Feuerwehr: {
+                    railway_fire: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [0, 18],
+        waterTank: 1460,
+        pumpCapacity: 2400,
+        pumpType: 'fire',
+    },
+    164: {
+        caption: 'AB-Schiene',
+        color: '#992b22',
+        credits: 25_000,
+        coins: 25,
+        staff: { min: 0, max: 0 },
+        icon: 'square',
+        possibleBuildings: [0, 18],
+        isTrailer: true,
+        tractiveVehicles: [46],
+    },
 } satisfies Record<number, InternalVehicle>;

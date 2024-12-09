@@ -44,7 +44,7 @@ export default {
                     parkingLotReservations: [
                         [
                             47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
-                            142,
+                            142, 164
                         ],
                     ],
                     cannotDisable: true,
@@ -72,7 +72,7 @@ export default {
                     47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
                 ],
                 parkingLotReservations: [
-                    [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119, 142],
+                    [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119, 142, 164],
                 ],
                 cannotDisable: true,
                 unlockedVehiclesOnReservedLotsOnly: true,
@@ -129,7 +129,7 @@ export default {
                     parkingLotReservations: [
                         [
                             47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
-                            142,
+                            142, 164
                         ],
                     ],
                     cannotDisable: true,
@@ -186,7 +186,7 @@ export default {
                     47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
                 ],
                 parkingLotReservations: [
-                    [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119, 142],
+                    [47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119, 142, 164],
                 ],
                 cannotDisable: true,
                 unlockedVehiclesOnReservedLotsOnly: true,
@@ -229,6 +229,16 @@ export default {
                 },
                 5
             ),
+            {
+                caption: 'Drohneneinheit',
+                credits: 150_000,
+                coins: 25,
+                duration: '5 Tage',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                parkingLotReservations: [[162, 163]],
+                unlocksVehicleTypes: [162, 163, 164],
+            },
         ],
         storageUpgrades: {
             initial_containers: {
@@ -1462,7 +1472,7 @@ export default {
                     parkingLotReservations: [
                         [
                             47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
-                            142,
+                            142, 164
                         ],
                     ],
                     cannotDisable: true,
@@ -1564,6 +1574,16 @@ export default {
                 },
                 2
             ),
+            {
+                caption: 'Drohneneinheit',
+                credits: 150_000,
+                coins: 25,
+                duration: '5 Tage',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                parkingLotReservations: [[162, 163]],
+                unlocksVehicleTypes: [162, 163, 164],
+            },
         ],
         storageUpgrades: {
             initial_containers: {
