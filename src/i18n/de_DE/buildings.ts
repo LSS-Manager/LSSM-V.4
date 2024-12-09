@@ -232,7 +232,7 @@ export default {
                 5
             ),
             {
-                caption: 'Drohneneinheit',
+                caption: 'Bahnrettung',
                 credits: 150_000,
                 coins: 25,
                 duration: '5 Tage',
@@ -1578,7 +1578,7 @@ export default {
                 2
             ),
             {
-                caption: 'Drohneneinheit',
+                caption: 'Bahnrettung',
                 credits: 150_000,
                 coins: 25,
                 duration: '5 Tage',
