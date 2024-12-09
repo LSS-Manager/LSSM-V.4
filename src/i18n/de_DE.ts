@@ -108,6 +108,7 @@ export default {
                 Logistikfahrzeuge: [104, 105, 106, 107],
                 Netzersatzanlagen: [111, 113],
                 Verpflegung: [138, 139, 140, 141],
+                Bahnrettung:  [162, 163, 164]
             },
             color: '#ff2d2d',
         },
@@ -273,6 +274,8 @@ export default {
         'Kraftwerk',
         'Werksgelände',
         'Seilbahn',
+        'Brücke',
+        'U-Bahn Station',
     ],
     only_alliance_missions: [41, 43, 59, 75, 99, 207, 221, 222, 256, 350],
     transfer_missions: [147, 613],

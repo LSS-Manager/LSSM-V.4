@@ -110,6 +110,12 @@ export default {
             staffList: 'Verpflegungshelfer',
             key: 'care_service_equipment',
         },
+        {
+            caption: 'Bahnrettung',
+            duration: '3 Tage',
+            staffList: 'Bahnrettung',
+            key: 'railway_fire',
+        },
     ],
     Polizei: [
         {
