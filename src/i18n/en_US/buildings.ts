@@ -601,7 +601,7 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [110, 111, 112],
-                parkingLotReservations: [    
+                parkingLotReservations: [
                     [110, 111, 112],
                     [110, 111, 112],
                 ],
@@ -1136,7 +1136,7 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [110, 111, 112],
-                parkingLotReservations: [    
+                parkingLotReservations: [
                     [110, 111, 112],
                     [110, 111, 112],
                 ],

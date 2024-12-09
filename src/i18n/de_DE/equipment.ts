@@ -158,7 +158,7 @@ export default registerEquipment({
         id: 'railway_fire',
         caption: 'RC-Modul: Schiene',
         size: 20,
-        credits: 15000,
+        credits: 15_000,
         coins: 15,
         staff: {
             min: 2,
