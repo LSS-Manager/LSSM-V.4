@@ -1748,7 +1748,7 @@ export default {
     111: {
         caption: 'Police Water Rescue Boat Trailer',
         color: '#4282f0',
-        credits: 6_000,
+        credits: 6000,
         coins: 12,
         staff: {
             min: 0,
@@ -1758,7 +1758,8 @@ export default {
         possibleBuildings: [5, 15],
         isTrailer: true,
         tractiveVehicles: [10, 16, 19, 26, 47, 56, 86, 90],
-        special: "Needed towing vehicle (Patrol car, K-9 Unit, Police Crew Carrier, Police Supervisor / Sheriff Unit, Warden's Truck, SWAT Armoured Vehicle, SWAT SUV, Tactical Rescue Truck)",
+        special:
+            "Needed towing vehicle (Patrol car, K-9 Unit, Police Crew Carrier, Police Supervisor / Sheriff Unit, Warden's Truck, SWAT Armoured Vehicle, SWAT SUV, Tactical Rescue Truck)",
     },
     112: {
         caption: 'Police Water Rescue Double Boat Trailer',
@@ -1773,6 +1774,7 @@ export default {
         possibleBuildings: [5, 15],
         isTrailer: true,
         tractiveVehicles: [10, 16, 19, 26, 47, 56, 86, 90],
-        special: "Needed towing vehicle (Patrol car, K-9 Unit, Police Crew Carrier, Police Supervisor / Sheriff Unit, Warden's Truck, SWAT Armoured Vehicle, SWAT SUV, Tactical Rescue Truck),  Transporting 2 Light Boats",
+        special:
+            "Needed towing vehicle (Patrol car, K-9 Unit, Police Crew Carrier, Police Supervisor / Sheriff Unit, Warden's Truck, SWAT Armoured Vehicle, SWAT SUV, Tactical Rescue Truck),  Transporting 2 Light Boats",
     },
 } satisfies Record<number, InternalVehicle>;

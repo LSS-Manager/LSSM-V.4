@@ -108,7 +108,7 @@ export default {
                 Logistikfahrzeuge: [104, 105, 106, 107],
                 Netzersatzanlagen: [111, 113],
                 Verpflegung: [138, 139, 140, 141],
-                Bahnrettung:  [162, 163, 164]
+                Bahnrettung: [162, 163, 164],
             },
             color: '#ff2d2d',
         },
