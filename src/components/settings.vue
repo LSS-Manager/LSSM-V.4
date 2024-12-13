@@ -156,7 +156,7 @@
                             :wide="wideGrids.includes(setting.type)"
                             :moduleId="moduleId"
                             :settingId="settingId"
-                            :name="(setting.name = `${moduleId}.${settingId}`)"
+                            :name="setting.name = `${moduleId}.${settingId}`"
                             :title="
                                 $t(
                                     `modules.${moduleId}.settings.${settingId}.title`.replace(
@@ -182,10 +182,10 @@
                                 settingsBeforeDescription.includes(setting.type)
                             "
                             :isDisabled="
-                                (setting.isDisabled = disabled(
+                                setting.isDisabled = disabled(
                                     moduleId,
                                     settingId
-                                ))
+                                )
                             "
                             :disabled="setting.isDisabled"
                             :hidden="setting.type === 'hidden'"

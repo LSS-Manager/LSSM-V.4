@@ -366,7 +366,7 @@
                             v-for="(value, filter) in table.filter"
                             :key="filter"
                             :data-title="
-                                (filter_title = lightbox
+                                filter_title = lightbox
                                     .$sm(
                                         `filter.${tableType}.${filter}${
                                             filter === 'status' ? '.title' : ''
@@ -375,7 +375,7 @@
                                             department: vehicle.department,
                                         }
                                     )
-                                    .toString())
+                                    .toString()
                             "
                         >
                             <label>{{ filter_title }}</label>
