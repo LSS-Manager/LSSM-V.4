@@ -3159,14 +3159,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vuepress/plugin-register-components@npm:2.0.0-rc.52":
-  version: 2.0.0-rc.52
-  resolution: "@vuepress/plugin-register-components@npm:2.0.0-rc.52"
+"@vuepress/plugin-register-components@npm:2.0.0-rc.66":
+  version: 2.0.0-rc.66
+  resolution: "@vuepress/plugin-register-components@npm:2.0.0-rc.66"
   dependencies:
     chokidar: "npm:^3.6.0"
   peerDependencies:
-    vuepress: 2.0.0-rc.17
-  checksum: 10c0/8937e957ea84f7c6494f0d11a9bc0c77263d054a5064b914237b239a72795088442dc7d964c2fa240bed83ecb81f837bf5a6071d434fe3dfbdfa6516dccb6bba
+    vuepress: 2.0.0-rc.19
+  checksum: 10c0/0ba03e8865df99b1b741df54244ec0c6403143c10f6110102db08c3392fc948ff15a268ca6e7b60484599ba0b435212703c35d8b4eff2ff691ca223dfd9b4dbe
   languageName: node
   linkType: hard
 
@@ -7748,7 +7748,7 @@ __metadata:
     "@vuepress/client": "npm:2.0.0-rc.2"
     "@vuepress/plugin-pwa": "npm:2.0.0-rc.3"
     "@vuepress/plugin-pwa-popup": "npm:2.0.0-rc.14"
-    "@vuepress/plugin-register-components": "npm:2.0.0-rc.52"
+    "@vuepress/plugin-register-components": "npm:2.0.0-rc.66"
     "@vuepress/plugin-search": "npm:2.0.0-rc.3"
     "@vuepress/theme-default": "npm:2.0.0-rc.6"
     cloc: "npm:2.11.0"
