@@ -1557,10 +1557,10 @@ export default {
         icon: 'fill',
         possibleBuildings: [13],
         special:
-            'Der Polizeihelikopter ist das Trägerfahrzeug hier von. Der Helikopter brauch min. 2 Ausgebildete Kräfte mit der Ausbildung "Brandbekämpfung"',
+            'Kann an Polizeihubschrauber und Polizeihubschrauber mit verbauter Winde angehängt werden. Das Personal auf dem Hubschrauber benötigt zusätzlich die Ausbildung "brandbekämpfung".',
         waterTank: 1000,
         isTrailer: true,
-        tractiveVehicles: [61],
+        tractiveVehicles: [61, 156],
     },
     97: {
         caption: 'ITW',
