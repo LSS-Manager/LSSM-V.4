@@ -206,7 +206,10 @@
                 "texts": ["MEK-Fahrzeug", "MEK-Fahrzeuge"],
                 "vehicles": [81, 82]
             },
-            { "texts": ["Polizeihubschrauber"], "vehicles": [61] },
+            { 
+                "texts": ["Polizeihubschrauber"], 
+                "vehicles": [61, 156] 
+            },
             {
                 "texts": ["Polizeimotorrad", "Polizeimotorräder"],
                 "vehicles": [95]
@@ -235,7 +238,7 @@
                 "vehicles": [79, 80]
             },
             {
-                "equipment": ["hose_water"],
+                "equipment": ["hose_water", "hose_water_2"],
                 "texts": [
                     "Schlauchwagen (GW-L2 Wasser, SW 1000, SW 2000 oder Ähnliches)",
                     "Schlauchwagen (GW-L2 Wasser oder SW)"
