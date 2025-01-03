@@ -238,7 +238,7 @@
                     "Airfield Operations Vehicle",
                     "Airfield Operations Vehicles"
                 ],
-                "vehicles": [79]
+                "vehicles": [79, 80]
             },
             { "texts": ["RIV", "RIVs"], "vehicles": [76] },
             {
