@@ -186,7 +186,7 @@
                 ],
                 "vehicles": [67, 74]
             },
-            { "texts": ["ILB", "ILBs"], "vehicles": [68] },
+            { "texts": ["ILB or ALB", "ILBs or ALBs"], "vehicles": [68, 69] },
             {
                 "texts": [
                     "Coastguard Rescue Helicopter",
