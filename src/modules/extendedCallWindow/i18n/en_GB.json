@@ -129,6 +129,10 @@
                 "texts": ["Police car", "Police cars"],
                 "vehicles": [8, 12, 13, 19, 24, 25, 51, 52, 56, 82]
             },
+                        {
+                "texts": ["Police Car or Armed Response Vehicle (ARV)", "Police Cars or Armed Response Vehicles (ARVs)"],
+                "vehicles": [8, 12, 13, 19, 24, 25, 51, 52, 56, 82]
+            },
             { "texts": ["HEMS"], "vehicles": [9] },
             {
                 "texts": ["Policehelicopter", "Policehelicopters"],
