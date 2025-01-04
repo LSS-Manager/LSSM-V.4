@@ -174,7 +174,7 @@
                 "texts": ["Flood Rescue Unit", "Flood Rescue Units"],
                 "vehicles": [61]
             },
-            { "texts": ["CRV", "CRVs"], "vehicles": [57] },
+            { "texts": ["CRV", "CRVs"], "vehicles": [57, 58, 59] },
             {
                 "texts": ["Coastguard Commander", "Coastguard Commanders"],
                 "vehicles": [60]
