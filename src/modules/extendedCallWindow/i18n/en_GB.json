@@ -78,6 +78,20 @@
                 ],
                 "vehicles": [4, 16, 38, 43]
             },
+                        {
+                "texts": [
+                    "Fire engine, Rescue Support Vehicle or Aerial Appliance Truck",
+                    "Fire engines, Rescue Support Vehicles or Aerial Appliance Trucks"
+                ],
+                "vehicles": [0, 1, 2, 4, 16, 17, 26, 37, 38, 43, 47]
+            },
+                                    {
+                "texts": [
+                    "Fire engine or Rescue Support Vehicle",
+                    "Fire engines or Rescue Support Vehicles"
+                ],
+                "vehicles": [0, 1, 4, 16, 17, 26, 37, 38, 43, 47]
+            },
             { "texts": ["BASU", "BASUs"], "vehicles": [14, 39, 46, 49] },
             {
                 "texts": ["Water Carrier", "Water Carriers"],
