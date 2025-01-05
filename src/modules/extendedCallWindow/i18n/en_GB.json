@@ -78,14 +78,14 @@
                 ],
                 "vehicles": [4, 16, 38, 43]
             },
-                        {
+            {
                 "texts": [
                     "Fire engine, Rescue Support Vehicle or Aerial Appliance Truck",
                     "Fire engines, Rescue Support Vehicles or Aerial Appliance Trucks"
                 ],
                 "vehicles": [0, 1, 2, 4, 16, 17, 26, 37, 38, 43, 47]
             },
-                                    {
+            {
                 "texts": [
                     "Fire engine or Rescue Support Vehicle",
                     "Fire engines or Rescue Support Vehicles"
@@ -129,8 +129,11 @@
                 "texts": ["Police car", "Police cars"],
                 "vehicles": [8, 12, 13, 19, 24, 25, 51, 52, 56, 82]
             },
-                        {
-                "texts": ["Police Car or Armed Response Vehicle (ARV)", "Police Cars or Armed Response Vehicles (ARVs)"],
+            {
+                "texts": [
+                    "Police Car or Armed Response Vehicle (ARV)",
+                    "Police Cars or Armed Response Vehicles (ARVs)"
+                ],
                 "vehicles": [8, 12, 13, 19, 24, 25, 51, 52, 56, 82]
             },
             { "texts": ["HEMS"], "vehicles": [9] },
@@ -243,7 +246,10 @@
                 "texts": ["Major Foam Tender", "Major Foam Tenders"],
                 "vehicles": [75]
             },
-            { "texts": ["Rescue Stair", "Rescue Stairs"], "vehicles": [78, 2, 17] },
+            {
+                "texts": ["Rescue Stair", "Rescue Stairs"],
+                "vehicles": [78, 2, 17]
+            },
             {
                 "texts": [
                     "Airfield Firefighting Command Vehicle",
