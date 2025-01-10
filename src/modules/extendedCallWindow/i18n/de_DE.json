@@ -48,7 +48,8 @@
             {
                 "texts": ["Polizisten"],
                 "vehicles": [
-                    32, 35, 50, 51, 52, 61, 72, 79, 80, 81, 82, 94, 95, 98, 103, 156
+                    32, 35, 50, 51, 52, 61, 72, 79, 80, 81, 82, 94, 95, 98, 103,
+                    156
                 ]
             },
             {
@@ -206,10 +207,7 @@
                 "texts": ["MEK-Fahrzeug", "MEK-Fahrzeuge"],
                 "vehicles": [81, 82]
             },
-            { 
-                "texts": ["Polizeihubschrauber"], 
-                "vehicles": [61, 156] 
-            },
+            { "texts": ["Polizeihubschrauber"], "vehicles": [61, 156] },
             {
                 "texts": ["Polizeimotorrad", "Polizeimotorräder"],
                 "vehicles": [95]
