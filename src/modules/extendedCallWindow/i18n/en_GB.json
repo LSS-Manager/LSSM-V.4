@@ -63,9 +63,17 @@
                 "texts": ["Fire engine", "Fire engines"],
                 "vehicles": [0, 1, 16, 17, 26, 37, 38, 47]
             },
+           {
+                "texts": ["Fire Engine or RIV", "Fire Engines or RIVs"],
+                "vehicles": [0, 1, 16, 17, 26, 37, 38, 47, 76]
+            },
             {
                 "texts": ["Aerial Appliance Truck", "Aerial Appliance Trucks"],
                 "vehicles": [2, 17]
+            },
+                        {
+                "texts": ["Aerial Appliance Truck or Rescue Stairs", "Aerial Appliance Trucks or Rescue Stairs"],
+                "vehicles": [2, 17, 78]
             },
             {
                 "texts": ["Fire Officer", "Fire Officers"],
@@ -208,6 +216,7 @@
                 "vehicles": [67, 74]
             },
             { "texts": ["ILB or ALB", "ILBs or ALBs"], "vehicles": [68, 69] },
+            { "texts": ["ILB", "ILBs"], "vehicles": [68, 69] },
             {
                 "texts": [
                     "Coastguard Rescue Helicopter",
