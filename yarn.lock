@@ -2346,12 +2346,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/leaflet@npm:1.9.15":
-  version: 1.9.15
-  resolution: "@types/leaflet@npm:1.9.15"
+"@types/leaflet@npm:1.9.16":
+  version: 1.9.16
+  resolution: "@types/leaflet@npm:1.9.16"
   dependencies:
     "@types/geojson": "npm:*"
-  checksum: 10c0/6537da4107f833e38359ca9e98e2c161d686af58ff8873c65c102e146b881761ca6212b08fae4e755380ee001073f856ee46c5ea25592a53f39e2b9e5d934d42
+  checksum: 10c0/80403093b918ed19911997dc8ebe1aac44f49ada065f5b60ea451f6b8c92ffc942ef49706f7faa1a4e7c62824390a44d407bd5b1a9cfbbaea82c1501129c919a
   languageName: node
   linkType: hard
 
@@ -2369,10 +2369,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:4.17.13":
-  version: 4.17.13
-  resolution: "@types/lodash@npm:4.17.13"
-  checksum: 10c0/c3d0b7efe7933ac0369b99f2f7bff9240d960680fdb74b41ed4bd1b3ca60cca1e31fe4046d9abbde778f941a41bc2a75eb629abf8659fa6c27b66efbbb0802a9
+"@types/lodash@npm:4.17.14":
+  version: 4.17.14
+  resolution: "@types/lodash@npm:4.17.14"
+  checksum: 10c0/343c6f722e0b39969036a885ad5aad6578479ead83987128c9b994e6b7f2fb9808244d802d4d332396bb09096f720a6c7060de16a492f5460e06a44560360322
   languageName: node
   linkType: hard
 
@@ -2458,13 +2458,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/pdfmake@npm:0.2.10":
-  version: 0.2.10
-  resolution: "@types/pdfmake@npm:0.2.10"
+"@types/pdfmake@npm:0.2.11":
+  version: 0.2.11
+  resolution: "@types/pdfmake@npm:0.2.11"
   dependencies:
     "@types/node": "npm:*"
     "@types/pdfkit": "npm:*"
-  checksum: 10c0/44f216c3d285c642b9a697268455b57981ee1a358f9c0d3983437ff8a743bacb6f30b3c1637984ee14cb3a30b3f52bc2236dcc1c841c65093b5dc64939078e86
+  checksum: 10c0/751ea63f2a5aaacbf008543ec58d01f80a11948b7fe18ee531668f97bbed3b0622d3fb1946e3d6b02af9c7ef7396ec858e6f5f5c551b746832b94a6ac33ec453
   languageName: node
   linkType: hard
 
@@ -7791,10 +7791,10 @@ __metadata:
     "@types/i18n-js": "npm:3.8.9"
     "@types/jquery": "npm:3.5.32"
     "@types/js-yaml": "npm:4.0.9"
-    "@types/leaflet": "npm:1.9.15"
-    "@types/lodash": "npm:4.17.13"
+    "@types/leaflet": "npm:1.9.16"
+    "@types/lodash": "npm:4.17.14"
     "@types/node": "npm:22.10.5"
-    "@types/pdfmake": "npm:0.2.10"
+    "@types/pdfmake": "npm:0.2.11"
     "@types/qrcode": "npm:1.5.5"
     "@types/semver": "npm:7.5.8"
     "@types/showdown": "npm:2.0.6"
