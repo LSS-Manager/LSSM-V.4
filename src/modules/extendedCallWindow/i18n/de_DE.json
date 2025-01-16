@@ -157,9 +157,7 @@
                     "allow_police_motorcycle_instead_of_fustw": [95]
                 },
                 "texts": [
-                    "FuStW",
-                    "Streifenwagen oder Polizeimotorrad",
-                    "Streifenwagen oder Polizeimotorräder"
+                    "FuStW"
                 ],
                 "vehicles": [32, 103]
             },
