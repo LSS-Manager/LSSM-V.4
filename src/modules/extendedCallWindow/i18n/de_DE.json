@@ -163,6 +163,10 @@
                 "vehicles": [32, 95, 103]
             },
             {
+                "texts": ["Streifenwagen oder Zivilstreifenwagen"],
+                "vehicles": [32, 98, 103]
+            },
+            {
                 "texts": ["Funkstreifenwagen (Dienstgruppenleitung)"],
                 "vehicles": [103]
             },
