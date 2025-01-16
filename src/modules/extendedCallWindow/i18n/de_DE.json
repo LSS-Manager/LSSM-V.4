@@ -156,11 +156,18 @@
                 "conditionalVehicles": {
                     "allow_police_motorcycle_instead_of_fustw": [95]
                 },
-                "texts": ["FuStW", "Streifenwagen oder Polizeimotorrad", "Streifenwagen oder Polizeimotorräder"],
+                "texts": [
+                    "FuStW",
+                    "Streifenwagen oder Polizeimotorrad",
+                    "Streifenwagen oder Polizeimotorräder"
+                ],
                 "vehicles": [32, 103]
             },
             {
-                "texts": ["Streifenwagen oder Polizeimotorrad", "Streifenwagen oder Polizeimotorräder"],
+                "texts": [
+                    "Streifenwagen oder Polizeimotorrad",
+                    "Streifenwagen oder Polizeimotorräder"
+                ],
                 "vehicles": [32, 95, 103]
             },
             {
