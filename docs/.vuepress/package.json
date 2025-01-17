@@ -5,7 +5,7 @@
 		"@primer/octicons": "19.14.0",
 		"@vuepress/bundler-vite": "2.0.0-rc.7",
 		"@vuepress/client": "2.0.0-rc.2",
-		"@vuepress/plugin-pwa": "2.0.0-rc.3",
+		"@vuepress/plugin-pwa": "2.0.0-rc.73",
 		"@vuepress/plugin-pwa-popup": "2.0.0-rc.14",
 		"@vuepress/plugin-register-components": "2.0.0-rc.52",
 		"@vuepress/plugin-search": "2.0.0-rc.3",
