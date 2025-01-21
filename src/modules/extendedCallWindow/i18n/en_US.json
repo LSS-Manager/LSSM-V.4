@@ -283,13 +283,7 @@
                 ],
                 "vehicles": [105, 106, 107, 108]
             },
-            {
-                "texts": [
-                    "Truck to tow",
-                    "Trucks to tow"
-                ],
-                "vehicles": [113]
-            },
+            { "texts": ["Truck to tow", "Trucks to tow"], "vehicles": [113] },
             {
                 "equipment": ["flood_equipment"],
                 "texts": ["Flood Equipment"],

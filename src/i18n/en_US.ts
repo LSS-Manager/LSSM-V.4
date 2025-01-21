@@ -272,7 +272,7 @@ export default {
         'Market',
         'Hangar',
         'Swamp',
-        'Casino'
+        'Casino',
     ],
     only_alliance_missions: [41, 61, 62, 112],
     transfer_missions: [246, 983],

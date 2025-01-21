@@ -109,8 +109,8 @@
         "title": "Crashed car | {n} Crashed car| {n} Crashed cars"
     },
     "towtruck1": {
-        "possible_crashed_car_large_exact": "exact {n} crashed truck | exact {n} crashed trucks",
         "possible_crashed_car_large": "Maximum crashed trucks",
+        "possible_crashed_car_large_exact": "exact {n} crashed truck | exact {n} crashed trucks",
         "possible_crashed_car_large_min": "Minimum crashed truck",
         "title": "Crashed truck | {n} Crashed truck| {n} Crashed trucks"
     },
