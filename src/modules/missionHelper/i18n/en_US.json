@@ -20,6 +20,7 @@
         "rural": "Rural Fire Missions",
         "title": "Generating Categories",
         "tow_trucks": "Traffic Accident Missions",
+        "tow_trucks_only": "Tow Truck Missions",
         "urban": "Urban Fire Missions",
         "water_damage_and_flood": "Water Damage and Flood Mission",
         "water_police_specialization": "Water Police Missions (Specialization)",
@@ -79,6 +80,7 @@
         "technical_rescue_equipment": "Technical Rescue Equipments",
         "title": "Prerequisite | Prerequisites",
         "tow_trucks": "Tow Truck Station | Tow Truck Stations",
+        "tow_trucks_large": "Rotator Truck Extension | Rotator Truck Extensions",
         "traffic_control": "Traffic Control",
         "wasserrettung": "Water Rescue Station | Water Rescue Stations",
         "water_damage_pump_count": "Flood Control Extension | Flood Control Extensions",
@@ -105,6 +107,12 @@
         "possible_crashed_car_max": "Maximum crashed cars",
         "possible_crashed_car_min": "Minimum crashed car",
         "title": "Crashed car | {n} Crashed car| {n} Crashed cars"
+    },
+    "towtruck1": {
+        "possible_crashed_car_large_exact": "exact {n} crashed truck | exact {n} crashed trucks",
+        "possible_crashed_car_large": "Maximum crashed trucks",
+        "possible_crashed_car_large_min": "Minimum crashed truck",
+        "title": "Crashed truck | {n} Crashed truck| {n} Crashed trucks"
     },
     "vehicles": {
         "captions": {
@@ -161,6 +169,7 @@
             "oneof_fire_engine_or_rescue": "Firetrucks or Heavy Rescue Vehicles",
             "oneof_fire_engine_or_rescue_or_ladder": "Firetrucks, Heavy Rescue Vehicles or Platform Trucks",
             "oneof_fire_investigation_or_fbi_drone": "FBI Drones or FBI Investigation Wagons",
+            "oneof_fire_rescue_or_ladder": "Heavy Rescue Vehicle or Plattform Truck | Heavy Rescue Vehicles or Plattform Trucks",
             "oneof_police_patrol_or_police_swat": "Police Cars or Swat SUVs",
             "oneof_police_patrol_or_swat": "Police Cars or Swat SUVs",
             "platform_trucks": "Platform Truck | Platform Trucks",

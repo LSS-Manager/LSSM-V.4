@@ -1777,4 +1777,17 @@ export default {
         special:
             "Needed towing vehicle (Patrol car, K-9 Unit, Police Crew Carrier, Police Supervisor / Sheriff Unit, Warden's Truck, SWAT Armoured Vehicle, SWAT SUV, Tactical Rescue Truck),  Transporting 2 Light Boats",
     },
+    113: {
+        caption: 'Rotator Truck',
+        color: '#6b1ebe',
+        credits: 28_000,
+        coins: 20,
+        staff: {
+            min: 2,
+            max: 2,
+        },
+        icon: 'car-side',
+        special: 'A carrier that is used for transporting towed trucks.',
+        possibleBuildings: [27],
+    },
 } satisfies Record<number, InternalVehicle>;

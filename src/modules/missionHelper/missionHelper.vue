@@ -321,6 +321,50 @@
                     }}
                 </li>
             </ul>
+            <h4 v-if="settings.towtruck1.title">
+                {{ $mc('towtruck1.title', 0) }}
+            </h4>
+            <ul v-if="settings.towtruck1.content">
+                <li
+                    v-if="
+                        missionSpecs.additional.possible_crashed_car_large_min &&
+                        missionSpecs.additional.possible_crashed_car_large_min !==
+                            missionSpecs.additional.possible_crashed_car_large
+                    "
+                    :data-amount="
+                        missionSpecs.additional.possible_crashed_car_large_min
+                    "
+                >
+                    {{
+                        $mc(
+                            'towtruck1.possible_crashed_car_large_min',
+                            missionSpecs.additional.possible_crashed_car_large_min
+                        )
+                    }}
+                </li>
+                <li
+                    v-if="missionSpecs.additional.possible_crashed_car_large"
+                    :min-is-max="
+                        min_is_max =
+                            missionSpecs.additional.possible_crashed_car_large ===
+                            missionSpecs.additional.possible_crashed_car_large_min
+                    "
+                    :data-amount="
+                        min_is_max
+                            ? null
+                            : missionSpecs.additional.possible_crashed_car_large
+                    "
+                >
+                    {{
+                        $mc(
+                            min_is_max
+                                ? 'towtruck1.possible_crashed_car_large_exact'
+                                : 'towtruck1.possible_crashed_car_large',
+                            missionSpecs.additional.possible_crashed_car_large
+                        )
+                    }}
+                </li>
+            </ul>
             <h4 v-if="settings.prerequisites">
                 {{
                     $mc(

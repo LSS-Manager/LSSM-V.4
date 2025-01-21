@@ -277,9 +277,18 @@
                     "Crashed Car",
                     "Crashed Cars",
                     "Tow Truck",
-                    "Tow Trucks"
+                    "Tow Trucks",
+                    "Car to tow",
+                    "Cars to tow"
                 ],
                 "vehicles": [105, 106, 107, 108]
+            },
+            {
+                "texts": [
+                    "Truck to tow",
+                    "Trucks to tow"
+                ],
+                "vehicles": [113]
             },
             {
                 "equipment": ["flood_equipment"],

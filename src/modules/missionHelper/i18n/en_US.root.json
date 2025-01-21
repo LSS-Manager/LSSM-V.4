@@ -197,6 +197,16 @@
                 "title": "Crashed car (Title)"
             }
         },
+        "towtruck1": {
+            "content": {
+                "description": "Shows details about possible Crashed truck.",
+                "title": "Details of potential Crashed truck"
+            },
+            "title": {
+                "description": "Shows the heading \"Crashed Trucks\" above the details about possible Crashed trucks.",
+                "title": "Crashed truck (Title)"
+            }
+        },
         "type": {
             "description": "Shows the type number of the mission next to the title.",
             "title": "Type number"
