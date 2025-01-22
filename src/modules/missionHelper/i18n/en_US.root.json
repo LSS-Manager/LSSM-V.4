@@ -197,7 +197,6 @@
                 "title": "Crashed car (Title)"
             }
         },
-
         "type": {
             "description": "Shows the type number of the mission next to the title.",
             "title": "Type number"

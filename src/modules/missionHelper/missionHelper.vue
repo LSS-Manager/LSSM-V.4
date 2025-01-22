@@ -321,7 +321,7 @@
                     }}
                 </li>
             </ul>
-            
+
             <h4 v-if="settings.prerequisites">
                 {{
                     $mc(
