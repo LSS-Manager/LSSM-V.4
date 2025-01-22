@@ -2744,4 +2744,23 @@ export default {
         isTrailer: true,
         tractiveVehicles: [46],
     },
+    165: {
+        caption: 'LauKw',
+        color: '#1a7d2a',
+        credits: 32_000,
+        coins: 25,
+        staff: {
+            min: 5,
+            max: 5,
+            training: {
+                Polizei: {
+                    police_speaker_operator: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'bus',
+        possibleBuildings: [11],
+    },
 } satisfies Record<number, InternalVehicle>;
