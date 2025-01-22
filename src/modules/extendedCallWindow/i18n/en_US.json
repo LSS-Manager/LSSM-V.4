@@ -65,6 +65,11 @@
                 "vehicles": [2, 13, 100]
             },
             {
+                "equipment": ["fire_engine"],
+                "texts": ["Firetruck or Platform Truck", "Firetruck or Platform Trucks"],
+                "vehicles": [0, 1, 13, 18, 30, 33, 48, 2, 100]
+            },
+            {
                 "texts": ["Battalion chief unit", "Battalion chief units"],
                 "vehicles": [3, 12]
             },

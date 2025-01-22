@@ -336,7 +336,8 @@
                 "equipment": ["railway_fire"],
                 "texts": ["Bahnrettungsfahrzeug", "Bahnrettungsfahrzeuge"],
                 "vehicles": [162, 163, 164]
-            }
+            },
+            { "texts": ["LauKw"], "vehicles": [165] }
         ],
         "water": "l. Wasser"
     },

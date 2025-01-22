@@ -246,7 +246,7 @@
             },
             {
                 "name": "Bereitschaftspolizei",
-                "vehicleTypes": [35, 50, 51, 52, 72, 79, 80, 81, 82]
+                "vehicleTypes": [35, 50, 51, 52, 72, 79, 80, 81, 82, 165]
             },
             {
                 "name": "THW",

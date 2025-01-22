@@ -196,6 +196,12 @@ export default {
             staffList: 'Windenoperator',
             key: 'police_helicopter_lift',
         },
+        {
+            caption: 'Lautsprecheroperator',
+            duration: '3 Tage',
+            staffList: 'Lautsprecheroperator',
+            key: 'police_speaker_operator',
+        },
     ],
     Rettungsdienst: [
         {

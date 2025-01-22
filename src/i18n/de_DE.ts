@@ -130,7 +130,7 @@ export default {
         Polizei: {
             vehicles: {
                 'Funkstreifenwagen': [32, 95, 98, 103],
-                'Bereitschaftspolizei-Fahrzeuge': [35, 50, 51, 52, 72],
+                'Bereitschaftspolizei-Fahrzeuge': [35, 50, 51, 52, 72, 165],
                 'Polizeihubschrauber': [61, 96],
                 'SEK': [79, 80],
                 'MEK': [81, 82],
