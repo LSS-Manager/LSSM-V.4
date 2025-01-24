@@ -195,7 +195,7 @@
     },
     "eslint-config-prettier": {
         "icon": "https://prettier.io/icon.png",
-        "version": "9.1.0"
+        "version": "10.0.1"
     },
     "eslint-import-resolver-typescript": {
         "version": "3.7.0"
