@@ -160,20 +160,20 @@
             },
             {
                 "texts": [
-                    "Streifenwagen oder Polizeimotorrad",
-                    "Streifenwagen oder Polizeimotorräder"
+                    "Funkstreifenwagen oder Polizeimotorrad",
+                    "Funkstreifenwagen oder Polizeimotorräder"
                 ],
                 "vehicles": [32, 95, 103]
             },
             {
                 "texts": [
-                    "Streifenwagen oder Zivilstreifenwagen oder Polizeimotorrad",
-                    "Streifenwagen oder Zivilstreifenwagen oder Polizeimotorräder"
+                    "Funkstreifenwagen oder Zivilstreifenwagen oder Polizeimotorrad",
+                    "Funkstreifenwagen oder Zivilstreifenwagen oder Polizeimotorräder"
                 ],
                 "vehicles": [32, 95, 98, 103]
             },
             {
-                "texts": ["Streifenwagen oder Zivilstreifenwagen"],
+                "texts": ["Funkstreifenwagen oder Zivilstreifenwagen"],
                 "vehicles": [32, 98, 103]
             },
             {
@@ -316,7 +316,7 @@
                 "vehicles": [149, 150, 151, 152, 158]
             },
             {
-                "texts": ["Schneefahrzeug", "Schneefahrzeug"],
+                "texts": ["Schneefahrzeug", "Schneefahrzeuge"],
                 "vehicles": [154]
             },
             {
