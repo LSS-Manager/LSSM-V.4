@@ -1922,9 +1922,9 @@ export default {
                 unlocksVehicleTypes: [28, 29, 38, 73, 74, 97],
             },
         ],
-        levelcost: [],
+        levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
         maxBuildings: 'Keine Grenze',
-        maxLevel: 0,
+        maxLevel: 14,
         special:
             'Beim Bau bekommst du 10 Leute geschenkt. Wird ab der 10/11ten Wache teurer. Formel zum Berechnen: <code>count < 10 ? 100_000 : (100_000 + (100_000 * Math.log(count - 9, 5))).round</code>',
         startPersonnel: 10,
