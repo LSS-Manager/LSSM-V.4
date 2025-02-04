@@ -916,4 +916,42 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 2, 20],
     },
+    62: {
+        caption: 'Fire Boat',
+        color: '#552222',
+        credits: 25_000,
+        coins: 15,
+        staff: {
+            min: 2,
+            max: 4,
+            training: {
+                'SES & Water Rescue': {
+                    ocean_navigation: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [26],
+    },
+    63: {
+        caption: 'Patrol Cutter',
+        color: '#552222',
+        credits: 25_000,
+        coins: 15,
+        staff: {
+            min: 2,
+            max: 4,
+            training: {
+                'SES & Water Rescue': {
+                    ocean_navigation: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [27],
+    },
 } satisfies Record<number, InternalVehicle>;
