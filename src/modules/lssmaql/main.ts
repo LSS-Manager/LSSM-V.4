@@ -1,8 +1,8 @@
 import type { ModuleMainFunction } from 'typings/Module';
 
-export default (({ LSSM }) => {
+export default (({ LSSM, $m }) => {
     LSSM.$stores.root
-        .addMenuItem('LSSMAQL Console')
+        .addMenuItem(`LSSMAQL ${$m('console')}`)
         .addEventListener('click', () =>
             LSSM.$modal.show(
                 () =>
