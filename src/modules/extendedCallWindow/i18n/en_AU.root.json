@@ -224,7 +224,10 @@
                 ]
             },
             { "name": "Ambulance", "vehicleTypes": [5, 9, 23, 24, 25, 26, 27] },
-            { "name": "Police", "vehicleTypes": [8, 15, 16, 17, 18, 22, 37, 63] },
+            {
+                "name": "Police",
+                "vehicleTypes": [8, 15, 16, 17, 18, 22, 37, 63]
+            },
             { "name": "Riot Police", "vehicleTypes": [34, 35, 36] },
             {
                 "name": "Bushfire Vehicles",

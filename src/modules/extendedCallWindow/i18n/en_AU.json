@@ -195,14 +195,8 @@
                 "texts": ["Waterdamage Pump"],
                 "vehicles": [0, 1, 6, 12, 13, 19, 30, 48]
             },
-            {
-                "texts": ["Fire Boat"],
-                "vehicles": [62]
-            },
-            {
-                "texts": ["Patrol Cutter"],
-                "vehicles": [63]
-            }
+            { "texts": ["Fire Boat"], "vehicles": [62] },
+            { "texts": ["Patrol Cutter"], "vehicles": [63] }
         ],
         "water": "l. water"
     },

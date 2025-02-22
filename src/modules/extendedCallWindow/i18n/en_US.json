@@ -66,7 +66,10 @@
             },
             {
                 "equipment": ["fire_engine"],
-                "texts": ["Firetruck or Platform Truck", "Firetruck or Platform Trucks"],
+                "texts": [
+                    "Firetruck or Platform Truck",
+                    "Firetruck or Platform Trucks"
+                ],
                 "vehicles": [0, 1, 13, 18, 30, 33, 48, 2, 100]
             },
             {
