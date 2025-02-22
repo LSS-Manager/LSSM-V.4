@@ -265,6 +265,8 @@ export default {
         'Take Away Shop',
         'Launderette',
         'Pipeline',
+        'Market',
+        'Hangar',
     ],
     only_alliance_missions: [57, 74, 89],
     transfer_missions: [77, 716],

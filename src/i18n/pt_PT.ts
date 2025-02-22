@@ -224,6 +224,7 @@ export default {
         'Lavandaria',
         'Gasoduto',
         'Parque de diversões',
+        'Hangar',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [],

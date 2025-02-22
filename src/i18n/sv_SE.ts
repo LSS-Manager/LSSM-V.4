@@ -209,6 +209,8 @@ export default {
         'Tvättstuga',
         'Rörledning',
         'Nöjespark',
+        'Marknad',
+        'Hangar',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [169],

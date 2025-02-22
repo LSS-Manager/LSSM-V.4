@@ -240,6 +240,7 @@ export default {
         'Pralnia',
         'Rurociąg',
         'Park rozrywki',
+        'Rynek',
     ],
     only_alliance_missions: [57, 74, 351],
     transfer_missions: [373],

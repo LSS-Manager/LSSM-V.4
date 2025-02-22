@@ -235,6 +235,8 @@ export default {
         'Prádelna',
         'Potrubí',
         'Zábavní park',
+        'Železniční tunel',
+        'Železniční depo',
     ],
     only_alliance_missions: [57, 74],
     ranks: {

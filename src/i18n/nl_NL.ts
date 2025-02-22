@@ -253,6 +253,7 @@ export default {
         'Circuit',
         'Pontsteiger',
         'Nucleaire installatie',
+        'Casino',
     ],
     only_alliance_missions: [41, 43, 59, 145, 234, 346, 347],
     transfer_missions: [137, 1103],
