@@ -2707,7 +2707,7 @@ export default {
             },
         },
         icon: 'truck',
-        possibleBuildings: [25],
+        possibleBuildings: [0, 18],
     },
     163: {
         caption: 'HLF Schiene',
