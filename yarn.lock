@@ -2300,10 +2300,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/i18n-js@npm:3.8.9":
-  version: 3.8.9
-  resolution: "@types/i18n-js@npm:3.8.9"
-  checksum: 10c0/40d3ef86594e8a438b2565a4498fce515336d08ed11cc67f3ad649a18cc436fc112a887924a4f466f73e742de7d488ac264b44928652e3ab9e8116b9bda34dd5
+"@types/i18n-js@npm:4.0.1":
+  version: 4.0.1
+  resolution: "@types/i18n-js@npm:4.0.1"
+  dependencies:
+    i18n-js: "npm:*"
+  checksum: 10c0/b5c9f11ca33a8a14d8fb4bb06fe4f7c32bb34c09691d427d3dbc88cd2da0bed6285110232d6e65af0b678333cf7b2bfa4aa18b0ce50941a684737b30e0662684
   languageName: node
   linkType: hard
 
@@ -2369,10 +2371,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:4.17.14":
-  version: 4.17.14
-  resolution: "@types/lodash@npm:4.17.14"
-  checksum: 10c0/343c6f722e0b39969036a885ad5aad6578479ead83987128c9b994e6b7f2fb9808244d802d4d332396bb09096f720a6c7060de16a492f5460e06a44560360322
+"@types/lodash@npm:4.17.16":
+  version: 4.17.16
+  resolution: "@types/lodash@npm:4.17.16"
+  checksum: 10c0/cf017901b8ab1d7aabc86d5189d9288f4f99f19a75caf020c0e2c77b8d4cead4db0d0b842d009b029339f92399f49f34377dd7c2721053388f251778b4c23534
   languageName: node
   linkType: hard
 
@@ -2558,10 +2560,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/webpack-env@npm:1.18.5":
-  version: 1.18.5
-  resolution: "@types/webpack-env@npm:1.18.5"
-  checksum: 10c0/b9e4876e8c7cae419896249f9ed795db283c008fe1d38efa679cbbf05194fc2eea2a5bfb4ff4393d109e3a9895416dadf5f3ddd5c22931b678062230f860454e
+"@types/webpack-env@npm:1.18.8":
+  version: 1.18.8
+  resolution: "@types/webpack-env@npm:1.18.8"
+  checksum: 10c0/527a5d1eb75c5243e4f3665d956c7c340f899955dd25d16c9fd9750406f32e95a3a17d207640295038e8235c0c2a2daf084f420e088e58b965d82fc74f6012d7
   languageName: node
   linkType: hard
 
@@ -4008,6 +4010,13 @@ __metadata:
   version: 5.2.2
   resolution: "big.js@npm:5.2.2"
   checksum: 10c0/230520f1ff920b2d2ce3e372d77a33faa4fa60d802fe01ca4ffbc321ee06023fe9a741ac02793ee778040a16b7e497f7d60c504d1c402b8fdab6f03bb785a25f
+  languageName: node
+  linkType: hard
+
+"bignumber.js@npm:*":
+  version: 9.1.2
+  resolution: "bignumber.js@npm:9.1.2"
+  checksum: 10c0/e17786545433f3110b868725c449fa9625366a6e675cd70eb39b60938d6adbd0158cb4b3ad4f306ce817165d37e63f4aa3098ba4110db1d9a3b9f66abfbaf10d
   languageName: node
   linkType: hard
 
@@ -6585,6 +6594,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"i18n-js@npm:*":
+  version: 4.5.1
+  resolution: "i18n-js@npm:4.5.1"
+  dependencies:
+    bignumber.js: "npm:*"
+    lodash: "npm:*"
+    make-plural: "npm:*"
+  checksum: 10c0/242d618679e5dd06bd3a5d66c17e07c9fd41141a78885e0a883ee633131da60deb3b3fa760f9071d873aeef2fbfb3186faeccae347eb1e81fba1f12b258ae038
+  languageName: node
+  linkType: hard
+
 "iconv-lite@npm:0.4.24, iconv-lite@npm:^0.4.24":
   version: 0.4.24
   resolution: "iconv-lite@npm:0.4.24"
@@ -7728,7 +7748,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:4.17.21, lodash@npm:^4.11.2, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21":
+"lodash@npm:*, lodash@npm:4.17.21, lodash@npm:^4.11.2, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: 10c0/d8cbea072bb08655bb4c989da418994b073a608dffa608b09ac04b43a791b12aeae7cd7ad919aa4c925f33b48490b5cfe6c1f71d827956071dae2e7bb3a6b74c
@@ -7812,11 +7832,11 @@ __metadata:
     "@fortawesome/free-solid-svg-icons": "npm:6.7.2"
     "@fortawesome/vue-fontawesome": "npm:2.0.10"
     "@types/he": "npm:1.2.3"
-    "@types/i18n-js": "npm:3.8.9"
+    "@types/i18n-js": "npm:4.0.1"
     "@types/jquery": "npm:3.5.32"
     "@types/js-yaml": "npm:4.0.9"
     "@types/leaflet": "npm:1.9.16"
-    "@types/lodash": "npm:4.17.14"
+    "@types/lodash": "npm:4.17.16"
     "@types/node": "npm:22.13.9"
     "@types/pdfmake": "npm:0.2.11"
     "@types/qrcode": "npm:1.5.5"
@@ -7826,7 +7846,7 @@ __metadata:
     "@types/tampermonkey": "npm:5.0.4"
     "@types/ua-parser-js": "npm:0.7.39"
     "@types/vue-select": "npm:3.16.8"
-    "@types/webpack-env": "npm:1.18.5"
+    "@types/webpack-env": "npm:1.18.8"
     "@typescript-eslint/eslint-plugin": "npm:7.3.1"
     "@typescript-eslint/parser": "npm:7.3.1"
     acorn: "npm:8.14.0"
@@ -8098,6 +8118,13 @@ __metadata:
     promise-retry: "npm:^2.0.1"
     ssri: "npm:^12.0.0"
   checksum: 10c0/c40efb5e5296e7feb8e37155bde8eb70bc57d731b1f7d90e35a092fde403d7697c56fb49334d92d330d6f1ca29a98142036d6480a12681133a0a1453164cb2f0
+  languageName: node
+  linkType: hard
+
+"make-plural@npm:*":
+  version: 7.4.0
+  resolution: "make-plural@npm:7.4.0"
+  checksum: 10c0/10f24e932865c88d4cdb14d4bb809ce8e615cae7d083c63ad008b3bcaf0d22941ca0bd76acd9cdd7ae4047563501104fff3c37ce8ad2bc5671facde1818fa57f
   languageName: node
   linkType: hard
 
