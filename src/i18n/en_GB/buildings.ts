@@ -1590,8 +1590,7 @@ export default {
         levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
         maxBuildings: 'No Limit',
         maxLevel: 14,
-        special:
-            '',
+        special: '',
         startPersonnel: 3,
         startParkingLots: 1,
         startVehicles: [''],

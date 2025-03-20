@@ -1624,7 +1624,7 @@ export default {
     99: {
         caption: 'Mountain Rescue 4x4',
         color: '#88ecc4',
-        credits: 10000,
+        credits: 10_000,
         coins: 10,
         staff: {
             min: 1,
@@ -1638,7 +1638,7 @@ export default {
     100: {
         caption: 'Control Van (Mountain Rescue)',
         color: '#88ecc4',
-        credits: 25000,
+        credits: 25_000,
         coins: 15,
         staff: {
             min: 1,
@@ -1658,7 +1658,7 @@ export default {
     101: {
         caption: 'Search Dog Unit',
         color: '#88ecc4',
-        credits: 15000,
+        credits: 15_000,
         coins: 15,
         staff: {
             min: 1,
@@ -1678,7 +1678,7 @@ export default {
     102: {
         caption: 'Search Dog Unit (SAR)',
         color: '#88ecc4',
-        credits: 15000,
+        credits: 15_000,
         coins: 15,
         staff: {
             min: 1,
