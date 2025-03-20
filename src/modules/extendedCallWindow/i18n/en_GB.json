@@ -312,6 +312,19 @@
                     "Specialist Paramedic RRVs"
                 ],
                 "vehicles": [96]
+            },
+            {
+                "texts": [
+                    "Rescue Dog",
+                    "Rescue Dogs"
+                ],
+                "vehicles": [101, 102]
+            },
+            {
+                "texts": [
+                    "Mountain Rescue 4x4"
+                ],
+                "vehicles": [99]
             }
         ]
     },

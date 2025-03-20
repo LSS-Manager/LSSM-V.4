@@ -937,7 +937,7 @@ export default {
             min: 1,
             max: 5,
             training: {
-                'Water Rescue': {
+                'Search and Rescue': {
                     gw_hoehenrettung: {
                         all: true,
                     },
@@ -957,7 +957,7 @@ export default {
             min: 1,
             max: 5,
             training: {
-                'Water Rescue': {
+                'Search and Rescue': {
                     coastal_command: {
                         all: true,
                     },
@@ -977,7 +977,7 @@ export default {
             min: 0,
             max: 0,
             training: {
-                'Water Rescue': {
+                'Search and Rescue': {
                     flood_equipment: {
                         all: true,
                     },
@@ -1000,7 +1000,7 @@ export default {
             min: 0,
             max: 0,
             training: {
-                'Water Rescue': {
+                'Search and Rescue': {
                     coastal_mud_rescue: {
                         all: true,
                     },
@@ -1031,7 +1031,7 @@ export default {
             min: 4,
             max: 4,
             training: {
-                'Water Rescue': {
+                'Search and Rescue': {
                     coastal_rescue_pilot: {
                         all: true,
                     },
@@ -1051,7 +1051,7 @@ export default {
             min: 4,
             max: 4,
             training: {
-                'Water Rescue': {
+                'Search and Rescue': {
                     coastal_rescue_pilot: {
                         all: true,
                     },
@@ -1081,7 +1081,7 @@ export default {
             min: 0,
             max: 0,
             training: {
-                'Water Rescue': {
+                'Search and Rescue': {
                     gw_wasserrettung: {
                         all: true,
                     },
@@ -1102,7 +1102,7 @@ export default {
             min: 3,
             max: 4,
             training: {
-                'Water Rescue': {
+                'Search and Rescue': {
                     ocean_navigation: {
                         all: true,
                     },
@@ -1123,7 +1123,7 @@ export default {
             min: 5,
             max: 7,
             training: {
-                'Water Rescue': {
+                'Search and Rescue': {
                     ocean_navigation: {
                         all: true,
                     },
@@ -1144,7 +1144,7 @@ export default {
             min: 0,
             max: 0,
             training: {
-                'Water Rescue': {
+                'Search and Rescue': {
                     jetski: {
                         all: true,
                     },
@@ -1176,7 +1176,7 @@ export default {
             min: 1,
             max: 1,
             training: {
-                'Water Rescue': {
+                'Search and Rescue': {
                     hover_boat_elw: {
                         all: true,
                     },
@@ -1206,7 +1206,7 @@ export default {
             min: 0,
             max: 0,
             training: {
-                'Water Rescue': {
+                'Search and Rescue': {
                     gw_wasserrettung: {
                         all: true,
                     },
@@ -1396,7 +1396,7 @@ export default {
             min: 1,
             max: 3,
             training: {
-                'Water Rescue': {
+                'Search and Rescue': {
                     search_and_rescue_command: {
                         all: true,
                     },
@@ -1439,7 +1439,7 @@ export default {
             min: 0,
             max: 0,
             training: {
-                'Water Rescue': {
+                'Search and Rescue': {
                     flood_equipment: {
                         all: true,
                     },
@@ -1461,7 +1461,7 @@ export default {
             min: 1,
             max: 2,
             training: {
-                'Water Rescue': {
+                'Search and Rescue': {
                     drone: {
                         all: true,
                     },
@@ -1619,6 +1619,93 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [2, 20, 21],
+        special: '',
+    },
+    99: {
+        caption: 'Mountain Rescue 4x4',
+        color: '#88ecc4',
+        credits: 10000,
+        coins: 10,
+        staff: {
+            min: 1,
+            max: 4,
+        },
+        icon: 'car-side',
+        possibleBuildings: [33],
+        equipmentCapacity: 10,
+        special: '',
+    },
+    100: {
+        caption: 'Control Van (Mountain Rescue)',
+        color: '#88ecc4',
+        credits: 25000,
+        coins: 15,
+        staff: {
+            min: 1,
+            max: 3,
+            training: {
+                'Search and Rescue': {
+                    search_and_rescue_command: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [33],
+        special: '',
+    },
+    101: {
+        caption: 'Search Dog Unit',
+        color: '#88ecc4',
+        credits: 15000,
+        coins: 15,
+        staff: {
+            min: 1,
+            max: 1,
+            training: {
+                'Search and Rescue': {
+                    rescue_dogs: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [33],
+        special: '',
+    },
+    102: {
+        caption: 'Search Dog Unit (SAR)',
+        color: '#88ecc4',
+        credits: 15000,
+        coins: 15,
+        staff: {
+            min: 1,
+            max: 1,
+            training: {
+                'Search and Rescue': {
+                    rescue_dogs: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [22, 31],
+        special: '',
+    },
+    103: {
+        caption: 'Crew Carrier (SAR)',
+        color: '#88ecc4',
+        credits: 8000,
+        coins: 10,
+        staff: {
+            min: 1,
+            max: 12,
+        },
+        icon: 'car-side',
+        possibleBuildings: [31],
         special: '',
     },
 } satisfies Record<number, InternalVehicle>;
