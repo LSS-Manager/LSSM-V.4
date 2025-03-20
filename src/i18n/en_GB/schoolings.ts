@@ -163,7 +163,7 @@ export default {
             key: 'paramedic_advanced',
         },
     ],
-    'Water Rescue': [
+    'Search and Rescue': [
         {
             caption: 'Coastal Air Rescue Operations Training',
             duration: '5 Days',
@@ -235,6 +235,18 @@ export default {
             duration: '3 Days',
             staffList: 'Drone Operator',
             key: 'drone',
+        },
+        {
+            caption: 'Dog handling',
+            duration: '5 Days',
+            staffList: 'Dog handler',
+            key: 'rescue_dogs',
+        },
+        {
+            caption: 'Cave Rescue Training',
+            duration: '5 Days',
+            staffList: 'Cave Rescue Specialist',
+            key: 'mountain_cave_rescue',
         },
     ],
 } satisfies SchoolingsBySchool;
