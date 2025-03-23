@@ -1371,7 +1371,7 @@ export default {
         icon: 'staff-snake',
     },
     29: {
-        caption: 'Lifeboat College',
+        caption: 'Search and Rescue College',
         color: '#88ecc4',
         coins: 50,
         credits: 500_000,
@@ -1394,7 +1394,7 @@ export default {
         maxBuildings: 'No limit',
         maxLevel: 0,
         special:
-            "Finance Admins and admins can (expand) association Lifeboat College with the help of credits from the association's Funds. Alliance Educators and admins can start training courses at association Lifeboat College.",
+            "Finance Admins and admins can (expand) association Search and Rescue College with the help of credits from the association's Funds. Alliance Educators and admins can start training courses at association Search and Rescue College.",
         startClassrooms: 1,
         school: 'Search and Rescue',
         icon: 'graduation-cap',

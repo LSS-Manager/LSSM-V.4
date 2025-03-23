@@ -88,7 +88,7 @@ export default {
                 unlocksVehicleTypes: [66, 67, 68, 73],
             },
             {
-                caption: 'Water Rescue Expansion',
+                caption: 'Water Rescue Extension',
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Days',
@@ -466,7 +466,7 @@ export default {
                 unlocksVehicleTypes: [56],
             },
             {
-                caption: 'Water Police Expansion',
+                caption: 'Water Police Extension',
                 credits: 200_000,
                 coins: 35,
                 duration: '7 Days',
@@ -884,7 +884,7 @@ export default {
                 unlocksVehicleTypes: [66, 67, 68, 73],
             },
             {
-                caption: 'Water Rescue Expansion',
+                caption: 'Water Rescue Extension',
                 credits: 100_000,
                 coins: 20,
                 duration: '7 Days',
@@ -1048,7 +1048,7 @@ export default {
                 unlocksVehicleTypes: [56],
             },
             {
-                caption: 'Water Police Expansion',
+                caption: 'Water Police Extension',
                 credits: 200_000,
                 coins: 35,
                 duration: '7 Days',
