@@ -219,7 +219,7 @@
     "eslint-plugin-prettier": {
         "icon": "https://prettier.io/icon.png",
         "url": "https://github.com/prettier/eslint-plugin-prettier#readme",
-        "version": "5.2.3"
+        "version": "5.2.5"
     },
     "eslint-plugin-regexp": {
         "url": "https://github.com/ota-meshi/eslint-plugin-regexp#readme",
