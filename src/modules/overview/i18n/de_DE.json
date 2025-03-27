@@ -38,6 +38,7 @@
             "pumpcap": "Pumpleistung l/min",
             "schooling": "Ausbildung",
             "special": "Besonderes",
+            "ftank": "Sonderlöschmittelbedarf",
             "wtank": "Wassertank"
         }
     }

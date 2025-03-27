@@ -44,7 +44,7 @@ export default {
                     parkingLotReservations: [
                         [
                             47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
-                            142, 164,
+                            142, 164, 168, 169,
                         ],
                     ],
                     cannotDisable: true,
@@ -74,7 +74,7 @@ export default {
                 parkingLotReservations: [
                     [
                         47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119, 142,
-                        164,
+                        164, 168, 169,
                     ],
                 ],
                 cannotDisable: true,
@@ -134,7 +134,7 @@ export default {
                     parkingLotReservations: [
                         [
                             47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
-                            142, 164,
+                            142, 164, 168, 169,
                         ],
                     ],
                     cannotDisable: true,
@@ -193,7 +193,7 @@ export default {
                 parkingLotReservations: [
                     [
                         47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119, 142,
-                        164,
+                        164, 168, 169,
                     ],
                 ],
                 cannotDisable: true,
@@ -247,6 +247,27 @@ export default {
                 parkingLotReservations: [[162, 163]],
                 unlocksVehicleTypes: [162, 163, 164],
             },
+            ...multiplyExtension(
+                {
+                    caption: 'Abrollbehälter-Stellplatz',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                    isVehicleExtension: true,
+                    givesParkingLots: 1,
+                    unlocksVehicleTypes: [
+                        47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
+                    ],
+                    parkingLotReservations: [
+                        [
+                            47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
+                            142, 164, 168, 169,
+                        ],
+                    ],
+                    cannotDisable: true,
+                },
+                2
+            ),
         ],
         storageUpgrades: {
             initial_containers: {
