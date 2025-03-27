@@ -330,10 +330,7 @@
             },
             {
                 "equipment": ["fire_crane"],
-                "texts": [
-                    "Fire Crane",
-                    "Fire Cranes"
-                ],
+                "texts": ["Fire Crane", "Fire Cranes"],
                 "vehicles": []
             }
         ],
