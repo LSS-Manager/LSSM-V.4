@@ -250,7 +250,7 @@ export default {
             ...multiplyExtension(
                 {
                     caption: 'Abrollbehälter-Stellplatz',
-                    credits: 100_000,
+                    credits: 150_000,
                     coins: 20,
                     duration: '7 Tage',
                     isVehicleExtension: true,
