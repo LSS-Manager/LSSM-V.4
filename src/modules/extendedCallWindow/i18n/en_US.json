@@ -61,11 +61,12 @@
                 "vehicles": [0, 1, 13, 18, 30, 33, 48]
             },
             {
+                "equipment": ["fire_ladder"],
                 "texts": ["platform truck", "platform trucks"],
                 "vehicles": [2, 13, 100]
             },
             {
-                "equipment": ["fire_engine"],
+                "equipment": ["fire_engine", "fire_ladder"],
                 "texts": [
                     "Firetruck or Platform Truck",
                     "Firetruck or Platform Trucks"
@@ -103,6 +104,7 @@
                 "vehicles": [7, 33, 64, 65, 77, 78]
             },
             {
+                "equipment": ["fire_command_advanced"],
                 "texts": ["Mobile Command Vehicle", "Mobile Command Vehicles"],
                 "vehicles": [12]
             },
@@ -140,6 +142,7 @@
                 "vehicles": [25]
             },
             {
+                "equipment": ["water_rescue_boat"],
                 "texts": ["Light Boat", "Light Boats"],
                 "vehicles": [21, 22, 95]
             },
@@ -322,6 +325,14 @@
                 "texts": [
                     "Technical Rescue Equipment",
                     "Technical Rescue Equipments"
+                ],
+                "vehicles": []
+            },
+            {
+                "equipment": ["fire_crane"],
+                "texts": [
+                    "Fire Crane",
+                    "Fire Cranes"
                 ],
                 "vehicles": []
             }

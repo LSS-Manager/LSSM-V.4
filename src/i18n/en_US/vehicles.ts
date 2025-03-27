@@ -13,7 +13,7 @@ export default {
         foamTank: 25,
         pumpCapacity: 2000,
         pumpType: 'fire',
-        equipmentCapacity: 10,
+        equipmentCapacity: 20,
     },
     1: {
         caption: 'Type 2 fire engine',
@@ -27,6 +27,7 @@ export default {
         foamTank: 25,
         pumpCapacity: 1500,
         pumpType: 'fire',
+        equipmentCapacity: 20,
     },
     2: {
         caption: 'Platform truck',
@@ -36,7 +37,7 @@ export default {
         staff: { min: 1, max: 3 },
         icon: 'car-side',
         possibleBuildings: [0, 13],
-        equipmentCapacity: 10,
+        equipmentCapacity: 30,
         special: 'Required once you have built 3 firehouses',
     },
     3: {
@@ -47,7 +48,7 @@ export default {
         staff: { min: 1, max: 3 },
         icon: 'car-side',
         possibleBuildings: [0, 13],
-        equipmentCapacity: 10,
+        equipmentCapacity: 20,
         special: 'Required once you have built 6 firehouses',
     },
     4: {
@@ -58,7 +59,7 @@ export default {
         staff: { min: 1, max: 4 },
         icon: 'car-side',
         possibleBuildings: [0, 13],
-        equipmentCapacity: 10,
+        equipmentCapacity: 30,
         pumpCapacity: 1500,
         pumpType: 'fire',
         special: 'Required once you have built 4 firehouses',
@@ -80,6 +81,7 @@ export default {
         staff: { min: 1, max: 3 },
         icon: 'car-side',
         possibleBuildings: [0, 13],
+        equipmentCapacity: 20,
         special: 'Required once you have built 5 firehouses',
     },
     7: {
@@ -105,7 +107,7 @@ export default {
         staff: { min: 1, max: 4 },
         icon: 'car-side',
         possibleBuildings: [0, 11, 12, 13],
-        equipmentCapacity: 10,
+        equipmentCapacity: 20,
         special: 'Required once you have built 4 firehouses',
     },
     9: {
@@ -177,7 +179,7 @@ export default {
         possibleBuildings: [0, 13],
         waterTank: 500,
         foamTank: 25,
-        equipmentCapacity: 10,
+        equipmentCapacity: 30,
         special:
             'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Quint acts as a Platform Truck and a Fire Truck.',
     },
@@ -260,7 +262,7 @@ export default {
         possibleBuildings: [0, 13],
         waterTank: 750,
         foamTank: 25,
-        equipmentCapacity: 10,
+        equipmentCapacity: 20,
         special:
             'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins.<br> The Rescue Engine acts as a Heavy Rescue and a Fire Engine.',
     },
@@ -447,6 +449,8 @@ export default {
         possibleBuildings: [0, 13],
         waterTank: 500,
         foamTank: 20,
+        pumpType: 'fire',
+        pumpCapacity: 2000,
         equipmentCapacity: 10,
     },
     31: {
@@ -458,6 +462,8 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 13],
         waterTank: 400,
+        pumpType: 'fire',
+        pumpCapacity: 2000,
     },
     32: {
         caption: 'Type 7 engine',
@@ -481,7 +487,7 @@ export default {
         foamTank: 25,
         waterBonus: 25,
         pumpCapacity: 1500,
-        equipmentCapacity: 10,
+        equipmentCapacity: 20,
         pumpType: 'fire',
     },
     34: {
@@ -562,6 +568,8 @@ export default {
         icon: 'car-side',
         possibleBuildings: [0, 13],
         waterTank: 750,
+        pumpType: 'fire',
+        pumpCapacity: 2000,
         equipmentCapacity: 10,
     },
     39: {
