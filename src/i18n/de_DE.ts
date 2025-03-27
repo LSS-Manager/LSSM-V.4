@@ -95,14 +95,15 @@ export default {
                 ['Tanklöschfahrzeuge']: [
                     17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 87, 121,
                 ],
-                Schlauchwagen: [11, 13, 14, 15, 16, 143],
+                Schlauchwagen: [11, 13, 14, 15, 16],
                 Sonderfahrzeuge: [
-                    2, 3, 4, 5, 10, 12, 27, 33, 34, 36, 53, 57, 114, 115, 118,
+                    2, 3, 4, 5, 10, 12, 27, 33, 34, 36, 53, 57, 114, 118,
                     120, 126, 128, 129,
                 ],
                 ['WLF & Abrollbehälter']: [
                     46, 47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119, 142,
                 ],
+                Anhänger: [115, 143, 168],
                 Flughafenfeuerwehr: [75, 76],
                 Werkfeuerwehr: [83, 84, 85, 86],
                 Logistikfahrzeuge: [104, 105, 106, 107],

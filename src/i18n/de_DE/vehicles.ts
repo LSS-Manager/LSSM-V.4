@@ -12,6 +12,7 @@ export default {
         waterTank: 2000,
         pumpCapacity: 2000,
         pumpType: 'fire',
+        foamTank: 150,
     },
     1: {
         caption: 'LF 10',
@@ -24,6 +25,7 @@ export default {
         waterTank: 1200,
         pumpCapacity: 1000,
         pumpType: 'fire',
+        foamTank: 150,
     },
     2: {
         caption: 'DLK 23',
@@ -274,6 +276,7 @@ export default {
         waterTank: 2400,
         pumpCapacity: 1600,
         pumpType: 'fire',
+        foamTank: 750,
     },
     23: {
         caption: 'TLF 16/45',
@@ -286,6 +289,7 @@ export default {
         waterTank: 4500,
         pumpCapacity: 1600,
         pumpType: 'fire',
+        foamTank: 750,
     },
     24: {
         caption: 'TLF 20/40',
@@ -310,6 +314,7 @@ export default {
         waterTank: 4000,
         pumpCapacity: 2000,
         pumpType: 'fire',
+        foamTank: 750,
     },
     26: {
         caption: 'TLF 16',
@@ -388,6 +393,7 @@ export default {
         waterTank: 1600,
         pumpCapacity: 2000,
         pumpType: 'fire',
+        foamTank: 150,
     },
     31: {
         caption: 'RTH',
@@ -1179,6 +1185,7 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 18],
         waterTank: 12_000,
+        foamTank: 1500,
     },
     76: {
         caption: 'Rettungstreppe',
@@ -1353,6 +1360,7 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 18],
         waterTank: 5000,
+        foamTank: 3000,
     },
     85: {
         caption: 'TM 50',
@@ -1403,6 +1411,7 @@ export default {
         waterTank: 4000,
         pumpCapacity: 2000,
         pumpType: 'fire',
+        foamTank: 500,
     },
     88: {
         caption: 'KLF',
@@ -1439,6 +1448,7 @@ export default {
         waterTank: 1000,
         pumpCapacity: 1000,
         pumpType: 'fire',
+        foamTank: 150,
     },
     91: {
         caption: 'Rettungshundefahrzeug',
@@ -1729,7 +1739,7 @@ export default {
         staff: { min: 1, max: 6 },
         icon: 'truck-ramp-box',
         possibleBuildings: [0, 18],
-        equipmentCapacity: 10,
+        equipmentCapacity: 15,
     },
     107: {
         caption: 'LF-L',
@@ -1742,7 +1752,7 @@ export default {
         waterTank: 2000,
         pumpCapacity: 2000,
         pumpType: 'fire',
-        equipmentCapacity: 10,
+        equipmentCapacity: 15,
     },
     108: {
         caption: 'AB-L',
@@ -1953,6 +1963,7 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 18],
         waterTank: 10_000,
+        foamTank: 1500,
     },
     122: {
         caption: 'LKW 7 Lbw (FGr E)',
@@ -2760,5 +2771,77 @@ export default {
         },
         icon: 'bus',
         possibleBuildings: [11],
+    },
+    166: {
+        caption: 'PTLF 4000',
+        color: '#992b22',
+        credits: 10_000,
+        coins: 15,
+        staff: {
+            min: 1,
+            max: 2,
+            },
+        icon: 'truck',
+        possibleBuildings: [0, 18],
+        waterTank: 5000,
+        foamTank: 1000,
+    },
+    167: {
+        caption: 'SLF',
+        color: '#992b22',
+        credits: 10_000,
+        coins: 15,
+        staff: {
+            min: 1,
+            max: 2,
+        },
+        icon: 'truck',
+        possibleBuildings: [0, 18],
+        waterTank: 3500,
+        foamTank: 5000,
+    },
+    168: {
+        caption: 'Anh Sonderlöschmittel',
+        color: '#b62e2e',
+        credits: 5000,
+        coins: 10,
+        staff: {
+            min: 0,
+            max: 0,
+        },
+        icon: 'trailer',
+        special:
+            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (HLF 10, RW, GW-Gefahrgut, Dekon-P, GW-L1, GW-L2, LF 10, LF 8/6, LF 10/6, LF 16-TS, SW 2000-Tr, SW Kats, TLF 3000, TLF 16/24-Tr, TLF 16/25, MTW)',
+        isTrailer: true,
+        foamTank: 250,
+        tractiveVehicles: [
+            90, 4, 27, 53, 104, 105, 6, 8, 9, 15, 16, 18, 21, 22, 36,
+        ],
+        possibleBuildings: [0, 18],
+    },
+    169: {
+        caption: 'AB-Sonderlöschmittel',
+        color: '#992b22',
+        credits: 6_000,
+        coins: 12,
+        staff: { min: 0, max: 0 },
+        icon: 'square',
+        possibleBuildings: [0, 18],
+        foamTank: 10000,
+        isTrailer: true,
+        tractiveVehicles: [46],
+    },
+    170: {
+        caption: 'AB-Wasser/Schaum',
+        color: '#992b22',
+        credits: 6_000,
+        coins: 12,
+        staff: { min: 0, max: 0 },
+        icon: 'square',
+        possibleBuildings: [0, 18],
+        foamTank: 5000,
+        waterTank: 3000,
+        isTrailer: true,
+        tractiveVehicles: [46],
     },
 } satisfies Record<number, InternalVehicle>;

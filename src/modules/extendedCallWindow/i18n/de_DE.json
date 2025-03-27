@@ -32,6 +32,7 @@
     },
     "enhancedMissingVehicles": {
         "driving": "Auf Anfahrt",
+        "foam": "Sonderlöschmittel",
         "missing": "Am Einsatzort fehlend",
         "pump": "l/min Pumpenleistung",
         "selected": "Ausgewählt",

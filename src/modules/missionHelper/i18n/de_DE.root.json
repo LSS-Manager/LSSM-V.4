@@ -42,6 +42,11 @@
             "badge": true,
             "in": "requirements",
             "text": "Wasserbedarf: {n} L."
+        },
+        "foam_needed": {
+            "badge": true,
+            "in": "requirements",
+            "text": "Sonderlöschmittelbedarf: {n}"
         }
     },
     "settings": {

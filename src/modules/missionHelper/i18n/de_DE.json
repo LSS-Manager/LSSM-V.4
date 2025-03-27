@@ -87,6 +87,10 @@
         "max_possible_prisoners": "Gefangener maximal | Gefangene maximal",
         "title": "Gefangene | {n} Gefangener | {n} Gefangene"
     },
+    "requirements": {
+        "foam_needed": "Sonderlöschmittelbedarf",
+        "water_needed": "Wasserbedarf (liter)"
+    },
     "subsequent": "Anschlusseinsatz | Anschlusseinsätze",
     "tip": {
         "dragging": "Feld verschieben",
