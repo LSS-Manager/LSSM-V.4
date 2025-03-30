@@ -30,6 +30,7 @@
         "he": "1.2.0",
         "highcharts": "11.4.8",
         "highcharts-vue": "1.4.3",
+        "jsonata": "2.0.4",
         "leaflet.heat": "0.2.0",
         "localforage": "1.10.0",
         "lodash": "4.17.21",
