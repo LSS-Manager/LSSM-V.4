@@ -170,7 +170,7 @@ export default registerEquipment({
     foam: {
         id: 'foam',
         caption: 'RC-Modul: Sonderlöschmittel (klein)',
-        size: 15,
+        size: 10,
         credits: 15_000,
         coins: 10,
         staff: { min: 2 },
@@ -178,7 +178,7 @@ export default registerEquipment({
     foam_large: {
         id: 'foam_large',
         caption: 'RC-Modul: Sonderlöschmittel (groß)',
-        size: 20,
+        size: 15,
         credits: 25_000,
         coins: 15,
         staff: { min: 3 },
