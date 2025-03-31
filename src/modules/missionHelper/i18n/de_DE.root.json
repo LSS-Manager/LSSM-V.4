@@ -22,6 +22,11 @@
             "in": "additional",
             "text": "THWler ⌀ mind. benötigt"
         },
+        "foam_needed": {
+            "badge": true,
+            "in": "requirements",
+            "text": "Sonderlöschmittelbedarf: {n}"
+        },
         "min_pump_speed": {
             "badge": true,
             "in": "requirements",
@@ -42,11 +47,6 @@
             "badge": true,
             "in": "requirements",
             "text": "Wasserbedarf: {n} L."
-        },
-        "foam_needed": {
-            "badge": true,
-            "in": "requirements",
-            "text": "Sonderlöschmittelbedarf: {n}"
         }
     },
     "settings": {

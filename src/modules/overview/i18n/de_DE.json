@@ -33,12 +33,12 @@
         "vehicles": {
             "caption": "Fahrzeugtyp",
             "cost": "Preis",
+            "ftank": "Sonderlöschmittelbedarf",
             "maxPersonnel": "maximal Personal",
             "minPersonnel": "mindest Personal",
             "pumpcap": "Pumpleistung l/min",
             "schooling": "Ausbildung",
             "special": "Besonderes",
-            "ftank": "Sonderlöschmittelbedarf",
             "wtank": "Wassertank"
         }
     }
