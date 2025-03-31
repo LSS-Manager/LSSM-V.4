@@ -78,6 +78,7 @@ export default {
         waterTank: 600,
         pumpCapacity: 800,
         pumpType: 'fire',
+        foamTank: 150,
     },
     7: {
         caption: 'LF 20/16',
@@ -90,6 +91,7 @@ export default {
         waterTank: 1600,
         pumpCapacity: 2000,
         pumpType: 'fire',
+        foamTank: 150,
     },
     8: {
         caption: 'LF 10/6',
@@ -102,6 +104,7 @@ export default {
         waterTank: 600,
         pumpCapacity: 1000,
         pumpType: 'fire',
+        foamTank: 150,
     },
     9: {
         caption: 'LF 16-TS',
@@ -114,6 +117,7 @@ export default {
         waterTank: 0,
         pumpCapacity: 1600,
         pumpType: 'fire',
+        foamTank: 150,
     },
     10: {
         caption: 'GW-Öl',
@@ -216,6 +220,7 @@ export default {
         waterTank: 2000,
         pumpCapacity: 1000,
         pumpType: 'fire',
+        foamTank: 150,
     },
     18: {
         caption: 'TLF 3000',
@@ -228,6 +233,7 @@ export default {
         waterTank: 3000,
         pumpCapacity: 2000,
         pumpType: 'fire',
+        foamTank: 150,
     },
     19: {
         caption: 'TLF 8/8',
@@ -240,6 +246,7 @@ export default {
         waterTank: 800,
         pumpCapacity: 800,
         pumpType: 'fire',
+        foamTank: 150,
     },
     20: {
         caption: 'TLF 8/18',
@@ -252,6 +259,7 @@ export default {
         waterTank: 1800,
         pumpCapacity: 800,
         pumpType: 'fire',
+        foamTank: 150,
     },
     21: {
         caption: 'TLF 16/24-Tr',
@@ -264,6 +272,7 @@ export default {
         waterTank: 2400,
         pumpCapacity: 1600,
         pumpType: 'fire',
+        foamTank: 150,
     },
     22: {
         caption: 'TLF 16/25',
@@ -302,6 +311,7 @@ export default {
         waterTank: 4000,
         pumpCapacity: 2000,
         pumpType: 'fire',
+        foamTank: 150,
     },
     25: {
         caption: 'TLF 20/40-SL',
@@ -327,6 +337,7 @@ export default {
         waterTank: 1800,
         pumpCapacity: 1600,
         pumpType: 'fire',
+        foamTank: 150,
     },
     27: {
         caption: 'GW-Gefahrgut',
@@ -502,6 +513,7 @@ export default {
         waterTank: 500,
         pumpCapacity: 1000,
         pumpType: 'fire',
+        foamTank: 150,
     },
     38: {
         caption: 'KTW',
@@ -1424,6 +1436,7 @@ export default {
         waterTank: 500,
         pumpCapacity: 1000,
         pumpType: 'fire',
+        foamTank: 150,
     },
     89: {
         caption: 'MLF',
@@ -1436,6 +1449,7 @@ export default {
         waterTank: 1000,
         pumpCapacity: 1000,
         pumpType: 'fire',
+        foamTank: 150,
     },
     90: {
         caption: 'HLF 10',
@@ -1753,6 +1767,7 @@ export default {
         pumpCapacity: 2000,
         pumpType: 'fire',
         equipmentCapacity: 15,
+        foamTank: 150,
     },
     108: {
         caption: 'AB-L',
@@ -2741,6 +2756,7 @@ export default {
         waterTank: 1460,
         pumpCapacity: 2400,
         pumpType: 'fire',
+        foamTank: 150,
     },
     164: {
         caption: 'AB-Schiene',
