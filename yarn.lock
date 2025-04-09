@@ -2440,21 +2440,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
+"@types/node@npm:*, @types/node@npm:22.14.0":
   version: 22.14.0
   resolution: "@types/node@npm:22.14.0"
   dependencies:
     undici-types: "npm:~6.21.0"
   checksum: 10c0/9d79f3fa1af9c2c869514f419c4a4905b34c10e12915582fd1784868ac4e74c6d306cf5eb47ef889b6750ab85a31be96618227b86739c4a3e0b1c15063f384c6
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:22.13.17":
-  version: 22.13.17
-  resolution: "@types/node@npm:22.13.17"
-  dependencies:
-    undici-types: "npm:~6.20.0"
-  checksum: 10c0/77a052fec0fe02f60557e1c5f3f28eb09cd9bee426be88328a94689150a3c0df5b4b6b69fad28157fb34521693dad0b311ecd7f613845d681ff973991310c20e
   languageName: node
   linkType: hard
 
@@ -7851,7 +7842,7 @@ __metadata:
     "@types/js-yaml": "npm:4.0.9"
     "@types/leaflet": "npm:1.9.16"
     "@types/lodash": "npm:4.17.14"
-    "@types/node": "npm:22.13.17"
+    "@types/node": "npm:22.14.0"
     "@types/pdfmake": "npm:0.2.11"
     "@types/qrcode": "npm:1.5.5"
     "@types/semver": "npm:7.5.8"
@@ -11209,13 +11200,6 @@ __metadata:
     has-symbols: "npm:^1.1.0"
     which-boxed-primitive: "npm:^1.1.1"
   checksum: 10c0/7dbd35ab02b0e05fe07136c72cb9355091242455473ec15057c11430129bab38b7b3624019b8778d02a881c13de44d63cd02d122ee782fb519e1de7775b5b982
-  languageName: node
-  linkType: hard
-
-"undici-types@npm:~6.20.0":
-  version: 6.20.0
-  resolution: "undici-types@npm:6.20.0"
-  checksum: 10c0/68e659a98898d6a836a9a59e6adf14a5d799707f5ea629433e025ac90d239f75e408e2e5ff086afc3cace26f8b26ee52155293564593fbb4a2f666af57fc59bf
   languageName: node
   linkType: hard
 
