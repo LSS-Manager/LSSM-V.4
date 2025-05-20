@@ -471,37 +471,47 @@ export default <RedesignParser<VehicleWindow>>(({
         } else if (transportRequestType === 'prisoner') {
             const ownCells: Cell[] = [];
             const allianceCells: Cell[] = [];
-            let list: Cell['list'] = 'own';
-            doc.querySelectorAll<HTMLAnchorElement>(
-                `.col-md-9 .alert-info > a[href^="/vehicles/${id}/gefangener/"]`
-            ).forEach(cell => {
-                if (cell.previousElementSibling?.matches('h5'))
-                    list = 'alliance';
-                const text = cell.textContent ?? '';
-                const infos = text
-                    .trim()
-                    .match(
-                        /(?<=\()[^(]*?\s(?<free>\d+),\s.*?\s(?<distance>\d+(?:[,.]\d+)?\s(?:km|miles))(?:,\s.*?\s(?<tax>\d+)\s*%)?(?=\)$)/u
-                    );
-                const cellinfos: Cell = {
-                    id: getIdFromEl(cell),
-                    caption: text.replace(/\([^(]*?\)$/u, ''),
+
+            const getCell = (json: string, list: Cell['list']): Cell => {
+                const raw = JSON.parse(json);
+                const freeCells = Number(raw.free_cells as string);
+                return {
+                    caption: raw.name as string,
+                    id: raw.id as number,
+                    distance: `${raw.distance_in_km} km`,
+                    freeCells,
+                    state: freeCells < 1 ? 'danger' : 'success',
                     list,
-                    state: cell.classList.contains('btn-success')
-                        ? 'success'
-                        : cell.classList.contains('btn-warning')
-                          ? 'warning'
-                          : 'danger',
-                    freeCells: parseInt(infos?.groups?.free ?? '-1'),
-                    distance: infos?.groups?.distance ?? '-1km',
-                    tax:
-                        list === 'own'
-                            ? 0
-                            : parseInt(infos?.groups?.tax ?? '-1'),
+                    tax: Number(
+                        raw.caption.match(/(?<=\s)\d+\s*(?=%\))/gu)?.[0] ?? '0'
+                    ),
                 };
-                if (list === 'own') ownCells.push(cellinfos);
-                else allianceCells.push(cellinfos);
+            };
+
+            Array.from(doc.scripts).forEach(script => {
+                const content = script.textContent;
+                if (
+                    !content ||
+                    !content.includes(`erb_prisons.push`) ||
+                    !content.includes(`erb_alliance_prisons.push`)
+                )
+                    return;
+                ownCells.push(
+                    ...(content
+                        .match(
+                            /(?<=erb_prisons.push\()\{(?:".*?":.*?,)*".*?":.*?\}(?=\))/gu
+                        )
+                        ?.map(json => getCell(json, 'own')) ?? [])
+                );
+                allianceCells.push(
+                    ...(content
+                        .match(
+                            /(?<=erb_alliance_prisons.push\()\{(?:".*?":.*?,)*".*?":.*?\}(?=\))/gu
+                        )
+                        ?.map(json => getCell(json, 'alliance')) ?? [])
+                );
             });
+
             transportRequestVehicle = {
                 ...vehicle,
                 windowType: 'transportRequest',
