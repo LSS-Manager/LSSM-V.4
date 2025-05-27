@@ -225,6 +225,22 @@ const getMissingRequirements = (
             .trim();
     });
 
+    const getFactor = (
+        type: number | string,
+        group: Group,
+        req: number,
+        defaultFactor = 1
+    ) => {
+        const reqItem = requirements[group][req];
+        if (
+            (group === 'vehicles' || group === 'other') &&
+            'additional' in reqItem
+        )
+            return reqItem.additional.factors?.[type] ?? defaultFactor;
+
+        return defaultFactor;
+    };
+
     // iterate over the table of vehicles en route and update the driving information accordingly
     document
         .querySelectorAll<HTMLTableRowElement>(
@@ -248,7 +264,13 @@ const getMissingRequirements = (
                     }
                     if (amount <= 0) return;
                     requirementsForVehicle[vehicleType]?.[group]?.forEach(
-                        req => (requirements[group][req].driving += amount)
+                        req =>
+                            (requirements[group][req].driving += getFactor(
+                                vehicleType,
+                                group,
+                                req,
+                                amount
+                            ))
                     );
                 });
             }
@@ -260,7 +282,12 @@ const getMissingRequirements = (
                 if (!equipmentType) return;
                 groups.forEach(group =>
                     requirementsForEquipment[equipmentType]?.[group]?.forEach(
-                        req => requirements[group][req].driving++
+                        req =>
+                            (requirements[group][req].driving += getFactor(
+                                equipmentType,
+                                group,
+                                req
+                            ))
                     )
                 );
             });

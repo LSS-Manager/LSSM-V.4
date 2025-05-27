@@ -247,6 +247,11 @@
                 "vehicles": [95]
             },
             {
+                "factors": { "134": 2, "135": 4, "136": 2 },
+                "texts": ["Polizeipferd", "Polizeipferde"],
+                "vehicles": [134, 135, 136]
+            },
+            {
                 "texts": ["RTW oder KTW oder KTW-B"],
                 "vehicles": [28, 38, 58, 74, 97]
             },
