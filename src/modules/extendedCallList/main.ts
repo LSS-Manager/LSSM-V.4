@@ -171,7 +171,12 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
                       LSSM,
                       MODULE_ID,
                       await getSetting<
-                          ('' | 'alliance' | 'sicherheitswache')[]
+                          (
+                              | ''
+                              | 'alliance_event'
+                              | 'alliance'
+                              | 'sicherheitswache'
+                          )[]
                       >('shareMissionsTypes'),
                       await getSetting<number>('shareMissionsMinCredits'),
                       await getSetting<string>('shareMissionsButtonColor'),

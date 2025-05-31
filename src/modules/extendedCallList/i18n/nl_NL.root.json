@@ -122,6 +122,7 @@
         },
         "shareMissionsTypes": {
             "alliance": "Teammeldingen (alleen voor alarmeer, delen en posten)",
+            "allianceEvent": "Missions in an alliance event (only for Share-Alliance-Post)",
             "description": "Stel in voor welke type meldingen je de deelknop wilt tonen.",
             "own": "Eigen meldingen",
             "sicherheitswache": "Geplande meldingen",

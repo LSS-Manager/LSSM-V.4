@@ -102,6 +102,7 @@
         },
         "shareMissionsTypes": {
             "alliance": "Alliance missions (only for Share-Alliance-Post)",
+            "allianceEvent": "Missions in an alliance event (only for Share-Alliance-Post)",
             "description": "Sett opp hvilke av oppdragene du vil aktivere deleknappen for.",
             "own": "Nødanrop",
             "sicherheitswache": "Planlagte oppdrag",

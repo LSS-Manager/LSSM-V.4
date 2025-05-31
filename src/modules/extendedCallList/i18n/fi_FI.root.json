@@ -104,6 +104,7 @@
         },
         "shareMissionsTypes": {
             "alliance": "Liittoumatehtävät (vain Hälyytä, jaa, postaa)",
+            "allianceEvent": "Missions in an alliance event (only for Share-Alliance-Post)",
             "description": "Määritä, mille tehtäville haluat ottaa jakonapin käyttöön.",
             "own": "Omat tehtävät",
             "sicherheitswache": "Suunnitellut-tapahtumat",

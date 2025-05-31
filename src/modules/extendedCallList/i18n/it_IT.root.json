@@ -105,6 +105,7 @@
         },
         "shareMissionsTypes": {
             "alliance": "Missioni dell'alleanza (solo per i messaggi dell'alleanza)",
+            "allianceEvent": "Missions in an alliance event (only for Share-Alliance-Post)",
             "description": "Imposta per quali chiamate comparirà il pulsante per la condivisione.",
             "own": "Chiamate di emergenza (in poche parole, quelle generiche)",
             "sicherheitswache": "Eventi Pianificati",

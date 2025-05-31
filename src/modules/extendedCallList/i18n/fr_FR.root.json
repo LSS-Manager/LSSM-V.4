@@ -148,6 +148,7 @@
         },
         "shareMissionsTypes": {
             "alliance": "Missions d'alliance (uniquement pour Partage-Alliance-Message)",
+            "allianceEvent": "Missions in an alliance event (only for Share-Alliance-Post)",
             "description": "Définissez les appels pour lesquels vous souhaitez activer le bouton de partage.",
             "own": "Appels d'urgence",
             "sicherheitswache": "Missions planifiées",

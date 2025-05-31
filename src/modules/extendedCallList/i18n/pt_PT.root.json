@@ -126,6 +126,7 @@
         },
         "shareMissionsTypes": {
             "alliance": "Missões da Aliança (apenas para partilhar post na Aliança)",
+            "allianceEvent": "Missions in an alliance event (only for Share-Alliance-Post)",
             "description": "Configure para que chamadas pretende ativar o botão de partilha.",
             "own": "Chamadas-Emergência",
             "sicherheitswache": "Missões planeadas",

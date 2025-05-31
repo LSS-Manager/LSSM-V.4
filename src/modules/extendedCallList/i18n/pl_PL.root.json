@@ -125,6 +125,7 @@
         },
         "shareMissionsTypes": {
             "alliance": "Misje sojuszu (tylko dla Udostępnij post sojuszu)",
+            "allianceEvent": "Missions in an alliance event (only for Share-Alliance-Post)",
             "description": "Ustaw, dla których misji chcesz włączyć przycisk udostępniania.",
             "own": "Połączenia alarmowe",
             "sicherheitswache": "Planowane misje",

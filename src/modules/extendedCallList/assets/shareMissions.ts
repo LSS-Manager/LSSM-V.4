@@ -10,7 +10,7 @@ export type UpdateShareBtn = (mission: MissionUpdateCallback) => void;
 export default async (
     LSSM: Vue,
     MODULE_ID: string,
-    types: ('' | 'alliance' | 'sicherheitswache')[],
+    types: ('' | 'alliance_event' | 'alliance' | 'sicherheitswache')[],
     minCredits: number,
     buttonColor: string,
     enableSap: boolean,
