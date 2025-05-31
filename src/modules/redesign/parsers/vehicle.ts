@@ -487,8 +487,10 @@ export default <RedesignParser<VehicleWindow>>(({
                 const content = script.textContent;
                 if (
                     !content ||
-                    !content.includes(`erb_prisons.push`) ||
-                    !content.includes(`erb_alliance_prisons.push`)
+                    !(
+                        content.includes(`erb_prisons.push`) ||
+                        content.includes(`erb_alliance_prisons.push`)
+                    )
                 )
                     return;
                 ownCells.push(
