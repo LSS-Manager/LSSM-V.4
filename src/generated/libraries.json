@@ -199,7 +199,7 @@
         "version": "10.1.5"
     },
     "eslint-import-resolver-typescript": {
-        "version": "4.4.0"
+        "version": "4.4.2"
     },
     "eslint-plugin-compat": {
         "url": "https://github.com/amilajack/eslint-plugin-compat#readme",
