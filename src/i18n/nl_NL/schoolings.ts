@@ -255,4 +255,18 @@ export default {
             key: 'gw_wasserrettung',
         },
     ],
+    Militair: [
+        {
+            caption: 'Marechaussee',
+            duration: '4 Dagen',
+            staffList: 'Marechaussee',
+            key: 'military_police',
+        },
+        {
+            caption: 'Mobiele Eenheid',
+            duration: '4 Dagen',
+            staffList: 'Mobiele Eenheid',
+            key: 'police_mobiele_eenheid',
+        },
+    ]
 } satisfies SchoolingsBySchool;
