@@ -51,6 +51,7 @@ export default (
         const specsTable = document.createElement('table');
         specsTable.style.width = '100%';
         specsTable.style.color = 'black';
+        specsTable.style.whiteSpace = 'break-spaces';
         const specsHeader = document.createElement('thead');
         specsHeader.style.backgroundColor = 'limegreen';
         const specsHeadRow = specsHeader.insertRow();
