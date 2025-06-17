@@ -215,7 +215,7 @@
     },
     "eslint-plugin-markdownlint": {
         "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",
-        "version": "0.6.0"
+        "version": "0.9.0"
     },
     "eslint-plugin-prettier": {
         "icon": "https://prettier.io/icon.png",
