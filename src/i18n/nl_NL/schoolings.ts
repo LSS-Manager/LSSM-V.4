@@ -268,5 +268,5 @@ export default {
             staffList: 'Mobiele Eenheid',
             key: 'police_mobiele_eenheid',
         },
-    ]
+    ],
 } satisfies SchoolingsBySchool;

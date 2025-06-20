@@ -1311,7 +1311,13 @@ export default {
                 8
             ),
         ],
-        levelcost: ['1. 10.000', '2. 25.000', '3. 50.000', '4. 75.000', '5. 100.000'],
+        levelcost: [
+            '1. 10.000',
+            '2. 25.000',
+            '3. 50.000',
+            '4. 75.000',
+            '5. 100.000',
+        ],
         maxBuildings: 'Geen limiet',
         maxLevel: 5,
         special: '',
@@ -1336,13 +1342,7 @@ export default {
                 ...Array(5).fill(100_000),
                 ...Array(5).fill(150_000),
             ],
-            coins: [
-                10,
-                10,
-                15,
-                15,
-                ...Array(10).fill(20),
-            ],
+            coins: [10, 10, 15, 15, ...Array(10).fill(20)],
         },
         extensions: [
             {
