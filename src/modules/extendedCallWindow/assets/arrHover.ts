@@ -339,7 +339,10 @@ export default (
                     if (available < amount)
                         rowElement.classList.add('bg-danger');
                     rowElement.insertCell().textContent = `${amount.toLocaleString()}x`;
-                    rowElement.insertCell().textContent = name;
+                    rowElement.insertCell().innerHTML = name.replace(
+                        /(?<!,) /gu,
+                        '&nbsp;'
+                    );
                     rowElement.insertCell().textContent =
                         available.toLocaleString();
                     const max = Math.floor(available / amount);
