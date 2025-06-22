@@ -1909,10 +1909,10 @@ export default {
         },
         icon: 'trailer',
         special:
-            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (HLF 10, RW, GW-Gefahrgut, Dekon-P, WLF, GW-L1, GW-L2, LF 8/6, LF 10/6, LF 16-TS, SW 2000-Tr, SW Kats, TLF 3000, TLF 16/24-Tr, TLF 16/25, GW-Werkfeuerwehr)',
+            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (HLF 10, RW, GW-Gefahrgut, Dekon-P, WLF, GW-L1, GW-L2, LF 8/6, LF 10/6, LF 16-TS, SW 2000-Tr, SW Kats, TLF 3000, TLF 16/24-Tr, TLF 16/25, GW-Werkfeuerwehr, GW-A)',
         isTrailer: true,
         tractiveVehicles: [
-            90, 4, 27, 53, 104, 105, 6, 8, 9, 15, 16, 18, 21, 22, 83,
+            90, 4, 27, 53, 104, 105, 6, 8, 9, 15, 16, 18, 21, 22, 83, 5,
         ],
         possibleBuildings: [0, 18],
     },
