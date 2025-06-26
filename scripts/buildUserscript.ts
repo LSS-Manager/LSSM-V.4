@@ -1,17 +1,29 @@
+import * as process from 'process';
 import fs from 'fs';
+import path from 'path';
 
 import Terser from 'terser';
 
-import config from '../src/config';
 import packageJson from '../package.json';
+import config, { PORT_ENV_KEY } from '../src/config';
 
 const script = packageJson.userscript;
+const localCoreName = 'core';
 
-export default async (): Promise<void> =>
+const getScriptPath = (local: boolean) =>
+    path.resolve(
+        __dirname,
+        `../static/lssm-v4.${local ? 'local.' : ''}user.js`
+    );
+
+const createUserScript = async (local: boolean) => {
+    //Don't build local script if not required
+    if (local && !(PORT_ENV_KEY in process.env)) return;
+
     fs.writeFileSync(
-        './static/lssm-v4.user.js',
+        getScriptPath(local),
         `// ==UserScript==
-// @name         ${script.name}
+// @name         ${script.name}${local ? ' – Local' : ''}
 // @version      ${packageJson.version.replace(/\+.*$/u, '')}-${Object.keys(
             config.games
         )
@@ -38,7 +50,14 @@ ${Object.values(config.games)
 // @run-at       document-idle
 // @grant        GM_info
 // @grant        unsafeWindow
-// ==/UserScript==
+${
+    local
+        ? `
+// @grant        GM_getResourceURL
+// @resource     ${localCoreName} ${config.urls.server}core.js
+`.trimStart()
+        : ''
+}// ==/UserScript==
 /* global I18n, user_id */
 ${
     (
@@ -51,8 +70,10 @@ ${
                 compress: {
                     ecma: 2020,
                     global_defs: {
+                        local,
                         host: config.urls.server,
                         prefix: config.prefix,
+                        localCoreName,
                     },
                     sequences: false,
                     unsafe_arrows: true,
@@ -69,3 +90,6 @@ ${
 }
 `
     );
+};
+
+Promise.all([createUserScript(false), createUserScript(true)]).then();

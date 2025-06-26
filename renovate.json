@@ -9,7 +9,10 @@
     "dependencyDashboardHeader": "# ℹ️ Renovate Dependency-Dashboard ℹ\nScheduled and currently open dependency updates are listed here\n",
     "dependencyDashboardLabels": ["dependencies"],
     "dependencyDashboardTitle": "⬆ℹ️ Renovate Dependency-Dashboard ℹ️",
-    "extends": ["workarounds:typesNodeVersioning"],
+    "extends": [
+        "mergeConfidence:all-badges",
+        "workarounds:typesNodeVersioning"
+    ],
     "labels": ["dependencies"],
     "lockFileMaintenance": {
         "assignees": ["jxn-30"],
@@ -21,22 +24,22 @@
         {
             "description": "Disable updating vue on main repo. Updates require vue 3",
             "enabled": false,
-            "matchManagers": ["npm"],
-            "matchPackageNames": [
+            "matchDepNames": [
                 "@fortawesome/vue-fontawesome",
+                "highcharts-vue",
                 "vue",
                 "vue-i18n",
                 "vue-loader",
                 "vue-template-compiler"
             ],
-            "matchPaths": ["+(package.json)"]
+            "matchFileNames": ["+(package.json)"],
+            "matchManagers": ["npm"]
         },
         {
-            "excludePackageNames": ["@types/node"],
             "groupName": "types",
             "lockFileMaintenance": { "enabled": true },
             "matchManagers": ["npm"],
-            "matchPackagePrefixes": ["@types/"],
+            "matchPackageNames": ["!@types/node", "@types/{/,}**"],
             "rangeStrategy": "pin",
             "separateMajorMinor": false
         },
@@ -44,7 +47,7 @@
             "groupName": "fontawesome",
             "lockFileMaintenance": { "enabled": true },
             "matchManagers": ["npm"],
-            "matchPackagePrefixes": ["@fortawesome/"],
+            "matchPackageNames": ["@fortawesome/{/,}**"],
             "rangeStrategy": "pin",
             "separateMajorMinor": false
         },
@@ -52,16 +55,18 @@
             "groupName": "typescript-eslint",
             "lockFileMaintenance": { "enabled": true },
             "matchManagers": ["npm"],
-            "matchPackagePrefixes": ["@typescript-eslint"],
+            "matchPackageNames": ["@typescript-eslint{/,}**"],
             "rangeStrategy": "pin",
             "separateMajorMinor": false
         },
         {
+            "description": "We consider switching to VitePress (see #2884). While that, updates to vuepress are disabled",
+            "enabled": false,
             "groupName": "vuepress",
             "lockFileMaintenance": { "enabled": true },
+            "matchDepNames": ["vuepress"],
             "matchManagers": ["npm"],
-            "matchPackageNames": ["vuepress"],
-            "matchPackagePrefixes": ["@vuepress"],
+            "matchPackageNames": ["@vuepress{/,}**"],
             "rangeStrategy": "pin",
             "separateMajorMinor": false
         },
@@ -70,8 +75,8 @@
             "extends": ["schedule:monthly"],
             "groupName": "engines",
             "lockFileMaintenance": { "enabled": true },
+            "matchDepNames": ["node", "npm", "yarn"],
             "matchManagers": ["npm"],
-            "matchPackageNames": ["node", "npm", "yarn"],
             "rangeStrategy": "pin",
             "reviewers": ["jxn-30"],
             "separateMajorMinor": false
@@ -83,6 +88,7 @@
             "separateMajorMinor": false
         }
     ],
+    "postUpdateOptions": ["yarnDedupeHighest"],
     "rangeStrategy": "pin",
     "reviewers": ["Suchty112"],
     "schedule": ["before 3am every weekday"],
