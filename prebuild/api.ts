@@ -1,6 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-ignore
+import copyDir from 'copy-dir';
+
 import config from '../src/config';
 
 import type { Schooling } from 'typings/Schooling';
@@ -34,6 +38,11 @@ const getTSFile = async (
 
 export default async (): Promise<void> => {
     if (!fs.existsSync(apiPath)) fs.mkdirSync(apiPath);
+    copyDir.sync(path.join(__dirname, 'api'), apiPath);
+    fs.symlinkSync(
+        path.join(apiPath, 'index.html'),
+        path.join(apiPath, '404.html')
+    );
 
     const types = [
         'schoolings',
@@ -55,6 +64,32 @@ export default async (): Promise<void> => {
         const jsPath = path.join(i18nPath, `${locale}.js`);
         if (!fs.existsSync(outputPath)) fs.mkdirSync(outputPath);
 
+        // read from missionHelper translations
+        const mhPath = path.join(
+            rootPath,
+            'src',
+            'modules',
+            'missionHelper',
+            'i18n',
+            `${locale}.json`
+        );
+        if (fs.existsSync(mhPath)) {
+            const mh = JSON.parse(fs.readFileSync(mhPath)?.toString() || '{}');
+            const specs = {
+                missionCategories: mh.mission_categories,
+                prerequisites: mh.prerequisites,
+                requirements: mh.vehicles.captions,
+            };
+            delete specs.missionCategories.title;
+            delete specs.prerequisites.title;
+
+            fs.writeFileSync(
+                path.join(outputPath, 'einsaetze.json'),
+                JSON.stringify(specs)
+            );
+        }
+
+        // read from src/i18n
         const t = await getTSFile(
             path.join(distI18nPath, `${locale}.js`),
             jsPath
