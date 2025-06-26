@@ -41,7 +41,7 @@
 // @match        https://www.jogo-operador112.com/*
 // @match        https://policia.jogo-operador112.com/*
 // @match        https://www.jocdispecerat112.com/*
-// @match        https://www.dispetcher112.ru/*
+// @match        https://www.dispetcher-112.com/*
 // @match        https://www.dispecerske-centrum.com/*
 // @match        https://www.larmcentralen-spelet.se/*
 // @match        https://polis.larmcentralen-spelet.se/*

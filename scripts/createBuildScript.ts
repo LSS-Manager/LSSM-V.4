@@ -3,6 +3,8 @@ import path from 'path';
 
 import yaml from 'js-yaml';
 
+import { PORT_ENV_KEY } from '../src/config';
+
 interface Workflow {
     jobs: {
         build: {
@@ -13,7 +15,7 @@ interface Workflow {
 
 type Job = Workflow['jobs']['build']['steps'][0];
 
-const excludedSteps = [
+const excludeFromImport = [
     'get_node_yarn_versions',
     'yarn_cache_dir',
     'generate_token',
@@ -23,10 +25,23 @@ const excludedSteps = [
     'import_gpg',
     'git_push',
 ];
+const excludeFromFullBuild = ['serve'];
 const shortcuts = {
     'dependencies': ['yarn_setup', 'versions', 'yarn_install', 'browserslist'],
     'quick': ['env', 'format', 'eslint', 'tsc', 'webpack'],
+    'local': [
+        'yarn_setup',
+        'versions', //not required, just for debugging
+        'prebuild', //Download releasenotes, branches and missions
+        'yarn_install',
+        'env',
+        'tsc',
+        'userscript',
+        'webpack',
+        'serve',
+    ],
     'pre-commit': ['format', 'eslint', 'tsc'],
+    'api': ['node', 'yarn_setup', 'yarn_install', 'tsc', 'prebuild'],
     'full': [],
 };
 const extraConditions: Record<string, string[]> = {
@@ -75,17 +90,24 @@ fi`,
     timestamp="$(date +%s%N)"
     echo "\${timestamp/N/000000000}"
 }`,
-    `ms_elapsed() {
+    `ms_elapsed () {
     local timestamp_now
     timestamp_now=$(now)
-    echo $(((10#$timestamp_now - 10#$1) / 1000000))ms
+    elapsed=$(((10#$timestamp_now - 10#$1) / 1000000))
+    seconds=$((elapsed / 1000))
+    ms=$(printf "%03d" $((elapsed - (seconds * 1000))))
+    minutes=$(printf "%02d" $((seconds / 60)))
+    seconds=$(printf "%02d" $((seconds - (minutes * 60))))
+    echo "\${minutes}:\${seconds}.\${ms} (\${elapsed}ms)"
 }`,
-    `print_start_message() {
+    `print_start_message () {
     echo "\${bold}$\{blue}### $1 ###$\{normal}"
 }`,
-    `print_end_message() {
+    `print_end_message () {
     echo "\${bold}$\{green}=== $1: $(ms_elapsed "$2") [$(date +"%Y-%m-%d %H:%M:%S %Z")] ===$\{normal}"
 }`,
+    `# add an environment variable containing all args
+export LSSM_ARGS="'$*'"`,
 ];
 
 const getStepName = (step: string) => `_run_step_${step}`.toUpperCase();
@@ -122,11 +144,19 @@ try {
                 'enable_debugging',
             id: 'node',
         } as Job,
-    ].concat(
-        workflow.jobs.build.steps.filter(
-            step => step.run && !excludedSteps.includes(step.id ?? '')
+    ]
+        .concat(
+            workflow.jobs.build.steps.filter(
+                step => step.run && !excludeFromImport.includes(step.id ?? '')
+            )
         )
-    );
+        .concat([
+            {
+                name: 'Start test server',
+                run: `ws -d ./dist/ --https --port="$${PORT_ENV_KEY}" --hostname localhost`,
+                id: 'serve',
+            } as Job,
+        ]);
     const stepIds = steps.map(step => step.id ?? '');
 
     script.push(
@@ -142,13 +172,17 @@ ${stepIds.map(id => `        --${id}) ${getStepName(id)}=true ;;`).join('\n')}
 ${Object.entries(shortcuts)
     .map(
         ([shortcut, steps]) => `        --${shortcut})
-          ${(shortcut === 'full' ? stepIds : steps)
+          ${(shortcut === 'full'
+              ? stepIds.filter(step => !excludeFromFullBuild.includes(step))
+              : steps
+          )
               .map(step => `${getStepName(step)}=true`)
               .join('\n          ')} ;;`
     )
     .join('\n')}
         -p | --production) MODE="production" ;;
         --debug) DEBUG=true ;;
+        --port) shift; _PORT=$1 ;;
         -?*)
           echo "Unknown option: $1"
           exit 1 ;;
@@ -156,6 +190,14 @@ ${Object.entries(shortcuts)
     esac
     shift
 done`,
+        `# expose the set port (or default port) as environment variable for local server
+if [[ $${getStepName('serve')} = true ]]; then
+    if [[ -z "$_PORT" ]]; then
+        export ${PORT_ENV_KEY}=36551 # because 536551 is LSSM in base 29 but port numbers are 16-bit only so we omit the leading 5
+    else
+        export ${PORT_ENV_KEY}=$_PORT
+    fi
+fi`,
         'total_start_time=$(now)',
         `NODE_VERSION=$(grep '"node":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/\\^v//g' | tr -d '[:space:]')
 YARN_VERSION=$(grep '"packageManager":' ./package.json | awk -F: '{ print $2 }' | sed 's/[",]//g' | sed 's/yarn@//g' | tr -d '[:space:]')
@@ -192,12 +234,12 @@ fi`,
         )
             ?.trim()
             .replace(/\n/gu, '\n    ')
-            .replace(/\$\{\{ env\.MODE \}\}/gu, '$MODE')
-            .replace(/\$\{\{ env\.BRANCH \}\}/gu, '$BRANCH')
-            .replace(/\$\{\{ env\.NODE_VERSION \}\}/gu, '$NODE_VERSION')
-            .replace(/\$\{\{ env\.YARN_VERSION \}\}/gu, '$YARN_VERSION')
-            .replace(/\$\{\{ inputs\.label \}\}/gu, '🦄 branch label')
-            .replace(/\$\{\{ (github|inputs)\.ref \}\}/gu, '$REF') ?? ''
+            .replace(/\$\{\{ env\.MODE \}\}/gu, '$$MODE')
+            .replace(/\$\{\{ env\.BRANCH \}\}/gu, '$$BRANCH')
+            .replace(/\$\{\{ env\.NODE_VERSION \}\}/gu, '$$NODE_VERSION')
+            .replace(/\$\{\{ env\.YARN_VERSION \}\}/gu, '$$YARN_VERSION')
+            .replace(/\$BranchLabel/gu, '"🦄 branch label"')
+            .replace(/\$\{\{ (?:github|inputs)\.ref \}\}/gu, '$$REF') ?? ''
     }
     disable_debugging
     print_end_message "${step.name}" "$start_time"
