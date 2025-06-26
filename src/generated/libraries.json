@@ -69,11 +69,6 @@
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/pdfmake",
         "version": "0.2.8"
     },
-    "@types/prettier": {
-        "icon": "https://avatars.githubusercontent.com/u/3637556",
-        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/prettier",
-        "version": "2.7.3"
-    },
     "@types/qrcode": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/qrcode",
@@ -297,7 +292,7 @@
     "prettier": {
         "icon": "https://prettier.io/icon.png",
         "url": "https://prettier.io",
-        "version": "3.2.4"
+        "version": "3.5.3"
     },
     "qrcode": {
         "url": "http://github.com/soldair/node-qrcode",
