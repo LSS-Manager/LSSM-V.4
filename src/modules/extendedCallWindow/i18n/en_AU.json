@@ -80,7 +80,7 @@
                 "texts": ["Police car", "Police cars"],
                 "vehicles": [8, 16, 17, 37]
             },
-            { "texts": ["HEMS"], "vehicles": [9] },
+            { "texts": ["Air Ambulance", "Air Ambulances"], "vehicles": [9] },
             {
                 "texts": ["Police Helicopter", "Police Helicopters"],
                 "vehicles": [14]
