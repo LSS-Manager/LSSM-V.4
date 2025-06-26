@@ -1,7 +1,7 @@
 # Contribution Guide
 You want to contribute to LSS-Manager? Here are some tips on how to contribute!
 
-**Hint**: There is a new guide available in our [Wiki](https://proxy.lss-manager.de/v4/docs/en_US/contributing/) that helps with translating. The content of this file will be merged with it soon.
+**Hint**: There is a new guide available in our [Wiki](https://docs.lss-manager.de/en_US/contributing) that helps with translating. The content of this file will be merged with it soon.
 
 **If you got any questions on contributing, you can contact LSSM Team at any time!**
 
@@ -44,7 +44,7 @@ replace `xx_XX` with the lang-code
     * `vehicleCategories`
         * Each category as a `color` similar to buildingCategories.
         * The `vehicles` attribute is an object where keys are the names of the vehicle group, value is a list of vehicle-type IDs
-    * `small_buildings` 
+    * `small_buildings`
         * key: the type of station that has a small version
         * value: the ID of the small station
     * `vehicleBuildings`
@@ -72,7 +72,7 @@ replace `xx_XX` with the lang-code
         * list of all mission types that are alliance only
     * `transfer_missions`
         * list of all missions that are transfer missions
-        
+
 ### each module
 for each module in `/src/modules/` there is a `i18n` folder containing a root-file for each locale and optionally a normal file. Example: `en_US.root.json` and `en_US.ts`.
 
