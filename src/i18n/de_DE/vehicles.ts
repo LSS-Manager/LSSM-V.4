@@ -413,7 +413,7 @@ export default {
         coins: 30,
         staff: {
             min: 1,
-            max: 1,
+            max: 2,
             training: {
                 Rettungsdienst: {
                     notarzt: {
@@ -423,6 +423,7 @@ export default {
             },
         },
         icon: 'helicopter',
+        equipmentCapacity: 10,
         possibleBuildings: [5],
     },
     32: {
@@ -887,6 +888,7 @@ export default {
             },
         },
         icon: 'helicopter',
+        equipmentCapacity: 10,
         possibleBuildings: [13],
     },
     62: {
@@ -1579,10 +1581,10 @@ export default {
         icon: 'fill',
         possibleBuildings: [13],
         special:
-            'Der Polizeihelikopter ist das Trägerfahrzeug hier von. Der Helikopter brauch min. 2 Ausgebildete Kräfte mit der Ausbildung "Brandbekämpfung"',
+            'Kann an Polizeihubschrauber und Polizeihubschrauber mit verbauter Winde angehängt werden. Das Personal auf dem Hubschrauber benötigt zusätzlich die Ausbildung "brandbekämpfung".',
         waterTank: 1000,
         isTrailer: true,
-        tractiveVehicles: [61],
+        tractiveVehicles: [61, 156],
     },
     97: {
         caption: 'ITW',
@@ -1907,10 +1909,10 @@ export default {
         },
         icon: 'trailer',
         special:
-            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (HLF 10, RW, GW-Gefahrgut, Dekon-P, WLF, GW-L1, GW-L2, LF 8/6, LF 10/6, LF 16-TS, SW 2000-Tr, SW Kats, TLF 3000, TLF 16/24-Tr, TLF 16/25, GW-Werkfeuerwehr)',
+            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (HLF 10, RW, GW-Gefahrgut, Dekon-P, WLF, GW-L1, GW-L2, LF 8/6, LF 10/6, LF 16-TS, SW 2000-Tr, SW Kats, TLF 3000, TLF 16/24-Tr, TLF 16/25, GW-Werkfeuerwehr, GW-A)',
         isTrailer: true,
         tractiveVehicles: [
-            90, 4, 27, 53, 104, 105, 6, 8, 9, 15, 16, 18, 21, 22, 83,
+            90, 4, 27, 53, 104, 105, 6, 8, 9, 15, 16, 18, 21, 22, 83, 5,
         ],
         possibleBuildings: [0, 18],
     },
@@ -2482,7 +2484,7 @@ export default {
         possibleBuildings: [9],
     },
     149: {
-        caption: 'GW Bergrettung (NEF)',
+        caption: 'GW-Bergrettung (NEF)',
         color: '#bc7f52',
         credits: 25_000,
         coins: 25,
@@ -2671,7 +2673,7 @@ export default {
             training: {
                 Wasserrettung: {
                     coastal_rescue: {
-                        min: 4,
+                        all: true,
                     },
                 },
             },

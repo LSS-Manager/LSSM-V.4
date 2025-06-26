@@ -1272,6 +1272,7 @@ export default {
                 unlocksVehicleTypes: [96],
                 parkingLotReservations: [[96]],
                 unlockedVehiclesOnReservedLotsOnly: true,
+                cannotDisable: true,
             },
             {
                 caption: 'Windenrettung',
@@ -1907,14 +1908,6 @@ export default {
         },
         extensions: [
             {
-                caption: 'Rettungsdienst',
-                coins: 20,
-                credits: 100_000,
-                duration: '7 Tage',
-                isVehicleExtension: true,
-                unlocksVehicleTypes: [28, 29, 38, 73, 74, 97],
-            },
-            {
                 caption: 'Höhenrettung',
                 coins: 25,
                 credits: 50_000,
@@ -1922,7 +1915,10 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [155, 158],
-                parkingLotReservations: [[155], [158], [155], [158]],
+                parkingLotReservations: [
+                    [155, 158],
+                    [155, 158],
+                ],
                 unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
@@ -1941,6 +1937,14 @@ export default {
                 unlocksVehicleTypes: [153],
                 parkingLotReservations: [[153], [153]],
                 unlockedVehiclesOnReservedLotsOnly: true,
+            },
+            {
+                caption: 'Rettungsdienst',
+                coins: 20,
+                credits: 100_000,
+                duration: '7 Tage',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [28, 29, 38, 73, 74, 97],
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
@@ -1970,7 +1974,7 @@ export default {
         maxBuildings: 'Keine Grenze',
         maxLevel: 4,
         special:
-            'Beim Bau bekommst du 2 Leute geschenkt. Wird ab der 10ten Wache teurer. Formel reichen wir nach',
+            'Beim Bau bekommst du 2 Leute geschenkt. Wird ab der 10/11ten Wache teurer. Formel zum Berechnen: <code>count < 10 ? 100_000 : (100_000 + (100_000 * Math.log(count - 9, 5))).round</code>',
         startPersonnel: 2,
         startParkingLots: 1,
         startVehicles: [''],
