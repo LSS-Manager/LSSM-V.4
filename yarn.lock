@@ -2353,12 +2353,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jquery@npm:3.5.29":
-  version: 3.5.29
-  resolution: "@types/jquery@npm:3.5.29"
+"@types/jquery@npm:3.5.32":
+  version: 3.5.32
+  resolution: "@types/jquery@npm:3.5.32"
   dependencies:
     "@types/sizzle": "npm:*"
-  checksum: 10c0/17409b551956c54d641264895790b9e63a2179bacdabe2a87d5f8f2baebe2f16625d111b17b1441cdffbf9e059e683bb25bf04ba6ea56b36e39ea50cc77f5b8c
+  checksum: 10c0/4a17ad6819b89026c21323656ab01b0b263f9d470910a87c8740920ff98319d503c7352b85b50134a39724ecbfccabc73aa4c741dfdd460cf8bbe714f9259054
   languageName: node
   linkType: hard
 
@@ -2392,12 +2392,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/leaflet@npm:1.9.8":
-  version: 1.9.8
-  resolution: "@types/leaflet@npm:1.9.8"
+"@types/leaflet@npm:1.9.16":
+  version: 1.9.16
+  resolution: "@types/leaflet@npm:1.9.16"
   dependencies:
     "@types/geojson": "npm:*"
-  checksum: 10c0/9a635d8ced35da27d8dfe972954bd5b4c91354beef710d7cfcca0e7bff3d189eb4cfd36ff68dac2bdc4b002d50f9ed5036c2e659683131e50d227a2050c72895
+  checksum: 10c0/80403093b918ed19911997dc8ebe1aac44f49ada065f5b60ea451f6b8c92ffc942ef49706f7faa1a4e7c62824390a44d407bd5b1a9cfbbaea82c1501129c919a
   languageName: node
   linkType: hard
 
@@ -2408,10 +2408,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:4.14.202":
-  version: 4.14.202
-  resolution: "@types/lodash@npm:4.14.202"
-  checksum: 10c0/6064d43c8f454170841bd67c8266cc9069d9e570a72ca63f06bceb484cb4a3ee60c9c1f305c1b9e3a87826049fd41124b8ef265c4dd08b00f6766609c7fe9973
+"@types/lodash@npm:4.17.14":
+  version: 4.17.14
+  resolution: "@types/lodash@npm:4.17.14"
+  checksum: 10c0/343c6f722e0b39969036a885ad5aad6578479ead83987128c9b994e6b7f2fb9808244d802d4d332396bb09096f720a6c7060de16a492f5460e06a44560360322
   languageName: node
   linkType: hard
 
@@ -2499,13 +2499,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/pdfmake@npm:0.2.8":
-  version: 0.2.8
-  resolution: "@types/pdfmake@npm:0.2.8"
+"@types/pdfmake@npm:0.2.11":
+  version: 0.2.11
+  resolution: "@types/pdfmake@npm:0.2.11"
   dependencies:
     "@types/node": "npm:*"
     "@types/pdfkit": "npm:*"
-  checksum: 10c0/8a731755ffbcbdd216e436e0c9e1e2ed600ddd388362ae1fe4cafd758278fe9678eb39ff89bd066a2aec3c80b1c66f824b68057d30d29162520d6dec78131442
+  checksum: 10c0/751ea63f2a5aaacbf008543ec58d01f80a11948b7fe18ee531668f97bbed3b0622d3fb1946e3d6b02af9c7ef7396ec858e6f5f5c551b746832b94a6ac33ec453
   languageName: node
   linkType: hard
 
@@ -2536,7 +2536,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/semver@npm:7.5.6, @types/semver@npm:^7.5.0":
+"@types/semver@npm:7.5.8":
+  version: 7.5.8
+  resolution: "@types/semver@npm:7.5.8"
+  checksum: 10c0/8663ff927234d1c5fcc04b33062cb2b9fcfbe0f5f351ed26c4d1e1581657deebd506b41ff7fdf89e787e3d33ce05854bc01686379b89e9c49b564c4cfa988efa
+  languageName: node
+  linkType: hard
+
+"@types/semver@npm:^7.5.0":
   version: 7.5.6
   resolution: "@types/semver@npm:7.5.6"
   checksum: 10c0/196dc32db5f68cbcde2e6a42bb4aa5cbb100fa2b7bd9c8c82faaaf3e03fbe063e205dbb4f03c7cdf53da2edb70a0d34c9f2e601b54281b377eb8dc1743226acd
@@ -2564,10 +2571,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/tampermonkey@npm:5.0.2":
-  version: 5.0.2
-  resolution: "@types/tampermonkey@npm:5.0.2"
-  checksum: 10c0/f8028995eda4bd29f08446a416144b8ca73a9362e28fd3b6d5f19c8b63acecd8ab6f8ae61717309c6b0efe71c1a33e062b7f7225c86c70657aa381b77afc1422
+"@types/tampermonkey@npm:5.0.4":
+  version: 5.0.4
+  resolution: "@types/tampermonkey@npm:5.0.4"
+  checksum: 10c0/c6d85ea66229fe20fd652b48997db48f1a5d3328ca14d44c89a1b70d4edf659e71b2fd33182753b02084524fed6b6652305f34773013db3f38cd53abbb28f1b9
   languageName: node
   linkType: hard
 
@@ -2601,10 +2608,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/webpack-env@npm:1.18.4":
-  version: 1.18.4
-  resolution: "@types/webpack-env@npm:1.18.4"
-  checksum: 10c0/3fa77dbff0ed71685404576b0a1cf74587567fe2ee1cfd11d56d6eefcab7a61e4c9ead0eced264e289d2cf0fc74296dbd55ed6c95774fe0fd6264d156c5a59f0
+"@types/webpack-env@npm:1.18.5":
+  version: 1.18.5
+  resolution: "@types/webpack-env@npm:1.18.5"
+  checksum: 10c0/b9e4876e8c7cae419896249f9ed795db283c008fe1d38efa679cbbf05194fc2eea2a5bfb4ff4393d109e3a9895416dadf5f3ddd5c22931b678062230f860454e
   languageName: node
   linkType: hard
 
@@ -6942,20 +6949,20 @@ __metadata:
     "@fortawesome/vue-fontawesome": "npm:2.0.10"
     "@types/he": "npm:1.2.3"
     "@types/i18n-js": "npm:3.8.9"
-    "@types/jquery": "npm:3.5.29"
+    "@types/jquery": "npm:3.5.32"
     "@types/js-yaml": "npm:4.0.9"
-    "@types/leaflet": "npm:1.9.8"
-    "@types/lodash": "npm:4.14.202"
+    "@types/leaflet": "npm:1.9.16"
+    "@types/lodash": "npm:4.17.14"
     "@types/node": "npm:20.11.6"
-    "@types/pdfmake": "npm:0.2.8"
+    "@types/pdfmake": "npm:0.2.11"
     "@types/qrcode": "npm:1.5.5"
-    "@types/semver": "npm:7.5.6"
+    "@types/semver": "npm:7.5.8"
     "@types/showdown": "npm:2.0.6"
     "@types/simpleheat": "npm:0.4.3"
-    "@types/tampermonkey": "npm:5.0.2"
+    "@types/tampermonkey": "npm:5.0.4"
     "@types/ua-parser-js": "npm:0.7.39"
     "@types/vue-select": "npm:3.16.8"
-    "@types/webpack-env": "npm:1.18.4"
+    "@types/webpack-env": "npm:1.18.5"
     "@typescript-eslint/eslint-plugin": "npm:6.19.1"
     "@typescript-eslint/parser": "npm:6.19.1"
     acorn: "npm:8.11.3"

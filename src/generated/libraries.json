@@ -42,7 +42,7 @@
     "@types/jquery": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jquery",
-        "version": "3.5.29"
+        "version": "3.5.32"
     },
     "@types/js-yaml": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -52,12 +52,12 @@
     "@types/leaflet": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/leaflet",
-        "version": "1.9.8"
+        "version": "1.9.16"
     },
     "@types/lodash": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/lodash",
-        "version": "4.14.202"
+        "version": "4.17.14"
     },
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -67,7 +67,7 @@
     "@types/pdfmake": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/pdfmake",
-        "version": "0.2.8"
+        "version": "0.2.11"
     },
     "@types/qrcode": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -77,7 +77,7 @@
     "@types/semver": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/semver",
-        "version": "7.5.6"
+        "version": "7.5.8"
     },
     "@types/showdown": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -92,7 +92,7 @@
     "@types/tampermonkey": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/tampermonkey",
-        "version": "5.0.2"
+        "version": "5.0.4"
     },
     "@types/ua-parser-js": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -107,7 +107,7 @@
     "@types/webpack-env": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/webpack-env",
-        "version": "1.18.4"
+        "version": "1.18.5"
     },
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
