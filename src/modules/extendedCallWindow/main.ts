@@ -73,7 +73,7 @@ export default <ModuleMainFunction>(async ({
         vehicleTypes: string[];
     }[];
 
-    if (isBuildingWindow && !document.querySelector('#education_schooling_-1'))
+    if (isBuildingWindow && !document.getElementById('education_schooling_-1'))
         return;
 
     // Tailored Tabs

@@ -14,11 +14,12 @@ export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
 
     if (window.location.pathname === '/') {
         await scopedClickableLinks(
-            document.querySelector('#chat_panel_body') ?? document
+            document.getElementById('chat_panel_body') ?? document
         );
     } else if (/^\/note\/?/u.test(window.location.pathname)) {
-        const input =
-            document.querySelector<HTMLTextAreaElement>('#note_message');
+        const input = document.getElementById(
+            'note_message'
+        ) as HTMLTextAreaElement;
         if (input) {
             const preview = document.createElement('pre');
             preview.classList.add('input-group', 'form-control');
@@ -32,7 +33,7 @@ export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
         await scopedClickableLinks(document);
     }
 
-    document.querySelector('#chat_panel_body')?.addEventListener(
+    document.getElementById('chat_panel_body')?.addEventListener(
         'error',
         e => {
             const img = e.target as HTMLElement | null;

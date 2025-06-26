@@ -40,8 +40,7 @@ export default (
 
     // remove all existing tabs except all and occupied
     const tabList =
-        document.querySelector<HTMLUListElement>('#tabs') ??
-        document.createElement('ul');
+        document.getElementById('tabs') ?? document.createElement('ul');
     tabList
         ?.querySelectorAll<HTMLLIElement>(
             'li > a:not([tabload="all"]):not([tabload="occupied"])'
@@ -155,7 +154,7 @@ export default (
         allTab.append(allTabA);
 
         tabList.append(allTab);
-        document.querySelector('#vehicle_show_table_all')?.before(tabList);
+        document.getElementById('vehicle_show_table_all')?.before(tabList);
     } else {
         const originalAllTab = document.querySelector<HTMLLIElement>(
             '#tabs > li:first-child'

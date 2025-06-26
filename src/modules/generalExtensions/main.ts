@@ -89,7 +89,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
         );
     const isDispatchCenter =
         /^\/buildings\/\d+\/?$/u.test(window.location.pathname) &&
-        !!document.querySelector<HTMLDivElement>('#tab_projected_missions');
+        !!document.getElementById('tab_projected_missions');
 
     const mapSearchOnMap = await getSetting<boolean>('mapSearchOnMap');
 

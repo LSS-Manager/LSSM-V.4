@@ -8,8 +8,7 @@ export default (
         document.querySelector('.vehicle_prisoner_select') &&
         missionSettings.includes('missionPrisoners')
     ) {
-        const prisonersLabel =
-            document.querySelector<HTMLHeadingElement>('#h2_prisoners');
+        const prisonersLabel = document.getElementById('h2_prisoners');
         let currentPrisoners = parseInt(
             prisonersLabel?.textContent?.trim().match(/^\d+/u)?.[0] || '0'
         );
@@ -100,9 +99,9 @@ export default (
     const replyButton = document.querySelector<HTMLButtonElement>(
         '#mission_reply_content ~ div button[type="submit"]'
     );
-    const replyInputField = document.querySelector<HTMLInputElement>(
-        '#mission_reply_content'
-    );
+    const replyInputField = document.getElementById(
+        'mission_reply_content'
+    ) as HTMLInputElement;
     if (
         missionSettings.includes('missionReply') &&
         replyButton &&

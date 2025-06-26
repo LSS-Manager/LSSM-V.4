@@ -56,7 +56,7 @@ export default <
         },
         alert_next() {
             if (
-                document.querySelector<HTMLInputElement>(`#${this.toggleId}`)
+                (document.getElementById(this.toggleId) as HTMLInputElement)
                     ?.checked
             ) {
                 document
@@ -70,7 +70,7 @@ export default <
         },
         prev() {
             if (
-                document.querySelector<HTMLInputElement>(`#${this.toggleId}`)
+                (document.getElementById(this.toggleId) as HTMLInputElement)
                     ?.checked
             ) {
                 document
@@ -84,7 +84,7 @@ export default <
         },
         next() {
             if (
-                document.querySelector<HTMLInputElement>(`#${this.toggleId}`)
+                (document.getElementById(this.toggleId) as HTMLInputElement)
                     ?.checked
             ) {
                 document
@@ -98,7 +98,7 @@ export default <
         },
         alert_share_next() {
             if (
-                document.querySelector<HTMLInputElement>(`#${this.toggleId}`)
+                (document.getElementById(this.toggleId) as HTMLInputElement)
                     ?.checked
             ) {
                 document
@@ -122,12 +122,12 @@ export default <
         >
     >{
         validatorFunction() {
-            this.responseInputbox = document.querySelector<HTMLInputElement>(
-                '#mission_reply_content'
-            );
-            this.responseCheckbox = document.querySelector<HTMLInputElement>(
-                '#mission_reply_alliance_chat'
-            );
+            this.responseInputbox = document.getElementById(
+                'mission_reply_content'
+            ) as HTMLInputElement;
+            this.responseCheckbox = document.getElementById(
+                'mission_reply_alliance_chat'
+            ) as HTMLInputElement;
             return !!this.responseInputbox && !!this.responseCheckbox;
         },
         toggle() {
@@ -142,8 +142,9 @@ export default <
         Scope<{ arrList: HTMLUListElement | null }, [], ['next', 'previous']>
     >{
         validatorFunction() {
-            this.arrList =
-                document.querySelector<HTMLUListElement>('#aao-tabs');
+            this.arrList = document.getElementById(
+                'aao-tabs'
+            ) as HTMLUListElement;
             return !!this.arrList;
         },
         next() {
@@ -175,8 +176,9 @@ export default <
         >
     >{
         validatorFunction() {
-            this.vehicleList =
-                document.querySelector<HTMLUListElement>('#tabs');
+            this.vehicleList = document.getElementById(
+                'tabs'
+            ) as HTMLUListElement;
             return !!this.vehicleList;
         },
         next() {
@@ -262,17 +264,13 @@ export default <
             ?.click();
     },
     alert_next() {
-        document.querySelector<HTMLAnchorElement>('#alert_next_btn')?.click();
+        document.getElementById('alert_next_btn')?.click();
     },
     prev() {
-        document
-            .querySelector<HTMLAnchorElement>('#mission_previous_mission_btn')
-            ?.click();
+        document.getElementById('mission_previous_mission_btn')?.click();
     },
     next() {
-        document
-            .querySelector<HTMLAnchorElement>('#mission_next_mission_btn')
-            ?.click();
+        document.getElementById('mission_next_mission_btn')?.click();
     },
     alert_share_next() {
         document
@@ -280,14 +278,12 @@ export default <
             ?.click();
     },
     share() {
-        document
-            .querySelector<HTMLAnchorElement>('#mission_alliance_share_btn')
-            ?.click();
+        document.getElementById('mission_alliance_share_btn')?.click();
     },
     alert() {
-        document.querySelector<HTMLInputElement>('#alert_btn')?.click();
+        document.getElementById('alert_btn')?.click();
     },
     easter_click() {
-        document.querySelector<HTMLAnchorElement>('#easter-egg-link')?.click();
+        document.getElementById('easter-egg-link')?.click();
     },
 };

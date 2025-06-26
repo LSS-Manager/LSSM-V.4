@@ -140,7 +140,7 @@ export default (LSSM: Vue): void => {
             `${target.id}_${entry[0]}`,
             true
         );
-        let counter = document.querySelector<HTMLElement>(`#${counterId}`);
+        let counter = document.getElementById(counterId);
         if (!counter) {
             counter = document.createElement('small');
             counter.id = counterId;

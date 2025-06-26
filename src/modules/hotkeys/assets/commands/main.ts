@@ -5,9 +5,9 @@ export default <
 >{
     chat: <Scope<{ chatInput: HTMLInputElement | null }, [], ['focus']>>{
         validatorFunction() {
-            this.chatInput = document.querySelector<HTMLInputElement>(
-                '#alliance_chat_message'
-            );
+            this.chatInput = document.getElementById(
+                'alliance_chat_message'
+            ) as HTMLInputElement;
             return !!this.chatInput;
         },
         focus() {
@@ -16,14 +16,13 @@ export default <
     },
     map: <Scope<Empty, ['search', 'zoom', 'move']>>{
         validatorFunction() {
-            return !!document.querySelector<HTMLDivElement>('#map');
+            return !!document.getElementById('map');
         },
         search: <Scope<{ mapSearch: HTMLInputElement | null }, [], ['focus']>>{
             validatorFunction() {
-                this.mapSearch =
-                    document.querySelector<HTMLInputElement>(
-                        '#map_adress_search'
-                    );
+                this.mapSearch = document.getElementById(
+                    'map_adress_search'
+                ) as HTMLInputElement;
                 return !!this.mapSearch;
             },
             focus() {
@@ -81,16 +80,15 @@ export default <
     },
     missionlist: <Scope<Empty, ['search', 'eclSort']>>{
         validatorFunction() {
-            return !!document.querySelector<HTMLDivElement>('#missions');
+            return !!document.getElementById('missions');
         },
         search: <
             Scope<{ missionlistSearch: HTMLInputElement | null }, [], ['focus']>
         >{
             validatorFunction() {
-                this.missionlistSearch =
-                    document.querySelector<HTMLInputElement>(
-                        '#search_input_field_missions'
-                    );
+                this.missionlistSearch = document.getElementById(
+                    'search_input_field_missions'
+                ) as HTMLInputElement;
                 return !!this.missionlistSearch;
             },
             focus() {
@@ -162,8 +160,9 @@ export default <
     },
     bigMap: <Scope<{ bigMapMenu: HTMLDivElement | null }, ['toggle']>>{
         validatorFunction() {
-            this.bigMapMenu =
-                document.querySelector<HTMLDivElement>('#bigMapMenu');
+            this.bigMapMenu = document.getElementById(
+                'bigMapMenu'
+            ) as HTMLDivElement;
 
             return !!this.bigMapMenu;
         },

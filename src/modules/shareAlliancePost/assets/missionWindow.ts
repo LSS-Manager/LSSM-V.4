@@ -76,13 +76,13 @@ export default async ({
         .length.toLocaleString();
 
     const missingTextEl =
-        document.querySelector<HTMLDivElement>('#missing_text') ??
+        (document.getElementById('missing_text') as HTMLDivElement) ??
         document.createElement('div');
     // that comes from emv
     if (!missingTextEl.id) {
         missingTextEl.innerHTML =
-            document.querySelector<HTMLDivElement>(`#${PREFIX}-missing_text`)
-                ?.dataset.rawHtml ?? '–';
+            document.getElementById(`${PREFIX}-missing_text`)?.dataset
+                .rawHtml ?? '–';
     }
 
     const remainingVehicles =
@@ -132,8 +132,7 @@ export default async ({
         typeof getMissingRequirementsListHandler
     >;
 
-    const vehicleAmountElement =
-        document.querySelector<HTMLSpanElement>('#vehicle_amount');
+    const vehicleAmountElement = document.getElementById('vehicle_amount');
     if (vehicleAmountElement) {
         new MutationObserver(() => {
             const selectedVehicles = Array.from(
@@ -203,7 +202,7 @@ export default async ({
             attributes: true,
         });
 
-        const allTable = document.querySelector('#vehicle_show_table_all');
+        const allTable = document.getElementById('vehicle_show_table_all');
         if (allTable && missingRequirementsListHandler) {
             new MutationObserver(missingRequirementsListHandler).observe(
                 allTable,
@@ -218,10 +217,7 @@ export default async ({
 
     const missionName =
         mission?.name ??
-        Array.from(
-            document.querySelector<HTMLHeadingElement>(`#missionH1`)
-                ?.childNodes ?? []
-        )
+        Array.from(document.getElementById(`missionH1`)?.childNodes ?? [])
             .find(n => n.nodeType === Node.TEXT_NODE && n.textContent?.trim())
             ?.textContent?.trim() ??
         '';

@@ -198,8 +198,9 @@ export default <Scope<Empty, ['goto', 'changeSharing', 'dispatch'], [], true>>{
                 .getBuilding(buildingId, 'hotkeys-building-dispatch')
                 .then(result => {
                     if (dispatchType.includes(result?.building_type)) {
-                        this.ulList =
-                            document.querySelector<HTMLUListElement>('#tabs');
+                        this.ulList = document.getElementById(
+                            'tabs'
+                        ) as HTMLUListElement;
                     }
                     return !!this.ulList;
                 })

@@ -321,6 +321,7 @@
                     }}
                 </li>
             </ul>
+
             <h4 v-if="settings.prerequisites">
                 {{
                     $mc(
@@ -730,8 +731,7 @@ export default Vue.extend<
 
             await this.apiStore.getMissions('missionHelper-getMission', force);
 
-            const missionHelpBtn =
-                document.querySelector<HTMLAnchorElement>('#mission_help');
+            const missionHelpBtn = document.getElementById('mission_help');
             this.isDiyMission = !missionHelpBtn;
 
             this.missionSpecs = undefined;

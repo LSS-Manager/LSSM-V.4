@@ -3,8 +3,8 @@ export default (LSSM: Vue): void =>
         event: 'patientTimer',
         callback() {
             window.patient_timers.forEach(patient => {
-                const bar = document.querySelector<HTMLDivElement>(
-                    `#patient_bar_${patient.patient_id}`
+                const bar = document.getElementById(
+                    `patient_bar_${patient.patient_id}`
                 );
                 const barOuter = bar?.parentElement;
                 if (!bar || !barOuter || patient.params.target_percent) return;
