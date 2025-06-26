@@ -1,11 +1,14 @@
 {
     "name": "lss-manager-v4",
-    "version": "4.7.12+20240128.2144",
+    "version": "4.7.12+20250626.0459",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "quickbuild": "./build/build.sh --quick",
         "dev": "./build/build.sh --full",
+        "dev:local": "./build/build.sh --local",
+        "dev:serve": "./build/build.sh --serve",
         "build": "./build/build.sh --full --production",
+        "build:api": "./build/build.sh --api",
         "docs": "./build/build.sh --docs",
         "format": "./build/build.sh --format",
         "eslint:fix": "./build/build.sh --eslint",
@@ -101,7 +104,7 @@
         "webpack": "5.89.0"
     },
     "engines": {
-        "node": "20.10.0"
+        "node": "22.16.0"
     },
     "packageManager": "yarn@4.9.1",
     "workspaces": [
