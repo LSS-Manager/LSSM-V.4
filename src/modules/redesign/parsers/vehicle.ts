@@ -110,6 +110,7 @@ export type TransportRequestWindow = BaseVehicleWindow & {
     transportRequestType:
         | 'patient-intermediate'
         | 'patient'
+        | 'prisoner-header'
         | 'prisoner-intermediate'
         | 'prisoner'
         | 'trailer';
@@ -134,18 +135,18 @@ export type TransportRequestWindow = BaseVehicleWindow & {
               releasable: boolean;
           }
         | {
-              transportRequestType: 'prisoner-intermediate';
-              buildings: {
-                  own: ShoreStation[];
-                  alliance: ShoreStation[];
+              transportRequestType: 'prisoner-header' | 'prisoner';
+              cells: {
+                  own: Cell[];
+                  alliance: Cell[];
               };
               releasable: boolean;
           }
         | {
-              transportRequestType: 'prisoner';
-              cells: {
-                  own: Cell[];
-                  alliance: Cell[];
+              transportRequestType: 'prisoner-intermediate';
+              buildings: {
+                  own: ShoreStation[];
+                  alliance: ShoreStation[];
               };
               releasable: boolean;
           }
@@ -202,7 +203,7 @@ export default <RedesignParser<VehicleWindow>>(({
     const image =
         imageEl?.getAttribute('image_replace_allowed') === 'true'
             ? // parse the list of graphics for the used set and get the graphic
-              (
+              ((
                   JSON.parse(
                       doc.documentElement.innerHTML.match(
                           new RegExp(
@@ -216,9 +217,9 @@ export default <RedesignParser<VehicleWindow>>(({
                   ) as [string, string, 'false' | 'true'][]
               )[vehicleType.id]?.[0] ??
               imageEl?.src ??
-              ''
+              '')
             : // no replacement? great! use the src attribute directly
-              imageEl?.src ?? '';
+              (imageEl?.src ?? '');
 
     const userEl = doc.querySelector<HTMLAnchorElement>(
         '#vehicle_details a[href^="/profile/"]'
@@ -387,12 +388,16 @@ export default <RedesignParser<VehicleWindow>>(({
         'prisoner-intermediate',
     ];
 
-    const transportRequestType =
+    const rawTransportRequestType =
         doc.querySelector<HTMLDivElement>(
             `[data-transport-request="true"]:where(${transportRequestTypes
                 .map(type => `[data-transport-request-type="${type}"]`)
                 .join(',')})`
         )?.dataset.transportRequestType ?? '';
+
+    const transportRequestType =
+        { 'prisoner-header': 'prisoner' }[rawTransportRequestType] ??
+        rawTransportRequestType;
 
     // workaround to have a safe type checking and assertion
     const isTransportRequest = (
@@ -466,21 +471,16 @@ export default <RedesignParser<VehicleWindow>>(({
         } else if (transportRequestType === 'prisoner') {
             const ownCells: Cell[] = [];
             const allianceCells: Cell[] = [];
-            let list: Cell['list'] = 'own';
-            doc.querySelectorAll<HTMLAnchorElement>(
-                `.col-md-9 .alert-info > a[href^="/vehicles/${id}/gefangener/"]`
-            ).forEach(cell => {
-                if (cell.previousElementSibling?.matches('h5'))
-                    list = 'alliance';
-                const text = cell.textContent ?? '';
-                const infos = text
-                    .trim()
-                    .match(
-                        /(?<=\()[^(]*?\s(?<free>\d+),\s.*?\s(?<distance>\d+(?:[,.]\d+)?\s(?:km|miles))(?:,\s.*?\s(?<tax>\d+)\s*%)?(?=\)$)/u
-                    );
-                const cellinfos: Cell = {
-                    id: getIdFromEl(cell),
-                    caption: text.replace(/\([^(]*?\)$/u, ''),
+
+            const getCell = (json: string, list: Cell['list']): Cell => {
+                const raw = JSON.parse(json);
+                const freeCells = Number(raw.free_cells as string);
+                return {
+                    caption: raw.name as string,
+                    id: raw.id as number,
+                    distance: `${raw.distance_in_km} km`,
+                    freeCells,
+                    state: freeCells < 1 ? 'danger' : 'success',
                     list,
                     tax: Number(
                         raw.caption.match(/(?<=\s)\d+\s*(?=%\))/gu)?.[0] ?? '0'

@@ -111,11 +111,11 @@
     },
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "6.19.1"
+        "version": "7.3.1"
     },
     "@typescript-eslint/parser": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "6.19.1"
+        "version": "7.3.1"
     },
     "@vuepress/client": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
@@ -183,34 +183,36 @@
     "eslint": {
         "icon": "https://eslint.org/icon-512.png",
         "url": "https://eslint.org",
-        "version": "8.56.0"
+        "version": "8.57.0"
     },
     "eslint-config-prettier": {
         "icon": "https://prettier.io/icon.png",
-        "version": "9.1.0"
+        "url": "https://github.com/prettier/eslint-config-prettier#readme",
+        "version": "10.1.5"
     },
     "eslint-import-resolver-typescript": {
-        "version": "3.6.1"
+        "version": "4.4.4"
     },
     "eslint-plugin-compat": {
         "url": "https://github.com/amilajack/eslint-plugin-compat#readme",
-        "version": "4.2.0"
+        "version": "6.0.2"
     },
     "eslint-plugin-import": {
         "url": "https://github.com/import-js/eslint-plugin-import",
-        "version": "2.29.1"
+        "version": "2.32.0"
     },
     "eslint-plugin-jsdoc": {
-        "version": "48.0.3"
+        "url": "https://github.com/gajus/eslint-plugin-jsdoc#readme",
+        "version": "50.6.17"
     },
     "eslint-plugin-markdownlint": {
         "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",
-        "version": "0.5.0"
+        "version": "0.9.0"
     },
     "eslint-plugin-prettier": {
         "icon": "https://prettier.io/icon.png",
         "url": "https://github.com/prettier/eslint-plugin-prettier#readme",
-        "version": "5.1.3"
+        "version": "5.5.1"
     },
     "eslint-plugin-regexp": {
         "url": "https://github.com/ota-meshi/eslint-plugin-regexp#readme",
@@ -219,17 +221,17 @@
     "eslint-plugin-tsdoc": {
         "icon": "https://tsdoc.org/images/site/favicon.ico",
         "url": "https://tsdoc.org/",
-        "version": "0.2.17"
+        "version": "0.4.0"
     },
     "eslint-plugin-unicorn": {
         "icon": "https://cloud.githubusercontent.com/assets/170270/18659176/1cc373d0-7f33-11e6-890f-0ba35362ee7e.jpg",
         "url": "https://github.com/sindresorhus/eslint-plugin-unicorn",
-        "version": "50.0.1"
+        "version": "56.0.1"
     },
     "eslint-plugin-vue": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://eslint.vuejs.org",
-        "version": "9.20.1"
+        "version": "9.32.0"
     },
     "he": {
         "url": "https://mths.be/he",

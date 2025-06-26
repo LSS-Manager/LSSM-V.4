@@ -447,9 +447,9 @@ export default Vue.extend<
                                   )
                                     ? 1
                                     : 0
-                                : this.prerequisites[
+                                : (this.prerequisites[
                                       this.selectedDispatchCenter
-                                  ][req.replace(/^max_/u, '')] ?? 0;
+                                  ][req.replace(/^max_/u, '')] ?? 0);
                             return [
                                 req,
                                 {

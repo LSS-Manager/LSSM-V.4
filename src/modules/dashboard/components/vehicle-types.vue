@@ -15,7 +15,7 @@
         >
             <tr
                 v-for="vehicleType in vehicleTypesSorted"
-                :stats="(stats = vehicleTypes[vehicleType])"
+                :stats="stats = vehicleTypes[vehicleType]"
                 :key="`vehicles_${vehicleType}`"
             >
                 <td>

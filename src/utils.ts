@@ -55,7 +55,7 @@ export default (Vue: VueConstructor): void => {
             };
 
             const idToLength = (id: string): string => {
-                if (!id.match(/-/u)) return fill0Left(id, idLengths.id);
+                if (!/-/u.test(id)) return fill0Left(id, idLengths.id);
                 const [base, variant] = id.split('-');
                 return `${fill0Left(base, idLengths.id)}-${fill0Left(
                     variant,
@@ -81,14 +81,14 @@ export default (Vue: VueConstructor): void => {
             );
             return (
                 allNumbers
-                    ? text
+                    ? (text
                           .match(regex)
                           ?.map(match =>
                               parseInt(
                                   match.replace(/[\s,.]/gu, '') ??
                                       fallback.toString()
                               )
-                          ) ?? []
+                          ) ?? [])
                     : parseInt(
                           text.match(regex)?.[0]?.replace(/[\s,.]/gu, '') ??
                               fallback.toString()

@@ -357,7 +357,7 @@
                             v-for="(value, filter) in table.filter"
                             :key="filter"
                             :data-title="
-                                (filter_title = lightbox
+                                filter_title = lightbox
                                     .$sm(
                                         `filter.${tableType}.${filter}${
                                             filter === 'status' ? '.title' : ''
@@ -366,7 +366,7 @@
                                             department: vehicle.department,
                                         }
                                     )
-                                    .toString())
+                                    .toString()
                             "
                         >
                             <label>{{ filter_title }}</label>
@@ -540,9 +540,9 @@
                                 "
                                 class="label"
                                 :class="`label-${
-                                    item.department ??
+                                    (item.department ??
                                     item.building?.same ??
-                                    item.home
+                                    item.home)
                                         ? 'success'
                                         : 'warning'
                                 }`"
@@ -1007,8 +1007,8 @@ export default Vue.extend<
                         ),
                         credits:
                             'type' in item
-                                ? this.apiStore.missions[item.type]
-                                      ?.average_credits ?? 0
+                                ? (this.apiStore.missions[item.type]
+                                      ?.average_credits ?? 0)
                                 : Number.MAX_SAFE_INTEGER,
                         progress: 'progress' in item ? item.progress.width : 0,
                         same: 'building' in item ? item.building.same : false,
@@ -1046,8 +1046,8 @@ export default Vue.extend<
                 } else if (sort === 'credits') {
                     sortValue =
                         'type' in item
-                            ? this.apiStore.missions[item.type]
-                                  ?.average_credits ?? 0
+                            ? (this.apiStore.missions[item.type]
+                                  ?.average_credits ?? 0)
                             : Number.MAX_SAFE_INTEGER;
                 } else if (sort === 'progress') {
                     sortValue =
