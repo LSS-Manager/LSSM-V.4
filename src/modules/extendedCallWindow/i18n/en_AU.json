@@ -80,15 +80,15 @@
                 "texts": ["Police car", "Police cars"],
                 "vehicles": [8, 16, 17, 37]
             },
-            { "texts": ["HEMS"], "vehicles": [9] },
+            { "texts": ["Air Ambulance", "Air Ambulances"], "vehicles": [9] },
             {
                 "texts": ["Police Helicopter", "Police Helicopters"],
                 "vehicles": [14]
             },
-            { "texts": ["TOG Vehicles"], "vehicles": [15, 18] },
+            { "texts": ["TOG Vehicle", "TOG Vehicles"], "vehicles": [15, 18] },
             { "texts": ["K-9 Unit", "K-9 Units"], "vehicles": [16] },
             { "texts": ["Mounted Police"], "vehicles": [22] },
-            { "texts": ["SES"], "vehicles": [20] },
+            { "texts": ["SES Vehicle", "SES Vehicles"], "vehicles": [20] },
             {
                 "texts": ["Brush Truck", "Brush Trucks"],
                 "vehicles": [0, 1, 19, 28, 29, 30]
@@ -190,10 +190,6 @@
             {
                 "texts": ["Foam Unit or CAFS"],
                 "vehicles": [55, 56, 57, 58, 60]
-            },
-            {
-                "texts": ["Waterdamage Pump"],
-                "vehicles": [0, 1, 6, 12, 13, 19, 30, 48]
             },
             { "texts": ["Fire Boat"], "vehicles": [62] },
             { "texts": ["Patrol Cutter"], "vehicles": [63] }
