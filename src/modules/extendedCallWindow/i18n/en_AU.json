@@ -114,11 +114,11 @@
                     "Riot Police Group Vehicle",
                     "Riot Police Group Vehicles"
                 ],
-                "vehicles": [15, 18, 35]
+                "vehicles": [35]
             },
             {
                 "texts": ["Riot Police SUV", "Riot Police SUVs"],
-                "vehicles": [15, 18, 34]
+                "vehicles": [34]
             },
             {
                 "texts": [
