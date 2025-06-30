@@ -145,12 +145,12 @@
     "acorn": {
         "icon": "https://avatars.githubusercontent.com/u/34631683",
         "url": "https://github.com/acornjs/acorn",
-        "version": "8.11.3"
+        "version": "8.15.0"
     },
     "acorn-walk": {
         "icon": "https://avatars.githubusercontent.com/u/34631683",
         "url": "https://github.com/acornjs/acorn",
-        "version": "8.3.2"
+        "version": "8.3.4"
     },
     "all-contributors-cli": {
         "icon": "https://allcontributors.org/img/icons/android-icon-192x192.png",
@@ -298,7 +298,7 @@
     },
     "qrcode": {
         "url": "http://github.com/soldair/node-qrcode",
-        "version": "1.5.3"
+        "version": "1.5.4"
     },
     "sass": {
         "icon": "https://sass-lang.com/assets/img/logos/logo.svg",
@@ -311,7 +311,7 @@
         "version": "14.0.0"
     },
     "semver": {
-        "version": "7.5.4"
+        "version": "7.7.2"
     },
     "showdown": {
         "icon": "https://avatars.githubusercontent.com/u/2754978",
@@ -347,8 +347,8 @@
     },
     "ua-parser-js": {
         "icon": "https://faisalman.github.io/ua-parser-js/images/logo.png",
-        "url": "https://github.com/faisalman/ua-parser-js",
-        "version": "1.0.37"
+        "url": "https://uaparser.dev",
+        "version": "1.0.39"
     },
     "url-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
