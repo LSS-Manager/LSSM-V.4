@@ -173,7 +173,7 @@
     "css-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack-contrib/css-loader",
-        "version": "6.9.1"
+        "version": "7.1.2"
     },
     "emoji-toolkit": {
         "icon": "https://avatars.githubusercontent.com/u/6843823",
@@ -250,11 +250,11 @@
     "html-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack-contrib/html-loader",
-        "version": "5.0.0"
+        "version": "5.1.0"
     },
     "husky": {
         "url": "https://typicode.github.io/husky",
-        "version": "9.0.6"
+        "version": "9.1.7"
     },
     "js-yaml": {
         "version": "4.1.0"
@@ -262,6 +262,9 @@
     "leaflet.heat": {
         "url": "https://github.com/Leaflet/Leaflet.heat",
         "version": "0.2.0"
+    },
+    "local-web-server": {
+        "version": "5.4.0"
     },
     "localforage": {
         "url": "https://github.com/localForage/localForage",
@@ -284,7 +287,7 @@
     "moment-timezone": {
         "icon": "https://momentjs.com/static/img/moment-timezone-favicon.png",
         "url": "http://momentjs.com/timezone/",
-        "version": "0.5.44"
+        "version": "0.5.48"
     },
     "pinia": {
         "icon": "https://pinia.vuejs.org/logo.svg",
@@ -303,12 +306,12 @@
     "sass": {
         "icon": "https://sass-lang.com/assets/img/logos/logo.svg",
         "url": "https://github.com/sass/dart-sass",
-        "version": "1.70.0"
+        "version": "1.87.0"
     },
     "sass-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack-contrib/sass-loader",
-        "version": "14.0.0"
+        "version": "16.0.5"
     },
     "semver": {
         "version": "7.7.2"
@@ -328,17 +331,17 @@
     "terser": {
         "icon": "https://terser.org/img/terser-square-logo.png",
         "url": "https://terser.org",
-        "version": "5.27.0"
+        "version": "5.39.2"
     },
     "ts-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/TypeStrong/ts-loader",
-        "version": "9.5.1"
+        "version": "9.5.2"
     },
     "ts-node": {
         "icon": "https://typestrong.org/ts-node/img/logo-icon.svg",
         "url": "https://typestrong.org/ts-node",
-        "version": "10.9.1"
+        "version": "10.9.2"
     },
     "typescript": {
         "icon": "https://www.typescriptlang.org/icons/icon-512x512.png",
