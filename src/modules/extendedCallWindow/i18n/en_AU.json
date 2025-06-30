@@ -11,6 +11,7 @@
             "selection": "Vehicle selection"
         }
     },
+    
     "arrHighlight": { "removeBeforeParsing": "" },
     "arrHover": {
         "headers": {
@@ -28,6 +29,7 @@
             "set": "So often this combination is selected when you press the ARR"
         }
     },
+    
     "enhancedMissingVehicles": {
         "driving": "En-route",
         "foam": "l. foam",
@@ -36,6 +38,7 @@
         "selected": "Selected",
         "staff": [{ "texts": ["TOG Personnel"], "vehicles": [15, 18] }],
         "staffPrefix": ["We need"],
+        
         "tip": {
             "dragging": "drag window",
             "minified": "collapse",
@@ -45,166 +48,70 @@
             "reload": "reload",
             "textMode": "textmode on/off"
         },
+        
         "total": "Still needed",
         "towingVehicles": { "21": [20], "22": [8] },
         "vehicle": "Vehicle type",
+        
         "vehiclesByRequirement": [
-            {
-                "texts": ["Fire engine", "Fire engines"],
-                "vehicles": [0, 1, 12, 13, 19, 30, 55, 56, 59]
-            },
-            {
-                "texts": ["Ladder Platform Truck", "Ladder Platform Trucks"],
-                "vehicles": [2, 13, 56]
-            },
-            {
-                "texts": ["Support Vehicle", "Support Vehicles"],
-                "vehicles": [3, 11, 41]
-            },
-            {
-                "texts": [
-                    "MRV or SES Rescue Truck",
-                    "MRV or SES Rescue Trucks"
-                ],
-                "vehicles": [4, 12, 26, 40]
-            },
+            { "texts": ["Fire engine", "Fire engines"], "vehicles": [0, 1, 12, 13, 19, 30, 55, 56, 59] },
+            { "texts": ["Ladder Platform Truck", "Ladder Platform Trucks"],"vehicles": [2, 13, 56] },
+            { "texts": ["Support Vehicle", "Support Vehicles"], "vehicles": [3, 11, 41] },
+            { "texts": ["MRV or SES Rescue Truck", "MRV or SES Rescue Trucks"], "vehicles": [4, 12, 26, 40] },
             { "texts": ["BASU"], "vehicles": [10] },
-            {
-                "texts": ["Bulk Water Tanker", "Bulk Water Tankers"],
-                "vehicles": [6, 57]
-            },
+            { "texts": ["Bulk Water Tanker", "Bulk Water Tankers"], "vehicles": [6, 57] },
             { "texts": ["MCV or SES Mobile Command"], "vehicles": [11, 41] },
             { "texts": ["HAZMAT Truck", "HAZMAT Trucks"], "vehicles": [7, 59] },
             { "texts": ["Ambulance", "Ambulances"], "vehicles": [5] },
-            {
-                "texts": ["Police car", "Police cars"],
-                "vehicles": [8, 16, 17, 37]
-            },
+            { "texts": ["Police car", "Police cars"], "vehicles": [8, 16, 17, 37] },
             { "texts": ["Air Ambulance", "Air Ambulances"], "vehicles": [9] },
-            {
-                "texts": ["Police Helicopter", "Police Helicopters"],
-                "vehicles": [14]
-            },
+            { "texts": ["Police Helicopter", "Police Helicopters"], "vehicles": [14] },
             { "texts": ["TOG Vehicle", "TOG Vehicles"], "vehicles": [15, 18] },
             { "texts": ["K-9 Unit", "K-9 Units"], "vehicles": [16] },
             { "texts": ["Mounted Police"], "vehicles": [22] },
             { "texts": ["SES Vehicle", "SES Vehicles"], "vehicles": [20] },
-            {
-                "texts": ["Brush Truck", "Brush Trucks"],
-                "vehicles": [0, 1, 19, 28, 29, 30]
-            },
-            {
-                "texts": [
-                    "Airborne firefighting vehicle",
-                    "Airborne firefighting vehicles"
-                ],
-                "vehicles": [31, 32, 33]
-            },
+            { "texts": ["Brush Truck", "Brush Trucks"], "vehicles": [0, 1, 19, 28, 29, 30] },
+            { "texts": ["Airborne firefighting vehicle", "Airborne firefighting vehicles"], "vehicles": [31, 32, 33] },
             { "texts": ["Boat", "Boats"], "vehicles": [21] },
-            {
-                "texts": ["Paramedic Supervisor", "Paramedic Supervisors"],
-                "vehicles": [23]
-            },
-            {
-                "texts": ["Senior Sergeant", "Senior Sergeants"],
-                "vehicles": [37]
-            },
-            {
-                "texts": [
-                    "Riot Police Group Vehicle",
-                    "Riot Police Group Vehicles"
-                ],
-                "vehicles": [15, 18, 35]
-            },
-            {
-                "texts": ["Riot Police SUV", "Riot Police SUVs"],
-                "vehicles": [15, 18, 34]
-            },
-            {
-                "texts": [
-                    "Riot Police Equipment Vehicle",
-                    "Riot Police Equipment Vehicles"
-                ],
-                "vehicles": [36]
-            },
-            {
-                "texts": ["ULFV Crash Tender", "ULFV Crash Tenders"],
-                "vehicles": [43]
-            },
+            { "texts": ["Paramedic Supervisor", "Paramedic Supervisors"], "vehicles": [23] },
+            { "texts": ["Senior Sergeant", "Senior Sergeants"], "vehicles": [37] },
+            { "texts": ["Riot Police Group Vehicle", "Riot Police Group Vehicles"], "vehicles": [35] },
+            { "texts": ["Riot Police SUV", "Riot Police SUVs"], "vehicles": [34] },
+            { "texts": ["Riot Police Equipment Vehicle", "Riot Police Equipment Vehicles"], "vehicles": [36] },
+            { "texts": ["ULFV Crash Tender", "ULFV Crash Tenders"], "vehicles": [43] },
             { "texts": ["RIV", "RIVs"], "vehicles": [44] },
             { "texts": ["Emergency Stairs"], "vehicles": [45] },
             { "texts": ["VMR Vehicle", "VMR Vehicles"], "vehicles": [38] },
             { "texts": ["VMR Boat", "VMR Boats"], "vehicles": [39] },
-            {
-                "texts": [
-                    "SES Search and Rescue Trailer",
-                    "SES Search and Rescue Trailers"
-                ],
-                "vehicles": [54]
-            },
-            {
-                "texts": ["SES Sandbag Trailer", "SES Sandbag Trailers"],
-                "vehicles": [47]
-            },
-            {
-                "texts": ["SES Pump Trailer", "SES Pump Trailers"],
-                "vehicles": [48]
-            },
-            {
-                "texts": [
-                    "SES Solar/Wind Power Trailer",
-                    "SES Solar/Wind Power Trailers"
-                ],
-                "vehicles": [52]
-            },
-            {
-                "texts": [
-                    "SES Emergency Lighting Trailer",
-                    "SES Emergency Lighting Trailers"
-                ],
-                "vehicles": [49]
-            },
-            {
-                "texts": ["SES Aireshelta Trailer", "SES Aireshelta Trailers"],
-                "vehicles": [50]
-            },
-            {
-                "texts": [
-                    "SES Comms Repeater Trailer",
-                    "SES Comms Repeater Trailers"
-                ],
-                "vehicles": [51]
-            },
-            {
-                "texts": [
-                    "SES Quad Rescue 6x6 Trailer",
-                    "SES Quad Rescue 6x6 Trailers"
-                ],
-                "vehicles": [53]
-            },
+            { "texts": ["SES Search and Rescue Trailer", "SES Search and Rescue Trailers"], "vehicles": [54] },
+            { "texts": ["SES Sandbag Trailer", "SES Sandbag Trailers"], "vehicles": [47] },
+            { "texts": ["SES Pump Trailer", "SES Pump Trailers"], "vehicles": [48] },
+            { "texts": ["SES Solar/Wind Power Trailer", "SES Solar/Wind Power Trailers"], "vehicles": [52] },
+            { "texts": ["SES Emergency Lighting Trailer", "SES Emergency Lighting Trailers"], "vehicles": [49] },
+            { "texts": ["SES Aireshelta Trailer", "SES Aireshelta Trailers"], "vehicles": [50] },
+            { "texts": ["SES Comms Repeater Trailer", "SES Comms Repeater Trailers"], "vehicles": [51] },
+            { "texts": ["SES Quad Rescue 6x6 Trailer", "SES Quad Rescue 6x6 Trailers"], "vehicles": [53] },
             { "texts": ["SES FOV", "SES FOVs"], "vehicles": [46] },
-            {
-                "texts": ["SES Storm Trailer", "SES Storm Trailers"],
-                "vehicles": [42]
-            },
-            {
-                "texts": ["Foam Unit or CAFS"],
-                "vehicles": [55, 56, 57, 58, 60]
-            },
+            { "texts": ["SES Storm Trailer", "SES Storm Trailers"], "vehicles": [42] },
+            { "texts": ["Foam Unit or CAFS"], "vehicles": [55, 56, 57, 58, 60] },
             { "texts": ["Fire Boat"], "vehicles": [62] },
             { "texts": ["Patrol Cutter"], "vehicles": [63] }
         ],
+        
         "water": "l. water"
     },
+    
     "hideVehicleList": {
         "hide": "Hide vehicle list",
         "show": "Show vehicle list"
     },
+    
     "patientCollapse": {
         "amount": "Amount",
         "combis": "Combinations",
         "summary": { "total": "patients", "treated": "being treated" }
     },
+    
     "releasePatient": { "release": "Release patient (No reward)" },
     "tailoredTabs": {
         "allTab": "All",
@@ -216,6 +123,7 @@
             "title": "One vehicle is not present in any tab | Several vehicles are not present in any tab"
         }
     },
+    
     "vehiclePlayerCounter": {
         " ": "",
         "atScene": "at Scene",
