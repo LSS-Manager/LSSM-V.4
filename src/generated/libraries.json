@@ -295,7 +295,7 @@
     "moment-timezone": {
         "icon": "https://momentjs.com/static/img/moment-timezone-favicon.png",
         "url": "http://momentjs.com/timezone/",
-        "version": "0.5.48"
+        "version": "0.6.0"
     },
     "pinia": {
         "icon": "https://pinia.vuejs.org/logo.svg",
@@ -305,7 +305,7 @@
     "prettier": {
         "icon": "https://prettier.io/icon.png",
         "url": "https://prettier.io",
-        "version": "3.5.3"
+        "version": "3.6.2"
     },
     "qrcode": {
         "url": "http://github.com/soldair/node-qrcode",
@@ -314,7 +314,7 @@
     "sass": {
         "icon": "https://sass-lang.com/assets/img/logos/logo.svg",
         "url": "https://github.com/sass/dart-sass",
-        "version": "1.87.0"
+        "version": "1.89.2"
     },
     "sass-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
