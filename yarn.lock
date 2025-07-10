@@ -2650,6 +2650,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/web-bluetooth@npm:^0.0.21":
+  version: 0.0.21
+  resolution: "@types/web-bluetooth@npm:0.0.21"
+  checksum: 10c0/5f47c5ec452ca31e6a9b44c8aaa54b66c4f57d4aca00166c45902a3883139580e14b254b774172ff982ba4458cc444b5aa59bb4573c2fd34562cfa599721f8e4
+  languageName: node
+  linkType: hard
+
 "@types/webpack-env@npm:1.18.5":
   version: 1.18.5
   resolution: "@types/webpack-env@npm:1.18.5"
@@ -3074,7 +3081,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/shared@npm:3.5.17, @vue/shared@npm:^3.4.15":
+"@vue/shared@npm:3.5.17, @vue/shared@npm:^3.4.15, @vue/shared@npm:^3.5.17":
   version: 3.5.17
   resolution: "@vue/shared@npm:3.5.17"
   checksum: 10c0/915d8f80d863826531cf6ddefeb52455cbffcbca4d14717472b7765b3142d2ad9900dfce351e90a22e1fe9e2f8fca588421de6e751e1c816ab9e1fdefa3e8a0d
@@ -3168,6 +3175,22 @@ __metadata:
     "@vuepress/utils": "npm:2.0.0-rc.7"
     vue: "npm:^3.4.15"
   checksum: 10c0/28e6d59d490f58c1362271871991d0d04eae818b9798968c6216425c21bdef4f042e79317f121f19e17845143316449b7d08036fdf4ad3f005c21c9f89c1a0d6
+  languageName: node
+  linkType: hard
+
+"@vuepress/helper@npm:2.0.0-rc.112":
+  version: 2.0.0-rc.112
+  resolution: "@vuepress/helper@npm:2.0.0-rc.112"
+  dependencies:
+    "@vue/shared": "npm:^3.5.17"
+    "@vueuse/core": "npm:^13.5.0"
+    cheerio: "npm:^1.1.0"
+    fflate: "npm:^0.8.2"
+    gray-matter: "npm:^4.0.3"
+    vue: "npm:^3.5.17"
+  peerDependencies:
+    vuepress: 2.0.0-rc.24
+  checksum: 10c0/fa7f855967bfcc5e710cd0da1c55869754ffe39a583bfe6a01a84d73c130183b74c72092dd8cdfbd577cdd2753f88e8cad352d2f1ae33570cac004ffd31929d1
   languageName: node
   linkType: hard
 
@@ -3365,6 +3388,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vuepress/plugin-pwa@npm:2.0.0-rc.112":
+  version: 2.0.0-rc.112
+  resolution: "@vuepress/plugin-pwa@npm:2.0.0-rc.112"
+  dependencies:
+    "@vuepress/helper": "npm:2.0.0-rc.112"
+    "@vueuse/core": "npm:^13.5.0"
+    mitt: "npm:^3.0.1"
+    register-service-worker: "npm:^1.7.2"
+    vue: "npm:^3.5.17"
+    workbox-build: "npm:^7.3.0"
+  peerDependencies:
+    vuepress: 2.0.0-rc.24
+  checksum: 10c0/8fc6e774aa2b146884f2d8a7f82248b4b0658cbfcc1a32b373bb8631ea25238c7f1acfac7ceecfdd4929ca573d872c59832b8223503bc4b6a85997b611232d35
+  languageName: node
+  linkType: hard
+
 "@vuepress/plugin-pwa@npm:2.0.0-rc.14":
   version: 2.0.0-rc.14
   resolution: "@vuepress/plugin-pwa@npm:2.0.0-rc.14"
@@ -3376,20 +3415,6 @@ __metadata:
   peerDependencies:
     vuepress: 2.0.0-rc.7
   checksum: 10c0/58f7b98e7c1a4ca75d940d23c9cb61b3750bf5cd2d002125094854afab276893ec5b4cce4258b3a438f2b145dc612a907cfd83464de546b17ac373d8f93d9510
-  languageName: node
-  linkType: hard
-
-"@vuepress/plugin-pwa@npm:2.0.0-rc.3":
-  version: 2.0.0-rc.3
-  resolution: "@vuepress/plugin-pwa@npm:2.0.0-rc.3"
-  dependencies:
-    mitt: "npm:^3.0.1"
-    register-service-worker: "npm:^1.7.2"
-    vue: "npm:^3.4.15"
-    workbox-build: "npm:^7.0.0"
-  peerDependencies:
-    vuepress: 2.0.0-rc.2
-  checksum: 10c0/a91f5723b94a14cf2524bc7b4b8ab8d5da4a05528d055ddc63cb592c4e4c90a63530223d3469f982d27f79058a6e371aa6cbfadf941106515c8aff3f8b2ff817
   languageName: node
   linkType: hard
 
@@ -3552,10 +3577,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vueuse/core@npm:^13.5.0":
+  version: 13.5.0
+  resolution: "@vueuse/core@npm:13.5.0"
+  dependencies:
+    "@types/web-bluetooth": "npm:^0.0.21"
+    "@vueuse/metadata": "npm:13.5.0"
+    "@vueuse/shared": "npm:13.5.0"
+  peerDependencies:
+    vue: ^3.5.0
+  checksum: 10c0/82382a8cffd75fced2a07cf06d0bb774d2f56e1b7fac5a017493588f9a7d80457b214c25c4addbc7bbd425214a1f3b1137621d740d0506ea276c4fc7f189f92a
+  languageName: node
+  linkType: hard
+
 "@vueuse/metadata@npm:10.11.1":
   version: 10.11.1
   resolution: "@vueuse/metadata@npm:10.11.1"
   checksum: 10c0/c252056aa7e7bd5d207791a2e3b415dcb81fef5b24bfe18cefdec026ae9b7e5a5813100d2e55262fc66feafe15ccdc11a69351d724d848fafe4b3b052e559283
+  languageName: node
+  linkType: hard
+
+"@vueuse/metadata@npm:13.5.0":
+  version: 13.5.0
+  resolution: "@vueuse/metadata@npm:13.5.0"
+  checksum: 10c0/0f5adbe460db9c8ead754b981a28f6adeda4208820a75c61cabd99fa6f6cc785eb263bc634374b82f439bd88bfd94ea8e8c83766c9a46f9a87469d1afb062d37
   languageName: node
   linkType: hard
 
@@ -3565,6 +3610,15 @@ __metadata:
   dependencies:
     vue-demi: "npm:>=0.14.8"
   checksum: 10c0/22c4f04be8fdb5e95535cf20f13956fc1f3707540f3730282905e6f9b24f314ada28292e82f4401d88b2c1fcf7fc7203011260958f517abc2b756779243147e3
+  languageName: node
+  linkType: hard
+
+"@vueuse/shared@npm:13.5.0":
+  version: 13.5.0
+  resolution: "@vueuse/shared@npm:13.5.0"
+  peerDependencies:
+    vue: ^3.5.0
+  checksum: 10c0/6d6e67a929636ae66fa090729e319713610f22b3ffe6f7bdb459bcde170d2f111b5b11a12412814139a4cfb08d8f3f0d47ba70fcd0a21e806f6108109606e275
   languageName: node
   linkType: hard
 
@@ -4538,6 +4592,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cheerio@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "cheerio@npm:1.1.0"
+  dependencies:
+    cheerio-select: "npm:^2.1.0"
+    dom-serializer: "npm:^2.0.0"
+    domhandler: "npm:^5.0.3"
+    domutils: "npm:^3.2.2"
+    encoding-sniffer: "npm:^0.2.0"
+    htmlparser2: "npm:^10.0.0"
+    parse5: "npm:^7.3.0"
+    parse5-htmlparser2-tree-adapter: "npm:^7.1.0"
+    parse5-parser-stream: "npm:^7.1.2"
+    undici: "npm:^7.10.0"
+    whatwg-mimetype: "npm:^4.0.0"
+  checksum: 10c0/f7b940a89e1fe77bf6b4fe3b993f17b02a358942cc0b9d3b55ea235a0bc322829dbc47151763ef9986fd237494c00380909af759e46582c72470a10643b85abd
+  languageName: node
+  linkType: hard
+
 "chokidar@npm:^3.5.3, chokidar@npm:^3.6.0":
   version: 3.6.0
   resolution: "chokidar@npm:3.6.0"
@@ -5245,7 +5318,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"domutils@npm:^3.0.1":
+"domutils@npm:^3.0.1, domutils@npm:^3.2.1, domutils@npm:^3.2.2":
   version: 3.2.2
   resolution: "domutils@npm:3.2.2"
   dependencies:
@@ -5357,6 +5430,16 @@ __metadata:
   version: 1.0.2
   resolution: "encodeurl@npm:1.0.2"
   checksum: 10c0/f6c2387379a9e7c1156c1c3d4f9cb7bb11cf16dd4c1682e1f6746512564b053df5781029b6061296832b59fb22f459dbe250386d217c2f6e203601abb2ee0bec
+  languageName: node
+  linkType: hard
+
+"encoding-sniffer@npm:^0.2.0":
+  version: 0.2.1
+  resolution: "encoding-sniffer@npm:0.2.1"
+  dependencies:
+    iconv-lite: "npm:^0.6.3"
+    whatwg-encoding: "npm:^3.1.1"
+  checksum: 10c0/d6b591880788f3baf8dd1744636dd189d24a1ec93e6f9817267c60ac3458a5191ca70ab1a186fb67731beff1c3489c6527dfdc4718158ed8460ab2f400dd5e7d
   languageName: node
   linkType: hard
 
@@ -6201,7 +6284,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fflate@npm:^0.8.1":
+"fflate@npm:^0.8.1, fflate@npm:^0.8.2":
   version: 0.8.2
   resolution: "fflate@npm:0.8.2"
   checksum: 10c0/03448d630c0a583abea594835a9fdb2aaf7d67787055a761515bf4ed862913cfd693b4c4ffd5c3f3b355a70cf1e19033e9ae5aedcca103188aaff91b8bd6e293
@@ -6771,6 +6854,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"htmlparser2@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "htmlparser2@npm:10.0.0"
+  dependencies:
+    domelementtype: "npm:^2.3.0"
+    domhandler: "npm:^5.0.3"
+    domutils: "npm:^3.2.1"
+    entities: "npm:^6.0.0"
+  checksum: 10c0/47cfa37e529c86a7ba9a1e0e6f951ad26ef8ca5af898ab6e8916fa02c0264c1453b4a65f28b7b8a7f9d0d29b5a70abead8203bf8b3f07bc69407e85e7d9a68e4
+  languageName: node
+  linkType: hard
+
 "htmlparser2@npm:^8.0.1":
   version: 8.0.2
   resolution: "htmlparser2@npm:8.0.2"
@@ -6904,7 +6999,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"iconv-lite@npm:^0.6.2":
+"iconv-lite@npm:0.6.3, iconv-lite@npm:^0.6.2, iconv-lite@npm:^0.6.3":
   version: 0.6.3
   resolution: "iconv-lite@npm:0.6.3"
   dependencies:
@@ -8146,7 +8241,7 @@ __metadata:
     "@primer/octicons": "npm:19.15.3"
     "@vuepress/bundler-vite": "npm:2.0.0-rc.7"
     "@vuepress/client": "npm:2.0.0-rc.2"
-    "@vuepress/plugin-pwa": "npm:2.0.0-rc.3"
+    "@vuepress/plugin-pwa": "npm:2.0.0-rc.112"
     "@vuepress/plugin-pwa-popup": "npm:2.0.0-rc.14"
     "@vuepress/plugin-register-components": "npm:2.0.0-rc.52"
     "@vuepress/plugin-search": "npm:2.0.0-rc.3"
@@ -9642,7 +9737,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"parse5-htmlparser2-tree-adapter@npm:^7.0.0":
+"parse5-htmlparser2-tree-adapter@npm:^7.0.0, parse5-htmlparser2-tree-adapter@npm:^7.1.0":
   version: 7.1.0
   resolution: "parse5-htmlparser2-tree-adapter@npm:7.1.0"
   dependencies:
@@ -9652,7 +9747,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"parse5@npm:^7.0.0, parse5@npm:^7.1.2":
+"parse5-parser-stream@npm:^7.1.2":
+  version: 7.1.2
+  resolution: "parse5-parser-stream@npm:7.1.2"
+  dependencies:
+    parse5: "npm:^7.0.0"
+  checksum: 10c0/e236c61000d38ecad369e725a48506b051cebad8abb00e6d4e8bff7aa85c183820fcb45db1559cc90955bdbbdbd665ea94c41259594e74566fff411478dc7fcb
+  languageName: node
+  linkType: hard
+
+"parse5@npm:^7.0.0, parse5@npm:^7.1.2, parse5@npm:^7.3.0":
   version: 7.3.0
   resolution: "parse5@npm:7.3.0"
   dependencies:
@@ -11827,6 +11931,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"undici@npm:^7.10.0":
+  version: 7.11.0
+  resolution: "undici@npm:7.11.0"
+  checksum: 10c0/e5dd3cc2acae9c8333f97a78d4e91108957367fa7e69918e3a5cbd84702cb453cf7de3f8c2a33bcf808850d78ead70f3bd62900a70d969912e9fed8842bbfc11
+  languageName: node
+  linkType: hard
+
 "unicode-canonical-property-names-ecmascript@npm:^2.0.0":
   version: 2.0.1
   resolution: "unicode-canonical-property-names-ecmascript@npm:2.0.1"
@@ -12313,7 +12424,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:3.5.17, vue@npm:^3.4.15, vue@npm:^3.4.16":
+"vue@npm:3.5.17, vue@npm:^3.4.15, vue@npm:^3.4.16, vue@npm:^3.5.17":
   version: 3.5.17
   resolution: "vue@npm:3.5.17"
   dependencies:
@@ -12463,6 +12574,22 @@ __metadata:
   bin:
     webpack: bin/webpack.js
   checksum: 10c0/34ec3f19b50bccaf27929e5e5b901b25047f2d414acba7d0967dc98eb4f404d107fb1a4b63095edbca2b006ff5815f1720b131e10b20664b074dfc86b7ffa717
+  languageName: node
+  linkType: hard
+
+"whatwg-encoding@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "whatwg-encoding@npm:3.1.1"
+  dependencies:
+    iconv-lite: "npm:0.6.3"
+  checksum: 10c0/273b5f441c2f7fda3368a496c3009edbaa5e43b71b09728f90425e7f487e5cef9eb2b846a31bd760dd8077739c26faf6b5ca43a5f24033172b003b72cf61a93e
+  languageName: node
+  linkType: hard
+
+"whatwg-mimetype@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "whatwg-mimetype@npm:4.0.0"
+  checksum: 10c0/a773cdc8126b514d790bdae7052e8bf242970cebd84af62fb2f35a33411e78e981f6c0ab9ed1fe6ec5071b09d5340ac9178e05b52d35a9c4bcf558ba1b1551df
   languageName: node
   linkType: hard
 
@@ -12620,7 +12747,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"workbox-build@npm:^7.0.0":
+"workbox-build@npm:^7.0.0, workbox-build@npm:^7.3.0":
   version: 7.3.0
   resolution: "workbox-build@npm:7.3.0"
   dependencies:
