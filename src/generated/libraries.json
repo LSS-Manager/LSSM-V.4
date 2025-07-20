@@ -62,7 +62,7 @@
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-        "version": "22.16.3"
+        "version": "22.16.4"
     },
     "@types/pdfmake": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -211,7 +211,7 @@
     },
     "eslint-plugin-jsdoc": {
         "url": "https://github.com/gajus/eslint-plugin-jsdoc#readme",
-        "version": "50.6.17"
+        "version": "51.4.1"
     },
     "eslint-plugin-markdownlint": {
         "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",
@@ -435,6 +435,6 @@
     "webpack": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack/webpack",
-        "version": "5.99.9"
+        "version": "5.100.2"
     }
 }
