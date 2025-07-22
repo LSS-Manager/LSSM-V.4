@@ -17,6 +17,12 @@ export default {
             backgroundColor: '#ff2400',
             textColor: 'white',
         },
+        eventmission: {
+            regex:  /Belohnung für das Verbands-Event/u,
+            title: 'Eventeinsätze',
+            backgroundColor: '#ff2400',
+            textColor: 'white',
+        },
         cancelledMissions: {
             regex: '^%missions%( \\(Brandmeldeanlage\\))? - [aA]bgebrochen$',
             title: 'Abgebrochene Einsätze',

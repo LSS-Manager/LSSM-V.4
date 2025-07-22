@@ -2584,8 +2584,8 @@ export default {
         credits: 10_000,
         coins: 15,
         staff: {
-            min: 4,
-            max: 4,
+            min: 0,
+            max: 0,
             training: {
                 Rettungsdienst: {
                     mountain_height_rescue: {
@@ -2861,5 +2861,114 @@ export default {
         waterTank: 3000,
         isTrailer: true,
         tractiveVehicles: [46],
+    },
+    171: {
+        caption: 'GW TeSi',
+        color: '#a34100',
+        credits: 35_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 5,
+            training: {
+                Rettungsdienst: {
+                    disaster_response_technology: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [12],
+        special:
+            'Der Gerätewagen Technik und Sicherheit ist bei Großeinsätzen für die technische und logistische Unterstützung anderer Einsatzgruppen zuständig.',
+    },
+    172: {
+        caption: 'LKW Technik (Notstrom)',
+        color: '#a34100',
+        credits: 30_000,
+        coins: 25,
+        staff: {
+            min: 2,
+            max: 6,
+            training: {
+                Rettungsdienst: {
+                    disaster_response_technology: {
+                        min: 1,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [12],
+        special:
+            'Der LKW Technik (Notstrom) unterstützt andere SEG-Einheiten mit Strom und Licht. Dementsprechend ist er ein wichtiger Bestandteil der technischen Infrastruktur bei SEG-Einsätzen.',
+    },
+    173: {
+        caption: 'MTW TeSi',
+        color: '#a34100',
+        credits: 20_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 7,
+            training: {
+                Rettungsdienst: {
+                    disaster_response_technology: {
+                        min: 1,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [12],
+        special:
+            'Der MTW Technik und Sicherheit transportiert Einsatzkräfte der Gruppe Technik und Sicherheit.',
+    },
+    174: {
+        caption: 'Anh TeSi',
+        color: '#a34100',
+        credits: 10_000,
+        coins: 15,
+        staff: {
+            min: 0,
+            max: 0,
+            training: {
+                Rettungsdienst: {
+                    disaster_response_technology: {
+                        min: 2,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [12],
+        isTrailer: true,
+        tractiveVehicles: [171],
+        special:
+            'Der Anhänger Technik und Sicherheit wird bei SEG-Einsätzen für den Transport von technischer Ausrüstung und den Infrastrukturaufbau genutzt. Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (GW TeSi)',
+    },
+    175: {
+        caption: 'NEA50',
+        color: '#a34100',
+        credits: 10_000,
+        coins: 15,
+        staff: {
+            min: 0,
+            max: 0,
+            training: {
+                Rettungsdienst: {
+                    disaster_response_technology: {
+                        min: 2,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [12],
+        isTrailer: true,
+        tractiveVehicles: [172],
+        special:
+            "Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (LKW Technik (Notstrom)). Ist gleichwertig mit den anderen beiden NEA50's",
     },
 } satisfies Record<number, InternalVehicle>;

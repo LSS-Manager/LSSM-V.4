@@ -296,7 +296,7 @@
             { "texts": ["Wasserwerfer"], "vehicles": [72] },
             { "texts": ["Zivilstreifenwagen"], "vehicles": [98] },
             { "texts": ["leBefKw"], "vehicles": [35] },
-            { "texts": ["NEA50"], "vehicles": [110, 111, 112, 113] },
+            { "texts": ["NEA50"], "vehicles": [110, 111, 112, 113, 175] },
             { "texts": ["NEA200"], "vehicles": [112, 113] },
             { "texts": ["MzGW SB"], "vehicles": [109] },
             { "texts": ["FüKW (THW)"], "vehicles": [144] },
@@ -345,7 +345,10 @@
                 "texts": ["Bahnrettungsfahrzeug", "Bahnrettungsfahrzeuge"],
                 "vehicles": [162, 163, 164]
             },
-            { "texts": ["LauKw"], "vehicles": [165] }
+            { "texts": ["LauKw"], "vehicles": [165] },
+            { "texts": ["MTW TeSi"], "vehicles": [173] },
+            { "texts": ["GW TeSi"], "vehicles": [171] },
+            { "texts": ["Anh TeSi"], "vehicles": [174] }
         ],
         "water": "l. Wasser"
     },
