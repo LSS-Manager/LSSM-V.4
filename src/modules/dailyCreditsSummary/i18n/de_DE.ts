@@ -18,7 +18,7 @@ export default {
             textColor: 'white',
         },
         eventmission: {
-            regex:  /Belohnung für das Verbands-Event/u,
+            regex: /Belohnung für das Verbands-Event/u,
             title: 'Eventeinsätze',
             backgroundColor: '#ff2400',
             textColor: 'white',
