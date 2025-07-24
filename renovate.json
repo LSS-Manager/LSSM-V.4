@@ -1,7 +1,7 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "assignees": ["Suchty112"],
-    "baseBranches": ["dev"],
+    "baseBranchPatterns": ["dev"],
     "commitMessagePrefix": "⬆️",
     "commitMessageTopic": "`{{depName}}`",
     "dependencyDashboard": true,
@@ -37,7 +37,9 @@
         },
         {
             "groupName": "types",
-            "lockFileMaintenance": { "enabled": true },
+            "lockFileMaintenance": {
+                "enabled": true
+            },
             "matchManagers": ["npm"],
             "matchPackageNames": ["!@types/node", "@types/{/,}**"],
             "rangeStrategy": "pin",
@@ -45,7 +47,9 @@
         },
         {
             "groupName": "fontawesome",
-            "lockFileMaintenance": { "enabled": true },
+            "lockFileMaintenance": {
+                "enabled": true
+            },
             "matchManagers": ["npm"],
             "matchPackageNames": ["@fortawesome/{/,}**"],
             "rangeStrategy": "pin",
@@ -53,7 +57,9 @@
         },
         {
             "groupName": "typescript-eslint",
-            "lockFileMaintenance": { "enabled": true },
+            "lockFileMaintenance": {
+                "enabled": true
+            },
             "matchManagers": ["npm"],
             "matchPackageNames": ["@typescript-eslint{/,}**"],
             "rangeStrategy": "pin",
@@ -63,7 +69,9 @@
             "description": "We consider switching to VitePress (see #2884). While that, updates to vuepress are disabled",
             "enabled": false,
             "groupName": "vuepress",
-            "lockFileMaintenance": { "enabled": true },
+            "lockFileMaintenance": {
+                "enabled": true
+            },
             "matchDepNames": ["vuepress"],
             "matchManagers": ["npm"],
             "matchPackageNames": ["@vuepress{/,}**"],
@@ -74,7 +82,9 @@
             "assignees": ["jxn-30"],
             "extends": ["schedule:monthly"],
             "groupName": "engines",
-            "lockFileMaintenance": { "enabled": true },
+            "lockFileMaintenance": {
+                "enabled": true
+            },
             "matchDepNames": ["node", "npm", "yarn"],
             "matchManagers": ["npm"],
             "rangeStrategy": "pin",
@@ -82,7 +92,9 @@
             "separateMajorMinor": false
         },
         {
-            "lockFileMaintenance": { "enabled": true },
+            "lockFileMaintenance": {
+                "enabled": true
+            },
             "matchManagers": ["npm"],
             "rangeStrategy": "pin",
             "separateMajorMinor": false
