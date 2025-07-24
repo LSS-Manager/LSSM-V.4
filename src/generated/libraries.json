@@ -196,7 +196,7 @@
     "eslint-config-prettier": {
         "icon": "https://prettier.io/icon.png",
         "url": "https://github.com/prettier/eslint-config-prettier#readme",
-        "version": "10.1.5"
+        "version": "10.1.8"
     },
     "eslint-import-resolver-typescript": {
         "version": "4.4.4"
