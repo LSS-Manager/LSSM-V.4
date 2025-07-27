@@ -4728,9 +4728,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001578, caniuse-lite@npm:^1.0.30001580, caniuse-lite@npm:^1.0.30001687, caniuse-lite@npm:^1.0.30001726":
-  version: 1.0.30001726
-  resolution: "caniuse-lite@npm:1.0.30001726"
-  checksum: 10c0/2c5f91da7fd9ebf8c6b432818b1498ea28aca8de22b30dafabe2a2a6da1e014f10e67e14f8e68e872a0867b6b4cd6001558dde04e3ab9770c9252ca5c8849d0e
+  version: 1.0.30001727
+  resolution: "caniuse-lite@npm:1.0.30001727"
+  checksum: 10c0/f0a441c05d8925d728c2d02ce23b001935f52183a3bf669556f302568fe258d1657940c7ac0b998f92bc41383e185b390279a7d779e6d96a2b47881f56400221
   languageName: node
   linkType: hard
 
@@ -7313,10 +7313,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"highcharts@npm:11.3.0":
-  version: 11.3.0
-  resolution: "highcharts@npm:11.3.0"
-  checksum: 10c0/53e20f9a68698121c0ba7cad0979dfba69b6d76982e98c904c81a6fd477de126c2151966054276fea0084bdbc9ca71aefb166a16794ddefe82eef548f417719d
+"highcharts@npm:11.4.8":
+  version: 11.4.8
+  resolution: "highcharts@npm:11.4.8"
+  checksum: 10c0/6169d82a5708bc02a38e71a27d7fe710190021d0b4cce663a8acc2b92d150446ce858ed05475f2cbc837832ffdcd3908572e6a5b37b0809edbc3fefcae206a65
   languageName: node
   linkType: hard
 
@@ -8964,7 +8964,7 @@ __metadata:
     eslint-plugin-unicorn: "npm:56.0.1"
     eslint-plugin-vue: "npm:9.32.0"
     he: "npm:1.2.0"
-    highcharts: "npm:11.3.0"
+    highcharts: "npm:11.4.8"
     highcharts-vue: "npm:1.4.3"
     html-loader: "npm:5.1.0"
     husky: "npm:9.1.7"
@@ -8975,11 +8975,11 @@ __metadata:
     lodash: "npm:4.17.21"
     mini-svg-data-uri: "npm:1.4.4"
     moment: "npm:2.30.1"
-    moment-timezone: "npm:0.5.48"
+    moment-timezone: "npm:0.6.0"
     pinia: "npm:2.1.7"
-    prettier: "npm:3.5.3"
+    prettier: "npm:3.6.2"
     qrcode: "npm:1.5.4"
-    sass: "npm:1.87.0"
+    sass: "npm:1.89.2"
     sass-loader: "npm:16.0.5"
     semver: "npm:7.7.2"
     showdown: "npm:2.1.0"
@@ -8999,7 +8999,7 @@ __metadata:
     vue-loader: "npm:15.10.1"
     vue-notification: "npm:1.3.20"
     vue-responsive-dash: "npm:0.5.0"
-    vue-select: "npm:3.20.2"
+    vue-select: "npm:3.20.4"
     vue-slim-tabs: "npm:0.4.0"
     vue-template-compiler: "npm:2.7.16"
     webpack: "npm:5.89.0"
@@ -9861,12 +9861,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"moment-timezone@npm:0.5.48":
-  version: 0.5.48
-  resolution: "moment-timezone@npm:0.5.48"
+"moment-timezone@npm:0.6.0":
+  version: 0.6.0
+  resolution: "moment-timezone@npm:0.6.0"
   dependencies:
     moment: "npm:^2.29.4"
-  checksum: 10c0/ab14ec9d94bc33f29ac18e5417b7f8aca0b17130b952c5cc9697b8fea839e5ece9313af5fd3c9703a05db472b1560ddbfc7ad2aa24aac9afd047d6da6c3c6033
+  checksum: 10c0/16164cf321d8be0bf7d43855286b426c94c8200e0634f2e42cf469f591c6a230ac43f37d3826d76b05ac221f69a571400323fb8625e3d4e8669f4d9ab00fe779
   languageName: node
   linkType: hard
 
@@ -10780,12 +10780,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:3.5.3":
-  version: 3.5.3
-  resolution: "prettier@npm:3.5.3"
+"prettier@npm:3.6.2":
+  version: 3.6.2
+  resolution: "prettier@npm:3.6.2"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10c0/3880cb90b9dc0635819ab52ff571518c35bd7f15a6e80a2054c05dbc8a3aa6e74f135519e91197de63705bcb38388ded7e7230e2178432a1468005406238b877
+  checksum: 10c0/488cb2f2b99ec13da1e50074912870217c11edaddedeadc649b1244c749d15ba94e846423d062e2c4c9ae683e2d65f754de28889ba06e697ac4f988d44f45812
   languageName: node
   linkType: hard
 
@@ -11506,9 +11506,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.87.0":
-  version: 1.87.0
-  resolution: "sass@npm:1.87.0"
+"sass@npm:1.89.2":
+  version: 1.89.2
+  resolution: "sass@npm:1.89.2"
   dependencies:
     "@parcel/watcher": "npm:^2.4.1"
     chokidar: "npm:^4.0.0"
@@ -11519,7 +11519,7 @@ __metadata:
       optional: true
   bin:
     sass: sass.js
-  checksum: 10c0/bd245faf14e4783dc547765350cf05817edaac0d6d6f6e4da8ab751f3eb3cc3873afd563c0ce416a24aa6c9c4e9023b05096447fc006660a01f76adffb54fbc6
+  checksum: 10c0/752ccc7581b0c6395f63918116c20924e99943a86d79e94f5c4a0d41b1e981fe1f0ecd1ee82fff21496f81dbc91f68fb35a498166562ec8ec53e7aad7c3dbd9d
   languageName: node
   linkType: hard
 
@@ -13358,12 +13358,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-select@npm:3.20.2":
-  version: 3.20.2
-  resolution: "vue-select@npm:3.20.2"
+"vue-select@npm:3.20.4":
+  version: 3.20.4
+  resolution: "vue-select@npm:3.20.4"
   peerDependencies:
     vue: 2.x
-  checksum: 10c0/a5632180e2a5028a54382eb4cbe3326802fb782dfc974e1cf36b1203375bafe7bb19ec9d685504bc214d277356ee1e56e7798385e9eaa936af314771f977510e
+  checksum: 10c0/92b5f1593876618cf7b6841edb526f33e8daf9a3ea9559ff7cb0821facdef26621ef163921ce7dff9fecfb8822431d4cc676b57f626c905c04cc36147170c90f
   languageName: node
   linkType: hard
 
