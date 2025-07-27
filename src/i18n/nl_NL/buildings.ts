@@ -1370,7 +1370,7 @@ export default {
         startPersonnel: 2,
         startVehicles: [],
         schoolingTypes: ['Militair'],
-        schools: [4],
+        schools: [26],
         startParkingLots: 1,
         icon: 'fire-flame-curved',
     },

@@ -126,6 +126,7 @@ export default {
                 'Bergrettung': [
                     149, 150, 151, 152, 153, 154, 155, 156, 157, 158,
                 ],
+                'TeSi': [171, 172, 173, 174, 175],
             },
             color: '#ffa500',
         },
@@ -279,6 +280,8 @@ export default {
         'Brücke',
         'U-Bahn Station',
         'Eisenbahntunnel',
+        'Zoo',
+        'Kohlekraftwerk',
     ],
     only_alliance_missions: [41, 43, 59, 75, 99, 207, 221, 222, 256, 350],
     transfer_missions: [147, 613],

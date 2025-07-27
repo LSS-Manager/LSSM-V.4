@@ -294,6 +294,12 @@ export default {
             staffList: 'EL Bergrettung',
             key: 'mountain_command',
         },
+        {
+            caption: 'Technik und Sicherheit',
+            duration: '5 Tage',
+            staffList: 'SEG - Technik und Sicherheit',
+            key: 'disaster_response_technology',
+        },
     ],
     THW: [
         {
