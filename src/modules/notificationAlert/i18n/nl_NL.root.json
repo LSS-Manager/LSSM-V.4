@@ -54,6 +54,10 @@
         "duration": "Weergavetijd",
         "eventTypes": "Gebeurtenissen",
         "ingame": "Verstuur in-game notificaties",
+        "maxAlertsPerGroup": {
+            "description": "Maximum number of alerts per position to be displayed simultaneously (0 = all).",
+            "title": "Maximum number of notifications displayed"
+        },
         "position": "Positie"
     }
 }

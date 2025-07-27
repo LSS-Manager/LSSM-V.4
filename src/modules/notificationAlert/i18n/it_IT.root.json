@@ -50,6 +50,10 @@
         "duration": "Visualizza la durata",
         "eventTypes": "Eventi",
         "ingame": "Invia notifica in-game",
+        "maxAlertsPerGroup": {
+            "description": "Maximum number of alerts per position to be displayed simultaneously (0 = all).",
+            "title": "Maximum number of notifications displayed"
+        },
         "position": "Posizione"
     }
 }

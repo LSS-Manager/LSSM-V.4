@@ -25,6 +25,7 @@
             "title": "Byggnader"
         },
         "maxMissions": { "title": "Maximum missions" },
+        "maxTimedMissions": { "title": "Maximum Timed Missions" },
         "vehicles": {
             "empty": "Du har inga fordon i kategorin {kategori} än!",
             "foam": "Foam",

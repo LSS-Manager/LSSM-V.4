@@ -12,7 +12,7 @@
         "default": {
             "☘️": [296, 297, 298, 299, 300, 301],
             "🌞": [178, 179, 180, 181, 182, 183, 337, 338, 339],
-            "🌹": [275, 276, 277, 278, 279, 280, 281, 282, 283],
+            "🌹": [275, 276, 277, 278, 279, 280, 281, 282, 283, 557, 558, 559],
             "🎃": [75, 76, 77, 78, 79, 80, 81, 82, 83],
             "🎅": [86, 87, 88, 89, 90, 91, 92],
             "🥚": [
@@ -110,6 +110,7 @@
         },
         "shareMissionsTypes": {
             "alliance": "Alliance missions (only for Share-Alliance-Post)",
+            "allianceEvent": "Missions in an alliance event (only for Share-Alliance-Post)",
             "description": "Set up which of the calls you want to enable the share button for.",
             "own": "Emergency-Calls",
             "sicherheitswache": "Planned missions",
