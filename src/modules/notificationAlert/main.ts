@@ -13,6 +13,24 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
         )
     ).value;
 
+    getSetting<number>('maxAlertsPerGroup').then(value => {
+        if (!value) return;
+        LSSM.$stores.root.addStyles([
+            {
+                selectorText: `.vue-notification-group.top .vue-notification-wrapper:nth-child(${value}) ~ .vue-notification-wrapper`,
+                style: {
+                    display: 'none',
+                },
+            },
+            {
+                selectorText: `.vue-notification-group.bottom .vue-notification-wrapper:has(~ .vue-notification-wrapper:nth-last-child(${value}))`,
+                style: {
+                    display: 'none',
+                },
+            },
+        ]);
+    });
+
     const events = {} as Record<
         string,
         {

@@ -13,6 +13,11 @@ export default ((_, __, $m) => {
     const alertStyles = $m('alertStyles');
     const positions = $m('positions');
     return {
+        maxAlertsPerGroup: <NumberInput>{
+            type: 'number',
+            default: 0,
+            min: 0,
+        },
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         alerts: <AppendableList>{
