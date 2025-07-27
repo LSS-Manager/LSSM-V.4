@@ -5,7 +5,7 @@ Jedes der folgenden Features lässt sich individuell in den Einstellungen (de-)a
 
 ## Links anklickbar machen
 
-Links die in als reiner Text angezeigt werden (z.B. im Chat, Forum, Nachrichten, etc.) werden anklickbar gemacht.
+Links die in als reiner Text angezeigt werden (z.&nbsp;B. im Chat, Forum, Nachrichten, etc.) werden anklickbar gemacht.
 Sie öffnen sich automatisch in einem neuen Tab.
 
 ### Bildvorschau aktivieren
@@ -21,7 +21,7 @@ Es funktioniert nur der Direktlink zu Bildern!
 
 ## Link-Vorschau
 
-Manchmal möchte man einfach kurze Informationen über z.B. ein Gebäude oder einen Nutzer haben, ohne direkt den Link zu öffnen.
+Manchmal möchte man einfach kurze Informationen über z.&nbsp;B. ein Gebäude oder einen Nutzer haben, ohne direkt den Link zu öffnen.
 Dafür lassen sich unsere Link-Vorschauen in den Einstellungen aktivieren:
 
 ![Einstellungen für Link-Vorschauen](./linkPreview_setting.png)
@@ -97,7 +97,7 @@ Gebe einfach in einem beliebigen Textfeld ein Doppelpunkt `:` ein und fang an zu
 500ms, nachdem du keine Taste mehr gedrückt hast, werden dir Vorschläge angezeigt.
 Klickst du dann auf einen Vorschlag, wird dieses Emoji entsprechend eingefügt.
 Beachte dabei bitte, dass aktuell nur die offiziellen Namen der Emojis für die Suche verwendet werden,
-z.B. `slightly_smiling_face` für `🙂`.
+z.&nbsp;B. `slightly_smiling_face` für `🙂`.
 Die wichtigsten Namen wirst du dir aber sehr schnell merken können 😉
 
 ![Emoji-Picker](./emojipicker.png)
