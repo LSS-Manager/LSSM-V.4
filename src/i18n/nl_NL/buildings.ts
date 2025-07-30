@@ -78,7 +78,7 @@ export default {
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[0][8] ?? 0) +
-                    (boughtExtensionsAmountByType[17][8] ?? 0) <
+                        (boughtExtensionsAmountByType[17][8] ?? 0) <
                     maxExtensions,
             },
             ...multiplyExtension(
@@ -153,7 +153,7 @@ export default {
                         ((Object.keys(buildingsByType[0] ?? {}).length ?? 0) +
                             (Object.keys(buildingsByType[17] ?? {}).length ??
                                 0)) /
-                        10
+                            10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
@@ -338,7 +338,7 @@ export default {
                         ((Object.keys(buildingsByType[3] ?? {}).length ?? 0) +
                             (Object.keys(buildingsByType[13] ?? {}).length ??
                                 0)) /
-                        10
+                            10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[2][0] ?? 0) < maxExtensions,
@@ -435,7 +435,7 @@ export default {
                         ((Object.keys(buildingsByType[5] ?? {}).length ?? 0) +
                             (Object.keys(buildingsByType[18] ?? {}).length ??
                                 0)) /
-                        10
+                            10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[6][14] ?? 0) < maxExtensions,
@@ -453,7 +453,7 @@ export default {
                         ((Object.keys(buildingsByType[5] ?? {}).length ?? 0) +
                             (Object.keys(buildingsByType[18] ?? {}).length ??
                                 0)) /
-                        10
+                            10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
@@ -762,7 +762,7 @@ export default {
                 maxExtensionsFunction: buildingsByType =>
                     Math.floor(
                         (Object.keys(buildingsByType[12] ?? {}).length ?? 0) /
-                        10
+                            10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
@@ -967,7 +967,7 @@ export default {
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[0][8] ?? 0) +
-                    (boughtExtensionsAmountByType[17][8] ?? 0) <
+                        (boughtExtensionsAmountByType[17][8] ?? 0) <
                     maxExtensions,
             },
             null,
