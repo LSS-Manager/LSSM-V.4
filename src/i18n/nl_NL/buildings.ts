@@ -78,7 +78,7 @@ export default {
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[0][8] ?? 0) +
-                        (boughtExtensionsAmountByType[17][8] ?? 0) <
+                    (boughtExtensionsAmountByType[17][8] ?? 0) <
                     maxExtensions,
             },
             ...multiplyExtension(
@@ -153,7 +153,7 @@ export default {
                         ((Object.keys(buildingsByType[0] ?? {}).length ?? 0) +
                             (Object.keys(buildingsByType[17] ?? {}).length ??
                                 0)) /
-                            10
+                        10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[0][9] ?? 0) < maxExtensions,
@@ -338,7 +338,7 @@ export default {
                         ((Object.keys(buildingsByType[3] ?? {}).length ?? 0) +
                             (Object.keys(buildingsByType[13] ?? {}).length ??
                                 0)) /
-                            10
+                        10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[2][0] ?? 0) < maxExtensions,
@@ -435,7 +435,7 @@ export default {
                         ((Object.keys(buildingsByType[5] ?? {}).length ?? 0) +
                             (Object.keys(buildingsByType[18] ?? {}).length ??
                                 0)) /
-                            10
+                        10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[6][14] ?? 0) < maxExtensions,
@@ -453,7 +453,7 @@ export default {
                         ((Object.keys(buildingsByType[5] ?? {}).length ?? 0) +
                             (Object.keys(buildingsByType[18] ?? {}).length ??
                                 0)) /
-                            10
+                        10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
@@ -762,7 +762,7 @@ export default {
                 maxExtensionsFunction: buildingsByType =>
                     Math.floor(
                         (Object.keys(buildingsByType[12] ?? {}).length ?? 0) /
-                            10
+                        10
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
@@ -967,7 +967,7 @@ export default {
                     ),
                 canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
                     (boughtExtensionsAmountByType[0][8] ?? 0) +
-                        (boughtExtensionsAmountByType[17][8] ?? 0) <
+                    (boughtExtensionsAmountByType[17][8] ?? 0) <
                     maxExtensions,
             },
             null,
@@ -1347,15 +1347,58 @@ export default {
         extensions: [
             {
                 caption: 'Mobiele Eenheid, Sectie',
-                credits: 100_000,
-                coins: 20,
+                credits: 200_000,
+                coins: 25,
                 duration: '5 Dagen',
                 isVehicleExtension: true,
                 givesParkingLots: 4,
                 unlocksVehicleTypes: [39, 40],
                 parkingLotReservations: [[39], [40], [40], [40]],
             },
+            {
+                caption: 'Explosieven Opruimingsdienst Defensie',
+                credits: 100_000,
+                coins: 15,
+                duration: '5 Dagen',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [110, 111, 112],
+            },
+            {
+                caption: 'Defensie Duikgroep',
+                credits: 200_000,
+                coins: 25,
+                duration: '5 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 3,
+                unlocksVehicleTypes: [117, 118],
+                parkingLotReservations: [[117], [117], [118]],
+            },
         ],
+        storageUpgrades: {
+            initial_containers: {
+                caption: 'Militaire Opslagruimte',
+                additionalStorage: 40,
+                credits: 25_000,
+                coins: 10,
+                duration: '5 Dagen',
+            },
+            additional_containers_1: {
+                caption: 'Extra Militaire Opslagruimte',
+                additionalStorage: 20,
+                credits: 50_000,
+                coins: 12,
+                duration: '3 Dagen',
+                requiredStorageUpgrades: ['initial_containers'],
+            },
+            additional_containers_2: {
+                caption: 'Extra Militaire Opslagruimte',
+                additionalStorage: 20,
+                credits: 50_000,
+                coins: 12,
+                duration: '3 Dagen',
+                requiredStorageUpgrades: ['additional_containers_1'],
+            },
+        },
         levelcost: [
             '1. 10.000',
             '2. 25.000',
