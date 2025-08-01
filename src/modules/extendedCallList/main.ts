@@ -13,7 +13,7 @@ interface AppendableListSetting<valueType> {
 export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
     const sortMissions = await getSetting('sortMissions');
 
-    if (window.location.pathname.match(/^\/vehicles\/\d+\/?/u)) {
+    if (/^\/vehicles\/\d+\/?/u.test(window.location.pathname)) {
         return await (
             await import(
                 /* webpackChunkName: "modules/extendedCallList/vehicleMissionParticipationState" */ './assets/vehicleMissionParticipationState'
@@ -34,7 +34,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
         `${MODULE_ID}_missionlist-sorting_selection-list-btn`
     );
 
-    if (window.location.pathname.match(/^\/missions\/\d+\/?/u)) {
+    if (/^\/missions\/\d+\/?/u.test(window.location.pathname)) {
         if (starrableMissions) {
             import(
                 /* webpackChunkName: "modules/extendedCallList/starrableMissions/mission" */ './assets/starrableMissions/mission'
@@ -66,22 +66,6 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
         }
         return;
     }
-
-    LSSM.$stores.root.addStyles([
-        {
-            selectorText: '.mission-filters-top .mission-sorting',
-            style: {
-                'display': 'flex',
-                'flex-direction': 'row',
-            },
-        },
-        {
-            selectorText: '.mission-filters-top .mission-sorting > .btn',
-            style: {
-                height: '22px',
-            },
-        },
-    ]);
 
     const collapsableMissions = await getSetting('collapsableMissions');
     const shareMissions = await getSetting('shareMissions');
@@ -186,7 +170,12 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
                       LSSM,
                       MODULE_ID,
                       await getSetting<
-                          ('' | 'alliance' | 'sicherheitswache')[]
+                          (
+                              | ''
+                              | 'alliance_event'
+                              | 'alliance'
+                              | 'sicherheitswache'
+                          )[]
                       >('shareMissionsTypes'),
                       await getSetting<number>('shareMissionsMinCredits'),
                       await getSetting<string>('shareMissionsButtonColor'),

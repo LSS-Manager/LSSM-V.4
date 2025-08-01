@@ -114,7 +114,7 @@ export default (
     );
 
     const panelBodyId = 'missions-panel-body';
-    const panelBody = document.querySelector<HTMLDivElement>(`#${panelBodyId}`);
+    const panelBody = document.getElementById(panelBodyId);
 
     if (!panelBody) return;
 
@@ -572,10 +572,9 @@ export default (
 
     document
         .querySelector<HTMLDivElement>(
-            // second selector is fallback for pre-ingame-update
-            '#missions .mission-filters .mission-filters-row, #btn-group-mission-select'
+            '.missions-panel-main .mission_selection:not(:has(~.mission_selection))'
         )
-        ?.append(sortBtnWrapper);
+        ?.after(sortBtnWrapper);
 
     LSSM.$stores.root.hook({
         event: 'missionMarkerAdd',

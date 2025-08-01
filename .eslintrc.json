@@ -40,7 +40,16 @@
     "parserOptions": {
         "parser": "@typescript-eslint/parser",
         "ecmaVersion": 2018,
-        "sourceType": "module"
+        "sourceType": "module",
+        "project": [
+            "./tsconfig.json",
+            "./build/tsconfig.json",
+            "./docs/.vuepress/tsconfig.json",
+            "./prebuild/tsconfig.json",
+            "./scripts/tsconfig.json",
+            "./src/tsconfig.userscript.json"
+        ],
+        "extraFileExtensions": [".vue"]
     },
     "settings": {
         "jsdoc": {
@@ -185,7 +194,7 @@
         "unicorn/prefer-native-coercion-functions": ["error"],
         "unicorn/prefer-negative-index": ["error"],
         "unicorn/prefer-object-from-entries": ["error"],
-        "unicorn/prefer-query-selector": ["error"],
+        "unicorn/prefer-query-selector": ["off"],
         "unicorn/switch-case-braces": ["error", "avoid"],
         "vue/no-unused-refs": "warn",
         "vue/prefer-true-attribute-shorthand": "warn",
@@ -194,6 +203,12 @@
         }]
     },
     "overrides": [
+        {
+            "files": ["./src/**/*"],
+            "rules": {
+                "no-console": "warn"
+            }
+        },
         {
             "files": ["*.md"],
             "plugins": ["markdownlint"],

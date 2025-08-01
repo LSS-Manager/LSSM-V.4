@@ -11,8 +11,7 @@ export default (
     clearOnEnter: boolean,
     $sm: $m
 ) => {
-    const aaoGroupElement =
-        document.querySelector<HTMLDivElement>('#mission-aao-group');
+    const aaoGroupElement = document.getElementById('mission-aao-group');
     if (!aaoGroupElement) return;
 
     if (!dropdown) {

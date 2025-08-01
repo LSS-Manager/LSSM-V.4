@@ -8,7 +8,7 @@ export default (
     LSSM: Vue
 ): void => {
     const addToMap = (map = window.map, id = 'map') => {
-        if (!(map && document.querySelector<HTMLDivElement>(`#${id}`))) return;
+        if (!(map && document.getElementById(id))) return;
 
         let form = document.createElement('form');
         form.id = LSSM.$stores.root.nodeAttribute(
@@ -63,7 +63,7 @@ export default (
                 form.style.setProperty('position', 'relative');
                 form.style.setProperty('top', 'calc(-100% - 9px)');
                 form.style.setProperty('padding', '0');
-                if (position.match(/right/u))
+                if (/right/u.test(position))
                     form.style.setProperty('transform', 'translateX(-100%)');
                 else form.style.setProperty('left', '30px');
 

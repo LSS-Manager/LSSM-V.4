@@ -40,6 +40,90 @@ export default {
                 duration: '3 dny',
             },
             {
+                caption: 'Rozšíření letiště',
+                credits: 100_000,
+                coins: 20,
+                duration: '5 dní',
+            },
+            {
+                caption: 'Prodloužení čerpadla při poškození vodou',
+                credits: 100_000,
+                coins: 15,
+                duration: '5 dní',
+            },
+            {
+                caption: 'Stání pro sorbentový kontejner',
+                credits: 100_000,
+                coins: 20,
+                duration: '5 dní',
+            },
+            {
+                caption: 'Stání pro chemický kontejner',
+                credits: 100_000,
+                coins: 20,
+                duration: '5 dní',
+            },
+            {
+                caption: 'Stání pro pěnidlový kontejner',
+                credits: 100_000,
+                coins: 20,
+                duration: '5 dní',
+            },
+            {
+                caption: 'Stání pro plynový hasící kontejner',
+                credits: 100_000,
+                coins: 20,
+                duration: '5 dní',
+            },
+            {
+                caption: 'Stání pro hadicový kontejner',
+                credits: 100_000,
+                coins: 20,
+                duration: '5 dní',
+            },
+            {
+                caption: 'Stání pro technický kontejner',
+                credits: 100_000,
+                coins: 20,
+                duration: '5 dní',
+            },
+            {
+                caption: 'Stání pro kontejnerovou elektrocentrálu',
+                credits: 100_000,
+                coins: 20,
+                duration: '5 dní',
+            },
+            {
+                caption: 'Stání pro lodní kontejner',
+                credits: 100_000,
+                coins: 20,
+                duration: '5 dní',
+            },
+            {
+                caption: 'Stání pro kontejner pro nouzové zastřešení',
+                credits: 100_000,
+                coins: 20,
+                duration: '5 dní',
+            },
+            {
+                caption: 'Stání pro týlový kontejner',
+                credits: 100_000,
+                coins: 20,
+                duration: '5 dní',
+            },
+            {
+                caption: 'Přidáno stání pro kontejner',
+                credits: 100_000,
+                coins: 20,
+                duration: '7 dní',
+            },
+            {
+                caption: 'Přidáno stání pro kontejner',
+                credits: 100_000,
+                coins: 20,
+                duration: '7 dní',
+            },
+            {
                 caption: 'Velká požární stanice',
                 credits: 1_000_000,
                 coins: 50,
@@ -60,10 +144,10 @@ export default {
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-        maxBuildings: 'No limit',
+        maxBuildings: 'Bez limitů',
         maxLevel: 24,
         special:
-            'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. The Coins price remains constant!',
+            'Po vybudování 25 stanic cena těchto staveb roste. Aktuálně se cena stanic počítá podle následujícího vzorečku: <code>100.000+(200.000*log<sub>2</sub>(počet vybudovyných stanic − 22))</code>. Cena v mincích zůstává stále stejná!',
         startPersonnel: 10,
         startVehicles: ['CAS 20', 'CAS 30'],
         startParkingLots: 1,
@@ -82,7 +166,7 @@ export default {
         },
         extensions: multiplyExtension(
             {
-                caption: 'Additional classroom',
+                caption: 'Více tříd',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 dní',
@@ -92,12 +176,12 @@ export default {
             3
         ),
         levelcost: [],
-        maxBuildings: 'No limit',
+        maxBuildings: 'Bez limitu',
         maxLevel: 0,
         startClassrooms: 1,
         school: '',
         special:
-            "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire- brigade schools.",
+            'Správci financí a administrátoři mohou stavět / rozšiřovat hasičské školy pomocí kreditů z alianční pokladny. Správci školení a administrátoři mohou zahájit školení na hasičských školách aliance.',
         icon: 'graduation-cap',
     },
     2: {
@@ -131,7 +215,7 @@ export default {
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-        maxBuildings: 'No limit',
+        maxBuildings: 'Bez limitu',
         maxLevel: 14,
         special: '',
         startPersonnel: 3,
@@ -162,12 +246,12 @@ export default {
             3
         ),
         levelcost: [],
-        maxBuildings: 'No limit',
+        maxBuildings: 'Bez limitu',
         maxLevel: 0,
         startClassrooms: 1,
         school: '',
         special:
-            "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire- brigade schools.",
+            'Správci financí a administrátoři mohou stavět / rozšiřovat zdravotnické akademie pomocí kreditů z alianční pokladny. Správci školení a administrátoři mohou zahájit školení na zdravotnické akademii aliance.',
         icon: 'graduation-cap',
     },
     4: {
@@ -257,12 +341,12 @@ export default {
                 cannotDisable: true,
             },
         ],
-        levelcost: ['1.-20. 19.000 Credits / 11 Coins'],
-        maxBuildings: 'No limit',
+        levelcost: ['1.-20. 19.000 Kreditů / 11 Mincí'],
+        maxBuildings: 'Bez limitu',
         maxLevel: 20,
         startBeds: 10,
         special:
-            'Finance ministers and admins can (expand) association hospitals with the help of credits from the association treasury.',
+            'Správci financí a administrátoři mohou stavět / rozšiřovat nemocnice pomocí kreditů z alianční pokladny.',
         icon: 'hospital',
     },
     5: {
@@ -279,14 +363,14 @@ export default {
         maxBuildings: 'see specials',
         maxLevel: 0,
         special:
-            'Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
+            'Do 100 stanic jakéhokoliv druhu = 4 základny vrtulníků nebo úrovně základen. Každých 10 stanic jakéhokoliv druhu nad 100. stanici (tj. 110, 120, 130 atd.) přidá možnost postavit jednu základnu vrtulníku nebo jednu úroveň základny',
         startPersonnel: 0,
         startVehicles: [],
         startParkingLots: 1,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-            buildingsAmountTotal < 125
+            buildingsAmountTotal < 100
                 ? 4
-                : Math.floor(buildingsAmountTotal / 25),
+                : Math.floor(buildingsAmountTotal / 10),
         schoolingTypes: ['Zdravotnická akademie'],
         schools: [3],
         icon: 'circle-h',
@@ -312,6 +396,30 @@ export default {
                 },
                 10
             ),
+            {
+                caption: 'Rozšíření pořádkové jednotky',
+                credits: 200_000,
+                coins: 25,
+                duration: '5 dní',
+            },
+            {
+                caption: 'Rozšiřující kapacita pro policejní antony',
+                credits: 100_000,
+                coins: 15,
+                duration: '5 dní',
+            },
+            {
+                caption: 'Rozšiřující kapacita pro vodní stříkače PČR',
+                credits: 100_000,
+                coins: 15,
+                duration: '5 dní',
+            },
+            {
+                caption: 'Rozšiřující kapacita pro vozidla velitele PČR',
+                credits: 100_000,
+                coins: 15,
+                duration: '5 dní',
+            },
             {
                 caption: 'Velká policejní stanice',
                 credits: 1_000_000,
@@ -351,10 +459,10 @@ export default {
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-        maxBuildings: 'No limit',
+        maxBuildings: 'Bez limitu',
         maxLevel: 39,
         special:
-            'From the 24th police station onwards, the costs for the new construction of a police station increase according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. The Coins price remains constant!',
+            'Po vybudování 25 stanic cena těchto staveb roste. Aktuálně se cena stanic počítá podle následujícího vzorečku: <code>100.000+(200.000*log<sub>2</sub>(počet vybudovyných stanic − 22))</code>. Cena v mincích zůstává stále stejná!',
         startPersonnel: 2,
         startParkingLots: 1,
         startCells: 0,
@@ -376,7 +484,7 @@ export default {
         levelcost: [],
         maxBuildings: 'All 10 buildings one control center',
         maxLevel: 0,
-        special: 'The control center is the administrative center.',
+        special: 'Operační středisko je administrativní budova.',
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
             Math.floor(buildingsAmountTotal / 10) + 1,
         isDispatchCenter: true,
@@ -393,7 +501,7 @@ export default {
         },
         extensions: multiplyExtension(
             {
-                caption: 'Additional classroom',
+                caption: 'Více tříd',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 dní',
@@ -403,12 +511,12 @@ export default {
             3
         ),
         levelcost: [],
-        maxBuildings: 'No limit',
+        maxBuildings: 'Bez limitu',
         maxLevel: 0,
         startClassrooms: 1,
         school: '',
         special:
-            "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
+            'Správci financí a administrátoři mohou stavět / rozšiřovat policejní akademie pomocí kreditů z alianční pokladny. Správci školení a administrátoři mohou zahájit školení na policejní akademii aliance.',
         icon: 'graduation-cap',
     },
     13: {
@@ -421,18 +529,18 @@ export default {
             coins: [50],
         },
         extensions: [],
-        levelcost: ['1. 1.000.000 Credits / 50 Coins'],
+        levelcost: ['1. 1.000.000 Kreditů / 50 Mincí'],
         maxBuildings: 'see specials',
         maxLevel: 1,
         special:
-            'Up to 2 landing sites can be built per station (expansion stages). Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
+            'Do 100 stanic jakéhokoliv druhu = 4 základny vrtulníků nebo úrovně základen. Každých 10 stanic jakéhokoliv druhu nad 100. stanici (tj. 110, 120, 130 atd.) přidá možnost postavit jednu základnu vrtulníku nebo jednu úroveň základny',
         startPersonnel: 3,
         startVehicles: [],
         startParkingLots: 1,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-            buildingsAmountTotal < 125
+            buildingsAmountTotal < 100
                 ? 4
-                : Math.floor(buildingsAmountTotal / 25),
+                : Math.floor(buildingsAmountTotal / 10),
         schoolingTypes: ['Policejní Akademies'],
         schools: [8],
         icon: 'helicopter',
@@ -451,7 +559,7 @@ export default {
         maxBuildings: 4,
         maxLevel: 0,
         special:
-            'You can station as many of your own vehicles as you like at a staging area, members of the association can use the room. A staging area remains for 24 hours, but you can reset it to 24 hours at any time.With Premium Account you can have 8 stating areas at the same time',
+            'Přípravnou plochu lze vybudovat zdarma a zpočátku je k dispozici po dobu 24 hodin. Jednotky mohou po tuto dobu využívat tuto oblast jako svou základnu a být z ní vyslány do akce.',
         maxBuildingsFunction: (): number => 4,
         isStagingArea: true,
         icon: 'warehouse',
@@ -467,7 +575,7 @@ export default {
         },
         extensions: [],
         levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-        maxBuildings: 'No limit',
+        maxBuildings: 'Bez limitu',
         maxLevel: 39,
         special: '',
         startPersonnel: 3,
@@ -476,34 +584,6 @@ export default {
         schoolingTypes: ['Školící středisko VZS ČČK'],
         schools: [3],
         icon: 'person-swimming',
-    },
-    16: {
-        caption: 'Prison Cells',
-        color: '#00ff00',
-        coins: -1,
-        credits: 100_000,
-        levelPrices: {
-            credits: [],
-            coins: [],
-        },
-        extensions: multiplyExtension(
-            {
-                caption: 'Prison Cell',
-                credits: 25_000,
-                coins: 5,
-                duration: '7 dní',
-                newCells: 1,
-                cannotDisable: true,
-            },
-            10
-        ),
-        levelcost: [],
-        maxBuildings: 'No limit',
-        maxLevel: 0,
-        special:
-            "This building can only be built and developed by admins and finance ministers with credits from the association's treasury.The built Prison Cells are available to all members of the association.",
-        startCells: 1,
-        icon: 'border-all',
     },
     18: {
         caption: 'Požární stanice (malá)',
@@ -519,12 +599,11 @@ export default {
             '1. 10.000',
             '2. 50.000',
             '3.-5. 100.000',
-            'Conversion to normal station: difference price to normal station',
+            'Rozšiřte na normální Požární stanici',
         ],
-        maxBuildings: 'No limit',
+        maxBuildings: 'Bez limitu',
         maxLevel: 5,
-        special:
-            'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
+        special: '',
         startPersonnel: 10,
         startVehicles: ['CAS 20', 'CAS 30'],
         startParkingLots: 1,
@@ -545,13 +624,12 @@ export default {
         levelcost: [
             '1. 10.000',
             '2. 50.000',
-            '3.-4. 100.000',
-            'Conversion to normal station: difference price to normal station',
+            '3.-5. 100.000',
+            'Rozšiřte na normální Policejní stanici',
         ],
         maxBuildings: 'No limit',
         maxLevel: 4,
-        special:
-            'From the 24th police station onwards, the costs for the new construction of a police station are calculated according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
+        special: '',
         startPersonnel: 2,
         startVehicles: ['Policejní automobil'],
         startParkingLots: 1,
@@ -573,9 +651,9 @@ export default {
             '1. 10.000',
             '2. 50.000',
             '3.-5. 100.000',
-            'Conversion to normal station: difference price to normal station',
+            'Rozšiřte na normální Záchranářskou stanici',
         ],
-        maxBuildings: 'No limit',
+        maxBuildings: 'Bez limitu',
         maxLevel: 5,
         special: '',
         startPersonnel: 3,
@@ -588,19 +666,19 @@ export default {
     21: {
         caption: 'Pyrotechnická služba PČR',
         color: '#663300',
-        coins: 50,
-        credits: 5_000_000,
+        coins: 35,
+        credits: 200_000,
         levelPrices: {
-            credits: [10_000, 50_000, ...Array(18).fill(100_000)],
-            coins: [10, 15, ...Array(18).fill(20)],
+            credits: [10_000, 50_000, ...Array(3).fill(100_000)],
+            coins: [10, 15, ...Array(3).fill(20)],
         },
         extensions: [],
-        levelcost: ['1. 10.000', '2. 50.000', '3.-20. 100.000'],
-        maxBuildings: 'No limit',
+        levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
+        maxBuildings: 'Bez limitu',
         maxLevel: 5,
         special: '',
         startPersonnel: 4,
-        startVehicles: ['Vozidlo pyrotechnika PČR'],
+        startVehicles: [],
         startParkingLots: 2,
         schoolingTypes: ['Policejní Akademie'],
         schools: [8],
@@ -617,7 +695,7 @@ export default {
         },
         extensions: multiplyExtension(
             {
-                caption: 'Additional classroom',
+                caption: 'Více tříd',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 dní',
@@ -627,12 +705,33 @@ export default {
             3
         ),
         levelcost: [],
-        maxBuildings: 'No limit',
+        maxBuildings: 'Bez limitu',
         maxLevel: 0,
         special:
-            "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
+            'Správci financí a administrátoři mohou stavět / rozšiřovat školící středisko VZS ČČK pomocí kreditů z alianční pokladny. Správci školení a administrátoři mohou zahájit školení na školící středisko VZS ČČK aliance.',
         startClassrooms: 1,
         school: '',
         icon: 'graduation-cap',
+    },
+    25: {
+        caption: 'Stáje jízdní policie',
+        color: '#2fcee7',
+        coins: 25,
+        credits: 150_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
+        extensions: [],
+        levelcost: [],
+        maxBuildings: 'Bez limitu',
+        maxLevel: 0,
+        special: '',
+        startPersonnel: 4,
+        startVehicles: [],
+        startParkingLots: 3,
+        schoolingTypes: ['Policejní Akademie'],
+        schools: [8],
+        icon: 'horse-head',
     },
 } satisfies Record<number, InternalBuilding>;

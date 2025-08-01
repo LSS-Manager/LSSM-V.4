@@ -150,15 +150,14 @@ export const registerHotkeys = async (
             if (doubledHotkeys.size)
                 disabledNativeHotkeys.push(...doubledHotkeys);
 
-            hotkeyUtility.addListener(
+            const listener = hotkeyUtility.addListener(
                 HotkeyUtility.createListener(
                     command,
                     hotkey.split(' '),
                     callback.bind(validationResult)
                 )
             );
-            if (redesignParam)
-                HotkeyUtility.activeCommands[command][3] = redesignParam;
+            if (redesignParam) listener[3] = redesignParam;
         } else {
             LSSM.$stores.console.error(
                 `Hotkeys: ${command} is not a function! Cannot add it with hotkey »${hotkey}«`
@@ -178,22 +177,22 @@ export default (async ({ LSSM, $m, getSetting }) => {
         rootScopes.push('main');
     if (
         hotkeys.some(({ command }) => command.startsWith('mission.')) &&
-        window.location.pathname.match(/^\/missions\/\d+\/?/u)
+        /^\/missions\/\d+\/?/u.test(window.location.pathname)
     )
         rootScopes.push('mission');
     if (
         hotkeys.some(({ command }) => command.startsWith('building.')) &&
-        window.location.pathname.match(/^\/buildings\/\d+\/?/u)
+        /^\/buildings\/\d+\/?/u.test(window.location.pathname)
     )
         rootScopes.push('building');
     if (
         hotkeys.some(({ command }) => command.startsWith('vehicles.')) &&
-        window.location.pathname.match(/^\/vehicles\/\d+\/?/u)
+        /^\/vehicles\/\d+\/?/u.test(window.location.pathname)
     )
         rootScopes.push('vehicles');
     if (
         hotkeys.some(({ command }) => command.startsWith('schoolings.')) &&
-        window.location.pathname.match(/^\/(buildings|schoolings)\/\d+\/?/u)
+        /^\/(?:buildings|schoolings)\/\d+\/?/u.test(window.location.pathname)
     )
         rootScopes.push('schoolings');
 

@@ -1,0 +1,37 @@
+{
+    "default": [
+        { "ids": [0, 18], "name": "Požární Stanice" },
+        { "ids": [6, 19], "name": "Policie" },
+        { "ids": [21], "name": "Pyrotechnici" },
+        { "ids": [13], "name": "PČR Heli" },
+        { "ids": [25], "name": "PČR Stáje" },
+        { "ids": [2, 20], "name": "Záchranáři" },
+        { "ids": [4], "name": "Nemocnice" },
+        { "ids": [5], "name": "RZS Heli" },
+        { "ids": [1, 3, 8, 22], "name": "Škola" },
+        { "ids": [7], "name": "Operační Středisko" },
+        { "ids": [15], "name": "Vodní Záchranná služba" },
+        { "ids": [23, 24], "name": "Komplexy Budov" }
+    ],
+    "description": "Přizpůsobte filtry seznamu budov!",
+    "lssmComplex": "Komplex Budov LSSM",
+    "name": "Přizpůsobitelný seznam budov",
+    "settings": {
+        "buildings": "Typy Budov",
+        "contentType": {
+            "labels": ["Text", "Ikona"],
+            "title": "Text nebo Ikona?"
+        },
+        "filters": {
+            "description": "Zde nastavte filtry. Místo textu můžete také určit ikonu, zde si můžete vybrat <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">bezplatné ikony z Font-Awesome</a>. Stačí zadat název ikony. Živý náhled vám poté zobrazí ikonu.",
+            "title": "Filtry"
+        },
+        "fixedFilters": {
+            "description": "Zobrazuje filtry i při procházení seznamu budov.",
+            "title": "Vždy zobrazit filtry"
+        },
+        "icon_style": "Ikona-Typ",
+        "preview": "Náhled",
+        "title": "Nadpis (nebo Ikona)"
+    }
+}

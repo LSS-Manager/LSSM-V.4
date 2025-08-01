@@ -10,7 +10,7 @@ export default (add: Record<string, unknown>): void =>
         JSON.stringify({
             ...JSON.parse(
                 fs.existsSync(FILE_PATH)
-                    ? fs.readFileSync(FILE_PATH).toString() ?? '{}'
+                    ? (fs.readFileSync(FILE_PATH).toString() ?? '{}')
                     : '{}'
             ),
             ...add,

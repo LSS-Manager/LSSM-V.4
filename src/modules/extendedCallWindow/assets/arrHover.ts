@@ -7,8 +7,7 @@ export default (
     MODULE_ID: string,
     $m: $m
 ): void => {
-    const ARRContainer =
-        document.querySelector<HTMLDivElement>('#mission-aao-group');
+    const ARRContainer = document.getElementById('mission-aao-group');
 
     if (!ARRContainer) return;
 
@@ -52,6 +51,7 @@ export default (
         const specsTable = document.createElement('table');
         specsTable.style.width = '100%';
         specsTable.style.color = 'black';
+        specsTable.style.whiteSpace = 'break-spaces';
         const specsHeader = document.createElement('thead');
         specsHeader.style.backgroundColor = 'limegreen';
         const specsHeadRow = specsHeader.insertRow();
@@ -400,7 +400,9 @@ export default (
     LSSM.$stores.root.hook({
         event: 'aao_available',
         callback(id: number) {
-            const arr = document.querySelector<HTMLAnchorElement>(`#aao_${id}`);
+            const arr = document.getElementById(
+                `aao_${id}`
+            ) as HTMLAnchorElement;
             if (!arr) return;
             const buildingIds: number[] = JSON.parse(
                 arr.getAttribute('building_ids') || '[]'

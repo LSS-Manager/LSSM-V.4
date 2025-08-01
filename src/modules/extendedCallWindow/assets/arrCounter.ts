@@ -5,8 +5,7 @@ export default async (
     getSetting: (key: string) => Promise<boolean>,
     $m: $m
 ): Promise<void> => {
-    const ARRContainer =
-        document.querySelector<HTMLDivElement>('#mission-aao-group');
+    const ARRContainer = document.getElementById('mission-aao-group');
 
     if (!ARRContainer) return;
 

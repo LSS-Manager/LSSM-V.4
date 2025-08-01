@@ -163,15 +163,15 @@ export default (
 
     if (allMissionsCollapsed) allBtn.click();
 
-    const sortBtn = document.querySelector<HTMLButtonElement>(`#${sortBtnId}`);
+    const sortBtn = document.getElementById(sortBtnId);
     if (sortBtn) {
         sortBtn.parentElement?.before(allBtn);
     } else {
         document
-            .querySelector<HTMLDivElement>( // second selector is fallback for pre-ingame-update
-                '#missions .mission-filters .mission-filters-row, #btn-group-mission-select'
+            .querySelector<HTMLDivElement>(
+                '.missions-panel-main .mission_selection:not(:has(~.mission_selection))'
             )
-            ?.append(allBtn);
+            ?.after(allBtn);
     }
 
     return (mission, collapsableMissionBtnClass) => {

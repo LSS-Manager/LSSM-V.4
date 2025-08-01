@@ -95,7 +95,6 @@ export default {
                 ],
                 'Foam Vehicles': [35, 36, 37, 38],
                 'Water Rescue': [73, 74],
-                'ARFF': [75, 76, 77, 78, 79, 80, 81],
             },
             color: '#ff2d2d',
         },
@@ -112,11 +111,11 @@ export default {
         'Police Vehicles': {
             vehicles: {
                 'Police Car': [8],
-                'ARV': [13, 56],
+                'ARV': [13, 56, 82],
                 'Police Helicopter': [11],
                 'DSU': [12],
                 'Traffic Cars': [24, 25],
-                'Public Order': [51, 52, 53, 54, 55, 82],
+                'Public Order': [51, 52, 53, 54, 55],
             },
             color: '#00ac00',
         },
@@ -130,6 +129,13 @@ export default {
                 'Mountain Rescue': [99, 100, 101],
             },
             color: '#88ecc4',
+        },
+        'Airport': {
+            vehicles: {
+                'Airport Firefighting': [75, 76, 77, 78],
+                'Airport Operations': [79, 80, 81],
+            },
+            color: '#000000',
         },
     },
     small_buildings: {

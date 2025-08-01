@@ -8,7 +8,7 @@ export default async (LSSM: Vue): Promise<void> => {
     ).default as Record<string, string[]>;
     Object.entries(emojiMap).forEach(([emoji, namesAndAliases]) => {
         namesAndAliases.forEach(name => {
-            if (name.match(/^:.*:$/u)) emojiByName[name] = emoji;
+            if (/^:.*:$/u.test(name)) emojiByName[name] = emoji;
             else emojiyByAlias[name] = emoji;
         });
     });

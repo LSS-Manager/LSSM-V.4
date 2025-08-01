@@ -145,9 +145,9 @@
                 <li
                     v-if="missionSpecs.additional.possible_patient"
                     :min-is-max="
-                        (min_is_max =
+                        min_is_max =
                             missionSpecs.additional.possible_patient ===
-                            missionSpecs.additional.possible_patient_min)
+                            missionSpecs.additional.possible_patient_min
                     "
                     :data-amount="
                         min_is_max
@@ -301,9 +301,9 @@
                 <li
                     v-if="missionSpecs.additional.possible_crashed_car_max"
                     :min-is-max="
-                        (min_is_max =
+                        min_is_max =
                             missionSpecs.additional.possible_crashed_car_max ===
-                            missionSpecs.additional.possible_crashed_car_min)
+                            missionSpecs.additional.possible_crashed_car_min
                     "
                     :data-amount="
                         min_is_max
@@ -321,6 +321,7 @@
                     }}
                 </li>
             </ul>
+
             <h4 v-if="settings.prerequisites">
                 {{
                     $mc(
@@ -368,10 +369,10 @@
                     v-for="req in specialRequirements.nonbadge"
                     :key="req"
                     :amount="
-                        (amount =
+                        amount =
                             missionSpecs[$m(`noVehicleRequirements.${req}.in`)][
                                 req
-                            ])
+                            ]
                     "
                     :data-amount="amount"
                 >
@@ -413,10 +414,8 @@
                 v-for="req in specialRequirements.badge"
                 :key="req"
                 :amount="
-                    (amount =
-                        missionSpecs[$m(`noVehicleRequirements.${req}.in`)][
-                            req
-                        ])
+                    amount =
+                        missionSpecs[$m(`noVehicleRequirements.${req}.in`)][req]
                 "
             >
                 {{
@@ -455,10 +454,10 @@
                         .expansion_missions_ids"
                     :key="`${index}_expansion_${expansion}`"
                     :mission="
-                        (mission =
+                        mission =
                             missionSpecs.additional.expansion_missions_names[
                                 expansion
-                            ])
+                            ]
                     "
                 >
                     <span class="badge badge-default" v-if="mission">
@@ -488,10 +487,10 @@
                         .followup_missions_ids"
                     :key="`${index}_followup_${followup}`"
                     :mission="
-                        (mission =
+                        mission =
                             missionSpecs.additional.followup_missions_names[
                                 followup
-                            ])
+                            ]
                     "
                 >
                     <span class="badge badge-default" v-if="mission">
@@ -521,10 +520,10 @@
                         .subsequent_missions_ids"
                     :key="`${index}_subsequent_${subsequent}`"
                     :mission="
-                        (mission =
+                        mission =
                             missionSpecs.additional.subsequent_missions_names[
                                 subsequent
-                            ])
+                            ]
                     "
                 >
                     <span class="badge badge-default" v-if="mission">
@@ -732,8 +731,7 @@ export default Vue.extend<
 
             await this.apiStore.getMissions('missionHelper-getMission', force);
 
-            const missionHelpBtn =
-                document.querySelector<HTMLAnchorElement>('#mission_help');
+            const missionHelpBtn = document.getElementById('mission_help');
             this.isDiyMission = !missionHelpBtn;
 
             this.missionSpecs = undefined;

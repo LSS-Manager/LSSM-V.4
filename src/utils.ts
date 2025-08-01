@@ -9,8 +9,7 @@ export default (Vue: VueConstructor): void => {
             return s.replace(/[$()*+.?[\\\]^|]/gu, '\\$&');
         },
         getMissionTypeInMissionWindow() {
-            const missionHelpBtn =
-                document.querySelector<HTMLAnchorElement>('#mission_help');
+            const missionHelpBtn = document.getElementById('mission_help');
             if (!missionHelpBtn) return '-1';
 
             let missionType = new URL(
@@ -55,7 +54,7 @@ export default (Vue: VueConstructor): void => {
             };
 
             const idToLength = (id: string): string => {
-                if (!id.match(/-/u)) return fill0Left(id, idLengths.id);
+                if (!/-/u.test(id)) return fill0Left(id, idLengths.id);
                 const [base, variant] = id.split('-');
                 return `${fill0Left(base, idLengths.id)}-${fill0Left(
                     variant,
@@ -81,14 +80,14 @@ export default (Vue: VueConstructor): void => {
             );
             return (
                 allNumbers
-                    ? text
+                    ? (text
                           .match(regex)
                           ?.map(match =>
                               parseInt(
                                   match.replace(/[\s,.]/gu, '') ??
                                       fallback.toString()
                               )
-                          ) ?? []
+                          ) ?? [])
                     : parseInt(
                           text.match(regex)?.[0]?.replace(/[\s,.]/gu, '') ??
                               fallback.toString()
@@ -133,7 +132,7 @@ export default (Vue: VueConstructor): void => {
             const $utils = (window[PREFIX] as Vue).$utils;
             if (initialCall && $utils.activeCountdowns.includes(id)) return;
 
-            const element = document.querySelector<HTMLElement>(`#${id}`);
+            const element = document.getElementById(id);
             const activeIndex = $utils.activeCountdowns.indexOf(id);
             if (!element || countdown <= 0) {
                 if (activeIndex >= 0)

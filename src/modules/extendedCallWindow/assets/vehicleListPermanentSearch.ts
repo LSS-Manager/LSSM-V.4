@@ -13,7 +13,7 @@ export default (): void => {
         if (vehicleSearch?.offsetParent === null) enableSearchBtn?.click();
     }
 
-    const vehicleTabs = document.querySelector('#tabs');
+    const vehicleTabs = document.getElementById('tabs');
     if (vehicleTabs) vehicleTabs.addEventListener('click', vehicleListChange);
     //Initial expanding
     vehicleListChange();

@@ -264,7 +264,7 @@ export default (LSSM: Vue) => {
         // whisper-mode: currently at entering username
         if (
             chatInput.id !== 'mission_reply_content' && // whispering in mission replies is not possible
-            chatInput.value.match(/^\/w [^ ]+/u) &&
+            /^\/w [^ ]+/u.test(chatInput.value) &&
             selectionStart >= 3 &&
             (selectionStart <= chatInput.value.indexOf(' ', 3) ||
                 chatInput.value.indexOf(' ', 3) === -1)
@@ -282,7 +282,7 @@ export default (LSSM: Vue) => {
             chatInput.dataset.userChoiceOpen = 'true';
 
             fillChoices(users, usernameInput);
-        } else if (chatInput.value.match(/@[^ ]*/u)) {
+        } else if (/@[^ ]*/u.test(chatInput.value)) {
             // mention-mode: currently at entering username
             let pointer = selectionStart - 1;
             if (chatInput.value[pointer] === ' ') return;

@@ -208,7 +208,21 @@
             "name": "Tobi-Continued",
             "avatar_url": "https://avatars.githubusercontent.com/u/142994500?v=4",
             "profile": "https://github.com/Tobi-Continued",
-            "contributions": ["de_DE"]
+            "contributions": ["translation", "de_DE"]
+        },
+        {
+            "login": "buffcode",
+            "name": "buffcode",
+            "avatar_url": "https://avatars.githubusercontent.com/u/2863518?v=4",
+            "profile": "https://github.com/buffcode",
+            "contributions": ["code", "doc", "translation", "de_DE"]
+        },
+        {
+            "login": "Tadjinton",
+            "name": "Tadjinton",
+            "avatar_url": "https://avatars.githubusercontent.com/u/176471391?v=4",
+            "profile": "https://github.com/Tadjinton",
+            "contributions": ["translation", "cs_CZ"]
         }
     ],
     "contributorsPerLine": 7,
@@ -317,8 +331,8 @@
             "symbol": "🇷🇴"
         },
         "ru_RU": {
-            "description": "Translations for Dispetcher112.ru (ru_RU)",
-            "link": "https://www.dispetcher112.ru",
+            "description": "Translations for dispetcher-112.com (ru_RU)",
+            "link": "https://www.dispetcher-112.com",
             "symbol": "🇷🇺"
         },
         "sk_SK": {

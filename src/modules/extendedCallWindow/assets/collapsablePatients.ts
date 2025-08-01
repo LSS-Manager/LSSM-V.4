@@ -56,7 +56,7 @@ export default (
                         infoLabel.classList
                             .toString()
                             .match(
-                                /label-(danger|default|info|primary|success|warning)/u
+                                /label-(?:danger|default|info|primary|success|warning)/u
                             )?.[0] ?? 'label-default';
                 }
                 if (!requirements.detailed.hasOwnProperty(req))

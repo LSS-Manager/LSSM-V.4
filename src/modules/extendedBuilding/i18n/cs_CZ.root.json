@@ -1,0 +1,86 @@
+{
+    "description": "Přidává některé užitečné funkce do vašich budov.",
+    "name": "Rozšířený přehled budov",
+    "settings": {
+        "buildingsLeftRight": {
+            "description": "Zobrazuje, kolik budov stejného typu je ještě v daném směru.",
+            "title": "Počet budov stejného typu"
+        },
+        "dispatchCenterBuildingFilter": {
+            "description": "Přidává několik užitečných filtrů do seznamu budov v operačních střediscích",
+            "title": "Filtr pro budovy v operačním středisku"
+        },
+        "enhancedPersonnelAssignment": {
+            "description": "Umožňuje vám skrýt personál bez odpovídajícího školení.",
+            "title": "Vylepšené přiřazování personálu"
+        },
+        "enhanceVehicleList": {
+            "description": "Rozšiřuje seznam vozidel o užitečné funkce - některé z nich jsou speciálně nastavitelné.",
+            "title": "Rozšířit seznam vozidel"
+        },
+        "expansions": {
+            "description": "Zobrazuje rozšíření budovy, aniž byste museli nejprve stisknout záložku rozšíření.",
+            "title": "Zobrazit rozšíření přímo"
+        },
+        "fastDispatchChooser": {
+            "description": "Umožňuje vybrat přímo v budově, kterému operačnímu středisku je přiřazena, aniž byste museli nejprve přistupovat k nastavením.",
+            "title": "Rychlý výběr operačního střediska"
+        },
+        "fmsSwitch": {
+            "description": "Umožňuje přepínat mezi stavem 2 a 6 kliknutím na stav.",
+            "title": "Rychlý přepínač stavů 2 <=> 6"
+        },
+        "personnelAssignmentBtn": {
+            "description": "Přidává vedle tlačítka \"Upravit\" tlačítko pro přiřazení personálu. - Dosud nefunguje v operačních střediscích!",
+            "title": "Tlačítko pro přiřazení personálu"
+        },
+        "personnelDemands": {
+            "description": "Ukazuje, kolik personálu je potřeba při minimálním a maximálním obsazení vozidel.",
+            "title": "Požadavky na personál"
+        },
+        "renewAllStagingAreas": {
+            "description": "Obnovte všechny své přípravné oblasti najednou pomocí nového tlačítka v rozmístěných oblastech.",
+            "title": "Obnovit všechny rozmístěné oblasti"
+        },
+        "schoolingSummary": {
+            "description": "Ukazuje v přehledu personálu budovy, kolik osob má které školení.",
+            "title": "Přehled personálu"
+        },
+        "schoolsBuildingFilter": {
+            "description": "Užitečné filtry pro zkrácení seznamu budov v okně kurzu",
+            "title": "Filtr budov pro výběr kurzu"
+        },
+        "startPatrolsShortcut": {
+            "description": "Zkratka pro zahájení hlídek v hlavním okně bez otevření operačního střediska.",
+            "title": "Zahájit hlídky v hlavním okně"
+        },
+        "upgradeConfirmation": {
+            "description": "Ptá se, zda opravdu chcete rozšířit svou budovu.",
+            "title": "Rozšířit budovu"
+        },
+        "vehiclesPersonnelAssigned": {
+            "description": "Ukazuje, kolik osob je přiřazeno k vozidlu.",
+            "title": "Přiřazená posádka"
+        },
+        "vehiclesPersonnelColorized": {
+            "description": "Zvýrazňuje počet přiřazené posádky červeně, pokud je menší než maximální možný, a zeleně, když je dosaženo maximálního počtu.",
+            "title": "Barevné kódování pro přiřazenou posádku"
+        },
+        "vehiclesPersonnelCurrent": {
+            "description": "Ukazuje, kolik osob aktuálně sedí ve vozidle.",
+            "title": "Aktuální posádka"
+        },
+        "vehiclesPersonnelMax": {
+            "description": "Ukazuje maximální počet osob, které se mohou vejít do vozidla.",
+            "title": "Maximální posádka"
+        },
+        "vehicleTypes": {
+            "description": "Zobrazuje typ vozidla (a pokud je k dispozici vlastní třída vozidla) ve zvláštním sloupci",
+            "title": "Typ vozidla"
+        },
+        "vehicleTypesOnlyOwn": {
+            "description": "Zobrazuje, pokud je k dispozici, pouze vlastní třída vozidla. Pokud není k dispozici, zobrazí výchozí třídu vozidla.",
+            "title": "Zobrazit pouze vlastní třídu vozidla"
+        }
+    }
+}

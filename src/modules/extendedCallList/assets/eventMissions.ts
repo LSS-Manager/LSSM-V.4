@@ -37,6 +37,7 @@ export default (
             wrapper.textContent = prefix;
             wrapper.classList.add(wrapperClass);
             wrapper.style.setProperty('margin-right', '0.5rem');
+            wrapper.style.setProperty('text-wrap', 'nowrap');
             title.before(wrapper);
         }
 

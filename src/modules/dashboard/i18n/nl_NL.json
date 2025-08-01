@@ -25,6 +25,7 @@
             "title": "Gebouwen"
         },
         "maxMissions": { "title": "Maximum meldingen" },
+        "maxTimedMissions": { "title": "Maximale getimede missies" },
         "vehicles": {
             "empty": "Je hebt nog geen voertuigen in de categorie {category}!",
             "foam": "Foam",

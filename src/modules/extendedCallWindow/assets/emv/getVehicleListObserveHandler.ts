@@ -32,10 +32,8 @@ export default (
         group: Group
     ) => void
 ) => {
-    const vehicleList = document.querySelector<HTMLTableSectionElement>(
-        '#vehicle_show_table_body_all'
-    );
-    const occupiedList = document.querySelector<HTMLDivElement>('#occupied');
+    const vehicleList = document.getElementById('vehicle_show_table_body_all');
+    const occupiedList = document.getElementById('occupied');
 
     if (!vehicleList || !occupiedList) return;
 

@@ -74,7 +74,7 @@ export default async (
         )}:${padNumber(date.getSeconds())}`;
         return `${dateString} ${timeString} ${
             dateInput
-                .split(/(?=[+-])/gu)
+                .split(/(?=[+-])/u)
                 .at(-1)
                 ?.replace(/:/gu, '') ?? ''
         }`;

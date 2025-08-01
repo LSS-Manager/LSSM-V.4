@@ -87,6 +87,7 @@ export default <ModuleMainFunction>(async ({
         buildings: number[];
         state: 'disabled' | 'enabled';
     }
+
     const filters = [
         {
             contentType: 'text',
@@ -257,8 +258,7 @@ export default <ModuleMainFunction>(async ({
             }
         );
 
-        const buildingList =
-            document.querySelector<HTMLUListElement>('#building_list');
+        const buildingList = document.getElementById('building_list');
         if (!buildingList) return;
 
         const buildings: [HTMLLIElement, string][] = [];
@@ -364,11 +364,11 @@ export default <ModuleMainFunction>(async ({
                 () =>
                     buildings.forEach(([building, caption]) =>
                         building.classList[
-                            caption.match(
+                            new RegExp(
                                 LSSM.$utils.escapeRegex(
                                     search.value.trim().toLowerCase()
                                 )
-                            )
+                            ).test(caption)
                                 ? 'remove'
                                 : 'add'
                         ](searchHideClass)
@@ -401,8 +401,7 @@ export default <ModuleMainFunction>(async ({
 
     const observer = new MutationObserver(updateFilters);
 
-    const buildingsElement =
-        document.querySelector<HTMLDivElement>('#buildings');
+    const buildingsElement = document.getElementById('buildings');
     if (buildingsElement)
         observer.observe(buildingsElement, { childList: true });
 

@@ -418,10 +418,12 @@ export default Vue.extend<
                         .map<
                             [string, Record<'diff' | 'have' | 'need', number>]
                         >(([req, amount]) => {
-                            const have = req.match(/\d+\.\d+/u)
-                                ? this.buildings[
-                                      mission.prerequisites.main_building
-                                  ]?.find(
+                            const have = /\d+\.\d+/u.test(req)
+                                ? Object.values(
+                                      this.buildings[
+                                          mission.prerequisites.main_building
+                                      ] ?? {}
+                                  ).some(
                                       b =>
                                           (this.selectedDispatchCenter ===
                                               '0' ||
@@ -445,9 +447,9 @@ export default Vue.extend<
                                   )
                                     ? 1
                                     : 0
-                                : this.prerequisites[
+                                : (this.prerequisites[
                                       this.selectedDispatchCenter
-                                  ][req.replace(/^max_/u, '')] ?? 0;
+                                  ][req.replace(/^max_/u, '')] ?? 0);
                             return [
                                 req,
                                 {

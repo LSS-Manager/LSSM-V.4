@@ -18,24 +18,22 @@ export default (async ({
     }
 
     if (
-        (!window.location.pathname.match(
-            /^\/buildings\/\d+(\/(personals|vehicles\/new))?\/?$/u
+        (!/^\/buildings\/\d+(?:\/(?:personals|vehicles\/new))?\/?$/u.test(
+            window.location.pathname
         ) &&
-            !window.location.pathname.match(
-                /^\/vehicles\/\d+\/zuweisung\/?$/u
+            !/^\/vehicles\/\d+\/zuweisung\/?$/u.test(
+                window.location.pathname
             ) &&
-            !window.location.pathname.match(/^\/schoolings\/\d+\/?$/u)) ||
-        (!document.querySelector('#bereitstellungsraumReset') &&
+            !/^\/schoolings\/\d+\/?$/u.test(window.location.pathname)) ||
+        (!document.getElementById('bereitstellungsraumReset') &&
             document.querySelectorAll('[href*="profile"]').length)
     )
         return;
 
-    if (window.location.pathname.match(/^\/buildings\/\d+\/?$/u)) {
-        const BUILDING_MODE = document.querySelector<HTMLDivElement>(
-            '#tab_protocol'
-        )
+    if (/^\/buildings\/\d+\/?$/u.test(window.location.pathname)) {
+        const BUILDING_MODE = document.getElementById('tab_protocol')
             ? 'dispatch'
-            : document.querySelector<HTMLDivElement>('#schooling_running')
+            : document.getElementById('schooling_running')
               ? 'schooling'
               : 'building';
 
@@ -64,7 +62,7 @@ export default (async ({
         if (BUILDING_MODE === 'building') {
             if (
                 (await getSetting('personnelDemands')) &&
-                document.querySelector<HTMLTableElement>('#vehicle_table')
+                document.getElementById('vehicle_table')
             ) {
                 import(
                     /* webpackChunkName: "modules/extendedBuilding/personnelDemands" */ './assets/personnelDemands'
@@ -86,7 +84,7 @@ export default (async ({
 
         if (
             (await getSetting('expansions')) &&
-            document.querySelector('#ausbauten')
+            document.getElementById('ausbauten')
         ) {
             import(
                 /* webpackChunkName: "modules/extendedBuilding/expansions" */ './assets/expansions'
@@ -141,7 +139,7 @@ export default (async ({
             }
         }
     } else if (
-        window.location.pathname.match(/^\/buildings\/\d+\/personals\/?$/u)
+        /^\/buildings\/\d+\/personals\/?$/u.test(window.location.pathname)
     ) {
         if (await getSetting('schoolingSummary')) {
             import(
@@ -151,7 +149,7 @@ export default (async ({
             );
         }
     } else if (
-        window.location.pathname.match(/^\/buildings\/\d+\/vehicles\/new\/?$/u)
+        /^\/buildings\/\d+\/vehicles\/new\/?$/u.test(window.location.pathname)
     ) {
         if (await getSetting('autoBuyLevels')) {
             import(
@@ -166,7 +164,7 @@ export default (async ({
             personalAssignmentButton()
         );
     } else if (
-        window.location.pathname.match(/^\/vehicles\/\d+\/zuweisung\/?$/u)
+        /^\/vehicles\/\d+\/zuweisung\/?$/u.test(window.location.pathname)
     ) {
         if (await getSetting('enhancedPersonnelAssignment')) {
             import(
@@ -181,7 +179,7 @@ export default (async ({
                 )
             );
         }
-    } else if (window.location.pathname.match(/^\/schoolings\/\d+\/?$/u)) {
+    } else if (/^\/schoolings\/\d+\/?$/u.test(window.location.pathname)) {
         if (await getSetting('schoolsBuildingFilter')) {
             import(
                 /* webpackChunkName: "modules/extendedBuilding/schoolsBuildingFilter" */ './assets/schoolsBuildingFilter'

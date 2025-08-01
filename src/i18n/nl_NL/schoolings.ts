@@ -122,12 +122,6 @@ export default {
             staffList: 'Geneeskundige bijstandsverlener',
             key: 'mass_casualty_and_emergency_doctor',
         },
-        {
-            caption: 'Intensive Care Team',
-            duration: '3 Dagen',
-            staffList: 'Intensive Care Teamlid',
-            key: 'intensive_care',
-        },
     ],
     Politie: [
         {
@@ -228,6 +222,12 @@ export default {
             staffList: 'Geneeskundige bijstandsverlener',
             key: 'mass_casualty_and_emergency_doctor',
         },
+        {
+            caption: 'Intensive Care Team',
+            duration: '3 Dagen',
+            staffList: 'Intensive Care Teamlid',
+            key: 'intensive_care',
+        },
     ],
     Waterredding: [
         {
@@ -253,6 +253,20 @@ export default {
             duration: '3 Dagen',
             staffList: 'Waterredder',
             key: 'gw_wasserrettung',
+        },
+    ],
+    Militair: [
+        {
+            caption: 'Marechaussee',
+            duration: '4 Dagen',
+            staffList: 'Marechaussee',
+            key: 'military_police',
+        },
+        {
+            caption: 'Mobiele Eenheid',
+            duration: '4 Dagen',
+            staffList: 'Mobiele Eenheid',
+            key: 'police_mobiele_eenheid',
         },
     ],
 } satisfies SchoolingsBySchool;

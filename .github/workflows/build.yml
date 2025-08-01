@@ -29,6 +29,8 @@ jobs:
         outputs:
             branch: ${{ steps.output.outputs.branch }}
             version: ${{ steps.output.outputs.version }}
+        env:
+            BranchLabel: ${{ inputs.label || github.ref }}
         steps:
             # - name: Generate Token
             #   id: generate_token
@@ -79,6 +81,7 @@ jobs:
               run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
             - name: '[💽] restore cache'
+              if: github.ref != 'refs/heads/master'
               uses: actions/cache@v4
               id: yarn_cache
               with:
@@ -157,7 +160,9 @@ jobs:
 
             - name: '[📜] build userscript'
               id: userscript
-              run: yarn tsc --pretty --project "src/tsconfig.userscript.json" || exit 1
+              run: |
+                  yarn tsc --pretty --project "src/tsconfig.userscript.json" || exit 1
+                  yarn ts-node scripts/buildUserscript.ts || exit 1
 
             - name: '[📜] build buildscript'
               id: buildscript
@@ -165,11 +170,11 @@ jobs:
 
             - name: '[🚧] run prebuild'
               id: prebuild
-              run: yarn ts-node prebuild/index.ts "${{ env.MODE }}" "${{ env.BRANCH }}" "${{ inputs.label }}" || exit 1
+              run: yarn ts-node prebuild/index.ts "${{ env.MODE }}" "${{ env.BRANCH }}" "$BranchLabel" || exit 1
 
             - name: '[👷] webpack'
               id: webpack
-              run: yarn ts-node build/index.ts --esModuleInterop "${{ env.MODE }}" "${{ env.BRANCH }}" "${{ inputs.label }}" || exit 1
+              run: yarn ts-node build/index.ts --esModuleInterop "${{ env.MODE }}" "${{ env.BRANCH }}" "$BranchLabel" || exit 1
 
             - name: '[📝] build docs'
               id: docs

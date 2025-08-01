@@ -9,13 +9,19 @@ fs.writeFileSync(
         Object.fromEntries(
             Object.entries(emojis).map(
                 ([
-                    unicode,
-                    { name, shortname, shortname_alternates, ascii },
+                    ,
+                    {
+                        name,
+                        shortname,
+                        shortname_alternates,
+                        ascii,
+                        code_points: { fully_qualified: unicode },
+                    },
                 ]) => [
                     unicode
                         .split('-')
-                        .map(n => String.fromCodePoint(parseInt(n, 16)))
-                        .join(''),
+                        .map(point => String.fromCodePoint(parseInt(point, 16)))
+                        .reduce((a, b) => a + b),
                     [
                         ...new Set([
                             `:${name

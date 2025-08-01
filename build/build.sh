@@ -36,19 +36,27 @@ now () {
     echo "${timestamp/N/000000000}"
 }
 
-ms_elapsed() {
+ms_elapsed () {
     local timestamp_now
     timestamp_now=$(now)
-    echo $(((10#$timestamp_now - 10#$1) / 1000000))ms
+    elapsed=$(((10#$timestamp_now - 10#$1) / 1000000))
+    seconds=$((elapsed / 1000))
+    ms=$(printf "%03d" $((elapsed - (seconds * 1000))))
+    minutes=$(printf "%02d" $((seconds / 60)))
+    seconds=$(printf "%02d" $((seconds - (minutes * 60))))
+    echo "${minutes}:${seconds}.${ms} (${elapsed}ms)"
 }
 
-print_start_message() {
+print_start_message () {
     echo "${bold}${blue}### $1 ###${normal}"
 }
 
-print_end_message() {
+print_end_message () {
     echo "${bold}${green}=== $1: $(ms_elapsed "$2") [$(date +"%Y-%m-%d %H:%M:%S %Z")] ===${normal}"
 }
+
+# add an environment variable containing all args
+export LSSM_ARGS="'$*'"
 
 
 # default values of variables set from params
@@ -69,6 +77,7 @@ _RUN_STEP_PREBUILD=false
 _RUN_STEP_WEBPACK=false
 _RUN_STEP_DOCS=false
 _RUN_STEP_GIT_DIFF=false
+_RUN_STEP_SERVE=false
 MODE="development"
 DEBUG=false
 
@@ -91,6 +100,7 @@ while :; do
         --webpack) _RUN_STEP_WEBPACK=true ;;
         --docs) _RUN_STEP_DOCS=true ;;
         --git_diff) _RUN_STEP_GIT_DIFF=true ;;
+        --serve) _RUN_STEP_SERVE=true ;;
         --dependencies)
           _RUN_STEP_YARN_SETUP=true
           _RUN_STEP_VERSIONS=true
@@ -102,10 +112,26 @@ while :; do
           _RUN_STEP_ESLINT=true
           _RUN_STEP_TSC=true
           _RUN_STEP_WEBPACK=true ;;
+        --local)
+          _RUN_STEP_YARN_SETUP=true
+          _RUN_STEP_VERSIONS=true
+          _RUN_STEP_PREBUILD=true
+          _RUN_STEP_YARN_INSTALL=true
+          _RUN_STEP_ENV=true
+          _RUN_STEP_TSC=true
+          _RUN_STEP_USERSCRIPT=true
+          _RUN_STEP_WEBPACK=true
+          _RUN_STEP_SERVE=true ;;
         --pre-commit)
           _RUN_STEP_FORMAT=true
           _RUN_STEP_ESLINT=true
           _RUN_STEP_TSC=true ;;
+        --api)
+          _RUN_STEP_NODE=true
+          _RUN_STEP_YARN_SETUP=true
+          _RUN_STEP_YARN_INSTALL=true
+          _RUN_STEP_TSC=true
+          _RUN_STEP_PREBUILD=true ;;
         --full)
           _RUN_STEP_NODE=true
           _RUN_STEP_YARN_SETUP=true
@@ -126,6 +152,7 @@ while :; do
           _RUN_STEP_GIT_DIFF=true ;;
         -p | --production) MODE="production" ;;
         --debug) DEBUG=true ;;
+        --port) shift; _PORT=$1 ;;
         -?*)
           echo "Unknown option: $1"
           exit 1 ;;
@@ -133,6 +160,15 @@ while :; do
     esac
     shift
 done
+
+# expose the set port (or default port) as environment variable for local server
+if [[ $_RUN_STEP_SERVE = true ]]; then
+    if [[ -z "$_PORT" ]]; then
+        export LSSM_PORT=36551 # because 536551 is LSSM in base 29 but port numbers are 16-bit only so we omit the leading 5
+    else
+        export LSSM_PORT=$_PORT
+    fi
+fi
 
 total_start_time=$(now)
 
@@ -306,6 +342,7 @@ if [[ $_RUN_STEP_USERSCRIPT = true ]]; then
     print_start_message "[📜] build userscript"
     enable_debugging
     yarn tsc --pretty --project "src/tsconfig.userscript.json" || exit 1
+    yarn ts-node scripts/buildUserscript.ts || exit 1
     disable_debugging
     print_end_message "[📜] build userscript" "$start_time"
 fi
@@ -325,7 +362,7 @@ if [[ $_RUN_STEP_PREBUILD = true ]]; then
     start_time=$(now)
     print_start_message "[🚧] run prebuild"
     enable_debugging
-    yarn ts-node prebuild/index.ts "$MODE" "$BRANCH" "🦄 branch label" || exit 1
+    yarn ts-node prebuild/index.ts "$MODE" "$BRANCH" ""🦄 branch label"" || exit 1
     disable_debugging
     print_end_message "[🚧] run prebuild" "$start_time"
 fi
@@ -335,7 +372,7 @@ if [[ $_RUN_STEP_WEBPACK = true ]]; then
     start_time=$(now)
     print_start_message "[👷] webpack"
     enable_debugging
-    yarn ts-node build/index.ts --esModuleInterop "$MODE" "$BRANCH" "🦄 branch label" || exit 1
+    yarn ts-node build/index.ts --esModuleInterop "$MODE" "$BRANCH" ""🦄 branch label"" || exit 1
     disable_debugging
     print_end_message "[👷] webpack" "$start_time"
 fi
@@ -361,6 +398,16 @@ if [[ $_RUN_STEP_GIT_DIFF = true ]] && [[ $GIT_REPO = true ]]; then
     git --no-pager diff --color-words
     disable_debugging
     print_end_message "[ℹ️] git diff" "$start_time"
+fi
+
+# Start test server
+if [[ $_RUN_STEP_SERVE = true ]]; then
+    start_time=$(now)
+    print_start_message "Start test server"
+    enable_debugging
+    ws -d ./dist/ --https --port="$LSSM_PORT" --hostname localhost
+    disable_debugging
+    print_end_message "Start test server" "$start_time"
 fi
 
 print_end_message "Total" "$total_start_time"

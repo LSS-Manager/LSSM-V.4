@@ -15,7 +15,7 @@ export function getCityFromAddress(address: string): string {
 
 // matches all Zip-styles of the countries supported by LSSM
 const ZIP_REGEX =
-    /^((\d{4} ?[A-Z]{2})|((\d{4}|\d{2})[ -]\d{3})|(\d{3} \d{2})|\d+|([\dA-Z]{2,4} [\dA-Z]{3}))/u;
+    /^(?:\d{4} ?[A-Z]{2}|(?:\d{4}|\d{2})[ -]\d{3}|\d{3} \d{2}|\d+|[\dA-Z]{2,4} [\dA-Z]{3})/u;
 
 /**
  * A method to remove the ZIP Code from a city name.

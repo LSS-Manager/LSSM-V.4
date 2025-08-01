@@ -64,12 +64,23 @@
                 "vehicles": [0, 1, 16, 17, 26, 37, 38, 47]
             },
             {
+                "texts": ["Fire Engine or RIV", "Fire Engines or RIVs"],
+                "vehicles": [0, 1, 16, 17, 26, 37, 38, 47, 76]
+            },
+            {
                 "texts": ["Aerial Appliance Truck", "Aerial Appliance Trucks"],
                 "vehicles": [2, 17]
             },
             {
+                "texts": [
+                    "Aerial Appliance Truck or Rescue Stairs",
+                    "Aerial Appliance Trucks or Rescue Stairs"
+                ],
+                "vehicles": [2, 17, 78]
+            },
+            {
                 "texts": ["Fire Officer", "Fire Officers"],
-                "vehicles": [3, 15, 44]
+                "vehicles": [3, 15, 44, 77]
             },
             {
                 "texts": [
@@ -77,6 +88,20 @@
                     "Rescue Support Units or Rescue Pumps"
                 ],
                 "vehicles": [4, 16, 38, 43]
+            },
+            {
+                "texts": [
+                    "Fire engine, Rescue Support Vehicle or Aerial Appliance Truck",
+                    "Fire engines, Rescue Support Vehicles or Aerial Appliance Trucks"
+                ],
+                "vehicles": [0, 1, 2, 4, 16, 17, 26, 37, 38, 43, 47]
+            },
+            {
+                "texts": [
+                    "Fire engine or Rescue Support Vehicle",
+                    "Fire engines or Rescue Support Vehicles"
+                ],
+                "vehicles": [0, 1, 4, 16, 17, 26, 37, 38, 43, 47]
             },
             { "texts": ["BASU", "BASUs"], "vehicles": [14, 39, 46, 49] },
             {
@@ -101,7 +126,7 @@
                     "ICCU or Ambulance Control Unit",
                     "ICCU or Ambulance Control Units"
                 ],
-                "vehicles": [15, 31, 44]
+                "vehicles": [15, 31, 44, 77]
             },
             {
                 "texts": [
@@ -113,14 +138,21 @@
             { "texts": ["Ambulance", "Ambulances"], "vehicles": [5] },
             {
                 "texts": ["Police car", "Police cars"],
-                "vehicles": [8, 12, 13, 19, 24, 25, 51, 52, 56]
+                "vehicles": [8, 12, 13, 19, 24, 25, 51, 52, 56, 82]
+            },
+            {
+                "texts": [
+                    "Police Car or Armed Response Vehicle (ARV)",
+                    "Police Cars or Armed Response Vehicles (ARVs)"
+                ],
+                "vehicles": [8, 12, 13, 19, 24, 25, 51, 52, 56, 82]
             },
             { "texts": ["HEMS"], "vehicles": [9] },
             {
                 "texts": ["Policehelicopter", "Policehelicopters"],
                 "vehicles": [11]
             },
-            { "texts": ["Armed Response"], "vehicles": [13, 25, 52, 56] },
+            { "texts": ["Armed Response"], "vehicles": [13, 25, 52, 56, 82] },
             {
                 "texts": ["Dog Support Unit (DSU)", "Dog Support Units (DSUs)"],
                 "vehicles": [12, 53]
@@ -158,7 +190,7 @@
             },
             {
                 "texts": ["Foam Unit", "Foam Units"],
-                "vehicles": [35, 36, 37, 38, 42]
+                "vehicles": [35, 36, 37, 38, 42, 75]
             },
             { "texts": ["Mass Casualty Equipment"], "vehicles": [33] },
             { "texts": ["Mounted Unit", "Mounted Units"], "vehicles": [55] },
@@ -174,7 +206,7 @@
                 "texts": ["Flood Rescue Unit", "Flood Rescue Units"],
                 "vehicles": [61]
             },
-            { "texts": ["CRV", "CRVs"], "vehicles": [57] },
+            { "texts": ["CRV", "CRVs"], "vehicles": [57, 58, 59] },
             {
                 "texts": ["Coastguard Commander", "Coastguard Commanders"],
                 "vehicles": [60]
@@ -186,7 +218,8 @@
                 ],
                 "vehicles": [67, 74]
             },
-            { "texts": ["ILB", "ILBs"], "vehicles": [68] },
+            { "texts": ["ILB or ALB", "ILBs or ALBs"], "vehicles": [68, 69] },
+            { "texts": ["ILB", "ILBs"], "vehicles": [68, 69] },
             {
                 "texts": [
                     "Coastguard Rescue Helicopter",
@@ -225,7 +258,10 @@
                 "texts": ["Major Foam Tender", "Major Foam Tenders"],
                 "vehicles": [75]
             },
-            { "texts": ["Rescue Stair", "Rescue Stairs"], "vehicles": [78] },
+            {
+                "texts": ["Rescue Stair", "Rescue Stairs"],
+                "vehicles": [78, 2, 17]
+            },
             {
                 "texts": [
                     "Airfield Firefighting Command Vehicle",
@@ -238,7 +274,7 @@
                     "Airfield Operations Vehicle",
                     "Airfield Operations Vehicles"
                 ],
-                "vehicles": [79]
+                "vehicles": [79, 80]
             },
             { "texts": ["RIV", "RIVs"], "vehicles": [76] },
             {

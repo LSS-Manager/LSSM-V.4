@@ -12,13 +12,13 @@
                     v-for="(entry, id) in data.entries"
                     :key="id"
                     :color="
-                        (color = `text-${
+                        color = `text-${
                             entry.total > 0
                                 ? 'success'
                                 : entry.total < 0
                                   ? 'danger'
                                   : ''
-                        }`)
+                        }`
                     "
                 >
                     <td>{{ dates[dates.length - 1 - id] }}</td>

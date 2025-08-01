@@ -304,7 +304,8 @@ html.dark .bug {
         (
                 (var(--label-r) * 0.2126) + (var(--label-g) * 0.7152) +
                     (var(--label-b) * 0.0722)
-            ) / 255
+            ) /
+            255
     );
     --lightness-switch: max(
         0,

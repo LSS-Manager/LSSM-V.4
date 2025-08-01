@@ -68,7 +68,7 @@ durch das LSSM-Team darum bittet, da die Konsole viele Nachrichten enthalten wir
 ## Moment.js
 
 Dieser Abschnitt bietet dir eine Hilfestellung bei der Konfiguration von Daten und Uhrzeiten, die du selber einstellen
-kannst, z.B. im Modul [Uhr](modules/clock.md).
+kannst, z.&nbsp;B. im Modul [Uhr](modules/clock.md).
 
 Wir nutzen [Moment.js](https://momentjs.com/), um dir eine möglichst breite Auswahl an Konfigurationsmöglichkeiten
 bieten zu können.
@@ -92,7 +92,7 @@ darunter.
 
 ### Normaler Text
 
-Möchte man die aktuelle Uhrzeit mit nachfolgendem `Uhr` ausgeben lassen, also z.B. `08:33:31 Uhr`, kann man
+Möchte man die aktuelle Uhrzeit mit nachfolgendem `Uhr` ausgeben lassen, also z.&nbsp;B. `08:33:31 Uhr`, kann man
 einfach `LTS Uhr` schreiben. Das Problem hierbei ist jedoch, dass das `h` ebenfalls ersetzt wird. Das Ergebnis
 wäre `08:33:31 U8r`.
 Deshalb kann man reinen Text "ausklammern", um eine Formatierung zu verhindern. Das geschieht, indem man ihn in eckige

@@ -29,7 +29,7 @@ export default (LSSM: Vue, whisper: boolean, mention: boolean) => {
 
         if (whisper && chatInput.value.startsWith('/w '))
             form.classList.add('is-whispering');
-        else if (mention && chatInput.value.match(/@[^ ]+/u))
+        else if (mention && /@[^ ]+/u.test(chatInput.value))
             form.classList.add('is-mentioning');
         else return form.classList.remove('has-feedback');
 

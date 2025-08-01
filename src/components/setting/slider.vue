@@ -121,13 +121,13 @@ export default Vue.extend<
         updateValue: {
             get() {
                 const int = this.normalize(this.value);
-                return Number.isNaN(int) ? this.min ?? this.max ?? 0 : int;
+                return Number.isNaN(int) ? (this.min ?? this.max ?? 0) : int;
             },
             set(value) {
                 const int = this.normalize(value);
                 this.$emit(
                     'input',
-                    Number.isNaN(int) ? this.min ?? this.max ?? 0 : int
+                    Number.isNaN(int) ? (this.min ?? this.max ?? 0) : int
                 );
             },
         },

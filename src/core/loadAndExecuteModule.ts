@@ -28,7 +28,7 @@ export default (
 
             if (settings) await registerModuleSettings(LSSM, moduleId, $m);
 
-            if (!window.location.pathname.match(location)) return;
+            if (!new RegExp(location).test(window.location.pathname)) return;
 
             if (moduleId === 'redesign') {
                 document

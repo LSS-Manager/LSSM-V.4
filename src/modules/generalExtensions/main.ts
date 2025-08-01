@@ -83,12 +83,13 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
         );
     }
 
-    const addToPanelHeading = !!window.location.pathname.match(
-        /^\/(verband\/(bereitstellungsraume|gebauede|location)|buildings\/\d+\/move)\/?$/u
-    );
+    const addToPanelHeading =
+        /^\/(?:verband\/(?:bereitstellungsraume|gebauede|location)|buildings\/\d+\/move)\/?$/u.test(
+            window.location.pathname
+        );
     const isDispatchCenter =
-        !!window.location.pathname.match(/^\/buildings\/\d+\/?$/u) &&
-        !!document.querySelector<HTMLDivElement>('#tab_projected_missions');
+        /^\/buildings\/\d+\/?$/u.test(window.location.pathname) &&
+        !!document.getElementById('tab_projected_missions');
 
     const mapSearchOnMap = await getSetting<boolean>('mapSearchOnMap');
 
@@ -120,7 +121,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
         );
     }
 
-    if (window.location.pathname.match(/\/aao_exports\/?$/u)) {
+    if (/\/aao_exports\/?$/u.test(window.location.pathname)) {
         import(
             /* webpackChunkName: "modules/generalExtensions/aaoExportQr" */ './assets/aaoExportQr'
         ).then(({ default: aaoExportQr }) => aaoExportQr());

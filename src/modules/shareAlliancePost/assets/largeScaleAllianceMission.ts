@@ -304,8 +304,7 @@ export default async ({
         })
     );
 
-    const buildingsElement =
-        document.querySelector<HTMLDivElement>('#buildings');
+    const buildingsElement = document.getElementById('buildings');
     if (buildingsElement)
         observer.observe(buildingsElement, { childList: true });
 };
