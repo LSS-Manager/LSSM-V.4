@@ -106,4 +106,4 @@ Also each module contains a `docs` folder. Add a `xx_XX.md` file in there and st
 * Add the schooling to the main i18n file of your language.
     * If a new school is used, add a new key for the school.
 
-[FA]: https://fontawesome.com/icons?d=gallery&m=free
+[FA]: https://fontawesome.com/search?ic=free&o=r

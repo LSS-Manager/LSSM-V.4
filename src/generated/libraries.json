@@ -25,7 +25,7 @@
         "version": "2.0.10"
     },
     "@primer/octicons": {
-        "icon": "https://primer.style/icons/icon-512x512.png",
+        "icon": "https://avatars.githubusercontent.com/u/7143434",
         "url": "https://primer.style/octicons",
         "version": "19.15.5"
     },
@@ -161,7 +161,7 @@
         "version": "8.3.4"
     },
     "all-contributors-cli": {
-        "icon": "https://allcontributors.org/img/icons/android-icon-192x192.png",
+        "icon": "https://avatars.githubusercontent.com/u/46410174",
         "url": "https://github.com/all-contributors/all-contributors-cli#readme",
         "version": "6.26.1"
     },

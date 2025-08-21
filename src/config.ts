@@ -186,6 +186,6 @@ export default {
             : 'https://docs.lss-manager.de/',
         statuspage: 'https://status.lss-manager.de/',
         donations: 'https://donate.lss-manager.de/',
-        fontAwesomeIconSearch: 'https://fontawesome.com/v6/search?m=free',
+        fontAwesomeIconSearch: 'https://fontawesome.com/search?ic=free&o=r',
     },
 } as Config;
