@@ -179,8 +179,11 @@
             "distance_dispatch": "Distance jusqu'au prochain centre de traitement des appels",
             "distance_station": "Distance jusqu'à la prochaine station",
             "id": "Age",
+            "notarzt_chance": "ALS Chance",
             "remaining_patients": "Patients actuels",
             "remaining_prisoners": "Prisonniers actuels",
+            "rth_chance": "Air-Ambulance Chance",
+            "transport_chance": "Transport Chance",
             "zip_code": "Codes postaux (globalement)"
         }
     }

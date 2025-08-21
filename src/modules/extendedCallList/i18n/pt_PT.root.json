@@ -157,8 +157,11 @@
             "distance_dispatch": "Distância para o Centro de Comando",
             "distance_station": "Distância para a estação",
             "id": "Idade",
+            "notarzt_chance": "ALS Chance",
             "remaining_patients": "Pacientes atuais",
             "remaining_prisoners": "Prisioneiros atuais",
+            "rth_chance": "Air-Ambulance Chance",
+            "transport_chance": "Transport Chance",
             "zip_code": "Código PPsotal (globalmente)"
         }
     }

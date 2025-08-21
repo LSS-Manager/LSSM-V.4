@@ -319,8 +319,11 @@
             "distance_dispatch": "Entfernung zur nächsten Leitstelle",
             "distance_station": "Entfernung zur nächsten Wache",
             "id": "Alter",
+            "notarzt_chance": "Notarzt-Wahrscheinlichkeit",
             "remaining_patients": "aktuelle Patienten",
             "remaining_prisoners": "aktuelle Gefangene",
+            "rth_chance": "RTH-Wahrscheinlichkeit",
+            "transport_chance": "Transport-Wahrscheinlichkeit",
             "zip_code": "Postleitzahl (weltweit)"
         }
     }

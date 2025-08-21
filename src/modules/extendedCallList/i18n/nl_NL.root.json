@@ -153,8 +153,11 @@
             "distance_dispatch": "Afstand tot dichtstbijzijnde meldkamer",
             "distance_station": "Afstand tot dichtstbijzijnde post",
             "id": "Generatietijd",
+            "notarzt_chance": "ALS Chance",
             "remaining_patients": "Huidige patiënten",
             "remaining_prisoners": "Huidige arrestanten",
+            "rth_chance": "Air-Ambulance Chance",
+            "transport_chance": "Transport Chance",
             "zip_code": "ZIP-Codes (globally)"
         }
     }

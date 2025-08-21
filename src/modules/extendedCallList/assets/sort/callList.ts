@@ -19,8 +19,11 @@ export type Sort =
     | 'distance_dispatch'
     | 'distance_station'
     | 'id'
+    | 'notarzt_chance'
     | 'remaining_patients'
     | 'remaining_prisoners'
+    | 'rth_chance'
+    | 'transport_chance'
     | 'zip_code';
 
 interface StringSorting {
@@ -49,6 +52,9 @@ export default async (
         'distance_dispatch',
         'distance_station',
         'zip_code',
+        'transport_chance',
+        'notarzt_chance',
+        'rth_chance',
     ];
     let sortingType = sort;
     const sortingDirection = direction;
@@ -197,6 +203,9 @@ export default async (
         remaining_patients = 'user-injured',
         remaining_prisoners = 'handcuffs',
         zip_code = 'map-location-dot',
+        transport_chance = 'hospital',
+        notarzt_chance = 'stethoscope',
+        rth_chance = 'helicopter',
     }
 
     enum faDirectionIcon {
@@ -400,6 +409,20 @@ export default async (
             parseFloat(mission.getAttribute('longitude') ?? '0')
         );
 
+    const getMissionType = (mission: HTMLDivElement): string | null => {
+        let missionType = mission.getAttribute('mission_type_id') ?? '-1';
+        if (missionType === '-1' || missionType === 'null') return null;
+        const overlayIndex =
+            mission.getAttribute('data-overlay-index') ?? 'null';
+        if (overlayIndex && overlayIndex !== 'null')
+            missionType += `-${overlayIndex}`;
+        const additionalOverlay =
+            mission.getAttribute('data-additive-overlays') ?? 'null';
+        if (additionalOverlay && additionalOverlay !== 'null')
+            missionType += `/${additionalOverlay}`;
+        return missionType;
+    };
+
     const orderFunctions: Record<
         Sort,
         (mission: HTMLDivElement) => number | undefined
@@ -407,17 +430,8 @@ export default async (
         default: () => 0,
         id: mission => parseInt(mission.getAttribute('mission_id') ?? '0'),
         credits: mission => {
-            let missionType = mission.getAttribute('mission_type_id') ?? '-1';
-            if (missionType === '-1' || missionType === 'null')
-                return maxCSSInteger - 1;
-            const overlayIndex =
-                mission.getAttribute('data-overlay-index') ?? 'null';
-            if (overlayIndex && overlayIndex !== 'null')
-                missionType += `-${overlayIndex}`;
-            const additionalOverlay =
-                mission.getAttribute('data-additive-overlays') ?? 'null';
-            if (additionalOverlay && additionalOverlay !== 'null')
-                missionType += `/${additionalOverlay}`;
+            const missionType = getMissionType(mission);
+            if (missionType === null) return maxCSSInteger - 1;
             return missionsById[missionType]?.average_credits;
         },
         remaining_patients: mission => {
@@ -448,15 +462,8 @@ export default async (
                 ?.querySelectorAll('.small[id^="prisoner_"]').length;
         },
         alphabet: mission => {
-            let missionType = mission.getAttribute('mission_type_id') ?? '-1';
-            const overlayIndex =
-                mission.getAttribute('data-overlay-index') ?? 'null';
-            if (overlayIndex && overlayIndex !== 'null')
-                missionType += `-${overlayIndex}`;
-            const additionalOverlay =
-                mission.getAttribute('data-additive-overlays') ?? 'null';
-            if (additionalOverlay && additionalOverlay !== 'null')
-                missionType += `/${additionalOverlay}`;
+            const missionType = getMissionType(mission);
+            if (missionType === null) return maxCSSInteger - 1;
             return missionIdsByAlphabet[missionType];
         },
         distance_dispatch: mission => {
@@ -485,6 +492,21 @@ export default async (
             const zip = getZipFromCity(getCityFromAddress(address));
 
             return findStringOrder(zip, zipCodes);
+        },
+        transport_chance: mission => {
+            const missionType = getMissionType(mission);
+            if (missionType === null) return maxCSSInteger - 1;
+            return missionsById[missionType]?.chances?.patient_transport;
+        },
+        notarzt_chance: mission => {
+            const missionType = getMissionType(mission);
+            if (missionType === null) return maxCSSInteger - 1;
+            return missionsById[missionType]?.chances?.nef;
+        },
+        rth_chance: mission => {
+            const missionType = getMissionType(mission);
+            if (missionType === null) return maxCSSInteger - 1;
+            return missionsById[missionType]?.chances?.helicopter;
         },
     };
 

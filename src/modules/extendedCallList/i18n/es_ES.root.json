@@ -140,8 +140,11 @@
             "distance_dispatch": "Distancia a la próxima centralita",
             "distance_station": "Distancia a la siguiente estación",
             "id": "Tiempo de la misión",
+            "notarzt_chance": "ALS Chance",
             "remaining_patients": "Pacientes actuales",
             "remaining_prisoners": "Presos actuales",
+            "rth_chance": "Air-Ambulance Chance",
+            "transport_chance": "Transport Chance",
             "zip_code": "ZIP-Codes (globally)"
         }
     }
