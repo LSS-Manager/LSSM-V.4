@@ -16,6 +16,7 @@ export default (LSSM: Vue, whisper: boolean, mention: boolean) => {
     lockIcon.style.setProperty('padding-left', '10px');
     lockIcon.style.setProperty('padding-right', '10px');
     lockIcon.style.setProperty('z-index', '3');
+    lockIcon.style.setProperty('box-sizing', 'border-box');
 
     const atIcon = lockIcon.cloneNode(true) as HTMLElement;
 
