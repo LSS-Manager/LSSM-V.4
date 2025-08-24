@@ -1,7 +1,7 @@
 # Contribution Guide
 You want to contribute to LSS-Manager? Here are some tips on how to contribute!
 
-**Hint**: There is a new guide available in our [Wiki](https://docs.lss-manager.de/en_US/contributing) that helps with translating. The content of this file will be merged with it soon.
+**Hint**: There is a new guide available in our [Wiki](https://docs.lss-manager.de/en_US/contributing.html) that helps with translating. The content of this file will be merged with it soon.
 
 **If you got any questions on contributing, you can contact LSSM Team at any time!**
 
