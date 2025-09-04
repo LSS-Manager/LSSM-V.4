@@ -267,7 +267,9 @@
                         class="btn btn-default"
                         :title="lightbox.$sm('refit')"
                     >
-                        <font-awesome-icon :icon="faScrewdriverWrench"></font-awesome-icon>
+                        <font-awesome-icon
+                            :icon="faScrewdriverWrench"
+                        ></font-awesome-icon>
                     </a>
                     <a
                         :href="`/vehicles/${vehicle.id}/stats`"
