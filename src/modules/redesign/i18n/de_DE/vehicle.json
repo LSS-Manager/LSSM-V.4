@@ -56,7 +56,7 @@
     },
     "fms": "FMS",
     "fms_switch": { "is_s2": "S6 setzen", "is_s6": "S2 setzen" },
-    "foam_amount": "Schaummenge",
+    "foam_amount": "SLM",
     "followup_missions": "Folgeeinsatz | Folgeeinsätze",
     "load_all_hospitals": {
         "btn": "Alle laden",
@@ -102,6 +102,8 @@
         "distance": "Küstenwache",
         "home": "Heimathafen: {building}"
     },
+    "pump_amount": "Pumpenleistung",
+    "refit": "Umrüsten",
     "release": {
         "cancel": "Abbrechen",
         "confirm": "Ja, entlassen!",

@@ -95,6 +95,7 @@ interface BaseVehicleWindow {
     staff?: Record<string, string>;
     water?: string;
     foam?: string;
+    pump?: string;
 }
 
 export interface MissionsWindow extends BaseVehicleWindow {
@@ -293,6 +294,9 @@ export default <RedesignParser<VehicleWindow>>(({
                 ?.textContent ?? undefined,
         foam:
             doc.querySelector<HTMLDivElement>('#vehicle-attr-foam-amount')
+                ?.textContent ?? undefined,
+        pump:
+            doc.querySelector<HTMLDivElement>('#vehicle-attr-pump-amount')
                 ?.textContent ?? undefined,
     };
 
