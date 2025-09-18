@@ -7695,6 +7695,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jsonata@npm:2.0.4":
+  version: 2.0.4
+  resolution: "jsonata@npm:2.0.4"
+  checksum: 10c0/0e5c3f9630dec7eb59d8c79b02aa6f6c4465af1a1638abae0b1d42df7a02f1911a3494038645d260cdc96b395f072498b5adf35927dea0918ad75a6401fb35ad
+  languageName: node
+  linkType: hard
+
 "jsonfile@npm:^6.0.1":
   version: 6.2.0
   resolution: "jsonfile@npm:6.2.0"
@@ -8228,6 +8235,7 @@ __metadata:
     html-loader: "npm:5.1.0"
     husky: "npm:9.1.7"
     js-yaml: "npm:4.1.0"
+    jsonata: "npm:2.0.4"
     leaflet.heat: "npm:0.2.0"
     local-web-server: "npm:5.4.0"
     localforage: "npm:1.10.0"

@@ -267,6 +267,10 @@
     "js-yaml": {
         "version": "4.1.0"
     },
+    "jsonata": {
+        "url": "http://jsonata.org/",
+        "version": "2.0.4"
+    },
     "leaflet.heat": {
         "url": "https://github.com/Leaflet/Leaflet.heat",
         "version": "0.2.0"
