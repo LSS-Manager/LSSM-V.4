@@ -2944,7 +2944,7 @@ export default {
         icon: 'car-side',
         possibleBuildings: [12],
         isTrailer: true,
-        tractiveVehicles: [171],
+        tractiveVehicles: [171, 173],
         special:
             'Der Anhänger Technik und Sicherheit wird bei SEG-Einsätzen für den Transport von technischer Ausrüstung und den Infrastrukturaufbau genutzt. Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (GW TeSi)',
     },
