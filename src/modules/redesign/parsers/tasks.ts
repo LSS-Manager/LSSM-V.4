@@ -56,7 +56,7 @@ export default <RedesignParser<TasksWindow>>(({ LSSM, doc, $sm }) => ({
                         `(?<=registerTaskTimer\\(.*?${countdownEl?.id}.*?)\\d+(?=\\))`
                     )
                 )?.[0] ?? '-1'
-        );
+        ) / 1000;
         const [progress, total] = task
             .querySelector('.task_body .progress > .progress-bar + div')
             ?.textContent?.trim()
