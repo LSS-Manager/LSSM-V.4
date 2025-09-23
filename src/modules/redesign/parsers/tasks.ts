@@ -48,8 +48,8 @@ export default <RedesignParser<TasksWindow>>(({ LSSM, doc, $sm }) => ({
             '[id^="task_countdown_"]'
         );
         const id = parseInt(countdownEl?.id.split('_')[2] ?? '-1');
-        const countdown =
-            parseInt(
+        const countdown = Math.floor(
+            (parseInt(
                 countdownEl
                     ?.querySelector('script')
                     ?.textContent?.match(
@@ -57,7 +57,10 @@ export default <RedesignParser<TasksWindow>>(({ LSSM, doc, $sm }) => ({
                             `(?<=registerTaskTimer\\(.*?${countdownEl?.id}.*?)\\d+(?=\\))`
                         )
                     )?.[0] ?? '-1'
-            ) / 1000;
+            ) -
+                Date.now()) /
+                1000
+        );
         const [progress, total] = task
             .querySelector('.task_body .progress > .progress-bar + div')
             ?.textContent?.trim()
