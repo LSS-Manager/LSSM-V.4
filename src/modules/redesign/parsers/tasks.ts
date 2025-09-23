@@ -53,7 +53,7 @@ export default <RedesignParser<TasksWindow>>(({ LSSM, doc, $sm }) => ({
                 ?.querySelector('script')
                 ?.textContent?.match(
                     new RegExp(
-                        `(?<=registerTaskTimer\\(\\s*)\\d+(?=,\\s*'all',\\s*${id},\\s*'web'\\))`
+                        `(?<=registerTaskTimer\\(.*?${countdownEl?.id}.*?)\\d+(?=\\))`
                     )
                 )?.[0] ?? '-1'
         );
