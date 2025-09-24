@@ -117,7 +117,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
             const [label, calendarString] =
                 expansionIndexByEndTime[$timer.data('end-time')];
             label.textContent = `${window.formatTime(
-                Math.round((endTime - Date.now()) / 1000)
+                Math.floor(endTime / 1000)
             )} (${calendarString})`;
         },
     });
