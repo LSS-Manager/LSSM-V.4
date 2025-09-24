@@ -144,13 +144,10 @@ declare global {
             format: string | 'long';
             onTimerEnd(): void;
         }): void;
-        updateTimer(
-            timer: Pick<
-                Parameters<this['setupTimer']>[0],
-                '$timer' | 'format'
-            > & {
-                endTime: Date;
-            }
+        timerUpdate(
+            id: string,
+            object: JQUery<HTMLElement>,
+            endTime: number
         ): void;
         flavouredAsset(asset: string, scope?: string): string;
         searchMission(): void;
