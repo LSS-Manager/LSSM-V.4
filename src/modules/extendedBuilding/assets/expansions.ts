@@ -112,12 +112,12 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     LSSM.$stores.root.hook({
         event: 'timerUpdate',
         callback(
-            ...[{ $timer, endTime }]: Parameters<typeof window.updateTimer>
+            ...[, $timer, endTime]: Parameters<typeof window.timerUpdate>
         ) {
             const [label, calendarString] =
                 expansionIndexByEndTime[$timer.data('end-time')];
             label.textContent = `${window.formatTime(
-                Math.round((endTime.getTime() - Date.now()) / 1000)
+                Math.round((endTime - Date.now()) / 1000)
             )} (${calendarString})`;
         },
     });
