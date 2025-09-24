@@ -110,7 +110,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
         row.insertCell().append(...labels);
     });
     LSSM.$stores.root.hook({
-        event: 'updateTimer',
+        event: 'timerUpdate',
         callback(
             ...[{ $timer, endTime }]: Parameters<typeof window.updateTimer>
         ) {
