@@ -11,12 +11,12 @@
     },
     "firefox": {
         "download": "https://firefox.com",
-        "latest": 142,
-        "supported": 136
+        "latest": 143,
+        "supported": 137
     },
     "opera": {
         "download": "https://opera.com",
-        "latest": 121,
-        "supported": 115
+        "latest": 122,
+        "supported": 116
     }
 }
