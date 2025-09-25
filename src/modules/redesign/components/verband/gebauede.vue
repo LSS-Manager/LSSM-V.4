@@ -288,7 +288,7 @@ export default Vue.extend<
         this.lightbox.finishLoading('verband/gebauede-mounted');
         this.gebauede.buildings.forEach(({ extensions }) =>
             extensions.forEach(({ id, countdown }) =>
-                window.extensionCountdown(countdown, `${id}_redesign`)
+                window.registerExtensionTimer(id, `${id}_redesign`, countdown)
             )
         );
     },
