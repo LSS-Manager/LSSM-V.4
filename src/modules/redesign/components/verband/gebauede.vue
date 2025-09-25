@@ -289,8 +289,7 @@ export default Vue.extend<
         this.$nextTick(() =>
             this.gebauede.buildings.forEach(({ extensions }) =>
                 extensions.forEach(({ id, countdown }) =>
-                    window.registerExtensionTimer(
-                        id,
+                    window[PREFIX].$utils.countdown(
                         `extension_countdown_${id}_redesign`,
                         countdown
                     )
