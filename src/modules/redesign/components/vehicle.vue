@@ -644,6 +644,7 @@ import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine';
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { faPalette } from '@fortawesome/free-solid-svg-icons/faPalette';
 import { faPortrait } from '@fortawesome/free-solid-svg-icons/faPortrait';
+import { faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons/faScrewdriverWrench';
 import { faSitemap } from '@fortawesome/free-solid-svg-icons/faSitemap';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
