@@ -39,6 +39,12 @@ export default {
             backgroundColor: '#007fff',
             textColor: 'white',
         },
+        convertvehicle: {
+            regex: /Fahrzeug umgerüstet/u,
+            title: 'Fahrzeug Umrüstung',
+            backgroundColor: '#ed872d',
+            textColor: 'black',
+        },
         dailyLogin: {
             regex: /Täglicher Login-Bonus/u,
             backgroundColor: '#8db600',
