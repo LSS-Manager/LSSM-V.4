@@ -15,7 +15,7 @@
 		"showdown": "2.1.0",
 		"simple-git": "3.28.0",
 		"vue": "3.5.22",
-		"vuepress": "2.0.0-rc.2",
+		"vuepress": "2.0.0-rc.26",
 		"vuepress-plugin-sitemap2": "2.0.0-rc.16"
 	}
 }
