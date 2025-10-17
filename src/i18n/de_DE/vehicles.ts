@@ -2997,7 +2997,7 @@ export default {
     177: {
         caption: 'MTW-FGr Log-V',
         color: '#36759e',
-        credits: 2_500,
+        credits: 2500,
         coins: 12,
         staff: {
             min: 5,
@@ -3016,7 +3016,7 @@ export default {
     178: {
         caption: 'Anh 12 Lbw (FGr Log-V)',
         color: '#36759e',
-        credits: 5_000,
+        credits: 5000,
         coins: 12,
         staff: {
             min: 0,
