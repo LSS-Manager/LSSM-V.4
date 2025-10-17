@@ -362,6 +362,18 @@ export default {
             staffList: 'Fachzug Führung und Kommunikation',
             key: 'thw_command',
         },
+        {
+            caption: 'Logistik-Verpflegung',
+            duration: '3 Tage',
+            staffList: 'Logistik-Verpflegung',
+            key: 'thw_care_service',
+        },
+        {
+            caption: 'Verpflegungshelfer',
+            duration: '3 Tage',
+            staffList: 'Verpflegungshelfer',
+            key: 'care_service_equipment',
+        },
     ],
     Wasserrettung: [
         {
