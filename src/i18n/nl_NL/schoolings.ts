@@ -57,12 +57,6 @@ export default {
             key: 'spokesman',
         },
         {
-            caption: 'Waterredding',
-            duration: '3 Dagen',
-            staffList: 'Waterredding',
-            key: 'gw_wasserrettung',
-        },
-        {
             caption: 'Weginspecteur',
             duration: '3 Dagen',
             staffList: 'Weginspecteur',
