@@ -190,6 +190,12 @@ export default {
             staffList: 'Motoragent',
             key: 'police_motorcycle',
         },
+        {
+            caption: 'Bomverkenner',
+            duration: '4 Dagen',
+            staffList: 'Bomverkenner',
+            key: 'bomb_disposal_patrol',
+        },
     ],
     Ambulance: [
         {
