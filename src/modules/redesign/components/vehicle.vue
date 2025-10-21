@@ -266,7 +266,9 @@
                         class="btn btn-default"
                         :title="lightbox.$sm('refit')"
                     >
-                        <font-awesome-icon :icon="faScrewdriverWrench"></font-awesome-icon>
+                        <font-awesome-icon
+                            :icon="faScrewdriverWrench"
+                        ></font-awesome-icon>
                     </a>
                     <a
                         :href="`/vehicles/${vehicle.id}/stats`"
@@ -653,7 +655,6 @@ import { faAsterisk } from '@fortawesome/free-solid-svg-icons/faAsterisk';
 import { faBan } from '@fortawesome/free-solid-svg-icons/faBan';
 import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine';
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
-import { faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons/faScrewdriverWrench';
 import { faPalette } from '@fortawesome/free-solid-svg-icons/faPalette';
 import { faPortrait } from '@fortawesome/free-solid-svg-icons/faPortrait';
 import { faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons/faScrewdriverWrench';
