@@ -57,12 +57,6 @@ export default {
             key: 'spokesman',
         },
         {
-            caption: 'Waterredding',
-            duration: '3 Dagen',
-            staffList: 'Waterredding',
-            key: 'gw_wasserrettung',
-        },
-        {
             caption: 'Weginspecteur',
             duration: '3 Dagen',
             staffList: 'Weginspecteur',
@@ -195,6 +189,12 @@ export default {
             duration: '2 Dagen',
             staffList: 'Motoragent',
             key: 'police_motorcycle',
+        },
+        {
+            caption: 'Bomverkenner',
+            duration: '4 Dagen',
+            staffList: 'Bomverkenner',
+            key: 'bomb_disposal_patrol',
         },
     ],
     Ambulance: [
