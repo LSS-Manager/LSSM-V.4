@@ -318,8 +318,8 @@
     },
     "sass-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
-        "url": "https://github.com/webpack-contrib/sass-loader",
-        "version": "16.0.5"
+        "url": "https://github.com/webpack/sass-loader",
+        "version": "16.0.6"
     },
     "semver": {
         "version": "7.7.3"
