@@ -112,7 +112,7 @@
                     "Betreuungs- und Verpflegungsausstattung",
                     "Betreuungs- und Verpflegungsausstattungen"
                 ],
-                "vehicles": [130, 132]
+                "vehicles": [130, 132, 139, 141, 178]
             },
             { "texts": ["Boot", "Boote"], "vehicles": [66, 67, 68, 70, 71] },
             { "texts": ["Bt-Kombi", "Bt-Kombis"], "vehicles": [131] },
