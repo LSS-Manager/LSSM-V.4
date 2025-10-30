@@ -111,10 +111,13 @@
             "lebefkw": "ME Commandovoertuig | ME Commandovoertuigen",
             "mass_casualty": "NHT",
             "mass_casualty_advanced": "GGB",
+            "military_police": "KMAR Eenheid | KMAR Eenheden",
+            "min_pump_speed": "Min. Pomp Capaciteit",
             "mobile_air_vehicles": "Adembeschermingsvoertuig | Adembeschermingsvoertuigen",
             "mobile_command_vehicles": "Hoofd Officier van Dienst -  Brandweer | Hoofd Officieren van Dienst -  Brandweer",
             "need_oneof_fire_engine_or_rescue": "Tankautospuiten of hulpverleningsvoertuigen",
             "need_oneof_wildfire_engine_or_airport_fire_engine": "Tankautospuiten (Terreinvaardig) of Crashtender",
+            "oneof_fire_rescue_or_ladder": "Hulpverleningsvoertuig of Redvoertuig | Hulpverleningsvoertuigen of Redvoertuigen",
             "ovdp": "Officier van Dienst - Politie | Officieren van Dienst - Politie",
             "platform_trucks": "Redvoertuig | Redvoertuigen",
             "police_cars": "Noodhulpvoertuig | Noodhulpvoertuigen",
@@ -130,15 +133,12 @@
             "traffic_motorcycle": "DM-RWS",
             "traffic_patrol": "SIV-P of DM-P",
             "traffic_unit": "Signalisatie Voertuig | Signalisatie Voertuigen",
+            "wasserwerfer": "Waterwerper | Waterwerpers",
             "water_rescue": "Strandvoertuig | Strandvoertuigen",
             "water_tankers": "Slangenwagen of watertankwagen | Slangenwagens of watertankwagens",
             "wildfire": "Handcrew",
             "wildfire_command": "DA-LA-NB",
-            "wildfire_equipment": "Natuurbrandbestrijding Uitrusting",
-            "military_police": "KMAR Eenheid | KMAR Eenheden",
-            "min_pump_speed": "Min. Pomp Capaciteit",
-            "oneof_fire_rescue_or_ladder": "Hulpverleningsvoertuig of Redvoertuig | Hulpverleningsvoertuigen of Redvoertuigen",
-            "wasserwerfer": "Waterwerper | Waterwerpers"
+            "wildfire_equipment": "Natuurbrandbestrijding Uitrusting"
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {
