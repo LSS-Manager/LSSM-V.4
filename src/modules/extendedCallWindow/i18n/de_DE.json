@@ -289,7 +289,7 @@
                 "texts": ["Schmutzwasserpumpe", "Schmutzwasserpumpen"],
                 "vehicles": [101, 102]
             },
-            { "texts": ["THW-Einsatzleitung (MTW TZ)"], "vehicles": [40] },
+            { "texts": ["THW-Einsatzleitung (MTW-TZ)"], "vehicles": [40] },
             { "texts": ["MzGW (FGr N)"], "vehicles": [41] },
             { "texts": ["Teleskopmast", "Teleskopmasten"], "vehicles": [85] },
             { "texts": ["Turbolöscher"], "vehicles": [86] },
