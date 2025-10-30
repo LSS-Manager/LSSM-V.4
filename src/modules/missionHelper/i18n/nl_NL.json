@@ -134,7 +134,8 @@
             "water_tankers": "Slangenwagen of watertankwagen | Slangenwagens of watertankwagens",
             "wildfire": "Handcrew",
             "wildfire_command": "DA-LA-NB",
-            "wildfire_equipment": "Natuurbrandbestrijding Uitrusting"
+            "wildfire_equipment": "Natuurbrandbestrijding Uitrusting",
+            "military_police": "KMAR Eenheden"
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {
