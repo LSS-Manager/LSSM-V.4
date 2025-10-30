@@ -135,7 +135,10 @@
             "wildfire": "Handcrew",
             "wildfire_command": "DA-LA-NB",
             "wildfire_equipment": "Natuurbrandbestrijding Uitrusting",
-            "military_police": "KMAR Eenheden"
+            "military_police": "KMAR Eenheden",
+            "min_pump_speed": "Min. Pomp Capaciteit",
+            "oneof_fire_rescue_or_ladder": "Hulpverleningsvoertuigen of Redvoertuigen",
+            "wasserwerfer": "Waterwerper"
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {
