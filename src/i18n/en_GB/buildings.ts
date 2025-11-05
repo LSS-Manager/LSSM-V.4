@@ -702,6 +702,22 @@ export default {
         maxBuildingsFunction: (): number => 4,
         icon: 'warehouse',
     },
+
+    34: {
+        caption: 'Recovery Centre',
+        color: '#88ecc4',
+        coins: 30,
+        credits: 300_000,
+        levelPrices: {
+            credits: [ ],
+            coins: [ ],
+        },
+           {
+        extensions: [],
+        levelcost: ['1-5. 300,000 Credits / 30 Coins'],
+        maxBuildings: [ ],
+        maxLevel: 5,
+           }
     16: {
         caption: 'Prison',
         color: '#00ff00',
