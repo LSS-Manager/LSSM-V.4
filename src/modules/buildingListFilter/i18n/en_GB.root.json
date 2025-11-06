@@ -7,7 +7,7 @@
         { "ids": [27, 28, 30, 31, 33], "name": "Search and Rescue" },
         { "ids": [23, 24], "name": "Shit Complexe" },
         { "ids": [7], "name": "Dispatch Center" },
-        { "ids": [34], "name": "Recovery Centre" }
+        { "ids": [34], "name": "Recovery Centre" },
     ],
     "description": "Customize filters of the buildinglist!",
     "lssmComplex": "LSSM building complex",
