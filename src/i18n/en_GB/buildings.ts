@@ -712,7 +712,6 @@ export default {
             credits: [ ],
             coins: [ ],
         },
-           {
         extensions: [],
         levelcost: ['1-5. 300,000 Credits / 30 Coins'],
         maxBuildings: [ ],
