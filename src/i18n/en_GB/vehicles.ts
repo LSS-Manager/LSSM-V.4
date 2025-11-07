@@ -1734,7 +1734,6 @@ export default {
         credits: 28_000,
         coins: 20,
         staff: { min: 1, max: 2 },
-        training: {'HGV Recovery'},
         icon: 'car-side',
         possibleBuildings: [34],
         special: 'can tow larger vehicles like trucks and buses.',
