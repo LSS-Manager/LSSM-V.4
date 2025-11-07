@@ -93,7 +93,7 @@
         "sass": "1.93.3",
         "sass-loader": "16.0.6",
         "simpleheat": "0.4.0",
-        "terser": "5.44.0",
+        "terser": "5.44.1",
         "ts-loader": "9.5.4",
         "ts-node": "10.9.2",
         "typescript": "5.5.4",
