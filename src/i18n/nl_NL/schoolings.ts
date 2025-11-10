@@ -57,12 +57,6 @@ export default {
             key: 'spokesman',
         },
         {
-            caption: 'Waterredding',
-            duration: '3 Dagen',
-            staffList: 'Waterredding',
-            key: 'gw_wasserrettung',
-        },
-        {
             caption: 'Weginspecteur',
             duration: '3 Dagen',
             staffList: 'Weginspecteur',
@@ -196,6 +190,12 @@ export default {
             staffList: 'Motoragent',
             key: 'police_motorcycle',
         },
+        {
+            caption: 'Bomverkenner',
+            duration: '4 Dagen',
+            staffList: 'Bomverkenner',
+            key: 'bomb_disposal_patrol',
+        },
     ],
     Ambulance: [
         {
@@ -267,6 +267,24 @@ export default {
             duration: '4 Dagen',
             staffList: 'Mobiele Eenheid',
             key: 'police_mobiele_eenheid',
+        },
+        {
+            caption: 'Bomontmanteling',
+            duration: '7 Dagen',
+            staffList: 'Bomontmanteling',
+            key: 'bomb_disposal',
+        },
+        {
+            caption: 'Duiker Defensie',
+            duration: '7 Dagen',
+            staffList: 'Duiker Defensie',
+            key: 'bomb_disposal_diver',
+        },
+        {
+            caption: 'Hondengeleider EOD',
+            duration: '7 Dagen',
+            staffList: 'Hondengeleider EOD',
+            key: 'bomb_disposal_dogs',
         },
     ],
 } satisfies SchoolingsBySchool;
