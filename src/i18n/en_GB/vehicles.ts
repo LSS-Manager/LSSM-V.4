@@ -1737,5 +1737,5 @@ export default {
         icon: 'car-side',
         possibleBuildings: [34],
         special: 'can tow larger vehicles like trucks and buses.',
-    }
+    },
 } satisfies Record<number, InternalVehicle>;
