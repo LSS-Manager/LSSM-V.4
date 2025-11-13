@@ -265,7 +265,7 @@
         "version": "9.1.7"
     },
     "js-yaml": {
-        "version": "4.1.0"
+        "version": "4.1.1"
     },
     "leaflet.heat": {
         "url": "https://github.com/Leaflet/Leaflet.heat",
