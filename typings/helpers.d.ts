@@ -224,7 +224,8 @@ declare module 'vue/types/vue' {
     }
 }
 
-export interface LSSMEvent<arguments extends unknown[] = unknown[]>
-    extends Event {
+export interface LSSMEvent<
+    arguments extends unknown[] = unknown[],
+> extends Event {
     detail: arguments;
 }
