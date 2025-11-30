@@ -3032,15 +3032,14 @@ export default {
     179: {
         caption: 'AB-NEA50',
         color: '#f60303',
-        credits: 5_000,
+        credits: 5000,
         coins: 12,
         staff: {
             min: 0,
             max: 0,
         },
         icon: 'square',
-        special:
-            '',
+        special: '',
         possibleBuildings: [0, 18],
         isTrailer: true,
         tractiveVehicles: [46],
@@ -3048,7 +3047,7 @@ export default {
     180: {
         caption: 'AB-NEA200',
         color: '#fd090f',
-        credits: 8_000,
+        credits: 8000,
         coins: 12,
         staff: {
             min: 0,
@@ -3062,8 +3061,7 @@ export default {
             },
         },
         icon: 'square',
-        special:
-            '',
+        special: '',
         isTrailer: true,
         tractiveVehicles: [46],
         possibleBuildings: [0],
