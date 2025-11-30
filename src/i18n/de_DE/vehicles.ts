@@ -3029,4 +3029,43 @@ export default {
         special:
             'Der Anh 12 Lbw (FGr Log-V) dient zur Verpflegung von Einsatzkräften und Betroffenen und ist Teil der Betreuungs- und Verpflegungsausstattung. Er hat somit dieselbe Funktion wie der Anh FKH der Feuerwehr.',
     },
+    179: {
+        caption: 'AB-NEA50',
+        color: '#f60303',
+        credits: 5_000,
+        coins: 12,
+        staff: {
+            min: 0,
+            max: 0,
+        },
+        icon: 'square',
+        special:
+            '',
+        possibleBuildings: [0, 18],
+        isTrailer: true,
+        tractiveVehicles: [46],
+    },
+    180: {
+        caption: 'AB-NEA200',
+        color: '#fd090f',
+        credits: 8_000,
+        coins: 12,
+        staff: {
+            min: 0,
+            max: 0,
+            training: {
+                Feuerwehr: {
+                    energy_supply: {
+                        min: 1,
+                    },
+                },
+            },
+        },
+        icon: 'square',
+        special:
+            '',
+        isTrailer: true,
+        tractiveVehicles: [46],
+        possibleBuildings: [0],
+    },
 } satisfies Record<number, InternalVehicle>;

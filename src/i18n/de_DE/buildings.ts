@@ -44,7 +44,7 @@ export default {
                     parkingLotReservations: [
                         [
                             47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
-                            142, 164, 168, 169,
+                            142, 164, 168, 169, 179,
                         ],
                     ],
                     cannotDisable: true,
@@ -74,7 +74,7 @@ export default {
                 parkingLotReservations: [
                     [
                         47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119, 142,
-                        164, 168, 169,
+                        164, 168, 169, 179,
                     ],
                 ],
                 cannotDisable: true,
@@ -134,7 +134,7 @@ export default {
                     parkingLotReservations: [
                         [
                             47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
-                            142, 164, 168, 169,
+                            142, 164, 168, 169, 179,
                         ],
                     ],
                     cannotDisable: true,
@@ -157,7 +157,7 @@ export default {
                 duration: '5 Tage',
                 isVehicleExtension: true,
                 givesParkingLots: 0,
-                unlocksVehicleTypes: [111],
+                unlocksVehicleTypes: [111, 179],
             },
             {
                 caption: 'Netzersatzanlage 200',
@@ -166,9 +166,9 @@ export default {
                 duration: '7 Tage',
                 requiredExtensions: [9],
                 isVehicleExtension: true,
-                givesParkingLots: 1,
-                parkingLotReservations: [[113]],
-                unlocksVehicleTypes: [113],
+                givesParkingLots: 2,
+                parkingLotReservations: [[113],[180]],
+                unlocksVehicleTypes: [113, 180],
                 unlockedVehiclesOnReservedLotsOnly: true,
             },
             {
@@ -193,7 +193,7 @@ export default {
                 parkingLotReservations: [
                     [
                         47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119, 142,
-                        164, 168, 169,
+                        164, 168, 169, 179,
                     ],
                 ],
                 cannotDisable: true,
@@ -261,12 +261,12 @@ export default {
                     parkingLotReservations: [
                         [
                             47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
-                            142, 164, 168, 169,
+                            142, 164, 168, 169, 179,
                         ],
                     ],
                     cannotDisable: true,
                 },
-                2
+                3
             ),
         ],
         storageUpgrades: {
