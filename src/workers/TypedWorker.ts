@@ -3,14 +3,14 @@ import { useConsoleStore } from '@stores/console';
 type WorkerExtraPropertiesType = Record<never, never>;
 
 export type WorkerSelf<
-    ExtraProperties extends
-        WorkerExtraPropertiesType = WorkerExtraPropertiesType,
+    ExtraProperties extends WorkerExtraPropertiesType =
+        WorkerExtraPropertiesType,
     Scripts extends Record<string, unknown> = Record<never, never>,
 > = ExtraProperties & Scripts & WindowOrWorkerGlobalScope;
 
 type WorkerFunction<
-    ExtraProperties extends
-        WorkerExtraPropertiesType = WorkerExtraPropertiesType,
+    ExtraProperties extends WorkerExtraPropertiesType =
+        WorkerExtraPropertiesType,
     Scripts extends Record<string, unknown> = Record<never, never>,
     Args extends unknown[] = [],
     Return = void,
