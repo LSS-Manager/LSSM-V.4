@@ -9,7 +9,7 @@
 		"@vuepress/plugin-pwa-popup": "2.0.0-rc.14",
 		"@vuepress/plugin-register-components": "2.0.0-rc.52",
 		"@vuepress/plugin-search": "2.0.0-rc.3",
-		"@vuepress/theme-default": "2.0.0-rc.6",
+		"@vuepress/theme-default": "2.0.0-rc.120",
 		"cloc": "2.11.0",
 		"moment": "2.30.1",
 		"showdown": "2.1.0",
