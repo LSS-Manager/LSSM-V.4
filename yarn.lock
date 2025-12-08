@@ -5485,10 +5485,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"emoji-toolkit@npm:9.0.1":
-  version: 9.0.1
-  resolution: "emoji-toolkit@npm:9.0.1"
-  checksum: 10c0/53a28b61f86fafc056f8cf0595b06e0162cbe6398e50f12801298e6f0e08a7633c3140f14d8f205412149bbf35e4b837936dcb63f83bd5b22e1ed60f5e7fae85
+"emoji-toolkit@npm:10.0.0":
+  version: 10.0.0
+  resolution: "emoji-toolkit@npm:10.0.0"
+  checksum: 10c0/2665d75afced4a46589d0b979db796a94f8f7ab072eea67482d8914df54a5b87b54ae9be48536fb42e1af1ffc89888c22e357453e791692c8ca1923ddd1f3a6f
   languageName: node
   linkType: hard
 
@@ -8357,7 +8357,7 @@ __metadata:
     broadcast-channel: "npm:4.20.2"
     copy-dir: "npm:1.3.0"
     css-loader: "npm:7.1.2"
-    emoji-toolkit: "npm:9.0.1"
+    emoji-toolkit: "npm:10.0.0"
     eslint: "npm:8.57.0"
     eslint-config-prettier: "npm:10.1.8"
     eslint-import-resolver-typescript: "npm:4.4.4"
