@@ -101,7 +101,7 @@
         "util": "0.12.5",
         "vue-loader": "15.10.1",
         "vue-template-compiler": "2.7.16",
-        "webpack": "5.103.0"
+        "webpack": "5.104.0"
     },
     "engines": {
         "node": "24.11.1"
