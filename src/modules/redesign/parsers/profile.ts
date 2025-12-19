@@ -123,7 +123,7 @@ export default <RedesignParser<ProfileWindow>>(async ({
         buildings: await fetch(`/building/buildings_json?user_to_load_id=${id}`)
             .then(res => res.json())
             .then<Building[]>(p => p.buildings ?? [])
-            .then(b => b.filter(({user_id}) => user_id === id)),
+            .then(b => b.filter(({ user_id }) => user_id === id)),
         ignored: !!doc.querySelector<HTMLAnchorElement>(
             'a[href^="/ignoriert/entfernen/"]'
         ),
