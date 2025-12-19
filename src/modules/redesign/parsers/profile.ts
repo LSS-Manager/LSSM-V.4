@@ -1,10 +1,21 @@
-import { full } from 'acorn-walk';
-import { type Node as AcornNode, parse } from 'acorn';
-
-import type { BuildingMarkerAdd } from 'typings/Ingame';
 import type { RedesignParser } from 'typings/modules/Redesign';
 
-type Building = BuildingMarkerAdd;
+interface Building {
+    id: number;
+    user_id: number;
+    name: string;
+    longitude: number;
+    latitude: number;
+    icon: string;
+    icon_other: string;
+    lbid: number;
+    show_vehicles_at_startpage: boolean;
+    level: number;
+    personal_count: number;
+    building_type: number;
+    filter_id: string;
+    detail_button: string;
+}
 
 interface Award {
     caption: string;
@@ -35,26 +46,11 @@ export interface ProfileWindow {
     alliance_ignored: boolean;
 }
 
-interface CallExpressionNode extends AcornNode {
-    expression: {
-        type: 'CallExpression';
-        callee: AcornNode & { name: string };
-        arguments: (AcornNode & {
-            properties: (AcornNode & {
-                key: { value: string };
-                value:
-                    | {
-                          type: 'UnaryExpression';
-                          operator: string;
-                          argument: AcornNode & { value: number };
-                      }
-                    | { type: 'Literal'; value: number | string };
-            })[];
-        })[];
-    };
-}
-
-export default <RedesignParser<ProfileWindow>>(({ LSSM, doc, href = '' }) => {
+export default <RedesignParser<ProfileWindow>>(async ({
+    LSSM,
+    doc,
+    href = '',
+}) => {
     const id = parseInt(
         new URL(href, window.location.origin).pathname.match(
             /\d+(?=\/?$)/u
@@ -124,45 +120,10 @@ export default <RedesignParser<ProfileWindow>>(({ LSSM, doc, href = '' }) => {
                     ?.textContent?.trim() ?? '',
         })),
         has_map: !!doc.querySelector<HTMLDivElement>('#profile_map'),
-        buildings: Array.from(doc.scripts)
-            .filter(script =>
-                script.textContent?.includes('buildingMarkerAddSingle')
-            )
-            .flatMap(script => {
-                const tree = parse(script.textContent ?? '', {
-                    ecmaVersion: 'latest',
-                });
-
-                const markerNodes: CallExpressionNode[] = [];
-                full(
-                    tree,
-                    (node: AcornNode | CallExpressionNode) =>
-                        node.type === 'ExpressionStatement' &&
-                        'expression' in node &&
-                        node.expression.type === 'CallExpression' &&
-                        node.expression.callee.type === 'Identifier' &&
-                        node.expression.callee.name ===
-                            'buildingMarkerAddSingle' &&
-                        markerNodes.push(node)
-                );
-
-                return markerNodes.map(
-                    node =>
-                        Object.fromEntries(
-                            node.expression.arguments[0].properties.map(
-                                prop => [
-                                    prop.key.value,
-                                    prop.value.type === 'UnaryExpression'
-                                        ? parseFloat(
-                                              prop.value.operator +
-                                                  prop.value.argument.value
-                                          )
-                                        : prop.value.value,
-                                ]
-                            )
-                        ) as unknown as Building
-                );
-            }),
+        buildings: await fetch(`/building/buildings_json?user_to_load_id=${id}`)
+            .then(res => res.json())
+            .then<Building[]>(p => p.buildings ?? [])
+            .then(b => b.filter(({user_id}) => user_id === id)),
         ignored: !!doc.querySelector<HTMLAnchorElement>(
             'a[href^="/ignoriert/entfernen/"]'
         ),
