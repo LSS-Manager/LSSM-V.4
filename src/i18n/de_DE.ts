@@ -117,7 +117,7 @@ export default {
         Rettungsdienst: {
             vehicles: {
                 'Rettungsdienstfahrzeuge': [28, 29, 55, 56, 73, 74, 97],
-                'Rettungshubschrauber': [31],
+                'Rettungshubschrauber': [31, 157],
                 'KTW': [38],
                 'SEG-Fahrzeuge': [58, 59, 60],
                 'Rettungshundefahrzeuge': [91],
@@ -134,7 +134,7 @@ export default {
             vehicles: {
                 'Funkstreifenwagen': [32, 95, 98, 103],
                 'Bereitschaftspolizei-Fahrzeuge': [35, 50, 51, 52, 72, 165],
-                'Polizeihubschrauber': [61, 96],
+                'Polizeihubschrauber': [61, 96, 156],
                 'SEK': [79, 80],
                 'MEK': [81, 82],
                 'Diensthunde': [94],
