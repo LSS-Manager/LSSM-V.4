@@ -305,7 +305,7 @@
     "prettier": {
         "icon": "https://prettier.io/icon.png",
         "url": "https://prettier.io",
-        "version": "3.7.4"
+        "version": "3.8.0"
     },
     "qrcode": {
         "url": "http://github.com/soldair/node-qrcode",
