@@ -165,6 +165,14 @@ export interface BuildingMarkerAdd {
     detail_button: string;
 }
 
+export interface BuildingMarkerCache extends BuildingMarkerAdd {
+    icon_other: string;
+    building_marker_image: string;
+    markerType: 'b';
+    zIndexOffset: number;
+    flavour_url: string;
+}
+
 export interface MissionGraphicsLookup {
     regular: [string, string, string][]; // red, yellow, green
     generic: Partial<
