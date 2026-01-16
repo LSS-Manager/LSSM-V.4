@@ -27,6 +27,7 @@ import type {
 import type {
     BuildingMarker,
     BuildingMarkerAdd,
+    BuildingMarkerCache,
     MissionGraphicsLookup,
     MissionMarker,
     PatientTimer,
@@ -62,6 +63,7 @@ declare global {
         alliance_coadmin: boolean;
         alliance_owner: boolean;
         building_markers: BuildingMarker[];
+        building_markers_params_cache_per_id: Map<number, BuildingMarkerCache>;
         mission_markers: MissionMarker[];
         map_pois_service: {
             getMissionPoiMarkersArray(): POIMarker[];
