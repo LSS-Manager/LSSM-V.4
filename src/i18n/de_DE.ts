@@ -285,6 +285,7 @@ export default {
         'Kohlekraftwerk',
         'JVA',
         'Solarpark',
+        'Raffinerie',
     ],
     only_alliance_missions: [41, 43, 59, 75, 99, 207, 221, 222, 256, 350],
     transfer_missions: [147, 613],
@@ -306,6 +307,9 @@ export default {
             2_000_000_000: 'Landesbrandmeister(in)',
             5_000_000_000: 'Ehrenmitglied',
             10_000_000_000: 'Stv. Bundesbranddirektor(in)',
+            20_000_000_000: 'Bundesbranddirektor(in)',
+            50_000_000_000: 'Stv. Internationale(r) Branddirektor(in)',
+            100_000_000_000: 'Internationaler Branddirektor(in)',
         },
         policechief: {
             0: 'Polizeimeisteranwärter(in)',
@@ -324,6 +328,9 @@ export default {
             2_000_000_000: 'Präsident(in) der Bundespolizeidirektion',
             5_000_000_000: 'Vizepräsident(in) der Bundespolizei',
             10_000_000_000: 'Präsident(in) der Bundespolizei',
+            20_000_000_000: 'Generalinspekteur(in) der Polizei',
+            50_000_000_000: 'Oberste(r) Polizeidirektor(in)',
+            100_000_000_000: 'Generaloberkommissar(in)',
         },
     },
 };

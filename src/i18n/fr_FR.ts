@@ -265,6 +265,9 @@ export default {
             1_000_000_000: 'Lieutenant',
             2_000_000_000: 'Capitaine',
             5_000_000_000: 'Commandant',
+            10_000_000_000: 'Lieutenant Colonel',
+            20_000_000_000: 'Colonel',
+            50_000_000_000: 'Contrôleur General',
         },
         policechief: {
             0: 'Adjoint/e de sécurité',
@@ -277,7 +280,10 @@ export default {
             50_000_000: 'Commandant de police',
             1_000_000_000: 'Commissaire de police',
             2_000_000_000: 'Commissaire divisionnaire de police',
-            5_000_000_000: 'Directeur/trice général/e de la police',
+            5_000_000_000: 'Contrôleur général',
+            10_000_000_000: 'Inspecteur général',
+            20_000_000_000: 'Directeur central',
+            50_000_000_000: 'Directeur général de la Police',
         },
     },
 };

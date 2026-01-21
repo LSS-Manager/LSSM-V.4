@@ -40,6 +40,7 @@
         "title": "Patienten | {n} Patient | {n} Patienten"
     },
     "prerequisites": {
+        "airport_count": "Voraussetzung an Flughafen-Erweiterung | Voraussetzung an Flughafen-Erweiterungen",
         "bereitschaftspolizei": "Bereitschaftspolizei-Standort | Bereitschaftspolizei-Standorte",
         "care_service": "Betreuungs- und Verpflegungsdienst-Erweiterung | Betreuungs- und Verpflegungsdienst-Erweiterungen",
         "coastal_rescue_count": "Seenotrettungswache | Seenotrettungswachen",
