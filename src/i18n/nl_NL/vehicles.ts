@@ -1733,7 +1733,7 @@ export default {
             min: 1,
             max: 2,
             training: {
-                Militaire academie: {
+                Militair: {
                     Marechaussee: {
                       all: true,
                     },
