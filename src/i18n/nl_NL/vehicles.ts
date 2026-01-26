@@ -1610,4 +1610,61 @@ export default {
         icon: 'car-side',
         possibleBuildings: [3, 13],
     },
+    120: {
+        caption: 'Dienstbus - Verzorgingseenheid',
+        credits: 12_000,
+        coins: 25,
+        staff: {
+            min: 2,
+            max: 4,
+            training: {
+                Brandweer: {
+                    verzorger: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'square',
+        possibleBuildings: [0, 17],
+    },
+    121: {
+        caption: 'Verzorgingshaakarmbak',
+        color: '#552222',
+        credits: 12_000,
+        coins: 6,
+        staff: { min: 0, max: 0 },
+        icon: 'square',
+        possibleBuildings: [0, 17],
+        special: 'Haakarmvoertuig benodigd',
+    },
+    122: {
+        caption: 'Dienstbus - Arbeidshygiëne',
+        credits: 12_000,
+        coins: 25,
+        staff: {
+            min: 2,
+            max: 4,
+            training: {
+                Brandweer: {
+                    hygienemedewerker: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'square',
+        possibleBuildings: [0, 17],
+    },
+    123: {
+        caption: 'Verzorgingshaakarmbak Arbeidshygiëne',
+        color: '#552222',
+        credits: 12_000,
+        coins: 6,
+        staff: { min: 0, max: 0 },
+        icon: 'square',
+        possibleBuildings: [0, 17],
+        special: 'Haakarmvoertuig benodigd',
+    },    
+    
 } satisfies Record<number, InternalVehicle>;
