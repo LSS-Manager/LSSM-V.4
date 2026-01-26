@@ -5334,6 +5334,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"detect-europe-js@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "detect-europe-js@npm:0.1.2"
+  checksum: 10c0/46fccf2a9ddeec8ecb7a369be1452f84856cbd0ccdeb3c47e41fe6c9d69f63d6bd75f91b5aa1ae310e56d8fbcbff0e802b1504cdcc3a92f3327c94408e6d07a2
+  languageName: node
+  linkType: hard
+
 "detect-libc@npm:^2.0.3":
   version: 2.1.2
   resolution: "detect-libc@npm:2.1.2"
@@ -7588,6 +7595,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-standalone-pwa@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "is-standalone-pwa@npm:0.1.1"
+  checksum: 10c0/af1a11edef4a8f00c24014576285070fb73eebb3583cae790c0a825e338e19f05048a26e5fd5ef10f6056032d6a4520054ff824532c15df784933c0fcc5e13fd
+  languageName: node
+  linkType: hard
+
 "is-stream@npm:^2.0.0":
   version: 2.0.1
   resolution: "is-stream@npm:2.0.1"
@@ -8443,7 +8457,7 @@ __metadata:
     ts-loader: "npm:9.5.4"
     ts-node: "npm:10.9.2"
     typescript: "npm:5.5.4"
-    ua-parser-js: "npm:1.0.39"
+    ua-parser-js: "npm:2.0.8"
     url-loader: "npm:4.1.1"
     util: "npm:0.12.5"
     vue: "npm:2.7.16"
@@ -12029,12 +12043,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ua-parser-js@npm:1.0.39":
-  version: 1.0.39
-  resolution: "ua-parser-js@npm:1.0.39"
+"ua-is-frozen@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "ua-is-frozen@npm:0.1.2"
+  checksum: 10c0/fb41929bd4924c9676391e6d7197d30580749a96697a83c8b6e77fb137e3ff8492dcd1e6f871f6a9517848651a93af37bfefb25385f16d90e19678ade22d30b7
+  languageName: node
+  linkType: hard
+
+"ua-parser-js@npm:2.0.8":
+  version: 2.0.8
+  resolution: "ua-parser-js@npm:2.0.8"
+  dependencies:
+    detect-europe-js: "npm:^0.1.2"
+    is-standalone-pwa: "npm:^0.1.1"
+    ua-is-frozen: "npm:^0.1.2"
   bin:
     ua-parser-js: script/cli.js
-  checksum: 10c0/c6452b0c683000f10975cb0a7e74cb1119ea95d4522ae85f396fa53b0b17884358a24ffdd86a66030c6b2981bdc502109a618c79fdaa217ee9032c9e46fcc78a
+  checksum: 10c0/8f19abe945043c60e49be261c307e5ed657f4d32aca4d705fc51f933d427fcefa07d7641d484c8ed4238d6738f7322af43a2b26183761569ac6c8fb5ffc27cca
   languageName: node
   linkType: hard
 
