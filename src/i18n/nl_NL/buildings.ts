@@ -104,6 +104,27 @@ export default {
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [68, 69, 70],
             },
+
+			{
+                caption: 'Verzorgingseenheid',
+                credits: 150_000,
+                coins: 25,
+                duration: '5 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 0,
+                unlocksVehicleTypes: [120, 121],
+            },
+
+            {
+                caption: 'Arbeidshygiëne',
+                credits: 150_000,
+                coins: 25,
+                duration: '5 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                unlocksVehicleTypes: [122,123],
+            },	
+            
             {
                 caption: 'Signalisatie',
                 credits: 150_000,
