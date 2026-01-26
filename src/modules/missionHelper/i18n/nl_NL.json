@@ -17,13 +17,13 @@
         "riot_police": "Politie, Hoofdbureau inzetten",
         "search_and_rescue": "Urban Search and Rescue",
         "technical_aid": "RWS / Signalisatie Inzetten",
+        "title": "Incident keuze",
+        "tow_trucks": "Berger Inzetten",
+        "tow_trucks_only": "Berger Inzetten",
         "traffic_police_specialization": "LE - Dienst Infrastructuur inzetten (Specialisatie)",
         "water_rescue": "Waterredding inzetten",
         "water_rescue_2": "Kustwacht inzetten",
-        "water_rescue_specialization": "Waterredding inzetten (Specialisatie)",
-        "title": "Incident keuze",
-        "tow_trucks": "Berger Inzetten",
-        "tow_trucks_only": "Berger Inzetten"
+        "water_rescue_specialization": "Waterredding inzetten (Specialisatie)"
     },
     "patients": {
         "allow_ktw_instead_of_rtw": "Een zorgambulance kan worden gebruikt als Ambulance",
