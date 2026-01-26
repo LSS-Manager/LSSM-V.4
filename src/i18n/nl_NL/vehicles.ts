@@ -1610,4 +1610,138 @@ export default {
         icon: 'car-side',
         possibleBuildings: [3, 13],
     },
+    104: {
+        caption: 'Berger-K',
+        color: '#450c0c',
+        credits: 25_000,
+        coins: 8,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Brandweer: {
+                  tow_trucks: {
+                      all: true,
+                  },
+                },
+            },
+        },
+        icon: 'car_carrier',
+        possibleBuildings: [24],
+    },
+    105: {
+        caption: 'Berger-G',
+        color: '#450c0c',
+        credits: 50_000,
+        coins: 13,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Brandweer: {
+                  tow_trucks: {
+                      all: true,
+                  },
+                },
+            },
+        },
+        icon: 'car_carrier',
+        possibleBuildings: [24],
+    },
+    106: {
+       caption: 'Berger-K (RWS)',
+        color: '#450c0c',
+        credits: 25_000,
+        coins: 8,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Brandweer: {
+                  tow_trucks: {
+                      all: true,
+                  },
+                },
+            },
+        },
+        icon: 'car_carrier',
+        possibleBuildings: [22],
+    },
+    107: {
+       caption: 'Berger-G (RWS)',
+        color: '#450c0c',
+        credits: 50_000,
+        coins: 13,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Brandweer: {
+                  tow_trucks: {
+                      all: true,
+                  },
+                },
+            },
+        },
+        icon: 'car_carrier',
+        possibleBuildings: [22],
+    },
+    108: {
+      caption: 'Berger-K (Politie)',
+        color: '#0006b9',
+        credits: 25_000,
+        coins: 8,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Politie: {
+                  tow_trucks: {
+                      all: true,
+                  },
+                },
+            },
+        },
+        icon: 'car_carrier',
+        possibleBuildings: [5, 18],
+    },
+    109: {
+      caption: 'Berger-G (Politie)',
+        color: '#0006b9',
+        credits: 50_000,
+        coins: 13,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Brandweer: {
+                  tow_trucks: {
+                      all: true,
+                  },
+                },
+            },
+        },
+        icon: 'car_carrier',
+        possibleBuildings: [5],
+    },
+    110: {
+        caption: 'DAT-KMAR',
+        color: '#0c284f',
+        credits: 10_000
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Militaire academie: {
+                    Marechaussee: {
+                      all: true,
+                    },
+                },
+            },
+        },
+        icon: 'blue_car',
+        possibleBuildings: [25],
+    },
+    
 } satisfies Record<number, InternalVehicle>;
