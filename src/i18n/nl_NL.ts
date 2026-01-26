@@ -143,7 +143,7 @@ export default {
             },
             color: '#f5a42a',
         },
-        Defensie: {
+        Militair: {
             vehicles: {
                 'KMAR': [110, 111, 112],
                 'EOD': [113, 114, 115, 116],
