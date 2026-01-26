@@ -171,7 +171,66 @@ export default {
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [100, 101],
             },
+            {
+                caption: "Verzorgingseenheid",
+                credits: 150_000,
+                coins: 25,
+                duration: "5 Dagen",
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                unlocksVehicleTypes: [120, 121]
+          },
+          {
+                caption: "Arbeidshygiëne",
+                credits: 150_000,
+                coins: 25,
+                duration: "5 Dagen",
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                unlocksVehicleTypes: [122, 123]
+          },
         ],
+        storageUpgrades: {
+          initial_containers: {
+              caption: "Brandweeruitrusting Opslagruimte",
+              additionalStorage: 40,
+              credits: 25_000,
+              coins: 10,
+              duration: "5 Dagen"
+          },
+          additional_containers_1: {
+              caption: "Brandweeruitrusting Extra Opslagruimte",
+              additionalStorage: 30,
+              credits: 25_000,
+              coins: 10,
+              duration: "3 Dagen",
+              requiredStorageUpgrades: ["initial_containers"]
+          },
+          additional_containers_2: {
+              caption: "Brandweeruitrusting Extra Opslagruimte",
+              additionalStorage: 30,
+              credits: 25000,
+              coins: 10,
+              duration: "3 Dagen",
+              requiredStorageUpgrades: ["additional_containers_1"]
+          },
+          additional_containers_3: {
+              caption: "Brandweeruitrusting Extra Opslagruimte",
+              additionalStorage: 30,
+              credits: 25000,
+              coins: 10,
+              duration: "3 Dagen",
+              requiredStorageUpgrades: ["additional_containers_2"]
+          },
+          additional_containers_4: {
+              caption: "Brandweeruitrusting Extra Opslagruimte",
+              additionalStorage: 30,
+              credits: 25000,
+              coins: 10,
+              duration: "3 Dagen",
+              requiredStorageUpgrades: ["additional_containers_3"]
+          },
+        },
         levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
         maxBuildings: 'Geen limiet',
         maxLevel: 24,
