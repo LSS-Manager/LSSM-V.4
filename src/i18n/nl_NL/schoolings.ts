@@ -116,6 +116,18 @@ export default {
             staffList: 'Geneeskundige bijstandsverlener',
             key: 'mass_casualty_and_emergency_doctor',
         },
+        {
+            caption: 'Verzorger',
+            duration: '7 Dagen',
+            staffList: 'Verzorger',
+            key: 'verzorger',
+        },
+		{
+            caption: 'Hygiënemedewerker',
+            duration: '7 Dagen',
+            staffList: 'Hygiënemedewerker',
+            key: 'hygienemedewerker',
+        },        
     ],
     Politie: [
         {
