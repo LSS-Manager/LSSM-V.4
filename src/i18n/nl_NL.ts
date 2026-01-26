@@ -149,7 +149,7 @@ export default {
                 'EOD': [113, 114, 115, 116],
                 'Defensie Duikgroep': [117, 118],
            },
-           color: '#0349a3',
+           color: '#0c284f',
         },
     },
     small_buildings: {
