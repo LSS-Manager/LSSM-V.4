@@ -23,7 +23,12 @@
         "traffic_police_specialization": "LE - Dienst Infrastructuur inzetten (Specialisatie)",
         "water_rescue": "Waterredding inzetten",
         "water_rescue_2": "Kustwacht inzetten",
-        "water_rescue_specialization": "Waterredding inzetten (Specialisatie)"
+        "water_rescue_specialization": "Waterredding inzetten (Specialisatie)",
+        "title": "Incident keuze",
+        "tow_trucks": "Berger Inzetten",
+        "tow_trucks_only": "Berger Inzetten",
+        "urban": "Stedelijke brandweer inzetten",
+        "rural": "Landelijke brandweer inzetten"
     },
     "patients": {
         "allow_ktw_instead_of_rtw": "Een zorgambulance kan worden gebruikt als Ambulance",
@@ -63,7 +68,9 @@
         "title": "Vereist | Vereisten",
         "traffic_police": "LE Uitbreiding | LE Uitbreidingen",
         "wasserrettung": "Waterongevallenuitbreiding | Waterongevallenuitbreidingen",
-        "water_rescue_2": "Waterreddingspost | Waterreddingsposten"
+        "water_rescue_2": "Waterreddingspost | Waterreddingsposten",
+        "personnel_educations": "Personeel getrained met",
+        "police_motorcycle": "Motoragent"
     },
     "prisoners": {
         "max_possible_prisoners": "Arrestant maximaal | Arrestanten maximaal",
