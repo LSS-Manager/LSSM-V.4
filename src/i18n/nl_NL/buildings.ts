@@ -178,7 +178,8 @@ export default {
                 duration: "5 Dagen",
                 isVehicleExtension: true,
                 givesParkingLots: 1,
-                unlocksVehicleTypes: [120, 121]
+                unlocksVehicleTypes: [120, 121],
+                parkingLotReservations: [[120]],
           },
           {
                 caption: "Arbeidshygiëne",
@@ -187,7 +188,8 @@ export default {
                 duration: "5 Dagen",
                 isVehicleExtension: true,
                 givesParkingLots: 1,
-                unlocksVehicleTypes: [122, 123]
+                unlocksVehicleTypes: [122, 123],
+                parkingLotReservations: [[122]],
           },
         ],
         storageUpgrades: {
@@ -535,6 +537,7 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 1,
                 unlocksVehicleTypes: [108],
+                parkingLotReservations: [[108]],
             },
             {
                 caption: 'Berger-G',
@@ -544,6 +547,7 @@ export default {
                 isVehicleExtension: true,
                 unlocksVehicleTypes: [109],
                 requiredExtensions: [13],
+                parkingLotReservations: [[109]],
             },
             {
                 caption: 'Team Explosieven Veiligheid',
@@ -552,6 +556,7 @@ export default {
                 duration: '5 Dagen',
                 isVehicleExtension: true,
                 unlocksVehicleTypes: [119],
+                parkingLotReservations: [[119]],
             },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
