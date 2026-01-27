@@ -1727,7 +1727,7 @@ export default {
     110: {
         caption: 'DAT-KMAR',
         color: '#0c284f',
-        credits: 10_000
+        credits: 10_000,
         coins: 25,
         staff: {
             min: 1,
@@ -1746,7 +1746,7 @@ export default {
     111: {
       caption: 'DB-KMAR',
         color: '#0c284f',
-        credits: 10_000
+        credits: 10_000,
         coins: 25,
         staff: {
             min: 1,
