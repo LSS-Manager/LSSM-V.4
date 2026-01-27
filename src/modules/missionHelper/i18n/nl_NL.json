@@ -15,20 +15,17 @@
         "forestry": "Natuurbrandbestrijding",
         "police": "Politie inzetten",
         "riot_police": "Politie, Hoofdbureau inzetten",
+        "rural": "Landelijke brandweer inzetten",
         "search_and_rescue": "Urban Search and Rescue",
         "technical_aid": "RWS / Signalisatie Inzetten",
         "title": "Incident keuze",
         "tow_trucks": "Berger Inzetten",
         "tow_trucks_only": "Berger Inzetten",
         "traffic_police_specialization": "LE - Dienst Infrastructuur inzetten (Specialisatie)",
+        "urban": "Stedelijke brandweer inzetten",
         "water_rescue": "Waterredding inzetten",
         "water_rescue_2": "Kustwacht inzetten",
-        "water_rescue_specialization": "Waterredding inzetten (Specialisatie)",
-        "title": "Incident keuze",
-        "tow_trucks": "Berger Inzetten",
-        "tow_trucks_only": "Berger Inzetten",
-        "urban": "Stedelijke brandweer inzetten",
-        "rural": "Landelijke brandweer inzetten"
+        "water_rescue_specialization": "Waterredding inzetten (Specialisatie)"
     },
     "patients": {
         "allow_ktw_instead_of_rtw": "Een zorgambulance kan worden gebruikt als Ambulance",
@@ -57,8 +54,10 @@
         "hondengeleider": "Hondenbrigade uitbreidingen",
         "mass_casualty_count": "Grootschalige Geneeskundige Bijstand Uitbreiding | Grootschalige Geneeskundige Bijstand Uitbreidingen",
         "max_police_stations": "Politiebureau maximaal | Politiebureaus maximaal",
+        "personnel_educations": "Personeel getrained met",
         "police_helicopter_stations": "Politiehelikopterstandplaats | Politiehelikopterstandplaats",
         "police_horse": "Bereden Brigade (paarden)",
+        "police_motorcycle": "Motoragent",
         "police_stations": "Politiebureau | Politiebureaus",
         "prisoner_transport_count": "Arrestantenvervoeruitbreiding | Arrestantenvervoeruitbreidingen",
         "rescue_stations": "Ambulancestandplaats | Ambulancestandplaatsen",
@@ -68,9 +67,7 @@
         "title": "Vereist | Vereisten",
         "traffic_police": "LE Uitbreiding | LE Uitbreidingen",
         "wasserrettung": "Waterongevallenuitbreiding | Waterongevallenuitbreidingen",
-        "water_rescue_2": "Waterreddingspost | Waterreddingsposten",
-        "personnel_educations": "Personeel getrained met",
-        "police_motorcycle": "Motoragent"
+        "water_rescue_2": "Waterreddingspost | Waterreddingsposten"
     },
     "prisoners": {
         "max_possible_prisoners": "Arrestant maximaal | Arrestanten maximaal",
