@@ -2008,6 +2008,7 @@ export default {
         caption: 'VW-LOG',
         color: '#791515',
         credits: 15_000,
+        coins: 25,
         staff: {
             min: 1,
             max: 3,
