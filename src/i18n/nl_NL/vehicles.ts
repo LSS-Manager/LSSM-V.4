@@ -1900,7 +1900,7 @@ export default {
             min: 1,
             max: 1,
             training: {
-                Militair: {
+                Politie: {
                     bomb_disposal_patrol: {
                       all: true,
                     },
