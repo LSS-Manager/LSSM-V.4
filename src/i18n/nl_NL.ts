@@ -64,7 +64,7 @@ export default {
     modules,
     buildingCategories: {
         Brandweer: {
-            buildings: [0, 4, 17, 22, 23],
+            buildings: [0, 4, 17, 22, 23, 24],
             color: '#ff2d2d',
         },
         Ambulance: {
@@ -78,6 +78,10 @@ export default {
         Waterredding: {
             buildings: [16, 19, 20, 21],
             color: '#f5a42a',
+        },
+        Defensie: {
+            buildings: [25, 26],
+            color: '#0349a3',
         },
         Algemeen: {
             buildings: [1, 10, 14, 15],
@@ -99,6 +103,10 @@ export default {
                 'STH': [90],
                 'USAR': [92, 93, 94, 95, 96, 97],
                 'Natuurbrandbestrijding': [85, 86, 87, 88],
+                'Berging': [104, 105, 106, 107],
+                'Verzorging': [120, 121],
+                'Arbeidshygiëne': [122, 123],
+                'Logistiek': [124, 125, 126, 127],
             },
             color: '#ff2d2d',
         },
@@ -122,6 +130,8 @@ export default {
                 'Biketeam': [60],
                 'Paarden': [73, 74, 75],
                 'Dienst Infra': [46, 98, 99],
+                'Berging': [108, 109],
+                'Team Explosieven Veiligheid': [119],
             },
             color: '#00ac00',
         },
@@ -132,6 +142,14 @@ export default {
                 Helikopters: [80],
             },
             color: '#f5a42a',
+        },
+        Militair: {
+            vehicles: {
+                'KMAR': [110, 111, 112],
+                'EOD': [113, 114, 115, 116],
+                'Defensie Duikgroep': [117, 118],
+           },
+           color: '#0c284f',
         },
     },
     small_buildings: {

@@ -105,6 +105,12 @@ export default {
             key: 'rescue_dogs',
         },
         {
+            caption: 'Berger Training',
+            duration: '4 Dagen',
+            staffList: 'Berger',
+            key: 'tow_trucks',
+        },
+        {
             caption: 'Noodhulpteam',
             duration: '5 Dagen',
             staffList: 'Noodhulpteamlid',
@@ -115,6 +121,24 @@ export default {
             duration: '7 Dagen',
             staffList: 'Geneeskundige bijstandsverlener',
             key: 'mass_casualty_and_emergency_doctor',
+        },
+        {
+            caption: 'Verzorger',
+            duration: '5 Dagen',
+            staffList: 'Verzorger',
+            key: 'care_service',
+        },
+        {
+            caption: 'Hygiënemedewerker',
+            duration: '5 Dagen',
+            staffList: 'Hygiënemedewerker',
+            key: 'clean_service',
+        },
+        {  
+            caption: 'Pelotonscommandant Logistiek',
+            duration: '7 Dagen',
+            staffList: 'Pelotonscommandant Logistiek',
+            key: 'care_service_command',
         },
     ],
     Politie: [
@@ -189,6 +213,12 @@ export default {
             duration: '2 Dagen',
             staffList: 'Motoragent',
             key: 'police_motorcycle',
+        },
+        {
+            caption: 'Berger Training',
+            duration: '4 Dagen',
+            staffList: 'Berger',
+            key: 'tow_trucks',
         },
         {
             caption: 'Bomverkenner',
