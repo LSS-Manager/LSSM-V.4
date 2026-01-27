@@ -1620,9 +1620,9 @@ export default {
             max: 2,
             training: {
                 Brandweer: {
-                  tow_trucks: {
-                      all: true,
-                  },
+                    tow_trucks: {
+                        all: true,
+                    },
                 },
             },
         },
@@ -1639,9 +1639,9 @@ export default {
             max: 2,
             training: {
                 Brandweer: {
-                  tow_trucks: {
-                      all: true,
-                  },
+                    tow_trucks: {
+                        all: true,
+                    },
                 },
             },
         },
@@ -1649,7 +1649,7 @@ export default {
         possibleBuildings: [24],
     },
     106: {
-       caption: 'Berger-K (RWS)',
+        caption: 'Berger-K (RWS)',
         color: '#450c0c',
         credits: 25_000,
         coins: 8,
@@ -1658,9 +1658,9 @@ export default {
             max: 2,
             training: {
                 Brandweer: {
-                  tow_trucks: {
-                      all: true,
-                  },
+                    tow_trucks: {
+                        all: true,
+                    },
                 },
             },
         },
@@ -1668,7 +1668,7 @@ export default {
         possibleBuildings: [22],
     },
     107: {
-       caption: 'Berger-G (RWS)',
+        caption: 'Berger-G (RWS)',
         color: '#450c0c',
         credits: 50_000,
         coins: 13,
@@ -1677,9 +1677,9 @@ export default {
             max: 2,
             training: {
                 Brandweer: {
-                  tow_trucks: {
-                      all: true,
-                  },
+                    tow_trucks: {
+                        all: true,
+                    },
                 },
             },
         },
@@ -1687,7 +1687,7 @@ export default {
         possibleBuildings: [22],
     },
     108: {
-      caption: 'Berger-K (Politie)',
+        caption: 'Berger-K (Politie)',
         color: '#0006b9',
         credits: 25_000,
         coins: 8,
@@ -1696,9 +1696,9 @@ export default {
             max: 2,
             training: {
                 Politie: {
-                  tow_trucks: {
-                      all: true,
-                  },
+                    tow_trucks: {
+                        all: true,
+                    },
                 },
             },
         },
@@ -1706,7 +1706,7 @@ export default {
         possibleBuildings: [5, 18],
     },
     109: {
-      caption: 'Berger-G (Politie)',
+        caption: 'Berger-G (Politie)',
         color: '#0006b9',
         credits: 50_000,
         coins: 13,
@@ -1715,9 +1715,9 @@ export default {
             max: 2,
             training: {
                 Brandweer: {
-                  tow_trucks: {
-                      all: true,
-                  },
+                    tow_trucks: {
+                        all: true,
+                    },
                 },
             },
         },
@@ -1735,7 +1735,7 @@ export default {
             training: {
                 Militair: {
                     military_police: {
-                      all: true,
+                        all: true,
                     },
                 },
             },
@@ -1744,7 +1744,7 @@ export default {
         possibleBuildings: [25],
     },
     111: {
-      caption: 'DB-KMAR',
+        caption: 'DB-KMAR',
         color: '#0c284f',
         credits: 10_000,
         coins: 25,
@@ -1754,7 +1754,7 @@ export default {
             training: {
                 Militair: {
                     military_police: {
-                      all: true,
+                        all: true,
                     },
                 },
             },
@@ -1763,7 +1763,7 @@ export default {
         possibleBuildings: [25],
     },
     112: {
-      caption: 'DM-KMAR',
+        caption: 'DM-KMAR',
         color: '#0c284f',
         credits: 10_000,
         coins: 25,
@@ -1773,7 +1773,7 @@ export default {
             training: {
                 Militair: {
                     military_police: {
-                      all: true,
+                        all: true,
                     },
                 },
             },
@@ -1782,7 +1782,7 @@ export default {
         possibleBuildings: [25],
     },
     113: {
-      caption: 'DAT-EOD',
+        caption: 'DAT-EOD',
         color: '#0c284f',
         credits: 40_000,
         coins: 20,
@@ -1792,7 +1792,7 @@ export default {
             training: {
                 Militair: {
                     bomb_disposal: {
-                      all: true,
+                        all: true,
                     },
                 },
             },
@@ -1811,7 +1811,7 @@ export default {
             training: {
                 Militair: {
                     bomb_disposal: {
-                      all: true,
+                        all: true,
                     },
                 },
             },
@@ -1831,7 +1831,7 @@ export default {
             training: {
                 Militair: {
                     bomb_disposal: {
-                      all: true,
+                        all: true,
                     },
                 },
             },
@@ -1851,7 +1851,7 @@ export default {
             training: {
                 Militair: {
                     bomb_disposal_dogs: {
-                      all: true,
+                        all: true,
                     },
                 },
             },
@@ -1870,7 +1870,7 @@ export default {
             training: {
                 Militair: {
                     bomb_disposal_diver: {
-                      all: true,
+                        all: true,
                     },
                 },
             },
@@ -1889,7 +1889,8 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [25],
-        special: 'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (DB-Explosieveduikers)',
+        special:
+            'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (DB-Explosieveduikers)',
     },
     119: {
         caption: 'DB-TEV',
@@ -1902,7 +1903,7 @@ export default {
             training: {
                 Politie: {
                     bomb_disposal_patrol: {
-                      all: true,
+                        all: true,
                     },
                 },
             },
@@ -1921,7 +1922,7 @@ export default {
             training: {
                 Brandweer: {
                     care_service: {
-                      all: true,
+                        all: true,
                     },
                 },
             },
@@ -1952,7 +1953,7 @@ export default {
             training: {
                 Brandweer: {
                     clean_service: {
-                      all: true,
+                        all: true,
                     },
                 },
             },
@@ -1973,7 +1974,7 @@ export default {
         possibleBuildings: [0, 17],
     },
     124: {
-      caption: 'DB-PC-LOG',
+        caption: 'DB-PC-LOG',
         color: '#791515',
         credits: 40_000,
         coins: 25,
@@ -1983,7 +1984,7 @@ export default {
             training: {
                 Brandweer: {
                     care_service_command: {
-                      all: true,
+                        all: true,
                     },
                 },
             },
@@ -1992,7 +1993,7 @@ export default {
         possibleBuildings: [0, 17],
     },
     125: {
-       caption: 'DB-LOG',
+        caption: 'DB-LOG',
         color: '#791515',
         credits: 10_000,
         coins: 25,
@@ -2020,7 +2021,7 @@ export default {
     127: {
         caption: 'BMH-LOG',
         color: '#791515',
-        credits: 6_000,
+        credits: 6000,
         coins: 12,
         staff: {
             min: 0,

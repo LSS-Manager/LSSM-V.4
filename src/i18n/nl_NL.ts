@@ -148,8 +148,8 @@ export default {
                 'KMAR': [110, 111, 112],
                 'EOD': [113, 114, 115, 116],
                 'Defensie Duikgroep': [117, 118],
-           },
-           color: '#0c284f',
+            },
+            color: '#0c284f',
         },
     },
     small_buildings: {

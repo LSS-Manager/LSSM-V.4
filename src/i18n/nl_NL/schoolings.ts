@@ -134,7 +134,7 @@ export default {
             staffList: 'Hygiënemedewerker',
             key: 'clean_service',
         },
-        {  
+        {
             caption: 'Pelotonscommandant Logistiek',
             duration: '7 Dagen',
             staffList: 'Pelotonscommandant Logistiek',
