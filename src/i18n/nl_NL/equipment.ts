@@ -23,8 +23,6 @@ export default registerEquipment({
       size: 15,
       credits: 20_000,
       coins: 25,
-      watert: 20,
-      pump: 1500,
       staff: { min: 0 },
   },
   fire_water_carrier_2: {
@@ -33,8 +31,6 @@ export default registerEquipment({
       size: 10,
       credits: 15_000,
       coins: 25,
-      watert: 10,
-      pump: 800,
       staff: { min: 0 },
   },
   fire_pump_and_water_carrier: {
@@ -43,8 +39,6 @@ export default registerEquipment({
       size: 10,
       credits: 12_000,
       coins: 25,
-      watert: 5,
-      pump: 1000,
       staff: { min: 0 },
   },
   care_service: {
