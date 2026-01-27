@@ -551,7 +551,7 @@ export default {
             },
             {
                 caption: 'Team Explosieven Veiligheid',
-                credits: 150_000
+                credits: 150_000,
                 coins: 25,
                 duration: '5 Dagen',
                 isVehicleExtension: true,
