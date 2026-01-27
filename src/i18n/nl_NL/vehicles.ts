@@ -1610,4 +1610,425 @@ export default {
         icon: 'car-side',
         possibleBuildings: [3, 13],
     },
+    104: {
+        caption: 'Berger-K',
+        color: '#450c0c',
+        credits: 25_000,
+        coins: 8,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Brandweer: {
+                    tow_trucks: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [24],
+    },
+    105: {
+        caption: 'Berger-G',
+        color: '#450c0c',
+        credits: 50_000,
+        coins: 13,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Brandweer: {
+                    tow_trucks: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [24],
+    },
+    106: {
+        caption: 'Berger-K (RWS)',
+        color: '#450c0c',
+        credits: 25_000,
+        coins: 8,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Brandweer: {
+                    tow_trucks: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [22],
+    },
+    107: {
+        caption: 'Berger-G (RWS)',
+        color: '#450c0c',
+        credits: 50_000,
+        coins: 13,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Brandweer: {
+                    tow_trucks: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [22],
+    },
+    108: {
+        caption: 'Berger-K (Politie)',
+        color: '#0006b9',
+        credits: 25_000,
+        coins: 8,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Politie: {
+                    tow_trucks: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [5, 18],
+    },
+    109: {
+        caption: 'Berger-G (Politie)',
+        color: '#0006b9',
+        credits: 50_000,
+        coins: 13,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Brandweer: {
+                    tow_trucks: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [5],
+    },
+    110: {
+        caption: 'DAT-KMAR',
+        color: '#0c284f',
+        credits: 10_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Militair: {
+                    military_police: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [25],
+    },
+    111: {
+        caption: 'DB-KMAR',
+        color: '#0c284f',
+        credits: 10_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Militair: {
+                    military_police: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [25],
+    },
+    112: {
+        caption: 'DM-KMAR',
+        color: '#0c284f',
+        credits: 10_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 1,
+            training: {
+                Militair: {
+                    military_police: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'motorcycle',
+        possibleBuildings: [25],
+    },
+    113: {
+        caption: 'DAT-EOD',
+        color: '#0c284f',
+        credits: 40_000,
+        coins: 20,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Militair: {
+                    bomb_disposal: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [25],
+    },
+    114: {
+        caption: 'DB-EOD',
+        color: '#0c284f',
+        credits: 45_000,
+        coins: 25,
+        staff: {
+            min: 2,
+            max: 2,
+            training: {
+                Militair: {
+                    bomb_disposal: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [25],
+        equipmentCapacity: 20,
+    },
+    115: {
+        caption: 'VW-EOD',
+        color: '#0c284f',
+        credits: 45_000,
+        coins: 25,
+        staff: {
+            min: 2,
+            max: 2,
+            training: {
+                Militair: {
+                    bomb_disposal: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [25],
+        equipmentCapacity: 40,
+    },
+    116: {
+        caption: 'DB-Explosievenhonden',
+        color: '#0c284f',
+        credits: 40_000,
+        coins: 25,
+        staff: {
+            min: 2,
+            max: 2,
+            training: {
+                Militair: {
+                    bomb_disposal_dogs: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [25],
+    },
+    117: {
+        caption: 'DB-Explosievenduikers',
+        color: '#0c284f',
+        credits: 30_000,
+        coins: 25,
+        staff: {
+            min: 2,
+            max: 2,
+            training: {
+                Militair: {
+                    bomb_disposal_diver: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [25],
+    },
+    118: {
+        caption: 'BA-DDG',
+        color: '#0c284f',
+        credits: 15_000,
+        coins: 25,
+        staff: {
+            min: 0,
+            max: 0,
+        },
+        icon: 'car-side',
+        possibleBuildings: [25],
+        special:
+            'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (DB-Explosieveduikers)',
+    },
+    119: {
+        caption: 'DB-TEV',
+        color: '#0c284f',
+        credits: 25_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 1,
+            training: {
+                Politie: {
+                    bomb_disposal_patrol: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [5, 18],
+    },
+    120: {
+        caption: 'DB-VZ',
+        color: '#791515',
+        credits: 12_000,
+        coins: 25,
+        staff: {
+            min: 2,
+            max: 4,
+            training: {
+                Brandweer: {
+                    care_service: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 17],
+    },
+    121: {
+        caption: 'VZH',
+        color: '#791515',
+        credits: 12_000,
+        coins: 6,
+        staff: {
+            min: 0,
+            max: 0,
+        },
+        icon: 'square',
+        possibleBuildings: [0, 17],
+    },
+    122: {
+        caption: 'DB-AH',
+        color: '#791515',
+        credits: 12_000,
+        coins: 25,
+        staff: {
+            min: 2,
+            max: 4,
+            training: {
+                Brandweer: {
+                    clean_service: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 17],
+    },
+    123: {
+        caption: 'VZH-AH',
+        color: '#791515',
+        credits: 12_000,
+        coins: 6,
+        staff: {
+            min: 0,
+            max: 0,
+        },
+        icon: 'square',
+        possibleBuildings: [0, 17],
+    },
+    124: {
+        caption: 'DB-PC-LOG',
+        color: '#791515',
+        credits: 40_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 1,
+            training: {
+                Brandweer: {
+                    care_service_command: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 17],
+    },
+    125: {
+        caption: 'DB-LOG',
+        color: '#791515',
+        credits: 10_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 3,
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 17],
+        equipmentCapacity: 20,
+    },
+    126: {
+        caption: 'VW-LOG',
+        color: '#791515',
+        credits: 15_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 3,
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 17],
+        equipmentCapacity: 30,
+    },
+    127: {
+        caption: 'BMH-LOG',
+        color: '#791515',
+        credits: 6000,
+        coins: 12,
+        staff: {
+            min: 0,
+            max: 0,
+        },
+        icon: 'square',
+        possibleBuildings: [0, 17],
+        equipmentCapacity: 30,
+    },
 } satisfies Record<number, InternalVehicle>;
