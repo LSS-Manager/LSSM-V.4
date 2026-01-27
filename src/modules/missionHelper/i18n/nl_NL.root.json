@@ -96,6 +96,10 @@
             "allow_rw_instead_of_lf": {
                 "description": "Geeft aan of een hulpverleningsvoertuig kan worden gebruikt als een tankautospuit",
                 "title": "Toon Hulpverleningsvoertuig als Tankautospuit"
+            },
+            "allow_traffic_car_instead_of_fustw": {
+                "description": "Geeft aan of een Signalisatievoertuig kan worden gebruikt als een Noodhulpvoertuig",
+                "title": "Toon Signalisatievoertuig als Noodhulpvoertuig"
             }
         },
         "patients": {
