@@ -1734,7 +1734,7 @@ export default {
             max: 2,
             training: {
                 Militair: {
-                    Marechaussee: {
+                    military_police: {
                       all: true,
                     },
                 },
@@ -1753,7 +1753,7 @@ export default {
             max: 2,
             training: {
                 Militair: {
-                    Marechaussee: {
+                    military_police: {
                       all: true,
                     },
                 },
@@ -1772,7 +1772,7 @@ export default {
             max: 1,
             training: {
                 Militair: {
-                    Marechaussee: {
+                    military_police: {
                       all: true,
                     },
                 },
