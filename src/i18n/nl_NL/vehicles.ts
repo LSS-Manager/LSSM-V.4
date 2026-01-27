@@ -1765,7 +1765,7 @@ export default {
     112: {
       caption: 'DM-KMAR',
         color: '#0c284f',
-        credits: 10_000
+        credits: 10_000,
         coins: 25,
         staff: {
             min: 1,
@@ -1784,7 +1784,7 @@ export default {
     113: {
       caption: 'DAT-EOD',
         color: '#0c284f',
-        credits: 40_000
+        credits: 40_000,
         coins: 20,
         staff: {
             min: 1,
@@ -1803,7 +1803,7 @@ export default {
     114: {
         caption: 'DB-EOD',
         color: '#0c284f',
-        credits: 45_000
+        credits: 45_000,
         coins: 25,
         staff: {
             min: 2,
@@ -1823,7 +1823,7 @@ export default {
     115: {
         caption: 'VW-EOD',
         color: '#0c284f',
-        credits: 45_000
+        credits: 45_000,
         coins: 25,
         staff: {
             min: 2,
@@ -1843,7 +1843,7 @@ export default {
     116: {
         caption: 'DB-Explosievenhonden',
         color: '#0c284f',
-        credits: 40_000
+        credits: 40_000,
         coins: 25,
         staff: {
             min: 2,
@@ -1862,7 +1862,7 @@ export default {
     117: {
         caption: 'DB-Explosievenduikers',
         color: '#0c284f',
-        credits: 30_000
+        credits: 30_000,
         coins: 25,
         staff: {
             min: 2,
@@ -1881,7 +1881,7 @@ export default {
     118: {
         caption: 'BA-DDG',
         color: '#0c284f',
-        credits: 15_000
+        credits: 15_000,
         coins: 25,
         staff: {
             min: 0,
@@ -1894,7 +1894,7 @@ export default {
     119: {
         caption: 'DB-TEV',
         color: '#0c284f',
-        credits: 25_000
+        credits: 25_000,
         coins: 25,
         staff: {
             min: 1,
@@ -1913,7 +1913,7 @@ export default {
     120: {
         caption: 'DB-VZ',
         color: '#791515',
-        credits: 12_000
+        credits: 12_000,
         coins: 25,
         staff: {
             min: 2,
@@ -1932,7 +1932,7 @@ export default {
     121: {
         caption: 'VZH',
         color: '#791515',
-        credits: 12_000
+        credits: 12_000,
         coins: 6,
         staff: {
             min: 0,
@@ -1944,7 +1944,7 @@ export default {
     122: {
         caption: 'DB-AH',
         color: '#791515',
-        credits: 12_000
+        credits: 12_000,
         coins: 25,
         staff: {
             min: 2,
@@ -1963,7 +1963,7 @@ export default {
     123: {
         caption: 'VZH-AH',
         color: '#791515',
-        credits: 12_000
+        credits: 12_000,
         coins: 6,
         staff: {
             min: 0,
@@ -1975,7 +1975,7 @@ export default {
     124: {
       caption: 'DB-PC-LOG',
         color: '#791515',
-        credits: 40_000
+        credits: 40_000,
         coins: 25,
         staff: {
             min: 1,
@@ -1994,7 +1994,7 @@ export default {
     125: {
        caption: 'DB-LOG',
         color: '#791515',
-        credits: 10_000
+        credits: 10_000,
         coins: 25,
         staff: {
             min: 1,
@@ -2007,7 +2007,7 @@ export default {
     126: {
         caption: 'VW-LOG',
         color: '#791515',
-        credits: 15_000
+        credits: 15_000,
         staff: {
             min: 1,
             max: 3,
@@ -2019,7 +2019,7 @@ export default {
     127: {
         caption: 'BMH-LOG',
         color: '#791515',
-        credits: 6_000
+        credits: 6_000,
         coins: 12,
         staff: {
             min: 0,
