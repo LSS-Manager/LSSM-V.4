@@ -9,7 +9,7 @@ export default registerEquipment({
         coins: 25,
         staff: { min: 0 },
     },
-    fire_breathing_protection {
+    fire_breathing_protection: {
         id: "fire_breathing_protection",
         name: "RC-Adembescherming",
         size: 15,
@@ -17,7 +17,7 @@ export default registerEquipment({
         coins: 25,
         staff: { min: 0 },
   },
-  fire_water_carrier {
+  fire_water_carrier: {
       id: "fire_water_carrier",
       name: "RC-Slangen",
       size: 15,
@@ -27,7 +27,7 @@ export default registerEquipment({
       pump: 1500,
       staff: { min: 0 },
   },
-  fire_water_carrier_2 {
+  fire_water_carrier_2: {
       id: "fire_water_carrier_2",
       name: "RC-Slangen-Klein",
       size: 10,
@@ -37,7 +37,7 @@ export default registerEquipment({
       pump: 800,
       staff: { min: 0 },
   },
-  fire_pump_and_water_carrier {
+  fire_pump_and_water_carrier: {
       id: "fire_pump_and_water_carrier",
       name: "RC-Pomp",
       size: 10,
@@ -47,7 +47,7 @@ export default registerEquipment({
       pump: 1000,
       staff: { min: 0 },
   },
-  care_service {
+  care_service: {
       id: "care_service",
       name: "RC-Verzorging",
       size: 15,
@@ -55,7 +55,7 @@ export default registerEquipment({
       coins: 25,
       staff: { min: 0 },
   },
-  clean_service {
+  clean_service: {
       id: "clean_service",
       name: "RC-Arbeidshygiëne",
       size: 15,
