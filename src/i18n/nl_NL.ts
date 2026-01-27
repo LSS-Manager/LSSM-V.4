@@ -106,7 +106,7 @@ export default {
                 'Berging': [104, 105, 106, 107],
                 'Verzorging': [120, 121],
                 'Arbeidshygiëne': [122, 123],
-                'Logistiek': [124, 125, 126, 127]
+                'Logistiek': [124, 125, 126, 127],
             },
             color: '#ff2d2d',
         },
