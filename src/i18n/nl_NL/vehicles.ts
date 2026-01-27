@@ -1938,7 +1938,7 @@ export default {
             min: 0,
             max: 0,
         },
-        icon: 'car-side',
+        icon: 'square',
         possibleBuildings: [0, 17],
     },
     122: {
@@ -1969,7 +1969,7 @@ export default {
             min: 0,
             max: 0,
         },
-        icon: 'car-side',
+        icon: 'square',
         possibleBuildings: [0, 17],
     },
     124: {
@@ -2026,7 +2026,7 @@ export default {
             min: 0,
             max: 0,
         },
-        icon: 'car-side',
+        icon: 'square',
         possibleBuildings: [0, 17],
         equipmentCapacity: 30,
     },
