@@ -36,7 +36,7 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
     personnel.forEach(p => {
         const children = p.children as HTMLCollectionOf<HTMLTableCellElement>;
         const schoolings =
-            children[1].textContent?.trim() ||
+            children[2].textContent?.trim() ||
             $m('schoolingSummary.noSchooling').toString();
         const bound = children[3].textContent?.trim().length || 0;
         if (!summaryAll.hasOwnProperty(schoolings)) {
