@@ -436,6 +436,7 @@ export default {
         possibleBuildings: [0, 17],
         waterTank: 15_000,
         pumpCapacity: 1000,
+        pumpType: 'fire',
         special: 'Benodigd vanaf 7 brandweerposten.',
     },
     35: {
