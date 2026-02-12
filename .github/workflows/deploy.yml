@@ -51,12 +51,12 @@ jobs:
               # --stats => show stats at the end
               # --progress => show progress during transfer
               # -e => specify ssh port
-              run: rsync -hirtuz --delete --delete-delay --stats --progress --exclude static/branches.json --exclude static/missions --exclude static/releasenotes -e "ssh -p 22" ./dist/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_DIR }}/${{ inputs.branch }}
+              run: rsync -hirtuz --delete --delete-delay --stats --progress --exclude static/branches.json --exclude static/missions --exclude static/releasenotes -e "ssh -p ${{ secrets.SSH_PORT }}" ./dist/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_DIR }}/${{ inputs.branch }}
 
             - name: '[🔗] Create symlinks on server'
               if: ${{ success() }}
               run: |
-                  ssh -p 22 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+                  ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
                     ln -sf ${{ secrets.DEPLOY_DIR }}/static/.check_request.php ${{ secrets.DEPLOY_DIR }}/${{ inputs.branch }}/static/;
                     ln -sf ${{ secrets.DEPLOY_DIR }}/static/db_access.php ${{ secrets.DEPLOY_DIR }}/${{ inputs.branch }}/static/;
                     ln -sf ${{ secrets.DEPLOY_DIR }}/static/missions ${{ secrets.DEPLOY_DIR }}/${{ inputs.branch }}/static/;
