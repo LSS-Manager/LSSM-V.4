@@ -1263,8 +1263,9 @@ export default {
                 coins: 25,
                 duration: '5 Tage',
                 isVehicleExtension: true,
-                givesParkingLots: 5,
+                givesParkingLots: 6,
                 parkingLotReservations: [
+                    [171, 172, 173, 174, 175],
                     [171, 172, 173, 174, 175],
                     [171, 172, 173, 174, 175],
                     [171, 172, 173, 174, 175],
