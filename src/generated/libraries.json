@@ -359,7 +359,7 @@
     "ua-parser-js": {
         "icon": "https://uaparser.dev/images/logo.png",
         "url": "https://uaparser.dev",
-        "version": "2.0.8"
+        "version": "2.0.9"
     },
     "url-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
