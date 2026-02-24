@@ -27,7 +27,7 @@
     "@primer/octicons": {
         "icon": "https://avatars.githubusercontent.com/u/7143434",
         "url": "https://primer.style/octicons",
-        "version": "19.21.2"
+        "version": "19.22.0"
     },
     "@types/he": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -153,12 +153,12 @@
     "acorn": {
         "icon": "https://avatars.githubusercontent.com/u/34631683",
         "url": "https://github.com/acornjs/acorn",
-        "version": "8.15.0"
+        "version": "8.16.0"
     },
     "acorn-walk": {
         "icon": "https://avatars.githubusercontent.com/u/34631683",
         "url": "https://github.com/acornjs/acorn",
-        "version": "8.3.4"
+        "version": "8.3.5"
     },
     "all-contributors-cli": {
         "icon": "https://avatars.githubusercontent.com/u/46410174",
@@ -181,7 +181,7 @@
     "css-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack/css-loader",
-        "version": "7.1.3"
+        "version": "7.1.4"
     },
     "emoji-toolkit": {
         "icon": "https://avatars.githubusercontent.com/u/6843823",
@@ -203,7 +203,7 @@
     },
     "eslint-plugin-compat": {
         "url": "https://github.com/amilajack/eslint-plugin-compat#readme",
-        "version": "6.1.0"
+        "version": "6.2.0"
     },
     "eslint-plugin-import": {
         "url": "https://github.com/import-js/eslint-plugin-import",
@@ -211,7 +211,7 @@
     },
     "eslint-plugin-jsdoc": {
         "url": "https://github.com/gajus/eslint-plugin-jsdoc#readme",
-        "version": "62.5.4"
+        "version": "62.7.0"
     },
     "eslint-plugin-markdownlint": {
         "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",
@@ -322,7 +322,7 @@
         "version": "16.0.7"
     },
     "semver": {
-        "version": "7.7.3"
+        "version": "7.7.4"
     },
     "showdown": {
         "icon": "https://avatars.githubusercontent.com/u/2754978",
@@ -330,7 +330,7 @@
         "version": "2.1.0"
     },
     "simple-git": {
-        "version": "3.30.0"
+        "version": "3.32.2"
     },
     "simpleheat": {
         "url": "https://github.com/mourner/simpleheat",
@@ -359,7 +359,7 @@
     "ua-parser-js": {
         "icon": "https://uaparser.dev/images/logo.png",
         "url": "https://uaparser.dev",
-        "version": "2.0.8"
+        "version": "2.0.9"
     },
     "url-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -421,7 +421,7 @@
     "vue3": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/core/tree/main/packages/vue#readme",
-        "version": "3.5.27"
+        "version": "3.5.28"
     },
     "vuepress": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
