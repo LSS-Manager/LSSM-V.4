@@ -203,7 +203,7 @@
     },
     "eslint-plugin-compat": {
         "url": "https://github.com/amilajack/eslint-plugin-compat#readme",
-        "version": "6.1.0"
+        "version": "6.2.0"
     },
     "eslint-plugin-import": {
         "url": "https://github.com/import-js/eslint-plugin-import",
