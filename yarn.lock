@@ -5898,9 +5898,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-compat@npm:6.1.0":
-  version: 6.1.0
-  resolution: "eslint-plugin-compat@npm:6.1.0"
+"eslint-plugin-compat@npm:6.2.0":
+  version: 6.2.0
+  resolution: "eslint-plugin-compat@npm:6.2.0"
   dependencies:
     "@mdn/browser-compat-data": "npm:^6.1.1"
     ast-metadata-inferer: "npm:^0.8.1"
@@ -5911,8 +5911,8 @@ __metadata:
     lodash.memoize: "npm:^4.1.2"
     semver: "npm:^7.6.2"
   peerDependencies:
-    eslint: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0
-  checksum: 10c0/8210d30a28d10a9737ffc65394077a8f489f497e45346ee68aa0f15d757385f661ebbe59bd968a47008f9be9d032b716eb25a80fe3f9c2332c855a2d69f65d2f
+    eslint: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0
+  checksum: 10c0/07214b9259010bdc1291cb98da72531b2829dd54e3d2224ec0888e3213e595b489be57234a961b27b38f663107aae0f18406221f5bca9d1e254276a5c652c642
   languageName: node
   linkType: hard
 
@@ -8398,7 +8398,7 @@ __metadata:
     eslint: "npm:8.57.0"
     eslint-config-prettier: "npm:10.1.8"
     eslint-import-resolver-typescript: "npm:4.4.4"
-    eslint-plugin-compat: "npm:6.1.0"
+    eslint-plugin-compat: "npm:6.2.0"
     eslint-plugin-import: "npm:2.32.0"
     eslint-plugin-jsdoc: "npm:62.5.5"
     eslint-plugin-markdownlint: "npm:0.9.0"
