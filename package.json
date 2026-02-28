@@ -80,7 +80,7 @@
         "eslint-plugin-jsdoc": "62.7.1",
         "eslint-plugin-markdownlint": "0.9.0",
         "eslint-plugin-prettier": "5.5.5",
-        "eslint-plugin-regexp": "2.10.0",
+        "eslint-plugin-regexp": "3.0.0",
         "eslint-plugin-tsdoc": "0.5.0",
         "eslint-plugin-unicorn": "56.0.1",
         "eslint-plugin-vue": "9.32.0",
