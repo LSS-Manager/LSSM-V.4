@@ -102,7 +102,7 @@ export default {
                 ],
                 ['WLF & Abrollbehälter']: [
                     46, 47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119, 142,
-                    169, 170, 178, 179,
+                    169, 170, 178, 179, 180,
                 ],
                 Anhänger: [115, 143, 168],
                 Flughafenfeuerwehr: [75, 76],
@@ -156,6 +156,7 @@ export default {
                 'Tr UL': [125],
                 'Fachzug Führung und Kommunikation': [144, 145, 146, 147, 148],
                 'Logistik-Verpflegung': [176, 177, 178],
+                'Fachgruppe Brückenbau': [181, 182, 183],
             },
             color: '#0000ff',
         },
