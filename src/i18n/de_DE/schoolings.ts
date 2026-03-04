@@ -374,6 +374,18 @@ export default {
             staffList: 'Verpflegungshelfer',
             key: 'care_service_equipment',
         },
+        {
+            caption: 'Fachgruppe Brückenbau',
+            duration: '3 Tage',
+            staffList: 'Fachgruppe Brückenbau',
+            key: 'thw_bridge_construction',
+        },
+        {
+            caption: 'Kranführer',
+            duration: '3 Tage',
+            staffList: 'Kranführer',
+            key: 'thw_bridge_construction_crane',
+        },
     ],
     Wasserrettung: [
         {

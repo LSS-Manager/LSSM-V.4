@@ -816,7 +816,7 @@ export default {
         },
         icon: 'truck',
         possibleBuildings: [0, 18],
-        special: 'Wird ab 14 Feuerwachen benötigt.',
+        special: 'Wird ab 14 Feuerwachen benötigt. Kann durch den Mobilkran des THW ersetzt werden',
     },
     58: {
         caption: 'KTW Typ B',
@@ -3065,5 +3065,67 @@ export default {
         isTrailer: true,
         tractiveVehicles: [46],
         possibleBuildings: [0],
+    },
+    181: {
+        caption: 'MzGW (FGr BrB)',
+        color: '#001bcc',
+        credits: 15_000,
+        coins: 25,
+        staff: {
+            min: 6,
+            max: 9,
+            training: {
+                THW: {
+                    thw_bridge_construction: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-pickup',
+        possibleBuildings: [9],
+    },
+    182: {
+        caption: 'Mobilkran',
+        color: '#001bcc',
+        credits: 30_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 1,
+            training: {
+                THW: {
+                    thw_bridge_construction_crane: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [9],
+        special: 'Kann durch den FwK ersetzt werden',
+    },
+    183: {
+        caption: 'Anh Plattform (FGr BrB)',
+        color: '#001bcc',
+        credits: 50_000,
+        coins: 20,
+        staff: {
+            min: 0,
+            max: 0,
+            training: {
+                THW: {
+                    thw_bridge_construction: {
+                        min: 6,
+                    },
+                },
+            },
+        },
+        icon: 'trailer',
+        special:
+            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (MzGW (FGr BrB))',
+        isTrailer: true,
+        tractiveVehicles: [181],
+        possibleBuildings: [9],
     },
 } satisfies Record<number, InternalVehicle>;

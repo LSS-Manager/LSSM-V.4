@@ -58,7 +58,7 @@
                 "texts": ["THW-Einsatzkräfte"],
                 "vehicles": [
                     39, 40, 41, 42, 45, 65, 69, 93, 100, 109, 122, 123, 124,
-                    125, 144, 145, 147, 148, 176, 177
+                    125, 144, 145, 147, 148, 176, 177, 181, 182
                 ]
             },
             {
@@ -184,7 +184,7 @@
                 "texts": ["Funkstreifenwagen (Dienstgruppenleitung)"],
                 "vehicles": [103]
             },
-            { "texts": ["FwK"], "vehicles": [57] },
+            { "texts": ["FwK"], "vehicles": [57, 182] },
             { "texts": ["FüKW (Polizei)"], "vehicles": [51] },
             {
                 "equipment": ["breathing_protection"],
@@ -349,7 +349,10 @@
             { "texts": ["LauKw"], "vehicles": [165] },
             { "texts": ["MTW-TeSi"], "vehicles": [173] },
             { "texts": ["GW-TeSi"], "vehicles": [171] },
-            { "texts": ["Anh TeSi"], "vehicles": [174] }
+            { "texts": ["Anh TeSi"], "vehicles": [174] },
+            { "texts": ["MzGW (FGr BrB)"], "vehicles": [181] },
+            { "texts": ["Mobilkran", "Mobilkräne"], "vehicles": [57, 182] },
+            { "texts": ["Anh Plattform (FGr BrB)"], "vehicles": [183] }
         ],
         "water": "l. Wasser"
     },
