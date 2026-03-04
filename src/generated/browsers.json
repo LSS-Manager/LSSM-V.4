@@ -11,8 +11,8 @@
     },
     "firefox": {
         "download": "https://firefox.com",
-        "latest": 147,
-        "supported": 141
+        "latest": 148,
+        "supported": 142
     },
     "opera": {
         "download": "https://opera.com",
