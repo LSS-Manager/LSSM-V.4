@@ -816,7 +816,8 @@ export default {
         },
         icon: 'truck',
         possibleBuildings: [0, 18],
-        special: 'Wird ab 14 Feuerwachen benötigt. Kann durch den Mobilkran des THW ersetzt werden',
+        special:
+            'Wird ab 14 Feuerwachen benötigt. Kann durch den Mobilkran des THW ersetzt werden',
     },
     58: {
         caption: 'KTW Typ B',

@@ -70,6 +70,8 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 3000,
+        pumpCapacity: 2500,
+        pumpType: 'fire',
     },
     7: {
         caption: 'TST 6/7',
@@ -109,6 +111,9 @@ export default {
         staff: { min: 1, max: 9 },
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
+        waterBonus: 15,
+        pumpCapacity: 1000,
+        pumpType: 'fire',
         special:
             'Benodigd vanaf 7 brandweerposten. De slangenwagen zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 15%',
     },
@@ -151,6 +156,8 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 4000,
+        pumpCapacity: 2000,
+        pumpType: 'fire',
     },
     15: {
         caption: 'TST-NB 4/5',
@@ -615,6 +622,9 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'square',
         possibleBuildings: [0, 17],
+        waterBonus: 25,
+        pumpCapacity: 6000,
+        pumpType: 'fire',
         special:
             'Haakarmvoertuig benodigd. Deze haakarmbak zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 25%',
     },
@@ -1021,6 +1031,9 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'trailer',
         possibleBuildings: [0, 17],
+        waterBonus: 5,
+        pumpCapacity: 1000,
+        pumpType: 'fire',
         special:
             'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (SI-2, TS 8/9, TS-OR, PM-OR, TS-HV, TS 4/5, TS 6/7, HV, AB, SL, DA, DB-K, TST 4/5, TST 6/7, TST 8/9, TST-NB 4/5, TST-NB 6/7, TST-NB 8/9, DB-VEB). Deze aanhanger zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 5%',
     },
@@ -1032,6 +1045,9 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'trailer',
         possibleBuildings: [0, 17],
+        waterBonus: 10,
+        pumpCapacity: 2500,
+        pumpType: 'fire',
         special:
             'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (SI-2, TS 8/9, TS-OR, PM-OR, TS-HV, TS 4/5, TS 6/7, HV, AB, SL, DA, DB-K, TST 4/5, TST 6/7, TST 8/9, TST-NB 4/5, TST-NB 6/7, TST-NB 8/9, DB-VEB). Deze aanhanger zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 10%',
     },
