@@ -102,6 +102,7 @@
         "dispatch": "Transport gevangenen",
         "home": "Thuisbasis: {building}"
     },
+    "pump_amount": "Pomp Capaciteit",
     "release": {
         "cancel": "Annuleren",
         "confirm": "Ja",

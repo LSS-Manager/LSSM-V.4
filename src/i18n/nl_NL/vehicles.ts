@@ -10,6 +10,8 @@ export default {
         icon: 'shuttle-van',
         possibleBuildings: [0, 17],
         waterTank: 500,
+        pumpCapacity: 250,
+        pumpType: 'fire',
     },
     1: {
         caption: 'TS 8/9',
@@ -20,6 +22,8 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 2000,
+        pumpCapacity: 2000,
+        pumpType: 'fire',
     },
     2: {
         caption: 'Autoladder',
@@ -70,6 +74,8 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 3000,
+        pumpCapacity: 2500,
+        pumpType: 'fire',
     },
     7: {
         caption: 'TST 6/7',
@@ -80,6 +86,8 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 3000,
+        pumpCapacity: 1800,
+        pumpType: 'fire',
     },
     8: {
         caption: 'TST 4/5',
@@ -90,6 +98,8 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 2000,
+        pumpCapacity: 1000,
+        pumpType: 'fire',
     },
     9: {
         caption: 'TS 4/5',
@@ -100,6 +110,8 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 1500,
+        pumpCapacity: 800,
+        pumpType: 'fire',
     },
     10: {
         caption: 'Slangenwagen',
@@ -109,6 +121,9 @@ export default {
         staff: { min: 1, max: 9 },
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
+        waterBonus: 15,
+        pumpCapacity: 1000,
+        pumpType: 'fire',
         special:
             'Benodigd vanaf 7 brandweerposten. De slangenwagen zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 15%',
     },
@@ -141,6 +156,8 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 4000,
+        pumpCapacity: 3500,
+        pumpType: 'fire',
     },
     14: {
         caption: 'TST-NB 6/7',
@@ -151,6 +168,8 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 4000,
+        pumpCapacity: 2000,
+        pumpType: 'fire',
     },
     15: {
         caption: 'TST-NB 4/5',
@@ -161,6 +180,8 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 4000,
+        pumpCapacity: 1500,
+        pumpType: 'fire',
     },
     16: {
         caption: 'Ambulance',
@@ -180,6 +201,8 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 2000,
+        pumpCapacity: 1500,
+        pumpType: 'fire',
     },
     18: {
         caption: 'Hoogwerker',
@@ -414,6 +437,8 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 15_000,
+        pumpCapacity: 1000,
+        pumpType: 'fire',
         special: 'Benodigd vanaf 7 brandweerposten.',
     },
     35: {
@@ -545,6 +570,8 @@ export default {
         possibleBuildings: [0, 17],
         waterTank: 13_300,
         foamTank: 1600,
+        pumpCapacity: 8000,
+        pumpType: 'fire',
     },
     42: {
         caption: 'Crashtender (6x6)',
@@ -566,6 +593,8 @@ export default {
         possibleBuildings: [0, 17],
         waterTank: 10_000,
         foamTank: 1300,
+        pumpCapacity: 6000,
+        pumpType: 'fire',
     },
     43: {
         caption: 'Crashtender (4x4)',
@@ -587,6 +616,8 @@ export default {
         possibleBuildings: [0, 17],
         waterTank: 6000,
         foamTank: 500,
+        pumpCapacity: 3000,
+        pumpType: 'fire',
     },
     44: {
         caption: 'Airport Fire Officer / On Scene Commander',
@@ -615,6 +646,9 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'square',
         possibleBuildings: [0, 17],
+        waterBonus: 25,
+        pumpCapacity: 6000,
+        pumpType: 'fire',
         special:
             'Haakarmvoertuig benodigd. Deze haakarmbak zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 25%',
     },
@@ -714,6 +748,8 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 2000,
+        pumpCapacity: 1500,
+        pumpType: 'fire',
     },
     51: {
         caption: 'HulpverleningsHaakarmbak',
@@ -879,6 +915,7 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'square',
         possibleBuildings: [0, 17],
+        waterBonus: 15,
         special:
             'Haakarmvoertuig benodigd. Deze haakarmbak zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 15%',
     },
@@ -891,6 +928,8 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 2000,
+        pumpCapacity: 1500,
+        pumpType: 'fire',
         special: 'Per 10 brandweerposten kan één TS-HV gekocht worden.',
     },
     63: {
@@ -989,6 +1028,8 @@ export default {
         possibleBuildings: [0, 17],
         waterTank: 10_000,
         foamTank: 1000,
+        pumpCapacity: 1000,
+        pumpType: 'fire',
     },
     69: {
         caption: 'SBH',
@@ -1000,6 +1041,8 @@ export default {
         possibleBuildings: [0, 17],
         waterTank: 8000,
         foamTank: 1000,
+        pumpCapacity: 1000,
+        pumpType: 'fire',
     },
     70: {
         caption: 'SBA',
@@ -1010,6 +1053,8 @@ export default {
         icon: 'trailer',
         possibleBuildings: [0, 17],
         foamTank: 500,
+        pumpCapacity: 1000,
+        pumpType: 'fire',
         special:
             'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (SI-2, TS 8/9, TS-OR, PM-OR, TS-HV, TS 4/5, TS 6/7, HV, AB, SL, DA, DB-K, TST 4/5, TST 6/7, TST 8/9, TST-NB 4/5, TST-NB 6/7, TST-NB 8/9, DB-VEB)',
     },
@@ -1021,6 +1066,9 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'trailer',
         possibleBuildings: [0, 17],
+        waterBonus: 5,
+        pumpCapacity: 1000,
+        pumpType: 'fire',
         special:
             'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (SI-2, TS 8/9, TS-OR, PM-OR, TS-HV, TS 4/5, TS 6/7, HV, AB, SL, DA, DB-K, TST 4/5, TST 6/7, TST 8/9, TST-NB 4/5, TST-NB 6/7, TST-NB 8/9, DB-VEB). Deze aanhanger zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 5%',
     },
@@ -1032,6 +1080,9 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'trailer',
         possibleBuildings: [0, 17],
+        waterBonus: 10,
+        pumpCapacity: 2500,
+        pumpType: 'fire',
         special:
             'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (SI-2, TS 8/9, TS-OR, PM-OR, TS-HV, TS 4/5, TS 6/7, HV, AB, SL, DA, DB-K, TST 4/5, TST 6/7, TST 8/9, TST-NB 4/5, TST-NB 6/7, TST-NB 8/9, DB-VEB). Deze aanhanger zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 10%',
     },
@@ -1368,6 +1419,8 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 2000,
+        pumpCapacity: 2000,
+        pumpType: 'fire',
     },
     91: {
         caption: 'HVH-STH',
@@ -1419,6 +1472,8 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 2000,
+        pumpCapacity: 2000,
+        pumpType: 'fire',
     },
     94: {
         caption: 'VW-USAR',
@@ -1459,7 +1514,7 @@ export default {
         possibleBuildings: [0, 17],
     },
     96: {
-        caption: 'Quat-USAR',
+        caption: 'Quad-USAR',
         color: '#220000',
         credits: 5000,
         coins: 25,
