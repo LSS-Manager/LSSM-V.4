@@ -74,7 +74,7 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 3000,
-        pumpCapacity: 3000,
+        pumpCapacity: 2500,
         pumpType: 'fire',
     },
     7: {
@@ -122,6 +122,8 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterBonus: 15,
+        pumpCapacity: 1000,
+        pumpType: 'fire',
         special:
             'Benodigd vanaf 7 brandweerposten. De slangenwagen zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 15%',
     },
@@ -166,7 +168,7 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 4000,
-        pumpCapacity: 3000,
+        pumpCapacity: 2000,
         pumpType: 'fire',
     },
     15: {
@@ -645,6 +647,8 @@ export default {
         icon: 'square',
         possibleBuildings: [0, 17],
         waterBonus: 25,
+        pumpCapacity: 6000,
+        pumpType: 'fire',
         special:
             'Haakarmvoertuig benodigd. Deze haakarmbak zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 25%',
     },
@@ -1062,6 +1066,7 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'trailer',
         possibleBuildings: [0, 17],
+        waterBonus: 5,
         pumpCapacity: 1000,
         pumpType: 'fire',
         special:
@@ -1075,6 +1080,7 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'trailer',
         possibleBuildings: [0, 17],
+        waterBonus: 10,
         pumpCapacity: 2500,
         pumpType: 'fire',
         special:
