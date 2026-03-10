@@ -32,6 +32,7 @@
         "driving": "Aanrijdend",
         "foam": "L. SVM",
         "missing": "Missende voertuigen",
+        "pump": "Pomp Capaciteit l/min",
         "selected": "Geselecteerd",
         "staff": [
             {
