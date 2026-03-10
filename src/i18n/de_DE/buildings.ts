@@ -44,7 +44,7 @@ export default {
                     parkingLotReservations: [
                         [
                             47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
-                            142, 164, 168, 169, 179,
+                            142, 164, 168, 169, 179, 180,
                         ],
                     ],
                     cannotDisable: true,
@@ -74,7 +74,7 @@ export default {
                 parkingLotReservations: [
                     [
                         47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119, 142,
-                        164, 168, 169, 179,
+                        164, 168, 169, 179, 180,
                     ],
                 ],
                 cannotDisable: true,
@@ -132,7 +132,7 @@ export default {
                     parkingLotReservations: [
                         [
                             47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
-                            142, 164, 168, 169, 179,
+                            142, 164, 168, 169, 179, 180,
                         ],
                     ],
                     cannotDisable: true,
@@ -191,7 +191,7 @@ export default {
                 parkingLotReservations: [
                     [
                         47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119, 142,
-                        164, 168, 169, 179,
+                        164, 168, 169, 179, 180,
                     ],
                 ],
                 cannotDisable: true,
@@ -259,7 +259,7 @@ export default {
                     parkingLotReservations: [
                         [
                             47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
-                            142, 164, 168, 169, 179,
+                            142, 164, 168, 169, 179, 180,
                         ],
                     ],
                     cannotDisable: true,
@@ -962,6 +962,17 @@ export default {
                 givesParkingLots: 3,
                 unlocksVehicleTypes: [176, 177, 178],
                 parkingLotReservations: [[176], [177], [178]],
+                unlockedVehiclesOnReservedLotsOnly: true,
+            },
+            {
+                caption: 'Fachgruppe Brückenbau',
+                credits: 50_000,
+                coins: 15,
+                duration: '7 Tage',
+                isVehicleExtension: true,
+                givesParkingLots: 3,
+                unlocksVehicleTypes: [181, 182, 183],
+                parkingLotReservations: [[181], [182], [183]],
                 unlockedVehiclesOnReservedLotsOnly: true,
             },
         ],
