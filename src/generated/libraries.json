@@ -211,7 +211,7 @@
     },
     "eslint-plugin-jsdoc": {
         "url": "https://github.com/gajus/eslint-plugin-jsdoc#readme",
-        "version": "62.8.0"
+        "version": "62.8.1"
     },
     "eslint-plugin-markdownlint": {
         "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",
@@ -421,7 +421,7 @@
     "vue3": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/core/tree/main/packages/vue#readme",
-        "version": "3.5.30"
+        "version": "3.5.31"
     },
     "vuepress": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
