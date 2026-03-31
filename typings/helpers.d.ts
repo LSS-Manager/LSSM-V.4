@@ -116,6 +116,7 @@ declare global {
         building_move_marker_dragend(): void;
         building_new_dragend(): void;
         vehicleSelectionReset(): void;
+        aaoCheckAvailable(calculateTime?: boolean): void;
         aao_available(arrId: number, calculateTime: boolean): void;
         aao_building_check(
             buildingIds: number[],
