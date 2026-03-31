@@ -58,6 +58,11 @@ export default (
         );
 
         searchField.addEventListener('input', () => {
+            // make all tabs inactive again, except for the one that was active before
+            document
+                .querySelectorAll('#mission-aao-group .aao-tab.active:not(.in)')
+                .forEach(tab => tab.classList.remove('active'));
+
             const search = searchField.value.trim();
             if (search && !styleAdded) {
                 document.head.append(hideStyle);
@@ -97,6 +102,12 @@ export default (
                     display: none;
                 }`;
             if (dissolveCategories) {
+                // make all tabs active so that the AAOs availability can be recalculated
+                document
+                    .querySelectorAll(
+                        `#mission-aao-group .aao-tab.${panelHasResultsClass}`
+                    )
+                    .forEach(tab => tab.classList.add('active'));
                 hideStyle.textContent += `
                     #aao-tabs {
                         display: none;
@@ -109,6 +120,7 @@ export default (
                         content: attr(data-category-title);
                         font-weight: bold;
                     }`;
+                window.aaoCheckAvailable();
             }
             if (compactResults) {
                 hideStyle.textContent += `
