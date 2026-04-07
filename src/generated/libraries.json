@@ -281,7 +281,7 @@
     "lodash": {
         "icon": "https://lodash.com/assets/img/lodash.svg",
         "url": "https://lodash.com/",
-        "version": "4.17.23"
+        "version": "4.18.1"
     },
     "mini-svg-data-uri": {
         "url": "https://github.com/tigt/mini-svg-data-uri#readme",
