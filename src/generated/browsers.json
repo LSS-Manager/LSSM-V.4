@@ -1,8 +1,8 @@
 {
     "chrome": {
         "download": "https://chrome.com",
-        "latest": 146,
-        "supported": 140
+        "latest": 147,
+        "supported": 141
     },
     "edge": {
         "download": "https://microsoft.com/edge",
