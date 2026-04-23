@@ -8395,7 +8395,7 @@ __metadata:
     pinia: "npm:2.3.1"
     prettier: "npm:3.8.3"
     qrcode: "npm:1.5.4"
-    sass: "npm:1.98.0"
+    sass: "npm:1.99.0"
     sass-loader: "npm:16.0.7"
     semver: "npm:7.7.4"
     showdown: "npm:2.1.0"
@@ -10850,24 +10850,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.98.0":
-  version: 1.98.0
-  resolution: "sass@npm:1.98.0"
-  dependencies:
-    "@parcel/watcher": "npm:^2.4.1"
-    chokidar: "npm:^4.0.0"
-    immutable: "npm:^5.1.5"
-    source-map-js: "npm:>=0.6.2 <2.0.0"
-  dependenciesMeta:
-    "@parcel/watcher":
-      optional: true
-  bin:
-    sass: sass.js
-  checksum: 10c0/9e91daa20f970fefb364ac31289f070636da7aa7eaeb43e371ea98fa98085a6dbc2d3d058504226a02d07717faf0a4ce8d41b579ecb428c4a9d96b4dc1944a95
-  languageName: node
-  linkType: hard
-
-"sass@npm:^1.70.0":
+"sass@npm:1.99.0, sass@npm:^1.70.0":
   version: 1.99.0
   resolution: "sass@npm:1.99.0"
   dependencies:
