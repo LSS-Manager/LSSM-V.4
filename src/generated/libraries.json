@@ -420,8 +420,8 @@
     },
     "vue3": {
         "icon": "https://vuejs.org/logo.svg",
-        "url": "https://github.com/vuejs/core/tree/main/packages/vue#readme",
-        "version": "3.5.32"
+        "url": "https://vuejs.org/",
+        "version": "3.5.33"
     },
     "vuepress": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
