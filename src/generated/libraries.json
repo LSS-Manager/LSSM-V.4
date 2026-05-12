@@ -27,7 +27,7 @@
     "@primer/octicons": {
         "icon": "https://avatars.githubusercontent.com/u/7143434",
         "url": "https://primer.style/octicons",
-        "version": "19.24.1"
+        "version": "19.25.0"
     },
     "@types/he": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -170,6 +170,10 @@
         "url": "https://github.com/pubkey/broadcast-channel#readme",
         "version": "4.20.2"
     },
+    "ci-info": {
+        "url": "https://github.com/watson/ci-info",
+        "version": "4.4.0"
+    },
     "cloc": {
         "url": "https://github.com/kentcdodds/cloc#readme",
         "version": "2.11.0"
@@ -295,7 +299,7 @@
     "moment-timezone": {
         "icon": "https://momentjs.com/static/img/moment-timezone-favicon.png",
         "url": "http://momentjs.com/timezone/",
-        "version": "0.6.1"
+        "version": "0.6.2"
     },
     "pinia": {
         "icon": "https://pinia.vuejs.org/logo.svg",
@@ -435,6 +439,6 @@
     "webpack": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack/webpack",
-        "version": "5.105.4"
+        "version": "5.106.2"
     }
 }
