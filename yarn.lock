@@ -4768,7 +4768,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ci-info@npm:^4.0.0":
+"ci-info@npm:4.4.0, ci-info@npm:^4.0.0":
   version: 4.4.0
   resolution: "ci-info@npm:4.4.0"
   checksum: 10c0/44156201545b8dde01aa8a09ee2fe9fc7a73b1bef9adbd4606c9f61c8caeeb73fb7a575c88b0443f7b4edb5ee45debaa59ed54ba5f99698339393ca01349eb3a
@@ -8380,6 +8380,7 @@ __metadata:
     acorn-walk: "npm:8.3.5"
     all-contributors-cli: "npm:6.26.1"
     broadcast-channel: "npm:4.20.2"
+    ci-info: "npm:4.4.0"
     copy-dir: "npm:1.3.0"
     css-loader: "npm:7.1.4"
     emoji-toolkit: "npm:10.0.0"
