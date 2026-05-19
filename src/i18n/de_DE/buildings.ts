@@ -2122,16 +2122,18 @@ export default {
                 newCells: 1,
                 cannotDisable: true,
             },
-            {
-                caption: 'Zelle',
-                credits: 25_000,
-                coins: 5,
-                duration: '7 Tage',
-                newCells: 1,
-                requiredExtensions: [0],
-                cannotDisable: true,
-            },
-            ...multiplyExtension(null, 8),
+            ...multiplyExtension(
+                {
+                    caption: 'Zelle',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Tage',
+                    newCells: 1,
+                    requiredExtensions: [0],
+                    cannotDisable: true,
+                },
+                9
+            ),
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-9. 100.000'],
         maxBuildings: 'Keine Grenze',
