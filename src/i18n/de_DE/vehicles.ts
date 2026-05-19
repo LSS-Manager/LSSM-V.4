@@ -3132,7 +3132,7 @@ export default {
     184: {
         caption: 'FuStW (AP)',
         color: '#005500',
-        credits: 12500,
+        credits: 12_500,
         coins: 25,
         staff: {
             min: 2,
