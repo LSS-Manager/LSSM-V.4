@@ -3145,7 +3145,6 @@ export default {
                 },
             },
         },
-        staff: { min: 2, max: 2 },
         icon: 'taxi',
         possibleBuildings: [6, 19, 29],
     },
