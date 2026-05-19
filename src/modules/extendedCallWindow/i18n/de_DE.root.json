@@ -242,7 +242,7 @@
             },
             {
                 "name": "Polizei",
-                "vehicleTypes": [32, 61, 95, 96, 98, 103, 134, 135, 136, 137]
+                "vehicleTypes": [32, 61, 95, 96, 98, 103, 134, 135, 136, 137, 184]
             },
             {
                 "name": "Bereitschaftspolizei",

@@ -72,7 +72,7 @@ export default {
             color: '#ffa500',
         },
         Polizei: {
-            buildings: [6, 8, 11, 13, 17, 19, 24],
+            buildings: [6, 8, 11, 13, 17, 19, 24, 29],
             color: '#00ac00',
         },
         THW: {
@@ -132,7 +132,7 @@ export default {
         },
         Polizei: {
             vehicles: {
-                'Funkstreifenwagen': [32, 95, 98, 103],
+                'Funkstreifenwagen': [32, 95, 98, 103, 184],
                 'Bereitschaftspolizei-Fahrzeuge': [35, 50, 51, 52, 72, 165],
                 'Polizeihubschrauber': [61, 96, 156],
                 'SEK': [79, 80],
@@ -287,6 +287,7 @@ export default {
         'JVA',
         'Solarpark',
         'Raffinerie',
+        'Schiffswerft',
     ],
     only_alliance_missions: [41, 43, 59, 75, 99, 207, 221, 222, 256, 350],
     transfer_missions: [147, 613],

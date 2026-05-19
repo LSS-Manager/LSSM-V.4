@@ -202,6 +202,12 @@ export default {
             staffList: 'Lautsprecheroperator',
             key: 'police_speaker_operator',
         },
+        {
+            caption: 'Autobahnpolizei',
+            duration: '3 Tage',
+            staffList: 'Autobahnpolizei',
+            key: 'highway_police',
+        },
     ],
     Rettungsdienst: [
         {

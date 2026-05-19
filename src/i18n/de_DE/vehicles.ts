@@ -3129,4 +3129,24 @@ export default {
         tractiveVehicles: [181],
         possibleBuildings: [9],
     },
+    184: {
+        caption: 'FuStW (AP)',
+        color: '#005500',
+        credits: 12500,
+        coins: 25,
+        staff: {
+            min: 2,
+            max: 2,
+            training: {
+                Polizei: {
+                    highway_police: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        staff: { min: 2, max: 2 },
+        icon: 'taxi',
+        possibleBuildings: [6, 19, 29],
+    },
 } satisfies Record<number, InternalVehicle>;

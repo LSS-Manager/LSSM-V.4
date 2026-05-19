@@ -51,7 +51,7 @@
                 "texts": ["Polizisten"],
                 "vehicles": [
                     32, 35, 50, 51, 52, 61, 72, 79, 80, 81, 82, 94, 95, 98, 103,
-                    156
+                    156, 184
                 ]
             },
             {
@@ -352,7 +352,8 @@
             { "texts": ["Anh TeSi"], "vehicles": [174] },
             { "texts": ["MzGW (FGr BrB)"], "vehicles": [181] },
             { "texts": ["Mobilkran", "Mobilkräne"], "vehicles": [57, 182] },
-            { "texts": ["Anh Plattform (FGr BrB)"], "vehicles": [183] }
+            { "texts": ["Anh Plattform (FGr BrB)"], "vehicles": [183] },
+            { "texts": ["FuStW (AP)"], "vehicles": [184] }
         ],
         "water": "l. Wasser"
     },
