@@ -10,6 +10,7 @@ export default {
         icon: 'shuttle-van',
         possibleBuildings: [0, 17],
         waterTank: 500,
+        foamTank: 150,
         pumpCapacity: 250,
         pumpType: 'fire',
     },
@@ -22,6 +23,7 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 2000,
+        foamTank: 150,
         pumpCapacity: 2000,
         pumpType: 'fire',
     },
@@ -74,6 +76,7 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 3000,
+        foamTank: 150,
         pumpCapacity: 2500,
         pumpType: 'fire',
     },
@@ -86,6 +89,7 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 3000,
+        foamTank: 150,
         pumpCapacity: 1800,
         pumpType: 'fire',
     },
@@ -98,6 +102,7 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 2000,
+        foamTank: 150,
         pumpCapacity: 1000,
         pumpType: 'fire',
     },
@@ -110,6 +115,7 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 1500,
+        foamTank: 150,
         pumpCapacity: 800,
         pumpType: 'fire',
     },
@@ -156,6 +162,7 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 4000,
+        foamTank: 150,
         pumpCapacity: 3500,
         pumpType: 'fire',
     },
@@ -168,6 +175,7 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 4000,
+        foamTank: 150,
         pumpCapacity: 2000,
         pumpType: 'fire',
     },
@@ -180,6 +188,7 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 4000,
+        foamTank: 150,
         pumpCapacity: 1500,
         pumpType: 'fire',
     },
@@ -201,6 +210,7 @@ export default {
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
         waterTank: 2000,
+        foamTank: 150,
         pumpCapacity: 1500,
         pumpType: 'fire',
     },
@@ -2085,5 +2095,294 @@ export default {
         icon: 'square',
         possibleBuildings: [0, 17],
         equipmentCapacity: 30,
+    },
+    128: {
+        caption: 'DB-DRONE',
+        color: '#0c284f',
+        credits: 60_000,
+        coins: 28,
+        staff: {
+            min: 3,
+            max: 3,
+            training: {
+                Politie: {
+                    drone_police: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [11],
+    },
+    129: {
+        caption: 'DB-TDV',
+        color: '#791515',
+        credits: 60_000,
+        coins: 28,
+        staff: {
+            min: 3,
+            max: 3,
+            training: {
+                Brandweer: {
+                    drone_fire: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 17],
+    },
+    130: {
+        caption: 'SB-BA',
+        color: '#770000',
+        credits: 45_000,
+        coins: 15,
+        staff: {
+            min: 2,
+            max: 3,
+            training: {
+                Brandweer: {
+                    wechsellader: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+        waterTank: 3_000,
+        foamTank: 6000,
+        pumpCapacity: 1500,
+        pumpType: 'fire',
+    },
+    131: {
+        caption: 'SB-IB',
+        color: '#770000',
+        credits: 35_000,
+        coins: 10,
+        staff: {
+            min: 2,
+            max: 3,
+            training: {
+                Brandweer: {
+                    wechsellader: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+        waterTank: 20_000,
+        foamTank: 2000,
+        pumpCapacity: 1000,
+        pumpType: 'fire',
+    },
+    132: {
+        caption: 'AS',
+        color: '#770000',
+        credits: 35_000,
+        coins: 10,
+        staff: {
+            min: 2,
+            max: 3,
+            training: {
+                Brandweer: {
+                    wechsellader: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+        foamTank: 1000,
+        pumpCapacity: 5000,
+        pumpType: 'fire',
+    },
+    133: {
+        caption: 'TS-IB',
+        color: '#770000',
+        credits: 35_000,
+        coins: 10,
+        staff: {
+            min: 1,
+            max: 7,
+            training: {
+                Brandweer: {
+                    wechsellader: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+        waterTank: 2_000,
+        foamTank: 200,
+        pumpCapacity: 1000,
+        pumpType: 'fire',
+    },
+    134: {
+        caption: 'GSH',
+        color: '#950000',
+        credits: 12_000,
+        coins: 8,
+        staff: { min: 0, max: 0 },
+        icon: 'square',
+        possibleBuildings: [0, 17],
+        special: 'Benodigd een speciale opleiding in het trekkend voertuig. (Gevaarlijke Stoffen Eenheid)',
+    },
+    135: {
+        caption: 'DB-GS',
+        color: '#770000',
+        credits: 35_000,
+        coins: 10,
+        staff: {
+            min: 4,
+            max: 6,
+            training: {
+                Brandweer: {
+                    hazard_material_response: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+    },
+    136: {
+        caption: 'GPH',
+        color: '#950000',
+        credits: 12_000,
+        coins: 8,
+        staff: { min: 0, max: 0 },
+        icon: 'square',
+        possibleBuildings: [0, 17],
+        special: 'Benodigd een speciale opleiding in het trekkend voertuig. (Gevaarlijke Stoffen Eenheid)',
+    },
+    137: {
+        caption: 'DB-GP',
+        color: '#770000',
+        credits: 35_000,
+        coins: 10,
+        staff: {
+            min: 4,
+            max: 6,
+            training: {
+                Brandweer: {
+                    hazard_material_response: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+    },
+    138: {
+        caption: 'BOH-DC',
+        color: '#950000',
+        credits: 35_000,
+        coins: 8,
+        staff: { min: 0, max: 0 },
+        icon: 'square',
+        possibleBuildings: [0, 17],
+        special: 'Benodigd een speciale opleiding in het trekkend voertuig. (Ontsmettings Eenheid)',
+    },
+    139: {
+        caption: 'TS-BO',
+        color: '#770000',
+        credits: 35_000,
+        coins: 10,
+        staff: {
+            min: 6,
+            max: 7,
+            training: {
+                Brandweer: {
+                    hazard_suits_response: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+        waterTank: 2_000,
+        pumpCapacity: 1500,
+        pumpType: 'fire',
+    },
+    140: {
+        caption: 'DB-BO',
+        color: '#770000',
+        credits: 35_000,
+        coins: 10,
+        staff: {
+            min: 6,
+            max: 8,
+            training: {
+                Brandweer: {
+                    hazard_suits_response: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+    },
+    141: {
+        caption: 'GOH-DC',
+        color: '#950000',
+        credits: 35_000,
+        coins: 8,
+        staff: { min: 0, max: 0 },
+        icon: 'square',
+        possibleBuildings: [0, 17],
+        special: 'Benodigd een speciale opleiding in het trekkend voertuig. (Ontsmettings Eenheid)',
+    },
+    142: {
+        caption: 'TS-GO',
+        color: '#770000',
+        credits: 35_000,
+        coins: 10,
+        staff: {
+            min: 6,
+            max: 7,
+            training: {
+                Brandweer: {
+                    hazard_suits_response: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+        waterTank: 2_000,
+        pumpCapacity: 1500,
+        pumpType: 'fire',
+    },
+    143: {
+        caption: 'DB-GO',
+        color: '#770000',
+        credits: 35_000,
+        coins: 10,
+        staff: {
+            min: 6,
+            max: 8,
+            training: {
+                Brandweer: {
+                    hazard_suits_response: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
     },
 } satisfies Record<number, InternalVehicle>;
