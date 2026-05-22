@@ -153,7 +153,7 @@ export default {
             key: 'hazard_material_response',
         },
         {
-            caption: 'Onesmettings Eenheid',
+            caption: 'Ontsmettings Eenheid',
             duration: '5 Dagen',
             staffList: 'Ontsmettings Eenheid',
             key: 'hazard_suits_response',
