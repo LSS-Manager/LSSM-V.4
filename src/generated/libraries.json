@@ -162,6 +162,10 @@
         "url": "https://github.com/pubkey/broadcast-channel#readme",
         "version": "4.20.2"
     },
+    "ci-info": {
+        "url": "https://github.com/watson/ci-info",
+        "version": "4.4.0"
+    },
     "cloc": {
         "url": "https://github.com/kentcdodds/cloc#readme",
         "version": "2.11.0"

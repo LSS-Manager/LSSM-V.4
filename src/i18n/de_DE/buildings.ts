@@ -2139,15 +2139,10 @@ export default {
                 9
             ),
         ],
-        levelcost: [
-            '1. 10.000',
-            '2. 50.000',
-            '3.-9. 100.000',
-        ],
+        levelcost: ['1. 10.000', '2. 50.000', '3.-9. 100.000'],
         maxBuildings: 'Keine Grenze',
         maxLevel: 9,
-        special:
-            '',
+        special: '',
         startPersonnel: 2,
         startParkingLots: 1,
         startCells: 0,
