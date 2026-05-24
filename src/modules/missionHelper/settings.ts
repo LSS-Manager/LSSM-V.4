@@ -165,7 +165,7 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
-        ...(['en_US', 'fi_FI', 'fr_FR'].includes(locale)
+        ...(['en_US', 'fi_FI'].includes(locale)
             ? {
                   'optionalAlternatives.allow_dlk_instead_of_lf': <Toggle>{
                       type: 'toggle',
@@ -215,6 +215,11 @@ export default ((MODULE_ID, LSSM, $m) => {
                           default: false,
                           dependsOn: '.vehicles.content',
                       },
+                  'optionalAlternatives.max_arff_replacing_riv': <Toggle>{
+                      type: 'toggle',
+                      default: false,
+                      dependsOn: '.vehicles.content',
+                  },
               }
             : null),
         ...(locale === 'nl_NL'
