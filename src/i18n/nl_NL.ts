@@ -109,7 +109,9 @@ export default {
                 'Logistiek': [124, 125, 126, 127],
                 'Team Digitale Verkenning': [129],
                 'Industriele Brandbestrijding': [130, 131, 132, 133],
-                'Incidentbestrijding Gevaarlijke Stoffen': [134, 135, 136, 137, 138, 139, 140, 141, 142, 143],
+                'Incidentbestrijding Gevaarlijke Stoffen': [
+                    134, 135, 136, 137, 138, 139, 140, 141, 142, 143,
+                ],
             },
             color: '#ff2d2d',
         },

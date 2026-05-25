@@ -2152,7 +2152,7 @@ export default {
         },
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
-        waterTank: 3_000,
+        waterTank: 3000,
         foamTank: 6000,
         pumpCapacity: 1500,
         pumpType: 'fire',
@@ -2220,7 +2220,7 @@ export default {
         },
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
-        waterTank: 2_000,
+        waterTank: 2000,
         foamTank: 200,
         pumpCapacity: 1000,
         pumpType: 'fire',
@@ -2233,7 +2233,8 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'square',
         possibleBuildings: [0, 17],
-        special: 'Benodigd een speciale opleiding in het trekkend voertuig. (Gevaarlijke Stoffen Eenheid)',
+        special:
+            'Benodigd een speciale opleiding in het trekkend voertuig. (Gevaarlijke Stoffen Eenheid)',
     },
     135: {
         caption: 'DB-GS',
@@ -2262,7 +2263,8 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'square',
         possibleBuildings: [0, 17],
-        special: 'Benodigd een speciale opleiding in het trekkend voertuig. (Gevaarlijke Stoffen Eenheid)',
+        special:
+            'Benodigd een speciale opleiding in het trekkend voertuig. (Gevaarlijke Stoffen Eenheid)',
     },
     137: {
         caption: 'DB-GP',
@@ -2291,7 +2293,8 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'square',
         possibleBuildings: [0, 17],
-        special: 'Benodigd een speciale opleiding in het trekkend voertuig. (Ontsmettings Eenheid)',
+        special:
+            'Benodigd een speciale opleiding in het trekkend voertuig. (Ontsmettings Eenheid)',
     },
     139: {
         caption: 'TS-BO',
@@ -2311,7 +2314,7 @@ export default {
         },
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
-        waterTank: 2_000,
+        waterTank: 2000,
         pumpCapacity: 1500,
         pumpType: 'fire',
     },
@@ -2342,7 +2345,8 @@ export default {
         staff: { min: 0, max: 0 },
         icon: 'square',
         possibleBuildings: [0, 17],
-        special: 'Benodigd een speciale opleiding in het trekkend voertuig. (Ontsmettings Eenheid)',
+        special:
+            'Benodigd een speciale opleiding in het trekkend voertuig. (Ontsmettings Eenheid)',
     },
     142: {
         caption: 'TS-GO',
@@ -2362,7 +2366,7 @@ export default {
         },
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
-        waterTank: 2_000,
+        waterTank: 2000,
         pumpCapacity: 1500,
         pumpType: 'fire',
     },
