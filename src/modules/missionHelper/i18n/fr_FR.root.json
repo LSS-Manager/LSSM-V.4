@@ -56,8 +56,8 @@
             "title": "Cacher VLCG"
         },
         "hide_on_Krankentransport": {
-            "description": "Hide on patient transfer missions",
-            "title": "Hide on patient transfer missions"
+            "description": "Masquer sur les missions de transport de patients",
+            "title": "Masquer sur les transferts de patients"
         },
         "hoverTip": {
             "description": "Infobulles pour le bouton de superposition, par exemple.",
@@ -86,6 +86,10 @@
             "title": "Conditions particulières"
         },
         "optionalAlternatives": {
+            "allow_dlk_instead_of_lf": {
+                "description": "Indique si une EPA peut être utilisée à la place d'un FPT.",
+                "title": "Afficher EPA au lieu des FPT"
+            },
             "allow_ktw_instead_of_rtw": {
                 "description": "Indique si une ambulance de type A peut être utilisée à la place d'une ambulance..",
                 "title": "Ambulance de type A au lieu d'ASSU"

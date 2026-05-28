@@ -218,6 +218,9 @@
             }
         },
         "optional_alternatives": {
+            "allow_dlk_instead_of_lf": {
+                "firetrucks": "FPT ou EPA | FPT ou EPA"
+            },
             "allow_ktw_instead_of_rtw": {
                 "ambulances": "Ambulance Type A ou Ambulance"
             },
@@ -226,8 +229,7 @@
             },
             "allow_streifenwagen_instead_of_riot_police_van": {
                 "riot_police": "Véhicule de patrouille ou VR | Véhicules de patrouilles ou VR"
-            },
-            "max_arff_replacing_riv": { "riv": "VIRP ou VIM" }
+            }
         },
         "patient_additionals": { "8": "PC DSM" },
         "title": "Véhicules"
