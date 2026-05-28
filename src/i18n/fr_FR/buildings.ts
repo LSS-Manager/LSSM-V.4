@@ -1157,7 +1157,10 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [56, 73, 57, 108],
-                parkingLotReservations: [[73, 56, 108, 57], [73, 56, 108, 57]],
+                parkingLotReservations: [
+                    [73, 56, 108, 57],
+                    [73, 56, 108, 57],
+                ],
             },
             {
                 caption: 'Supports de poudre et de dioxyde de carbone',
