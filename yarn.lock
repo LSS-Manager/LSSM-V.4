@@ -4616,7 +4616,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001687, caniuse-lite@npm:^1.0.30001782, caniuse-lite@npm:^1.0.30001787":
+"caniuse-lite@npm:^1.0.30001782, caniuse-lite@npm:^1.0.30001787":
   version: 1.0.30001793
   resolution: "caniuse-lite@npm:1.0.30001793"
   checksum: 10c0/bee8f8b55d1ccdb2076b7355c06fd01916952eadd76b828e4d5fb9ac62d17ec7db0e2b7c326b923478b93526ad1ff74f189cf40c06de0e4a5edbc677009b97fe
@@ -5889,21 +5889,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-compat@npm:6.2.0":
-  version: 6.2.0
-  resolution: "eslint-plugin-compat@npm:6.2.0"
+"eslint-plugin-compat@npm:7.0.2":
+  version: 7.0.2
+  resolution: "eslint-plugin-compat@npm:7.0.2"
   dependencies:
     "@mdn/browser-compat-data": "npm:^6.1.1"
     ast-metadata-inferer: "npm:^0.8.1"
     browserslist: "npm:^4.25.2"
-    caniuse-lite: "npm:^1.0.30001687"
     find-up: "npm:^5.0.0"
     globals: "npm:^15.7.0"
     lodash.memoize: "npm:^4.1.2"
     semver: "npm:^7.6.2"
   peerDependencies:
-    eslint: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0
-  checksum: 10c0/07214b9259010bdc1291cb98da72531b2829dd54e3d2224ec0888e3213e595b489be57234a961b27b38f663107aae0f18406221f5bca9d1e254276a5c652c642
+    eslint: ^9.0.0 || ^10.0.0
+  checksum: 10c0/1ecda7fb63af73b27938037a687ddaf2b6e8f6f3b10cc267c91e5f445e8b3b8957ebd67991b20f4f1d0d718664d1745c7623dcd7c295c9b02306d066696f9a12
   languageName: node
   linkType: hard
 
@@ -8313,7 +8312,7 @@ __metadata:
     eslint: "npm:8.57.0"
     eslint-config-prettier: "npm:10.1.8"
     eslint-import-resolver-typescript: "npm:4.4.4"
-    eslint-plugin-compat: "npm:6.2.0"
+    eslint-plugin-compat: "npm:7.0.2"
     eslint-plugin-import: "npm:2.32.0"
     eslint-plugin-jsdoc: "npm:62.9.0"
     eslint-plugin-markdownlint: "npm:0.9.0"
