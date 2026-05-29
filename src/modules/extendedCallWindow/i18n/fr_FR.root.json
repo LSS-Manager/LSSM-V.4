@@ -202,8 +202,8 @@
             "warning": "Orange"
         },
         "vehicleListPermanentSearch": {
-            "description": "Vehicle search bar permanently displayed.",
-            "title": "Permanent vehicle search bar"
+            "description": "La barre de recherche de véhicules est affichée en permanence.",
+            "title": "Barre de recherche de véhicules permanente"
         },
         "vehicleTypeInList": {
             "description": "Affiche le type de véhicule dans la liste des unités disponibles.",
