@@ -425,7 +425,7 @@
     "vue3": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://vuejs.org/",
-        "version": "3.5.34"
+        "version": "3.5.35"
     },
     "vuepress": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
