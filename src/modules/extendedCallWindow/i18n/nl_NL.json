@@ -238,7 +238,7 @@
             { "texts": ["EOD Eenheid", "EOD Eenheden"], "vehicles": [113, 114, 115] },
             { "texts": ["DB-Explosievenhond", "DB-Explosievenhonden"], "vehicles": [116] },
             { "texts": ["DB-TEV"], "vehicles": [119] },
-            { "texts": ["RC-Explosievenrobot", "RC-Explosievenrobots"], "vehicles": [120] },
+            { "texts": ["RC-Explosievenrobot", "RC-Explosievenrobots"], "equipment": ["bomb_disposal_robot"] },
             { "texts": ["KMAR Eenheid", "KMAR Eenheden"], "vehicles": [110, 111, 112] },
             { "texts": ["GSH, DB-GS of RC-Gevaarlijke Stoffen"], "vehicles": [134, 135] },
             { "texts": ["NHT"], "vehicles": [101] },
