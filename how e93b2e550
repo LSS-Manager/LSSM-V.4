@@ -1,0 +1,20 @@
+[33mc050cfe76[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m)[m Merge branch 'dev' of https://github.com/0JR4/LSSM-V.4 into dev
+[33me93b2e550[m CheckExtCallwindows
+[33mf0049b13d[m Check ExtendedCallWindow
+[33m06345bbe1[m Check Ext Call Window
+[33mf11013e04[m[33m ([m[1;31morigin/dev[m[33m, [m[1;31morigin/HEAD[m[33m)[m Update lost vehicles. Ext_Call_Window needs update
+[33m98502069a[m 📦 Version 4.7.12+20260526.2005 [skip ci]
+[33m1a12299c9[m 🔀 #3930 from LSS-Manager/renovate/primer-octicons-19.x
+[33m056136cf9[m ⬆️ Update `@primer/octicons` to v19.27.0
+[33m609992492[m 📦 Version 4.7.12+20260525.1917 [skip ci]
+[33m6c94a2dff[m 🔀 #3926 from 0JR4/dev
+[33m666a3f38b[m Merge branch 'dev' into dev
+[33m03b07769b[m 🔀 #3927 from LSS-Manager/renovate/lock-file-maintenance
+[33maf12f8d3e[m ⬆️ Lock file maintenance
+[33mf613cd81d[m Update schoolings.ts
+[33mc05bb67d2[m IBGS-IB Update
+[33m9d65e2b69[m 📦 Version 4.7.12+20260522.0623 [skip ci]
+[33m85131ef1f[m 🔀 #3925 from LSS-Manager/renovate/ua-parser-js-2.x
+[33m42b644ced[m ⬆️ Update `ua-parser-js` to v2.0.10
+[33m212330fdc[m fix for the api
+[33m46af6e2b3[m 📦 Version 4.7.12+20260519.2009 [skip ci]
