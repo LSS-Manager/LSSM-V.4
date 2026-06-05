@@ -26,6 +26,7 @@ export default {
         foamTank: 150,
         pumpCapacity: 2000,
         pumpType: 'fire',
+        equipmentCapacity: 10,
     },
     2: {
         caption: 'Autoladder',
@@ -79,6 +80,7 @@ export default {
         foamTank: 150,
         pumpCapacity: 2500,
         pumpType: 'fire',
+        equipmentCapacity: 10,
     },
     7: {
         caption: 'TST 6/7',
@@ -92,6 +94,7 @@ export default {
         foamTank: 150,
         pumpCapacity: 1800,
         pumpType: 'fire',
+        equipmentCapacity: 10,
     },
     8: {
         caption: 'TST 4/5',
@@ -105,6 +108,7 @@ export default {
         foamTank: 150,
         pumpCapacity: 1000,
         pumpType: 'fire',
+        equipmentCapacity: 10,
     },
     9: {
         caption: 'TS 4/5',
@@ -118,6 +122,7 @@ export default {
         foamTank: 150,
         pumpCapacity: 800,
         pumpType: 'fire',
+        equipmentCapacity: 10,
     },
     10: {
         caption: 'Slangenwagen',
@@ -165,6 +170,7 @@ export default {
         foamTank: 150,
         pumpCapacity: 3500,
         pumpType: 'fire',
+        equipmentCapacity: 10,
     },
     14: {
         caption: 'TST-NB 6/7',
@@ -178,6 +184,7 @@ export default {
         foamTank: 150,
         pumpCapacity: 2000,
         pumpType: 'fire',
+        equipmentCapacity: 10,
     },
     15: {
         caption: 'TST-NB 4/5',
@@ -191,6 +198,7 @@ export default {
         foamTank: 150,
         pumpCapacity: 1500,
         pumpType: 'fire',
+        equipmentCapacity: 10,
     },
     16: {
         caption: 'Ambulance',
@@ -213,6 +221,7 @@ export default {
         foamTank: 150,
         pumpCapacity: 1500,
         pumpType: 'fire',
+        equipmentCapacity: 10,
     },
     18: {
         caption: 'Hoogwerker',
@@ -2224,6 +2233,7 @@ export default {
         foamTank: 200,
         pumpCapacity: 1000,
         pumpType: 'fire',
+        equipmentCapacity: 10,
     },
     134: {
         caption: 'GSH',
