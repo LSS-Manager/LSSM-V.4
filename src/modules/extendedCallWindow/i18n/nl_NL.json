@@ -240,9 +240,16 @@
             { "texts": ["DB-TEV"], "vehicles": [119] },
             { "texts": ["RC-Explosievenrobot", "RC-Explosievenrobots"], "equipment": ["bomb_disposal_robot"] },
             { "texts": ["KMAR Eenheid", "KMAR Eenheden"], "vehicles": [110, 111, 112] },
-            { "texts": ["GSH, DB-GS of RC-Gevaarlijke Stoffen"], "vehicles": [134, 135] },
+            { "texts": ["GSH, DB-GS of RC-Gevaarlijke Stoffen"], "vehicles": [134, 135], "equipment": ["hazmat_response_material_equipment"] },
+            { "texts": ["GPH, DB-GP of RC-gaspakken"], "vehicles": [136, 137], "equipment": ["hazmat_response_suits_equipment"] },
             { "texts": ["NHT"], "vehicles": [101] },
             { "texts": ["GGB"], "vehicles": [100] },
+            { "texts": ["BOE-Eenheid", "BOE-Eenheden"], "vehicles": [138, 139, 140] },
+            { "texts": ["GOE-Eenheid", "GOE-Eenheden"], "vehicles": [141, 142, 143] },
+            { "texts": ["Minimale vrachtwagens te slepen"], "vehicles": [105, 107, 109] },
+            { "texts": ["Maximale vrachtwagens te slepen"], "vehicles": [105, 107, 109] },
+            { "texts": ["Minimale te verslepen voertuigen"], "vehicles": [104, 106, 108] },
+            { "texts": ["Maximale te verslepen voertuigen"], "vehicles": [104, 106, 108] },
             {
                 "texts": [
                     "Natuurbrandbestrijding Vrachtwagen of Haakarmbak",
