@@ -1973,12 +1973,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@primer/octicons@npm:19.28.0":
-  version: 19.28.0
-  resolution: "@primer/octicons@npm:19.28.0"
+"@primer/octicons@npm:19.28.1":
+  version: 19.28.1
+  resolution: "@primer/octicons@npm:19.28.1"
   dependencies:
     object-assign: "npm:^4.1.1"
-  checksum: 10c0/b04a6120d6485ba43d7b5ac61632fb920d3e12bbfe5e2282c9d7a8bbc03a6452a40da6155388fef9a97936102b0af0ee838f2dc147173b4ee9772775366d655d
+  checksum: 10c0/6ac135e99e5e771f277b643d7a991b5d02a3291f8b5f2739036e512e070441524f669a3ebf493b594a07bc8e032807f62b7fd54dfb4485a3e9e21c84e6d29450
   languageName: node
   linkType: hard
 
@@ -8264,7 +8264,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "lss-manager-v4-docs@workspace:docs/.vuepress"
   dependencies:
-    "@primer/octicons": "npm:19.28.0"
+    "@primer/octicons": "npm:19.28.1"
     "@vuepress/bundler-vite": "npm:2.0.0-rc.7"
     "@vuepress/client": "npm:2.0.0-rc.2"
     "@vuepress/plugin-pwa": "npm:2.0.0-rc.3"
