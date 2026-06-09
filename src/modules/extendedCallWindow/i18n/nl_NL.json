@@ -61,13 +61,21 @@
             "51": [26],
             "61": [26],
             "69": [26],
-            "74": [75]
+            "74": [75],
+            "89": [26],
+            "91": [26],
+            "121": [26],
+            "123": [26],
+            "127": [26],
+            "134": [26],
+            "136": [26],
+            "138": [26]
         },
         "vehicle": "Voertuigtype",
         "vehiclesByRequirement": [
             {
                 "texts": ["Tankautospuit", "Tankautospuiten"],
-                "vehicles": [0, 1, 6, 7, 8, 9, 12, 14, 15, 17, 50, 62]
+                "vehicles": [0, 1, 6, 7, 8, 9, 12, 14, 15, 17, 50, 62, 90, 93, 133, 139, 142]
             },
             {
                 "texts": [
@@ -226,8 +234,22 @@
             },
             { "texts": ["FBO-Heli", "FBO-Helicopters"], "vehicles": [85] },
             { "texts": ["DA-LA-NB", "DA-LA-NBs"], "vehicles": [87] },
+            { "texts": ["Waterwerper", "Waterwerpers"], "vehicles": [84] },
+            { "texts": ["EOD Eenheid", "EOD Eenheden"], "vehicles": [113, 114, 115] },
+            { "texts": ["DB-Explosievenhond", "DB-Explosievenhonden"], "vehicles": [116] },
+            { "texts": ["DB-TEV"], "vehicles": [119] },
+            { "texts": ["RC-Explosievenrobot", "RC-Explosievenrobots"], "equipment": ["bomb_disposal_robot"] },
+            { "texts": ["KMAR Eenheid", "KMAR Eenheden"], "vehicles": [110, 111, 112] },
+            { "texts": ["GSH, DB-GS of RC-Gevaarlijke Stoffen"], "vehicles": [134, 135], "equipment": ["hazmat_response_material_equipment"] },
+            { "texts": ["GPH, DB-GP of RC-gaspakken"], "vehicles": [136, 137], "equipment": ["hazmat_response_suits_equipment"] },
             { "texts": ["NHT"], "vehicles": [101] },
             { "texts": ["GGB"], "vehicles": [100] },
+            { "texts": ["BOE-Eenheid", "BOE-Eenheden"], "vehicles": [138, 139, 140] },
+            { "texts": ["GOE-Eenheid", "GOE-Eenheden"], "vehicles": [141, 142, 143] },
+            { "texts": ["Minimale vrachtwagens te slepen"], "vehicles": [105, 107, 109] },
+            { "texts": ["Maximale vrachtwagens te slepen"], "vehicles": [105, 107, 109] },
+            { "texts": ["Minimale te verslepen voertuigen"], "vehicles": [104, 106, 108] },
+            { "texts": ["Maximale te verslepen voertuigen"], "vehicles": [104, 106, 108] },
             {
                 "texts": [
                     "Natuurbrandbestrijding Vrachtwagen of Haakarmbak",
