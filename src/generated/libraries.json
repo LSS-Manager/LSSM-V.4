@@ -27,7 +27,7 @@
     "@primer/octicons": {
         "icon": "https://avatars.githubusercontent.com/u/7143434",
         "url": "https://primer.style/octicons",
-        "version": "19.27.0"
+        "version": "19.28.1"
     },
     "@types/he": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -62,7 +62,7 @@
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-        "version": "24.12.4"
+        "version": "24.13.1"
     },
     "@types/pdfmake": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -203,7 +203,7 @@
         "version": "10.1.8"
     },
     "eslint-import-resolver-typescript": {
-        "version": "4.4.4"
+        "version": "4.4.5"
     },
     "eslint-plugin-compat": {
         "url": "https://github.com/amilajack/eslint-plugin-compat#readme",
@@ -224,7 +224,7 @@
     "eslint-plugin-prettier": {
         "icon": "https://prettier.io/icon.png",
         "url": "https://github.com/prettier/eslint-plugin-prettier#readme",
-        "version": "5.5.5"
+        "version": "5.5.6"
     },
     "eslint-plugin-regexp": {
         "url": "https://github.com/ota-meshi/eslint-plugin-regexp#readme",
@@ -425,7 +425,7 @@
     "vue3": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://vuejs.org/",
-        "version": "3.5.34"
+        "version": "3.5.35"
     },
     "vuepress": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
