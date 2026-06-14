@@ -297,7 +297,7 @@ export default ((MODULE_ID, LSSM, $m) => {
             type: 'toggle',
             default: true,
         },
-        ...(['en_US'].includes(locale)
+        ...(['en_US', 'nl_NL'].includes(locale)
             ? {
                 'towtruck.title': <Toggle>{
                     type: 'toggle',
@@ -305,7 +305,7 @@ export default ((MODULE_ID, LSSM, $m) => {
                 },
             }
             : null),
-        ...(['en_US'].includes(locale)
+        ...(['en_US', 'nl_NL'].includes(locale)
             ? {
                 'towtruck.content': <Toggle>{
                     type: 'toggle',
