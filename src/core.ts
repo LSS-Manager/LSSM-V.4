@@ -151,6 +151,21 @@ utils(Vue);
         /^\/(?:buildings|schoolings)\/\d+\/?/u.test(window.location.pathname)
     ) {
         LSSM.$stores.api.getSchoolings('core-update-schoolings').then();
+    } else if (window.location.pathname.startsWith('/missions/')) {
+        // Trying to fix huge performance issues introduced by FA.
+        // See https://github.com/LSS-Manager/LSSM-V.4/issues/3881 for further thoughts.
+        LSSM.$stores.root.hook({
+            post: false,
+            event: 'reload_table_do',
+            // @ts-expect-error as we don't want to type FA now.
+            callback: () => window.FontAwesome?.dom.unwatch(),
+        });
+        LSSM.$stores.root.hook({
+            post: true,
+            event: 'reload_table_do',
+            // @ts-expect-error as we don't want to type FA now.
+            callback: () => window.FontAwesome?.dom.watch(),
+        });
     }
 
     import(

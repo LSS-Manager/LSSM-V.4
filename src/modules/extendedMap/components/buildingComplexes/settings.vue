@@ -366,6 +366,7 @@ export default Vue.extend<
                             'hazard_response_ems',
                             'helipad',
                             'helipad_polizei',
+                            'highway_police',
                             'home_response_location',
                             'hospital',
                             'leitstelle',
