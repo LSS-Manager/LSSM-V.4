@@ -27,7 +27,7 @@
         "urban": "Stedelijke brandweer inzetten",
         "water_rescue": "Waterredding inzetten",
         "water_rescue_2": "Kustwacht inzetten",
-        "water_rescue_specialization": "Waterredding inzetten (Specialisatie)",
+        "water_rescue_specialization": "Waterredding inzetten (Specialisatie)"
     },
     "patients": {
         "allow_ktw_instead_of_rtw": "Een zorgambulance kan worden gebruikt als Ambulance",
