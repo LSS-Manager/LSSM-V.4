@@ -28,8 +28,6 @@
         "water_rescue": "Waterredding inzetten",
         "water_rescue_2": "Kustwacht inzetten",
         "water_rescue_specialization": "Waterredding inzetten (Specialisatie)",
-        "urban": "Stedelijke brandweer inzetten",
-        "rural": "Landelijke brandweer inzetten"
     },
     "patients": {
         "allow_ktw_instead_of_rtw": "Een zorgambulance kan worden gebruikt als Ambulance",
