@@ -7,8 +7,9 @@ export default (
     getSetting: Parameters<ModuleMainFunction>[0]['getSetting'],
     $m: $m
 ): void => {
-    const missingDialog =
-        document.querySelector<HTMLDivElement>('#missing_text');
+    const missingDialog = document.getElementById(
+        'missing_text'
+    ) as HTMLDivElement;
     if (!missingDialog) return;
 
     import(

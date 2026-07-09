@@ -1,14 +1,13 @@
 export default {
     updateUserscript: {
         title: 'Userscript out of date',
-        text: `Dear LSSM-User,<br>
-unfortunately your LSSM V.4 userscript is outdated. In the latest version changes have been made to the userscript, which are important for the function of LSSM V.4.<br>
-You need at least version {minVersion}, the update can be done comfortably by clicking on {updateLink}.<br>
-Sometimes the update does not work by clicking the link (for unknown reasons). Then you can either trigger an update within Tampermonkey (click on the tampermonkey icon in your browser, then "Overview". Check the box in front of the LSSM userscript and select "Update" as action.<br>
-If that also does not work, edit the LSSM Script within Tampermonkey by replacing all script content with the content of {bypassLink}.<br>
-Sometimes, LSSM is installed multiple times after an update. In this case it helps to uninstall/remove all LSSM V.4 installations in Tampermonkey and then reinstall LSSM V.4 once.<br><br>
-Kind regards,<br>
-your LSSM team`,
+        text: `Vážený uživateli LSSM,<br>
+Váš uživatelský skript LSSM V.4 je bohužel zastaralý. V nejnovější verzi byly provedeny změny uživatelského skriptu, které jsou důležité pro funkci LSSM V.4.<br>
+Potřebujete alespoň verzi {minVersion}, aktualizaci lze provést pohodlně kliknutím na {updateLink}.<br>
+Někdy aktualizace nefunguje kliknutím na odkaz (z neznámých důvodů). Poté můžete buď spustit aktualizaci v rámci Tampermonkey (klikněte na ikonu tampermonkey ve vašem prohlížeči a poté na „Přehled“. Zaškrtněte políčko před uživatelským skriptem LSSM a jako akci vyberte „Aktualizovat“.<br>
+Někdy se LSSM po aktualizaci nainstaluje vícekrát. V tomto případě pomůže odinstalovat/odstranit všechny instalace LSSM V.4 v Tampermonkey a poté jednou znovu nainstalovat LSSM V.4.<br><br>
+S pozdravem<br>
+váš tým LSSM`,
         close: 'Ok',
     },
     error: {

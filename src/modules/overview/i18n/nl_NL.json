@@ -36,6 +36,7 @@
             "ftank": "Schuimtank",
             "maxPersonnel": "Maximaal personeel",
             "minPersonnel": "Minimaal personeel",
+            "pumpcap": "Pomp Capaciteit l/min",
             "schooling": "Opleiding",
             "special": "Bijzonderheden",
             "wtank": "Watertank"

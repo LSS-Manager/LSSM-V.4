@@ -154,4 +154,33 @@ export default registerEquipment({
             },
         },
     },
+    railway_fire: {
+        id: 'railway_fire',
+        caption: 'RC-Modul: Schiene',
+        size: 20,
+        credits: 15_000,
+        coins: 15,
+        staff: {
+            min: 2,
+            training: {
+                Feuerwehr: 'railway_fire',
+            },
+        },
+    },
+    foam: {
+        id: 'foam',
+        caption: 'RC-Modul: Sonderlöschmittel (klein)',
+        size: 10,
+        credits: 15_000,
+        coins: 10,
+        staff: { min: 2 },
+    },
+    foam_large: {
+        id: 'foam_large',
+        caption: 'RC-Modul: Sonderlöschmittel (groß)',
+        size: 15,
+        credits: 25_000,
+        coins: 15,
+        staff: { min: 3 },
+    },
 });

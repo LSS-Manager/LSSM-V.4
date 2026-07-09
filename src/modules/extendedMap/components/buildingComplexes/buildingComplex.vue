@@ -1747,8 +1747,8 @@ export default Vue.extend<
                     if (!building) return null;
 
                     const realBuildingType = building.small_building
-                        ? smallBuildings[building.building_type] ??
-                          building.building_type
+                        ? (smallBuildings[building.building_type] ??
+                          building.building_type)
                         : building.building_type;
 
                     const buildingType =
@@ -2343,10 +2343,10 @@ export default Vue.extend<
                                                   coins: extensionType.coins,
                                                   enoughCredits:
                                                       (alliance
-                                                          ? this.apiStore
+                                                          ? (this.apiStore
                                                                 .allianceinfo
                                                                 ?.credits_current ??
-                                                            0
+                                                            0)
                                                           : this.rootStore
                                                                 .credits) >=
                                                       extensionType.credits,

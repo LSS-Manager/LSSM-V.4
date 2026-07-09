@@ -37,7 +37,7 @@ ${PRIMARIES.map(lang =>
         lang,
         lang === 'en_US'
             ? enFlags
-            : langArray.find(([locale]) => locale === lang)?.[1] ?? ''
+            : (langArray.find(([locale]) => locale === lang)?.[1] ?? '')
     )
 ).join('\n')}
   - text: " "

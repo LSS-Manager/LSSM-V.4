@@ -51,6 +51,10 @@
         "duration": "Näytön kesto",
         "eventTypes": "Tapahtumat",
         "ingame": "Lähetä pelin sisäinen ilmoitus",
+        "maxAlertsPerGroup": {
+            "description": "Maximum number of alerts per position to be displayed simultaneously (0 = all).",
+            "title": "Maximum number of notifications displayed"
+        },
         "position": "Sijainti"
     }
 }

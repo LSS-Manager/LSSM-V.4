@@ -196,8 +196,8 @@ import { mapState } from 'pinia';
 import { defineAPIStore, useAPIStore } from '@stores/api';
 import { defineRootStore, useRootStore } from '@stores/index';
 
-import type { CreditsInfo } from 'typings/api/Credits';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { UserInfo } from 'typings/api/UserInfo';
 import type VueI18n from 'vue-i18n';
 
 export default Vue.extend<
@@ -230,7 +230,7 @@ export default Vue.extend<
         highlight(): void;
     },
     {
-        creditsAPI: CreditsInfo;
+        creditsAPI: UserInfo;
         credits: number;
         creditsLocalized: string;
         coins: number;
@@ -299,7 +299,7 @@ export default Vue.extend<
     computed: {
         ...mapState(defineRootStore, ['credits', 'coins']),
         ...mapState(defineAPIStore, {
-            creditsAPI: 'credits',
+            creditsAPI: 'userinfo',
         }),
         creditsLocalized() {
             return this.credits.toLocaleString();
@@ -382,7 +382,7 @@ export default Vue.extend<
             'alerts'
         ).then(({ value: alerts }) => {
             if (!alerts.length)
-                return useAPIStore().getCredits('creditsextension-initial');
+                return useAPIStore().getUserInfo('creditsextension-initial');
 
             const alertValues = alerts.map(({ credits }) => credits).sort();
 
@@ -403,7 +403,7 @@ export default Vue.extend<
             });
 
             useAPIStore()
-                .getCredits('creditsextension-alerts-initial')
+                .getUserInfo('creditsextension-alerts-initial')
                 .then(
                     ({ credits_user_current }) =>
                         (this.alertProgressPercentage =

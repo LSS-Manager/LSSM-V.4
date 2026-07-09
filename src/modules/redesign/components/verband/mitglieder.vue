@@ -176,6 +176,7 @@
                                 'finance',
                                 'schooling',
                                 'staff',
+                                'event_manager',
                             ]"
                         >
                             <br :key="`${user.id}_${right}_br`" />
@@ -257,6 +258,7 @@ type Component = RedesignSubComponent<
                 | 'admin'
                 | 'aufsichtsrat'
                 | 'coadmin'
+                | 'event_manager'
                 | 'finance'
                 | 'schooling'
                 | 'sprechwunsch_admin'

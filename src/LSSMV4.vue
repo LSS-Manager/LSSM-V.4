@@ -76,8 +76,7 @@ onMounted(() => {
         });
 
     // Workaround for when modals container appears behind V4 instance (dialogs are behind modals)
-    const modalsContainer =
-        document.querySelector<HTMLDivElement>('#modals-container');
+    const modalsContainer = document.getElementById('modals-container');
     if (
         modalsContainer &&
         getCurrentInstance()?.proxy.$el.compareDocumentPosition(

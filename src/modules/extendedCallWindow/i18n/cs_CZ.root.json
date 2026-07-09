@@ -2,23 +2,23 @@
     "name": "Rozšířené okno výjezdu",
     "settings": {
         "alarmIcons": {
-            "description": "Leave icons in the \"Alarm\" Show button, based on your selection. You can choose between <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">all free icons from Font-Awesome</a>. It is enough to specify the name of the icon. A live preview will then show you the icon.",
-            "icon": "Icon",
-            "preview": "Preview",
+            "description": "Zobrazte si ikony v tlačítku \"Výjezd\" na základě vašeho výběru. Můžete si vybrat <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">všechny bezplatné ikony z Font-Awesome</a>. Stačí zadat název ikony. Náhled vám pak ikonu ukáže.",
+            "icon": "Ikona",
+            "preview": "Náhled",
             "style": "icon type",
-            "title": "alarm icons",
-            "vehicles": "vehicle types"
+            "title": "Ikony výjezdu",
+            "vehicles": "Typy vozidel"
         },
         "alarmTime": {
-            "description": "Zobrazí vedle tlačítka PNV jak dlouho pojede nejvzdálenější vozidlo k zásahu.",
+            "description": "Zobrazí vedle tlačítka \"Výjezd\" jak dlouho pojede nejvzdálenější vozidlo k zásahu.",
             "title": "Doba příjezdu vozidel"
         },
         "arrCategoryColors": {
-            "bgColor": "Background color",
-            "category": "Name of the category",
-            "color": "Text color",
-            "description": "Colorize your ARR Categories.",
-            "title": "colorized ARR-Categories"
+            "bgColor": "Barva pozadí",
+            "category": "Název Kategorie",
+            "color": "Barva textu",
+            "description": "Obarvěte si své kategorie PNV podle sebe.",
+            "title": "Obarvení kategorií PNV"
         },
         "arrClickHighlight": {
             "description": "Vykreslí rámeček okolo zakliklých pravidel nouzových výjezdů.",
@@ -33,48 +33,80 @@
             "title": "Šířka zvýraznění"
         },
         "arrCounter": {
-            "description": "Counts how often an ARR or move has been clicked. All counters can be reset using the button in the bottom right corner or an ARR with reset function.",
-            "title": "ARR Counter"
+            "description": "Počítá, kolikrát bylo na PNV nebo jednotku kliknuto. Všechny počítadla mohou být resetovány tlačítkem vpravo dole \"Reset počítadla PNV / Reset výběru vozidel\".",
+            "title": "PNV počítadlo"
         },
         "arrCounterAsBadge": {
-            "description": "Shows the ARR-Counter as a small badge on each ARR",
-            "title": "ARR-Counter as Badge"
+            "description": "Zobrazuje počítadlo PNV jako malý červený kruh vedle tlačítka PNV.",
+            "title": "PNV počítadlo jako malý odznáček"
         },
         "arrCounterResetSelection": {
-            "description": "Adds a button at the bottom right to reset the previous vehicle selection. Note: It also resets the ARR counter and the borders, if activated!",
-            "title": "Reset vehicle selection"
+            "description": "Přidává tlačítko vpravo dole pro resetování dosavadního výběru vozidel. Upozornění: Tím se také resetuje počítadlo PNV a rámečky, pokud jsou aktivovány!",
+            "title": "Reset výběru vozidel"
         },
         "arrMatchHighlight": {
-            "description": "Sets a gray filter over all ARRs that do not contain a word of the mission name.",
-            "title": "Grey out unsuitable ARRs"
+            "description": "Přidá šedý filtr na všechny PNV, ve kterých se nevyskytuje žádné slovo z názvu mise.",
+            "title": "Zašednutí neodpovídajících PNV"
         },
         "arrMatchHighlightAllWords": {
-            "description": "Uses all words of the missions name for the \"Grey out unsuitable ARRs\" feature.",
-            "title": "Use all words"
+            "description": "Zahrnuje všechna slova z názvu mise pro funkci \"Zašednutí neodpovídajících PNV\".",
+            "title": "Zahrnout všechna slova"
+        },
+        "arrSearch": {
+            "description": "Zobrazuje vyhledávací pole nad PNV, pomocí kterého můžete prohledávat PNV.",
+            "title": "Vyhledávání PNV"
+        },
+        "arrSearchAutoFocus": {
+            "description": "Automaticky zaměřuje do vyhledávacího pole PNV při načtení výjezdu.",
+            "title": "Vyhledávání PNV: Automatické zaměření"
         },
         "arrSearchClearOnEnter": {
-            "description": "Clears the ARR-search when the Enter key is pressed",
-            "title": "Clear ARR-search"
+            "description": "Vymaže vyhledávání PNV při stisku klávesy Enter",
+            "title": "Vymazat vyhledávání PNV"
+        },
+        "arrSearchCloseDropdownOnSelect": {
+            "description": "Zavře rozbalovací nabídku vyhledávání PNV po výběru PNV.",
+            "title": "Zavřít rozbalovací nabídku po výběru"
         },
         "arrSearchCompactResults": {
-            "description": "Columns are dissolved and all ARRs of a category are shown in a single row.",
-            "title": "ARR-Search: Compact results"
+            "description": "Sloupce ve výsledcích vyhledávání budou rozděleny a všechny PNV jedné kategorie budou zobrazeny v jedné řadě.",
+            "title": "Vyhledávání PNV: Kompaktní zobrazení"
+        },
+        "arrSearchDissolveCategories": {
+            "description": "Zobrazuje všechny kategorie pod sebou, když je hledán výraz",
+            "title": "Vyhledávání PNV: Zobrazit všechny kategorie"
+        },
+        "arrSearchDropdown": {
+            "description": "Skryje celé PNV a místo toho zobrazí prohledávatelnou rozbalovací nabídku. Umožňuje velmi kompaktní zobrazení PNV.",
+            "title": "Vyhledávání PNV jako rozbalovací nabídka"
         },
         "arrSearchSelectOnEnter": {
-            "description": "Clicks the first ARR corresponding to the search when the enter key is pressed",
-            "title": "Select first ARR"
+            "description": "Klikne na první odpovídající PNV při stisku klávesy Enter",
+            "title": "Vybrat první PNV"
         },
         "arrSpecs": {
-            "description": "Shows the stored requests in the ARR, if you stay with the mouse briefly over an ARR",
-            "title": " Show ARR details"
+            "description": "Zobrazuje vozidla uložené v PNV, když na PNV krátce ponecháte myš.",
+            "title": "Zobrazit detaily PNV"
         },
         "arrTime": {
-            "description": "Shows what would be the longest travel time after selecting this ARR, if you stay with the mouse briefly over an ARR.",
-            "title": "Longest journey time"
+            "description": "Ukazuje, jaká by byla nejdelší dojezdová doba po výběru tohoto PNV, když na PNV krátce necháte myš.",
+            "title": "Zobrazit dojezdovou dobu PNV"
         },
         "centerMap": {
-            "description": "Allows you to center the map in the main window on the place of use at the touch of a button.",
-            "title": "Center Map"
+            "description": "Umožňuje vám v okně mise tlačítkem zacílit mapu v hlavním okně na místo události.",
+            "title": "Zacílit mapu"
+        },
+        "collapsablePatients": {
+            "description": "Sbalí informace o pacientech v okně mise a místo toho zobrazí krátké shrnutí.",
+            "title": "Sbalit pacienty"
+        },
+        "collapsablePatientsMinPatients": {
+            "description": "Nastavte zde, od kolika pacientů má být sbalení aktivováno.",
+            "title": "Sbalit pacienty: Minimální počet pacientů"
+        },
+        "emvMaxStaff": {
+            "description": "Pro \"Vylepšení potřebných vozidel\" počítá, že všechna vozidla vyjíždí s maximálním počtem personálu.",
+            "title": "Maximální obsazení"
         },
         "enhancedMissingVehicles": {
             "description": "Změní zobrazení potřebné techniky do přehledné tabulky.",

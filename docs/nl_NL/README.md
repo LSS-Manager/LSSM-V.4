@@ -54,6 +54,10 @@ Als Tampermonkey met succes in uw browser is geïnstalleerd, kunt u [hier][lssm.
 
 @[code js](@userscript)
 
+#### Step 2.5: Activate developer mode or switch to Firefox
+
+If you use "Google Chrome" or a browser based on Chromium, it may be necessary to activate developer mode in order to execute userscripts. If you don't want to switch to Firefox, you can find the following at [https://www.tampermonkey.net/faq.php?locale=en#Q209](https://www.tampermonkey.net/faq.php?locale=en#Q209) for instructions on how to activate developer mode.
+
 ### Stap 3: Activeren
 De LSSM-indicator is een groen gemarkeerde tekst 'LSSM V.4' of een logo.
 Als je in meldkamerspel zit maar deze indicator niet in de rechterbovenhoek ziet, klik dan op het tampermonkey icoon in je browser en controleer of de schakelaar voor LSS-Manager script op `on` staat.

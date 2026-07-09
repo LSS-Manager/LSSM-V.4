@@ -294,12 +294,12 @@ export default {
         },
         extensions: [],
         levelcost: [],
-        maxBuildings: 'Cada 25 edificios una centralita',
+        maxBuildings: 'Cada 10 edificios una centralita',
         maxLevel: 0,
         special: 'La centralita es el centro administrativo',
         isDispatchCenter: true,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-            Math.floor(buildingsAmountTotal / 25) + 1,
+            Math.floor(buildingsAmountTotal / 10) + 1,
         icon: 'tower-broadcast',
     },
     8: {

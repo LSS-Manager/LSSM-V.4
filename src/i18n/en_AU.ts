@@ -64,7 +64,7 @@ export default {
     modules,
     buildingCategories: {
         'Fire Department': {
-            buildings: [0, 1, 18, 23],
+            buildings: [0, 1, 18, 23, 26],
             color: '#ff2d2d',
         },
         'Rescue Stations': {
@@ -72,7 +72,7 @@ export default {
             color: '#ffa500',
         },
         'Police Stations': {
-            buildings: [6, 8, 13, 19],
+            buildings: [6, 8, 13, 19, 27],
             color: '#00ac00',
         },
         'SES & Water Rescue': {
@@ -92,12 +92,13 @@ export default {
                 'Bush-Fire Units': [28, 29, 31, 32, 33],
                 'CAFS': [55, 56, 57, 58, 60],
                 'Special Vehicles': [2, 3, 4, 6, 7, 10, 11],
+                'Boat': [62],
             },
             color: '#ff2d2d',
         },
         'Ambulance Vehicles': {
             vehicles: {
-                'Ambulances': [5],
+                'Ambulances': [5, 61],
                 'Intensive Care Vehicles': [9, 24, 25],
                 'Other Ambulance Vehicles': [23, 26, 27],
             },
@@ -112,6 +113,7 @@ export default {
                 'Mounted': [22],
                 'RIOT Units': [34, 35, 36],
                 'Senior Sergeant': [37],
+                'Boat': [63],
             },
             color: '#00ac00',
         },
@@ -240,9 +242,14 @@ export default {
         'Prison',
         'Launderette',
         'Pipeline',
+        'Hangar',
+        'Amusement Park',
+        'Construction site',
+        'Zoo',
+        'Market',
     ],
     only_alliance_missions: [57, 74],
-    transfer_missions: [],
+    transfer_missions: [701, 702],
     ranks: {
         missionchief: {
             0: 'Probie',

@@ -190,7 +190,7 @@ onMounted(() => {
     navbar.classList.add('lssmv4-anniversary-navbar');
     for (let i = 0; i < window.innerWidth / 100; i++)
         navbar.append(createBalloon(false, true, false).balloon);
-    document.querySelector<HTMLElement>('#main_navbar')?.prepend(navbar);
+    document.getElementById('main_navbar')?.prepend(navbar);
 });
 </script>
 
@@ -240,14 +240,16 @@ $two-thirds: $one-third * 2
 
         &.modal-carrier
             @include anniversaryBalloon($animation: false, $balloon-height: $carrier-balloon-height)
-            animation: float-modal-carrier ease-in $modal-float-time forwards
-            position: absolute
-            margin: 0 !important
-            transform: translateY($modal-top)
-            pointer-events: all
-            opacity: 0.95
-            cursor: pointer
-            background-color: rgba(var(--color), 0.75)
+
+            &
+                animation: float-modal-carrier ease-in $modal-float-time forwards
+                position: absolute
+                margin: 0 !important
+                transform: translateY($modal-top)
+                pointer-events: all
+                opacity: 0.95
+                cursor: pointer
+                background-color: rgba(var(--color), 0.75)
 
             &.carrier-left
                 left: calc(#{$one-third} - #{$carrier-half-balloon-width})

@@ -74,8 +74,8 @@ export default async (
                         : '#';
                 dispatchBtn.innerHTML =
                     parseInt(dispatchId) !== 0
-                        ? buildings.find(b => b.id === parseInt(dispatchId))
-                              ?.caption ?? ''
+                        ? (buildings.find(b => b.id === parseInt(dispatchId))
+                              ?.caption ?? '')
                         : $m('fastDispatchChooser.noDispatch').toString();
                 (
                     document.querySelector(

@@ -110,6 +110,12 @@ export default {
             staffList: 'Verpflegungshelfer',
             key: 'care_service_equipment',
         },
+        {
+            caption: 'Bahnrettung',
+            duration: '3 Tage',
+            staffList: 'Bahnrettung',
+            key: 'railway_fire',
+        },
     ],
     Polizei: [
         {
@@ -189,6 +195,18 @@ export default {
             duration: '5 Tage',
             staffList: 'Windenoperator',
             key: 'police_helicopter_lift',
+        },
+        {
+            caption: 'Lautsprecheroperator',
+            duration: '3 Tage',
+            staffList: 'Lautsprecheroperator',
+            key: 'police_speaker_operator',
+        },
+        {
+            caption: 'Autobahnpolizei',
+            duration: '3 Tage',
+            staffList: 'Autobahnpolizei',
+            key: 'highway_police',
         },
     ],
     Rettungsdienst: [
@@ -282,6 +300,12 @@ export default {
             staffList: 'EL Bergrettung',
             key: 'mountain_command',
         },
+        {
+            caption: 'Technik und Sicherheit',
+            duration: '5 Tage',
+            staffList: 'SEG - Technik und Sicherheit',
+            key: 'disaster_response_technology',
+        },
     ],
     THW: [
         {
@@ -343,6 +367,56 @@ export default {
             duration: '7 Tage',
             staffList: 'Fachzug Führung und Kommunikation',
             key: 'thw_command',
+        },
+        {
+            caption: 'Logistik-Verpflegung',
+            duration: '3 Tage',
+            staffList: 'Logistik-Verpflegung',
+            key: 'thw_care_service',
+        },
+        {
+            caption: 'Verpflegungshelfer',
+            duration: '3 Tage',
+            staffList: 'Verpflegungshelfer',
+            key: 'care_service_equipment',
+        },
+        {
+            caption: 'Fachgruppe Brückenbau',
+            duration: '3 Tage',
+            staffList: 'Fachgruppe Brückenbau',
+            key: 'thw_bridge_construction',
+        },
+        {
+            caption: 'Kranführer',
+            duration: '3 Tage',
+            staffList: 'Kranführer',
+            key: 'thw_bridge_construction_crane',
+        },
+    ],
+    Wasserrettung: [
+        {
+            caption: 'Seenotretter',
+            duration: '5 Tage',
+            staffList: 'Seenotretter',
+            key: 'coastal_rescue',
+        },
+        {
+            caption: 'Hubschrauberpilot (Seenotrettung)',
+            duration: '5 Tage',
+            staffList: 'Hubschrauberpilot (Seenotrettung)',
+            key: 'coastal_helicopter',
+        },
+        {
+            caption: 'Windenoperator',
+            duration: '5 Tage',
+            staffList: 'Windenoperator',
+            key: 'coastal_helicopter_lift',
+        },
+        {
+            caption: 'Wasserrettungsausbildung für Notfallsanitäter',
+            duration: '7 Tage',
+            staffList: 'Notfallsanitäter mit Wasserrettungsausbildung',
+            key: 'emergency_paramedic_water_rescue',
         },
     ],
 } satisfies SchoolingsBySchool;

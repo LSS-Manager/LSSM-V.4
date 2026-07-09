@@ -5,8 +5,7 @@ export default async (
     getSetting: (key: string) => Promise<boolean>,
     $m: $m
 ): Promise<void> => {
-    const ARRContainer =
-        document.querySelector<HTMLDivElement>('#mission-aao-group');
+    const ARRContainer = document.getElementById('mission-aao-group');
 
     if (!ARRContainer) return;
 
@@ -104,12 +103,10 @@ export default async (
                 counterNode = document.createElement('span');
                 counterNode.classList.add(counterClass);
                 counterNode.setAttribute('data-amount', '0');
-                arr
-                    .querySelector('.label')
-                    ?.insertAdjacentElement(
-                        counterBadge ? 'beforebegin' : 'afterend',
-                        counterNode
-                    );
+                arr.querySelector('.label')?.insertAdjacentElement(
+                    counterBadge ? 'beforebegin' : 'afterend',
+                    counterNode
+                );
                 counterNodes[arrId] = counterNode;
             }
 

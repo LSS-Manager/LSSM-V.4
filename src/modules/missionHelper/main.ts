@@ -23,8 +23,7 @@ export default (async ({ LSSM, $m, $mc, getSetting, setSetting }) => {
 
     const clear = document.createElement('div');
     clear.classList.add('clearfix');
-    const missionForm =
-        document.querySelector<HTMLFormElement>('#mission-form');
+    const missionForm = document.getElementById('mission-form');
     missionForm?.before(clear);
 
     new LSSM.$vue({

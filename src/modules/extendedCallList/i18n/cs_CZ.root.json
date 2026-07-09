@@ -100,6 +100,7 @@
         },
         "shareMissionsTypes": {
             "alliance": "Alliance missions (only for Share-Alliance-Post)",
+            "allianceEvent": "Missions in an alliance event (only for Share-Alliance-Post)",
             "description": "Nastavte, u kterých misí chcete tlačítko pro sdílení.",
             "own": "Akutní výjezdy",
             "sicherheitswache": "Plánované mise",
@@ -130,8 +131,11 @@
             "distance_dispatch": "Dle vzdálenosti k operačnímu středisku",
             "distance_station": "Dle vzdálenosti ke stanici",
             "id": "Dle stáří",
+            "notarzt_chance": "ALS Chance",
             "remaining_patients": "Dle pacientů",
             "remaining_prisoners": "Current prisoners",
+            "rth_chance": "Air-Ambulance Chance",
+            "transport_chance": "Transport Chance",
             "zip_code": "ZIP-Codes (globally)"
         }
     }

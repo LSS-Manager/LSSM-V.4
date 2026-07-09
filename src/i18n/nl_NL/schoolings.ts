@@ -57,12 +57,6 @@ export default {
             key: 'spokesman',
         },
         {
-            caption: 'Waterredding',
-            duration: '3 Dagen',
-            staffList: 'Waterredding',
-            key: 'gw_wasserrettung',
-        },
-        {
             caption: 'Weginspecteur',
             duration: '3 Dagen',
             staffList: 'Weginspecteur',
@@ -111,6 +105,12 @@ export default {
             key: 'rescue_dogs',
         },
         {
+            caption: 'Berger Training',
+            duration: '4 Dagen',
+            staffList: 'Berger',
+            key: 'tow_trucks',
+        },
+        {
             caption: 'Noodhulpteam',
             duration: '5 Dagen',
             staffList: 'Noodhulpteamlid',
@@ -121,6 +121,42 @@ export default {
             duration: '7 Dagen',
             staffList: 'Geneeskundige bijstandsverlener',
             key: 'mass_casualty_and_emergency_doctor',
+        },
+        {
+            caption: 'Verzorger',
+            duration: '5 Dagen',
+            staffList: 'Verzorger',
+            key: 'care_service',
+        },
+        {
+            caption: 'Hygiënemedewerker',
+            duration: '5 Dagen',
+            staffList: 'Hygiënemedewerker',
+            key: 'clean_service',
+        },
+        {
+            caption: 'Pelotonscommandant Logistiek',
+            duration: '7 Dagen',
+            staffList: 'Pelotonscommandant Logistiek',
+            key: 'care_service_command',
+        },
+        {
+            caption: 'TDV Drone Flightcrew',
+            duration: '7 Dagen',
+            staffList: 'TDV Drone Flightcrew Operator',
+            key: 'drone_fire',
+        },
+        {
+            caption: 'Gevaarlijke Stoffen Eenheid',
+            duration: '5 Dagen',
+            staffList: 'Gevaarlijke Stoffen Eenheid',
+            key: 'hazard_material_response',
+        },
+        {
+            caption: 'Ontsmettings Eenheid',
+            duration: '5 Dagen',
+            staffList: 'Ontsmettings Eenheid',
+            key: 'hazard_suits_response',
         },
     ],
     Politie: [
@@ -196,6 +232,24 @@ export default {
             staffList: 'Motoragent',
             key: 'police_motorcycle',
         },
+        {
+            caption: 'Berger Training',
+            duration: '4 Dagen',
+            staffList: 'Berger',
+            key: 'tow_trucks',
+        },
+        {
+            caption: 'Bomverkenner',
+            duration: '4 Dagen',
+            staffList: 'Bomverkenner',
+            key: 'bomb_disposal_patrol',
+        },
+        {
+            caption: 'Drone Flightcrew',
+            duration: '7 Dagen',
+            staffList: 'Drone Flightcrew',
+            key: 'drone_police',
+        },
     ],
     Ambulance: [
         {
@@ -222,6 +276,12 @@ export default {
             staffList: 'Geneeskundige bijstandsverlener',
             key: 'mass_casualty_and_emergency_doctor',
         },
+        {
+            caption: 'Intensive Care Team',
+            duration: '3 Dagen',
+            staffList: 'Intensive Care Teamlid',
+            key: 'intensive_care',
+        },
     ],
     Waterredding: [
         {
@@ -247,6 +307,38 @@ export default {
             duration: '3 Dagen',
             staffList: 'Waterredder',
             key: 'gw_wasserrettung',
+        },
+    ],
+    Militair: [
+        {
+            caption: 'Marechaussee',
+            duration: '4 Dagen',
+            staffList: 'Marechaussee',
+            key: 'military_police',
+        },
+        {
+            caption: 'Mobiele Eenheid',
+            duration: '4 Dagen',
+            staffList: 'Mobiele Eenheid',
+            key: 'police_mobiele_eenheid',
+        },
+        {
+            caption: 'Bomontmanteling',
+            duration: '7 Dagen',
+            staffList: 'Bomontmanteling',
+            key: 'bomb_disposal',
+        },
+        {
+            caption: 'Duiker Defensie',
+            duration: '7 Dagen',
+            staffList: 'Duiker Defensie',
+            key: 'bomb_disposal_diver',
+        },
+        {
+            caption: 'Hondengeleider EOD',
+            duration: '7 Dagen',
+            staffList: 'Hondengeleider EOD',
+            key: 'bomb_disposal_dogs',
         },
     ],
 } satisfies SchoolingsBySchool;

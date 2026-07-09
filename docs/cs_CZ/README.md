@@ -54,6 +54,10 @@ Pokud byl Tampermonkey úspěšně nainstalován do Vašeho prohlížeče, můž
 
 @[code js](@userscript)
 
+#### Step 2.5: Activate developer mode or switch to Firefox
+
+If you use "Google Chrome" or a browser based on Chromium, it may be necessary to activate developer mode in order to execute userscripts. If you don't want to switch to Firefox, you can find the following at [https://www.tampermonkey.net/faq.php?locale=en#Q209](https://www.tampermonkey.net/faq.php?locale=en#Q209) for instructions on how to activate developer mode.
+
 ### Krok 3: Aktivace
 Indikátorem LSSM je zeleně zvýrazněný text `LSSM V.4`, který se nachází v pravém horním rohu hry Operační středisko.
 Pokud nemůžete tento indikátor nalézt, klikněte na ikonku tampermonkey ve Vašem prohlížeči a zkontrolujte, zda je přepínač pro LSS-manager nastaven na `Povoleno`.

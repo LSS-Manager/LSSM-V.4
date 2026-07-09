@@ -55,7 +55,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
 
         let data = `<i class="fas fa-${icon}"></i>&nbsp;${
             !building ? `[${LSSM.$t('alliance')}]` : ''
-        } ${marker.options.title}`;
+        } ${window.building_markers_params_cache_per_id.get(marker.building_id)?.name ?? '🦄'}`;
 
         if (building) {
             if (

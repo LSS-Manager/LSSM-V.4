@@ -4,6 +4,7 @@ interface Entry {
     amount: number;
     desc: string;
     date: string;
+    timestamp: string;
 }
 
 export interface CreditsListWindow {
@@ -21,6 +22,7 @@ export default <RedesignParser<CreditsListWindow>>(({ LSSM, doc }) => {
             amount: getNum(entry.children[0]),
             desc: entry.children[1]?.textContent?.trim() ?? '',
             date: entry.children[2]?.textContent?.trim() ?? '',
+            timestamp: entry.children[2]?.getAttribute('data-logged-at') ?? '',
         })),
         lastPage: parseInt(
             doc

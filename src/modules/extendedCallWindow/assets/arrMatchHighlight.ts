@@ -1,7 +1,7 @@
 import type { $m } from 'typings/Module';
 
 export default (LSSM: Vue, allWords: boolean, $m: $m): void => {
-    const title = document.querySelector('#mission_general_info');
+    const title = document.getElementById('mission_general_info');
     if (!title) return;
 
     const greyClass = LSSM.$stores.root.nodeAttribute('arr-grey');

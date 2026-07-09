@@ -1,3 +1,76 @@
 import registerEquipment from '../../registerEquipment';
 
-export default registerEquipment({});
+export default registerEquipment({
+    bomb_disposal_robot: {
+        id: 'bomb_disposal_robot',
+        caption: 'RC-Explosievenrobot',
+        size: 20,
+        credits: 70_000,
+        coins: 25,
+        staff: { min: 0 },
+    },
+    fire_breathing_protection: {
+        id: 'fire_breathing_protection',
+        caption: 'RC-Adembescherming',
+        size: 15,
+        credits: 15_000,
+        coins: 25,
+        staff: { min: 0 },
+    },
+    fire_water_carrier: {
+        id: 'fire_water_carrier',
+        caption: 'RC-Slangen',
+        size: 15,
+        credits: 20_000,
+        coins: 25,
+        staff: { min: 0 },
+    },
+    fire_water_carrier_2: {
+        id: 'fire_water_carrier_2',
+        caption: 'RC-Slangen-Klein',
+        size: 10,
+        credits: 15_000,
+        coins: 25,
+        staff: { min: 0 },
+    },
+    fire_pump_and_water_carrier: {
+        id: 'fire_pump_and_water_carrier',
+        caption: 'RC-Pomp',
+        size: 10,
+        credits: 12_000,
+        coins: 25,
+        staff: { min: 0 },
+    },
+    care_service: {
+        id: 'care_service',
+        caption: 'RC-Verzorging',
+        size: 15,
+        credits: 15_000,
+        coins: 25,
+        staff: { min: 0 },
+    },
+    clean_service: {
+        id: 'clean_service',
+        caption: 'RC-Arbeidshygiëne',
+        size: 15,
+        credits: 15_000,
+        coins: 25,
+        staff: { min: 0 },
+    },
+    hazard_response_suits_equipment: {
+        id: 'hazard_response_suits_equipment',
+        caption: 'RC-Gaspakken',
+        size: 10,
+        credits: 15_000,
+        coins: 10,
+        staff: { min: 0 },
+    },
+    hazard_response_material_equipment: {
+        id: 'hazard_response_material_equipment',
+        caption: 'RC-Gevaarljke Stoffen',
+        size: 10,
+        credits: 15_000,
+        coins: 10,
+        staff: { min: 0 },
+    },
+});

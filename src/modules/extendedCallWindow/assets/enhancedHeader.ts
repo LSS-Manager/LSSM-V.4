@@ -30,8 +30,7 @@ export default (LSSM: Vue, sticky: boolean, load: boolean): void => {
         '.missing_vehicles_load'
     ) as HTMLAnchorElement | null;
     if (load && loadBtn) {
-        const people_amount =
-            document.querySelector<HTMLSpanElement>('#amount_of_people');
+        const people_amount = document.getElementById('amount_of_people');
         if (people_amount && people_amount.parentElement) {
             people_amount.parentElement.classList.add(
                 `col-md-${

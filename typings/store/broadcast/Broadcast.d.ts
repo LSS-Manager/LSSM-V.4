@@ -3,11 +3,8 @@
  */
 
 interface BroadcastMessage<
-    Type extends
-        | 'custom'
-        | 'generic'
-        | 'name_request'
-        | 'name_response' = 'generic',
+    Type extends 'custom' | 'generic' | 'name_request' | 'name_response' =
+        'generic',
     Data extends string | unknown | null = unknown,
 > {
     type: Type;

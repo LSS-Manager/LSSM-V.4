@@ -324,12 +324,12 @@ export default {
         },
         extensions: [],
         levelcost: [],
-        maxBuildings: '1 per 25 rakennusta',
+        maxBuildings: '1 per 10 rakennusta',
         maxLevel: 0,
         special: '',
         isDispatchCenter: true,
         maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-            Math.floor(buildingsAmountTotal / 25) + 1,
+            Math.floor(buildingsAmountTotal / 10) + 1,
         icon: 'tower-broadcast',
     },
     8: {

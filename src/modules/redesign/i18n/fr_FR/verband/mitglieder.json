@@ -24,6 +24,7 @@
         "aufsichtsrat": "Journal de modération",
         "coadmin": "Coadministrateur de l’alliance",
         "edit": "Modifier les droits",
+        "event_manager": "gestionnaire d'événements",
         "finance": "Trésorier de l’alliance",
         "hide": "Fermer",
         "kick": { "btn": "Expulser" },

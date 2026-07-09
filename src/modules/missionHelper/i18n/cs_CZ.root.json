@@ -5,12 +5,12 @@
         "average_min_fire_personnel": {
             "badge": false,
             "in": "additional",
-            "text": "Average min . Fire Personnel"
+            "text": "Hasičů minimálně v průměru"
         },
         "swat_personnel": {
             "badge": false,
             "in": "additional",
-            "text": "Required Armed Response Personnel"
+            "text": "Personál se školením URNA"
         },
         "title": "Special requirements"
     },
@@ -46,8 +46,8 @@
             "title": "Skrýt VEA"
         },
         "hide_on_Krankentransport": {
-            "description": "Hide on patient transfer missions",
-            "title": "Hide on patient transfer missions"
+            "description": "Skrýt při misích transportu pacientů",
+            "title": "Skrýt při misích transportu pacientů"
         },
         "hoverTip": {
             "description": "Popisky pro tlačítka",
@@ -59,30 +59,34 @@
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {
-                "description": "Subtracts the number of required MCV from Battalion Chief and hides Battalion Chief if the number drops below 0.",
-                "title": "Battalion Chief Simple Rate"
+                "description": "Odečte počet požadovaných MOS od VEA a skryje VEA, pokud číslo klesne pod 0.",
+                "title": "VEA Simple Rate"
             },
             "heavy_rescue_vehicles": {
-                "description": "Subtracts the number of required firetrucks from the Heavy Rescue and hides firetrucks if the number drops below 0. This function is intended for people who drive a pure Rescue Engine system.",
-                "title": "Heavy Rescue Simple Rate"
+                "description": "Odečte počet požadovaných CAS od TA a skryje CAS, pokud číslo klesne pod 0. Tato funkce je určena pro lidi, kteří chtějí pouze systém TA (Heavy rescue truck).",
+                "title": "TA Simple Rate"
             },
             "platform_trucks": {
-                "description": "Subtracts the number of firetrucks from the Quints and hides firetrucks if the number drops below 0.",
-                "title": "Quint Simple Rate"
+                "description": "Odečte počet požadovaných CAS od AP nebo AZ a skryje CAS, pokud číslo klesne pod 0.",
+                "title": "AP/AZ Simple Rate"
             }
         },
         "noVehicleRequirements": {
-            "description": "Set here which special requirements to show, if they exist for that mission.",
-            "title": "Special requirements"
+            "description": "Zde nastavte, které speciální požadavky se mají zobrazit, pokud pro danou misi existují.",
+            "title": "Specialní Požadavky"
         },
         "optionalAlternatives": {
             "allow_arff_instead_of_lf": {
-                "description": " Indicates, if instead of a firetruck arrfs are possible on site.",
-                "title": "Show if arrfs are allowed as firetrucks"
+                "description": "Určuje, zda lze použít na misi Letištní Speciály namísto CAS.",
+                "title": "Zobrazit, zda je poloveno použit Letištní speciál místo CAS"
+            },
+            "allow_police_motorcycle_instead_of_fustw": {
+                "description": "Určuje, zda lze použít na misi Policejní Motocykl namísto Policejního Automobilu.",
+                "title": "Zobrazit zda je poloveno použit Policejní Motocykl místo Policejního Automobilu"
             },
             "allow_rw_instead_of_lf": {
-                "description": "Indicates, if instead of a firetruck also heavy rescue or rescue engine is possible on site.",
-                "title": "Show Heavy Rescue / rescue engine instead of firetrucks"
+                "description": "Určuje, zda lze použít na misi TA namísto CAS.",
+                "title": "Zobrazit zda je poloveno použit TA místo CAS"
             }
         },
         "patients": {
@@ -99,42 +103,42 @@
                 "title": "Potřeba lékaře"
             },
             "hideWhenNoNeed": {
-                "description": "Hides the patient details if there are no more patients and patients do not appear until the end of the assignment.",
-                "title": "Show patient details only when needed"
+                "description": "Skryje podrobnosti o pacientech, pokud již nejsou žádní pacienti a pacienti se neobjeví až do konce mise.",
+                "title": "Detaily o pacientech pouze pokud jsou potřebné"
             },
             "live": {
-                "description": "Shows at the top of the mission helper how many patients the mission currently has.",
-                "title": "Number of current patients"
+                "description": "Ukazuje v horní části Pomocníka Misí, kolik pacientů má mise aktuálně.",
+                "title": "Počet pacientů"
             },
             "patient_allow_first_responder_chance": {
                 "description": "Shows with how much % any vehicle is sufficient to treat.",
-                "title": "First Responder Probability"
+                "title": "Pravděpodobnost prvního respondenta"
             },
             "title": {
-                "description": "Shows the heading \"Patients\" above the details about possible patients.",
-                "title": "Patients (Title)"
+                "description": "Zobrazuje nadpis \"Pacienti\" nad podrobnostmi o možných pacientech.",
+                "title": "Pacienti (titulek)"
             }
         },
         "place": {
-            "description": "Shows next to the title which POI is required for this mission.",
+            "description": "Zobrazuje vedle titulku, který POI je pro tuto misi vyžadován.",
             "title": "POI"
         },
         "prerequisites": {
-            "description": "Shows the requirements (e.g. 3 rescue stations and 4 fire stations)",
-            "title": "Prerequisites"
+            "description": "Zobrazuje požadavky pro vytvoření mise (např. 3 záchranné stanice a 4 hasičské stanice)",
+            "title": "Předpoklady"
         },
         "prisoners": {
             "content": {
-                "description": "Shows details about possible prisoners.",
-                "title": "Details of possible prisoners"
+                "description": "Zobrazuje podrobnosti o možných vězních.",
+                "title": "Detaily o možných věznich"
             },
             "live": {
-                "description": "Shows at the top of the mission helper how many prisoners the mission currently has.",
-                "title": "Number of current prisoners"
+                "description": "Ukazuje v horní části pomocníka mise, kolik vězňů má aktuálně mise.",
+                "title": "Počet současných vězňů"
             },
             "title": {
-                "description": "Shows the heading \"Prisoners\" above the details about possible prisoners.",
-                "title": "Prisoners (Title)"
+                "description": "Zobrazuje nadpis \"Vězni\" nad podrobnostmi o možných vězních.",
+                "title": "Vězni (titulek)"
             }
         },
         "title": {
@@ -142,17 +146,13 @@
             "title": "Název mise"
         },
         "type": {
-            "description": "Shows the type number of the mission next to the title.",
-            "title": "Type number"
+            "description": "Zobrazuje číslo druhu mise vedle názvu.",
+            "title": "Číslo druhu mise"
         },
         "vehicles": {
             "content": {
-                "description": "Shows vehicle requirements.",
-                "title": "Vehicle requirements"
-            },
-            "patient_additionals": {
-                "description": "If there are currently more than 20 patients on site, Ambulance Officer is automatically listed at the beginning of the vehicle requirements. If there are currently more than 30 patients on site, MCE is also automatically listed.",
-                "title": "Mention Ambulance Officer and MCE extra"
+                "description": "Ukazuje jaká vozidla jsou na misi potřeba.",
+                "title": "Požadavky na vozidla"
             },
             "sort": {
                 "amount": "Počet potřebných vozidel",

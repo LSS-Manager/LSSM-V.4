@@ -142,6 +142,7 @@ export type RedesignVehicleComponent = RedesignComponent<
         };
         faPalette: IconDefinition;
         faEdit: IconDefinition;
+        faScrewdriverWrench: IconDefinition;
         faChartLine: IconDefinition;
         faUsers: IconDefinition;
         faTrash: IconDefinition;

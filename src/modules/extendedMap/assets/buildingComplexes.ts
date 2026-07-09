@@ -139,7 +139,7 @@ export default async (
         });
         if (
             window.buildingMarkerBulkContentCache.length &&
-            document.querySelector<HTMLDivElement>('#building_list')
+            document.getElementById('building_list')
         )
             window.buildingMarkerBulkContentCacheDraw();
     };

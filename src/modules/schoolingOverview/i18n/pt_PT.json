@@ -1,0 +1,15 @@
+{
+    "all": "Todos",
+    "amount": "Quantidade de Cursos",
+    "open": "Cursos Abertos",
+    "own": "Cursos com participantes",
+    "schooling": "Curso",
+    "seats": "Número de vagas",
+    "titles": {
+        "end": "Tempo em falta",
+        "name": "Curso",
+        "owner": "Utilizador",
+        "price": "Preço",
+        "seats": "Vagas livres"
+    }
+}

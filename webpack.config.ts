@@ -80,7 +80,8 @@ export default {
                         options: {
                             implementation: require('sass'),
                             sassOptions: {
-                                indentedSyntax: true,
+                                syntax: 'indented',
+                                loadPaths: [__dirname],
                             },
                         },
                     },

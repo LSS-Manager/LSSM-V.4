@@ -64,7 +64,7 @@ export default {
     modules,
     buildingCategories: {
         Brandweer: {
-            buildings: [0, 4, 17, 22, 23],
+            buildings: [0, 4, 17, 22, 23, 24],
             color: '#ff2d2d',
         },
         Ambulance: {
@@ -78,6 +78,10 @@ export default {
         Waterredding: {
             buildings: [16, 19, 20, 21],
             color: '#f5a42a',
+        },
+        Defensie: {
+            buildings: [25, 26],
+            color: '#0349a3',
         },
         Algemeen: {
             buildings: [1, 10, 14, 15],
@@ -99,12 +103,21 @@ export default {
                 'STH': [90],
                 'USAR': [92, 93, 94, 95, 96, 97],
                 'Natuurbrandbestrijding': [85, 86, 87, 88],
+                'Berging': [104, 105, 106, 107],
+                'Verzorging': [120, 121],
+                'Arbeidshygiëne': [122, 123],
+                'Logistiek': [124, 125, 126, 127],
+                'Team Digitale Verkenning': [129],
+                'Industriele Brandbestrijding': [130, 131, 132, 133],
+                'Incidentbestrijding Gevaarlijke Stoffen': [
+                    134, 135, 136, 137, 138, 139, 140, 141, 142, 143,
+                ],
             },
             color: '#ff2d2d',
         },
         Ambulance: {
             vehicles: {
-                'Ambulances': [16, 30, 38, 52, 57, 63, 102],
+                'Ambulances': [16, 30, 38, 52, 57, 63, 102, 103],
                 'MMT voertuigen': [23, 37],
                 'GGB': [100, 101],
             },
@@ -122,6 +135,9 @@ export default {
                 'Biketeam': [60],
                 'Paarden': [73, 74, 75],
                 'Dienst Infra': [46, 98, 99],
+                'Berging': [108, 109],
+                'Team Explosieven Veiligheid': [119],
+                'Droneteam': [128],
             },
             color: '#00ac00',
         },
@@ -132,6 +148,14 @@ export default {
                 Helikopters: [80],
             },
             color: '#f5a42a',
+        },
+        Militair: {
+            vehicles: {
+                'KMAR': [110, 111, 112],
+                'EOD': [113, 114, 115, 116],
+                'Defensie Duikgroep': [117, 118],
+            },
+            color: '#0c284f',
         },
     },
     small_buildings: {
@@ -253,9 +277,11 @@ export default {
         'Circuit',
         'Pontsteiger',
         'Nucleaire installatie',
+        'Casino',
+        'Grensovergang',
     ],
     only_alliance_missions: [41, 43, 59, 145, 234, 346, 347],
-    transfer_missions: [137],
+    transfer_missions: [137, 1103],
     ranks: {
         missionchief: {
             0: 'Aspirant',
@@ -267,6 +293,10 @@ export default {
             50_000_000: 'Adjunct-Hoofdcommandeur',
             500_000_000: 'Hoofdcommandeur',
             5_000_000_000: 'Erelid',
+            10_000_000_000: 'Algemeen Commandant',
+            20_000_000_000: 'Landelijk Commandant Brandweer',
+            50_000_000_000: 'Commandant-Generaal',
+            100_000_000_000: 'Burgemeester',
         },
         policechief: {
             0: 'Aspirant',
@@ -278,6 +308,10 @@ export default {
             50_000_000: 'Hoofdinspecteur',
             500_000_000: 'Commissaris',
             5_000_000_000: 'Hoofdcommissaris',
+            10_000_000_000: 'Korpschef',
+            20_000_000_000: 'Landelijk Korpschef',
+            50_000_000_000: 'Korpschef-Generaal',
+            100_000_000_000: 'Burgemeester',
         },
     },
 };

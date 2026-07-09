@@ -163,11 +163,11 @@ export default {
             key: 'paramedic_advanced',
         },
     ],
-    'Water Rescue': [
+    'Search and Rescue': [
         {
             caption: 'Coastal Air Rescue Operations Training',
             duration: '5 Days',
-            staffList: 'Coastal Air Rescue Operations Training',
+            staffList: 'Coastal Air Rescue Pilot',
             key: 'coastal_rescue_pilot',
         },
         {
@@ -185,7 +185,7 @@ export default {
         {
             caption: 'Lifeboat Operations Training',
             duration: '5 Days',
-            staffList: 'Lifeboat Operations Training',
+            staffList: 'Lifeboat Operator',
             key: 'ocean_navigation',
         },
         {
@@ -221,7 +221,7 @@ export default {
         {
             caption: 'Coastguard Search Advisor Training',
             duration: '3 Days',
-            staffList: 'Coastguard Search Advisor Training',
+            staffList: 'Search Advisor',
             key: 'search_and_rescue',
         },
         {
@@ -235,6 +235,18 @@ export default {
             duration: '3 Days',
             staffList: 'Drone Operator',
             key: 'drone',
+        },
+        {
+            caption: 'Dog handling',
+            duration: '5 Days',
+            staffList: 'Dog handler',
+            key: 'rescue_dogs',
+        },
+        {
+            caption: 'Cave Rescue Training',
+            duration: '5 Days',
+            staffList: 'Cave Rescue Specialist',
+            key: 'mountain_cave_rescue',
         },
     ],
 } satisfies SchoolingsBySchool;

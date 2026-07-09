@@ -187,8 +187,8 @@ export interface RedesignLightbox<
         copyUrl(): void;
         setHotkeyRedesignParam<
             Component extends RedesignComponent<string, RedesignKey>,
-            VueInstance extends
-                RedesignVueInstance<Component> = RedesignVueInstance<Component>,
+            VueInstance extends RedesignVueInstance<Component> =
+                RedesignVueInstance<Component>,
         >(
             scope:
                 | `${RootScopeWithoutAll}.${string}`

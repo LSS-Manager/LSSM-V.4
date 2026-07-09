@@ -1,0 +1,168 @@
+{
+    "collapsableMissions": {
+        "all": {
+            "collapse": "Ocultar todas as missões",
+            "expand": "Mostrar todas as missões"
+        },
+        "collapse": "Ocultar esta missão",
+        "expand": "Mostrar esta missão"
+    },
+    "description": "Mostra a lista de missões com algumas características",
+    "eventMissions": {
+        "default": {
+            "☘️": [380, 381, 382, 383, 384, 385, 386, 387, 388, 567, 568, 569],
+            "❄️": [185, 477, 478, 479, 480, 549, 550, 551, 552, 553],
+            "🌞": [
+                118, 119, 120, 121, 122, 306, 307, 308, 581, 582, 583, 584, 585
+            ],
+            "🌹": [246, 247, 248, 249, 250, 251, 252, 253, 254, 485, 486, 487],
+            "🍂": [329, 330, 331, 332, 333, 334, 335, 336, 337],
+            "🎂": [
+                225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237,
+                238, 239, 240, 241
+            ],
+            "🎃": [156, 157, 158, 159, 160, 161, 162, 163, 164],
+            "🎅": [
+                179, 180, 181, 182, 183, 184, 186, 449, 450, 451, 452, 543, 544,
+                546, 547
+            ],
+            "🎉": [366, 367, 368, 369, 370, 371, 372, 373, 374, 375],
+            "🏅": [588, 589, 590, 591, 592, 593, 594, 595, 596, 597, 598],
+            "🔥": [361, 362, 363, 364, 365],
+            "🥅": [
+                281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 577, 578, 579,
+                580
+            ],
+            "🥚": [
+                85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 393, 394, 395, 396
+            ],
+            "🧨": [
+                197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209,
+                210, 211, 212, 213, 214, 215, 216, 217, 218, 219
+            ]
+        }
+    },
+    "name": "Mostra Lista de missões",
+    "settings": {
+        "averageCredits": {
+            "description": "Mostrar média de crédito ganhos por cada missão numa vista compacta.",
+            "title": "Mostra média de créditos"
+        },
+        "collapsableMissions": {
+            "description": "Oculta individualmente (ou todas) as missões para reduzir o tamanho da lista de missões.",
+            "title": "Ocultar Missões"
+        },
+        "collapsableMissionsAllBtn": {
+            "description": "Mostrar o botão de ocultar todas as missões imediatamente",
+            "title": "Ocultar todas as missões imediatamente"
+        },
+        "currentPatients": {
+            "description": "Mostrar a quantidade atual de pacientes por cada missão",
+            "title": "Pacientes atuais"
+        },
+        "currentPatientsInTooltips": {
+            "description": "Mostra a quantidade atual de pacientes também nas ferramentas do mapa.",
+            "title": "Pacientes atuais nas Ferramentas"
+        },
+        "currentPrisoners": {
+            "description": "Mostrar a quantidade atual de prisioneiros por cada missão",
+            "title": "Prisioneiros atuais"
+        },
+        "currentPrisonersInTooltips": {
+            "description": "Mostra a quantidade atual de prisioneiros também nas ferramentas do mapa.",
+            "title": "Prisioneiros atuais nas Ferramentas"
+        },
+        "eventMissions": {
+            "description": "Marcar missões sanzonais. Opcional, podes customizar tudo e marcar também as não sanzonais.",
+            "missions": "Missões",
+            "text": "Texto",
+            "title": "Marcar missões sanzonais"
+        },
+        "fixedEventInfo": {
+            "description": "Mostrar informação dum evento que estiver a decorrer permanentemente, independentemente do tamanho do scroll que tens de fazer na lista de missões.",
+            "title": "Mostrar sempre a informação do evento"
+        },
+        "hide0CurrentPatients": {
+            "description": "Ocultar número de pacientes se não existirem pacientes atualmente",
+            "title": "Ocultar 0 Pacientes"
+        },
+        "hide0CurrentPrisoners": {
+            "description": "Ocultar número de pacientes se não existirem prisioneiros atualmente",
+            "title": "Ocultar 0 Prisioneiros"
+        },
+        "remainingPatientTime": {
+            "description": "Mostrar quanto tempo falta para os pacientes estarem completamente tratados",
+            "title": "Tempo em falta por paciente"
+        },
+        "remainingPumpingTime": {
+            "description": "Mostrar quanto tempo falta para a operação de bombagem estar terminada.",
+            "title": "Tempo restante da bombagem"
+        },
+        "remainingTime": {
+            "description": "Mostrar na missão quanto tempo falta.",
+            "title": "Tempo em falta da Missão"
+        },
+        "remainingTimeGreenOnly": {
+            "description": "Mostrar apenas tempo das missões a verde.",
+            "title": "Tempo das missões a verde"
+        },
+        "shareMissions": {
+            "description": "Partilhar missão com a aliança diretamente a lista de missões.",
+            "title": "Partilhar Missão"
+        },
+        "shareMissionsButtonColor": {
+            "danger": "Vermelho",
+            "default": "Preto ou Branco (baseado no design)",
+            "description": "Escolher cor de fundo dos botões de partilhar",
+            "info": "Azul claro",
+            "primary": "Azul escuro",
+            "success": "Verde",
+            "title": "Partilha de missões: Cor do botão",
+            "warning": "Laranja"
+        },
+        "shareMissionsMinCredits": {
+            "description": "O botão de partilha de missão aparece aparece para missões onde a média é acima do que escolheste.",
+            "title": "Partilha de missão: créditos mínimos"
+        },
+        "shareMissionsTypes": {
+            "alliance": "Missões da Aliança (apenas para partilhar post na Aliança)",
+            "allianceEvent": "Missions in an alliance event (only for Share-Alliance-Post)",
+            "description": "Configure para que chamadas pretende ativar o botão de partilha.",
+            "own": "Chamadas-Emergência",
+            "sicherheitswache": "Missões planeadas",
+            "title": "Partilha de missões: tipos de missão"
+        },
+        "sortMissions": {
+            "description": "Ordenar a tua lista de missões!",
+            "title": "Ordenar missões"
+        },
+        "sortMissionsButtonColor": {
+            "description": "Escolhe a cor do teu botão de ordenar",
+            "title": "Ordernar missões: Cor do botão"
+        },
+        "sortMissionsInMissionwindow": {
+            "description": "Implementar ordenação na janela de missões. Opcional, podes escolher Hotkeys no nosso módulo \"Hotkeys\" para modificar os botões.",
+            "title": "Ordenar na janela de missões"
+        },
+        "starrableMissions": {
+            "description": "Marque as missões para que sejam apresentadas na lista de missões no topo. Pode marcá-los na janela de missões e na lista de missões.",
+            "title": "Marcar Missões"
+        }
+    },
+    "sort": {
+        "types": {
+            "alphabet": "Alfabética",
+            "credits": "Créditos",
+            "default": "não ordenado",
+            "distance_dispatch": "Distância para o Centro de Comando",
+            "distance_station": "Distância para a estação",
+            "id": "Idade",
+            "notarzt_chance": "ALS Chance",
+            "remaining_patients": "Pacientes atuais",
+            "remaining_prisoners": "Prisioneiros atuais",
+            "rth_chance": "Air-Ambulance Chance",
+            "transport_chance": "Transport Chance",
+            "zip_code": "Código PPsotal (globalmente)"
+        }
+    }
+}

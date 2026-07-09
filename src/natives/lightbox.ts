@@ -1,4 +1,4 @@
-if (!document.querySelector<HTMLDivElement>('#lightbox_background')) {
+if (!document.getElementById('lightbox_background')) {
     const bg = document.createElement('div');
     bg.id = 'lightbox_background';
     bg.addEventListener('click', () => window.lightboxClose());

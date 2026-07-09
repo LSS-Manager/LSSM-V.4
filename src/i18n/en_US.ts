@@ -105,7 +105,7 @@ export default {
         },
         'Rescue Vehicles': {
             vehicles: {
-                'Ambulances': [5, 27, 48, 49, 50, 57, 58, 61],
+                'Ambulances': [5, 27, 48, 49, 50, 57, 58, 61, 109],
                 'HEMS': [11],
                 'First Responder': [15],
                 'Rescue Boat': [25],
@@ -144,6 +144,7 @@ export default {
                 Normal: [105, 106],
                 Fire: [107],
                 Police: [108],
+                Rotator: [113],
             },
             color: '#6d34a9',
         },
@@ -267,9 +268,16 @@ export default {
         'Prison',
         'Festival',
         'Sauna',
+        'Amusement Park',
+        'Market',
+        'Hangar',
+        'Swamp',
+        'Casino',
+        'Zoo',
+        'Hardware Store',
     ],
     only_alliance_missions: [41, 61, 62, 112],
-    transfer_missions: [246],
+    transfer_missions: [246, 983],
     ranks: {
         missionchief: {
             0: 'Probie',
@@ -283,6 +291,7 @@ export default {
             1_000_000_000: 'Division Chief',
             2_000_000_000: 'Deputy Chief',
             5_000_000_000: 'Fire Chief',
+            10_000_000_000: 'Fire Commissioner',
         },
         policechief: {
             0: 'Police recruit',
@@ -296,6 +305,7 @@ export default {
             1_000_000_000: 'Police commander',
             2_000_000_000: 'Deputy chief',
             5_000_000_000: 'Chief of police',
+            10_000_000_000: 'Fire Commissioner',
         },
     },
 };

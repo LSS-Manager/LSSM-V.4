@@ -487,8 +487,7 @@ export default Vue.extend<
                 this.iconBgAsNavBg = iconBgAsNavBg;
 
                 if (iconBgAsNavBg) {
-                    this.navbg.navbar =
-                        document.querySelector<HTMLElement>('#main_navbar');
+                    this.navbg.navbar = document.getElementById('main_navbar');
                     const bgImg = this.navbg.navbar
                         ? window.getComputedStyle(this.navbg.navbar)
                               .backgroundImage
@@ -541,9 +540,7 @@ export default Vue.extend<
             })
             .then(v3MenuAsSubmenu => {
                 if (!v3MenuAsSubmenu) return;
-
-                const v3Dropdown =
-                    document.querySelector<HTMLLIElement>('#lssm_dropdown');
+                const v3Dropdown = document.getElementById('lssm_dropdown');
                 const versionWrapper = this.$el.querySelector<HTMLLIElement>(
                     `#${this.versionWrapperId}`
                 );

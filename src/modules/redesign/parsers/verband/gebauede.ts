@@ -97,7 +97,7 @@ export default <RedesignParser<VerbandGebaeudeWindow>>(({
                                 parseInt(
                                     script.textContent?.match(
                                         new RegExp(
-                                            `(?<=extensionCountdown\\(\\s*)\\d+(?=\\s*,\\s*${extensionID}\\s*\\))`
+                                            `(?<=registerExtensionTimer\\(\\s*${extensionID}.*?)\\d+(?=\\s*\\))`
                                         )
                                     )?.[0] ?? '-1'
                                 )

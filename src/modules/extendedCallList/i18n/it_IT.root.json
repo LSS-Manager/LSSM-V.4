@@ -105,6 +105,7 @@
         },
         "shareMissionsTypes": {
             "alliance": "Missioni dell'alleanza (solo per i messaggi dell'alleanza)",
+            "allianceEvent": "Missions in an alliance event (only for Share-Alliance-Post)",
             "description": "Imposta per quali chiamate comparirà il pulsante per la condivisione.",
             "own": "Chiamate di emergenza (in poche parole, quelle generiche)",
             "sicherheitswache": "Eventi Pianificati",
@@ -135,8 +136,11 @@
             "distance_dispatch": "Distanza dalla prossima centrale",
             "distance_station": "Distanza dalla prossima stazione",
             "id": "Cronologico",
+            "notarzt_chance": "ALS Chance",
             "remaining_patients": "Pazienti",
             "remaining_prisoners": "Prigionieri rimanenti",
+            "rth_chance": "Air-Ambulance Chance",
+            "transport_chance": "Transport Chance",
             "zip_code": "ZIP-Codes (globally)"
         }
     }

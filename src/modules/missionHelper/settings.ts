@@ -193,6 +193,7 @@ export default ((MODULE_ID, LSSM, $m) => {
             'fr_FR',
             'nb_NO',
             'fi_FI',
+            'en_AU',
         ].includes(locale)
             ? {
                   'optionalAlternatives.allow_ktw_instead_of_rtw': <Toggle>{
@@ -214,6 +215,17 @@ export default ((MODULE_ID, LSSM, $m) => {
                           default: false,
                           dependsOn: '.vehicles.content',
                       },
+              }
+            : null),
+        ...(locale === 'nl_NL'
+            ? {
+                  'optionalAlternatives.allow_traffic_car_instead_of_fustw': <
+                      Toggle
+                  >{
+                      type: 'toggle',
+                      default: false,
+                      dependsOn: '.vehicles.content',
+                  },
               }
             : null),
         'patients.title': <Toggle>{
@@ -392,7 +404,7 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
-        ...(['fr_FR', 'en_GB'].includes(locale)
+        ...(['fr_FR', 'en_GB', 'nl_NL'].includes(locale)
             ? null // note that it is disabled on above locales
             : {
                   'optionalAlternatives.allow_police_motorcycle_instead_of_fustw':

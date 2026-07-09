@@ -1,5 +1,7 @@
 import fs from 'fs';
 
+import { isCI } from 'ci-info';
+
 import buildAPI from './api';
 import collectFAIconNames from './collectFAIconNames';
 import copyStatic from './copyStatic';
@@ -40,8 +42,10 @@ const emptyDist = () => {
     await timeWrap('setVersion', setVersion);
     await timeWrap('update latest browser versions', updateBrowserVersions);
     await timeWrap('emptyDir', emptyDist);
-    await timeWrap('download missions', downloadMissions);
-    await timeWrap('download releasenotes', downloadReleasenotes);
+    if (!isCI) {
+        await timeWrap('download missions', downloadMissions);
+        await timeWrap('download releasenotes', downloadReleasenotes);
+    }
     await timeWrap('create dumy branches.json', createBranchesJson);
     await timeWrap('copyStatic', copyStatic);
     await timeWrap('build API', buildAPI);

@@ -17,6 +17,12 @@ export default {
             backgroundColor: '#ff2400',
             textColor: 'white',
         },
+        eventmission: {
+            regex: /Belohnung für das Verbands-Event/u,
+            title: 'Eventeinsätze',
+            backgroundColor: '#ff2400',
+            textColor: 'white',
+        },
         cancelledMissions: {
             regex: '^%missions%( \\(Brandmeldeanlage\\))? - [aA]bgebrochen$',
             title: 'Abgebrochene Einsätze',
@@ -32,6 +38,12 @@ export default {
             regex: /Ausrüstung gekauft/u,
             backgroundColor: '#007fff',
             textColor: 'white',
+        },
+        convertvehicle: {
+            regex: /Fahrzeug umgerüstet/u,
+            title: 'Fahrzeug Umrüstung',
+            backgroundColor: '#ed872d',
+            textColor: 'black',
         },
         dailyLogin: {
             regex: /Täglicher Login-Bonus/u,

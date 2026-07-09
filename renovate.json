@@ -1,7 +1,7 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "assignees": ["Suchty112"],
-    "baseBranches": ["dev"],
+    "baseBranchPatterns": ["dev"],
     "commitMessagePrefix": "⬆️",
     "commitMessageTopic": "`{{depName}}`",
     "dependencyDashboard": true,
@@ -36,11 +36,10 @@
             "matchManagers": ["npm"]
         },
         {
-            "excludePackageNames": ["@types/node"],
             "groupName": "types",
             "lockFileMaintenance": { "enabled": true },
             "matchManagers": ["npm"],
-            "matchPackagePrefixes": ["@types/"],
+            "matchPackageNames": ["!@types/node", "@types/{/,}**"],
             "rangeStrategy": "pin",
             "separateMajorMinor": false
         },
@@ -48,7 +47,7 @@
             "groupName": "fontawesome",
             "lockFileMaintenance": { "enabled": true },
             "matchManagers": ["npm"],
-            "matchPackagePrefixes": ["@fortawesome/"],
+            "matchPackageNames": ["@fortawesome/{/,}**"],
             "rangeStrategy": "pin",
             "separateMajorMinor": false
         },
@@ -56,7 +55,7 @@
             "groupName": "typescript-eslint",
             "lockFileMaintenance": { "enabled": true },
             "matchManagers": ["npm"],
-            "matchPackagePrefixes": ["@typescript-eslint"],
+            "matchPackageNames": ["@typescript-eslint{/,}**"],
             "rangeStrategy": "pin",
             "separateMajorMinor": false
         },
@@ -67,7 +66,7 @@
             "lockFileMaintenance": { "enabled": true },
             "matchDepNames": ["vuepress"],
             "matchManagers": ["npm"],
-            "matchPackagePrefixes": ["@vuepress"],
+            "matchPackageNames": ["@vuepress{/,}**"],
             "rangeStrategy": "pin",
             "separateMajorMinor": false
         },

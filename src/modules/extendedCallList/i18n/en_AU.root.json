@@ -110,6 +110,7 @@
         },
         "shareMissionsTypes": {
             "alliance": "Alliance missions (only for Share-Alliance-Post)",
+            "allianceEvent": "Missions in an alliance event (only for Share-Alliance-Post)",
             "description": "Set up which of the calls you want to enable the share button for.",
             "own": "Emergency-Calls",
             "sicherheitswache": "Planned missions",
@@ -140,8 +141,11 @@
             "distance_dispatch": "Distance to next dispatch center",
             "distance_station": "Distance to next station",
             "id": "Age",
+            "notarzt_chance": "ALS Chance",
             "remaining_patients": "Current patients",
             "remaining_prisoners": "Current prisoners",
+            "rth_chance": "Air-Ambulance Chance",
+            "transport_chance": "Transport Chance",
             "zip_code": "ZIP-Codes (globally)"
         }
     }

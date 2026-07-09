@@ -27,6 +27,7 @@ import type {
 import type {
     BuildingMarker,
     BuildingMarkerAdd,
+    BuildingMarkerCache,
     MissionGraphicsLookup,
     MissionMarker,
     PatientTimer,
@@ -62,6 +63,7 @@ declare global {
         alliance_coadmin: boolean;
         alliance_owner: boolean;
         building_markers: BuildingMarker[];
+        building_markers_params_cache_per_id: Map<number, BuildingMarkerCache>;
         mission_markers: MissionMarker[];
         map_pois_service: {
             getMissionPoiMarkersArray(): POIMarker[];
@@ -114,6 +116,7 @@ declare global {
         building_move_marker_dragend(): void;
         building_new_dragend(): void;
         vehicleSelectionReset(): void;
+        aaoCheckAvailable(calculateTime?: boolean): void;
         aao_available(arrId: number, calculateTime: boolean): void;
         aao_building_check(
             buildingIds: number[],
@@ -144,13 +147,10 @@ declare global {
             format: string | 'long';
             onTimerEnd(): void;
         }): void;
-        updateTimer(
-            timer: Pick<
-                Parameters<this['setupTimer']>[0],
-                '$timer' | 'format'
-            > & {
-                endTime: Date;
-            }
+        timerUpdate(
+            id: string,
+            object: JQUery<HTMLElement>,
+            endTime: number
         ): void;
         flavouredAsset(asset: string, scope?: string): string;
         searchMission(): void;
@@ -227,7 +227,8 @@ declare module 'vue/types/vue' {
     }
 }
 
-export interface LSSMEvent<arguments extends unknown[] = unknown[]>
-    extends Event {
+export interface LSSMEvent<
+    arguments extends unknown[] = unknown[],
+> extends Event {
     detail: arguments;
 }

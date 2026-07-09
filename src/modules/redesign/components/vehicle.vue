@@ -145,6 +145,10 @@
                             <dt>{{ lightbox.$sm('foam_amount') }}</dt>
                             <dd>{{ vehicle.foam }}</dd>
                         </template>
+                        <template v-if="vehicle.pump">
+                            <dt>{{ lightbox.$sm('pump_amount') }}</dt>
+                            <dd>{{ vehicle.pump }}</dd>
+                        </template>
                         <dt>{{ lightbox.$sm('mileage') }}</dt>
                         <dd>{{ vehicle.mileage }}</dd>
                         <template v-if="vehicle.currentMission">
@@ -259,6 +263,15 @@
                         <font-awesome-icon :icon="faEdit"></font-awesome-icon>
                     </a>
                     <a
+                        :href="`/vehicles/${vehicle.id}/refit`"
+                        class="btn btn-default"
+                        :title="lightbox.$sm('refit')"
+                    >
+                        <font-awesome-icon
+                            :icon="faScrewdriverWrench"
+                        ></font-awesome-icon>
+                    </a>
+                    <a
                         :href="`/vehicles/${vehicle.id}/stats`"
                         class="btn btn-default"
                         :title="lightbox.$sm('stats')"
@@ -366,7 +379,7 @@
                             v-for="(value, filter) in table.filter"
                             :key="filter"
                             :data-title="
-                                (filter_title = lightbox
+                                filter_title = lightbox
                                     .$sm(
                                         `filter.${tableType}.${filter}${
                                             filter === 'status' ? '.title' : ''
@@ -375,7 +388,7 @@
                                             department: vehicle.department,
                                         }
                                     )
-                                    .toString())
+                                    .toString()
                             "
                         >
                             <label>{{ filter_title }}</label>
@@ -551,9 +564,9 @@
                                 "
                                 class="label"
                                 :class="`label-${
-                                    item.department ??
+                                    (item.department ??
                                     item.building?.same ??
-                                    item.home
+                                    item.home)
                                         ? 'success'
                                         : 'warning'
                                 }`"
@@ -655,6 +668,7 @@ import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine';
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { faPalette } from '@fortawesome/free-solid-svg-icons/faPalette';
 import { faPortrait } from '@fortawesome/free-solid-svg-icons/faPortrait';
+import { faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons/faScrewdriverWrench';
 import { faSitemap } from '@fortawesome/free-solid-svg-icons/faSitemap';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
@@ -708,6 +722,7 @@ export default Vue.extend<
             participationIcon: { true: faUser, false: faAsterisk },
             faPalette,
             faEdit,
+            faScrewdriverWrench,
             faChartLine,
             faUsers,
             faTrash,
@@ -1031,8 +1046,8 @@ export default Vue.extend<
                         ),
                         credits:
                             'type' in item
-                                ? this.missionTypes[item.type]
-                                      ?.average_credits ?? 0
+                                ? (this.missionTypes[item.type]
+                                      ?.average_credits ?? 0)
                                 : Number.MAX_SAFE_INTEGER,
                         progress: 'progress' in item ? item.progress.width : 0,
                         same: 'building' in item ? item.building.same : false,
@@ -1072,7 +1087,8 @@ export default Vue.extend<
                 } else if (sort === 'credits') {
                     sortValue =
                         'type' in item
-                            ? this.missionTypes[item.type]?.average_credits ?? 0
+                            ? (this.missionTypes[item.type]?.average_credits ??
+                              0)
                             : Number.MAX_SAFE_INTEGER;
                 } else if (sort === 'progress') {
                     sortValue =

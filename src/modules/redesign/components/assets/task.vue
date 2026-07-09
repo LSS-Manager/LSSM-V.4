@@ -17,7 +17,7 @@
                 <span class="reward_button">
                     <button
                         class="btn btn-success"
-                        :disabled="task.progress !== task.total"
+                        :disabled="isDisabled"
                         @click="$emit('claim')"
                     >
                         {{ $sm('claim') }}
@@ -117,7 +117,6 @@ import { faGem } from '@fortawesome/free-regular-svg-icons/faGem';
 import { collapsedLocalStorageKey, type ModifiedTask } from '../tasks.vue';
 
 import type { $m } from 'typings/Module';
-import type { DefaultComputed } from 'vue/types/options';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 export default Vue.extend<
@@ -129,7 +128,7 @@ export default Vue.extend<
         collapsed: boolean;
     },
     { toggleCollapsedState(): void },
-    DefaultComputed,
+    { isDisabled(): boolean },
     {
         task: ModifiedTask;
         $sm: $m;
@@ -164,6 +163,12 @@ export default Vue.extend<
                 collapsedLocalStorageKey,
                 JSON.stringify(collapsedTasks)
             );
+        },
+    },
+    computed: {
+        isDisabled() {
+            if (this.task.isPremiumTask && !window.user_premium) return true;
+            return this.task.progress !== this.task.total;
         },
     },
     props: {

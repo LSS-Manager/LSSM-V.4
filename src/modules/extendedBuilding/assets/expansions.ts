@@ -110,14 +110,14 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
         row.insertCell().append(...labels);
     });
     LSSM.$stores.root.hook({
-        event: 'updateTimer',
+        event: 'timerUpdate',
         callback(
-            ...[{ $timer, endTime }]: Parameters<typeof window.updateTimer>
+            ...[, $timer, endTime]: Parameters<typeof window.timerUpdate>
         ) {
             const [label, calendarString] =
                 expansionIndexByEndTime[$timer.data('end-time')];
             label.textContent = `${window.formatTime(
-                Math.round((endTime.getTime() - Date.now()) / 1000)
+                Math.floor(endTime / 1000)
             )} (${calendarString})`;
         },
     });

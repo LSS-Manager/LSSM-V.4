@@ -75,8 +75,8 @@ export default {
             buildings: [6, 8, 13, 19, 26],
             color: '#00ac00',
         },
-        'Water Rescue': {
-            buildings: [27, 28, 29, 30, 31],
+        'Search & Rescue': {
+            buildings: [27, 28, 29, 30, 31, 33],
             color: '#88ecc4',
         },
         'Other': {
@@ -100,7 +100,7 @@ export default {
         },
         'Ambulance Vehicles': {
             vehicles: {
-                'Ambulances': [5],
+                'Ambulances': [5, 97, 98],
                 'HEMS': [9],
                 'Rapid Response Vehicles': [10, 19, 20, 22, 83],
                 'HART Units': [23, 27, 28, 29, 30, 31, 32, 33, 34],
@@ -125,7 +125,8 @@ export default {
                 'Flood': [61],
                 'Coastguard Helicopter': [64, 65],
                 'Lifeguard': [66, 67, 68, 69, 70, 71, 72],
-                'SAR': [85, 86, 87, 88, 89, 90, 91, 92, 93, 94],
+                'SAR': [85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 102, 103],
+                'Mountain Rescue': [99, 100, 101],
             },
             color: '#88ecc4',
         },
@@ -265,9 +266,17 @@ export default {
         'Take Away Shop',
         'Launderette',
         'Pipeline',
+        'Market',
+        'Hangar',
+        'Ravine',
+        'Cave',
+        'Mineshaft',
+        'Construction site',
+        'Zoo',
+        'Railway tunnel',
     ],
     only_alliance_missions: [57, 74, 89],
-    transfer_missions: [77],
+    transfer_missions: [77, 716],
     ranks: {
         missionchief: {
             0: 'Probie',

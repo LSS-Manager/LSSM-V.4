@@ -57,8 +57,7 @@ export default async (
 
     if (found) {
         const alarm = (publish = false) => {
-            const form =
-                document.querySelector<HTMLFormElement>('#mission-form');
+            const form = document.getElementById('mission-form');
             if (!form) return;
             const nextMissionIdInput =
                 form.querySelector<HTMLInputElement>('#next_mission_id');
@@ -72,9 +71,7 @@ export default async (
             if (publishInput) publishInput.value = Number(publish).toString();
 
             // we've set the next mission id and the publishing value, so we can easily submit the form with normal alarm button
-            document
-                .querySelector<HTMLAnchorElement>('#mission_alarm_btn')
-                ?.click();
+            document.getElementById('mission_alarm_btn')?.click();
         };
 
         const toggleInput = document.createElement('input');

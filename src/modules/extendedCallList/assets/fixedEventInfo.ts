@@ -1,5 +1,5 @@
 export default (LSSM: Vue) => {
-    const eventInfo = document.querySelector<HTMLDivElement>('#eventInfo');
+    const eventInfo = document.getElementById('eventInfo');
     if (!eventInfo) return;
 
     const whitespace = document.createElement('div');

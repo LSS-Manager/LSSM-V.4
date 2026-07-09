@@ -67,7 +67,7 @@
             :sort="sort"
             :sort-dir="sortDir"
             @sort="setSort"
-            :shown-sum="(shown_sum = { total: 0, average: 0, amount: 0 })"
+            :shown-sum="shown_sum = { total: 0, average: 0, amount: 0 }"
         >
             <template v-slot:head>
                 <div class="form-group">
@@ -141,13 +141,13 @@
                 :key="id"
                 :class="{ hidden: entry.hidden }"
                 :color="
-                    (color = `text-${
+                    color = `text-${
                         entry.total > 0
                             ? 'success'
                             : entry.total < 0
                               ? 'danger'
                               : ''
-                    }`)
+                    }`
                 "
                 :sum="
                     (() => {
@@ -170,13 +170,13 @@
             <template v-slot:foot>
                 <tr
                     :sum-color="
-                        (sum_color = `text-${
+                        sum_color = `text-${
                             shown_sum.total > 0
                                 ? 'success'
                                 : shown_sum.total < 0
                                   ? 'danger'
                                   : ''
-                        }`)
+                        }`
                     "
                 >
                     <th :class="sum_color">

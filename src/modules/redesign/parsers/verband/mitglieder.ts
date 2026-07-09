@@ -21,6 +21,7 @@ interface User {
         finance: boolean;
         schooling: boolean;
         staff: boolean;
+        event_manager: boolean;
     };
 }
 
@@ -105,6 +106,7 @@ export default <RedesignParser<VerbandMitgliederWindow>>(({
                                       'finance',
                                       'schooling',
                                       'staff',
+                                      'event_manager',
                                   ].map(role => [
                                       role,
                                       !!user.children[editUserCol]

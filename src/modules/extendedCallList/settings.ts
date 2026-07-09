@@ -58,7 +58,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             type: 'toggle',
             default: false,
         },
-        ...(['de_DE', 'fr_FR'].includes(locale)
+        ...(['de_DE', 'fr_FR', 'nl_NL'].includes(locale)
             ? {
                   remainingPumpingTime: <Toggle>{
                       type: 'toggle',
@@ -98,11 +98,12 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         },
         shareMissionsTypes: <Omit<MultiSelect, 'isDisabled' | 'value'>>{
             type: 'multiSelect',
-            values: ['', 'sicherheitswache', 'alliance'],
+            values: ['', 'sicherheitswache', 'alliance', 'alliance_event'],
             labels: [
                 $m('settings.shareMissionsTypes.own'),
                 $m('settings.shareMissionsTypes.sicherheitswache'),
                 $m('settings.shareMissionsTypes.alliance'),
+                $m('settings.shareMissionsTypes.allianceEvent'),
             ],
             default: ['', 'sicherheitswache'],
             dependsOn: '.shareMissions',

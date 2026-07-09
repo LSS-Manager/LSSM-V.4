@@ -152,7 +152,7 @@ watch(table, (t, old) => {
 
         const unFixedHeadHeight = head.value?.classList.contains('fixed')
             ? parseFloat(headHeight.value)
-            : headRect?.height ?? 0;
+            : (headRect?.height ?? 0);
 
         const top = parentRect.top - unFixedHeadHeight;
 
