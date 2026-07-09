@@ -144,7 +144,7 @@ export default async (
     const maxListOrderDistance = Math.floor(Math.sqrt(maxCSSInteger));
 
     const numToCSSRange = (num: number): number => {
-        if (!num) return 0;
+        if (!Number.isFinite(num) || !num) return 0;
         return num % maxCSSInteger;
     };
 
@@ -467,20 +467,24 @@ export default async (
             return missionIdsByAlphabet[missionType];
         },
         distance_dispatch: mission => {
+            if (!dispatchCenterLatLngs.length) return maxCSSInteger - 1;
             const latLng = getLatLngFromMission(mission);
-            return distanceToCSSRange(
-                Math.min(
-                    ...dispatchCenterLatLngs.map(dc => latLng.distanceTo(dc))
-                )
+            const minDistance = Math.min(
+                ...dispatchCenterLatLngs.map(dc => latLng.distanceTo(dc))
             );
+            return Number.isFinite(minDistance)
+                ? distanceToCSSRange(minDistance)
+                : maxCSSInteger - 1;
         },
         distance_station: mission => {
+            if (!vehicleBuildingLatLngs.length) return maxCSSInteger - 1;
             const latLng = getLatLngFromMission(mission);
-            return distanceToCSSRange(
-                Math.min(
-                    ...vehicleBuildingLatLngs.map(dc => latLng.distanceTo(dc))
-                )
+            const minDistance = Math.min(
+                ...vehicleBuildingLatLngs.map(dc => latLng.distanceTo(dc))
             );
+            return Number.isFinite(minDistance)
+                ? distanceToCSSRange(minDistance)
+                : maxCSSInteger - 1;
         },
         zip_code: mission => {
             const address =
@@ -518,6 +522,11 @@ export default async (
                     ([list, missions]) => [
                         list,
                         Object.entries(missions)
+                            .filter(([mission, { el }]) => {
+                                if (el.isConnected) return true;
+                                delete missionOrderValuesById[list][mission];
+                                return false;
+                            })
                             .sort(
                                 (
                                     [, { order: valueA, el: elA }],
