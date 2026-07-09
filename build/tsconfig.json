@@ -5,6 +5,7 @@
         "module": "CommonJS",
         "outDir": ".",
         "paths": { "typings/*": ["../typings/*"] },
+        "rootDir": ".",
         "types": ["lodash", "node", "vue", "webpack-env"]
     },
     "include": ["**/*.ts"]

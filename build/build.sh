@@ -260,7 +260,7 @@ if [[ $_RUN_STEP_ENV = true ]]; then
     enable_debugging
     ref="$REF"
     BRANCH="dummy"
-
+    
     if [[ $ref == "refs/heads/master" ]]; then
       BRANCH="stable"
     elif [[ $ref == "refs/heads/dev" ]]; then
