@@ -1781,8 +1781,8 @@ export default {
     109: {
         caption: 'EOD Commander',
         color: '#88ecc4',
-        credits: 25_000,
-        coins: 20,
+        credits: 20_000,
+        coins: 10,
         staff: {
             min: 1,
             max: 2,
@@ -1801,11 +1801,11 @@ export default {
     110: {
         caption: 'EOD Response Vehicle',
         color: '#88ecc4',
-        credits: 25_000,
-        coins: 20,
+        credits: 30_000,
+        coins: 15,
         staff: {
             min: 1,
-            max: 2,
+            max: 4,
             training: {
                 Police: {
                     bomb_disposal: {
@@ -1821,11 +1821,11 @@ export default {
     111: {
         caption: 'EOD Medium Equipment Van',
         color: '#88ecc4',
-        credits: 25_000,
-        coins: 20,
+        credits: 40_000,
+        coins: 25,
         staff: {
             min: 1,
-            max: 2,
+            max: 3,
             training: {
                 Police: {
                     bomb_disposal: {
@@ -1841,8 +1841,8 @@ export default {
     112: {
         caption: 'EOD Heavy Equipment Vehicle',
         color: '#88ecc4',
-        credits: 25_000,
-        coins: 20,
+        credits: 60_000,
+        coins: 25,
         staff: {
             min: 1,
             max: 2,
@@ -1861,11 +1861,11 @@ export default {
     113: {
         caption: 'Marine EOD Response Vehicle',
         color: '#88ecc4',
-        credits: 25_000,
-        coins: 20,
+        credits: 30_000,
+        coins: 15,
         staff: {
             min: 1,
-            max: 2,
+            max: 4,
             training: {
                 Police: {
                     bomb_disposal_diver: {
@@ -1881,11 +1881,11 @@ export default {
     114: {
         caption: 'Marine EOD Equipment Van',
         color: '#88ecc4',
-        credits: 25_000,
-        coins: 20,
+        credits: 40_000,
+        coins: 25,
         staff: {
             min: 1,
-            max: 2,
+            max: 3,
             training: {
                 Police: {
                     bomb_disposal_diver: {
