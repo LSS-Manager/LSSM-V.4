@@ -125,6 +125,12 @@ export default {
             key: 'railway_police',
         },
         {
+            caption: 'Mobile Operations Management',
+            duration: '5 Days',
+            staffList: 'Mobile Operations Manager',
+            key: 'railway_police_command',
+        },
+        {
             caption: 'Bomb Disposal',
             duration: '3 Days',
             staffList: 'Bomb Disposal',
