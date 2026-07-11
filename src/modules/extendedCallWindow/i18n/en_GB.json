@@ -194,7 +194,7 @@
             },
             { "texts": ["Mass Casualty Equipment"], "vehicles": [33] },
             { "texts": ["Mounted Unit", "Mounted Units"], "vehicles": [55] },
-            { "texts": ["4x4 Vehicle", "4x4 Vehicles"], "vehicles": [66, 73] },
+            { "texts": ["4x4 Vehicle", "4x4 Vehicles"], "vehicles": [66, 73, 93] },
             {
                 "texts": [
                     "Coastguard Rope Rescue Unit",
@@ -314,7 +314,7 @@
                 "vehicles": [96]
             },
             { "texts": ["Rescue Dog", "Rescue Dogs"], "vehicles": [101, 102] },
-            { "texts": ["Mountain Rescue 4x4"], "vehicles": [99] }
+            { "texts": ["Mountain Rescue 4x4"], "vehicles": [99] },
             {
                 "texts": ["Road Rail Unit"],
                 "vehicles": [107]
