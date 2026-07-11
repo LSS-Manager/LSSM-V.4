@@ -36,7 +36,7 @@
         "staff": [
             {
                 "texts": ["Armed Response Personnel (In Armed Vehicles)"],
-                "vehicles": [13, 25, 52, 56]
+                "vehicles": [13, 25, 52, 56, 82]
             },
             {
                 "texts": ["more firefighter", "more firefighters"],
@@ -115,11 +115,11 @@
             },
             {
                 "texts": [
-                    "Operational Support Van",
-                    "Operational Support Vans"
+                    "Operational Support Van, Trailer or Personal SAR Vehicle",
                 ],
-                "vehicles": [86]
+                "vehicles": [86, 87, 92]
             },
+            
             { "texts": ["Control Van", "Control Vans"], "vehicles": [85] },
             {
                 "texts": [
@@ -138,14 +138,14 @@
             { "texts": ["Ambulance", "Ambulances"], "vehicles": [5] },
             {
                 "texts": ["Police car", "Police cars"],
-                "vehicles": [8, 12, 13, 19, 24, 25, 51, 52, 56, 82]
+                "vehicles": [8, 12, 13, 19, 24, 25, 51, 52, 56, 82, 116]
             },
             {
                 "texts": [
                     "Police Car or Armed Response Vehicle (ARV)",
                     "Police Cars or Armed Response Vehicles (ARVs)"
                 ],
-                "vehicles": [8, 12, 13, 19, 24, 25, 51, 52, 56, 82]
+                "vehicles": [8, 12, 13, 19, 24, 25, 51, 52, 56, 82, 116]
             },
             { "texts": ["HEMS"], "vehicles": [9] },
             {
@@ -182,7 +182,7 @@
             },
             {
                 "texts": ["Welfare Vehicle", "Welfare Vehicles"],
-                "vehicles": [29, 39, 45, 49]
+                "vehicles": [29, 39, 45, 49, 115]
             },
             {
                 "texts": ["Ambulance Officer", "Ambulance Officers"],
@@ -315,6 +315,38 @@
             },
             { "texts": ["Rescue Dog", "Rescue Dogs"], "vehicles": [101, 102] },
             { "texts": ["Mountain Rescue 4x4"], "vehicles": [99] }
+            {
+                "texts": ["Road Rail Unit"],
+                "vehicles": [107]
+            },
+            {
+                "texts": ["EIU"],
+                "vehicles": [108]
+            },
+            {
+                "texts": ["EOD Commander", "EOD Commanders"],
+                "vehicles": [109]
+            },
+            {
+                "texts": ["EOD Response Vehicle", "EOD Response Vehicles"],
+                "vehicles": [110]
+            },
+            {
+                "texts": ["EOD Medium Equipment Van", "EOD Medium Equipment Vans"],
+                "vehicles": [111]
+            },
+            {
+                "texts": ["EOD Heavy Equipment Vehicle", "EOD Heavy Equipment Vehicles"],
+                "vehicles": [112]
+            },
+            {
+                "texts": ["Marine EOD Response Vehicle", "Marine EOD Response Vehicles"],
+                "vehicles": [113]
+            },
+            {
+                "texts": ["Marine EOD Equipment Van", "Marine EOD Equipment Vans"],
+                "vehicles": [114]
+            },
         ]
     },
     "hideVehicleList": {
