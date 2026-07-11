@@ -2543,12 +2543,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:24.13.2":
-  version: 24.13.2
-  resolution: "@types/node@npm:24.13.2"
+"@types/node@npm:24.13.3":
+  version: 24.13.3
+  resolution: "@types/node@npm:24.13.3"
   dependencies:
     undici-types: "npm:~7.18.0"
-  checksum: 10c0/d7d48a88a4feb0a6aac3cbfaf9ef3b12752b4b09447f88dd0b4c77c03b281e3d4330fe6982a99aedcd63fc16c7540a0c248b91eb2abb0b3edd884d7fe684e9ea
+  checksum: 10c0/a5bc08f49b9581dcdca90e02cd77197a3c799840807664942e5cd5161a553d4d2ae8064f7e3294410d748d7d098b5c1848be7fa50c06f29c4193ab16be4e59eb
   languageName: node
   linkType: hard
 
@@ -4610,9 +4610,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001687, caniuse-lite@npm:^1.0.30001799":
-  version: 1.0.30001802
-  resolution: "caniuse-lite@npm:1.0.30001802"
-  checksum: 10c0/a78992c08e8c540a4048bfdb08a839e536ba757075531989dd9a648783e328ef2b17cd00fa6fe21f4bd74136d13ed53108050bc4fbbf3f56820a4119cd70a8d8
+  version: 1.0.30001803
+  resolution: "caniuse-lite@npm:1.0.30001803"
+  checksum: 10c0/71586e9c84633cf766b208448eb76f860ec6e3befffc626d1f004e1902da063a7ab96cc94d1f4b36c0324e12997b3325a726de3287edfec91d0df495627a1d43
   languageName: node
   linkType: hard
 
@@ -8312,7 +8312,7 @@ __metadata:
     "@types/js-yaml": "npm:4.0.9"
     "@types/leaflet": "npm:1.9.16"
     "@types/lodash": "npm:4.17.14"
-    "@types/node": "npm:24.13.2"
+    "@types/node": "npm:24.13.3"
     "@types/pdfmake": "npm:0.2.11"
     "@types/qrcode": "npm:1.5.5"
     "@types/semver": "npm:7.5.8"
