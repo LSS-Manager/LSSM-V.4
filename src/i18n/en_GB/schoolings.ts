@@ -44,6 +44,12 @@ export default {
             staffList: 'Drone Operator',
             key: 'drone',
         },
+        {
+            caption: 'Railway Fire',
+            duration: '5 Days',
+            staffList: 'Railway Firefighter',
+            key: 'railway_fire',
+        },
     ],
     'Police': [
         {
