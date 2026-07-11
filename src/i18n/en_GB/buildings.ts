@@ -256,7 +256,7 @@ export default {
         icon: 'house-medical',
     },
     3: {
-        caption: 'Rescue (EMS) Academy',
+        caption: 'Medical Academy',
         color: '#9f9830',
         coins: 50,
         credits: 500_000,
@@ -1822,5 +1822,50 @@ export default {
         schools: [8],
         startParkingLots: 1,
         icon: 'house-flag',
+    },
+    36: {
+        caption: 'Custody Suite',
+        color: '#00ff00',
+        coins: 35,
+        credits: 100_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
+        extensions: [
+            ...multiplyExtension(
+                {
+                    caption: 'Prison Cell',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Days',
+                    newCells: 1,
+                    cannotDisable: true,
+                },
+                20
+            ),
+            {
+                caption: 'Large Prison',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 Days',
+                maxExtensionsFunction: buildingsByType =>
+                    Math.floor(
+                        (Object.keys(buildingsByType[16] ?? {}).length ?? 0) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
+                newCells: 10,
+                cannotDisable: true,
+            },
+        ],
+        levelcost: [],
+        maxBuildings: 'No limit',
+        maxLevel: 0,
+        special:
+            "Functions like the Prison for Alliances, but enabled for players, allows for a max of 30 cells, when fully expanded. No vehicles here",
+        startCells: 0,
+        icon: 'border-all',
     },
 } satisfies Record<number, InternalBuilding>;
