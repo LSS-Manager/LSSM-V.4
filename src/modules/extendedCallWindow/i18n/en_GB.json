@@ -344,9 +344,9 @@
                 "vehicles": [113]
             },
             {
-                "texts": ["Marine EOD Equipment Van", "Marine EOD Equipment Vans"]
+                "texts": ["Marine EOD Equipment Van", "Marine EOD Equipment Vans"],
                 "vehicles": [114]
-            },
+            }
         ]
     },
     "hideVehicleList": {
