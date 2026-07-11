@@ -193,7 +193,10 @@
             },
             { "texts": ["Mass Casualty Equipment"], "vehicles": [33] },
             { "texts": ["Mounted Unit", "Mounted Units"], "vehicles": [55] },
-            { "texts": ["4x4 Vehicle", "4x4 Vehicles"], "vehicles": [66, 73, 93] },
+            {
+                "texts": ["4x4 Vehicle", "4x4 Vehicles"],
+                "vehicles": [66, 73, 93]
+            },
             {
                 "texts": [
                     "Coastguard Rope Rescue Unit",
@@ -314,36 +317,39 @@
             },
             { "texts": ["Rescue Dog", "Rescue Dogs"], "vehicles": [101, 102] },
             { "texts": ["Mountain Rescue 4x4"], "vehicles": [99] },
-            {
-                "texts": ["Road Rail Unit"],
-                "vehicles": [107]
-            },
-            {
-                "texts": ["EIU"],
-                "vehicles": [108]
-            },
-            {
-                "texts": ["EOD Commander", "EOD Commanders"],
-                "vehicles": [109]
-            },
+            { "texts": ["Road Rail Unit"], "vehicles": [107] },
+            { "texts": ["EIU"], "vehicles": [108] },
+            { "texts": ["EOD Commander", "EOD Commanders"], "vehicles": [109] },
             {
                 "texts": ["EOD Response Vehicle", "EOD Response Vehicles"],
                 "vehicles": [110]
             },
             {
-                "texts": ["EOD Medium Equipment Van", "EOD Medium Equipment Vans"],
+                "texts": [
+                    "EOD Medium Equipment Van",
+                    "EOD Medium Equipment Vans"
+                ],
                 "vehicles": [111]
             },
             {
-                "texts": ["EOD Heavy Equipment Vehicle", "EOD Heavy Equipment Vehicles"],
+                "texts": [
+                    "EOD Heavy Equipment Vehicle",
+                    "EOD Heavy Equipment Vehicles"
+                ],
                 "vehicles": [112]
             },
             {
-                "texts": ["Marine EOD Response Vehicle", "Marine EOD Response Vehicles"],
+                "texts": [
+                    "Marine EOD Response Vehicle",
+                    "Marine EOD Response Vehicles"
+                ],
                 "vehicles": [113]
             },
             {
-                "texts": ["Marine EOD Equipment Van", "Marine EOD Equipment Vans"],
+                "texts": [
+                    "Marine EOD Equipment Van",
+                    "Marine EOD Equipment Vans"
+                ],
                 "vehicles": [114]
             }
         ]

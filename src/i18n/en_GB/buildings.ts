@@ -1800,10 +1800,9 @@ export default {
                 coins: 20,
                 duration: '3 Days',
                 isVehicleExtension: true,
-                unlocksVehicleTypes: [113, 114],    
+                unlocksVehicleTypes: [113, 114],
                 givesParkingLots: 2,
                 parkingLotReservations: [[113, 114]],
-     
             },
         ],
         levelcost: [
@@ -1864,7 +1863,7 @@ export default {
         maxBuildings: 'No limit',
         maxLevel: 0,
         special:
-            "Functions like the Prison for Alliances, but enabled for players, allows for a max of 30 cells, when fully expanded. No vehicles here",
+            'Functions like the Prison for Alliances, but enabled for players, allows for a max of 30 cells, when fully expanded. No vehicles here',
         startCells: 0,
         icon: 'border-all',
     },

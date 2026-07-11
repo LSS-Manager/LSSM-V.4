@@ -1756,7 +1756,8 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [0, 18],
-        special: 'Rail Road Unit - Utlised for extinguishing rail-related fires',
+        special:
+            'Rail Road Unit - Utlised for extinguishing rail-related fires',
     },
     108: {
         caption: 'EIU',
@@ -1776,7 +1777,8 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [6, 19, 26],
-        special: 'Emergency Intervention Unit - Run by Railway Polcing to attend complex railway incidents',
+        special:
+            'Emergency Intervention Unit - Run by Railway Polcing to attend complex railway incidents',
     },
     109: {
         caption: 'EOD Commander',
@@ -1816,7 +1818,8 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [6, 19, 26],
-        special: 'Small EOD Response Unit - Responds to smaller bomb disposal incidents',
+        special:
+            'Small EOD Response Unit - Responds to smaller bomb disposal incidents',
     },
     111: {
         caption: 'EOD Medium Equipment Van',
@@ -1836,7 +1839,8 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [6, 19, 26],
-        special: 'Medium EOD Response Unit - Responds to Larger, Higher Risk Bomb Disposal Missions',
+        special:
+            'Medium EOD Response Unit - Responds to Larger, Higher Risk Bomb Disposal Missions',
     },
     112: {
         caption: 'EOD Heavy Equipment Vehicle',
@@ -1856,7 +1860,8 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [6, 19, 26],
-        special: 'Largest Bomb Disposal unit - Attends the most serious and greatest risk bomb disposal Missions',
+        special:
+            'Largest Bomb Disposal unit - Attends the most serious and greatest risk bomb disposal Missions',
     },
     113: {
         caption: 'Marine EOD Response Vehicle',
@@ -1876,7 +1881,8 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [6, 19, 26],
-        special: 'Small EOD response vehicle, ready to dispose of underwater-bombs',
+        special:
+            'Small EOD response vehicle, ready to dispose of underwater-bombs',
     },
     114: {
         caption: 'Marine EOD Equipment Van',
@@ -1896,7 +1902,8 @@ export default {
         },
         icon: 'car-side',
         possibleBuildings: [6, 19, 26],
-        special: 'Larger EOD response vehicle, ready to dispose of underwater-bombs in busy areas, equipped with divers',
+        special:
+            'Larger EOD response vehicle, ready to dispose of underwater-bombs in busy areas, equipped with divers',
     },
     115: {
         caption: 'Welfare Vehicle',
@@ -1909,7 +1916,7 @@ export default {
         special:
             'Acts as a crew welfare vehicle, for the police service - simply replaces HART and fire service varaitions.',
     },
-     116: {
+    116: {
         caption: 'Cell Van',
         color: '#99631f',
         credits: 20_000,
