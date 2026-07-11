@@ -128,6 +128,16 @@ export default {
                 givesParkingLots: 10,
                 cannotDisable: true,
             },
+            {
+                caption: 'Railway fire response',
+                credits: 150_000,
+                coins: 25,
+                duration: '5 Days',
+                unlocksVehicleTypes: [107],
+                givesParkingLots: 2,
+                parkingLotReservations: [[107, 107]],
+                isVehicleExtension: true,
+            },
         ],
         storageUpgrades: {
             initial_containers: {
@@ -246,7 +256,7 @@ export default {
         icon: 'house-medical',
     },
     3: {
-        caption: 'Rescue (EMS) Academy',
+        caption: 'Medical Academy',
         color: '#9f9830',
         coins: 50,
         credits: 500_000,
@@ -577,6 +587,16 @@ export default {
                 newCells: 10,
                 cannotDisable: true,
             },
+            {
+                caption: 'Railway Police',
+                credits: 200_000,
+                coins: 25,
+                duration: '5 Days',
+                unlocksVehicleTypes: [108],
+                givesParkingLots: 2,
+                parkingLotReservations: [[108, 108]],
+                isVehicleExtension: true,
+            },
         ],
         storageUpgrades: {
             initial_containers: {
@@ -862,6 +882,16 @@ export default {
                 parkingLotReservations: [[84, 84]],
                 isVehicleExtension: true,
             },
+            {
+                caption: 'Railway fire response',
+                credits: 150_000,
+                coins: 25,
+                duration: '5 Days',
+                unlocksVehicleTypes: [107],
+                givesParkingLots: 2,
+                parkingLotReservations: [[107, 107]],
+                isVehicleExtension: true,
+            },
         ],
         storageUpgrades: {
             initial_containers: {
@@ -945,6 +975,16 @@ export default {
                 unlocksVehicleTypes: [79, 80, 81],
                 givesParkingLots: 2,
                 parkingLotReservations: [[81, 81]],
+                isVehicleExtension: true,
+            },
+            {
+                caption: 'Railway Police',
+                credits: 200_000,
+                coins: 25,
+                duration: '5 Days',
+                unlocksVehicleTypes: [108],
+                givesParkingLots: 2,
+                parkingLotReservations: [[108, 108]],
                 isVehicleExtension: true,
             },
         ],
@@ -1237,6 +1277,35 @@ export default {
                 isVehicleExtension: true,
                 parkingLotReservations: [[54], [54]],
                 requiredExtensions: [40],
+            },
+            {
+                caption: 'Aviation policing Extension',
+                credits: 100_000,
+                coins: 20,
+                duration: '5 Days',
+                unlocksVehicleTypes: [82],
+                givesParkingLots: 0,
+                isVehicleExtension: true,
+            },
+            {
+                caption: 'Airfield Operations Extension',
+                credits: 200_000,
+                coins: 25,
+                duration: '5 Days',
+                unlocksVehicleTypes: [79, 80, 81],
+                givesParkingLots: 2,
+                parkingLotReservations: [[81, 81]],
+                isVehicleExtension: true,
+            },
+            {
+                caption: 'Railway Police',
+                credits: 200_000,
+                coins: 25,
+                duration: '5 Days',
+                unlocksVehicleTypes: [108],
+                givesParkingLots: 2,
+                parkingLotReservations: [[108, 108]],
+                isVehicleExtension: true,
             },
         ],
         levelcost: [
@@ -1714,5 +1783,89 @@ export default {
         schools: [],
         startParkingLots: 1,
         icon: 'house-flag',
+    },
+    35: {
+        caption: 'Bomb Disposal HQ',
+        color: '#88ecc4',
+        coins: 50,
+        credits: 500_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
+        extensions: [
+            {
+                caption: 'Marine Unit',
+                credits: 100_000,
+                coins: 20,
+                duration: '3 Days',
+                isVehicleExtension: true,
+                unlocksVehicleTypes: [113, 114],    
+                givesParkingLots: 2,
+                parkingLotReservations: [[113, 114]],
+     
+            },
+        ],
+        levelcost: [
+            '1. 10.000 / 5 Coins',
+            '2. 25.000 / 10 Coins',
+            '3. 50.000 / 10 Coins',
+            '4. 75.000 / 15 Coins',
+            '5.-9. 100.000 / 20 Coins',
+        ],
+        maxBuildings: 'No limit',
+        maxLevel: 9,
+        special: '',
+        startPersonnel: 10,
+        startVehicles: [''],
+        schoolingTypes: ['Police'],
+        schools: [8],
+        startParkingLots: 1,
+        icon: 'house-flag',
+    },
+    36: {
+        caption: 'Custody Suite',
+        color: '#00ff00',
+        coins: 35,
+        credits: 100_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
+        extensions: [
+            ...multiplyExtension(
+                {
+                    caption: 'Prison Cell',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Days',
+                    newCells: 1,
+                    cannotDisable: true,
+                },
+                20
+            ),
+            {
+                caption: 'Large Prison',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 Days',
+                maxExtensionsFunction: buildingsByType =>
+                    Math.floor(
+                        (Object.keys(buildingsByType[16] ?? {}).length ?? 0) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
+                newCells: 10,
+                cannotDisable: true,
+            },
+        ],
+        levelcost: [],
+        maxBuildings: 'No limit',
+        maxLevel: 0,
+        special:
+            "Functions like the Prison for Alliances, but enabled for players, allows for a max of 30 cells, when fully expanded. No vehicles here",
+        startCells: 0,
+        icon: 'border-all',
     },
 } satisfies Record<number, InternalBuilding>;

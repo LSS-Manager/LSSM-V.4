@@ -1303,7 +1303,7 @@ export default {
             max: 2,
         },
         icon: 'car-side',
-        possibleBuildings: [0, 6, 18, 19],
+        possibleBuildings: [0, 6, 18, 19, 26],
         special:
             'A vehicle run by the airports to keep the airport operating smoothly',
     },
@@ -1317,7 +1317,7 @@ export default {
             max: 2,
         },
         icon: 'car-side',
-        possibleBuildings: [0, 6, 18, 19],
+        possibleBuildings: [0, 6, 18, 19, 26],
         special: 'Supervises the Airport Operations Officers.',
     },
     81: {
@@ -1330,7 +1330,7 @@ export default {
             max: 0,
         },
         icon: 'car-side',
-        possibleBuildings: [0, 6, 18, 19],
+        possibleBuildings: [0, 6, 18, 19, 26],
         special:
             'Needed towing vehicle (Airfield Operations Vehicle, Airfield Operations Supervisor) Carrys Vital Medical Equipment to hurt people at the airport.',
     },
@@ -1351,7 +1351,7 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [6, 19],
+        possibleBuildings: [6, 19, 26],
         special:
             'Requires "aviation policing" extention. Counts as a IRV and a Firearms Resourse. Can transport up to two prisoners.',
     },
@@ -1511,7 +1511,7 @@ export default {
             },
         },
         icon: 'car-side',
-        possibleBuildings: [6, 19],
+        possibleBuildings: [6, 19, 26],
         equipmentCapacity: 10,
         special: 'Carrys Drones form a Police Station',
     },
@@ -1736,6 +1736,188 @@ export default {
         staff: { min: 1, max: 2 },
         icon: 'car-side',
         possibleBuildings: [34],
-        special: 'can tow larger vehicles like trucks and buses.',
+        special: 'can tow larger vehicles like HGVs and buses.',
+    },
+    107: {
+        caption: 'RRU',
+        color: '#88ecc4',
+        credits: 25_000,
+        coins: 20,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Fire: {
+                    railway_fire: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [0, 18],
+        special: 'Rail Road Unit - Utlised for extinguishing rail-related fires',
+    },
+    108: {
+        caption: 'EIU',
+        color: '#88ecc4',
+        credits: 25_000,
+        coins: 20,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Police: {
+                    railway_police_command: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [6, 19, 26],
+        special: 'Emergency Intervention Unit - Run by Railway Polcing to attend complex railway incidents',
+    },
+    109: {
+        caption: 'EOD Commander',
+        color: '#88ecc4',
+        credits: 20_000,
+        coins: 10,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Police: {
+                    bomb_disposal_command: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [6, 19, 26],
+        special: 'Commands Bomb Disposal Missions - Leads the EOD team',
+    },
+    110: {
+        caption: 'EOD Response Vehicle',
+        color: '#88ecc4',
+        credits: 30_000,
+        coins: 15,
+        staff: {
+            min: 1,
+            max: 4,
+            training: {
+                Police: {
+                    bomb_disposal: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [6, 19, 26],
+        special: 'Small EOD Response Unit - Responds to smaller bomb disposal incidents',
+    },
+    111: {
+        caption: 'EOD Medium Equipment Van',
+        color: '#88ecc4',
+        credits: 40_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 3,
+            training: {
+                Police: {
+                    bomb_disposal: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [6, 19, 26],
+        special: 'Medium EOD Response Unit - Responds to Larger, Higher Risk Bomb Disposal Missions',
+    },
+    112: {
+        caption: 'EOD Heavy Equipment Vehicle',
+        color: '#88ecc4',
+        credits: 60_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Police: {
+                    bomb_disposal: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [6, 19, 26],
+        special: 'Largest Bomb Disposal unit - Attends the most serious and greatest risk bomb disposal Missions',
+    },
+    113: {
+        caption: 'Marine EOD Response Vehicle',
+        color: '#88ecc4',
+        credits: 30_000,
+        coins: 15,
+        staff: {
+            min: 1,
+            max: 4,
+            training: {
+                Police: {
+                    bomb_disposal_diver: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [6, 19, 26],
+        special: 'Small EOD response vehicle, ready to dispose of underwater-bombs',
+    },
+    114: {
+        caption: 'Marine EOD Equipment Van',
+        color: '#88ecc4',
+        credits: 40_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 3,
+            training: {
+                Police: {
+                    bomb_disposal_diver: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'car-side',
+        possibleBuildings: [6, 19, 26],
+        special: 'Larger EOD response vehicle, ready to dispose of underwater-bombs in busy areas, equipped with divers',
+    },
+    115: {
+        caption: 'Welfare Vehicle',
+        color: '#99631f',
+        credits: 15_000,
+        coins: 25,
+        staff: { min: 1, max: 2 },
+        icon: 'car-side',
+        possibleBuildings: [6, 19, 26],
+        special:
+            'Acts as a crew welfare vehicle, for the police service - simply replaces HART and fire service varaitions.',
+    },
+     116: {
+        caption: 'Cell Van',
+        color: '#99631f',
+        credits: 20_000,
+        coins: 25,
+        staff: { min: 1, max: 5 },
+        icon: 'car-side',
+        possibleBuildings: [6, 19, 26],
+        special:
+            'Acts as a standard police vehicle, with extra staff capacity and 2 slots to transport',
     },
 } satisfies Record<number, InternalVehicle>;
