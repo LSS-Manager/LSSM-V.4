@@ -115,11 +115,10 @@
             },
             {
                 "texts": [
-                    "Operational Support Van, Trailer or Personal SAR Vehicle",
+                    "Operational Support Van, Trailer or Personal SAR Vehicle"
                 ],
                 "vehicles": [86, 87, 92]
             },
-            
             { "texts": ["Control Van", "Control Vans"], "vehicles": [85] },
             {
                 "texts": [
