@@ -151,6 +151,11 @@
                 "texts": ["Policehelicopter", "Policehelicopters"],
                 "vehicles": [11]
             },
+            {
+                "equipment": ["drone"],
+                "texts": ["Police Helicopter or Drone", "Police Helicopters or Drones"],
+                "vehicles": [11]
+            },
             { "texts": ["Armed Response"], "vehicles": [13, 25, 52, 56, 82] },
             {
                 "texts": ["Dog Support Unit (DSU)", "Dog Support Units (DSUs)"],
