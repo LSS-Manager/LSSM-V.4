@@ -47,6 +47,10 @@
             "description": "Kaart centreren op posities die eerder waren gecentreerd. - Werkt momenteel alleen met het kaarttype \"OpenStreetMap\"",
             "title": "Bewaar kaart verplaatsingen"
         },
+        "noteMonospace": {
+            "description": "Toont notities in een lettertype met vaste tekenbreedte, zodat tabellen en uitgelijnde tekst gemakkelijker leesbaar zijn.",
+            "title": "Notities in monospace"
+        },
         "notePreview": {
             "description": "Links in notities worden klikbaar gemaakt door een voorvertoning van de notitie te tonen.",
             "title": "Notities"

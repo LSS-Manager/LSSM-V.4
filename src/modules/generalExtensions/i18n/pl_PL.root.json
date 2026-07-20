@@ -48,6 +48,10 @@
             "description": "Zapisuje poprzednio wybrane pozycje mapy, tak abyś mógł do nich wrócić jednym kliknięciem. - Obecnie działa tylko z mapą typu \"OpenStreetMap\"",
             "title": "Skoki mapy"
         },
+        "noteMonospace": {
+            "description": "Wyświetla notatki czcionką o stałej szerokości, aby tabele i wyrównany tekst były łatwiejsze do odczytania.",
+            "title": "Notatki czcionką monospace"
+        },
         "notePreview": {
             "description": "Linki w notatkach stają się klikalne.",
             "title": "Linki w notatkach"
