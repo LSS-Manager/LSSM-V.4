@@ -7,6 +7,11 @@
             "in": "additional",
             "text": "Average min . Fire Personnel"
         },
+        "average_min_police_personnel:": {
+            "badge": false,
+            "in": "additional",
+            "text": "Average min . Police Officers"
+        },
         "min_pump_speed": {
             "badge": true,
             "in": "requirements",
