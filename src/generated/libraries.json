@@ -299,7 +299,7 @@
     "moment-timezone": {
         "icon": "https://momentjs.com/static/img/moment-timezone-favicon.png",
         "url": "http://momentjs.com/timezone/",
-        "version": "0.6.2"
+        "version": "0.6.3"
     },
     "pinia": {
         "icon": "https://pinia.vuejs.org/logo.svg",
