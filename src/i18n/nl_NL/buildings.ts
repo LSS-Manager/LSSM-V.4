@@ -1605,4 +1605,38 @@ export default {
         school: 'Militair',
         icon: 'graduation-cap',
     },
+    27: {
+        caption: 'Standplaats Incidentenbestrijding spoor',
+        color: '#f88706',
+        coins: 50,
+        credits: 500_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(17).fill(100_000)],
+            coins: [10, 15, ...Array(17).fill(20)],
+        },
+        extensions: multiplyExtension(
+                 {
+                    caption: 'Haakarmbak parkeerplaats',
+                    credits: 25_000,
+                    coins: 15,
+                    duration: '5 Dagen',
+                    isVehicleExtension: true,
+                    givesParkingLots: 1,
+                    unlocksVehicleTypes: [149],
+                    parkingLotReservations: [[149]],
+                    cannotDisable: true,
+                },
+            5
+        ),
+        levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
+        maxBuildings: 'Geen limiet',
+        maxLevel: 19,
+        special: '',
+        startPersonnel: 2,
+        startVehicles: [],
+        schoolingTypes: ['Brandweer'],
+        schools: [4],
+        startParkingLots: 1,
+        icon: 'building_railway',
+    },
 } satisfies Record<number, InternalBuilding>;
