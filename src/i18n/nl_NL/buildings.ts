@@ -1626,7 +1626,7 @@ export default {
                     parkingLotReservations: [[149]],
                     cannotDisable: true,
                 },
-            5
+                5
         ),
         levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
         maxBuildings: 'Geen limiet',
