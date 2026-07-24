@@ -1648,6 +1648,6 @@ export default {
         schoolingTypes: ['Brandweer'],
         schools: [4],
         startParkingLots: 1,
-        icon: 'railway',
+        icon: 'train',
     },
 } satisfies Record<number, InternalBuilding>;
