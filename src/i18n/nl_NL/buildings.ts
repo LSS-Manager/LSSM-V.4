@@ -56,7 +56,18 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 4,
                 unlocksVehicleTypes: [
-                    134, 135, 136, 137, 138, 139, 140, 141, 142, 143,
+                    134, 135, 136, 137, 138, 139, 140, 141, 142, 143
+                ],
+            },
+            {
+                caption: 'Incidentbestrijding spoor',
+                credits: 250_000,
+                coins: 25,
+                duration: '5  Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 5,
+                unlocksVehicleTypes: [
+                    144, 145, 146, 147, 148, 1349, 150, 151, 152
                 ],
             },
             ...multiplyExtension(
@@ -1637,6 +1648,6 @@ export default {
         schoolingTypes: ['Brandweer'],
         schools: [4],
         startParkingLots: 1,
-        icon: 'building-railway',
+        icon: 'railway',
     },
 } satisfies Record<number, InternalBuilding>;
