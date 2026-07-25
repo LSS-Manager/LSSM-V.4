@@ -2460,7 +2460,7 @@ export default {
     147: {
         caption: 'HA-ICB',
         color: '#ff9900',
-        credits: 6_000,
+        credits: 6000,
         coins: 6,
         staff: {
             min: 1,
@@ -2479,7 +2479,7 @@ export default {
     148: {
         caption: 'GM-ICB',
         color: '#ff9900',
-        credits: 6_000,
+        credits: 6000,
         coins: 6,
         staff: {
             min: 1,
@@ -2556,7 +2556,7 @@ export default {
         },
         icon: 'truck-moving',
         possibleBuildings: [0, 17, 27],
-        waterTank: 2_000,
+        waterTank: 2000,
         foamTank: 150,
         pumpCapacity: 2000,
         pumpType: 'fire',
