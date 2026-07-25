@@ -215,7 +215,7 @@
     },
     "eslint-plugin-jsdoc": {
         "url": "https://github.com/gajus/eslint-plugin-jsdoc#readme",
-        "version": "63.0.13"
+        "version": "63.2.0"
     },
     "eslint-plugin-markdownlint": {
         "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",
@@ -269,7 +269,7 @@
         "version": "9.1.7"
     },
     "js-yaml": {
-        "version": "4.2.0"
+        "version": "4.3.0"
     },
     "leaflet.heat": {
         "url": "https://github.com/Leaflet/Leaflet.heat",
@@ -299,7 +299,7 @@
     "moment-timezone": {
         "icon": "https://momentjs.com/static/img/moment-timezone-favicon.png",
         "url": "http://momentjs.com/timezone/",
-        "version": "0.6.2"
+        "version": "0.6.3"
     },
     "pinia": {
         "icon": "https://pinia.vuejs.org/logo.svg",
@@ -309,7 +309,7 @@
     "prettier": {
         "icon": "https://prettier.io/icon.png",
         "url": "https://prettier.io",
-        "version": "3.8.4"
+        "version": "3.9.6"
     },
     "qrcode": {
         "url": "http://github.com/soldair/node-qrcode",
@@ -318,7 +318,7 @@
     "sass": {
         "icon": "https://sass-lang.com/assets/img/logos/logo.svg",
         "url": "https://github.com/sass/dart-sass",
-        "version": "1.101.0"
+        "version": "1.101.3"
     },
     "sass-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
