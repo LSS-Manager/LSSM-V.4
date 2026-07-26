@@ -1835,7 +1835,7 @@ export default {
         },
         icon: 'car-side',
         special: 'Trailer used for transporting fire equipment.',
-        possibleBuildings: [0],
+        possibleBuildings: [0,13],
     },
     117: {
         caption: 'Large Fire Equipment Trailer',
@@ -1848,7 +1848,7 @@ export default {
         },
         icon: 'car-side',
         special: 'Trailer used for transporting fire equipment.',
-        possibleBuildings: [0],
+        possibleBuildings: [0,13],
     },
     118: {
         caption: 'Semi Fire Equipment Trailer',
@@ -1861,7 +1861,7 @@ export default {
         },
         icon: 'car-side',
         special: 'Trailer used for transporting fire equipment.',
-        possibleBuildings: [0],
+        possibleBuildings: [0,13],
     },
     119: {
         caption: 'Small Police Equipment Trailier',
@@ -1874,7 +1874,7 @@ export default {
         },
         icon: 'car-side',
         special: 'Trailer used for transporting police equipment.',
-        possibleBuildings: [5],
+        possibleBuildings: [5,15],
     },
     120: {
         caption: 'Large Police Equipment Trailier',
@@ -1887,7 +1887,7 @@ export default {
         },
         icon: 'car-side',
         special: 'Trailer used for transporting police equipment.',
-        possibleBuildings: [5],
+        possibleBuildings: [5,15],
     },
     121: {
         caption: 'Snow Trailer',
