@@ -268,13 +268,13 @@ export default {
             caption: 'Mountain Dog Training',
             duration: '5 Days',
             staffList: 'Mountain Dog Training',
-            key: 'mountain_dog_training',
+            key: 'mountain_rescue_dogs',
         },
         {
             caption: 'Mountain Rescue Certificate',
             duration: '5 Days',
             staffList: 'Mountain Rescue Certificate',
-            key: 'mountain_rescue_certificate',
+            key: 'mountain_rescue',
         },
     ],
     'Water Rescue School': [
