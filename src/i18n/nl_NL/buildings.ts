@@ -67,7 +67,7 @@ export default {
                 isVehicleExtension: true,
                 givesParkingLots: 5,
                 unlocksVehicleTypes: [
-                    144, 145, 146, 147, 148, 1349, 150, 151, 152,
+                    144, 145, 146, 147, 148, 149, 150, 151, 152,
                 ],
             },
             ...multiplyExtension(
