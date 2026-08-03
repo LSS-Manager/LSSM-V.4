@@ -158,6 +158,18 @@ export default {
             staffList: 'Ontsmettings Eenheid',
             key: 'hazard_suits_response',
         },
+        {
+            caption: 'Incidentenbestrijder spoor',
+            duration: '5 Dagen',
+            staffList: 'Incidentenbestrijder spoor',
+            key: 'railway_fire',
+        },
+        {
+            caption: 'Officier van Dienst Incidentenbestrijder spoor',
+            duration: '5 Dagen',
+            staffList: 'Officier van Dienst Incidentenbestrijder spoor',
+            key: 'railway_elw',
+        },
     ],
     Politie: [
         {

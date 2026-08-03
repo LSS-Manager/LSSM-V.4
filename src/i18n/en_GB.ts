@@ -72,7 +72,7 @@ export default {
             color: '#ffa500',
         },
         'Police Stations': {
-            buildings: [6, 8, 13, 19, 26],
+            buildings: [6, 8, 13, 19, 26, 35],
             color: '#00ac00',
         },
         'Search & Rescue': {
@@ -88,7 +88,7 @@ export default {
         'Fire Fighting Vehicles': {
             vehicles: {
                 'Pumps': [0, 1, 16, 26, 17],
-                'Special Vehicles': [4, 7, 14, 18, 6, 2, 39, 84],
+                'Special Vehicles': [4, 7, 14, 18, 6, 2, 39, 84, 107],
                 'Command Vehicles': [15, 3],
                 'Pods and Prime Movers': [
                     40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
@@ -110,12 +110,14 @@ export default {
         },
         'Police Vehicles': {
             vehicles: {
-                'Police Car': [8],
+                'Police Car': [8, 116],
                 'ARV': [13, 56, 82],
                 'Police Helicopter': [11],
                 'DSU': [12],
                 'Traffic Cars': [24, 25],
                 'Public Order': [51, 52, 53, 54, 55],
+                'EOD Bomb Disposal': [109, 110, 111, 112, 113, 114],
+                'Other': [108, 115],
             },
             color: '#00ac00',
         },
@@ -124,7 +126,7 @@ export default {
                 'Coastguard': [57, 58, 59, 60, 62, 63],
                 'Flood': [61],
                 'Coastguard Helicopter': [64, 65],
-                'Lifeguard': [66, 67, 68, 69, 70, 71, 72],
+                'Lifeboats': [66, 67, 68, 69, 70, 71, 72],
                 'SAR': [85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 102, 103],
                 'Mountain Rescue': [99, 100, 101],
             },
@@ -279,17 +281,17 @@ export default {
     transfer_missions: [77, 716],
     ranks: {
         missionchief: {
-            0: 'Probie',
+            0: 'Firefighter (Development)',
             200: 'Firefighter',
-            10_000: 'Senior Firefighter',
-            100_000: 'Fire Apparatus Operator',
-            1_000_000: 'Lieutenant',
-            5_000_000: 'Captain',
-            20_000_000: 'Staff Captain',
-            50_000_000: 'Battalion Chief',
-            1_000_000_000: 'Division Chief',
-            2_000_000_000: 'Deputy Chief',
-            5_000_000_000: 'Fire Chief',
+            10_000: 'Leading Firefighter',
+            100_000: 'Sub-Officer',
+            1_000_000: 'Station Officer',
+            5_000_000: 'Station Commander',
+            20_000_000: 'Group Commander',
+            50_000_000: 'Deputy Assistant Commissioner',
+            1_000_000_000: 'Assistant Commissioner',
+            2_000_000_000: 'Deputy Commissioner',
+            5_000_000_000: 'Fire Commissioner',
         },
         policechief: {
             0: 'Police Community Support Officer',
