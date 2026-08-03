@@ -6,12 +6,7 @@ interface ComplexMessage {
     messages: object[];
 }
 type MessageParameter =
-    | ComplexMessage
-    | unknown[]
-    | boolean
-    | number
-    | object
-    | string;
+    ComplexMessage | unknown[] | boolean | number | object | string;
 
 const isComplexMessage = (
     message: MessageParameter

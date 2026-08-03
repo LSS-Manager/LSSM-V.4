@@ -9,16 +9,10 @@ import { useRootStore } from '@stores/index';
 import type { NotificationOptions } from 'vue-notification';
 
 export type NotificationPosition = `${'bottom' | 'top'} ${
-    | 'center'
-    | 'left'
-    | 'right'}`;
+    'center' | 'left' | 'right'}`;
 
 export type NotificationType =
-    | 'danger'
-    | 'info'
-    | 'success'
-    | 'unimportant'
-    | 'warning';
+    'danger' | 'info' | 'success' | 'unimportant' | 'warning';
 
 interface ClickHandlerProp<
     Data extends Record<string, unknown> = Record<string, unknown>,

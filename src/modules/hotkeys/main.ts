@@ -123,8 +123,7 @@ export const registerHotkeys = async (
             }
             walkedPath.push(scope);
             const result = base[scope as keyof typeof base] as
-                | CallbackFunction
-                | Scope;
+                CallbackFunction | Scope;
             if (typeof result === 'function') {
                 callback = result as CallbackFunction;
             } else {

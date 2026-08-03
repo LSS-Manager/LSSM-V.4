@@ -298,8 +298,7 @@ export default async (
 
         sortingType = sorter.dataset.sort as Sort;
         const sortDirection = (directionBtn?.dataset.direction ?? 'asc') as
-            | 'asc'
-            | 'desc';
+            'asc' | 'desc';
         panelBody.classList[sortDirection === 'desc' ? 'add' : 'remove'](
             reverseClass
         );

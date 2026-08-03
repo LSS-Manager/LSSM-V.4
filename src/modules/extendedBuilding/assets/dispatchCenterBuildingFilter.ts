@@ -79,22 +79,17 @@ export default (LSSM: Vue, MODULE_ID: string) => {
 
             buildings.forEach(buildingRow => {
                 let show = true;
-                if (
-                    !(
-                        buildingFilterValue === '*' ||
-                        buildingRow.buildingType.toString() ===
-                            buildingFilterValue
-                    )
-                )
+                if (!(
+                    buildingFilterValue === '*' ||
+                    buildingRow.buildingType.toString() === buildingFilterValue
+                ))
                     show = false;
-                if (
-                    !(
-                        vehicleFilterValue === '*' ||
-                        buildingRow.vehicleTypes
-                            .map(v => v.toString())
-                            .includes(vehicleFilterValue)
-                    )
-                )
+                if (!(
+                    vehicleFilterValue === '*' ||
+                    buildingRow.vehicleTypes
+                        .map(v => v.toString())
+                        .includes(vehicleFilterValue)
+                ))
                     show = false;
 
                 buildingRow.row.classList[show ? 'remove' : 'add']('hidden');
