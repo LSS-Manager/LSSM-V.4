@@ -1,4 +1,16 @@
 {
+    "@eslint/compat": {
+        "url": "https://github.com/eslint/rewrite#readme",
+        "version": "1.0.3"
+    },
+    "@eslint/eslintrc": {
+        "url": "https://github.com/eslint/eslintrc#readme",
+        "version": "3.1.0"
+    },
+    "@eslint/js": {
+        "url": "https://eslint.org",
+        "version": "9.4.0"
+    },
     "@fortawesome/fontawesome-free": {
         "icon": "https://avatars.githubusercontent.com/u/1505683",
         "url": "https://fontawesome.com",
@@ -195,7 +207,7 @@
     "eslint": {
         "icon": "https://eslint.org/icon-512.png",
         "url": "https://eslint.org",
-        "version": "8.57.0"
+        "version": "9.6.0"
     },
     "eslint-config-prettier": {
         "icon": "https://prettier.io/icon.png",
@@ -244,6 +256,9 @@
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://eslint.vuejs.org",
         "version": "9.32.0"
+    },
+    "globals": {
+        "version": "15.3.0"
     },
     "he": {
         "url": "https://mths.be/he",

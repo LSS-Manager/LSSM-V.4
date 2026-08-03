@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import type Vue from 'vue';
 
 import { defineStore } from 'pinia';

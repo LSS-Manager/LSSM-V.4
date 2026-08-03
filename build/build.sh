@@ -315,7 +315,6 @@ if [[ $_RUN_STEP_ESLINT = true ]]; then
     ./src/            \
     ./scripts/        \
     ./typings/        \
-    --ext .js,.ts,.vue,.md \
     --no-error-on-unmatched-pattern \
     --exit-on-fatal-error \
     --report-unused-disable-directives \
