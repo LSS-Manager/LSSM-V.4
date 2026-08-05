@@ -95,7 +95,7 @@
         "local-web-server": "5.4.0",
         "moment-timezone": "0.6.3",
         "prettier": "3.9.6",
-        "sass": "1.101.3",
+        "sass": "1.102.0",
         "sass-loader": "16.0.7",
         "simpleheat": "0.4.0",
         "terser": "5.48.0",
