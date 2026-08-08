@@ -3148,4 +3148,35 @@ export default {
         icon: 'taxi',
         possibleBuildings: [6, 19, 29],
     },
+    185: {
+        caption: 'GW-Tierrettung',
+        color: '#b12f26',
+        credits: 15_000,
+        coins: 25,
+        staff: {
+            min: 2,
+            max: 6,
+        },
+        icon: 'truck',
+        possibleBuildings: [0, 18],
+    },
+    186: {
+        caption: 'Anh Tierrettung',
+        color: '#d63c3c',
+        credits: 6500,
+        coins: 10,
+        staff: {
+            min: 0,
+            max: 0,
+        },
+        icon: 'trailer',
+        special:
+            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (HLF 10, RW, GW-Gefahrgut, Dekon-P, GW-L1, GW-L2, LF 10, LF 8/6, LF 10/6, LF 16-TS, SW 2000-Tr, SW-KatS, TLF 3000, TLF 16/24-Tr, TLF 16/25, MTW, TSF-W, MLF, KLF, GW-A, GW-Tierrettung)',
+        isTrailer: true,
+        foamTank: 250,
+        tractiveVehicles: [
+            90, 4, 27, 53, 104, 105, 1, 5, 6, 8, 9, 15, 16, 18, 21, 22, 36, 37, 88, 89, 185
+        ],
+        possibleBuildings: [0, 18],
+    },
 } satisfies Record<number, InternalVehicle>;
