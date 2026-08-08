@@ -187,7 +187,7 @@ export default registerEquipment({
         id: 'animal_rescue',
         caption: 'RC-Modul: Tierrettung',
         size: 10,
-        credits: 8_000,
+        credits: 8000,
         coins: 10,
         staff: { min: 0 },
     },

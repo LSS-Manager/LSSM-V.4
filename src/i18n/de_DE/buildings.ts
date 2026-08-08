@@ -273,7 +273,9 @@ export default {
                 duration: '3 Tage',
                 isVehicleExtension: true,
                 givesParkingLots: 1,
-                parkingLotReservations: [[11, 104, 105, 106, 107, 108, 185, 186]],
+                parkingLotReservations: [
+                    [11, 104, 105, 106, 107, 108, 185, 186],
+                ],
                 unlocksVehicleTypes: [185, 186],
             },
         ],
@@ -1705,7 +1707,9 @@ export default {
                 duration: '3 Tage',
                 isVehicleExtension: true,
                 givesParkingLots: 1,
-                parkingLotReservations: [[11, 104, 105, 106, 107, 108, 185, 186]],
+                parkingLotReservations: [
+                    [11, 104, 105, 106, 107, 108, 185, 186],
+                ],
                 unlocksVehicleTypes: [185, 186],
             },
         ],
