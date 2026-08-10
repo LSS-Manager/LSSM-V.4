@@ -41,7 +41,7 @@ jobs:
 
             - name: '[📥] checkout'
               id: checkout
-              uses: actions/checkout@v6.0.3
+              uses: actions/checkout@v6.1.0
               with:
                   ssh-key: ${{ secrets.SSH_DEPLOY_KEY }}
                   ref: ${{ inputs.ref }}
