@@ -138,6 +138,7 @@ export default {
         icon: 'truck',
         possibleBuildings: [0, 18],
         waterBonus: 25,
+        equipmentCapacity: 10,
         special:
             'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
     },
