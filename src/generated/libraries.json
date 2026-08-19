@@ -1,7 +1,7 @@
 {
     "@eslint/compat": {
-        "url": "https://github.com/eslint/rewrite#readme",
-        "version": "1.0.3"
+        "url": "https://github.com/eslint/rewrite/tree/main/packages/compat#readme",
+        "version": "2.1.0"
     },
     "@eslint/eslintrc": {
         "url": "https://github.com/eslint/eslintrc#readme",
