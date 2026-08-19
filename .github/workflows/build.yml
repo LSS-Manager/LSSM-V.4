@@ -240,7 +240,7 @@ jobs:
             - name: '[📤] push to git'
               id: git_push
               if: ${{ success() && github.repository_owner == 'LSS-Manager' && (inputs.ref == 'refs/heads/master' || (inputs.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
-              uses: stefanzweifel/git-auto-commit-action@v7.1.0
+              uses: stefanzweifel/git-auto-commit-action@v7.2.0
               env:
                   SSH_AUTH_SOCK: /tmp/ssh_agent.sock
               with:
