@@ -160,146 +160,27 @@ export default {
                 unlocksVehicleTypes: [107],
                 parkingLotReservations: [[107]],
             },
-            {
-                caption: 'Container Slot',
-                credits: 100_000,
-                coins: 20,
-                duration: '7 Days',
-                isVehicleExtension: true,
-                givesParkingLots: 1,
-                unlocksVehicleTypes: [
-                    126, 127, 128, 129, 130, 131, 132, 133, 134,
-                ],
-                parkingLotReservations: [
-                    [126, 127, 128, 129, 130, 131, 132, 133, 134],
-                ],
-            },
-            {
-                caption: 'Container Slot',
-                credits: 100_000,
-                coins: 20,
-                duration: '7 Days',
-                isVehicleExtension: true,
-                givesParkingLots: 1,
-                unlocksVehicleTypes: [
-                    126, 127, 128, 129, 130, 131, 132, 133, 134,
-                ],
-                parkingLotReservations: [
-                    [126, 127, 128, 129, 130, 131, 132, 133, 134],
-                ],
-            },
-            {
-                caption: 'Container Slot',
-                credits: 100_000,
-                coins: 20,
-                duration: '7 Days',
-                isVehicleExtension: true,
-                givesParkingLots: 1,
-                unlocksVehicleTypes: [
-                    126, 127, 128, 129, 130, 131, 132, 133, 134,
-                ],
-                parkingLotReservations: [
-                    [126, 127, 128, 129, 130, 131, 132, 133, 134],
-                ],
-            },
-            {
-                caption: 'Container Slot',
-                credits: 100_000,
-                coins: 20,
-                duration: '7 Days',
-                isVehicleExtension: true,
-                givesParkingLots: 1,
-                unlocksVehicleTypes: [
-                    126, 127, 128, 129, 130, 131, 132, 133, 134,
-                ],
-                parkingLotReservations: [
-                    [126, 127, 128, 129, 130, 131, 132, 133, 134],
-                ],
-            },
-            {
-                caption: 'Container Slot',
-                credits: 100_000,
-                coins: 20,
-                duration: '7 Days',
-                isVehicleExtension: true,
-                givesParkingLots: 1,
-                unlocksVehicleTypes: [
-                    126, 127, 128, 129, 130, 131, 132, 133, 134,
-                ],
-                parkingLotReservations: [
-                    [126, 127, 128, 129, 130, 131, 132, 133, 134],
-                ],
-            },
-            {
-                caption: 'Container Slot',
-                credits: 100_000,
-                coins: 20,
-                duration: '7 Days',
-                isVehicleExtension: true,
-                givesParkingLots: 1,
-                unlocksVehicleTypes: [
-                    126, 127, 128, 129, 130, 131, 132, 133, 134,
-                ],
-                parkingLotReservations: [
-                    [126, 127, 128, 129, 130, 131, 132, 133, 134],
-                ],
-            },
-            {
-                caption: 'Container Slot',
-                credits: 100_000,
-                coins: 20,
-                duration: '7 Days',
-                isVehicleExtension: true,
-                givesParkingLots: 1,
-                unlocksVehicleTypes: [
-                    126, 127, 128, 129, 130, 131, 132, 133, 134,
-                ],
-                parkingLotReservations: [
-                    [126, 127, 128, 129, 130, 131, 132, 133, 134],
-                ],
-            },
-            {
-                caption: 'Container Slot',
-                credits: 100_000,
-                coins: 20,
-                duration: '7 Days',
-                isVehicleExtension: true,
-                givesParkingLots: 1,
-                unlocksVehicleTypes: [
-                    126, 127, 128, 129, 130, 131, 132, 133, 134,
-                ],
-                parkingLotReservations: [
-                    [126, 127, 128, 129, 130, 131, 132, 133, 134],
-                ],
-            },
-            {
-                caption: 'Container Slot',
-                credits: 100_000,
-                coins: 20,
-                duration: '7 Days',
-                isVehicleExtension: true,
-                givesParkingLots: 1,
-                unlocksVehicleTypes: [
-                    126, 127, 128, 129, 130, 131, 132, 133, 134,
-                ],
-                parkingLotReservations: [
-                    [126, 127, 128, 129, 130, 131, 132, 133, 134],
-                ],
-            },
-            {
-                caption: 'Container Slot',
-                credits: 100_000,
-                coins: 20,
-                duration: '7 Days',
-                isVehicleExtension: true,
-                givesParkingLots: 1,
-                unlocksVehicleTypes: [
-                    126, 127, 128, 129, 130, 131, 132, 133, 134,
-                ],
-                parkingLotReservations: [
-                    [126, 127, 128, 129, 130, 131, 132, 133, 134],
-                ],
-            },
+            ...multiplyExtension(
+                {
+                    caption: 'Container Slot',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Days',
+                    isVehicleExtension: true,
+                    givesParkingLots: 1,
+                    unlocksVehicleTypes: [
+                        126, 127, 128, 129, 130, 131, 132, 133, 134,
+                    ],
+                    parkingLotReservations: [
+                        [
+                            126, 127, 128, 129, 130, 131, 132, 133, 134
+                        ],
+                    ],
+                    cannotDisable: true,
+                    unlockedVehiclesOnReservedLotsOnly: true,
+                },
+                9
+            ),
         ],
         storageUpgrades: {
             initial_containers: {
@@ -877,7 +758,7 @@ export default {
         icon: 'warehouse',
     },
     10: {
-        caption: 'Prison Cells',
+        caption: 'Prison (Alliance)',
         color: '#00ff00',
         coins: -1,
         credits: 100_000,
@@ -1092,34 +973,27 @@ export default {
                 unlocksVehicleTypes: [107],
                 parkingLotReservations: [[107]],
             },
-            {
-                caption: 'Container Slot',
-                credits: 100_000,
-                coins: 20,
-                duration: '7 Days',
-                isVehicleExtension: true,
-                givesParkingLots: 1,
-                unlocksVehicleTypes: [
-                    126, 127, 128, 129, 130, 131, 132, 133, 134,
-                ],
-                parkingLotReservations: [
-                    [126, 127, 128, 129, 130, 131, 132, 133, 134],
-                ],
-            },
-            {
-                caption: 'Container Slot',
-                credits: 100_000,
-                coins: 20,
-                duration: '7 Days',
-                isVehicleExtension: true,
-                givesParkingLots: 1,
-                unlocksVehicleTypes: [
-                    126, 127, 128, 129, 130, 131, 132, 133, 134,
-                ],
-                parkingLotReservations: [
-                    [126, 127, 128, 129, 130, 131, 132, 133, 134],
-                ],
-            },
+            ...multiplyExtension(
+                {
+                    caption: 'Container Slot',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Days',
+                    isVehicleExtension: true,
+                    givesParkingLots: 1,
+                    unlocksVehicleTypes: [
+                        126, 127, 128, 129, 130, 131, 132, 133, 134,
+                    ],
+                    parkingLotReservations: [
+                        [
+                            126, 127, 128, 129, 130, 131, 132, 133, 134,
+                        ],
+                    ],
+                    cannotDisable: true,
+                    unlockedVehiclesOnReservedLotsOnly: true,
+                },
+                2
+            ),
         ],
         storageUpgrades: {
             initial_containers: {
@@ -1902,7 +1776,7 @@ export default {
         icon: 'life-ring',
     },
     29: {
-        caption: 'Peronal Prison',
+        caption: 'Prison',
         color: '#11858d',
         coins: 35,
         credits: 100_000,
@@ -1910,16 +1784,51 @@ export default {
             credits: [],
             coins: [],
         },
-        extensions: [],
+        extensions: [
+            {
+                caption: 'Prison cell',
+                credits: 25_000,
+                coins: 5,
+                duration: '7 Days',
+                newCells: 1,
+                cannotDisable: true,
+            },
+            ...multiplyExtension(
+                {
+                    caption: 'Additional cell',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Days',
+                    newCells: 1,
+                    cannotDisable: true,
+                },
+                19
+            ),
+            {
+                caption: 'Large Prison',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 Days',
+                maxExtensionsFunction: buildingsByType =>
+                    Math.floor(
+                        (Object.keys(buildingsByType[10] ?? {}).length ?? 0) /
+                            10
+                    ),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
+                newCells: 10,
+                cannotDisable: true,
+            },
+        ],
         levelcost: [],
-        maxBuildings: '',
+        maxBuildings: 'No limit',
         maxLevel: 0,
         special: '',
         startPersonnel: 0,
         startVehicles: [],
-        schoolingTypes: [],
-        schools: [],
+        schoolingTypes: [Police],
+        schools: [7],
         startParkingLots: 1,
-        icon: 'life-ring',
+        icon: 'border-all',
     },
 } satisfies Record<number, InternalBuilding>;
