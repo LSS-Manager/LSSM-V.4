@@ -1,7 +1,7 @@
 {
     "@eslint/compat": {
-        "url": "https://github.com/eslint/rewrite#readme",
-        "version": "1.0.3"
+        "url": "https://github.com/eslint/rewrite/tree/main/packages/compat#readme",
+        "version": "2.1.0"
     },
     "@eslint/eslintrc": {
         "url": "https://github.com/eslint/eslintrc#readme",
@@ -202,7 +202,7 @@
     "emoji-toolkit": {
         "icon": "https://avatars.githubusercontent.com/u/6843823",
         "url": "https://www.joypixels.com",
-        "version": "10.0.0"
+        "version": "11.0.0"
     },
     "eslint": {
         "icon": "https://eslint.org/icon-512.png",
@@ -227,7 +227,7 @@
     },
     "eslint-plugin-jsdoc": {
         "url": "https://github.com/gajus/eslint-plugin-jsdoc#readme",
-        "version": "63.3.3"
+        "version": "64.2.1"
     },
     "eslint-plugin-markdownlint": {
         "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",
@@ -333,7 +333,7 @@
     "sass": {
         "icon": "https://sass-lang.com/assets/img/logos/logo.svg",
         "url": "https://github.com/sass/dart-sass",
-        "version": "1.102.0"
+        "version": "1.103.1"
     },
     "sass-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
