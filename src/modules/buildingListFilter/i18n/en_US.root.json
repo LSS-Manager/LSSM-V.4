@@ -8,7 +8,9 @@
         { "ids": [18], "name": "FBI" },
         { "ids": [23, 25, 26], "name": "Water Rescue" },
         { "ids": [27], "name": "Tow Trucks" },
-        { "ids": [20, 21], "name": "Complex" }
+        { "ids": [20, 21], "name": "Complex" },
+        { "ids": [28], "name": "Mountain Rescue" },
+        { "ids": [29], "name": "Personal Prison" }
     ],
     "description": "Customize filters of the buildinglist!",
     "lssmComplex": "LSSM building complex",

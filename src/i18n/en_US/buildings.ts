@@ -1826,7 +1826,7 @@ export default {
         special: '',
         startPersonnel: 0,
         startVehicles: [],
-        schoolingTypes: [Police],
+        schoolingTypes: ['Police'],
         schools: [7],
         startParkingLots: 1,
         icon: 'border-all',
