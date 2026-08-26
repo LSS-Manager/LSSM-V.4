@@ -1,3 +1,5 @@
+export {};
+
 document
     .querySelectorAll<HTMLAnchorElement>(
         'footer a[href^="/"]:not(.lightbox-open)'

@@ -123,11 +123,13 @@
     },
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "7.3.1"
+        "url": "https://typescript-eslint.io/packages/eslint-plugin",
+        "version": "8.68.0"
     },
     "@typescript-eslint/parser": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
-        "version": "7.3.1"
+        "url": "https://typescript-eslint.io/packages/parser",
+        "version": "8.68.0"
     },
     "@vuepress/bundler-vite": {
         "url": "https://github.com/vuepress",
@@ -207,7 +209,7 @@
     "eslint": {
         "icon": "https://eslint.org/icon-512.png",
         "url": "https://eslint.org",
-        "version": "9.6.0"
+        "version": "10.9.1"
     },
     "eslint-config-prettier": {
         "icon": "https://prettier.io/icon.png",
@@ -231,7 +233,7 @@
     },
     "eslint-plugin-markdownlint": {
         "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",
-        "version": "0.9.0"
+        "version": "0.10.1"
     },
     "eslint-plugin-prettier": {
         "icon": "https://prettier.io/icon.png",
@@ -240,7 +242,7 @@
     },
     "eslint-plugin-regexp": {
         "url": "https://github.com/ota-meshi/eslint-plugin-regexp#readme",
-        "version": "2.10.0"
+        "version": "3.2.0"
     },
     "eslint-plugin-tsdoc": {
         "icon": "https://tsdoc.org/images/site/favicon.ico",
@@ -250,12 +252,12 @@
     "eslint-plugin-unicorn": {
         "icon": "https://cloud.githubusercontent.com/assets/170270/18659176/1cc373d0-7f33-11e6-890f-0ba35362ee7e.jpg",
         "url": "https://github.com/sindresorhus/eslint-plugin-unicorn",
-        "version": "56.0.1"
+        "version": "73.0.0"
     },
     "eslint-plugin-vue": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://eslint.vuejs.org",
-        "version": "9.32.0"
+        "version": "10.10.0"
     },
     "globals": {
         "version": "17.11.0"
@@ -393,6 +395,10 @@
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/vue#readme",
         "version": "2.7.16"
+    },
+    "vue-eslint-parser": {
+        "url": "https://github.com/vuejs/vue-eslint-parser#readme",
+        "version": "10.3.0"
     },
     "vue-i18n": {
         "icon": "https://vue-i18n.intlify.dev/vue-i18n-logo.svg",

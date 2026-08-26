@@ -25,8 +25,8 @@ const props = withDefaults(
     }>(),
     {
         height: '500px',
-        startLat: 48.783_200_898_738_78,
-        startLong: 9.180_364_608_764_65,
+        startLat: 48.78320089873878,
+        startLong: 9.18036460876465,
         startZoom: 15,
         layers: () => [],
         centerGroup: undefined,

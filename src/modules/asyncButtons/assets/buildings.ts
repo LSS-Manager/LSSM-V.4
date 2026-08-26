@@ -101,16 +101,12 @@ export default (
                             label.textContent = newState(btn as HTMLElement)
                                 ? ($m('buildings.active') as string)
                                 : ($m('buildings.nonactive') as string);
-                            // eslint-disable-next-line no-unused-expressions
-                            label.classList.contains('label-danger')
-                                ? label.classList.replace(
-                                      'label-danger',
-                                      'label-success'
-                                  )
-                                : label.classList.replace(
-                                      'label-success',
-                                      'label-danger'
-                                  );
+                            const isDanger =
+                                label.classList.contains('label-danger');
+                            label.classList.replace(
+                                isDanger ? 'label-danger' : 'label-success',
+                                isDanger ? 'label-success' : 'label-danger',
+                            );
                         }
                     });
             });

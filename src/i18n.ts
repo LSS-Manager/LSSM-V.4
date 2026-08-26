@@ -17,7 +17,7 @@ export default async (Vue: VueConstructor): Promise<VueI18n> => {
                 `./i18n/${locale}/highcharts.json`
             )
         ).default;
-    } catch (e) {
+    } catch {
         // do nothing. Appears when highcharts-translations do not exist
     }
 
@@ -38,7 +38,7 @@ export default async (Vue: VueConstructor): Promise<VueI18n> => {
                     `./i18n/${locale}/${extraFile}.ts`
                 )
             ).default;
-        } catch (e) {
+        } catch {
             // do nothing. Appears when extra file does not exist
         }
     }
