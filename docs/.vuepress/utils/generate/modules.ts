@@ -40,6 +40,45 @@ const [, , file, MODULES_FOLDER, DOCS_FOLDER, langs, modules] = process.argv;
 const LANGS: Locale[] = JSON.parse(langs);
 const MODULES: string[] = JSON.parse(modules);
 
+const resolveAssetSourcePath = (sourcePath: string): string => {
+    const stats = fs.lstatSync(sourcePath);
+    if (!stats.isFile()) return sourcePath;
+
+    const referencedPath = fs.readFileSync(sourcePath).toString().trim();
+    if (!referencedPath) return sourcePath;
+
+    const resolvedPath = path.resolve(path.dirname(sourcePath), referencedPath);
+    return fs.existsSync(resolvedPath) ? resolvedPath : sourcePath;
+};
+
+const copyAssetEntry = (sourcePath: string, targetPath: string): void => {
+    const resolvedSourcePath = resolveAssetSourcePath(sourcePath);
+    const stats = fs.lstatSync(resolvedSourcePath);
+
+    if (stats.isDirectory()) {
+        fs.mkdirSync(targetPath, { recursive: true });
+        fs.readdirSync(resolvedSourcePath).forEach(file =>
+            copyAssetEntry(
+                path.join(resolvedSourcePath, file),
+                path.join(targetPath, file),
+            ),
+        );
+        return;
+    }
+
+    if (process.platform === 'win32') {
+        fs.copyFileSync(resolvedSourcePath, targetPath);
+        return;
+    }
+
+    try {
+        fs.symlinkSync(resolvedSourcePath, targetPath);
+    } catch (error) {
+        if ((error as NodeJS.ErrnoException).code !== 'EPERM') throw error;
+        fs.copyFileSync(resolvedSourcePath, targetPath);
+    }
+};
+
 const loadJsonOrTSFile = <T>(file: string): Promise<T> => {
     const jsonPath = `${file}.json`;
     if (fs.existsSync(jsonPath)) {
@@ -186,12 +225,16 @@ ${Object.entries(vars)
                                 DOCS_MODULE_FOLDER,
                                 file
                             );
-                            if (!fs.existsSync(symlinkPath)) {
-                                fs.symlinkSync(
-                                    path.join(assetDir, file),
-                                    symlinkPath
-                                );
+                            const sourcePath = resolveAssetSourcePath(
+                                path.join(assetDir, file),
+                            );
+                            if (fs.existsSync(symlinkPath)) {
+                                fs.rmSync(symlinkPath, {
+                                    force: true,
+                                    recursive: true,
+                                });
                             }
+                            copyAssetEntry(sourcePath, symlinkPath);
                         });
                     }
                 }

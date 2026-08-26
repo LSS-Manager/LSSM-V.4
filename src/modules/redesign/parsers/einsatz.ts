@@ -1,5 +1,5 @@
 import type { RedesignParser } from 'typings/modules/Redesign';
 
-export interface EinsatzWindow {}
+export type EinsatzWindow = Record<string, never>;
 
 export default <RedesignParser<EinsatzWindow>>(() => ({}));

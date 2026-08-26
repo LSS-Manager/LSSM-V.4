@@ -64,6 +64,7 @@ entry.plugins?.unshift(
             Object.fromEntries(
                 modules.map(module => [
                     module,
+                    // eslint-disable-next-line @typescript-eslint/no-require-imports
                     require(`../src/modules/${module}/register`),
                 ])
             )

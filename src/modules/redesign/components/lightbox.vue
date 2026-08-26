@@ -442,7 +442,7 @@ export default Vue.extend<
                             try {
                                 const typePath = types.slice(0, i).join('/');
                                 await addLocas(typePath);
-                            } catch (e) {
+                            } catch {
                                 // Do nothing
                             }
                         }

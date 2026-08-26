@@ -18,7 +18,8 @@ const addDependencies = (dependencies: string[], node_modules: string) =>
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         if (!libraries.hasOwnProperty(module)) libraries[module] = {};
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
+
+        // eslint-disable-next-line @typescript-eslint/no-require-imports
         const mod = require(`${node_modules}/${module}/package.json`);
         if (module === 'vue' && mod.version.startsWith('3.')) {
             moduleId = 'vue3';
