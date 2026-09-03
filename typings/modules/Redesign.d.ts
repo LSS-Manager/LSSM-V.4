@@ -191,8 +191,7 @@ export interface RedesignLightbox<
                 RedesignVueInstance<Component>,
         >(
             scope:
-                | `${RootScopeWithoutAll}.${string}`
-                | `${RootScopeWithoutAll}`,
+                `${RootScopeWithoutAll}.${string}` | `${RootScopeWithoutAll}`,
             extras: {
                 component: VueInstance;
                 data: Partial<VueInstance['Data']>;

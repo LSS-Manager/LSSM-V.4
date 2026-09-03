@@ -178,5 +178,4 @@ type BuildingTypes =
     | StagingAreaBuilding;
 
 export type InternalBuilding =
-    | BuildingTypes
-    | CanHaveVehiclesBuilding<BaseBuilding | BuildingTypes>;
+    BuildingTypes | CanHaveVehiclesBuilding<BaseBuilding | BuildingTypes>;

@@ -57,4 +57,28 @@ export default registerEquipment({
         coins: 25,
         staff: { min: 0 },
     },
+    hazard_response_suits_equipment: {
+        id: 'hazard_response_suits_equipment',
+        caption: 'RC-Gaspakken',
+        size: 10,
+        credits: 15_000,
+        coins: 10,
+        staff: { min: 0 },
+    },
+    hazard_response_material_equipment: {
+        id: 'hazard_response_material_equipment',
+        caption: 'RC-Gevaarljke Stoffen',
+        size: 10,
+        credits: 15_000,
+        coins: 10,
+        staff: { min: 0 },
+    },
+    railway_electric_equipment: {
+        id: 'railway_electric_equipment',
+        caption: 'BU-VTHS',
+        size: 10,
+        credits: 15_000,
+        coins: 10,
+        staff: { min: 0 },
+    },
 });

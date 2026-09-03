@@ -33,12 +33,7 @@ export type SettingsGetType<SettingType, Unit extends string> = Promise<
     Unit extends ''
         ? SettingType
         : `${SettingType extends
-              | bigint
-              | boolean
-              | number
-              | string
-              | null
-              | undefined
+              bigint | boolean | number | string | null | undefined
               ? SettingType
               : string}${Unit}`
 >;

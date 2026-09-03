@@ -122,10 +122,7 @@ const parse_filter = (
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 newObject = (newObject as Record<string, unknown>)[attr] as
-                    | never[]
-                    | Record<string, unknown>
-                    | number
-                    | string;
+                    never[] | Record<string, unknown> | number | string;
             }
         });
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment

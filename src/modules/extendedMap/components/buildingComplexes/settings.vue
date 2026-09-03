@@ -366,6 +366,7 @@ export default Vue.extend<
                             'hazard_response_ems',
                             'helipad',
                             'helipad_polizei',
+                            'highway_police',
                             'home_response_location',
                             'hospital',
                             'leitstelle',
@@ -420,6 +421,7 @@ export default Vue.extend<
                             'spec_water_rescue_water_damage_and_flood',
                             'spec_fire_station_rural',
                             'spec_fire_station_urban',
+                            'spec_police_station_highway_police',
                         ]
                             .sort()
                             .map(icon => `/images/${icon}.png`)

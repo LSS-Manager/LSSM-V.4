@@ -7,16 +7,7 @@ import type { Translation } from '../utils/i18n';
 import type v3Comparison from '../utils/v3Comparison.json';
 
 type MomentShort =
-    | 'L'
-    | 'l'
-    | 'LL'
-    | 'll'
-    | 'LLL'
-    | 'lll'
-    | 'LLLL'
-    | 'llll'
-    | 'LT'
-    | 'LTS';
+    'L' | 'l' | 'LL' | 'll' | 'LLL' | 'lll' | 'LLLL' | 'llll' | 'LT' | 'LTS';
 
 type MomentVariableCategories =
     | 'ampm'

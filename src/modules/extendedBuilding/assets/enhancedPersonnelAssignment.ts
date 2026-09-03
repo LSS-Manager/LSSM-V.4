@@ -204,8 +204,8 @@ export default async (
     const getSchoolingSelector = (schoolingIDs: Set<string>) =>
         Array.from(schoolingIDs)
             .flatMap(id => [
-                `[data-filterable-by*=${JSON.stringify(id)}]`,
-                `:has([data-education-key=${JSON.stringify(id)}])`,
+                `[data-filterable-by*="${CSS.escape(JSON.stringify(id))}"]`,
+                `:has([data-education-key="${CSS.escape(id)}"])`,
             ])
             .join(',');
 

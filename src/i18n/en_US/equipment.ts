@@ -153,4 +153,20 @@ export default registerEquipment({
         coins: 15,
         staff: { min: 2 },
     },
+    sked: {
+        id: 'sked',
+        caption: 'Sked',
+        size: 10,
+        credits: 20_000,
+        coins: 15,
+        staff: { min: 0 },
+    },
+    litter: {
+        id: 'litter',
+        caption: 'Litter',
+        size: 20,
+        credits: 25_000,
+        coins: 20,
+        staff: { min: 0 },
+    },
 });

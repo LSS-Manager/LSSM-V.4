@@ -22,7 +22,7 @@ jobs:
         name: '[🧪] Test Build on ${{ matrix.os }}'
         steps:
             - name: '[📥] checkout'
-              uses: actions/checkout@v6
+              uses: actions/checkout@v6.1.0
               with:
                   fetch-depth: 0
 

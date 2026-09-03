@@ -2,7 +2,7 @@
     "default": [
         { "ids": [0, 18], "name": "Feuerwehr" },
         { "ids": [2, 20], "name": "Rettung" },
-        { "ids": [6, 19], "name": "Polizei" },
+        { "ids": [6, 19, 29], "name": "Polizei" },
         { "ids": [9], "name": "THW" },
         { "ids": [15], "name": "Wasserrettung" },
         { "ids": [1, 3, 8, 10, 27], "name": "Schulen" },

@@ -72,7 +72,7 @@ export default {
             color: '#ffa500',
         },
         Polizei: {
-            buildings: [6, 8, 11, 13, 17, 19, 24],
+            buildings: [6, 8, 11, 13, 17, 19, 24, 29],
             color: '#00ac00',
         },
         THW: {
@@ -98,13 +98,13 @@ export default {
                 Schlauchwagen: [11, 13, 14, 15, 16],
                 Sonderfahrzeuge: [
                     2, 3, 4, 5, 10, 12, 27, 33, 34, 36, 53, 57, 114, 118, 120,
-                    126, 128, 129, 166, 167,
+                    126, 128, 129, 166, 167, 185,
                 ],
                 ['WLF & Abrollbehälter']: [
                     46, 47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119, 142,
-                    169, 170, 178, 179,
+                    169, 170, 178, 179, 180,
                 ],
-                Anhänger: [115, 143, 168],
+                Anhänger: [115, 143, 168, 186],
                 Flughafenfeuerwehr: [75, 76],
                 Werkfeuerwehr: [83, 84, 85, 86],
                 Logistikfahrzeuge: [104, 105, 106, 107],
@@ -132,7 +132,7 @@ export default {
         },
         Polizei: {
             vehicles: {
-                'Funkstreifenwagen': [32, 95, 98, 103],
+                'Funkstreifenwagen': [32, 95, 98, 103, 184],
                 'Bereitschaftspolizei-Fahrzeuge': [35, 50, 51, 52, 72, 165],
                 'Polizeihubschrauber': [61, 96, 156],
                 'SEK': [79, 80],
@@ -156,6 +156,7 @@ export default {
                 'Tr UL': [125],
                 'Fachzug Führung und Kommunikation': [144, 145, 146, 147, 148],
                 'Logistik-Verpflegung': [176, 177, 178],
+                'Fachgruppe Brückenbau': [181, 182, 183],
             },
             color: '#0000ff',
         },
@@ -286,6 +287,7 @@ export default {
         'JVA',
         'Solarpark',
         'Raffinerie',
+        'Schiffswerft',
     ],
     only_alliance_missions: [41, 43, 59, 75, 99, 207, 221, 222, 256, 350],
     transfer_missions: [147, 613],

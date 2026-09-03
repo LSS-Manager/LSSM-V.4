@@ -44,7 +44,7 @@ export default {
                     parkingLotReservations: [
                         [
                             47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
-                            142, 164, 168, 169, 179,
+                            142, 164, 168, 169, 179, 180,
                         ],
                     ],
                     cannotDisable: true,
@@ -74,7 +74,7 @@ export default {
                 parkingLotReservations: [
                     [
                         47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119, 142,
-                        164, 168, 169, 179,
+                        164, 168, 169, 179, 180,
                     ],
                 ],
                 cannotDisable: true,
@@ -132,7 +132,7 @@ export default {
                     parkingLotReservations: [
                         [
                             47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
-                            142, 164, 168, 169, 179,
+                            142, 164, 168, 169, 179, 180,
                         ],
                     ],
                     cannotDisable: true,
@@ -191,7 +191,7 @@ export default {
                 parkingLotReservations: [
                     [
                         47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119, 142,
-                        164, 168, 169, 179,
+                        164, 168, 169, 179, 180,
                     ],
                 ],
                 cannotDisable: true,
@@ -259,13 +259,25 @@ export default {
                     parkingLotReservations: [
                         [
                             47, 48, 49, 54, 62, 71, 77, 78, 108, 116, 117, 119,
-                            142, 164, 168, 169, 179,
+                            142, 164, 168, 169, 179, 180,
                         ],
                     ],
                     cannotDisable: true,
                 },
                 3
             ),
+            {
+                caption: 'Tierrettung',
+                credits: 100_000,
+                coins: 20,
+                duration: '3 Tage',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                parkingLotReservations: [
+                    [11, 104, 105, 106, 107, 108, 185, 186],
+                ],
+                unlocksVehicleTypes: [185, 186],
+            },
         ],
         storageUpgrades: {
             initial_containers: {
@@ -330,6 +342,14 @@ export default {
                 coins: 15,
                 duration: '3 Tage',
                 requiredStorageUpgrades: ['additional_containers_6'],
+            },
+            additional_containers_8: {
+                caption: 'Zusätzlicher Lagerraum',
+                additionalStorage: 30,
+                credits: 100_000,
+                coins: 15,
+                duration: '3 Tage',
+                requiredStorageUpgrades: ['additional_containers_7'],
             },
         },
         levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
@@ -712,6 +732,16 @@ export default {
                 parkingLotReservations: [[52]],
                 unlockedVehiclesOnReservedLotsOnly: true,
             },
+            {
+                caption: 'Autobahnpolizei',
+                credits: 75_000,
+                coins: 15,
+                duration: '2 Tage',
+                isVehicleExtension: true,
+                givesParkingLots: 2,
+                unlocksVehicleTypes: [184],
+                parkingLotReservations: [[184], [184]],
+            },
         ],
         levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
         maxBuildings: 'Keine Grenze',
@@ -875,10 +905,10 @@ export default {
                 coins: 25,
                 duration: '7 Tage',
                 isVehicleExtension: true,
-                givesParkingLots: 2,
+                givesParkingLots: 4,
                 unlocksVehicleTypes: [92, 93],
-                parkingLotReservations: [[92], [93]],
-                giftsVehicles: [92, 93],
+                parkingLotReservations: [[92], [92], [93], [93]],
+                giftsVehicles: [],
                 requiredExtensions: [0, 1],
                 unlockedVehiclesOnReservedLotsOnly: true,
             },
@@ -962,6 +992,17 @@ export default {
                 givesParkingLots: 3,
                 unlocksVehicleTypes: [176, 177, 178],
                 parkingLotReservations: [[176], [177], [178]],
+                unlockedVehiclesOnReservedLotsOnly: true,
+            },
+            {
+                caption: 'Fachgruppe Brückenbau',
+                credits: 50_000,
+                coins: 15,
+                duration: '7 Tage',
+                isVehicleExtension: true,
+                givesParkingLots: 3,
+                unlocksVehicleTypes: [181, 182, 183],
+                parkingLotReservations: [[181], [182], [183]],
                 unlockedVehiclesOnReservedLotsOnly: true,
             },
         ],
@@ -1259,8 +1300,9 @@ export default {
                 coins: 25,
                 duration: '5 Tage',
                 isVehicleExtension: true,
-                givesParkingLots: 5,
+                givesParkingLots: 6,
                 parkingLotReservations: [
+                    [171, 172, 173, 174, 175],
                     [171, 172, 173, 174, 175],
                     [171, 172, 173, 174, 175],
                     [171, 172, 173, 174, 175],
@@ -1658,6 +1700,18 @@ export default {
                 parkingLotReservations: [[162, 163]],
                 unlocksVehicleTypes: [162, 163, 164],
             },
+            {
+                caption: 'Tierrettung',
+                credits: 100_000,
+                coins: 20,
+                duration: '3 Tage',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                parkingLotReservations: [
+                    [11, 104, 105, 106, 107, 108, 185, 186],
+                ],
+                unlocksVehicleTypes: [185, 186],
+            },
         ],
         storageUpgrades: {
             initial_containers: {
@@ -1779,6 +1833,16 @@ export default {
                 givesParkingLots: 2,
                 unlocksVehicleTypes: [95],
                 parkingLotReservations: [[95], [95]],
+            },
+            {
+                caption: 'Autobahnpolizei',
+                credits: 75_000,
+                coins: 15,
+                duration: '2 Tage',
+                isVehicleExtension: true,
+                givesParkingLots: 2,
+                unlocksVehicleTypes: [184],
+                parkingLotReservations: [[184], [184]],
             },
         ],
         levelcost: [
@@ -2071,5 +2135,48 @@ export default {
         //                ? 4
         //                : Math.floor(buildingsAmountTotal / 25),
         icon: 'helicopter',
+    },
+    29: {
+        caption: 'Autobahnpolizei',
+        color: '#12a312',
+        coins: 40,
+        credits: 400_000,
+        levelPrices: {
+            credits: [10_000, 50_000, ...Array(7).fill(100_000)],
+            coins: [10, 15, ...Array(7).fill(20)],
+        },
+        extensions: [
+            {
+                caption: 'Zelle',
+                credits: 25_000,
+                coins: 5,
+                duration: '7 Tage',
+                newCells: 1,
+                cannotDisable: true,
+            },
+            ...multiplyExtension(
+                {
+                    caption: 'Zelle',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Tage',
+                    newCells: 1,
+                    requiredExtensions: [0],
+                    cannotDisable: true,
+                },
+                9
+            ),
+        ],
+        levelcost: ['1. 10.000', '2. 50.000', '3.-9. 100.000'],
+        maxBuildings: 'Keine Grenze',
+        maxLevel: 9,
+        special: '',
+        startPersonnel: 2,
+        startParkingLots: 1,
+        startCells: 0,
+        startVehicles: ['FuStW (AP)'],
+        schoolingTypes: ['Polizei'],
+        schools: [8],
+        icon: 'building-shield',
     },
 } satisfies Record<number, InternalBuilding>;

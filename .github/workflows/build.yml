@@ -41,7 +41,7 @@ jobs:
 
             - name: '[📥] checkout'
               id: checkout
-              uses: actions/checkout@v6
+              uses: actions/checkout@v6.1.0
               with:
                   ssh-key: ${{ secrets.SSH_DEPLOY_KEY }}
                   ref: ${{ inputs.ref }}
@@ -56,7 +56,7 @@ jobs:
 
             - name: '[⬆] setup Node.js'
               id: node
-              uses: actions/setup-node@v6
+              uses: actions/setup-node@v6.5.0
               with:
                   node-version: ${{ env.NODE_VERSION }}
 
@@ -82,7 +82,7 @@ jobs:
 
             - name: '[💽] restore cache'
               if: github.ref != 'refs/heads/master'
-              uses: actions/cache@v5
+              uses: actions/cache@v5.1.0
               id: yarn_cache
               with:
                   path: |
@@ -146,7 +146,6 @@ jobs:
                   ./src/            \
                   ./scripts/        \
                   ./typings/        \
-                  --ext .js,.ts,.vue,.md \
                   --no-error-on-unmatched-pattern \
                   --exit-on-fatal-error \
                   --report-unused-disable-directives \
@@ -208,7 +207,7 @@ jobs:
             - name: '[☁️] upload artifact'
               id: artifact
               if: ${{ success() || failure() }}
-              uses: actions/upload-artifact@v6
+              uses: actions/upload-artifact@v7.0.1
               with:
                   name: LSSM_V4-${{ github.sha }}
                   path: dist.zip
@@ -231,7 +230,7 @@ jobs:
             - name: Import GPG key
               id: import_gpg
               if: ${{ success() && github.repository_owner == 'LSS-Manager' && (inputs.ref == 'refs/heads/master' || (inputs.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
-              uses: crazy-max/ghaction-import-gpg@v6
+              uses: crazy-max/ghaction-import-gpg@v7.0.0
               with:
                   gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
                   passphrase: ${{ secrets.GPG_PASSPHRASE }}
@@ -241,7 +240,7 @@ jobs:
             - name: '[📤] push to git'
               id: git_push
               if: ${{ success() && github.repository_owner == 'LSS-Manager' && (inputs.ref == 'refs/heads/master' || (inputs.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
-              uses: stefanzweifel/git-auto-commit-action@v7
+              uses: stefanzweifel/git-auto-commit-action@v7.2.0
               env:
                   SSH_AUTH_SOCK: /tmp/ssh_agent.sock
               with:

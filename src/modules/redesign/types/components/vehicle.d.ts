@@ -47,12 +47,7 @@ interface Types {
             department: boolean[];
         };
         sort:
-            | 'caption'
-            | 'department'
-            | 'distance'
-            | 'freeBeds'
-            | 'list'
-            | 'tax';
+            'caption' | 'department' | 'distance' | 'freeBeds' | 'list' | 'tax';
         additional: {
             disableReleaseConfirmation: boolean;
             showEach: number;
