@@ -4398,11 +4398,11 @@ __metadata:
   linkType: hard
 
 "baseline-browser-mapping@npm:^2.11.12":
-  version: 2.11.17
-  resolution: "baseline-browser-mapping@npm:2.11.17"
+  version: 2.11.19
+  resolution: "baseline-browser-mapping@npm:2.11.19"
   bin:
     baseline-browser-mapping: dist/cli.cjs
-  checksum: 10c0/5f3e498a9a4ef506cde2140b1e08db80718dca2fc2c6d02cf2fb47ed06095f67d7e27260bb1353b68390062ebbe4435bb71e6d35b2e9eea5dc8dd4399e4c51f3
+  checksum: 10c0/827e60717e1652d80471cc69e61c85966b7934cde4aab94f9eb21b9b8f864f094a810717c569fdec5b372fc4c9b7bbf99c27c5ceddb3a57313238fc6be355d93
   languageName: node
   linkType: hard
 
@@ -4636,9 +4636,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001806, caniuse-lite@npm:^1.0.30001809":
-  version: 1.0.30001809
-  resolution: "caniuse-lite@npm:1.0.30001809"
-  checksum: 10c0/cac2ed4e66cc6c4cbf126b94d2c02012566eb92f93c89949290f99edcd2bdc4ed1290b5c537ccb9b42c773936a479ed468e5d4e9b8938b126a0947090e42e008
+  version: 1.0.30001810
+  resolution: "caniuse-lite@npm:1.0.30001810"
+  checksum: 10c0/d29bc73f33c888025d54c7ff2984372d3b350b15a6a9e174884fb40976175e9177f202e2a72c2d428dddfc032784bc8ba635a31d168fcab9fac65756d7b3d6b4
   languageName: node
   linkType: hard
 
@@ -6771,10 +6771,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:15.3.0":
-  version: 15.3.0
-  resolution: "globals@npm:15.3.0"
-  checksum: 10c0/edbef1c528185d02636ed6d72a1688168b922d6176031904386214f8b59d893f1d0a28da519b95665f557d366b17ea1affb9f433ea451e7372e2808fb31079d7
+"globals@npm:17.11.0":
+  version: 17.11.0
+  resolution: "globals@npm:17.11.0"
+  checksum: 10c0/5e1be3d816e04d4d0d01b1cdd40e46b5fb6b5e9f15aece9a5919b060e0fb1b3f1b9e7327dce97ef19e05513a6d65872e0834999ddea251557556dddd0f5fde30
   languageName: node
   linkType: hard
 
@@ -8398,7 +8398,7 @@ __metadata:
     eslint-plugin-tsdoc: "npm:0.5.2"
     eslint-plugin-unicorn: "npm:56.0.1"
     eslint-plugin-vue: "npm:9.32.0"
-    globals: "npm:15.3.0"
+    globals: "npm:17.11.0"
     he: "npm:1.2.0"
     highcharts: "npm:11.4.8"
     highcharts-vue: "npm:1.4.3"

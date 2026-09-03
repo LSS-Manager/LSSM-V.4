@@ -1,6 +1,6 @@
 {
     "name": "lss-manager-v4",
-    "version": "4.7.12+20260821.0642",
+    "version": "4.7.12+20260826.0756",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "quickbuild": "./build/build.sh --quick",
@@ -88,7 +88,7 @@
         "eslint-plugin-tsdoc": "0.5.2",
         "eslint-plugin-unicorn": "56.0.1",
         "eslint-plugin-vue": "9.32.0",
-        "globals": "15.3.0",
+        "globals": "17.11.0",
         "html-loader": "5.1.0",
         "husky": "9.1.7",
         "js-yaml": "4.3.1",
