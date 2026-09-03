@@ -179,7 +179,7 @@ export default {
                     cannotDisable: true,
                     unlockedVehiclesOnReservedLotsOnly: true,
                 },
-                9
+                10
             ),
         ],
         storageUpgrades: {
