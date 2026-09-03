@@ -7,6 +7,6 @@ export default async (LSSM: Vue, MODULE_ID: string): Promise<void> => {
         buildingId,
         `${MODULE_ID}-autoBuyLevels`
     );
-    // eslint-disable-next-line no-console
+
     console.log(building);
 };

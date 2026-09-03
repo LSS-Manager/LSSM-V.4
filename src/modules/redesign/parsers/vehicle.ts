@@ -162,9 +162,7 @@ export type EmptyVehicleWindow = BaseVehicleWindow & {
 };
 
 export type VehicleWindow =
-    | EmptyVehicleWindow
-    | MissionsWindow
-    | TransportRequestWindow;
+    EmptyVehicleWindow | MissionsWindow | TransportRequestWindow;
 
 export default <RedesignParser<VehicleWindow>>(({
     doc,
@@ -359,8 +357,7 @@ export default <RedesignParser<VehicleWindow>>(({
                         },
                         status:
                             (row.getAttribute('data-mission-status') as
-                                | Mission['status']
-                                | null) ?? 'red',
+                                Mission['status'] | null) ?? 'red',
                     };
                 })
                 .filter(removeUndefined);

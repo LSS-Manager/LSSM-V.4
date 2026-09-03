@@ -113,8 +113,7 @@ interface GenericMissionMarkerAdd extends MissionMarkerAddBase {
 }
 
 export type MissionMarkerAdd =
-    | GenericMissionMarkerAdd
-    | RegularMissionMarkerAdd;
+    GenericMissionMarkerAdd | RegularMissionMarkerAdd;
 
 export type MissionTimer = MissionMarkerAdd & {
     date_end_calc: number;

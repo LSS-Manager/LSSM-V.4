@@ -106,15 +106,13 @@ export default <ModuleMainFunction>(async ({
             );
             LSSM.$stores.api.vehiclesArray.forEach(
                 ({ building_id, vehicle_type, vehicle_type_caption = '' }) => {
-                    if (
-                        !(
-                            vehicleTypes.includes(vehicle_type.toString()) ||
-                            (vehicle_type_caption &&
-                                vehicleTypes.includes(
-                                    `[${vehicle_type}] ${vehicle_type_caption}`
-                                ))
-                        )
-                    )
+                    if (!(
+                        vehicleTypes.includes(vehicle_type.toString()) ||
+                        (vehicle_type_caption &&
+                            vehicleTypes.includes(
+                                `[${vehicle_type}] ${vehicle_type_caption}`
+                            ))
+                    ))
                         return;
                     const { latitude, longitude } = buildingsById[building_id];
                     const point = points.find(

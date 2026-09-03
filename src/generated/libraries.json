@@ -1,23 +1,35 @@
 {
+    "@eslint/compat": {
+        "url": "https://github.com/eslint/rewrite/tree/main/packages/compat#readme",
+        "version": "2.1.0"
+    },
+    "@eslint/eslintrc": {
+        "url": "https://github.com/eslint/eslintrc#readme",
+        "version": "3.3.6"
+    },
+    "@eslint/js": {
+        "url": "https://eslint.org",
+        "version": "9.4.0"
+    },
     "@fortawesome/fontawesome-free": {
         "icon": "https://avatars.githubusercontent.com/u/1505683",
         "url": "https://fontawesome.com",
-        "version": "7.2.0"
+        "version": "7.3.1"
     },
     "@fortawesome/fontawesome-svg-core": {
         "icon": "https://avatars.githubusercontent.com/u/1505683",
         "url": "https://fontawesome.com",
-        "version": "7.2.0"
+        "version": "7.3.1"
     },
     "@fortawesome/free-regular-svg-icons": {
         "icon": "https://avatars.githubusercontent.com/u/1505683",
         "url": "https://fontawesome.com",
-        "version": "7.2.0"
+        "version": "7.3.1"
     },
     "@fortawesome/free-solid-svg-icons": {
         "icon": "https://avatars.githubusercontent.com/u/1505683",
         "url": "https://fontawesome.com",
-        "version": "7.2.0"
+        "version": "7.3.1"
     },
     "@fortawesome/vue-fontawesome": {
         "icon": "https://avatars.githubusercontent.com/u/1505683",
@@ -27,7 +39,7 @@
     "@primer/octicons": {
         "icon": "https://avatars.githubusercontent.com/u/7143434",
         "url": "https://primer.style/octicons",
-        "version": "19.28.1"
+        "version": "19.33.0"
     },
     "@types/he": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -153,7 +165,7 @@
     "acorn": {
         "icon": "https://avatars.githubusercontent.com/u/34631683",
         "url": "https://github.com/acornjs/acorn",
-        "version": "8.17.0"
+        "version": "8.18.0"
     },
     "acorn-walk": {
         "icon": "https://avatars.githubusercontent.com/u/34631683",
@@ -190,12 +202,12 @@
     "emoji-toolkit": {
         "icon": "https://avatars.githubusercontent.com/u/6843823",
         "url": "https://www.joypixels.com",
-        "version": "10.0.0"
+        "version": "11.0.0"
     },
     "eslint": {
         "icon": "https://eslint.org/icon-512.png",
         "url": "https://eslint.org",
-        "version": "8.57.0"
+        "version": "9.6.0"
     },
     "eslint-config-prettier": {
         "icon": "https://prettier.io/icon.png",
@@ -207,7 +219,7 @@
     },
     "eslint-plugin-compat": {
         "url": "https://github.com/amilajack/eslint-plugin-compat#readme",
-        "version": "6.2.0"
+        "version": "7.0.2"
     },
     "eslint-plugin-import": {
         "url": "https://github.com/import-js/eslint-plugin-import",
@@ -215,7 +227,7 @@
     },
     "eslint-plugin-jsdoc": {
         "url": "https://github.com/gajus/eslint-plugin-jsdoc#readme",
-        "version": "63.0.10"
+        "version": "64.2.1"
     },
     "eslint-plugin-markdownlint": {
         "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",
@@ -245,6 +257,9 @@
         "url": "https://eslint.vuejs.org",
         "version": "9.32.0"
     },
+    "globals": {
+        "version": "17.11.0"
+    },
     "he": {
         "url": "https://mths.be/he",
         "version": "1.2.0"
@@ -269,7 +284,7 @@
         "version": "9.1.7"
     },
     "js-yaml": {
-        "version": "4.2.0"
+        "version": "4.3.1"
     },
     "leaflet.heat": {
         "url": "https://github.com/Leaflet/Leaflet.heat",
@@ -299,7 +314,7 @@
     "moment-timezone": {
         "icon": "https://momentjs.com/static/img/moment-timezone-favicon.png",
         "url": "http://momentjs.com/timezone/",
-        "version": "0.6.2"
+        "version": "0.6.3"
     },
     "pinia": {
         "icon": "https://pinia.vuejs.org/logo.svg",
@@ -309,7 +324,7 @@
     "prettier": {
         "icon": "https://prettier.io/icon.png",
         "url": "https://prettier.io",
-        "version": "3.8.4"
+        "version": "3.9.6"
     },
     "qrcode": {
         "url": "http://github.com/soldair/node-qrcode",
@@ -318,7 +333,7 @@
     "sass": {
         "icon": "https://sass-lang.com/assets/img/logos/logo.svg",
         "url": "https://github.com/sass/dart-sass",
-        "version": "1.101.0"
+        "version": "1.103.1"
     },
     "sass-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -343,12 +358,12 @@
     "terser": {
         "icon": "https://terser.org/img/terser-square-logo.png",
         "url": "https://terser.org",
-        "version": "5.48.0"
+        "version": "5.50.0"
     },
     "ts-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/TypeStrong/ts-loader",
-        "version": "9.6.1"
+        "version": "9.6.2"
     },
     "ts-node": {
         "icon": "https://typestrong.org/ts-node/img/logo-icon.svg",
@@ -425,7 +440,7 @@
     "vue3": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://vuejs.org/",
-        "version": "3.5.39"
+        "version": "3.5.41"
     },
     "vuepress": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",

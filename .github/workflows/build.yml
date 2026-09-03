@@ -41,7 +41,7 @@ jobs:
 
             - name: '[📥] checkout'
               id: checkout
-              uses: actions/checkout@v6.0.3
+              uses: actions/checkout@v6.1.0
               with:
                   ssh-key: ${{ secrets.SSH_DEPLOY_KEY }}
                   ref: ${{ inputs.ref }}
@@ -56,7 +56,7 @@ jobs:
 
             - name: '[⬆] setup Node.js'
               id: node
-              uses: actions/setup-node@v6.4.0
+              uses: actions/setup-node@v6.5.0
               with:
                   node-version: ${{ env.NODE_VERSION }}
 
@@ -82,7 +82,7 @@ jobs:
 
             - name: '[💽] restore cache'
               if: github.ref != 'refs/heads/master'
-              uses: actions/cache@v5.0.5
+              uses: actions/cache@v5.1.0
               id: yarn_cache
               with:
                   path: |
@@ -146,7 +146,6 @@ jobs:
                   ./src/            \
                   ./scripts/        \
                   ./typings/        \
-                  --ext .js,.ts,.vue,.md \
                   --no-error-on-unmatched-pattern \
                   --exit-on-fatal-error \
                   --report-unused-disable-directives \
@@ -241,7 +240,7 @@ jobs:
             - name: '[📤] push to git'
               id: git_push
               if: ${{ success() && github.repository_owner == 'LSS-Manager' && (inputs.ref == 'refs/heads/master' || (inputs.ref == 'refs/heads/dev' && env.CHANGED_FILES > 1)) }}
-              uses: stefanzweifel/git-auto-commit-action@v7.1.0
+              uses: stefanzweifel/git-auto-commit-action@v7.2.0
               env:
                   SSH_AUTH_SOCK: /tmp/ssh_agent.sock
               with:

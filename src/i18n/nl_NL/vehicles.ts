@@ -157,6 +157,7 @@ export default {
         icon: 'shuttle-van',
         possibleBuildings: [0, 17],
         special: 'Benodigd vanaf 10 brandweerposten.',
+        equipmentCapacity: 10,
     },
     12: {
         caption: 'TST-NB 8/9',
@@ -2398,5 +2399,166 @@ export default {
         },
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
+    },
+    144: {
+        caption: 'DB-ICB',
+        color: '#ff9900',
+        credits: 12_000,
+        coins: 12,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Brandweer: {
+                    railway_fire: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17, 27],
+    },
+    145: {
+        caption: 'OvD-ICB',
+        color: '#ff9900',
+        credits: 25_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 1,
+            training: {
+                Brandweer: {
+                    railway_elw: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17, 27],
+    },
+    146: {
+        caption: 'VW-VZ-ICB',
+        color: '#ff9900',
+        credits: 15_000,
+        coins: 15,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Brandweer: {
+                    wechsellader: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17, 27],
+    },
+    147: {
+        caption: 'HA-ICB',
+        color: '#ff9900',
+        credits: 6000,
+        coins: 6,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Brandweer: {
+                    wechsellader: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17, 27],
+    },
+    148: {
+        caption: 'GM-ICB',
+        color: '#ff9900',
+        credits: 6000,
+        coins: 6,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Brandweer: {
+                    wechsellader: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17, 27],
+    },
+    149: {
+        caption: 'HSH-ICB',
+        color: '#ff9900',
+        credits: 10_000,
+        coins: 10,
+        staff: {
+            min: 1,
+            max: 2,
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17, 27],
+    },
+    150: {
+        caption: 'VW-HS',
+        color: '#ff9900',
+        credits: 15_000,
+        coins: 15,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Brandweer: {
+                    railway_fire: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17, 27],
+    },
+    151: {
+        caption: 'BM-VTHS',
+        color: '#ff9900',
+        credits: 40_000,
+        coins: 35,
+        staff: {
+            min: 2,
+            max: 8,
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+    },
+    152: {
+        caption: 'TS-Spoor',
+        color: '#ff9900',
+        credits: 25_000,
+        coins: 25,
+        staff: {
+            min: 1,
+            max: 2,
+            training: {
+                Brandweer: {
+                    railway_fire: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17, 27],
+        waterTank: 2000,
+        foamTank: 150,
+        pumpCapacity: 2000,
+        pumpType: 'fire',
     },
 } satisfies Record<number, InternalVehicle>;

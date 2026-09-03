@@ -143,13 +143,10 @@ export default async (LSSM: Vue): Promise<void> => {
     });
     document.addEventListener('keyup', e => {
         if (!e.target || !(e.target as HTMLElement)?.matches?.('input')) return;
-        if (
-            !(
-                popupMap[(e.target as HTMLInputElement).name]?.style.display ===
-                    'block' &&
-                ['ArrowRight', 'ArrowLeft', 'Enter'].includes(e.key)
-            )
-        )
+        if (!(
+            popupMap[(e.target as HTMLInputElement).name]?.style.display ===
+                'block' && ['ArrowRight', 'ArrowLeft', 'Enter'].includes(e.key)
+        ))
             return;
         if (!currentFocus) return;
         switch (e.key) {

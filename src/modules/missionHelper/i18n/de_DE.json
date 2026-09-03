@@ -7,6 +7,7 @@
         "airport": "Flughafenfeuerwehr-Einsätze",
         "airport_specialization": "Flughafenfeuerwehr-Einsätze (Spezialisierung)",
         "ambulance": "Rettungseinsätze",
+        "animal_rescue": "Tierrettungs-Einsätze",
         "coastal": "Seenotrettungseinsätze",
         "criminal_investigation": "Kriminalpolizei-Einsätze",
         "energy_supply": "NEA50-Einsätze",
@@ -42,6 +43,7 @@
     },
     "prerequisites": {
         "airport_count": "Voraussetzung an Flughafen-Erweiterung | Voraussetzung an Flughafen-Erweiterungen",
+        "animal_rescue": "Tierrettung-Erweiterung | Tierrettungs-Erweiterungen",
         "bereitschaftspolizei": "Bereitschaftspolizei-Standort | Bereitschaftspolizei-Standorte",
         "care_service": "Betreuungs- und Verpflegungsdienst-Erweiterung | Betreuungs- und Verpflegungsdienst-Erweiterungen",
         "coastal_rescue_count": "Seenotrettungswache | Seenotrettungswachen",
@@ -108,6 +110,7 @@
     "vehicles": {
         "captions": {
             "ambulances": "RTW",
+            "animal_rescue": "GW-Tierrettung",
             "arff": "FLF",
             "battalion_chief_vehicles": "ELW 1",
             "boats": "Boot | Boote",

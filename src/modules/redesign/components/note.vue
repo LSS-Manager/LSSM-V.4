@@ -19,8 +19,7 @@
             v-show="!noteEdit"
             class="input-group form-control"
             :id="previewId"
-            >{{ noteText }}</pre
-        >
+            >{{ noteText }}</pre>
     </div>
 </template>
 
