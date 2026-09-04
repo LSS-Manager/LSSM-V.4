@@ -678,16 +678,16 @@ export default {
     52: {
         caption: 'Haveribil',
         color: '#4282f0',
-        credits: 45000,
+        credits: 45_000,
         coins: 25,
         staff: { min: 2, max: 4 },
         icon: 'car-side',
-        possibleBuildings: [0,18],
+        possibleBuildings: [0, 18],
     },
     53: {
         caption: 'Första Insats Bil - flygplats',
         color: '#4282f0',
-        credits: 35000,
+        credits: 35_000,
         coins: 25,
         staff: { min: 3, max: 5 },
         icon: 'car-side',
@@ -696,7 +696,7 @@ export default {
     54: {
         caption: 'Vattenskärare',
         color: '#4282f0',
-        credits: 60000,
+        credits: 60_000,
         coins: 30,
         staff: { min: 0, max: 0 },
         icon: 'car-side',
@@ -705,7 +705,7 @@ export default {
     55: {
         caption: 'Släpvagn för översvämningsutrustning',
         color: '#4282f0',
-        credits: 20000,
+        credits: 20_000,
         coins: 20,
         staff: { min: 0, max: 0 },
         icon: 'car-side',
@@ -714,11 +714,11 @@ export default {
     56: {
         caption: 'Ambulans Kritisk Transport',
         color: '#4282f0',
-        credits: 10000,
+        credits: 10_000,
         coins: 30,
         staff: { min: 2, max: 2 },
         icon: 'car-side',
-        possibleBuildings: [0,2,18,20],
+        possibleBuildings: [0, 2, 18, 20],
     },
     57: {
         caption: 'Bärgningsbil',
@@ -750,7 +750,7 @@ export default {
     60: {
         caption: 'Brandkårens bärgningsbil',
         color: '#4282f0',
-        credits: 15000,
+        credits: 15_000,
         coins: 15,
         staff: { min: 0, max: 2 },
         icon: 'car-side',
