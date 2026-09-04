@@ -2568,12 +2568,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
-  version: 26.2.0
-  resolution: "@types/node@npm:26.2.0"
+"@types/node@npm:*, @types/node@npm:^26.4.0":
+  version: 26.4.1
+  resolution: "@types/node@npm:26.4.1"
   dependencies:
     undici-types: "npm:~8.3.0"
-  checksum: 10c0/f8566d88162241eb55a46f7e4ea097188eab0aaafefea7a58e63adab8c4144eb98c08b7911452c846104c339a0f82282f5e1ed4b26b578d60709614fe2843f4d
+  checksum: 10c0/29568336db8bc67740744782492af0e81ab1f88d86eaa07e38cf0a4c8bae7250a7b4b85c80ac1014fc98b2bc6d4bcac872b2c494ee0671b3880eada7c1fdbc94
   languageName: node
   linkType: hard
 
@@ -6021,20 +6021,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-regexp@npm:2.10.0":
-  version: 2.10.0
-  resolution: "eslint-plugin-regexp@npm:2.10.0"
+"eslint-plugin-regexp@npm:3.3.0":
+  version: 3.3.0
+  resolution: "eslint-plugin-regexp@npm:3.3.0"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.2.0"
     "@eslint-community/regexpp": "npm:^4.11.0"
     comment-parser: "npm:^1.4.0"
-    jsdoc-type-pratt-parser: "npm:^4.0.0"
+    jsdoc-type-pratt-parser: "npm:^9.0.0"
     refa: "npm:^0.12.1"
     regexp-ast-analysis: "npm:^0.7.1"
     scslre: "npm:^0.3.0"
   peerDependencies:
-    eslint: ">=8.44.0"
-  checksum: 10c0/61283bf1a8e1fd5e4b867de52db5c4b53fbba509c336bb1017c5e116978e85d9c836aa01f4f03620eeaa89f0ace7961cfd71dc34dc0e5d8ddee6351e35f702fe
+    eslint: ">=9.38.0"
+  checksum: 10c0/492874cd0f7bdb4835d8dbfb3eca2003b5e9c93b77c60acc67f04d23380c77c2442d72adf291bc8d986749c376a770d18e39e5d4a6a268aa9a0d65402d06874b
   languageName: node
   linkType: hard
 
@@ -7766,10 +7766,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsdoc-type-pratt-parser@npm:^4.0.0":
-  version: 4.8.0
-  resolution: "jsdoc-type-pratt-parser@npm:4.8.0"
-  checksum: 10c0/c2b77751d35e3931db9da96720b544b215830722b748b58ee8ce51ec72092006a4a03c5a59c86a4552d0094975c8d3bcc21a7241a0e47860e127d3fba5b55f33
+"jsdoc-type-pratt-parser@npm:^9.0.0":
+  version: 9.2.1
+  resolution: "jsdoc-type-pratt-parser@npm:9.2.1"
+  dependencies:
+    "@types/estree": "npm:^1.0.9"
+    "@types/node": "npm:^26.4.0"
+  checksum: 10c0/0324581fae46d6e31237ab39b74e6228e02a60400b84054ed348dafce62622ebf57feaa9cff8d2dc7113d163976898ea4175c49d1ca69d7686be64628ba4d580
   languageName: node
   linkType: hard
 
@@ -8394,7 +8397,7 @@ __metadata:
     eslint-plugin-jsdoc: "npm:64.2.1"
     eslint-plugin-markdownlint: "npm:0.9.0"
     eslint-plugin-prettier: "npm:5.5.6"
-    eslint-plugin-regexp: "npm:2.10.0"
+    eslint-plugin-regexp: "npm:3.3.0"
     eslint-plugin-tsdoc: "npm:0.5.2"
     eslint-plugin-unicorn: "npm:56.0.1"
     eslint-plugin-vue: "npm:9.32.0"
