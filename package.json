@@ -53,7 +53,7 @@
     "devDependencies": {
         "@eslint/compat": "2.1.0",
         "@eslint/eslintrc": "3.3.6",
-        "@eslint/js": "9.4.0",
+        "@eslint/js": "10.0.1",
         "@types/he": "1.2.3",
         "@types/i18n-js": "3.8.9",
         "@types/jquery": "3.5.32",
