@@ -1,0 +1,136 @@
+{
+    "buildingComplexes": {
+        "buildingList": { "details": "Detaljer" },
+        "new": "Nytt LSSM-byggnadskomplex",
+        "openInLightbox": "Öppna byggnad i Lightbox",
+        "overview": {
+            "buildings": {
+                "hiring": {
+                    "automatic": "automatiskt",
+                    "no": "Ingen",
+                    "phase": "1 dag | {n} dagar"
+                },
+                "inConstruction": "varav {n} under uppbyggnad",
+                "share": {
+                    "beds": {
+                        "share": "Dela sängar med alliansen",
+                        "unShare": "Dela inte sängar med alliansen"
+                    },
+                    "cells": {
+                        "share": "Dela fängelseceller med alliansen",
+                        "unShare": "Dela inte fängelseceller med alliansen"
+                    }
+                },
+                "table": {
+                    "alliance": "Alliansen",
+                    "head": {
+                        "beds": "Sängar",
+                        "cells": "Celler",
+                        "classrooms": "Klassrum",
+                        "hiring": "Anställningsfas",
+                        "level": "Nivå",
+                        "name": "Namn",
+                        "staff": "Personal (personalmål)",
+                        "vehicles": "Fordon"
+                    }
+                },
+                "title": "anslutna byggnader"
+            },
+            "classrooms": {
+                "startTraining": "Starta en ny utbildning",
+                "subtitle": "{total} totalt, varav {unavailable} under uppbyggnad och {free} lediga",
+                "table": {
+                    "countdown": "återstående tid",
+                    "free": "Lediga platser",
+                    "freeClassrooms": "1 ledigt klassrum|{n} lediga klassrum",
+                    "running": {
+                        "false": "Nej",
+                        "title": "pågår?",
+                        "true": "Ja"
+                    },
+                    "start": "starta ny utbildningskurs",
+                    "unavailable": "1 klassrum under uppbyggnad|{n} klassrum under uppbyggnad"
+                },
+                "title": "Klassrum"
+            },
+            "extensions": {
+                "abort": "Avbryt",
+                "allianceFunds": "betalat med allianspengar",
+                "disable": "inaktivera",
+                "disabled": "Klar & inaktiverad",
+                "enable": "aktivera",
+                "enabled": "Klar & aktiverad",
+                "filter": {
+                    "all": "Alla",
+                    "buildings": "Byggnader",
+                    "canBuy": "kan köpas",
+                    "cannotBuy": "kan inte köpas",
+                    "cannotToggle": "kan inte aktiveras/inaktiveras",
+                    "canToggle": "kan aktiveras/inaktiveras",
+                    "disabled": "klar & inaktiverad",
+                    "enabled": "klar & aktiverad",
+                    "extensions": "Utbyggnader",
+                    "states": "Status",
+                    "underConstruction": "under uppbyggnad"
+                },
+                "limit": "Du kan för närvarande inte köpa fler än {n} av denna utbyggnad!",
+                "missingRequirements": "Följande krav är inte uppfyllda:",
+                "summary": {
+                    "available": "{n} redo att byggas",
+                    "built": "{n} byggda",
+                    "inConstruction": "{n} under uppbyggnad",
+                    "total": "{n} möjliga totalt"
+                },
+                "table": { "head": { "building": "Byggnad", "name": "Namn" } },
+                "title": "Utbyggnader",
+                "underConstruction": "under uppbyggnad"
+            },
+            "protocol": {
+                "subtitle": "inga relevanta poster | 1 relevant post | {n} relevanta poster",
+                "table": {
+                    "head": {
+                        "building": "Byggnad",
+                        "label": "Kategori",
+                        "name": "Namn",
+                        "staff": "Personal",
+                        "time": "Tidsstämpel"
+                    }
+                },
+                "title": "Protokoll",
+                "updating": "Uppdaterar..."
+            },
+            "title": "Översikt",
+            "vehicles": {
+                "imageInfo": "Obs: För närvarande kan endast standardikoner för fordon eller de från det valda grafikpaketet visas. Ikoner som ställts in individuellt för ett fordon eller en station kan tyvärr inte kännas igen ännu.",
+                "table": {
+                    "head": {
+                        "building": "Byggnad",
+                        "fms": "Status",
+                        "name": "Namn",
+                        "staff": "Personal (tilldelad / max)"
+                    }
+                },
+                "title": "Fordon"
+            }
+        },
+        "settings": {
+            "abort": "Avbryt",
+            "allianceBuildings": "anslutna alliansbyggnader",
+            "buildings": "anslutna byggnader",
+            "buildingsInList": "Visa anslutna byggnader i byggnadslistan?",
+            "buildingTabs": "Visa flikar för anslutna byggnader?",
+            "dissolve": {
+                "buttons": { "abort": "Avbryt", "continue": "Upplös" },
+                "text": "Vill du upplösa detta byggnadskomplex? Alla anslutna byggnader kommer att visas på kartan igen som tidigare.",
+                "title": "Upplös komplex"
+            },
+            "icon": "Ikon",
+            "iconHelp": "Välj mellan standardikoner och ikoner för anslutna byggnader",
+            "location": "Plats",
+            "name": "Namn",
+            "save": "Spara",
+            "showMarkers": "Visa anslutna byggnader på kartan?",
+            "title": "Redigera komplex"
+        }
+    }
+}
