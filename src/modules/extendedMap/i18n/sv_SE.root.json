@@ -1,0 +1,65 @@
+{
+    "description": "Förbättra kartan med några smarta funktioner.",
+    "mapCSSFilter": {
+        "brightness": "Ljusstyrka",
+        "contrast": "Kontrast",
+        "grayscale": "Gråfilter",
+        "hueRotate": "Nyansrotation",
+        "invert": "Invertera färger",
+        "presets": {
+            "dark1": "Mörk 1",
+            "dark2": "Mörk 2",
+            "dark3": "Mörk 3",
+            "gray": "Grå"
+        },
+        "saturate": "Mättnad",
+        "sepia": "Sepia"
+    },
+    "name": "Förbättrad karta",
+    "positions": {
+        "bottomleft": "Nedre vänster 🡧",
+        "bottomright": "Nedre höger 🡦",
+        "topleft": "Övre vänster 🡤",
+        "topright": "Övre höger 🡥"
+    },
+    "settings": {
+        "buildingComplexes": {
+            "buildings": "Anslutna byggnader",
+            "description": "En designuppdatering som gör det möjligt att slå ihop flera byggnader till en på kartan. Fler inställningar finns i respektive komplex.",
+            "name": "Namn",
+            "position": "Plats",
+            "title": "Byggnadskomplex"
+        },
+        "centerMap": {
+            "description": "Centrera kartan dynamiskt eller till en statisk vy när spelet öppnas",
+            "title": "Centrera karta"
+        },
+        "centerMapStaticLocation": {
+            "title": "Centrera karta statiskt: Position"
+        },
+        "centerMapType": {
+            "description": "Välj om du vill ha statisk eller dynamisk centrering [dynamisk är inte tillgänglig ännu]",
+            "dynamic": "dynamisk",
+            "static": "statisk",
+            "title": "Centrera karta: Läge"
+        },
+        "mapCSSFilter": {
+            "description": "Anpassa kartan med olika CSS-filter för bildredigering. Experimentera gärna och prova dig fram!",
+            "filterFunction": "CSS-filter",
+            "filterValue": "värde",
+            "title": "Kartdesign (CSS-filter)"
+        },
+        "mapScale": {
+            "description": "Visar en kartskala och aktuell zoomnivå",
+            "title": "Skala"
+        },
+        "mapScalePosition": {
+            "description": "Välj i vilket hörn av kartan kartskalan ska visas",
+            "title": "Position för kartskala"
+        },
+        "markerNewWindow": {
+            "description": "Gör det möjligt att öppna uppdrag och byggnader i en ny flik genom Ctrl+klick eller klick med mittenmusknappen.",
+            "title": "Öppna markörer i ny flik"
+        }
+    }
+}
