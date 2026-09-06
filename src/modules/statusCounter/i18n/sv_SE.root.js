@@ -3,9 +3,13 @@ module.exports = {
     description: 'Visa en sammanställning över vilken status dina fordon har.',
     settings: {
         percentRounding: {
-            title: 'Avrunda precenttal',
+            title: 'Avrunda procenttal',
             description:
-                'Avrunda percenttal - om visas - visa alla decimaler som behövs.',
+                'Avrunda procenttal - om det visas - till så många decimaler som behövs.',
+        },
+        percentageInBrackets: {
+            title: 'Procent inom parentes',
+            description: 'Visar procentandelen inom parentes, t.ex. (10%)',
         },
         ...Object.fromEntries(
             new Array(10).fill([]).flatMap((_, status) => [
@@ -26,7 +30,7 @@ module.exports = {
                 [
                     `percent_${status}`,
                     {
-                        title: `Percent för status ${status}`,
+                        title: `Procent för status ${status}`,
                         description: `Visa vilken procent av fordon som är i status ${status}.`,
                     },
                 ],
