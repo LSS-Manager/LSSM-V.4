@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-throws-type */
 /**
  * Checks if the RequestInit has the LSSM-Header set and throws an error if not.
  * @param init - The RequestInit to check against.
