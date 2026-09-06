@@ -1,7 +1,7 @@
 export default (LSSM: Vue): void =>
-    LSSM.$stores.root.hook({
-        event: 'patientTimer',
-        callback() {
+    (() => {
+        let updatePatientTimerRaf = 0;
+        const updatePatientTimers = () => {
             window.patient_timers.forEach(patient => {
                 const bar = document.getElementById(
                     `patient_bar_${patient.patient_id}`
@@ -26,5 +26,22 @@ export default (LSSM: Vue): void =>
                     false
                 );
             });
-        },
-    });
+        };
+
+        const queueUpdatePatientTimers = () => {
+            if (updatePatientTimerRaf) return;
+            updatePatientTimerRaf = window.requestAnimationFrame(() => {
+                updatePatientTimerRaf = 0;
+                updatePatientTimers();
+            });
+        };
+
+        queueUpdatePatientTimers();
+
+        LSSM.$stores.root.hook({
+            event: 'patientTimer',
+            callback() {
+                queueUpdatePatientTimers();
+            },
+        });
+    })();

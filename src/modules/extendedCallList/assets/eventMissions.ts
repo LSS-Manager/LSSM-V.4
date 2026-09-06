@@ -15,6 +15,14 @@ export default (
     const wrapperClass = LSSM.$stores.root.nodeAttribute(
         'ecl-eventmission-wrapper'
     );
+    let searchMissionTimeout = 0;
+    const queueSearchMission = () => {
+        if (searchMissionTimeout) return;
+        searchMissionTimeout = window.setTimeout(() => {
+            searchMissionTimeout = 0;
+            window.searchMission();
+        }, 0);
+    };
 
     const checkEvent = (panel: HTMLDivElement): void => {
         let mission = panel.getAttribute('mission_type_id') ?? '-1';
@@ -44,7 +52,7 @@ export default (
         const searchAttr = panel.getAttribute('search_attribute') ?? '';
         if (!searchAttr.includes(prefix)) {
             panel.setAttribute('search_attribute', `${searchAttr} ${prefix}`);
-            window.searchMission();
+            queueSearchMission();
         }
     };
 

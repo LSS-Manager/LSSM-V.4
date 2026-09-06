@@ -17,8 +17,6 @@ export default (
     getSetting: Parameters<ModuleMainFunction>[0]['getSetting'],
     setSetting: Parameters<ModuleMainFunction>[0]['setSetting']
 ): AddStarrableButton => {
-    const buttons: StarrableButton[] = [];
-
     const move = (btn: HTMLButtonElement, id: string) => {
         const missionElement = document.querySelector<HTMLDivElement>(
             `#mission_${id}`
@@ -52,11 +50,7 @@ export default (
             const id = btn?.dataset.mission;
             if (!btn || !id) return;
 
-            const button = buttons.find(
-                ({ dataset: { mission } }) => mission === id
-            );
-            if (!button) return;
-            await button.switch?.();
+            await (btn as StarrableButton).switch?.();
 
             move(btn, id);
         });
@@ -65,8 +59,8 @@ export default (
         name: 'ecl_starrable-missions_toggle',
         listener(e: CustomEvent) {
             const missionId = e.detail.missionId.toString();
-            const btn = buttons.find(
-                ({ dataset: { mission } }) => mission === missionId
+            const btn = document.querySelector<HTMLButtonElement>(
+                `button.${starredMissionBtnClass}[data-mission="${missionId}"]`
             );
             if (btn) move(btn, missionId);
         },
@@ -84,7 +78,6 @@ export default (
             setSetting
         );
         mission.btnGroup.append(btn);
-        buttons.push(btn);
         if (starred) move(btn, mission.id.toString());
     };
 };

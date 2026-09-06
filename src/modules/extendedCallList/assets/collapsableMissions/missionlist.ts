@@ -21,8 +21,6 @@ export default (
     setSetting: Parameters<ModuleMainFunction>[0]['setSetting'],
     $m: $m
 ): AddCollapsableButton => {
-    const buttons: CollapsableButton[] = [];
-
     const collapsedClass = LSSM.$stores.root
         .nodeAttribute(`${MODULE_ID}_collapsable-missions_collapsed`)
         .toString();
@@ -126,17 +124,13 @@ export default (
             ).closest(`.${collapsableMissionBtnClass}`);
             const id = btn?.dataset.mission;
             if (!btn || !id) return;
-
-            const button = buttons.find(
-                ({ dataset: { mission } }) => mission === id
-            );
-            const btnGroup = button?.closest<HTMLSpanElement>(
+            const btnGroup = btn.closest<HTMLSpanElement>(
                 `.${LSSM.$stores.root.nodeAttribute(
                     `${MODULE_ID}_btn-group_pre-alarm`
                 )}`
             );
-            if (!button || !btnGroup) return;
-            await button.switch?.();
+            if (!btnGroup) return;
+            await (btn as CollapsableButton).switch?.();
 
             toggle(btnGroup, btn, id, collapsedClass, collapsedBarContentClass);
         });
@@ -191,7 +185,6 @@ export default (
             $m
         );
         mission.btnGroup.append(btn);
-        buttons.push(btn);
         if (collapsed) {
             toggle(
                 mission.btnGroup,
