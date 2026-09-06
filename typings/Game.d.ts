@@ -8,6 +8,7 @@ export interface Game {
     name: string;
     shortURL: string;
     police?: string;
+    noWWW?: boolean;
 }
 
 export type Games = Record<string, Game>;
