@@ -172,9 +172,7 @@ export default {
                         126, 127, 128, 129, 130, 131, 132, 133, 134,
                     ],
                     parkingLotReservations: [
-                        [
-                            126, 127, 128, 129, 130, 131, 132, 133, 134
-                        ],
+                        [126, 127, 128, 129, 130, 131, 132, 133, 134],
                     ],
                     cannotDisable: true,
                     unlockedVehiclesOnReservedLotsOnly: true,
@@ -985,9 +983,7 @@ export default {
                         126, 127, 128, 129, 130, 131, 132, 133, 134,
                     ],
                     parkingLotReservations: [
-                        [
-                            126, 127, 128, 129, 130, 131, 132, 133, 134,
-                        ],
+                        [126, 127, 128, 129, 130, 131, 132, 133, 134],
                     ],
                     cannotDisable: true,
                     unlockedVehiclesOnReservedLotsOnly: true,
