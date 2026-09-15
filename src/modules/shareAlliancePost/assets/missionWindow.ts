@@ -248,9 +248,9 @@ export default async ({
                     .map(({ requirement, missing, driving, selected }) => ({
                         requirement,
                         remaining:
-                            (typeof selected === 'number'
+                            typeof selected === 'number'
                                 ? missing - driving - selected
-                                : missing - driving - selected.max) ?? 0,
+                                : missing - driving - selected.max,
                     }))
                     .filter(({ remaining }) => remaining > 0)
                     .map(

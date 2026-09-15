@@ -30,6 +30,7 @@ dist.zip
 webpack.config.js*
 build/**/*.js*
 typings/**/*.js*
+typings/dist
 prebuild/**/*.js
 prebuild/**/*.js.map
 src/config.js*
