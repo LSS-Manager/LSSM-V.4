@@ -39,10 +39,18 @@ const getTSFile = async (
 export default async (): Promise<void> => {
     if (!fs.existsSync(apiPath)) fs.mkdirSync(apiPath);
     copyDir.sync(path.join(__dirname, 'api'), apiPath);
-    fs.symlinkSync(
-        path.join(apiPath, 'index.html'),
-        path.join(apiPath, '404.html')
-    );
+    try {
+        fs.symlinkSync(
+            path.join(apiPath, 'index.html'),
+            path.join(apiPath, '404.html'),
+        );
+    } catch (error) {
+        if ((error as NodeJS.ErrnoException).code !== 'EPERM') throw error;
+        fs.copyFileSync(
+            path.join(apiPath, 'index.html'),
+            path.join(apiPath, '404.html'),
+        );
+    }
 
     const types = [
         'schoolings',

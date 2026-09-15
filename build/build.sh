@@ -38,12 +38,18 @@ now () {
 
 ms_elapsed () {
     local timestamp_now
+    local total_seconds
+    local minutes
+    local seconds
+    local ms
     timestamp_now=$(now)
     elapsed=$(((10#$timestamp_now - 10#$1) / 1000000))
-    seconds=$((elapsed / 1000))
-    ms=$(printf "%03d" $((elapsed - (seconds * 1000))))
-    minutes=$(printf "%02d" $((seconds / 60)))
-    seconds=$(printf "%02d" $((seconds - (minutes * 60))))
+    total_seconds=$((elapsed / 1000))
+    ms=$(printf "%03d" $((elapsed - (total_seconds * 1000))))
+    minutes=$((total_seconds / 60))
+    seconds=$((total_seconds - (minutes * 60)))
+    minutes=$(printf "%02d" "$minutes")
+    seconds=$(printf "%02d" "$seconds")
     echo "${minutes}:${seconds}.${ms} (${elapsed}ms)"
 }
 

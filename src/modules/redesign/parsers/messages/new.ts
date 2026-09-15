@@ -1,5 +1,5 @@
 import type { RedesignParser } from 'typings/modules/Redesign';
 
-export interface NewMessageWindow {}
+export type NewMessageWindow = Record<string, never>;
 
 export default <RedesignParser<NewMessageWindow>>(() => ({}));

@@ -1,4 +1,5 @@
-import { execSync } from 'child_process';
+import { execFileSync } from 'child_process';
+import path from 'path';
 
 interface ClocResult {
     header: {
@@ -39,7 +40,25 @@ type RelativeClocResult = ClocResult &
         }
     >;
 
-const clocBin = '"$(yarn workspace lss-manager-v4-docs bin cloc)"';
+const clocBin = path.resolve(
+    __dirname,
+    '..',
+    '..',
+    'node_modules',
+    'cloc',
+    'lib',
+    'cloc',
+);
+const clocCommand =
+    process.platform === 'win32'
+        ? 'C:\\Program Files\\Git\\usr\\bin\\perl.exe'
+        : clocBin;
+const runCloc = (ROOT_PATH: string, ...args: string[]) =>
+    execFileSync(
+        clocCommand,
+        process.platform === 'win32' ? [clocBin, ...args] : args,
+        { cwd: ROOT_PATH },
+    ).toString();
 
 export default (
     ROOT_PATH: string,
@@ -48,14 +67,18 @@ export default (
 ): string => {
     const clocTime = new Date();
     const absoluteClocStats: AbsoluteClocResult = JSON.parse(
-        execSync(
-            `cd "${ROOT_PATH}" && ${clocBin} --vcs git --skip-uniqueness --json`
-        ).toString()
+        runCloc(ROOT_PATH, '--vcs', 'git', '--skip-uniqueness', '--json'),
     );
     const relativeClocStats: RelativeClocResult = JSON.parse(
-        execSync(
-            `cd "${ROOT_PATH}" && ${clocBin} --vcs git --skip-uniqueness --json --by-percent cmb`
-        ).toString()
+        runCloc(
+            ROOT_PATH,
+            '--vcs',
+            'git',
+            '--skip-uniqueness',
+            '--json',
+            '--by-percent',
+            'cmb',
+        ),
     );
 
     const clocHeaderStats = absoluteClocStats.header;

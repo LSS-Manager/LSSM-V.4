@@ -25,7 +25,7 @@ export default async (
     const missionId = window.location.pathname.split('/')[2];
     let missionList = '';
     let missionListPosition = -1;
-    const found = Object.entries(order).find(([list, missions]) => {
+    const found = Object.entries(order).some(([list, missions]) => {
         missionListPosition = missions.indexOf(missionId);
         if (missionListPosition < 0) return false;
         missionList = list;

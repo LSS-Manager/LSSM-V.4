@@ -5,7 +5,7 @@ import telemetry from './modules/telemetry/main';
 import type { BuildingMarkerAdd, RadioMessage } from 'typings/Ingame';
 
 export default async (LSSM: Vue): Promise<void> => {
-    require('./natives/betterFooterLinks');
+    await import('./natives/betterFooterLinks');
 
     const indicatorWrapper = document.createElement('li') as HTMLLIElement;
     document

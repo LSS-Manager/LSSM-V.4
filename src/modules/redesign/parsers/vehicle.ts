@@ -404,7 +404,7 @@ export default <RedesignParser<VehicleWindow>>(({
     const isTransportRequest = (
         type: string
     ): type is TransportRequestWindow['transportRequestType'] =>
-        transportRequestTypes.includes(transportRequestType);
+        transportRequestTypes.includes(type);
 
     if (isTransportRequest(transportRequestType)) {
         const getHospitals = (list: Hospital['list']): Hospital[] => {

@@ -29,7 +29,9 @@ import utils from './utils';
 
 import './sass/main.sass';
 
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 require('./natives/navTabsClicker');
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 require('./natives/lightbox');
 
 Vue.config.productionTip = false;
