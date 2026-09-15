@@ -105,7 +105,7 @@ export default (
                                 label.classList.contains('label-danger');
                             label.classList.replace(
                                 isDanger ? 'label-danger' : 'label-success',
-                                isDanger ? 'label-success' : 'label-danger',
+                                isDanger ? 'label-success' : 'label-danger'
                             );
                         }
                     });

@@ -42,13 +42,13 @@ export default async (): Promise<void> => {
     try {
         fs.symlinkSync(
             path.join(apiPath, 'index.html'),
-            path.join(apiPath, '404.html'),
+            path.join(apiPath, '404.html')
         );
     } catch (error) {
         if ((error as NodeJS.ErrnoException).code !== 'EPERM') throw error;
         fs.copyFileSync(
             path.join(apiPath, 'index.html'),
-            path.join(apiPath, '404.html'),
+            path.join(apiPath, '404.html')
         );
     }
 

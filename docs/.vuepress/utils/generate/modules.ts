@@ -60,8 +60,8 @@ const copyAssetEntry = (sourcePath: string, targetPath: string): void => {
         fs.readdirSync(resolvedSourcePath).forEach(file =>
             copyAssetEntry(
                 path.join(resolvedSourcePath, file),
-                path.join(targetPath, file),
-            ),
+                path.join(targetPath, file)
+            )
         );
         return;
     }
@@ -226,7 +226,7 @@ ${Object.entries(vars)
                                 file
                             );
                             const sourcePath = resolveAssetSourcePath(
-                                path.join(assetDir, file),
+                                path.join(assetDir, file)
                             );
                             if (fs.existsSync(symlinkPath)) {
                                 fs.rmSync(symlinkPath, {

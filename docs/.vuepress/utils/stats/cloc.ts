@@ -47,7 +47,7 @@ const clocBin = path.resolve(
     'node_modules',
     'cloc',
     'lib',
-    'cloc',
+    'cloc'
 );
 const clocCommand =
     process.platform === 'win32'
@@ -57,7 +57,7 @@ const runCloc = (ROOT_PATH: string, ...args: string[]) =>
     execFileSync(
         clocCommand,
         process.platform === 'win32' ? [clocBin, ...args] : args,
-        { cwd: ROOT_PATH },
+        { cwd: ROOT_PATH }
     ).toString();
 
 export default (
@@ -67,7 +67,7 @@ export default (
 ): string => {
     const clocTime = new Date();
     const absoluteClocStats: AbsoluteClocResult = JSON.parse(
-        runCloc(ROOT_PATH, '--vcs', 'git', '--skip-uniqueness', '--json'),
+        runCloc(ROOT_PATH, '--vcs', 'git', '--skip-uniqueness', '--json')
     );
     const relativeClocStats: RelativeClocResult = JSON.parse(
         runCloc(
@@ -77,8 +77,8 @@ export default (
             '--skip-uniqueness',
             '--json',
             '--by-percent',
-            'cmb',
-        ),
+            'cmb'
+        )
     );
 
     const clocHeaderStats = absoluteClocStats.header;

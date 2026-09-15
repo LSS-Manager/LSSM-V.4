@@ -20,7 +20,7 @@ export default (utilsPath: string) => ({
             'node_modules',
             'ts-node',
             'dist',
-            'bin.js',
+            'bin.js'
         );
         const result = execFileSync(
             process.execPath,
