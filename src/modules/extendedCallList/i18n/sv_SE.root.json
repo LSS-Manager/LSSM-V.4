@@ -1,4 +1,12 @@
 {
+    "collapsableMissions": {
+        "all": {
+            "collapse": "Fäll ihop alla uppdrag",
+            "expand": "Fäll ut alla uppdrag"
+        },
+        "collapse": "Fäll ihop detta uppdrag",
+        "expand": "Fäll ut detta uppdrag"
+    },
     "description": "Utökar missionlistan med några häftiga funktioner!",
     "eventMissions": {
         "default": {
@@ -9,9 +17,25 @@
     },
     "name": "Utökad uppdragslista",
     "settings": {
+        "averageCredits": {
+            "description": "Visar den genomsnittliga intjäningen av credits för varje uppdrag på ett kompakt sätt.",
+            "title": "Visa genomsn. credits"
+        },
+        "collapsableMissions": {
+            "description": "Fäll ihop enskilda (eller alla) uppdrag för att minska deras storlek i uppdragslistan.",
+            "title": "Fäll ihop uppdrag"
+        },
         "collapsableMissionsAllBtn": {
             "description": "Shows a button to collapse all missions at once",
             "title": "Collapse all missions at once"
+        },
+        "currentPatients": {
+            "description": "Visar aktuellt antal patienter för varje uppdrag.",
+            "title": "Aktuella patienter"
+        },
+        "currentPatientsInTooltips": {
+            "description": "Visar aktuellt antal patienter även i tooltips på kartan.",
+            "title": "Aktuella patienter i tooltips"
         },
         "currentPrisoners": {
             "description": "Shows current amount of prisoners for each mission",
@@ -21,17 +45,81 @@
             "description": "Shows current amount of prisoners also in the tooltips on the map.",
             "title": "Current Prisoners in Tooltips"
         },
+        "eventMissions": {
+            "description": "Markerar säsongsuppdrag. Du kan valfritt anpassa detta helt och även markera uppdrag som inte är säsongsbundna.",
+            "missions": "Uppdrag",
+            "text": "Text",
+            "title": "Markera säsongsuppdrag"
+        },
         "fixedEventInfo": {
             "description": "Displays the info about a running event permanently, no matter how far you have scrolled in the missions list.",
             "title": "Always show event info"
+        },
+        "hide0CurrentPatients": {
+            "description": "Döljer antalet patienter om det inte finns några patienter på plats.",
+            "title": "Dölj 0 patienter"
         },
         "hide0CurrentPrisoners": {
             "description": "Hides amount of prisoners if there are no prisoners at scene",
             "title": "Hide 0 Prisoners"
         },
+        "remainingPatientTime": {
+            "description": "Visar för patienter hur lång tid som återstår tills de är färdigbehandlade.",
+            "title": "Återstående tid för patienter"
+        },
+        "remainingPumpingTime": {
+            "description": "Visar hur lång tid som återstår tills pågående länspumpningar är klara.",
+            "title": "Återstående tid för länspumpning"
+        },
         "remainingTime": {
             "description": "Visar vid uppdrag hur länge varje uppdrag fortfarande pågår.",
             "title": "uppdragstid endast för gröna uppdrag"
+        },
+        "remainingTimeGreenOnly": {
+            "description": "Visa återstående tid endast för gröna uppdrag.",
+            "title": "Uppdragstid endast för gröna uppdrag"
+        },
+        "shareMissions": {
+            "description": "Dela uppdrag med alliansen direkt från uppdragslistan.",
+            "title": "Dela uppdrag"
+        },
+        "shareMissionsButtonColor": {
+            "danger": "Röd",
+            "default": "Svart eller vit (baserat på design)",
+            "description": "Välj bakgrundsfärg för dela-knapparna.",
+            "info": "Ljusblå",
+            "primary": "Mörkblå",
+            "success": "Grön",
+            "title": "Dela uppdrag: Knappfärg",
+            "warning": "Orange"
+        },
+        "shareMissionsMinCredits": {
+            "description": "Knappen för att dela ett uppdrag visas bara för uppdrag vars genomsnittliga belöning är högre än vad du anger här.",
+            "title": "Dela uppdrag: minsta antal credits"
+        },
+        "shareMissionsTypes": {
+            "alliance": "Alliansuppdrag (endast för Dela-Alliansen-Utlarmning)",
+            "allianceEvent": "Uppdrag i ett allians-event (endast för Dela-Alliansen-Utlarmning)",
+            "description": "Ställ in för vilka larm du vill aktivera dela-knappen.",
+            "own": "Nödlarm",
+            "sicherheitswache": "Planerade uppdrag",
+            "title": "Dela uppdrag: uppdragstyper"
+        },
+        "sortMissions": {
+            "description": "Sortera din uppdragslista!",
+            "title": "Sortera uppdrag"
+        },
+        "sortMissionsButtonColor": {
+            "description": "Välj bakgrundsfärg för sorteringsknappen.",
+            "title": "Sortera uppdrag: Knappfärg"
+        },
+        "sortMissionsInMissionwindow": {
+            "description": "Implementerar sorteringen i uppdragsfönster. Du kan valfritt ställa in egna snabbtangenter i modulen \"Hotkeys\" för de ändrade knapparna.",
+            "title": "Sortering i uppdragsfönstret"
+        },
+        "starrableMissions": {
+            "description": "Markera uppdrag så att de visas överst i uppdragslistan. Du kan markera dem både i uppdragsfönstret och i uppdragslistan.",
+            "title": "Markera uppdrag"
         }
     },
     "sort": {
