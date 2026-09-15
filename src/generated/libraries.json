@@ -1,15 +1,15 @@
 {
     "@eslint/compat": {
         "url": "https://github.com/eslint/rewrite/tree/main/packages/compat#readme",
-        "version": "2.1.0"
+        "version": "2.1.1"
     },
     "@eslint/eslintrc": {
         "url": "https://github.com/eslint/eslintrc#readme",
-        "version": "3.3.6"
+        "version": "3.3.7"
     },
     "@eslint/js": {
         "url": "https://eslint.org",
-        "version": "9.4.0"
+        "version": "9.39.5"
     },
     "@fortawesome/fontawesome-free": {
         "icon": "https://avatars.githubusercontent.com/u/1505683",
@@ -39,7 +39,7 @@
     "@primer/octicons": {
         "icon": "https://avatars.githubusercontent.com/u/7143434",
         "url": "https://primer.style/octicons",
-        "version": "19.33.0"
+        "version": "19.34.0"
     },
     "@types/he": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -54,7 +54,7 @@
     "@types/jquery": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jquery",
-        "version": "3.5.32"
+        "version": "4.0.1"
     },
     "@types/js-yaml": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -64,32 +64,32 @@
     "@types/leaflet": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/leaflet",
-        "version": "1.9.16"
+        "version": "1.9.22"
     },
     "@types/lodash": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/lodash",
-        "version": "4.17.14"
+        "version": "4.17.25"
     },
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-        "version": "24.13.3"
+        "version": "26.5.0"
     },
     "@types/pdfmake": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/pdfmake",
-        "version": "0.2.11"
+        "version": "0.3.3"
     },
     "@types/qrcode": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/qrcode",
-        "version": "1.5.5"
+        "version": "1.5.6"
     },
     "@types/semver": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/semver",
-        "version": "7.5.8"
+        "version": "7.8.0"
     },
     "@types/showdown": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -104,7 +104,7 @@
     "@types/tampermonkey": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/tampermonkey",
-        "version": "5.0.4"
+        "version": "5.5.0"
     },
     "@types/ua-parser-js": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -119,7 +119,7 @@
     "@types/webpack-env": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/webpack-env",
-        "version": "1.18.5"
+        "version": "1.18.8"
     },
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
@@ -179,8 +179,8 @@
     },
     "broadcast-channel": {
         "icon": "https://raw.githubusercontent.com/pubkey/broadcast-channel/master/docs/files/icon.png",
-        "url": "https://github.com/pubkey/broadcast-channel#readme",
-        "version": "4.20.2"
+        "url": "https://pubkey.github.io/broadcast-channel/",
+        "version": "7.4.0"
     },
     "ci-info": {
         "url": "https://github.com/watson/ci-info",
@@ -197,7 +197,7 @@
     "css-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack/css-loader",
-        "version": "7.1.4"
+        "version": "7.1.5"
     },
     "emoji-toolkit": {
         "icon": "https://avatars.githubusercontent.com/u/6843823",
@@ -207,7 +207,7 @@
     "eslint": {
         "icon": "https://eslint.org/icon-512.png",
         "url": "https://eslint.org",
-        "version": "9.6.0"
+        "version": "9.39.5"
     },
     "eslint-config-prettier": {
         "icon": "https://prettier.io/icon.png",
@@ -227,7 +227,7 @@
     },
     "eslint-plugin-jsdoc": {
         "url": "https://github.com/gajus/eslint-plugin-jsdoc#readme",
-        "version": "64.2.1"
+        "version": "64.3.6"
     },
     "eslint-plugin-markdownlint": {
         "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",
@@ -255,10 +255,10 @@
     "eslint-plugin-vue": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://eslint.vuejs.org",
-        "version": "9.32.0"
+        "version": "9.33.0"
     },
     "globals": {
-        "version": "17.11.0"
+        "version": "17.12.0"
     },
     "he": {
         "url": "https://mths.be/he",
@@ -267,7 +267,7 @@
     "highcharts": {
         "icon": "https://wp-assets.highcharts.com/svg/logo2021.svg",
         "url": "http://www.highcharts.com",
-        "version": "11.4.8"
+        "version": "13.0.2"
     },
     "highcharts-vue": {
         "icon": "https://wp-assets.highcharts.com/svg/logo2021.svg",
@@ -284,7 +284,7 @@
         "version": "9.1.7"
     },
     "js-yaml": {
-        "version": "4.3.1"
+        "version": "5.4.2"
     },
     "leaflet.heat": {
         "url": "https://github.com/Leaflet/Leaflet.heat",
@@ -333,12 +333,12 @@
     "sass": {
         "icon": "https://sass-lang.com/assets/img/logos/logo.svg",
         "url": "https://github.com/sass/dart-sass",
-        "version": "1.103.1"
+        "version": "1.104.0"
     },
     "sass-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack/sass-loader",
-        "version": "16.0.7"
+        "version": "17.0.1"
     },
     "semver": {
         "version": "7.8.5"
@@ -358,7 +358,7 @@
     "terser": {
         "icon": "https://terser.org/img/terser-square-logo.png",
         "url": "https://terser.org",
-        "version": "5.50.0"
+        "version": "5.51.2"
     },
     "ts-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -373,7 +373,7 @@
     "typescript": {
         "icon": "https://www.typescriptlang.org/icons/icon-512x512.png",
         "url": "https://www.typescriptlang.org/",
-        "version": "5.5.4"
+        "version": "5.9.3"
     },
     "ua-parser-js": {
         "icon": "https://uaparser.dev/images/logo.png",
@@ -415,7 +415,7 @@
     "vue-loader": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://github.com/vuejs/vue-loader",
-        "version": "15.10.1"
+        "version": "15.11.1"
     },
     "vue-notification": {
         "version": "1.3.20"
@@ -440,7 +440,7 @@
     "vue3": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://vuejs.org/",
-        "version": "3.5.41"
+        "version": "3.5.42"
     },
     "vuepress": {
         "icon": "https://v2.vuepress.vuejs.org/images/hero.png",
