@@ -87,9 +87,7 @@
             "allow_dlk_instead_of_lf": "paloauto tai nostolava-auto | paloautoa tai nostolava-autoa",
             "allow_ktw_instead_of_rtw": "ambulanssi tai perustason ambulanssi | ambulanssia tai perustason ambulanssia",
             "allow_rw_instead_of_lf": "paloauto tai raskas pelastusauto | paloautoa tai raskasta pelastusautoa"
-            ""
         },
         "patient_additionals": { "5": "ensihoidon kenttäjohtaja" },
         "title": "Ajoneuvot"
-    }
 }
