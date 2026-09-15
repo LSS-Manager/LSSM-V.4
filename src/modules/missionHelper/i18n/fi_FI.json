@@ -65,7 +65,7 @@
             "riv": "RIV Lentokenttäpaloauto | RIV Lentokenttäpaloautoa",
             "traffic_car": "VATV-yksikkö | VATV-yksiköä",
             "water_tankers": "Säiliöauto | Säiliöautoa",
-            "oneof_fire_engine_or_airport_fire_engine_or_engine_large": "Paloauto, RIV lentokenttäpaloauto tai ARFF lentokenttäpaloauto | Paloautoa, RIV lentokenttäpaloautoa tai ARFF lentokenttäpaloautoa"
+            "oneof_fire_engine_or_airport_fire_engine_or_engine_large": "Paloauto, RIV lentokenttäpaloauto tai ARFF lentokenttäpaloauto | Paloautoa, RIV lentokenttäpaloautoa tai ARFF lentokenttäpaloautoa",
             "oneof_airport_fire_engine_or_engine_large": "RIV lentokenttäpaloauto tai ARFF lentokenttäpaloauto | RIV lentokenttäpaloautoa tai ARFF lentokenttäpaloautoa",
             "oneof_fire_engine_or_airport_fire_engine_large": "Paloauto tai ARFF lentokenttäpaloauto | Paloautoa tai ARFF lentokenttäpaloautoa",
             "oneof_fire_engine_or_airport_fire_engine": "Paloauto tai RIV lentokenttäpaloauto | Paloautoa tai RIV lentokenttäpaloautoa",
@@ -90,4 +90,5 @@
         },
         "patient_additionals": { "5": "ensihoidon kenttäjohtaja" },
         "title": "Ajoneuvot"
+    }
 }
