@@ -134,6 +134,12 @@ export default {
             staffList: 'Critical Care',
             key: 'critical_care',
         },
+        {
+            caption: 'Hooklift Truck Driving',
+            duration: '5 Days',
+            staffList: 'Hooklift Truck Driving',
+            key: 'pod_tractive',
+        },
     ],
     'Police': [
         {
