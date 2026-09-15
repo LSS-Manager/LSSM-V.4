@@ -46,8 +46,22 @@ export default async (
               /* webpackChunkName: "modules/shareAlliancePost/missionlist" */ '../../shareAlliancePost/assets/missionList'
           ).then(({ default: missionList }) => missionList)
         : null;
+    const panelAnimationObservers = new Map<number, MutationObserver>();
+    const cleanupPanelAnimationObservers = () => {
+        for (const [missionId, observer] of panelAnimationObservers) {
+            if (
+                document.querySelector(
+                    `#mission_${missionId} .${shareBtnClass}`
+                )?.isConnected
+            )
+                continue;
+            observer.disconnect();
+            panelAnimationObservers.delete(missionId);
+        }
+    };
 
     const addShareBtn: AddShareBtn = mission => {
+        cleanupPanelAnimationObservers();
         if (
             !types.length ||
             !mission.element.closest(typesIdsSelector) ||
@@ -89,6 +103,7 @@ export default async (
             );
             if (panel && panel?.style.animation) {
                 const panelAnimation = getComputedStyle(panel).animation;
+                panelAnimationObservers.get(mission.id)?.disconnect();
                 const observer = new MutationObserver(() => {
                     if (group.classList.contains('open'))
                         panel.style.removeProperty('animation');
@@ -97,6 +112,7 @@ export default async (
                 observer.observe(group, {
                     attributeFilter: ['class'],
                 });
+                panelAnimationObservers.set(mission.id, observer);
             }
             btn.addEventListener('click', () =>
                 sapMissionList?.(
@@ -128,8 +144,12 @@ export default async (
     };
 
     const updateShareBtn: UpdateShareBtn = mission => {
-        if (mission.element.querySelector('.panel-success') && !SAPStay)
-            return mission.element.querySelector(`.${shareBtnClass}`)?.remove();
+        if (mission.element.querySelector('.panel-success') && !SAPStay) {
+            panelAnimationObservers.get(mission.id)?.disconnect();
+            panelAnimationObservers.delete(mission.id);
+            mission.element.querySelector(`.${shareBtnClass}`)?.remove();
+            return;
+        }
 
         if (!mission.element.querySelector(`.${shareBtnClass}`))
             addShareBtn(mission);
