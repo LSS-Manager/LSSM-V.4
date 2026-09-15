@@ -72,7 +72,7 @@ export default {
             color: '#ffa500',
         },
         'Police Stations': {
-            buildings: [5, 7, 8, 15, 18],
+            buildings: [5, 7, 8, 15, 18, 29],
             color: '#00ac00',
         },
         'Lifeguard Stations': {
@@ -84,7 +84,7 @@ export default {
             color: '#481f9a',
         },
         'Other': {
-            buildings: [1, 2, 9, 14, 20, 21, 24],
+            buildings: [1, 2, 9, 14, 20, 21, 24, 10],
             color: '#02a18c',
         },
     },
@@ -100,6 +100,7 @@ export default {
                 'Fire Aviation': [35, 36, 37, 75, 76],
                 'Trailer': [91, 92, 93, 94, 95, 96, 97, 98, 99, 100],
                 'Traffic Unit': [103, 104],
+                'Container': [126, 127, 128, 129, 130, 131, 132, 133, 134],
             },
             color: '#ff2d2d',
         },
