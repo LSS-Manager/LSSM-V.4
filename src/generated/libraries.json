@@ -454,6 +454,6 @@
     "webpack": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack/webpack",
-        "version": "5.106.2"
+        "version": "5.108.0"
     }
 }
