@@ -181,8 +181,8 @@
     },
     "broadcast-channel": {
         "icon": "https://raw.githubusercontent.com/pubkey/broadcast-channel/master/docs/files/icon.png",
-        "url": "https://pubkey.github.io/broadcast-channel/",
-        "version": "7.4.0"
+        "url": "https://github.com/pubkey/broadcast-channel#readme",
+        "version": "4.20.2"
     },
     "ci-info": {
         "url": "https://github.com/watson/ci-info",
@@ -269,7 +269,7 @@
     "highcharts": {
         "icon": "https://wp-assets.highcharts.com/svg/logo2021.svg",
         "url": "http://www.highcharts.com",
-        "version": "13.0.2"
+        "version": "11.4.8"
     },
     "highcharts-vue": {
         "icon": "https://wp-assets.highcharts.com/svg/logo2021.svg",
