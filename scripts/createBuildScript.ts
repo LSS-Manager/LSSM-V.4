@@ -244,7 +244,7 @@ fi`,
             .replace(/\$\{\{ env\.BRANCH \}\}/gu, '$$BRANCH')
             .replace(/\$\{\{ env\.NODE_VERSION \}\}/gu, '$$NODE_VERSION')
             .replace(/\$\{\{ env\.YARN_VERSION \}\}/gu, '$$YARN_VERSION')
-            .replace(/\$BranchLabel/gu, '🦄 branch label')
+            .replace(/\$BranchLabel/gu, '"🦄 branch label"')
             .replace(/\$\{\{ (?:github|inputs)\.ref \}\}/gu, '$$REF') ?? ''
     }
     disable_debugging

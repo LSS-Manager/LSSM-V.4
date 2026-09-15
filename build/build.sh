@@ -367,7 +367,7 @@ if [[ $_RUN_STEP_PREBUILD = true ]]; then
     start_time=$(now)
     print_start_message "[🚧] run prebuild"
     enable_debugging
-    yarn ts-node prebuild/index.ts "$MODE" "$BRANCH" "🦄 branch label" || exit 1
+    yarn ts-node prebuild/index.ts "$MODE" "$BRANCH" ""🦄 branch label"" || exit 1
     disable_debugging
     print_end_message "[🚧] run prebuild" "$start_time"
 fi
@@ -377,7 +377,7 @@ if [[ $_RUN_STEP_WEBPACK = true ]]; then
     start_time=$(now)
     print_start_message "[👷] webpack"
     enable_debugging
-    yarn ts-node build/index.ts --esModuleInterop "$MODE" "$BRANCH" "🦄 branch label" || exit 1
+    yarn ts-node build/index.ts --esModuleInterop "$MODE" "$BRANCH" ""🦄 branch label"" || exit 1
     disable_debugging
     print_end_message "[👷] webpack" "$start_time"
 fi
