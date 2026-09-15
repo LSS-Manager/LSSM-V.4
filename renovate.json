@@ -5,7 +5,7 @@
     "commitMessagePrefix": "⬆️",
     "commitMessageTopic": "`{{depName}}`",
     "dependencyDashboard": true,
-    "dependencyDashboardFooter": "PRs will be created on weekdays before 3am (CEST) for any dependencies except engines.\nEngine (node, npm, yarn) updates will be created on first day of month.\n Lockfile maintenance is created on each saturday.",
+    "dependencyDashboardFooter": "PRs will be created on wednesdays before 3am (CEST) for any dependencies except engines.\nEngine (node, npm, yarn) updates will be created on first day of month.\n Lockfile maintenance is created on each saturday.",
     "dependencyDashboardHeader": "# ℹ️ Renovate Dependency-Dashboard ℹ\nScheduled and currently open dependency updates are listed here\n",
     "dependencyDashboardLabels": ["dependencies"],
     "dependencyDashboardTitle": "⬆ℹ️ Renovate Dependency-Dashboard ℹ️",
@@ -15,11 +15,12 @@
     ],
     "labels": ["dependencies"],
     "lockFileMaintenance": {
-        "assignees": ["jxn-30"],
+        "assignees": ["Suchty112"],
         "enabled": true,
-        "reviewers": ["jxn-30"],
+        "reviewers": ["Suchty112"],
         "schedule": ["before 3am on saturday"]
     },
+    "minimumReleaseAge": "1 week",
     "packageRules": [
         {
             "description": "Disable updating vue on main repo. Updates require vue 3",
@@ -36,30 +37,6 @@
             "matchManagers": ["npm"]
         },
         {
-            "groupName": "types",
-            "lockFileMaintenance": { "enabled": true },
-            "matchManagers": ["npm"],
-            "matchPackageNames": ["!@types/node", "@types/{/,}**"],
-            "rangeStrategy": "pin",
-            "separateMajorMinor": false
-        },
-        {
-            "groupName": "fontawesome",
-            "lockFileMaintenance": { "enabled": true },
-            "matchManagers": ["npm"],
-            "matchPackageNames": ["@fortawesome/{/,}**"],
-            "rangeStrategy": "pin",
-            "separateMajorMinor": false
-        },
-        {
-            "groupName": "typescript-eslint",
-            "lockFileMaintenance": { "enabled": true },
-            "matchManagers": ["npm"],
-            "matchPackageNames": ["@typescript-eslint{/,}**"],
-            "rangeStrategy": "pin",
-            "separateMajorMinor": false
-        },
-        {
             "description": "We consider switching to VitePress (see #2884). While that, updates to vuepress are disabled",
             "enabled": false,
             "groupName": "vuepress",
@@ -71,26 +48,27 @@
             "separateMajorMinor": false
         },
         {
-            "assignees": ["jxn-30"],
             "extends": ["schedule:monthly"],
-            "groupName": "engines",
+            "groupName": "yarn",
             "lockFileMaintenance": { "enabled": true },
-            "matchDepNames": ["node", "npm", "yarn"],
+            "matchDepNames": ["yarn"],
             "matchManagers": ["npm"],
             "rangeStrategy": "pin",
-            "reviewers": ["jxn-30"],
             "separateMajorMinor": false
         },
         {
+            "extends": ["schedule:monthly"],
+            "groupName": "node.js",
             "lockFileMaintenance": { "enabled": true },
-            "matchManagers": ["npm"],
-            "rangeStrategy": "pin",
+            "matchDepNames": ["node"],
+            "matchManagers": ["npm", "nvm"],
+            "rangeStrategy": "bump",
             "separateMajorMinor": false
         }
     ],
     "postUpdateOptions": ["yarnDedupeHighest"],
     "rangeStrategy": "pin",
     "reviewers": ["Suchty112"],
-    "schedule": ["before 3am every weekday"],
+    "schedule": ["before 3am on Wednesday"],
     "timezone": "Europe/Berlin"
 }

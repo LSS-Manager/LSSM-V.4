@@ -379,6 +379,7 @@ export default Vue.extend<
                             'polizeischule',
                             'polizeisondereinheiten',
                             'polizeiwache',
+                            'prison',
                             'rescue_boat_dock',
                             'rescue_dog_unit',
                             'rescue_station',
@@ -401,6 +402,7 @@ export default Vue.extend<
                     ...getAlternativeIcons(
                         [
                             'spec_ambulance_station_mass_casualty',
+                            'spec_coastal_rescue_beach',
                             'spec_fire_station_airport',
                             'spec_fire_station_disaster_response',
                             'spec_fire_station_factory_fire_dept',
