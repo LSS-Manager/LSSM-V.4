@@ -257,7 +257,7 @@
     "eslint-plugin-vue": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://eslint.vuejs.org",
-        "version": "10.10.0"
+        "version": "10.11.0"
     },
     "globals": {
         "version": "17.12.0"
