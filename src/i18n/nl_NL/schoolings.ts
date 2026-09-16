@@ -105,6 +105,12 @@ export default {
             key: 'rescue_dogs',
         },
         {
+            caption: 'Berger Training',
+            duration: '4 Dagen',
+            staffList: 'Berger',
+            key: 'tow_trucks',
+        },
+        {
             caption: 'Noodhulpteam',
             duration: '5 Dagen',
             staffList: 'Noodhulpteamlid',
@@ -115,6 +121,54 @@ export default {
             duration: '7 Dagen',
             staffList: 'Geneeskundige bijstandsverlener',
             key: 'mass_casualty_and_emergency_doctor',
+        },
+        {
+            caption: 'Verzorger',
+            duration: '5 Dagen',
+            staffList: 'Verzorger',
+            key: 'care_service',
+        },
+        {
+            caption: 'Hygiënemedewerker',
+            duration: '5 Dagen',
+            staffList: 'Hygiënemedewerker',
+            key: 'clean_service',
+        },
+        {
+            caption: 'Pelotonscommandant Logistiek',
+            duration: '7 Dagen',
+            staffList: 'Pelotonscommandant Logistiek',
+            key: 'care_service_command',
+        },
+        {
+            caption: 'TDV Drone Flightcrew',
+            duration: '7 Dagen',
+            staffList: 'TDV Drone Flightcrew Operator',
+            key: 'drone_fire',
+        },
+        {
+            caption: 'Gevaarlijke Stoffen Eenheid',
+            duration: '5 Dagen',
+            staffList: 'Gevaarlijke Stoffen Eenheid',
+            key: 'hazard_material_response',
+        },
+        {
+            caption: 'Ontsmettings Eenheid',
+            duration: '5 Dagen',
+            staffList: 'Ontsmettings Eenheid',
+            key: 'hazard_suits_response',
+        },
+        {
+            caption: 'Incidentenbestrijder spoor',
+            duration: '5 Dagen',
+            staffList: 'Incidentenbestrijder spoor',
+            key: 'railway_fire',
+        },
+        {
+            caption: 'Officier van Dienst Incidentenbestrijder spoor',
+            duration: '5 Dagen',
+            staffList: 'Officier van Dienst Incidentenbestrijder spoor',
+            key: 'railway_elw',
         },
     ],
     Politie: [
@@ -191,10 +245,22 @@ export default {
             key: 'police_motorcycle',
         },
         {
+            caption: 'Berger Training',
+            duration: '4 Dagen',
+            staffList: 'Berger',
+            key: 'tow_trucks',
+        },
+        {
             caption: 'Bomverkenner',
             duration: '4 Dagen',
             staffList: 'Bomverkenner',
             key: 'bomb_disposal_patrol',
+        },
+        {
+            caption: 'Drone Flightcrew',
+            duration: '7 Dagen',
+            staffList: 'Drone Flightcrew',
+            key: 'drone_police',
         },
     ],
     Ambulance: [

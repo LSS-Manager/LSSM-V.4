@@ -211,6 +211,7 @@ export default {
         'Nöjespark',
         'Marknad',
         'Hangar',
+        'Oil Rig',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [169],

@@ -44,6 +44,12 @@ export default {
             staffList: 'Drone Operator',
             key: 'drone',
         },
+        {
+            caption: 'Railway Fire',
+            duration: '5 Days',
+            staffList: 'Railway Firefighter',
+            key: 'railway_fire',
+        },
     ],
     'Police': [
         {
@@ -117,6 +123,36 @@ export default {
             duration: '5 Days',
             staffList: 'Drone Operator',
             key: 'drone',
+        },
+        {
+            caption: 'Railway Policing',
+            duration: '5 Days',
+            staffList: 'Railway Police Officer',
+            key: 'railway_police',
+        },
+        {
+            caption: 'Mobile Operations Management',
+            duration: '5 Days',
+            staffList: 'Mobile Operations Manager',
+            key: 'railway_police_command',
+        },
+        {
+            caption: 'Bomb Disposal',
+            duration: '3 Days',
+            staffList: 'Bomb Disposal',
+            key: 'bomb_disposal',
+        },
+        {
+            caption: 'EOD Commander',
+            duration: '5 Days',
+            staffList: 'EOD Commander',
+            key: 'bomb_disposal_commander',
+        },
+        {
+            caption: 'Marine Bomb Disposal',
+            duration: '5 Days',
+            staffList: 'Marine Bomb Disposal',
+            key: 'bomb_disposal_diver',
         },
     ],
     'Rescue': [

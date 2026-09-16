@@ -268,6 +268,18 @@ export default {
                 },
                 3
             ),
+            {
+                caption: 'Tierrettung',
+                credits: 100_000,
+                coins: 20,
+                duration: '3 Tage',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                parkingLotReservations: [
+                    [11, 104, 105, 106, 107, 108, 185, 186],
+                ],
+                unlocksVehicleTypes: [185, 186],
+            },
         ],
         storageUpgrades: {
             initial_containers: {
@@ -332,6 +344,14 @@ export default {
                 coins: 15,
                 duration: '3 Tage',
                 requiredStorageUpgrades: ['additional_containers_6'],
+            },
+            additional_containers_8: {
+                caption: 'Zusätzlicher Lagerraum',
+                additionalStorage: 30,
+                credits: 100_000,
+                coins: 15,
+                duration: '3 Tage',
+                requiredStorageUpgrades: ['additional_containers_7'],
             },
         },
         levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
@@ -889,10 +909,10 @@ export default {
                 coins: 25,
                 duration: '7 Tage',
                 isVehicleExtension: true,
-                givesParkingLots: 2,
+                givesParkingLots: 4,
                 unlocksVehicleTypes: [92, 93],
-                parkingLotReservations: [[92], [93]],
-                giftsVehicles: [92, 93],
+                parkingLotReservations: [[92], [92], [93], [93]],
+                giftsVehicles: [],
                 requiredExtensions: [0, 1],
                 unlockedVehiclesOnReservedLotsOnly: true,
             },
@@ -1683,6 +1703,18 @@ export default {
                 givesParkingLots: 1,
                 parkingLotReservations: [[162, 163]],
                 unlocksVehicleTypes: [162, 163, 164],
+            },
+            {
+                caption: 'Tierrettung',
+                credits: 100_000,
+                coins: 20,
+                duration: '3 Tage',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                parkingLotReservations: [
+                    [11, 104, 105, 106, 107, 108, 185, 186],
+                ],
+                unlocksVehicleTypes: [185, 186],
             },
         ],
         storageUpgrades: {

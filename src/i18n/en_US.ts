@@ -72,7 +72,7 @@ export default {
             color: '#ffa500',
         },
         'Police Stations': {
-            buildings: [5, 7, 8, 15, 18],
+            buildings: [5, 7, 8, 15, 18, 29],
             color: '#00ac00',
         },
         'Lifeguard Stations': {
@@ -84,7 +84,7 @@ export default {
             color: '#481f9a',
         },
         'Other': {
-            buildings: [1, 2, 9, 14, 20, 21, 24],
+            buildings: [1, 2, 9, 14, 20, 21, 24, 10],
             color: '#02a18c',
         },
     },
@@ -100,6 +100,7 @@ export default {
                 'Fire Aviation': [35, 36, 37, 75, 76],
                 'Trailer': [91, 92, 93, 94, 95, 96, 97, 98, 99, 100],
                 'Traffic Unit': [103, 104],
+                'Container': [126, 127, 128, 129, 130, 131, 132, 133, 134],
             },
             color: '#ff2d2d',
         },
@@ -273,6 +274,8 @@ export default {
         'Hangar',
         'Swamp',
         'Casino',
+        'Zoo',
+        'Hardware Store',
     ],
     only_alliance_missions: [41, 61, 62, 112],
     transfer_missions: [246, 983],
@@ -289,6 +292,7 @@ export default {
             1_000_000_000: 'Division Chief',
             2_000_000_000: 'Deputy Chief',
             5_000_000_000: 'Fire Chief',
+            10_000_000_000: 'Fire Commissioner',
         },
         policechief: {
             0: 'Police recruit',
@@ -302,6 +306,7 @@ export default {
             1_000_000_000: 'Police commander',
             2_000_000_000: 'Deputy chief',
             5_000_000_000: 'Chief of police',
+            10_000_000_000: 'Fire Commissioner',
         },
     },
 };

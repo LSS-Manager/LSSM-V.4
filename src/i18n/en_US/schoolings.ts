@@ -134,6 +134,12 @@ export default {
             staffList: 'Critical Care',
             key: 'critical_care',
         },
+        {
+            caption: 'Hooklift Truck Driving',
+            duration: '5 Days',
+            staffList: 'Hooklift Truck Driving',
+            key: 'pod_tractive',
+        },
     ],
     'Police': [
         {
@@ -263,6 +269,18 @@ export default {
             duration: '5 Days',
             staffList: 'Critical Care',
             key: 'critical_care',
+        },
+        {
+            caption: 'Mountain Dog Training',
+            duration: '5 Days',
+            staffList: 'Mountain Dog Training',
+            key: 'mountain_rescue_dogs',
+        },
+        {
+            caption: 'Mountain Rescue Certificate',
+            duration: '5 Days',
+            staffList: 'Mountain Rescue Certificate',
+            key: 'mountain_rescue',
         },
     ],
     'Water Rescue School': [

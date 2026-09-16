@@ -161,6 +161,25 @@ export default {
                 unlocksVehicleTypes: [107],
                 parkingLotReservations: [[107]],
             },
+            ...multiplyExtension(
+                {
+                    caption: 'Container Slot',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Days',
+                    isVehicleExtension: true,
+                    givesParkingLots: 1,
+                    unlocksVehicleTypes: [
+                        126, 127, 128, 129, 130, 131, 132, 133, 134,
+                    ],
+                    parkingLotReservations: [
+                        [126, 127, 128, 129, 130, 131, 132, 133, 134],
+                    ],
+                    cannotDisable: true,
+                    unlockedVehiclesOnReservedLotsOnly: true,
+                },
+                10
+            ),
         ],
         storageUpgrades: {
             initial_containers: {
@@ -740,7 +759,7 @@ export default {
         icon: 'warehouse',
     },
     10: {
-        caption: 'Prison Cells',
+        caption: 'Prison (Alliance)',
         color: '#00ff00',
         coins: -1,
         credits: 100_000,
@@ -954,6 +973,25 @@ export default {
                 unlocksVehicleTypes: [107],
                 parkingLotReservations: [[107]],
             },
+            ...multiplyExtension(
+                {
+                    caption: 'Container Slot',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Days',
+                    isVehicleExtension: true,
+                    givesParkingLots: 1,
+                    unlocksVehicleTypes: [
+                        126, 127, 128, 129, 130, 131, 132, 133, 134,
+                    ],
+                    parkingLotReservations: [
+                        [126, 127, 128, 129, 130, 131, 132, 133, 134],
+                    ],
+                    cannotDisable: true,
+                    unlockedVehiclesOnReservedLotsOnly: true,
+                },
+                2
+            ),
         ],
         storageUpgrades: {
             initial_containers: {
@@ -1696,5 +1734,98 @@ export default {
         schools: [],
         startParkingLots: 1,
         icon: 'life-ring',
+    },
+    28: {
+        caption: 'Mountain Rescue Station',
+        color: '#11858d',
+        coins: 50,
+        credits: 500_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
+        extensions: [],
+        storageUpgrades: {
+            initial_containers: {
+                caption: 'Initial Storage Room',
+                additionalStorage: 40,
+                credits: 35_000,
+                coins: 20,
+                duration: '5 Days',
+            },
+            additional_containers: {
+                caption: 'Additional Storage Room',
+                additionalStorage: 30,
+                credits: 50_000,
+                coins: 25,
+                duration: '3 Days',
+                requiredStorageUpgrades: ['initial_containers'],
+            },
+        },
+        levelcost: [],
+        maxBuildings: '',
+        maxLevel: 20,
+        special: '',
+        startPersonnel: 3,
+        startVehicles: [],
+        schoolingTypes: ['Rescue'],
+        schools: [24],
+        startParkingLots: 1,
+        icon: 'life-ring',
+    },
+    29: {
+        caption: 'Prison',
+        color: '#11858d',
+        coins: 35,
+        credits: 100_000,
+        levelPrices: {
+            credits: [],
+            coins: [],
+        },
+        extensions: [
+            {
+                caption: 'Prison cell',
+                credits: 25_000,
+                coins: 5,
+                duration: '7 Days',
+                newCells: 1,
+                cannotDisable: true,
+            },
+            ...multiplyExtension(
+                {
+                    caption: 'Additional cell',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Days',
+                    newCells: 1,
+                    cannotDisable: true,
+                },
+                19
+            ),
+            {
+                caption: 'Large Prison',
+                credits: 200_000,
+                coins: 50,
+                duration: '7 Days',
+                maxExtensionsFunction: (
+                    buildingsByType: Record<number, Building[]>
+                ): number =>
+                    Math.floor((buildingsByType[10]?.length ?? 0) / 10),
+                canBuyByAmount: (boughtExtensionsAmountByType, maxExtensions) =>
+                    (boughtExtensionsAmountByType[6][15] ?? 0) < maxExtensions,
+                newCells: 10,
+                cannotDisable: true,
+            },
+        ],
+        levelcost: [],
+        maxBuildings: 'No limit',
+        maxLevel: 0,
+        special: '',
+        startPersonnel: 0,
+        startVehicles: [],
+        schoolingTypes: ['Police'],
+        schools: [7],
+        startParkingLots: 1,
+        icon: 'border-all',
     },
 } satisfies Record<number, InternalBuilding>;

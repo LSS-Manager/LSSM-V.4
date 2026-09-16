@@ -237,6 +237,10 @@ export default {
         'Zábavní park',
         'Železniční tunel',
         'Železniční depo',
+        'Lanovka',
+        'Skála',
+        'Vodopád',
+        'Zoo',
     ],
     only_alliance_missions: [57, 74],
     ranks: {
