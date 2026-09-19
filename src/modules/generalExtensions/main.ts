@@ -28,6 +28,13 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting, setSetting }) => {
             clickableLinks(LSSM, await getSetting('showImg'))
         );
     }
+
+    if (await getSetting<boolean>('noteMonospace')) {
+        import(
+            /* webpackChunkName: "modules/generalExtensions/noteMonospace" */ './assets/noteMonospace'
+        ).then(({ default: noteMonospace }) => noteMonospace(LSSM));
+    }
+
     const linkPreviewSetting = await getSetting<string[]>('linkPreviews');
     if (linkPreviewSetting.length) {
         import(

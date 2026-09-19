@@ -18,6 +18,10 @@ export default ((_, __, $m) => {
             default: true,
             dependsOn: '.clickableLinks',
         },
+        noteMonospace: <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
         linkPreviews: <Omit<MultiSelect, 'isDisabled' | 'value'>>{
             type: 'multiSelect',
             default: [],
