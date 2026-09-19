@@ -44,7 +44,7 @@
                     17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 30, 33, 34, 36,
                     37, 46, 53, 57, 75, 76, 83, 84, 85, 86, 87, 88, 89, 90, 104,
                     105, 106, 107, 114, 118, 120, 121, 126, 128, 129, 162, 163,
-                    166, 167
+                    166, 167, 185
                 ]
             },
             {
@@ -353,7 +353,12 @@
             { "texts": ["MzGW (FGr BrB)"], "vehicles": [181] },
             { "texts": ["Mobilkran", "Mobilkräne"], "vehicles": [57, 182] },
             { "texts": ["Anh Plattform (FGr BrB)"], "vehicles": [183] },
-            { "texts": ["FuStW (AP)"], "vehicles": [184] }
+            { "texts": ["FuStW (AP)"], "vehicles": [184] },
+            {
+                "equipment": ["animal_rescue"],
+                "texts": ["GW-Tierrettung"],
+                "vehicles": [185, 186]
+            }
         ],
         "water": "l. Wasser"
     },
