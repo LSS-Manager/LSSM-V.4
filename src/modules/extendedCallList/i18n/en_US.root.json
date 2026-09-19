@@ -145,8 +145,11 @@
             "distance_dispatch": "Distance to next dispatch center",
             "distance_station": "Distance to next station",
             "id": "Age",
+            "notarzt_chance": "ALS Chance",
             "remaining_patients": "Current patients",
             "remaining_prisoners": "Current prisoners",
+            "rth_chance": "Air-Ambulance Chance",
+            "transport_chance": "Transport Chance",
             "zip_code": "ZIP-Codes (globally)"
         }
     }

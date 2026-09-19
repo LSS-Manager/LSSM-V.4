@@ -136,8 +136,11 @@
             "distance_dispatch": "Distanza dalla prossima centrale",
             "distance_station": "Distanza dalla prossima stazione",
             "id": "Cronologico",
+            "notarzt_chance": "ALS Chance",
             "remaining_patients": "Pazienti",
             "remaining_prisoners": "Prigionieri rimanenti",
+            "rth_chance": "Air-Ambulance Chance",
+            "transport_chance": "Transport Chance",
             "zip_code": "ZIP-Codes (globally)"
         }
     }

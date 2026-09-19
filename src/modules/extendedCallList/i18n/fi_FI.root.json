@@ -135,8 +135,11 @@
             "distance_dispatch": "Etäisyys lähimpään hätäkeskukseen",
             "distance_station": "Etäisyys lähimmälle asemalle",
             "id": "Ikä",
+            "notarzt_chance": "ALS Chance",
             "remaining_patients": "Nykyiset potilaat",
             "remaining_prisoners": "Nykyiset vangit",
+            "rth_chance": "Air-Ambulance Chance",
+            "transport_chance": "Transport Chance",
             "zip_code": "ZIP-Codes (globally)"
         }
     }
