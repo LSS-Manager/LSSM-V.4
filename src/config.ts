@@ -71,8 +71,8 @@ export default {
         },
         es_MX: {
             flag: '🇲🇽',
-            name: 'Centro-de-Mando.mx',
-            shortURL: 'centro-de-mando.mx',
+            name: 'Centro-de-Mando-Americas.com',
+            shortURL: 'centro-de-mando-americas.com',
         },
         fi_FI: {
             flag: '🇫🇮',
