@@ -77,9 +77,7 @@ export default {
                 duration: '5  Dagen',
                 isVehicleExtension: true,
                 givesParkingLots: 1,
-                unlocksVehicleTypes: [
-                     153, 154,
-                ],
+                unlocksVehicleTypes: [153, 154],
             },
             {
                 caption: 'Veetakels',
@@ -88,9 +86,7 @@ export default {
                 duration: '5  Dagen',
                 isVehicleExtension: true,
                 givesParkingLots: 1,
-                unlocksVehicleTypes: [
-                     155, 156,
-                ],
+                unlocksVehicleTypes: [155, 156],
             },
             ...multiplyExtension(
                 {

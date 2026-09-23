@@ -2561,10 +2561,10 @@ export default {
         pumpCapacity: 2000,
         pumpType: 'fire',
     },
-153: {
+    153: {
         caption: 'DB-RI',
         color: '#ff1500',
-        credits: 25000,
+        credits: 25_000,
         coins: 15,
         staff: {
             min: 2,
@@ -2572,10 +2572,10 @@ export default {
             training: {
                 Brandweer: {
                     thatched_roof_firefighting: {
-                        all: true
-                    }
-                }
-            }
+                        all: true,
+                    },
+                },
+            },
         },
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
@@ -2587,16 +2587,17 @@ export default {
         coins: 6,
         staff: {
             min: 0,
-            max: 0
+            max: 0,
         },
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
-        special: 'Benodigd een speciale opleiding in het trekkend voertuig. (Specialist Rietdakbrandbestrijding)',
+        special:
+            'Benodigd een speciale opleiding in het trekkend voertuig. (Specialist Rietdakbrandbestrijding)',
     },
     155: {
         caption: 'DB-VI',
         color: '#ff1500',
-        credits: 25000,
+        credits: 25_000,
         coins: 12,
         staff: {
             min: 4,
@@ -2604,10 +2605,10 @@ export default {
             training: {
                 Brandweer: {
                     livestock_fire_count: {
-                        all: true
-                    }
-                }
-            }
+                        all: true,
+                    },
+                },
+            },
         },
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
@@ -2619,10 +2620,11 @@ export default {
         coins: 6,
         staff: {
             min: 0,
-            max: 0
+            max: 0,
         },
         icon: 'truck-moving',
         possibleBuildings: [0, 17],
-        special: 'Benodigd een speciale opleiding in het trekkend voertuig. (Veeredder)',
-    }
+        special:
+            'Benodigd een speciale opleiding in het trekkend voertuig. (Veeredder)',
+    },
 } satisfies Record<number, InternalVehicle>;
