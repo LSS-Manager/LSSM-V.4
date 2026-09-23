@@ -2561,4 +2561,68 @@ export default {
         pumpCapacity: 2000,
         pumpType: 'fire',
     },
+153: {
+        caption: 'DB-RI',
+        color: '#ff1500',
+        credits: 25000,
+        coins: 15,
+        staff: {
+            min: 2,
+            max: 6,
+            training: {
+                Brandweer: {
+                    thatched_roof_firefighting: {
+                        all: true
+                    }
+                }
+            }
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+    },
+    154: {
+        caption: 'RIA',
+        color: '#ff1500',
+        credits: 6000,
+        coins: 6,
+        staff: {
+            min: 0,
+            max: 0
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+        special: 'Benodigd een speciale opleiding in het trekkend voertuig. (Specialist Rietdakbrandbestrijding)',
+    },
+    155: {
+        caption: 'DB-VI',
+        color: '#ff1500',
+        credits: 25000,
+        coins: 12,
+        staff: {
+            min: 4,
+            max: 6,
+            training: {
+                Brandweer: {
+                    livestock_fire_count: {
+                        all: true
+                    }
+                }
+            }
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+    },
+    156: {
+        caption: 'VIA',
+        color: '#ff1500',
+        credits: 6000,
+        coins: 6,
+        staff: {
+            min: 0,
+            max: 0
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+        special: 'Benodigd een speciale opleiding in het trekkend voertuig. (Veeredder)',
+    }
 } satisfies Record<number, InternalVehicle>;

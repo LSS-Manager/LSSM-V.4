@@ -70,6 +70,28 @@ export default {
                     144, 145, 146, 147, 148, 149, 150, 151, 152,
                 ],
             },
+            {
+                caption: 'Rietkapbrandbestrijding',
+                credits: 150_000,
+                coins: 15,
+                duration: '5  Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                unlocksVehicleTypes: [
+                     153, 154,
+                ],
+            },
+            {
+                caption: 'Veetakels',
+                credits: 150_000,
+                coins: 15,
+                duration: '5  Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                unlocksVehicleTypes: [
+                     155, 156,
+                ],
+            },
             ...multiplyExtension(
                 {
                     caption: 'Haakarmbak parkeerplaats',
