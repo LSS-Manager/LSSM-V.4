@@ -48,6 +48,10 @@
             "description": "Vycentruje mapu na předchozí pozice, na které byla dříve vycentrována. – Funkční pouze pro typ mapy \"OpenStreetMap\"",
             "title": "Uložení pohybů mapy"
         },
+        "noteMonospace": {
+            "description": "Zobrazí poznámky písmem s pevnou šířkou, aby byly tabulky a zarovnaný text lépe čitelné.",
+            "title": "Poznámky neproporcionálním písmem"
+        },
         "notePreview": {
             "description": "Na odkazy v poznámkách lze kliknout zobrazením náhledu poznámek.",
             "title": "Poznámky"

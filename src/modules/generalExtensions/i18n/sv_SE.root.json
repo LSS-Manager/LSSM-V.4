@@ -49,6 +49,10 @@
             "description": "Centrera kartan på positioner som var centrerade tidigare. - Fungerar för närvarande bara med karttyp \"OpenStreetMap\"",
             "title": "Spara karthopp"
         },
+        "noteMonospace": {
+            "description": "Visar anteckningar med ett typsnitt med fast teckenbredd så att tabeller och justerad text blir lättare att läsa.",
+            "title": "Anteckningar med fast teckenbredd"
+        },
         "notePreview": {
             "description": "Länkar i anteckning görs klickbara gemom att förhandsgranska anteckningen.",
             "title": "Anteckningar"

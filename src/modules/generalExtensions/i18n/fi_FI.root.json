@@ -48,6 +48,10 @@
             "description": "Keskitä kartta sijainteihin, jotka oli keskitetty aiemmin. - Tällä hetkellä toimii vain karttatyypin \"OpenStreetMap\" kanssa.",
             "title": "Tallenna karttahyppyjä"
         },
+        "noteMonospace": {
+            "description": "Näyttää muistiinpanot tasalevyisellä fontilla, jotta taulukot ja tasattu teksti ovat helpommin luettavia.",
+            "title": "Tasalevyiset muistiinpanot"
+        },
         "notePreview": {
             "description": "Muistiinpanoissa olevia linkkejä voi napsauttaa näyttämällä muistiinpanojen esikatselun.",
             "title": "Muistiinpanot"
