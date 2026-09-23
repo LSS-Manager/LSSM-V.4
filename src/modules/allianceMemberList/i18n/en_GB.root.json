@@ -1,0 +1,25 @@
+{
+    "activity": "Activity",
+    "allActivities": "All activity states",
+    "allLoaded": "All member pages loaded",
+    "allRoles": "All roles",
+    "description": "Loads the complete alliance member list and adds role and activity filters with local sorting.",
+    "direction": "Reverse sort direction",
+    "loadAll": "Load all member pages",
+    "loadError": "Page {page} could not be loaded. You can retry the remaining pages.",
+    "loading": "Loading member page {page} of {totalPages}…",
+    "name": "Alliance member list",
+    "noRole": "No role",
+    "offline": "Offline",
+    "online": "Online",
+    "reset": "Reset",
+    "role": "Role",
+    "sort": "Sort by",
+    "sortOptions": {
+        "activity": "Activity",
+        "default": "Original order",
+        "name": "Name",
+        "role": "Role"
+    },
+    "summary": "Showing {visible} of {total} members · {loadedPages}/{totalPages} pages loaded"
+}
