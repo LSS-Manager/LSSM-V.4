@@ -1,5 +1,5 @@
 /**
- * @file This file contains some shared utility functions used on several points in SAP.
+ * This file contains some shared utility functions used on several points in SAP.
  */
 
 /**
