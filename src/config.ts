@@ -63,6 +63,9 @@ export default {
             name: 'Missionchief.com',
             shortURL: 'missionchief.com',
             police: 'police',
+            // noWWW set to true if game devs make dns
+            // change removing the www. option
+            noWWW: true,
         },
         es_ES: {
             flag: '🇪🇸',
