@@ -34,7 +34,7 @@
         "localforage": "1.10.0",
         "lodash": "4.18.1",
         "mini-svg-data-uri": "1.4.4",
-        "moment": "2.30.1",
+        "moment": "2.31.0",
         "pinia": "2.3.1",
         "qrcode": "1.5.4",
         "semver": "7.8.5",
