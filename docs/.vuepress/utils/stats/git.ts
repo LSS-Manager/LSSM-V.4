@@ -1,6 +1,6 @@
 import { execSync } from 'child_process';
 
-import { simpleGit, type LogResult } from 'simple-git';
+import { type LogResult, simpleGit } from 'simple-git';
 
 import config from '../../../../src/config';
 
