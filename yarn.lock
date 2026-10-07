@@ -3656,14 +3656,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vuepress/plugin-register-components@npm:2.0.0-rc.52":
-  version: 2.0.0-rc.52
-  resolution: "@vuepress/plugin-register-components@npm:2.0.0-rc.52"
+"@vuepress/plugin-register-components@npm:2.0.0-rc.135":
+  version: 2.0.0-rc.135
+  resolution: "@vuepress/plugin-register-components@npm:2.0.0-rc.135"
   dependencies:
-    chokidar: "npm:^3.6.0"
+    chokidar: "npm:^5.0.0"
+    picomatch: "npm:^4.0.7"
   peerDependencies:
-    vuepress: 2.0.0-rc.17
-  checksum: 10c0/8937e957ea84f7c6494f0d11a9bc0c77263d054a5064b914237b239a72795088442dc7d964c2fa240bed83ecb81f837bf5a6071d434fe3dfbdfa6516dccb6bba
+    vuepress: 2.0.0-rc.31
+  checksum: 10c0/a0a354737d863c5b9cca2c89e4c2b325fd2c9839ac94422e6c54ad9f2713ed09cd90874bb004c3214f059a1bb8bd356c9d3cd70bfe742846798b57530fbc9ee0
   languageName: node
   linkType: hard
 
@@ -4808,7 +4809,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chokidar@npm:^3.5.3, chokidar@npm:^3.6.0":
+"chokidar@npm:^3.5.3":
   version: 3.6.0
   resolution: "chokidar@npm:3.6.0"
   dependencies:
@@ -8360,7 +8361,7 @@ __metadata:
     "@vuepress/client": "npm:2.0.0-rc.2"
     "@vuepress/plugin-pwa": "npm:2.0.0-rc.3"
     "@vuepress/plugin-pwa-popup": "npm:2.0.0-rc.14"
-    "@vuepress/plugin-register-components": "npm:2.0.0-rc.52"
+    "@vuepress/plugin-register-components": "npm:2.0.0-rc.135"
     "@vuepress/plugin-search": "npm:2.0.0-rc.3"
     "@vuepress/theme-default": "npm:2.0.0-rc.6"
     cloc: "npm:2.11.0"
@@ -9887,7 +9888,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"picomatch@npm:^4.0.0, picomatch@npm:^4.0.2, picomatch@npm:^4.0.4":
+"picomatch@npm:^4.0.0, picomatch@npm:^4.0.2, picomatch@npm:^4.0.4, picomatch@npm:^4.0.7":
   version: 4.0.7
   resolution: "picomatch@npm:4.0.7"
   checksum: 10c0/beb6ae02c43ae44e84883b90830196d9046b1726ead292adcf7f57945e0bb0d992d68563d87e03b484b6f3c9a5c6defda7523477f047d7f0e663f126cc01787f
