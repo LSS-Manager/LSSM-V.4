@@ -3180,4 +3180,152 @@ export default {
         ],
         possibleBuildings: [0, 18],
     },
+    187: {
+        caption: 'TLF 3000 W',
+        color: '#b12f26',
+        credits: 5_000,
+        coins: 25,
+        staff: {
+            min: 0,
+            max: 3,
+            training: {
+                Feuerwehr: {
+                    wildfire: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [0, 18],
+        waterTank: 3000,
+        pumpCapacity: 2000,
+        pumpType: 'fire',
+        foamTank: 150,
+    },
+    188: {
+        caption: 'TLF 5000 W',
+        color: '#b12f26',
+        credits: 5_000,
+        coins: 25,
+        staff: {
+            min: 0,
+            max: 3,
+            training: {
+                Feuerwehr: {
+                    wildfire: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [0, 18],
+        waterTank: 5000,
+        pumpCapacity: 2000,
+        pumpType: 'fire',
+        foamTank: 500,
+    },
+    189: {
+        caption: 'GTLF 10000 W',
+        color: '#b12f26',
+        credits: 10_000,
+        coins: 25,
+        staff: {
+            min: 0,
+            max: 3,
+            training: {
+                Feuerwehr: {
+                    wildfire: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [0, 18],
+        waterTank: 10000,
+        pumpCapacity: 2000,
+        pumpType: 'fire',
+        foamTank: 1000,
+    },
+    190: {
+        caption: 'GW-Waldbrand',
+        color: '#b12f26',
+        credits: 20_000,
+        coins: 25,
+        staff: {
+            min: 0,
+            max: 3,
+            training: {
+                Feuerwehr: {
+                    wildfire: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck',
+        possibleBuildings: [0, 18],
+        waterTank: 500,
+        pumpCapacity: 500,
+        pumpType: 'fire',
+        foamTank: 50,
+        waterBonus: 10,
+    },
+    191: {
+        caption: 'Anh Waldbrand',
+        color: '#d63c3c',
+        credits: 15000,
+        coins: 20,
+        staff: {
+            min: 0,
+            max: 0,
+            training: {
+                Feuerwehr: {
+                    wildfire: {
+                        min: 1,
+                    },
+                },
+            },
+        },
+        icon: 'trailer',
+        special:
+            'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (GW-Waldbrand, GW-L1, GW-L2, LF-L, MTF-L, GW-L2-Wasser)',
+        isTrailer: true,
+        tractiveVehicles: [
+            190, 11, 104, 105, 106, 107
+        ],
+        possibleBuildings: [0, 18],
+        waterTank: 500,
+        pumpCapacity: 500,
+        pumpType: 'fire',
+        foamTank: 50,
+        waterBonus: 10,
+    },
+    192: {
+        caption: 'AB-Waldbrand',
+        color: '#fd090f',
+        credits: 8000,
+        coins: 12,
+        staff: {
+            min: 0,
+            max: 0,
+            training: {
+                Feuerwehr: {
+                    wildfire: {
+                        min: 1,
+                    },
+                },
+            },
+        },
+        icon: 'square',
+        special: '',
+        isTrailer: true,
+        tractiveVehicles: [46],
+        possibleBuildings: [0, 18],
+        pumpCapacity: 500,
+        pumpType: 'fire',
+        waterBonus: 10,
+    },
 } satisfies Record<number, InternalVehicle>;
