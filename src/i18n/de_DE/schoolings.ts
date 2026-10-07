@@ -121,7 +121,7 @@ export default {
             duration: '1 Tag',
             staffList: 'Wald- und Vegetationsbrandbekämpfung',
             key: 'wildfire',
-      },
+        },
     ],
     Polizei: [
         {

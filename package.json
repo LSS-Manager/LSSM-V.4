@@ -1,6 +1,6 @@
 {
     "name": "lss-manager-v4",
-    "version": "4.7.12+20261005.1903",
+    "version": "4.7.12+20261007.0701",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "quickbuild": "./build/build.sh --quick",
