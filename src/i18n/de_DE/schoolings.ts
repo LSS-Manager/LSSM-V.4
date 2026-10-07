@@ -116,6 +116,12 @@ export default {
             staffList: 'Bahnrettung',
             key: 'railway_fire',
         },
+        {
+            caption: 'Wald- und Vegetationsbrandbekämpfung',
+            duration: '1 Tag',
+            staffList: 'Wald- und Vegetationsbrandbekämpfung',
+            key: 'wildfire',
+      },
     ],
     Polizei: [
         {
