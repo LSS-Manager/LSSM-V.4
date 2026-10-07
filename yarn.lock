@@ -1850,22 +1850,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@microsoft/tsdoc-config@npm:0.18.2":
-  version: 0.18.2
-  resolution: "@microsoft/tsdoc-config@npm:0.18.2"
+"@microsoft/tsdoc-config@npm:0.18.3":
+  version: 0.18.3
+  resolution: "@microsoft/tsdoc-config@npm:0.18.3"
   dependencies:
-    "@microsoft/tsdoc": "npm:0.17.0"
+    "@microsoft/tsdoc": "npm:0.17.1"
     ajv: "npm:~8.18.0"
     jju: "npm:~1.4.0"
     resolve: "npm:~1.22.2"
-  checksum: 10c0/425dbe14dfdbe8891a4ba74cef2d2e420a5f3cb410ce8c00cb743b6c3433ea5676201efe4d2b3c24ac5c88dcc78e361e8fff4dc33cff72e06f5b1b92b7c5b2ad
+  checksum: 10c0/8a065caa452bb7f6aa6b0cf95acad970b7e10af39a856988ba5df7e19bc482444454f7dc48b86d98908b6600b009757c34a769ba302e3bc5ef04d1076ac71fc9
   languageName: node
   linkType: hard
 
-"@microsoft/tsdoc@npm:0.17.0":
-  version: 0.17.0
-  resolution: "@microsoft/tsdoc@npm:0.17.0"
-  checksum: 10c0/e616a6fbe50ccb17afaaa7c566af6089fc77f580d3d96f2744f432de17a524bd5bb685fc7ac248b09c5c19af823cc360fe477cabb4739fbdc7a8734c144de7e8
+"@microsoft/tsdoc@npm:0.17.1":
+  version: 0.17.1
+  resolution: "@microsoft/tsdoc@npm:0.17.1"
+  checksum: 10c0/a8d5dd60edc60a8f4de7b1b260cd0633205457a630316b75fd2afe0a633d3acd3389b4e483c047d681981da89cd6448e8f6e0387dc32533ecd63fbce3a580a92
   languageName: node
   linkType: hard
 
@@ -6109,19 +6109,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-tsdoc@npm:0.5.3":
-  version: 0.5.3
-  resolution: "eslint-plugin-tsdoc@npm:0.5.3"
+"eslint-plugin-tsdoc@npm:0.5.4":
+  version: 0.5.4
+  resolution: "eslint-plugin-tsdoc@npm:0.5.4"
   dependencies:
-    "@microsoft/tsdoc": "npm:0.17.0"
-    "@microsoft/tsdoc-config": "npm:0.18.2"
+    "@microsoft/tsdoc": "npm:0.17.1"
+    "@microsoft/tsdoc-config": "npm:0.18.3"
     "@typescript-eslint/utils": "npm:~8.56.0"
   peerDependencies:
     eslint: ">=7"
   peerDependenciesMeta:
     eslint:
       optional: true
-  checksum: 10c0/d5013fc0496ddf304bfff7a5d45ee9882798a321d6eed316bf1ad2157543deadf8cd355b997292c4a6e878cbe3a1ff2e16e4b8780578c78ee6b577a8c7d698ed
+  checksum: 10c0/8824530a0474323e470cf0dd6b9475dcce32012493c68a0d4bba9303bd5590f4914c5ed9fbb8aec67ae9851057e2cc27573da532f1a6148006574bc8a0788c6f
   languageName: node
   linkType: hard
 
@@ -8420,7 +8420,7 @@ __metadata:
     eslint-plugin-markdownlint: "npm:0.10.1"
     eslint-plugin-prettier: "npm:5.5.6"
     eslint-plugin-regexp: "npm:3.3.1"
-    eslint-plugin-tsdoc: "npm:0.5.3"
+    eslint-plugin-tsdoc: "npm:0.5.4"
     eslint-plugin-unicorn: "npm:73.0.0"
     eslint-plugin-vue: "npm:10.11.0"
     globals: "npm:17.12.0"
