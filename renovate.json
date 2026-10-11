@@ -49,8 +49,8 @@
         },
         {
             "groupName": "All non-major dependencies",
-            "lockFileMaintenance": { "enabled": true },
             "groupSlug": "all-minor-patch",
+            "lockFileMaintenance": { "enabled": true },
             "matchPackageNames": ["*"],
             "matchUpdateTypes": ["minor", "patch"]
         },
