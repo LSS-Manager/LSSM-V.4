@@ -48,6 +48,13 @@
             "separateMajorMinor": false
         },
         {
+            "groupName": "All non-major dependencies",
+            "lockFileMaintenance": { "enabled": true },
+            "groupSlug": "all-minor-patch",
+            "matchPackageNames": ["*"],
+            "matchUpdateTypes": ["minor", "patch"]
+        },
+        {
             "extends": ["schedule:monthly"],
             "groupName": "yarn",
             "lockFileMaintenance": { "enabled": true },
