@@ -111,7 +111,9 @@ export default {
                 Netzersatzanlagen: [111, 113],
                 Verpflegung: [138, 139, 140, 141],
                 Bahnrettung: [162, 163, 164],
-                ['Wald- und Vegetationsbrandbekämpfung']: [187, 188, 189, 190, 191, 192],
+                ['Wald- und Vegetationsbrandbekämpfung']: [
+                    187, 188, 189, 190, 191, 192,
+                ],
             },
             color: '#ff2d2d',
         },

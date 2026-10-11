@@ -3183,7 +3183,7 @@ export default {
     187: {
         caption: 'TLF 3000 W',
         color: '#b12f26',
-        credits: 5_000,
+        credits: 5000,
         coins: 25,
         staff: {
             min: 0,
@@ -3206,7 +3206,7 @@ export default {
     188: {
         caption: 'TLF 5000 W',
         color: '#b12f26',
-        credits: 5_000,
+        credits: 5000,
         coins: 25,
         staff: {
             min: 0,
@@ -3244,7 +3244,7 @@ export default {
         },
         icon: 'truck',
         possibleBuildings: [0, 18],
-        waterTank: 10000,
+        waterTank: 10_000,
         pumpCapacity: 2000,
         pumpType: 'fire',
         foamTank: 1000,
@@ -3276,7 +3276,7 @@ export default {
     191: {
         caption: 'Anh Waldbrand',
         color: '#d63c3c',
-        credits: 15000,
+        credits: 15_000,
         coins: 20,
         staff: {
             min: 0,
@@ -3293,9 +3293,7 @@ export default {
         special:
             'Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (GW-Waldbrand, GW-L1, GW-L2, LF-L, MTF-L, GW-L2-Wasser)',
         isTrailer: true,
-        tractiveVehicles: [
-            190, 11, 104, 105, 106, 107
-        ],
+        tractiveVehicles: [190, 11, 104, 105, 106, 107],
         possibleBuildings: [0, 18],
         waterTank: 500,
         pumpCapacity: 500,
