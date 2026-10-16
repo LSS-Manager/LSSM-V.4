@@ -927,7 +927,7 @@ export default {
             },
         },
         icon: 'truck',
-        possibleBuildings: [0, 12, 15, 18, 22],
+        possibleBuildings: [0, 12, 15, 18],
     },
     64: {
         caption: 'GW-Wasserrettung',
@@ -951,7 +951,7 @@ export default {
             },
         },
         icon: 'truck',
-        possibleBuildings: [0, 12, 15, 18, 22],
+        possibleBuildings: [0, 12, 15, 18],
     },
     65: {
         caption: 'LKW 7 Lkr 19 tm',
@@ -1076,7 +1076,7 @@ export default {
             },
         },
         icon: 'trailer',
-        possibleBuildings: [0, 12, 15, 18, 22],
+        possibleBuildings: [0, 12, 15, 18],
         isTrailer: true,
         tractiveVehicles: [63, 64],
         special:
@@ -1541,7 +1541,7 @@ export default {
             },
         },
         icon: 'paw',
-        possibleBuildings: [6, 11, 17, 19, 22],
+        possibleBuildings: [6, 11, 17, 19],
     },
     95: {
         caption: 'Polizeimotorrad',
@@ -1884,7 +1884,7 @@ export default {
         tractiveVehicles: [
             90, 4, 27, 53, 104, 105, 6, 8, 9, 15, 16, 18, 21, 22,
         ],
-        possibleBuildings: [0, 18],
+        possibleBuildings: [0],
     },
     114: {
         caption: 'GW-Lüfter',
@@ -2953,7 +2953,7 @@ export default {
             'Der Anhänger Technik und Sicherheit wird bei SEG-Einsätzen für den Transport von technischer Ausrüstung und den Infrastrukturaufbau genutzt. Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (GW TeSi)',
     },
     175: {
-        caption: 'Anh NEA50',
+        caption: 'Anh NEA 50',
         color: '#a34100',
         credits: 10_000,
         coins: 15,
@@ -3068,7 +3068,7 @@ export default {
         special: '',
         isTrailer: true,
         tractiveVehicles: [46],
-        possibleBuildings: [0, 18],
+        possibleBuildings: [0],
     },
     181: {
         caption: 'MzGW (FGr BrB)',
