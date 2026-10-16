@@ -2,8 +2,7 @@
  * This feature allows to select users from a suggestion list of alliance members
  * when either typing the name to whisper or to mention in the alliance chat.
  * It also indicates when the user is trying to mention / whisper to an alliance member
- * that does not exist in the alliance.
- * @file - This is the only method in this file.
+ * that does not exist in the alliance. This is the only method in this file.
  * @param LSSM - The current local LSSM instance.
  */
 import faAt from '@fortawesome/fontawesome-free/svgs/solid/at.svg';
