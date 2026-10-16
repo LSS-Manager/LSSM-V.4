@@ -199,7 +199,7 @@ export default {
             'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
     },
     16: {
-        caption: 'SW Kats',
+        caption: 'SW-Kats',
         color: '#a51212',
         credits: 17_300,
         coins: 25,
@@ -597,8 +597,8 @@ export default {
     44: {
         caption: 'Anh DLE',
         color: '#0021f5',
-        credits: 15_000,
-        coins: 25,
+        credits: 10_000,
+        coins: 20,
         staff: { min: 0, max: 0 },
         icon: 'trailer',
         possibleBuildings: [9],
@@ -834,7 +834,7 @@ export default {
     59: {
         caption: 'ELW 1 (SEG)',
         color: '#a34100',
-        credits: 25_500,
+        credits: 5000,
         coins: 25,
         staff: {
             min: 1,
@@ -956,7 +956,7 @@ export default {
     65: {
         caption: 'LKW 7 Lkr 19 tm',
         color: '#123183',
-        credits: 10_000,
+        credits: 15_000,
         coins: 25,
         staff: { min: 1, max: 2 },
         icon: 'truck-pickup',
@@ -1114,7 +1114,7 @@ export default {
     72: {
         caption: 'WaWe 10',
         color: '#36b15d',
-        credits: 13_000,
+        credits: 32_000,
         coins: 25,
         staff: {
             min: 5,
@@ -1493,7 +1493,7 @@ export default {
         caption: 'Anh Hund',
         color: '#131f6e',
         credits: 6000,
-        coins: 0,
+        coins: 12,
         staff: {
             min: 0,
             max: 0,
@@ -1516,7 +1516,7 @@ export default {
         caption: 'MTW-O',
         color: '#14165e',
         credits: 19_000,
-        coins: 0,
+        coins: 13,
         staff: {
             min: 4,
             max: 5,
@@ -1733,7 +1733,7 @@ export default {
         caption: 'GW-L1',
         color: '#330000',
         credits: 8000,
-        coins: 45,
+        coins: 15,
         staff: { min: 1, max: 6 },
         icon: 'truck-ramp-box',
         possibleBuildings: [0, 18],
@@ -1884,7 +1884,7 @@ export default {
         tractiveVehicles: [
             90, 4, 27, 53, 104, 105, 6, 8, 9, 15, 16, 18, 21, 22,
         ],
-        possibleBuildings: [0],
+        possibleBuildings: [0, 18],
     },
     114: {
         caption: 'GW-Lüfter',
@@ -2059,7 +2059,7 @@ export default {
         possibleBuildings: [0, 18],
     },
     127: {
-        caption: 'GW UAS',
+        caption: 'GW-UAS',
         color: '#bb5811',
         credits: 10_000,
         coins: 15,
@@ -2099,7 +2099,7 @@ export default {
             'Der ELW Drohne ist ein Einsatzleitwagen 1 und eine Drohneneinheit für die Ortung und Erkundung aus der Luft.',
     },
     129: {
-        caption: 'ELW2 Drohne',
+        caption: 'ELW 2 Drohne',
         color: '#fd090f',
         credits: 35_000,
         coins: 25,
@@ -2584,7 +2584,7 @@ export default {
         caption: 'Anh Höhenrettung (Bergrettung)',
         color: '#bc7f52',
         credits: 10_000,
-        coins: 15,
+        coins: 10,
         staff: {
             min: 0,
             max: 0,
@@ -2765,8 +2765,8 @@ export default {
     164: {
         caption: 'AB-Schiene',
         color: '#992b22',
-        credits: 25_000,
-        coins: 25,
+        credits: 7_000,
+        coins: 15,
         staff: { min: 0, max: 0 },
         icon: 'square',
         possibleBuildings: [0, 18],
@@ -2803,8 +2803,10 @@ export default {
         },
         icon: 'truck',
         possibleBuildings: [0, 18],
-        waterTank: 5000,
+        waterTank: 4000,
         foamTank: 1000,
+        pumpCapacity: 2000,
+        pumpType: 'fire',
     },
     167: {
         caption: 'SLF',
@@ -2865,7 +2867,7 @@ export default {
         tractiveVehicles: [46],
     },
     171: {
-        caption: 'GW TeSi',
+        caption: 'GW-TeSi',
         color: '#a34100',
         credits: 35_000,
         coins: 25,
@@ -2907,7 +2909,7 @@ export default {
             'Der LKW Technik (Notstrom) unterstützt andere SEG-Einheiten mit Strom und Licht. Dementsprechend ist er ein wichtiger Bestandteil der technischen Infrastruktur bei SEG-Einsätzen.',
     },
     173: {
-        caption: 'MTW TeSi',
+        caption: 'MTW-TeSi',
         color: '#a34100',
         credits: 20_000,
         coins: 25,
@@ -2951,7 +2953,7 @@ export default {
             'Der Anhänger Technik und Sicherheit wird bei SEG-Einsätzen für den Transport von technischer Ausrüstung und den Infrastrukturaufbau genutzt. Es handelt sich um einen Anhänger, der ein Zugfahrzeug benötigt. (GW TeSi)',
     },
     175: {
-        caption: 'NEA50',
+        caption: 'Anh NEA50',
         color: '#a34100',
         credits: 10_000,
         coins: 15,
@@ -3066,7 +3068,7 @@ export default {
         special: '',
         isTrailer: true,
         tractiveVehicles: [46],
-        possibleBuildings: [0],
+        possibleBuildings: [0, 18],
     },
     181: {
         caption: 'MzGW (FGr BrB)',
@@ -3110,8 +3112,8 @@ export default {
     183: {
         caption: 'Anh Plattform (FGr BrB)',
         color: '#001bcc',
-        credits: 50_000,
-        coins: 20,
+        credits: 6000,
+        coins: 12,
         staff: {
             min: 0,
             max: 0,
@@ -3304,7 +3306,7 @@ export default {
     192: {
         caption: 'AB-Waldbrand',
         color: '#fd090f',
-        credits: 8000,
+        credits: 6000,
         coins: 12,
         staff: {
             min: 0,
