@@ -2765,7 +2765,7 @@ export default {
     164: {
         caption: 'AB-Schiene',
         color: '#992b22',
-        credits: 7_000,
+        credits: 7000,
         coins: 15,
         staff: { min: 0, max: 0 },
         icon: 'square',
