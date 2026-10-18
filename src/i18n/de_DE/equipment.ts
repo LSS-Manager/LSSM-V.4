@@ -191,4 +191,17 @@ export default registerEquipment({
         coins: 10,
         staff: { min: 0 },
     },
+    wildfire: {
+        id: 'wildfire',
+        caption: 'RC-Modul: Waldbrand-Unterstützung',
+        size: 15,
+        credits: 8000,
+        coins: 10,
+        staff: {
+            min: 3,
+            training: {
+                Feuerwehr: 'wildfire',
+            },
+        },
+    },
 });

@@ -22,7 +22,7 @@
 // @match        https://www.missionchief.com/*
 // @match        https://police.missionchief.com/*
 // @match        https://www.centro-de-mando.es/*
-// @match        https://www.centro-de-mando.mx/*
+// @match        https://www.centro-de-mando-americas.com/*
 // @match        https://www.hatakeskuspeli.com/*
 // @match        https://poliisi.hatakeskuspeli.com/*
 // @match        https://www.operateur112.fr/*

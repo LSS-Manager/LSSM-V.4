@@ -204,8 +204,8 @@ export default {
                 duration: '5 Tage',
                 isVehicleExtension: true,
                 givesParkingLots: 1,
-                parkingLotReservations: [[126, 128]],
-                unlocksVehicleTypes: [126, 128],
+                parkingLotReservations: [[126, 128, 129]],
+                unlocksVehicleTypes: [126, 128, 129],
             },
             {
                 caption: 'Verpflegungsdienst',
@@ -277,6 +277,18 @@ export default {
                     [11, 104, 105, 106, 107, 108, 185, 186],
                 ],
                 unlocksVehicleTypes: [185, 186],
+            },
+            {
+                caption: 'Wald- und Vegetationsbrandbekämpfung',
+                credits: 200_000,
+                coins: 25,
+                duration: '5 Tage',
+                isVehicleExtension: true,
+                givesParkingLots: 4,
+                parkingLotReservations: [
+                    [187, 188, 189, 190, 191, 192, 11, 104, 105, 106, 107, 46],
+                ],
+                unlocksVehicleTypes: [187, 188, 189, 190, 191, 192],
             },
         ],
         storageUpgrades: {
@@ -603,15 +615,15 @@ export default {
                 duration: '5 Tage',
             },
         },
+        maxLevel: -1,
         levelPrices: {
-            credits: [...Array(6).fill(1_000_000)],
-            coins: [...Array(6).fill(50)],
+            credits: [...Array(25).fill(1_000_000)],
+            coins: [...Array(25).fill(50)],
         },
-        levelcost: ['1.-7. 1.000.000 Credits / 50 Coins'],
+        levelcost: ['jeweils 1.000.000 Credits / 50 Coins'],
         maxBuildings: 'siehe Besonderheiten',
-        maxLevel: 6,
         special:
-            'Pro Station können bis zu 7 Landeplätze gebaut werden (Ausbaustufen). Bis zum 125. Gebäude (aller Art) können insgesamt max. 4 Landeplätze gebaut werden. Danach wächst die Zahl alle 25 Gebäude um 1 (Beginnend beim 125.).',
+            'Jede Ausbaustufe ist ein Landeplatz. Bis zum 125. Gebäude (aller Art) können insgesamt max. 4 Landeplätze gebaut werden. Danach wächst die Zahl alle 25 Gebäude um 1 (Beginnend beim 125.).',
         startPersonnel: 0,
         startParkingLots: 1,
         startVehicles: [],
@@ -1331,8 +1343,8 @@ export default {
         coins: 50,
         credits: 1_000_000,
         levelPrices: {
-            credits: [...Array(6).fill(1_000_000)],
-            coins: [...Array(6).fill(50)],
+            credits: [...Array(25).fill(1_000_000)],
+            coins: [...Array(25).fill(50)],
         },
         extensions: [
             {
@@ -1366,11 +1378,11 @@ export default {
                 duration: '5 Tage',
             },
         },
-        levelcost: ['1.-7. 1.000.000 Credits / 50 Coins'],
+        maxLevel: -1,
+        levelcost: ['jeweils 1.000.000 Credits / 50 Coins'],
         maxBuildings: 'siehe Besonderheiten',
-        maxLevel: 6,
         special:
-            'Pro Station können bis zu 7 Landeplätze gebaut werden (Ausbaustufen). Bis zum 125. Gebäude (aller Art) können insgesamt max. 4 Landeplätze gebaut werden. Danach wächst die Zahl alle 25 Gebäude um 1 (Beginnend beim 125.).',
+            'Jede Ausbaustufe ist ein Landeplatz. Bis zum 125. Gebäude (aller Art) können insgesamt max. 4 Landeplätze gebaut werden. Danach wächst die Zahl alle 25 Gebäude um 1 (Beginnend beim 125.).',
         startPersonnel: 0,
         startParkingLots: 1,
         startVehicles: [],
@@ -1711,6 +1723,18 @@ export default {
                     [11, 104, 105, 106, 107, 108, 185, 186],
                 ],
                 unlocksVehicleTypes: [185, 186],
+            },
+            {
+                caption: 'Wald- und Vegetationsbrandbekämpfung',
+                credits: 200_000,
+                coins: 25,
+                duration: '5 Tage',
+                isVehicleExtension: true,
+                givesParkingLots: 4,
+                parkingLotReservations: [
+                    [187, 188, 189, 190, 191, 192, 11, 104, 105, 106, 107, 46],
+                ],
+                unlocksVehicleTypes: [187, 188, 189, 190, 191, 192],
             },
         ],
         storageUpgrades: {
