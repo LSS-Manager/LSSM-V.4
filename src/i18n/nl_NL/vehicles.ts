@@ -2604,7 +2604,7 @@ export default {
             max: 6,
             training: {
                 Brandweer: {
-                    livestock_fire_count: {
+                    livestock_hoist: {
                         all: true,
                     },
                 },
