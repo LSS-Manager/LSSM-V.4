@@ -170,6 +170,18 @@ export default {
             staffList: 'Officier van Dienst Incidentenbestrijder spoor',
             key: 'railway_elw',
         },
+        {
+            caption: 'Specialist Rietdakbrandbestrijding',
+            duration: '5 Dagen',
+            staffList: 'Specialist Rietdakbrandbestrijding',
+            key: 'thatched_roof_firefighting',
+        },
+        {
+            caption: 'Veeredder',
+            duration: '5 Dagen',
+            staffList: 'Veeredder',
+            key: 'livestock_hoist',
+        },
     ],
     Politie: [
         {
