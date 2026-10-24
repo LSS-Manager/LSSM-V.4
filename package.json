@@ -107,7 +107,7 @@
         "vue-eslint-parser": "10.4.1",
         "vue-loader": "15.10.1",
         "vue-template-compiler": "2.7.16",
-        "webpack": "5.107.0"
+        "webpack": "5.112.0"
     },
     "engines": {
         "node": "24.22.1"
