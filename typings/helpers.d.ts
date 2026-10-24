@@ -2,7 +2,6 @@
  * @file - Type definition extending the window object by ingame defined properties and methods.
  */
 
-import 'i18n-js';
 import type { DefaultProps } from 'vue/types/options';
 import type Highcharts from 'highcharts';
 import type L from 'leaflet';
@@ -51,6 +50,10 @@ declare global {
         URL: typeof URL;
         SharedWorker: typeof SharedWorker;
         $: JQueryStatic;
+        I18n: {
+            locale: string;
+            t(scope: string, options?: Record<string, unknown>): string;
+        };
         sceditor: sceditor;
         keepAlive: boolean;
         tellParent(code: string): void;
