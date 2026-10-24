@@ -39,8 +39,10 @@ const createUserScript = async (local: boolean) => {
 // @icon         ${config.urls.docs}img/lssm.png
 ${Object.values(config.games)
     .map(
-        ({ shortURL, police }) =>
+        ({ shortURL, police, noWWW }) =>
             `// @match        https://www.${shortURL}/*${
+                noWWW ? `\n// @match        https://${shortURL}/*` : ''
+            }${
                 police
                     ? `\n// @match        https://${police}.${shortURL}/*`
                     : ''
