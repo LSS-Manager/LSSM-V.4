@@ -40,6 +40,10 @@ This feature is still under development - Therefore there is no photo yet.
 This feature is still under development - Therefore there is no photo yet.
 :::
 
+## Monospaced Notes
+
+Displays the notes editor in a fixed-width font so that tables, columns, and aligned text remain easy to read.
+
 ## Save Map Jumps
 
 ::: warning Map Type "Mapkit"
