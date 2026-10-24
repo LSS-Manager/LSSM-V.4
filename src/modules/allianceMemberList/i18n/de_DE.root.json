@@ -1,0 +1,25 @@
+{
+    "activity": "Aktivität",
+    "allActivities": "Alle Aktivitätsstatus",
+    "allLoaded": "Alle Mitgliederseiten wurden geladen",
+    "allRoles": "Alle Rollen",
+    "description": "Lädt die vollständige Verbands-Mitgliederliste und ergänzt Rollen- und Aktivitätsfilter mit lokaler Sortierung.",
+    "direction": "Sortierreihenfolge umkehren",
+    "loadAll": "Alle Mitgliederseiten laden",
+    "loadError": "Seite {page} konnte nicht geladen werden. Die übrigen Seiten können erneut geladen werden.",
+    "loading": "Mitgliederseite {page} von {totalPages} wird geladen…",
+    "name": "Verbands-Mitgliederliste",
+    "noRole": "Keine Rolle",
+    "offline": "Offline",
+    "online": "Online",
+    "reset": "Zurücksetzen",
+    "role": "Rolle",
+    "sort": "Sortieren nach",
+    "sortOptions": {
+        "activity": "Aktivität",
+        "default": "Ursprüngliche Reihenfolge",
+        "name": "Name",
+        "role": "Rolle"
+    },
+    "summary": "{visible} von {total} Mitgliedern werden angezeigt · {loadedPages}/{totalPages} Seiten geladen"
+}
