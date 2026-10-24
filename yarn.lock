@@ -2104,12 +2104,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@primer/octicons@npm:19.34.0":
-  version: 19.34.0
-  resolution: "@primer/octicons@npm:19.34.0"
+"@primer/octicons@npm:19.40.0":
+  version: 19.40.0
+  resolution: "@primer/octicons@npm:19.40.0"
   dependencies:
     object-assign: "npm:^4.1.1"
-  checksum: 10c0/b5dc800590aaa9b323b54a3186b700ff7a756a460efb24fbaedb0f8df41d6e85c9867e50a40c7b6029561d34d780a1c3a7c2243f73911a6858da971e3dd38ddc
+  checksum: 10c0/108ae76247e81951c3f71db9e57e0a2407981dcc165ab8b7a5ad7613087af117f4e7604d8a10d6594e7bd5d607e78935ba25b298b6cf375bc346180cf7348e83
   languageName: node
   linkType: hard
 
@@ -2386,12 +2386,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@simple-git/argv-parser@npm:2.0.0":
-  version: 2.0.0
-  resolution: "@simple-git/argv-parser@npm:2.0.0"
+"@simple-git/argv-parser@npm:2.0.1":
+  version: 2.0.1
+  resolution: "@simple-git/argv-parser@npm:2.0.1"
   dependencies:
     "@simple-git/args-pathspec": "npm:^1.0.4"
-  checksum: 10c0/59965b0fcfd3d03df84bdb80bb22be18143b39c21e120178ab07121273c8910ce0e5abb464f59c3f9ce24689aceb3c2d5ff8fea492e2a86ac3075f3a82fa29c6
+  checksum: 10c0/7d2cd9852139ca3b524dcd91f6a887fa505cfb68c8813d7b849005566147365bb1e34f5450411c494fbd714a80c123058e65dc2ffc0b41d059e30bdc98e12223
   languageName: node
   linkType: hard
 
@@ -4017,16 +4017,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn@npm:8.18.0":
-  version: 8.18.0
-  resolution: "acorn@npm:8.18.0"
-  bin:
-    acorn: bin/acorn
-  checksum: 10c0/be771be2135cc07910cf76f444ad514d7dcfd6d4a8026e597e93155275abc8ef61eee12211d52146e9d962874269b634f397464942087be013c89d0c54c5f8e5
-  languageName: node
-  linkType: hard
-
-"acorn@npm:^8.11.0, acorn@npm:^8.15.0, acorn@npm:^8.16.0, acorn@npm:^8.4.1":
+"acorn@npm:8.19.0, acorn@npm:^8.11.0, acorn@npm:^8.15.0, acorn@npm:^8.16.0, acorn@npm:^8.4.1":
   version: 8.19.0
   resolution: "acorn@npm:8.19.0"
   bin:
@@ -6022,9 +6013,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsdoc@npm:65.3.0":
-  version: 65.3.0
-  resolution: "eslint-plugin-jsdoc@npm:65.3.0"
+"eslint-plugin-jsdoc@npm:65.3.8":
+  version: 65.3.8
+  resolution: "eslint-plugin-jsdoc@npm:65.3.8"
   dependencies:
     "@es-joy/jsdoccomment": "npm:~0.98.0"
     "@es-joy/resolve.exports": "npm:1.2.0"
@@ -6047,7 +6038,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10c0/09d047eb9e94fdefd61109cb35d898e65b3b4ac937a783604121b9f94f31d9c1b72e0111559e7ea118f26d5127cba57ff628e72bf17e2c35975e8b73ea59e6b9
+  checksum: 10c0/0d1a71c265faee5b897467d26bca81f6d667de0d67e94a0437c76cac74aa1e9e1421795c9c110f2c5afe8afe51b61aa7ff3297ca4a9d4573775dc7d5d7084c73
   languageName: node
   linkType: hard
 
@@ -7014,10 +7005,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"highcharts@npm:11.4.8":
-  version: 11.4.8
-  resolution: "highcharts@npm:11.4.8"
-  checksum: 10c0/6169d82a5708bc02a38e71a27d7fe710190021d0b4cce663a8acc2b92d150446ce858ed05475f2cbc837832ffdcd3908572e6a5b37b0809edbc3fefcae206a65
+"highcharts@npm:11.4.9":
+  version: 11.4.9
+  resolution: "highcharts@npm:11.4.9"
+  peerDependencies:
+    jspdf: ^4.1.0
+    svg2pdf.js: ^2.7.0
+  peerDependenciesMeta:
+    jspdf:
+      optional: true
+    svg2pdf.js:
+      optional: true
+  checksum: 10c0/f0baeba578f7ddaeb4e5cc1c124c8ba0d8132131c77f1f934bfe9d2a4c460cf91cdd2ac5dd446d3ecb3504eb23f82cc2cad1c0c25cf62b93ebe650f4b171dd2f
   languageName: node
   linkType: hard
 
@@ -8350,7 +8349,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "lss-manager-v4-docs@workspace:docs/.vuepress"
   dependencies:
-    "@primer/octicons": "npm:19.34.0"
+    "@primer/octicons": "npm:19.40.0"
     "@vuepress/bundler-vite": "npm:2.0.0-rc.7"
     "@vuepress/client": "npm:2.0.0-rc.2"
     "@vuepress/plugin-pwa": "npm:2.0.0-rc.3"
@@ -8361,7 +8360,7 @@ __metadata:
     cloc: "npm:2.11.0"
     moment: "npm:2.31.0"
     showdown: "npm:2.1.0"
-    simple-git: "npm:4.0.1"
+    simple-git: "npm:4.0.2"
     vue: "npm:3.5.44"
     vuepress: "npm:2.0.0-rc.2"
     vuepress-plugin-sitemap2: "npm:2.0.0-rc.16"
@@ -8398,7 +8397,7 @@ __metadata:
     "@types/webpack-env": "npm:1.18.8"
     "@typescript-eslint/eslint-plugin": "npm:8.71.2"
     "@typescript-eslint/parser": "npm:8.71.2"
-    acorn: "npm:8.18.0"
+    acorn: "npm:8.19.0"
     acorn-walk: "npm:8.3.5"
     all-contributors-cli: "npm:6.26.1"
     broadcast-channel: "npm:4.20.2"
@@ -8411,7 +8410,7 @@ __metadata:
     eslint-import-resolver-typescript: "npm:4.4.5"
     eslint-plugin-compat: "npm:7.0.2"
     eslint-plugin-import: "npm:2.32.0"
-    eslint-plugin-jsdoc: "npm:65.3.0"
+    eslint-plugin-jsdoc: "npm:65.3.8"
     eslint-plugin-markdownlint: "npm:1.0.0"
     eslint-plugin-prettier: "npm:5.5.7"
     eslint-plugin-regexp: "npm:3.3.1"
@@ -8420,7 +8419,7 @@ __metadata:
     eslint-plugin-vue: "npm:10.11.1"
     globals: "npm:17.13.0"
     he: "npm:1.2.0"
-    highcharts: "npm:11.4.8"
+    highcharts: "npm:11.4.9"
     highcharts-vue: "npm:1.4.3"
     html-loader: "npm:5.1.0"
     husky: "npm:9.1.7"
@@ -8448,7 +8447,7 @@ __metadata:
     url-loader: "npm:4.1.1"
     util: "npm:0.12.5"
     vue: "npm:2.7.16"
-    vue-eslint-parser: "npm:10.3.0"
+    vue-eslint-parser: "npm:10.4.1"
     vue-i18n: "npm:8.28.2"
     vue-i18n-composable: "npm:2.0.0"
     vue-js-modal: "npm:2.0.1"
@@ -10999,16 +10998,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"simple-git@npm:4.0.1":
-  version: 4.0.1
-  resolution: "simple-git@npm:4.0.1"
+"simple-git@npm:4.0.2":
+  version: 4.0.2
+  resolution: "simple-git@npm:4.0.2"
   dependencies:
     "@kwsites/file-exists": "npm:^1.1.1"
     "@kwsites/promise-deferred": "npm:^1.1.1"
     "@simple-git/args-pathspec": "npm:1.0.4"
-    "@simple-git/argv-parser": "npm:2.0.0"
+    "@simple-git/argv-parser": "npm:2.0.1"
     debug: "npm:^4.4.0"
-  checksum: 10c0/e0157d2598520e02386c879cb3f349e1072f05c5f2d6768e482bdfa95a029b829772617a83bfc86c319d041cde6f0ad3f4dfecccf853377850261beedb362283
+  checksum: 10c0/d028927258fa286d9d8e462f29ec6a37a32398acd7e53cef7fc81e70636c149d7359a542d1a4f8490b342d40d98e341c35c718734aec448fc24fdee88566e981
   languageName: node
   linkType: hard
 
@@ -12172,9 +12171,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-eslint-parser@npm:10.3.0":
-  version: 10.3.0
-  resolution: "vue-eslint-parser@npm:10.3.0"
+"vue-eslint-parser@npm:10.4.1":
+  version: 10.4.1
+  resolution: "vue-eslint-parser@npm:10.4.1"
   dependencies:
     debug: "npm:^4.4.0"
     eslint-scope: "npm:^8.2.0 || ^9.0.0"
@@ -12184,7 +12183,7 @@ __metadata:
     semver: "npm:^7.6.3"
   peerDependencies:
     eslint: ^8.57.0 || ^9.0.0 || ^10.0.0
-  checksum: 10c0/139e52d8d6fbf2c686455b746ad3b3b111d4a2e0ed2a3a92db4daf31500ed86c77934aad27f114d1de46672d9a83ec5266dc3df59da8656ce0f877a5cc6ca155
+  checksum: 10c0/f6181b4d4ac17a5c06484aed40022997f65622a037ccc21797c88e55ab93f4ad21c95c93c466777f7a139ffb8bf750c889ef48e1ea16882e6617f6405c1d2013
   languageName: node
   linkType: hard
 
