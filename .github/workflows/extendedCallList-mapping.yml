@@ -12,7 +12,7 @@ jobs:
         name: '[🍾] Check extendedCallList event mapping'
         steps:
             - name: '[📥] checkout'
-              uses: actions/checkout@v6.1.0
+              uses: actions/checkout@v7.0.1
               with:
                   fetch-depth: 0
 
