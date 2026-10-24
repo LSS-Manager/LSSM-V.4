@@ -23,12 +23,12 @@
         "@fortawesome/free-regular-svg-icons": "7.3.1",
         "@fortawesome/free-solid-svg-icons": "7.3.1",
         "@fortawesome/vue-fontawesome": "2.0.10",
-        "acorn": "8.18.0",
+        "acorn": "8.19.0",
         "acorn-walk": "8.3.5",
         "broadcast-channel": "4.20.2",
         "emoji-toolkit": "11.0.0",
         "he": "1.2.0",
-        "highcharts": "11.4.8",
+        "highcharts": "11.4.9",
         "highcharts-vue": "1.4.3",
         "leaflet.heat": "0.2.0",
         "localforage": "1.10.0",
@@ -81,7 +81,7 @@
         "eslint-import-resolver-typescript": "4.4.5",
         "eslint-plugin-compat": "7.0.2",
         "eslint-plugin-import": "2.32.0",
-        "eslint-plugin-jsdoc": "65.3.0",
+        "eslint-plugin-jsdoc": "65.4.2",
         "eslint-plugin-markdownlint": "1.0.0",
         "eslint-plugin-prettier": "5.5.7",
         "eslint-plugin-regexp": "3.3.1",
@@ -104,13 +104,13 @@
         "typescript": "5.9.3",
         "url-loader": "4.1.1",
         "util": "0.12.5",
-        "vue-eslint-parser": "10.3.0",
+        "vue-eslint-parser": "10.4.1",
         "vue-loader": "15.10.1",
         "vue-template-compiler": "2.7.16",
         "webpack": "5.107.0"
     },
     "engines": {
-        "node": "24.22.0"
+        "node": "24.22.1"
     },
     "packageManager": "yarn@4.18.1",
     "workspaces": [
