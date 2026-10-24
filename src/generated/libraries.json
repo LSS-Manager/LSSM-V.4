@@ -39,7 +39,7 @@
     "@primer/octicons": {
         "icon": "https://avatars.githubusercontent.com/u/7143434",
         "url": "https://primer.style/octicons",
-        "version": "19.34.0"
+        "version": "19.40.0"
     },
     "@types/he": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -167,7 +167,7 @@
     "acorn": {
         "icon": "https://avatars.githubusercontent.com/u/34631683",
         "url": "https://github.com/acornjs/acorn",
-        "version": "8.18.0"
+        "version": "8.19.0"
     },
     "acorn-walk": {
         "icon": "https://avatars.githubusercontent.com/u/34631683",
@@ -229,7 +229,7 @@
     },
     "eslint-plugin-jsdoc": {
         "url": "https://github.com/gajus/eslint-plugin-jsdoc#readme",
-        "version": "65.3.0"
+        "version": "65.3.8"
     },
     "eslint-plugin-markdownlint": {
         "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",
@@ -269,7 +269,7 @@
     "highcharts": {
         "icon": "https://wp-assets.highcharts.com/svg/logo2021.svg",
         "url": "http://www.highcharts.com",
-        "version": "11.4.8"
+        "version": "11.4.9"
     },
     "highcharts-vue": {
         "icon": "https://wp-assets.highcharts.com/svg/logo2021.svg",
@@ -351,7 +351,7 @@
         "version": "2.1.0"
     },
     "simple-git": {
-        "version": "4.0.1"
+        "version": "4.0.2"
     },
     "simpleheat": {
         "url": "https://github.com/mourner/simpleheat",
@@ -398,7 +398,7 @@
     },
     "vue-eslint-parser": {
         "url": "https://github.com/vuejs/vue-eslint-parser#readme",
-        "version": "10.3.0"
+        "version": "10.4.1"
     },
     "vue-i18n": {
         "icon": "https://vue-i18n.intlify.dev/vue-i18n-logo.svg",
