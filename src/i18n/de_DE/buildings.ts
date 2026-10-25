@@ -1235,6 +1235,7 @@ export default {
                 unlocksVehicleTypes: [59],
                 parkingLotReservations: [[59]],
                 unlockedVehiclesOnReservedLotsOnly: true,
+                cannotDisable: true,
             },
             {
                 caption: 'Sanitätsdienst',
