@@ -6979,7 +6979,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"he@npm:1.2.0, he@npm:^1.2.0":
+"he@npm:2.0.0":
+  version: 2.0.0
+  resolution: "he@npm:2.0.0"
+  bin:
+    he: bin/he.mjs
+  checksum: 10c0/f9473dd85ffe3fdbba85eaa959880ab1932e7ca07c6de5fe70f6bbbc652008c2a16223b4d6fa05ff148e8d1f46fc90ff12de9c576d7ff39085660cd25cdbe378
+  languageName: node
+  linkType: hard
+
+"he@npm:^1.2.0":
   version: 1.2.0
   resolution: "he@npm:1.2.0"
   bin:
@@ -8410,7 +8419,7 @@ __metadata:
     eslint-plugin-unicorn: "npm:78.0.0"
     eslint-plugin-vue: "npm:10.11.1"
     globals: "npm:17.13.0"
-    he: "npm:1.2.0"
+    he: "npm:2.0.0"
     highcharts: "npm:11.4.9"
     highcharts-vue: "npm:1.4.3"
     html-loader: "npm:5.1.0"
