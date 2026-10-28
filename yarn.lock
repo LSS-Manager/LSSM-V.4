@@ -2519,13 +2519,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/i18n-js@npm:3.8.9":
-  version: 3.8.9
-  resolution: "@types/i18n-js@npm:3.8.9"
-  checksum: 10c0/40d3ef86594e8a438b2565a4498fce515336d08ed11cc67f3ad649a18cc436fc112a887924a4f466f73e742de7d488ac264b44928652e3ab9e8116b9bda34dd5
-  languageName: node
-  linkType: hard
-
 "@types/jquery@npm:4.0.1":
   version: 4.0.1
   resolution: "@types/jquery@npm:4.0.1"
@@ -8380,7 +8373,6 @@ __metadata:
     "@fortawesome/free-solid-svg-icons": "npm:7.3.1"
     "@fortawesome/vue-fontawesome": "npm:2.0.10"
     "@types/he": "npm:1.2.3"
-    "@types/i18n-js": "npm:3.8.9"
     "@types/jquery": "npm:4.0.1"
     "@types/js-yaml": "npm:4.0.9"
     "@types/leaflet": "npm:1.9.22"
