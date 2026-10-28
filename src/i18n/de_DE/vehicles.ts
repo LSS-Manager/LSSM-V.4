@@ -13,6 +13,7 @@ export default {
         pumpCapacity: 2000,
         pumpType: 'fire',
         foamTank: 150,
+        canBeRefit: true,
     },
     1: {
         caption: 'LF 10',
@@ -26,6 +27,7 @@ export default {
         pumpCapacity: 1000,
         pumpType: 'fire',
         foamTank: 150,
+        canBeRefit: true,
     },
     2: {
         caption: 'DLK 23',
@@ -79,6 +81,7 @@ export default {
         pumpCapacity: 800,
         pumpType: 'fire',
         foamTank: 150,
+        canBeRefit: true,
     },
     7: {
         caption: 'LF 20/16',
@@ -92,6 +95,7 @@ export default {
         pumpCapacity: 2000,
         pumpType: 'fire',
         foamTank: 150,
+        canBeRefit: true,
     },
     8: {
         caption: 'LF 10/6',
@@ -105,6 +109,7 @@ export default {
         pumpCapacity: 1000,
         pumpType: 'fire',
         foamTank: 150,
+        canBeRefit: true,
     },
     9: {
         caption: 'LF 16-TS',
@@ -118,6 +123,7 @@ export default {
         pumpCapacity: 1600,
         pumpType: 'fire',
         foamTank: 150,
+        canBeRefit: true,
     },
     10: {
         caption: 'GW-Öl',
@@ -222,6 +228,7 @@ export default {
         pumpCapacity: 1000,
         pumpType: 'fire',
         foamTank: 150,
+        canBeRefit: true,
     },
     18: {
         caption: 'TLF 3000',
@@ -235,6 +242,7 @@ export default {
         pumpCapacity: 2000,
         pumpType: 'fire',
         foamTank: 150,
+        canBeRefit: true,
     },
     19: {
         caption: 'TLF 8/8',
@@ -248,6 +256,7 @@ export default {
         pumpCapacity: 800,
         pumpType: 'fire',
         foamTank: 150,
+        canBeRefit: true,
     },
     20: {
         caption: 'TLF 8/18',
@@ -261,6 +270,7 @@ export default {
         pumpCapacity: 800,
         pumpType: 'fire',
         foamTank: 150,
+        canBeRefit: true,
     },
     21: {
         caption: 'TLF 16/24-Tr',
@@ -274,6 +284,7 @@ export default {
         pumpCapacity: 1600,
         pumpType: 'fire',
         foamTank: 150,
+        canBeRefit: true,
     },
     22: {
         caption: 'TLF 16/25',
@@ -287,6 +298,7 @@ export default {
         pumpCapacity: 1600,
         pumpType: 'fire',
         foamTank: 750,
+        canBeRefit: true,
     },
     23: {
         caption: 'TLF 16/45',
@@ -300,6 +312,7 @@ export default {
         pumpCapacity: 1600,
         pumpType: 'fire',
         foamTank: 750,
+        canBeRefit: true,
     },
     24: {
         caption: 'TLF 20/40',
@@ -313,6 +326,7 @@ export default {
         pumpCapacity: 2000,
         pumpType: 'fire',
         foamTank: 150,
+        canBeRefit: true,
     },
     25: {
         caption: 'TLF 20/40-SL',
@@ -326,6 +340,7 @@ export default {
         pumpCapacity: 2000,
         pumpType: 'fire',
         foamTank: 750,
+        canBeRefit: true,
     },
     26: {
         caption: 'TLF 16',
@@ -339,6 +354,7 @@ export default {
         pumpCapacity: 1600,
         pumpType: 'fire',
         foamTank: 150,
+        canBeRefit: true,
     },
     27: {
         caption: 'GW-Gefahrgut',
@@ -406,6 +422,7 @@ export default {
         pumpCapacity: 2000,
         pumpType: 'fire',
         foamTank: 150,
+        canBeRefit: true,
     },
     31: {
         caption: 'RTH',
@@ -516,6 +533,7 @@ export default {
         pumpCapacity: 1000,
         pumpType: 'fire',
         foamTank: 150,
+        canBeRefit: true,
     },
     38: {
         caption: 'KTW',
@@ -1202,6 +1220,7 @@ export default {
         possibleBuildings: [0, 18],
         waterTank: 12_000,
         foamTank: 1500,
+        canBeRefit: true,
     },
     76: {
         caption: 'Rettungstreppe',
@@ -1377,6 +1396,7 @@ export default {
         possibleBuildings: [0, 18],
         waterTank: 5000,
         foamTank: 3000,
+        canBeRefit: true,
     },
     85: {
         caption: 'TM 50',
@@ -1441,6 +1461,7 @@ export default {
         pumpCapacity: 1000,
         pumpType: 'fire',
         foamTank: 150,
+        canBeRefit: true,
     },
     89: {
         caption: 'MLF',
@@ -1454,6 +1475,7 @@ export default {
         pumpCapacity: 1000,
         pumpType: 'fire',
         foamTank: 150,
+        canBeRefit: true,
     },
     90: {
         caption: 'HLF 10',
@@ -1467,6 +1489,7 @@ export default {
         pumpCapacity: 1000,
         pumpType: 'fire',
         foamTank: 150,
+        canBeRefit: true,
     },
     91: {
         caption: 'Rettungshundefahrzeug',
@@ -1772,6 +1795,7 @@ export default {
         pumpType: 'fire',
         equipmentCapacity: 15,
         foamTank: 150,
+        canBeRefit: true,
     },
     108: {
         caption: 'AB-L',
@@ -1962,6 +1986,7 @@ export default {
         waterTank: 8000,
         isTrailer: true,
         tractiveVehicles: [46],
+        canBeRefit: true,
     },
     120: {
         caption: 'Tankwagen',
@@ -1983,6 +2008,7 @@ export default {
         possibleBuildings: [0, 18],
         waterTank: 10_000,
         foamTank: 1500,
+        canBeRefit: true,
     },
     122: {
         caption: 'LKW 7 Lbw (FGr E)',
@@ -2761,6 +2787,7 @@ export default {
         pumpCapacity: 2400,
         pumpType: 'fire',
         foamTank: 150,
+        canBeRefit: true,
     },
     164: {
         caption: 'AB-Schiene',
@@ -2807,6 +2834,7 @@ export default {
         foamTank: 1000,
         pumpCapacity: 2000,
         pumpType: 'fire',
+        canBeRefit: true,
     },
     167: {
         caption: 'SLF',
@@ -2821,6 +2849,7 @@ export default {
         possibleBuildings: [0, 18],
         waterTank: 3500,
         foamTank: 5000,
+        canBeRefit: true,
     },
     168: {
         caption: 'Anh Sonderlöschmittel',
@@ -2840,6 +2869,7 @@ export default {
             90, 4, 27, 53, 104, 105, 6, 8, 9, 15, 16, 18, 21, 22, 36,
         ],
         possibleBuildings: [0, 18],
+        canBeRefit: true,
     },
     169: {
         caption: 'AB-Sonderlöschmittel',
@@ -2852,6 +2882,7 @@ export default {
         foamTank: 10_000,
         isTrailer: true,
         tractiveVehicles: [46],
+        canBeRefit: true,
     },
     170: {
         caption: 'AB-Wasser/Schaum',
@@ -2865,6 +2896,7 @@ export default {
         waterTank: 3000,
         isTrailer: true,
         tractiveVehicles: [46],
+        canBeRefit: true,
     },
     171: {
         caption: 'GW-TeSi',
