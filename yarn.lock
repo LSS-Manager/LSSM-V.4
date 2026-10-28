@@ -7005,9 +7005,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"highcharts@npm:11.4.9":
-  version: 11.4.9
-  resolution: "highcharts@npm:11.4.9"
+"highcharts@npm:13.1.1":
+  version: 13.1.1
+  resolution: "highcharts@npm:13.1.1"
   peerDependencies:
     jspdf: ^4.1.0
     svg2pdf.js: ^2.7.0
@@ -7016,7 +7016,7 @@ __metadata:
       optional: true
     svg2pdf.js:
       optional: true
-  checksum: 10c0/f0baeba578f7ddaeb4e5cc1c124c8ba0d8132131c77f1f934bfe9d2a4c460cf91cdd2ac5dd446d3ecb3504eb23f82cc2cad1c0c25cf62b93ebe650f4b171dd2f
+  checksum: 10c0/c2ce45fa2bf2112572b82ff2c0f26196f42ccd5858a14de9296457d4f7a840a624f0d018601004019f857179781d939627d1015aa182d0e45e5ecb831e663cb5
   languageName: node
   linkType: hard
 
@@ -8419,7 +8419,7 @@ __metadata:
     eslint-plugin-vue: "npm:10.11.1"
     globals: "npm:17.13.0"
     he: "npm:1.2.0"
-    highcharts: "npm:11.4.9"
+    highcharts: "npm:13.1.1"
     highcharts-vue: "npm:1.4.3"
     html-loader: "npm:5.1.0"
     husky: "npm:9.1.7"
