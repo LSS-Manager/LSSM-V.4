@@ -228,8 +228,9 @@ export default {
                     duration: '3 Tage',
                     isVehicleExtension: true,
                     givesParkingLots: 1,
-                    unlocksVehicleTypes: [143],
-                    parkingLotReservations: [[143]],
+                    unlocksVehicleTypes: [],
+                    parkingLotReservations: [[70, 111, 115, 141, 143, 168, 186, 191,]],
+
                     cannotDisable: true,
                     unlockedVehiclesOnReservedLotsOnly: true,
                 },
@@ -1609,6 +1610,7 @@ export default {
                 },
                 2
             ),
+            ...multiplyExtension(null, 3),
             {
                 caption: 'Wasserrettung',
                 credits: 400_000,
@@ -1618,6 +1620,7 @@ export default {
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [64, 63, 70],
             },
+            null,
             {
                 caption: 'Flughafenfeuerwehr',
                 credits: 300_000,
@@ -1638,6 +1641,7 @@ export default {
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [75, 76],
             },
+            ...multiplyExtension(null, 4),
             {
                 caption: 'Werkfeuerwehr',
                 credits: 100_000,
@@ -1656,6 +1660,7 @@ export default {
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [111],
             },
+            null,
             {
                 caption: 'Großlüfter',
                 credits: 75_000,
@@ -1665,6 +1670,7 @@ export default {
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [114, 115, 116],
             },
+            null,
             {
                 caption: 'Drohneneinheit',
                 credits: 150_000,
@@ -1696,13 +1702,14 @@ export default {
                     duration: '3 Tage',
                     isVehicleExtension: true,
                     givesParkingLots: 1,
-                    unlocksVehicleTypes: [143],
-                    parkingLotReservations: [[143]],
+                    unlocksVehicleTypes: [],
+                    parkingLotReservations: [[70, 111, 115, 141, 143, 168, 186, 191,]],
                     cannotDisable: true,
                     unlockedVehiclesOnReservedLotsOnly: true,
                 },
                 2
             ),
+            ...multiplyExtension(null, 3),
             {
                 caption: 'Bahnrettung',
                 credits: 150_000,
@@ -1713,6 +1720,7 @@ export default {
                 parkingLotReservations: [[162, 163]],
                 unlocksVehicleTypes: [162, 163, 164],
             },
+            ...multiplyExtension(null, 3),
             {
                 caption: 'Tierrettung',
                 credits: 100_000,
@@ -2154,11 +2162,9 @@ export default {
         startVehicles: [],
         schoolingTypes: ['Wasserrettung'],
         schools: [27],
-        //      TODO: MaxBuildingzählung muss angepasst werden
-        //        maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-        //            buildingsAmountTotal < 125
-        //                ? 4
-        //                : Math.floor(buildingsAmountTotal / 25),
+        //      TODO: MaxBuildingzählung muss angepasst werden -- das sollte die formel sein, woher der wert stammen soll konnte ich nicht ermitteln
+        //        maxBuildingsFunction: (coastalRescueStationAmount: number): number =>
+        //                 Math.max(2, Math.floor(coastalRescueStationAmount / 5)),
         icon: 'helicopter',
     },
     29: {
