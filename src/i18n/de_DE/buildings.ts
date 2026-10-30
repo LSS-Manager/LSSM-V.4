@@ -1609,6 +1609,7 @@ export default {
                 },
                 2
             ),
+            ...multiplyExtension(null, 3),
             {
                 caption: 'Wasserrettung',
                 credits: 400_000,
@@ -1618,6 +1619,7 @@ export default {
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [64, 63, 70],
             },
+            ...multiplyExtension(null, 1),
             {
                 caption: 'Flughafenfeuerwehr',
                 credits: 300_000,
@@ -1638,6 +1640,7 @@ export default {
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [75, 76],
             },
+            ...multiplyExtension(null, 4),
             {
                 caption: 'Werkfeuerwehr',
                 credits: 100_000,
@@ -1656,6 +1659,7 @@ export default {
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [111],
             },
+            ...multiplyExtension(null, 1),
             {
                 caption: 'Großlüfter',
                 credits: 75_000,
@@ -1665,6 +1669,7 @@ export default {
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [114, 115, 116],
             },
+            ...multiplyExtension(null, 1),
             {
                 caption: 'Drohneneinheit',
                 credits: 150_000,
@@ -1703,6 +1708,7 @@ export default {
                 },
                 2
             ),
+            ...multiplyExtension(null, 3),
             {
                 caption: 'Bahnrettung',
                 credits: 150_000,
@@ -1713,6 +1719,7 @@ export default {
                 parkingLotReservations: [[162, 163]],
                 unlocksVehicleTypes: [162, 163, 164],
             },
+            ...multiplyExtension(null, 3),
             {
                 caption: 'Tierrettung',
                 credits: 100_000,
