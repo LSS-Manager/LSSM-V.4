@@ -85,6 +85,7 @@ interface BaseVehicle {
     };
     icon: IconName;
     possibleBuildings: number[];
+    canBeRefit?: boolean;
 
     // tank
     waterTank?: number;
