@@ -1,3 +1,5 @@
+import onMissionListRendered from './utils/onMissionListRendered';
+
 import type { MissionMarkerAdd } from 'typings/Ingame';
 
 export default (
@@ -75,4 +77,6 @@ export default (
             if (panel) checkEvent(panel);
         },
     });
+
+    onMissionListRendered(LSSM, panel => checkEvent(panel));
 };

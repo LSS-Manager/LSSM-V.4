@@ -1,3 +1,5 @@
+import onMissionListRendered from './utils/onMissionListRendered';
+
 import type {
     MissionMarkerAdd,
     PatientMarkerAdd,
@@ -110,6 +112,8 @@ export default (
             if (panel) setPatients(panel);
         },
     });
+
+    onMissionListRendered(LSSM, panel => setPatients(panel));
 
     LSSM.$stores.root.hook({
         event: 'patientMarkerAdd',

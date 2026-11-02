@@ -1,3 +1,4 @@
+import onMissionListRendered from '../utils/onMissionListRendered';
 import {
     getCityFromAddress,
     getZipFromCity,
@@ -623,6 +624,8 @@ export default async (
             if (panel) setMissionOrder(panel);
         },
     });
+
+    onMissionListRendered(LSSM, panel => setMissionOrder(panel));
 
     LSSM.$stores.root.hook({
         event: 'missionDelete',
