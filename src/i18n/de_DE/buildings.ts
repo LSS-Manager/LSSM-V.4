@@ -229,7 +229,9 @@ export default {
                     isVehicleExtension: true,
                     givesParkingLots: 1,
                     unlocksVehicleTypes: [],
-                    parkingLotReservations: [[70, 111, 115, 141, 143, 168, 186, 191,]],
+                    parkingLotReservations: [
+                        [70, 111, 115, 141, 143, 168, 186, 191],
+                    ],
 
                     cannotDisable: true,
                     unlockedVehiclesOnReservedLotsOnly: true,
@@ -1703,7 +1705,9 @@ export default {
                     isVehicleExtension: true,
                     givesParkingLots: 1,
                     unlocksVehicleTypes: [],
-                    parkingLotReservations: [[70, 111, 115, 141, 143, 168, 186, 191,]],
+                    parkingLotReservations: [
+                        [70, 111, 115, 141, 143, 168, 186, 191],
+                    ],
                     cannotDisable: true,
                     unlockedVehiclesOnReservedLotsOnly: true,
                 },
