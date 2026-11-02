@@ -228,8 +228,9 @@ export default {
                     duration: '3 Tage',
                     isVehicleExtension: true,
                     givesParkingLots: 1,
-                    unlocksVehicleTypes: [143],
-                    parkingLotReservations: [[143]],
+                    unlocksVehicleTypes: [],
+                    parkingLotReservations: [[70, 111, 115, 141, 143, 168, 186, 191,]],
+
                     cannotDisable: true,
                     unlockedVehiclesOnReservedLotsOnly: true,
                 },
@@ -1701,8 +1702,8 @@ export default {
                     duration: '3 Tage',
                     isVehicleExtension: true,
                     givesParkingLots: 1,
-                    unlocksVehicleTypes: [143],
-                    parkingLotReservations: [[143]],
+                    unlocksVehicleTypes: [],
+                    parkingLotReservations: [[70, 111, 115, 141, 143, 168, 186, 191,]],
                     cannotDisable: true,
                     unlockedVehiclesOnReservedLotsOnly: true,
                 },
@@ -2161,11 +2162,9 @@ export default {
         startVehicles: [],
         schoolingTypes: ['Wasserrettung'],
         schools: [27],
-        //      TODO: MaxBuildingzählung muss angepasst werden
-        //        maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-        //            buildingsAmountTotal < 125
-        //                ? 4
-        //                : Math.floor(buildingsAmountTotal / 25),
+        //      TODO: MaxBuildingzählung muss angepasst werden -- das sollte die formel sein, woher der wert stammen soll konnte ich nicht ermitteln
+        //        maxBuildingsFunction: (coastalRescueStationAmount: number): number =>
+        //                 Math.max(2, Math.floor(coastalRescueStationAmount / 5)),
         icon: 'helicopter',
     },
     29: {
