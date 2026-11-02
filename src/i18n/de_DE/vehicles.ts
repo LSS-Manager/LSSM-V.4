@@ -3236,6 +3236,7 @@ export default {
         pumpCapacity: 2000,
         pumpType: 'fire',
         foamTank: 150,
+        canBeRefit: true,
     },
     188: {
         caption: 'TLF 5000 W',
@@ -3259,6 +3260,7 @@ export default {
         pumpCapacity: 2000,
         pumpType: 'fire',
         foamTank: 500,
+        canBeRefit: true,
     },
     189: {
         caption: 'GTLF 10000 W',
@@ -3282,6 +3284,7 @@ export default {
         pumpCapacity: 2000,
         pumpType: 'fire',
         foamTank: 1000,
+        canBeRefit: true,
     },
     190: {
         caption: 'GW-Waldbrand',
@@ -3306,6 +3309,7 @@ export default {
         pumpType: 'fire',
         foamTank: 50,
         waterBonus: 10,
+        canBeRefit: true,
     },
     191: {
         caption: 'Anh Waldbrand',
@@ -3334,6 +3338,7 @@ export default {
         pumpType: 'fire',
         foamTank: 50,
         waterBonus: 10,
+        canBeRefit: true,
     },
     192: {
         caption: 'AB-Waldbrand',
@@ -3359,5 +3364,6 @@ export default {
         pumpCapacity: 500,
         pumpType: 'fire',
         waterBonus: 10,
+        canBeRefit: true,
     },
 } satisfies Record<number, InternalVehicle>;
