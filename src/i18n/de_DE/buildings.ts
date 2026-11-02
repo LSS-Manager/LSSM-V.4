@@ -1620,7 +1620,7 @@ export default {
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [64, 63, 70],
             },
-            null,
+            ...multiplyExtension(null, 1),
             {
                 caption: 'Flughafenfeuerwehr',
                 credits: 300_000,
@@ -1660,7 +1660,7 @@ export default {
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [111],
             },
-            null,
+            ...multiplyExtension(null, 1),
             {
                 caption: 'Großlüfter',
                 credits: 75_000,
@@ -1670,7 +1670,7 @@ export default {
                 givesParkingLots: 0,
                 unlocksVehicleTypes: [114, 115, 116],
             },
-            null,
+            ...multiplyExtension(null, 1),
             {
                 caption: 'Drohneneinheit',
                 credits: 150_000,
