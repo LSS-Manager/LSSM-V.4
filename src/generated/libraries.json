@@ -39,7 +39,7 @@
     "@primer/octicons": {
         "icon": "https://avatars.githubusercontent.com/u/7143434",
         "url": "https://primer.style/octicons",
-        "version": "19.40.0"
+        "version": "19.42.0"
     },
     "@types/he": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -64,7 +64,7 @@
     "@types/lodash": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/lodash",
-        "version": "4.17.26"
+        "version": "4.17.27"
     },
     "@types/node": {
         "icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -119,12 +119,12 @@
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
         "url": "https://typescript-eslint.io/packages/eslint-plugin",
-        "version": "8.71.2"
+        "version": "8.72.1"
     },
     "@typescript-eslint/parser": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
         "url": "https://typescript-eslint.io/packages/parser",
-        "version": "8.71.2"
+        "version": "8.72.1"
     },
     "@vuepress/bundler-vite": {
         "url": "https://github.com/vuepress",
@@ -224,7 +224,7 @@
     },
     "eslint-plugin-jsdoc": {
         "url": "https://github.com/gajus/eslint-plugin-jsdoc#readme",
-        "version": "65.3.8"
+        "version": "65.4.2"
     },
     "eslint-plugin-markdownlint": {
         "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",
@@ -252,7 +252,7 @@
     "eslint-plugin-vue": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://eslint.vuejs.org",
-        "version": "10.11.1"
+        "version": "10.12.0"
     },
     "globals": {
         "version": "17.13.0"
@@ -330,12 +330,12 @@
     "sass": {
         "icon": "https://sass-lang.com/assets/img/logos/logo.svg",
         "url": "https://github.com/sass/dart-sass",
-        "version": "1.105.2"
+        "version": "1.106.1"
     },
     "sass-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack/sass-loader",
-        "version": "17.0.1"
+        "version": "17.1.0"
     },
     "semver": {
         "version": "7.8.5"
