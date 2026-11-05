@@ -9,7 +9,7 @@
     },
     "@eslint/js": {
         "url": "https://eslint.org",
-        "version": "9.39.5"
+        "version": "10.0.1"
     },
     "@fortawesome/fontawesome-free": {
         "icon": "https://avatars.githubusercontent.com/u/1505683",
