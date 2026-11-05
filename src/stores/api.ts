@@ -3,9 +3,9 @@ import { computed, ref, type Ref, watch } from 'vue';
 // eslint-disable-next-line no-duplicate-imports
 import type Vue from 'vue';
 
+import { decode } from 'he';
 import { defineStore } from 'pinia';
 import FetchApiWorker from '@workers/stores/api/fetchApi.worker';
-import he from 'he';
 import { useTranslationStore } from '@stores/translationUtilities';
 import {
     type BuildingsByCategory,
@@ -628,7 +628,7 @@ export const defineAPIStore = defineStore('api', () => {
             }
 
             // update caption
-            allianceBuilding.caption = he.decode(buildingMarker.name);
+            allianceBuilding.caption = decode(buildingMarker.name);
             // update longitude and latitude
             allianceBuilding.longitude = buildingMarker.longitude;
             allianceBuilding.latitude = buildingMarker.latitude;
@@ -652,7 +652,7 @@ export const defineAPIStore = defineStore('api', () => {
         const oldBuilding = structuredClone(building);
 
         // update caption
-        building.caption = he.decode(buildingMarker.name);
+        building.caption = decode(buildingMarker.name);
         // update longitude and latitude
         building.longitude = buildingMarker.longitude;
         building.latitude = buildingMarker.latitude;
