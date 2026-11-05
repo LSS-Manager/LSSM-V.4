@@ -258,14 +258,12 @@ export default Vue.extend<
     methods: {
         loadPage(mode) {
             this.$set(this.lightbox, 'loading', true);
-            let newPage = this.page;
-            if (mode === 'next') {
-                this.loadedPages.last++;
-                newPage = this.loadedPages.last;
-            } else {
-                this.loadedPages.first--;
-                newPage = this.loadedPages.first;
-            }
+            if (mode === 'next') this.loadedPages.last++;
+            else this.loadedPages.first--;
+            const newPage =
+                mode === 'next'
+                    ? this.loadedPages.last
+                    : this.loadedPages.first;
             const url = new URL(
                 `/messages/${this.conversation.id}`,
                 window.location.origin

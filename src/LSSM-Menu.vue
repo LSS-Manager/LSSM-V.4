@@ -134,16 +134,12 @@ const rgbToHex = (r: number, g: number, b: number): string =>
 
 const getColors = (c: CanvasRenderingContext2D) => {
     const colors: Record<string, number> = {};
-    let r = 0;
-    let g = 0;
-    let b = 0;
-    let a = 0;
     const pixels = c.getImageData(0, 0, c.canvas.width, c.canvas.height);
     for (let i = 0, data = pixels.data; i < data.length; i += 4) {
-        r = data[i];
-        g = data[i + 1];
-        b = data[i + 2];
-        a = data[i + 3]; // alpha
+        const r = data[i];
+        const g = data[i + 1];
+        const b = data[i + 2];
+        const a = data[i + 3]; // alpha
         // skip pixels >50% transparent
         if (a < 255 / 2) continue;
         const col = rgbToHex(r, g, b);
