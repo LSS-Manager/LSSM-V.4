@@ -1,4 +1,4 @@
-import he from 'he';
+import { decode } from 'he';
 
 import {
     addHoursToNow,
@@ -93,7 +93,7 @@ export default async ({
             ?.textContent?.trim()
             .replace(/^.*?:/u, '')
             .trim() ?? '–';
-    const address = he.decode(
+    const address = decode(
         document
             .querySelector<HTMLDivElement>('#mission_general_info')
             ?.dataset.address?.trim() ??
