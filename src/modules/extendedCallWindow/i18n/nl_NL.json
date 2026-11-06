@@ -41,6 +41,12 @@
                     "Bereden Brigade eenheden (paarden)"
                 ],
                 "vehicles": [73]
+            },
+            { "texts": ["Handcrew"], "vehicles": [86] },
+            { "texts": ["Verzorger", "Verzorgers"], "vehicles": [120] },
+            {
+                "texts": ["Hygiënemedewerker", "Hygiënemedewerkers"],
+                "vehicles": [122]
             }
         ],
         "tip": {
@@ -98,6 +104,18 @@
             {
                 "texts": ["Hulpverleningsvoertuig", "Hulpverleningsvoertuigen"],
                 "vehicles": [4, 51, 62]
+            },
+            {
+                "texts": [
+                    "Tankautospuit of hulpverleningsvoertuig",
+                    "Tankautospuit of hulpverleningsvoertuig ",
+                    "Tankautospuiten of hulpverleningsvoertuigen",
+                    "Tankautospuiten of hulpverleningsvoertuigen "
+                ],
+                "vehicles": [
+                    0, 1, 4, 6, 7, 8, 9, 12, 14, 15, 17, 50, 51, 62, 90, 93,
+                    133, 139, 142
+                ]
             },
             { "texts": ["AB"], "vehicles": [5, 27] },
             {
@@ -179,7 +197,7 @@
             { "texts": ["Biketeam", "Biketeams"], "vehicles": [60] },
             { "texts": ["SIV-P of DM-P"], "vehicles": [46, 98] },
             { "texts": ["DM-P"], "vehicles": [46] },
-            { "texts": ["DB-VOA,"], "vehicles": [99] },
+            { "texts": ["DB-VOA"], "vehicles": [99] },
             {
                 "texts": ["Aanhoudingseenheden", "Aanhoudingseenheid"],
                 "vehicles": [64]
@@ -256,15 +274,24 @@
                 "vehicles": [110, 111, 112]
             },
             {
-                "equipment": ["hazmat_response_material_equipment"],
-                "texts": ["GSH, DB-GS of RC-Gevaarlijke Stoffen"],
+                "equipment": ["hazard_response_material_equipment"],
+                "texts": [
+                    "GSH, DB-GS of RC-Gevaarlijke Stoffen",
+                    "GSH, DB-GS of RC-Gevaarlijke Stoffen "
+                ],
                 "vehicles": [134, 135]
             },
             {
-                "equipment": ["hazmat_response_suits_equipment"],
-                "texts": ["GPH, DB-GP of RC-gaspakken"],
+                "equipment": ["hazard_response_suits_equipment"],
+                "texts": [
+                    "GPH, DB-GP of RC-gaspakken",
+                    "GPH, DB-GP of RC-gaspakken "
+                ],
                 "vehicles": [136, 137]
             },
+            { "texts": ["DB-TDV"], "vehicles": [129] },
+            { "texts": ["SB-BA, SB-IB of AS"], "vehicles": [130, 131, 132] },
+            { "texts": ["TS-IB"], "vehicles": [133] },
             { "texts": ["NHT"], "vehicles": [101] },
             { "texts": ["GGB"], "vehicles": [100] },
             {
@@ -293,11 +320,30 @@
             },
             {
                 "texts": [
+                    "Berger-G om het slepen te beginnen.",
+                    "Berger-G om het slepen te beginnen"
+                ],
+                "vehicles": [105, 107, 109]
+            },
+            {
+                "texts": [
+                    "Berger-K om het slepen te beginnen.",
+                    "Berger-K om het slepen te beginnen"
+                ],
+                "vehicles": [104, 106, 108]
+            },
+            {
+                "texts": [
                     "Natuurbrandbestrijding Vrachtwagen of Haakarmbak",
                     "Natuurbrandbestrijding Vrachtwagens of Haakarmbakken"
                 ],
-                "vehicles": [89]
-            }
+                "vehicles": [88, 89]
+            },
+            {
+                "texts": ["Verzorgingseenheid", "Verzorgingseenheden"],
+                "vehicles": [120, 121]
+            },
+            { "texts": ["DB-PC-LOG"], "vehicles": [124] }
         ],
         "water": "L. water"
     },
