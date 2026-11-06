@@ -1,3 +1,4 @@
+import onMissionListRendered from '../utils/onMissionListRendered';
 import {
     getCityFromAddress,
     getZipFromCity,
@@ -413,7 +414,11 @@ export default async (
         if (missionType === '-1' || missionType === 'null') return null;
         const overlayIndex =
             mission.getAttribute('data-overlay-index') ?? 'null';
-        if (overlayIndex && overlayIndex !== 'null')
+        if (
+            overlayIndex &&
+            overlayIndex !== 'null' &&
+            overlayIndex !== 'undefined'
+        )
             missionType += `-${overlayIndex}`;
         const additionalOverlay =
             mission.getAttribute('data-additive-overlays') ?? 'null';
@@ -619,6 +624,8 @@ export default async (
             if (panel) setMissionOrder(panel);
         },
     });
+
+    onMissionListRendered(LSSM, panel => setMissionOrder(panel));
 
     LSSM.$stores.root.hook({
         event: 'missionDelete',
