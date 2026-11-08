@@ -1,3 +1,5 @@
+import onMissionListRendered from './utils/onMissionListRendered';
+
 import type { MissionMarkerAdd, PrisonerMarkerAdd } from 'typings/Ingame';
 
 export default (
@@ -93,6 +95,8 @@ export default (
             if (panel) setPrisoners(panel);
         },
     });
+
+    onMissionListRendered(LSSM, panel => setPrisoners(panel));
 
     LSSM.$stores.root.hook({
         event: 'prisonerMarkerAdd',

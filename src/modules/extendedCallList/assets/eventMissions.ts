@@ -1,3 +1,5 @@
+import onMissionListRendered from './utils/onMissionListRendered';
+
 import type { MissionMarkerAdd } from 'typings/Ingame';
 
 export default (
@@ -30,7 +32,11 @@ export default (
             '.map_position_mover[id^="mission_caption_"]'
         );
         const overlayIndex = panel.getAttribute('data-overlay-index') ?? 'null';
-        if (overlayIndex && overlayIndex !== 'null')
+        if (
+            overlayIndex &&
+            overlayIndex !== 'null' &&
+            overlayIndex !== 'undefined'
+        )
             mission += `-${overlayIndex}`;
         const additionalOverlay =
             panel.getAttribute('data-additive-overlays') ?? 'null';
@@ -71,4 +77,6 @@ export default (
             if (panel) checkEvent(panel);
         },
     });
+
+    onMissionListRendered(LSSM, panel => checkEvent(panel));
 };
