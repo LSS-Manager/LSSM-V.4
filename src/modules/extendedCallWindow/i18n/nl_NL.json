@@ -369,7 +369,8 @@
             { "texts": ["BM-VTHS of BU-VTHS"], "vehicles": [151] },
             { "texts": ["DB-RI of RIA"], "vehicles": [153, 154] },
             { "texts": ["DB-DRONE"], "vehicles": [128] },
-            { "texts": ["TS-USAR"], "vehicles": [93] }
+            { "texts": ["TS-USAR"], "vehicles": [93] },
+            { "texts": ["TS-STH"], "vehicles": [90] }
         ],
         "water": "L. water"
     },
