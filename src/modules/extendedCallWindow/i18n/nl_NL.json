@@ -370,7 +370,8 @@
             { "texts": ["DB-RI of RIA"], "vehicles": [153, 154] },
             { "texts": ["DB-DRONE"], "vehicles": [128] },
             { "texts": ["TS-USAR"], "vehicles": [93] },
-            { "texts": ["TS-STH"], "vehicles": [90] }
+            { "texts": ["TS-STH"], "vehicles": [90] },
+            { "texts": ["HVH-STH"], "vehicles": [91] }
         ],
         "water": "L. water"
     },
