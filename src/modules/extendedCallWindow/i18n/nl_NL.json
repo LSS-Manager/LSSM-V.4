@@ -303,6 +303,24 @@
                 "vehicles": [141, 142, 143]
             },
             {
+                "texts": [
+                    "DB-BO, TS-BO or BOH-DC",
+                    "DB-BO, TS-BO or BOH-DC ",
+                    "DB-BO, TS-BO of BOH-DC",
+                    "DB-BO, TS-BO of BOH-DC "
+                ],
+                "vehicles": [138, 139, 140]
+            },
+            {
+                "texts": [
+                    "DB-GO, TS-GO or GOH-DC",
+                    "DB-GO, TS-GO or GOH-DC ",
+                    "DB-GO, TS-GO of GOH-DC",
+                    "DB-GO, TS-GO of GOH-DC "
+                ],
+                "vehicles": [141, 142, 143]
+            },
+            {
                 "texts": ["Minimale vrachtwagens te slepen"],
                 "vehicles": [105, 107, 109]
             },
