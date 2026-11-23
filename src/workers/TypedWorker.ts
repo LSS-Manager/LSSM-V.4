@@ -311,7 +311,10 @@ ${scripts}
                     key === this.#failedKey
                 )
                     return;
-                const workerName = key.replace(/:failed$/u, '');
+                const failedSuffix = ':failed';
+                const workerName = key.endsWith(failedSuffix)
+                    ? key.slice(0, -failedSuffix.length)
+                    : key;
                 if (!(await this.#isWorkerAlive(workerName)))
                     localStorage.removeItem(key);
             })
