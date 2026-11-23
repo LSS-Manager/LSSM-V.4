@@ -8,6 +8,7 @@ import { defineStore } from 'pinia';
 import { useTranslationStore } from '@stores/translationUtilities';
 import ApiWorker, {
     type ApiResult,
+    type EntityApi,
     type MissionsArray,
     type MissionsById,
 } from '@workers/stores/api/api.worker';
@@ -306,7 +307,52 @@ export const defineAPIStore = defineStore('api', () => {
             apiVersions.set(api, version);
             _storeApi(api, data as APIs[Api]).then();
         });
+        // single vehicles and buildings that have changed, e.g. by radio messages in another tab
+        if (
+            api === 'vehicles' ||
+            api === 'buildings' ||
+            api === 'alliance_buildings'
+        ) {
+            const entityApi = api as EntityApi;
+            ApiWorker.subscribe(`entities:${entityApi}`, entities =>
+                _applyEntities(entityApi, entities)
+            );
+        }
     };
+
+    /**
+     * Applies vehicles or buildings that another window (or this one) has updated.
+     * @param api - The API the entities belong to.
+     * @param entities - The updated vehicles or buildings.
+     */
+    const _applyEntities = (api: EntityApi, entities: (Building | Vehicle)[]) =>
+        entities.forEach(entity => {
+            const stored = apiStorage[api].value[entity.id];
+            // the window that updated an entity receives it as well, but has already applied it
+            if (stored && JSON.stringify(stored) === JSON.stringify(entity))
+                return;
+            if (api === 'vehicles') {
+                _updateVehicle(
+                    entity as Vehicle,
+                    stored ? structuredClone(stored as Vehicle) : undefined
+                );
+            } else if (api === 'buildings') {
+                _updateBuilding(
+                    entity as Building,
+                    stored ? structuredClone(stored as Building) : undefined
+                );
+            } else {
+                _updateAllianceBuilding(entity as Building);
+            }
+        });
+
+    /**
+     * Shares vehicles or buildings this window has updated itself (e.g. From a radio message) with the other windows.
+     * @param api - The API the entities belong to.
+     * @param entities - The updated vehicles or buildings.
+     */
+    const _shareEntities = (api: EntityApi, entities: (Building | Vehicle)[]) =>
+        ApiWorker.call('updateEntities', api, entities).catch(() => void 0);
 
     const _updateAPI = <Api extends APIKey>(api: Api, feature: string) =>
         new Promise<APIs[Api]>((res, rej) => {
@@ -547,7 +593,9 @@ export const defineAPIStore = defineStore('api', () => {
                 ? radioMessage.target_building_id
                 : radioMessage.mission_id;
 
-        return _updateVehicle(vehicle, oldVehicle);
+        const updatedVehicle = _updateVehicle(vehicle, oldVehicle);
+        _shareEntities('vehicles', [updatedVehicle]);
+        return updatedVehicle;
     };
 
     /**
@@ -665,7 +713,10 @@ export const defineAPIStore = defineStore('api', () => {
             allianceBuilding.longitude = buildingMarker.longitude;
             allianceBuilding.latitude = buildingMarker.latitude;
 
-            return _updateAllianceBuilding(allianceBuilding);
+            const updatedAllianceBuilding =
+                _updateAllianceBuilding(allianceBuilding);
+            _shareEntities('alliance_buildings', [updatedAllianceBuilding]);
+            return updatedAllianceBuilding;
         }
 
         // if it is not our building, ignore it
@@ -692,7 +743,9 @@ export const defineAPIStore = defineStore('api', () => {
         // update leitstelle_building_id
         building.leitstelle_building_id = buildingMarker.lbid;
 
-        return _updateBuilding(building, oldBuilding);
+        const updatedBuilding = _updateBuilding(building, oldBuilding);
+        _shareEntities('buildings', [updatedBuilding]);
+        return updatedBuilding;
     };
 
     /**
