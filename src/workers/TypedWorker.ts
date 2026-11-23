@@ -1,5 +1,7 @@
 import { useConsoleStore } from '@stores/console';
 
+import type { parseExpressionAt as ParseExpressionAt } from 'acorn';
+
 type WorkerExtraPropertiesType = Record<never, never>;
 // an object type (e.g. an interface) mapping event names to the type of their data
 export type WorkerEventsType = object;
@@ -87,10 +89,35 @@ type WorkerMessage<Return> =
     | UncaughtErrorMessage;
 // endregion
 
-// Functions and classes are transferred to the worker via toString(), so their source must be an expression.
-// This excludes method shorthands such as `{ foo() {} }`.
-const TRANSFERABLE_SOURCE =
-    /^(?:class\b|(?:async\s+)?function\b|(?:async\s*)?\(|(?:async\s+)?[\w$]+\s*=>)/u;
+/**
+ * Functions and classes are transferred to the worker via toString(), so their source must be a single expression:
+ * an arrow function, a function expression or a class. This excludes method shorthands such as `{ foo() {} }`.
+ * @param parseExpressionAt - The parser of acorn.
+ * @param exported - The function or class to check.
+ * @returns True if the function or class can be transferred.
+ */
+const isTransferable = (
+    parseExpressionAt: typeof ParseExpressionAt,
+    exported: object
+) => {
+    const source = exported.toString();
+    try {
+        const expression = parseExpressionAt(source, 0, {
+            ecmaVersion: 'latest',
+        });
+        return (
+            [
+                'ArrowFunctionExpression',
+                'ClassExpression',
+                'FunctionExpression',
+            ].includes(expression.type) &&
+            // nothing may follow the expression (e.g. the body of a method shorthand)
+            source.slice(expression.end).trim() === ''
+        );
+    } catch {
+        return false;
+    }
+};
 
 /**
  * If this key is set to `'true'` in localStorage, all TypedWorkers run their function in the window instead of a SharedWorker.
@@ -346,20 +373,32 @@ export default class TypedWorker<
     }
 
     /**
-     * The source code of the worker. It is deterministic for the same build, so it can be used for the worker's identity.
-     * @returns The source code of the worker.
-     * @throws Error If the function or an importable script cannot be transferred via toString().
+     * Makes sure that the function and all importable scripts can be transferred to the worker via toString().
+     * Acorn is loaded on demand to keep it out of the core bundle. If it cannot be loaded, the check is skipped:
+     * a worker with code that cannot be transferred fails to start and the function runs in the window anyway.
+     * @returns A promise that resolves once all of them have been checked.
+     * @throws Error If the function or an importable script cannot be transferred.
      */
-    get #workerSource() {
-        if (this.#source) return this.#source;
-
+    async #assertTransferable() {
+        let parseExpressionAt: typeof ParseExpressionAt;
+        try {
+            ({ parseExpressionAt } = await import(
+                /* webpackChunkName: "acorn" */ 'acorn'
+            ));
+        } catch (error) {
+            this.#log(
+                'warn',
+                'Could not load acorn, skipping the check whether all functions can be transferred:',
+                error
+            );
+            return;
+        }
         const notTransferable = Object.entries({
             ...this.#importableScripts,
             '[worker function]': this.#function,
         })
             .filter(
-                ([, exported]) =>
-                    !TRANSFERABLE_SOURCE.test(exported.toString().trim())
+                ([, exported]) => !isTransferable(parseExpressionAt, exported)
             )
             .map(([name]) => name);
         if (notTransferable.length) {
@@ -367,6 +406,14 @@ export default class TypedWorker<
                 `These functions cannot be transferred to the worker, use arrow functions, function expressions or classes instead: ${notTransferable.join(', ')}`
             );
         }
+    }
+
+    /**
+     * The source code of the worker. It is deterministic for the same build, so it can be used for the worker's identity.
+     * @returns The source code of the worker.
+     */
+    get #workerSource() {
+        if (this.#source) return this.#source;
 
         const scripts = Object.entries(this.#importableScripts)
             .map(
@@ -722,10 +769,14 @@ ${scripts}
 
         let name: string;
         try {
-            // this throws if the worker's source cannot be built or the Web Crypto API is not available
             name = await this.#computeName();
         } catch (error) {
-            this.#log('error', 'Running in the window:', error);
+            // e.g. the Web Crypto API is not available
+            this.#log(
+                'warn',
+                'Could not name the worker, running in the window:',
+                error
+            );
             return null;
         }
 
@@ -746,6 +797,14 @@ ${scripts}
                     'warn',
                     `Starting the worker failed at ${new Date(failedAt).toLocaleTimeString()}, not retrying yet.`
                 );
+                return null;
+            }
+
+            // windows connecting to a living worker use the same (already checked) code, so only check before starting one
+            try {
+                await this.#assertTransferable();
+            } catch (error) {
+                this.#log('error', 'Running in the window:', error);
                 return null;
             }
 
