@@ -302,21 +302,34 @@ ${scripts}
      */
     #removeOutdatedKeys() {
         const legacyKey = `${PREFIX}:worker:${this.#workerName}`;
+        const failedSuffix = ':failed';
+
+        // group the keys by worker, as checking the same lock concurrently would make a dead worker look alive
+        const keysByWorker = new Map<string, string[]>();
+        for (const key of Object.keys(localStorage)) {
+            if (key === legacyKey) {
+                localStorage.removeItem(key);
+                continue;
+            }
+            if (
+                !key.startsWith(this.#namePrefix) ||
+                key === this.#name ||
+                key === this.#failedKey
+            )
+                continue;
+            const workerName = key.endsWith(failedSuffix)
+                ? key.slice(0, -failedSuffix.length)
+                : key;
+            keysByWorker.set(workerName, [
+                ...(keysByWorker.get(workerName) ?? []),
+                key,
+            ]);
+        }
+
         return Promise.all(
-            Object.keys(localStorage).map(async key => {
-                if (key === legacyKey) return localStorage.removeItem(key);
-                if (
-                    !key.startsWith(this.#namePrefix) ||
-                    key === this.#name ||
-                    key === this.#failedKey
-                )
-                    return;
-                const failedSuffix = ':failed';
-                const workerName = key.endsWith(failedSuffix)
-                    ? key.slice(0, -failedSuffix.length)
-                    : key;
+            Array.from(keysByWorker, async ([workerName, keys]) => {
                 if (!(await this.#isWorkerAlive(workerName)))
-                    localStorage.removeItem(key);
+                    keys.forEach(key => localStorage.removeItem(key));
             })
         );
     }
