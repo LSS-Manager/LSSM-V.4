@@ -57,7 +57,9 @@ interface ApiWorkerState {
     loadApi(
         api: APIKey,
         init: RequestInit,
-        smallBuildingsMap: SmallBuildingsMap
+        smallBuildingsMap: SmallBuildingsMap,
+        // background refreshes don't store responses that are not ok (e.g. when logged out)
+        isBackgroundRefresh?: boolean
     ): Promise<string>;
     missions: MissionsById;
     missionArray: MissionsArray;
@@ -102,7 +104,12 @@ const methods = {
         self.refreshArgs.set(api, { init, smallBuildingsMap });
 
         // fetches an API and stores it. If the data has changed, it is published to the windows listening to it.
-        self.loadApi ??= (loadedApi, loadInit, loadSmallBuildingsMap) => {
+        self.loadApi ??= (
+            loadedApi,
+            loadInit,
+            loadSmallBuildingsMap,
+            isBackgroundRefresh = false
+        ) => {
             // if another window is already fetching this API, wait for that request instead of sending another one
             const running = self.runningFetches.get(loadedApi);
             if (running) return running;
@@ -149,7 +156,8 @@ const methods = {
                     new URL(`/api/${loadedApi}`, location.origin),
                     loadInit
                 );
-                if (!res.ok) {
+                // requests of windows keep storing whatever the API returns, as before
+                if (isBackgroundRefresh && !res.ok) {
                     throw new Error(
                         `Fetching API ${loadedApi} failed with status ${res.status}`
                     );
@@ -195,7 +203,8 @@ const methods = {
                     self.loadApi(
                         refreshedApi,
                         args.init,
-                        args.smallBuildingsMap
+                        args.smallBuildingsMap,
+                        true
                     ).catch(() =>
                         self.nextRefresh.set(
                             refreshedApi,
