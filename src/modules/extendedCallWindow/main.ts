@@ -55,6 +55,15 @@ export default <ModuleMainFunction>(async ({
         );
     }
 
+    // the main page centers its map when a mission window asks for it
+    if (window.location.pathname === '/' && (await getSetting('centerMap'))) {
+        import(
+            /* webpackChunkName: "modules/extendedCallWindow/centerMap" */ './assets/centerMap'
+        ).then(({ registerCenterMapHandler }) =>
+            registerCenterMapHandler(LSSM)
+        );
+    }
+
     if (
         (!isMissionWindow && !isBuildingWindow) ||
         document.querySelector<HTMLDivElement>('.missionNotFound')

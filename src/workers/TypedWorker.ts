@@ -959,6 +959,16 @@ ${scripts}
     }
 
     /**
+     * Connects to the worker if not done yet and tells whether it runs in a SharedWorker.
+     * If not, events only reach the current window, so cross-window communication needs another way.
+     * @returns A promise that resolves to true if a SharedWorker is used, false if running in the window.
+     */
+    public async isShared(): Promise<boolean> {
+        this.#connection ??= this.#establishConnection();
+        return (await this.#connection) !== null;
+    }
+
+    /**
      * Registers a callback for when this page is restored from the back/forward cache.
      * Events published while the page was frozen have not been received, so consumers may want to fetch the current state.
      * @param callback - The function to call.
