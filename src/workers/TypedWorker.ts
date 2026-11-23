@@ -49,6 +49,8 @@ export const DISABLE_SHARED_WORKER_KEY = `${PREFIX}_disableSharedWorker`;
 
 // how long a window waits for a worker to confirm a connection before running in the window instead
 const READY_TIMEOUT = 10_000;
+// after starting a worker failed, windows run in the window for this long instead of waiting for a worker again
+const FAILED_RETRY_AFTER = 60_000;
 
 declare global {
     interface Uint8Array<
@@ -285,31 +287,48 @@ ${scripts}
     }
 
     /**
-     * Removes localStorage keys of outdated versions of this worker for the current user and locale.
-     * Also removes the key used by older versions of TypedWorker.
+     * The localStorage key storing when starting this worker failed the last time.
+     * @returns The localStorage key.
      */
-    #removeOutdatedKeys() {
-        const legacyKey = `${PREFIX}:worker:${this.#workerName}`;
-        const currentKey = this.#name;
-        for (const key of Object.keys(localStorage)) {
-            if (
-                key === legacyKey ||
-                (key.startsWith(this.#namePrefix) && key !== currentKey)
-            )
-                localStorage.removeItem(key);
-        }
+    get #failedKey() {
+        return `${this.#name}:failed`;
     }
 
     /**
-     * Checks whether a worker with the current name is alive. A living worker holds a lock.
+     * Removes localStorage keys of outdated versions of this worker for the current user and locale.
+     * Keys of other versions are kept while their worker is still alive, for example if a tab still uses an older build.
+     * Also removes the key used by older versions of TypedWorker.
+     * @returns A promise that resolves once all outdated keys have been removed.
+     */
+    #removeOutdatedKeys() {
+        const legacyKey = `${PREFIX}:worker:${this.#workerName}`;
+        return Promise.all(
+            Object.keys(localStorage).map(async key => {
+                if (key === legacyKey) return localStorage.removeItem(key);
+                if (
+                    !key.startsWith(this.#namePrefix) ||
+                    key === this.#name ||
+                    key === this.#failedKey
+                )
+                    return;
+                const workerName = key.replace(/:failed$/u, '');
+                if (!(await this.#isWorkerAlive(workerName)))
+                    localStorage.removeItem(key);
+            })
+        );
+    }
+
+    /**
+     * Checks whether a worker is alive. A living worker holds a lock.
+     * @param name - The name of the worker to check. Defaults to the name of this worker.
      * @returns A promise that resolves to true if the worker is alive or if this cannot be checked.
      */
-    #isWorkerAlive() {
+    #isWorkerAlive(name = this.#name) {
         const locks = this.#top.navigator.locks;
         if (!locks) return Promise.resolve(true);
         // if we can get the lock, nobody (no worker) is holding it
         return locks.request(
-            `${this.#name}:alive`,
+            `${name}:alive`,
             { ifAvailable: true },
             lock => lock === null
         );
@@ -426,7 +445,7 @@ ${scripts}
         }
 
         const connect = async () => {
-            this.#removeOutdatedKeys();
+            await this.#removeOutdatedKeys();
 
             const storedUrl = localStorage.getItem(name);
             // a dead URL still connects to a living worker, so we can use it as long as the worker is alive
@@ -435,11 +454,24 @@ ${scripts}
                 if (worker) return worker;
             }
 
+            // if starting the worker failed recently, don't let every window wait for the timeout again
+            const failedAt = Number(localStorage.getItem(this.#failedKey));
+            if (failedAt > Date.now() - FAILED_RETRY_AFTER) {
+                this.#log(
+                    'warn',
+                    `Starting the worker failed at ${new Date(failedAt).toLocaleTimeString()}, not retrying yet.`
+                );
+                return null;
+            }
+
             const url = this.#top.URL.createObjectURL(
                 new Blob([this.#workerSource], { type: 'text/javascript' })
             );
             localStorage.setItem(name, url);
-            return this.#tryConnect(url);
+            const worker = await this.#tryConnect(url);
+            if (worker) localStorage.removeItem(this.#failedKey);
+            else localStorage.setItem(this.#failedKey, Date.now().toString());
+            return worker;
         };
 
         try {
