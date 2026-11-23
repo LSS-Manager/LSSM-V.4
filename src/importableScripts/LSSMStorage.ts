@@ -1,5 +1,5 @@
 import type { Mission } from 'typings/Mission';
-import type { MissionsById } from '@workers/stores/api/missionTypes.worker';
+import type { MissionsById } from '@workers/stores/api/api.worker';
 
 export default class LSSMStorage {
     readonly #DB_NAME = `${PREFIX}-storage-v2`;

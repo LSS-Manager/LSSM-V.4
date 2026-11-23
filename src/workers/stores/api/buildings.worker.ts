@@ -1,9 +1,5 @@
 import type { Ref } from 'vue';
 
-import TypedWorker from '@workers/TypedWorker';
-
-import checkRequestInit from '../../../importableScripts/checkRequestInit';
-
 import type { APIs } from '@stores/api';
 import type { Building } from 'typings/Building';
 import type { VehiclesByDispatchCenter } from '@workers/stores/api/vehicles.worker';
@@ -98,47 +94,3 @@ export const doBuildingCalculations = (
         );
     }
 };
-
-export const FetchSingleBuildingWorker = new TypedWorker(
-    'api/buildings.single.worker',
-    async (
-        self,
-        buildingId: Building['id'],
-        init: RequestInit,
-        smallBuildingsMap: SmallBuildingsMap
-    ): Promise<Building> => {
-        self.checkRequestInit(init);
-
-        return fetch(
-            new URL(`/api/buildings/${buildingId}`, location.origin),
-            init
-        )
-            .then<Building>(res => res.json())
-            .then(building =>
-                self.updateBuildingTypeIfSmall(building, smallBuildingsMap)
-            );
-    },
-    { checkRequestInit, updateBuildingTypeIfSmall }
-);
-
-export const FetchSingleAllianceBuildingWorker = new TypedWorker(
-    'api/alliance_buildings.single.worker',
-    async (
-        self,
-        buildingId: Building['id'],
-        init: RequestInit,
-        smallBuildingsMap: SmallBuildingsMap
-    ): Promise<Building> => {
-        self.checkRequestInit(init);
-
-        return fetch(
-            new URL(`/api/alliance_buildings/${buildingId}`, location.origin),
-            init
-        )
-            .then<Building>(res => res.json())
-            .then(building =>
-                self.updateBuildingTypeIfSmall(building, smallBuildingsMap)
-            );
-    },
-    { checkRequestInit, updateBuildingTypeIfSmall }
-);

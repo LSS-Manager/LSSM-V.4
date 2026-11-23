@@ -1,9 +1,5 @@
 import type { Ref } from 'vue';
 
-import TypedWorker from '@workers/TypedWorker';
-
-import checkRequestInit from '../../../importableScripts/checkRequestInit';
-
 import type { APIs } from '@stores/api';
 import type { Building } from 'typings/Building';
 import type { Vehicle } from 'typings/Vehicle';
@@ -90,41 +86,3 @@ export const doVehicleCalculations = (
         vehiclesByDispatchCenter
     );
 };
-
-export const FetchSingleVehicleWorker = new TypedWorker(
-    'api/vehicles.single.worker',
-    async (
-        self,
-        vehicleId: Vehicle['id'],
-        init: RequestInit
-    ): Promise<Vehicle> => {
-        self.checkRequestInit(init);
-
-        // TODO: switch to API V2 here
-
-        return fetch(
-            new URL(`/api/vehicles/${vehicleId}`, location.origin),
-            init
-        ).then(res => res.json());
-    },
-    { checkRequestInit }
-);
-
-export const FetchVehiclesAtBuildingWorker = new TypedWorker(
-    'api/vehicles.building.worker',
-    async (
-        self,
-        buildingId: Building['id'],
-        init: RequestInit
-    ): Promise<Vehicle[]> => {
-        self.checkRequestInit(init);
-
-        // TODO: switch to API V2 here
-
-        return fetch(
-            new URL(`/api/buildings/${buildingId}/vehicles`, location.origin),
-            init
-        ).then(res => res.json());
-    },
-    { checkRequestInit }
-);

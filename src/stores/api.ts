@@ -5,31 +5,26 @@ import type Vue from 'vue';
 
 import { decode } from 'he';
 import { defineStore } from 'pinia';
-import FetchApiWorker from '@workers/stores/api/fetchApi.worker';
 import { useTranslationStore } from '@stores/translationUtilities';
+import ApiWorker, {
+    type MissionsArray,
+    type MissionsById,
+} from '@workers/stores/api/api.worker';
 import {
     type BuildingsByCategory,
     type BuildingsByDispatchCenter,
     type BuildingsByType,
     doBuildingCalculations,
-    FetchSingleAllianceBuildingWorker,
-    FetchSingleBuildingWorker,
     type SmallBuildingsMap,
 } from '@workers/stores/api/buildings.worker';
 import {
     doVehicleCalculations,
-    FetchSingleVehicleWorker,
-    FetchVehiclesAtBuildingWorker,
     type VehiclesByBuilding,
     type VehiclesByDispatchCenter,
     type VehiclesByTarget,
     type VehiclesByType,
     type VehicleStates,
 } from '@workers/stores/api/vehicles.worker';
-import MissionsWorker, {
-    type MissionsArray,
-    type MissionsById,
-} from '@workers/stores/api/missionTypes.worker';
 
 import type { AllianceInfo } from 'typings/api/AllianceInfo';
 import type { Building } from 'typings/Building';
@@ -318,10 +313,13 @@ export const defineAPIStore = defineStore('api', () => {
             const feat = `apiStore/_updateAPI:${api}(${feature})`;
 
             // let's start the update on a worker
-            FetchApiWorker.run(
-                api,
-                _getRequestInit({}, feat),
-                smallBuildingsMap
+            (
+                ApiWorker.call(
+                    'fetchApi',
+                    api,
+                    _getRequestInit({}, feat),
+                    smallBuildingsMap
+                ) as Promise<APIs[Api]>
             )
                 .then(value => _storeApi(api, value))
                 .then(value => {
@@ -492,7 +490,8 @@ export const defineAPIStore = defineStore('api', () => {
         // we're going to update caption, fms, fms_real, target_type and target_id
         const vehicle = apiStorage.vehicles.value[radioMessage.id];
         if (!vehicle) {
-            return FetchSingleVehicleWorker.run(
+            return ApiWorker.call(
+                'fetchVehicle',
                 radioMessage.id,
                 _getRequestInit({}, 'updateVehicleFromRadioMessage')
             ).then(_updateVehicle);
@@ -620,7 +619,8 @@ export const defineAPIStore = defineStore('api', () => {
             const allianceBuilding =
                 apiStorage.alliance_buildings.value[buildingMarker.id];
             if (!allianceBuilding) {
-                return FetchSingleAllianceBuildingWorker.run(
+                return ApiWorker.call(
+                    'fetchAllianceBuilding',
                     buildingMarker.id,
                     _getRequestInit({}, 'updateBuildingFromBuildingMarkerAdd'),
                     smallBuildingsMap
@@ -642,7 +642,8 @@ export const defineAPIStore = defineStore('api', () => {
         // we're going to update caption, longitude and latitude, leitstelle_building_id
         const building = apiStorage.buildings.value[buildingMarker.id];
         if (!building) {
-            return FetchSingleBuildingWorker.run(
+            return ApiWorker.call(
+                'fetchBuilding',
                 buildingMarker.id,
                 _getRequestInit({}, 'updateBuildingFromBuildingMarkerAdd'),
                 smallBuildingsMap
@@ -804,11 +805,14 @@ export const defineAPIStore = defineStore('api', () => {
                 returnAsArray ? vehiclesArray.value : vehicles
             ),
         getVehicle: (id: number, feature: string) =>
-            FetchSingleVehicleWorker.run(id, _getRequestInit({}, feature)).then(
-                _updateVehicle
-            ),
+            ApiWorker.call(
+                'fetchVehicle',
+                id,
+                _getRequestInit({}, feature)
+            ).then(_updateVehicle),
         getVehiclesAtBuilding: (id: number, feature: string) =>
-            FetchVehiclesAtBuildingWorker.run(
+            ApiWorker.call(
+                'fetchVehiclesAtBuilding',
                 id,
                 _getRequestInit({}, feature)
             ).then(_updateVehicles),
@@ -819,7 +823,8 @@ export const defineAPIStore = defineStore('api', () => {
                 returnAsArray ? buildingsArray.value : buildings
             ),
         getBuilding: (id: number, feature: string) =>
-            FetchSingleBuildingWorker.run(
+            ApiWorker.call(
+                'fetchBuilding',
                 id,
                 _getRequestInit({}, feature),
                 smallBuildingsMap
@@ -830,14 +835,16 @@ export const defineAPIStore = defineStore('api', () => {
                 returnAsArray ? allianceBuildingsArray.value : buildings
             ),
         getAllianceBuilding: (id: number, feature: string) =>
-            FetchSingleAllianceBuildingWorker.run(
+            ApiWorker.call(
+                'fetchAllianceBuilding',
                 id,
                 _getRequestInit({}, feature),
                 smallBuildingsMap
             ).then(_updateAllianceBuilding),
         // missionTypes
         getMissionTypes: (feature: string): Promise<MissionsById> =>
-            MissionsWorker.run(
+            ApiWorker.call(
+                'fetchMissionTypes',
                 window.I18n.locale,
                 _getRequestInit({}, feature)
             ).then(({ missions }) => missions),
@@ -845,12 +852,14 @@ export const defineAPIStore = defineStore('api', () => {
             id: string,
             feature: string
         ): Promise<Mission | undefined> =>
-            MissionsWorker.run(
+            ApiWorker.call(
+                'fetchMissionTypes',
                 window.I18n.locale,
                 _getRequestInit({}, feature)
             ).then(({ missions }) => missions[id]),
         getMissionTypesArray: (feature: string): Promise<MissionsArray> =>
-            MissionsWorker.run(
+            ApiWorker.call(
+                'fetchMissionTypes',
                 window.I18n.locale,
                 _getRequestInit({}, feature)
             ).then(({ missionArray }) => missionArray),
