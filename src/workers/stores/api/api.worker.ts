@@ -45,13 +45,20 @@ type Entity = Building | Vehicle;
 export type ApiEvents = {
     [Api in APIKey as `api:${Api}`]: { version: string; data: APIs[Api] };
 } & {
-    [Api in EntityApi as `entities:${Api}`]: APIs[Api][number][];
+    [Api in EntityApi as `entities:${Api}`]: {
+        entities: APIs[Api][number][];
+        // the version of the API after and before this change, see storeEntities
+        version?: string;
+        previousVersion?: string;
+    };
 };
 
 /**
  * Stores single vehicles or buildings in the worker and sends those that have changed to the windows.
- * The same change usually arrives several times (e.g. A radio message in every tab of the main page),
- * so only entities that differ from the stored ones are sent.
+ * The same change usually arrives several times, for example a radio message in every tab of the main page.
+ * So only entities that differ from the stored ones are sent.
+ * The stored data then differs from the last response, so the API gets a new version: The next refresh sends the full
+ * data again, which corrects wrong updates, and windows that missed the change (like frozen pages) know they are outdated.
  * CAVEAT: This function is stringified (see TypedWorker), so it must not reference anything outside its own body!
  * @param self - The scope of the worker.
  * @param api - The API the entities belong to.
@@ -61,6 +68,7 @@ export type ApiEvents = {
 const storeEntities = <StoredEntity extends Entity>(
     self: {
         apiStorage?: Partial<Record<EntityApi, Record<number, Entity>>>;
+        apiVersions?: Map<string, string>;
         publish(event: string, data: unknown): void;
     },
     api: EntityApi,
@@ -77,8 +85,23 @@ const storeEntities = <StoredEntity extends Entity>(
             !stored ||
             JSON.stringify(stored[entity.id]) !== JSON.stringify(entity)
     );
-    if (stored) changed.forEach(entity => (stored[entity.id] = entity));
-    if (changed.length) self.publish(`entities:${api}`, changed);
+    if (!changed.length) return merged;
+
+    const previousVersion = self.apiVersions?.get(api);
+    let version: string | undefined = undefined;
+    if (stored) {
+        changed.forEach(entity => (stored[entity.id] = entity));
+        if (previousVersion) {
+            // a version that never equals the hash of a response
+            version = `${previousVersion.split('+')[0]}+${crypto.randomUUID()}`;
+            self.apiVersions?.set(api, version);
+        }
+    }
+    self.publish(`entities:${api}`, {
+        entities: changed,
+        version,
+        previousVersion,
+    });
     return merged;
 };
 

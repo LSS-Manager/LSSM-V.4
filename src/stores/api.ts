@@ -314,8 +314,18 @@ export const defineAPIStore = defineStore('api', () => {
             api === 'alliance_buildings'
         ) {
             const entityApi = api as EntityApi;
-            ApiWorker.subscribe(`entities:${entityApi}`, entities =>
-                _applyEntities(entityApi, entities)
+            ApiWorker.subscribe(
+                `entities:${entityApi}`,
+                ({ entities, version, previousVersion }) => {
+                    _applyEntities(entityApi, entities);
+                    // if this window was up to date before this change, it is up to date now as well
+                    if (
+                        version &&
+                        previousVersion &&
+                        apiVersions.get(entityApi) === previousVersion
+                    )
+                        apiVersions.set(entityApi, version);
+                }
             );
         }
     };
