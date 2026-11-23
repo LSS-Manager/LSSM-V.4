@@ -425,7 +425,7 @@
                                         :href="`/buildings/${dc.id}`"
                                         v-if="dc.id"
                                     >
-                                        {{ he.decode(dc.name) }}
+                                        {{ decode(dc.name) }}
                                     </a>
                                 </h3>
                             </div>
@@ -516,9 +516,7 @@
                                                     class="lightbox-open"
                                                     :href="`/buildings/${building.id}`"
                                                 >
-                                                    {{
-                                                        he.decode(building.name)
-                                                    }}
+                                                    {{ decode(building.name) }}
                                                 </a>
                                             </h3>
                                         </div>
@@ -585,6 +583,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { decode } from 'he';
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
 import { faGift } from '@fortawesome/free-solid-svg-icons/faGift';
@@ -594,7 +593,6 @@ import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons/faMapMarkedAlt
 import { faUnlock } from '@fortawesome/free-solid-svg-icons/faUnlock';
 import { faUserFriends } from '@fortawesome/free-solid-svg-icons/faUserFriends';
 import { faUserSlash } from '@fortawesome/free-solid-svg-icons/faUserSlash';
-import he from 'he';
 import Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsSolidGauge from 'highcharts/modules/solid-gauge';
@@ -632,7 +630,7 @@ type Component = RedesignComponent<
     'profile',
     {
         moment: typeof moment;
-        he: typeof he;
+        decode: typeof decode;
         faEdit: IconDefinition;
         faImage: IconDefinition;
         faEnvelope: IconDefinition;
@@ -690,7 +688,7 @@ export default Vue.extend<
         const buildingTypes = this.lightbox.translationStore.buildings;
         return {
             moment,
-            he,
+            decode,
             faEdit,
             faImage,
             faEnvelope,
