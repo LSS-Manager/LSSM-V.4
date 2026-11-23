@@ -71,7 +71,20 @@ export default (
                                 : `.${wasActive ? BTN_ACTIVE : BTN_INACTIVE}`
                         }`
                     )
-                    .forEach(button => switchBtnState(button, $m))
+                    .forEach(button => {
+                        switchBtnState(button, $m);
+                        // collapse or expand the mission like the sending window did
+                        const btnGroup = button.parentElement;
+                        if (btnGroup) {
+                            toggle(
+                                btnGroup,
+                                button,
+                                button.dataset.mission ?? '-1',
+                                collapsedClass,
+                                collapsedBarContentClass
+                            );
+                        }
+                    })
         );
     }
 
