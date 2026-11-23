@@ -1,7 +1,8 @@
 import { useConsoleStore } from '@stores/console';
 
 type WorkerExtraPropertiesType = Record<never, never>;
-export type WorkerEventsType = Record<string, unknown>;
+// an object type (e.g. an interface) mapping event names to the type of their data
+export type WorkerEventsType = object;
 
 export type WorkerSelf<
     ExtraProperties extends WorkerExtraPropertiesType =
@@ -311,6 +312,10 @@ export default class TypedWorker<
 
     // identifies this window towards the worker
     readonly #clientId = crypto.randomUUID();
+    // resolves to true once this window holds its client lock (only requested once, as it is never released)
+    #clientLock: Promise<boolean> | null = null;
+    #currentWorker: SharedWorker | null = null;
+    #pageLifecycleHandled = false;
     readonly #listeners = new Map<string, Set<(data: unknown) => void>>();
     readonly #resumeCallbacks = new Set<() => void>();
 
@@ -585,6 +590,7 @@ ${scripts}
             this.#pending.forEach(({ reject }) => reject(event));
             this.#pending.clear();
             this.#connection = null;
+            this.#currentWorker = null;
         });
     }
 
@@ -605,8 +611,9 @@ ${scripts}
      */
     async #registerClient(worker: SharedWorker) {
         const locks = window.navigator.locks;
-        const lock = locks
-            ? await new Promise<boolean>(resolve => {
+        // after reconnecting, this window already holds its lock, requesting it again would never resolve
+        this.#clientLock ??= locks
+            ? new Promise<boolean>(resolve => {
                   locks
                       .request(`${this.#name}:client:${this.#clientId}`, () => {
                           resolve(true);
@@ -615,7 +622,8 @@ ${scripts}
                       })
                       .catch(() => resolve(false));
               })
-            : false;
+            : Promise.resolve(false);
+        const lock = await this.#clientLock;
         this.#post(worker, { type: 'hello', clientId: this.#clientId, lock });
         // events may have been subscribed before the connection was established
         if (this.#listeners.size) {
@@ -629,10 +637,13 @@ ${scripts}
     /**
      * Pages in the back/forward cache are frozen but stay connected.
      * To avoid events piling up for them, they unsubscribe when hidden and subscribe again when shown.
-     * @param worker - The connected worker or null if running in the window.
+     * The listeners are added once and always use the currently connected worker.
      */
-    #handlePageLifecycle(worker: SharedWorker | null) {
+    #handlePageLifecycle() {
+        if (this.#pageLifecycleHandled) return;
+        this.#pageLifecycleHandled = true;
         window.addEventListener('pagehide', () => {
+            const worker = this.#currentWorker;
             if (worker && this.#listeners.size) {
                 this.#post(worker, {
                     type: 'unsubscribe',
@@ -642,6 +653,7 @@ ${scripts}
         });
         window.addEventListener('pageshow', event => {
             if (!event.persisted) return;
+            const worker = this.#currentWorker;
             if (worker && this.#listeners.size) {
                 this.#post(worker, {
                     type: 'subscribe',
@@ -682,7 +694,8 @@ ${scripts}
             this.#listen(worker);
             await this.#registerClient(worker);
         }
-        this.#handlePageLifecycle(worker);
+        this.#currentWorker = worker;
+        this.#handlePageLifecycle();
         return worker;
     }
 
