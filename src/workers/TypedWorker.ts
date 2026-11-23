@@ -1,12 +1,25 @@
 import { useConsoleStore } from '@stores/console';
 
 type WorkerExtraPropertiesType = Record<never, never>;
+export type WorkerEventsType = Record<string, unknown>;
 
 export type WorkerSelf<
     ExtraProperties extends WorkerExtraPropertiesType =
         WorkerExtraPropertiesType,
     Scripts extends Record<string, unknown> = Record<never, never>,
-> = ExtraProperties & Scripts & WindowOrWorkerGlobalScope;
+    Events extends WorkerEventsType = Record<never, never>,
+> = ExtraProperties &
+    Scripts &
+    WindowOrWorkerGlobalScope & {
+        /**
+         * Sends an event to all windows that subscribed to it.
+         * When running in the window (fallback), only the current window receives it.
+         */
+        publish<Event extends string & keyof Events>(
+            event: Event,
+            data: Events[Event]
+        ): void;
+    };
 
 type WorkerFunction<
     ExtraProperties extends WorkerExtraPropertiesType =
@@ -14,7 +27,11 @@ type WorkerFunction<
     Scripts extends Record<string, unknown> = Record<never, never>,
     Args extends unknown[] = [],
     Return = void,
-> = (self: WorkerSelf<ExtraProperties, Scripts>, ...args: Args) => Return;
+    Events extends WorkerEventsType = Record<never, never>,
+> = (
+    self: WorkerSelf<ExtraProperties, Scripts, Events>,
+    ...args: Args
+) => Return;
 
 // region messages between windows and workers
 interface RunMessage<Args extends unknown[]> {
@@ -22,10 +39,34 @@ interface RunMessage<Args extends unknown[]> {
     uuid: string;
     args: Args;
 }
+interface HelloMessage {
+    type: 'hello';
+    clientId: string;
+    // whether the window holds a lock as long as it lives
+    lock: boolean;
+}
+interface SubscriptionMessage {
+    type: 'subscribe' | 'unsubscribe';
+    events: string[];
+}
+type WindowMessage<Args extends unknown[]> =
+    HelloMessage | RunMessage<Args> | SubscriptionMessage;
+
 interface ReadyMessage {
     type: 'ready';
     instance: string;
     startedAt: number;
+    // the number of windows connected to this worker (for debugging)
+    clients: number;
+}
+interface EventMessage {
+    type: 'event';
+    event: string;
+    data: unknown;
+}
+interface UncaughtErrorMessage {
+    type: 'uncaughtError';
+    error: unknown;
 }
 interface ResultMessage<Return> {
     type: 'result';
@@ -38,8 +79,17 @@ interface ErrorMessage {
     error: unknown;
 }
 type WorkerMessage<Return> =
-    ErrorMessage | ReadyMessage | ResultMessage<Return>;
+    | ErrorMessage
+    | EventMessage
+    | ReadyMessage
+    | ResultMessage<Return>
+    | UncaughtErrorMessage;
 // endregion
+
+// Functions and classes are transferred to the worker via toString(), so their source must be an expression.
+// This excludes method shorthands such as `{ foo() {} }`.
+const TRANSFERABLE_SOURCE =
+    /^(?:class\b|(?:async\s+)?function\b|(?:async\s*)?\(|(?:async\s+)?[\w$]+\s*=>)/u;
 
 /**
  * If this key is set to `'true'` in localStorage, all TypedWorkers run their function in the window instead of a SharedWorker.
@@ -93,15 +143,53 @@ const workerRuntime = (
         name: string;
         navigator: Navigator;
         crypto: Crypto;
+        publish?(event: string, data: unknown): void;
         addEventListener(
             type: 'connect',
             listener: (event: MessageEvent) => void
+        ): void;
+        addEventListener(
+            type: 'error',
+            listener: (event: ErrorEvent) => void
+        ): void;
+        addEventListener(
+            type: 'unhandledrejection',
+            listener: (event: PromiseRejectionEvent) => void
         ): void;
     },
     workerFunction: (scope: typeof self, ...args: unknown[]) => unknown
 ) => {
     const instance = self.crypto.randomUUID().slice(0, 8);
     const startedAt = Date.now();
+
+    // the windows that said hello and the events they subscribed to
+    const clients = new Map<
+        string,
+        { port: MessagePort; events: Set<string> }
+    >();
+
+    self.publish = (event, data) => {
+        clients.forEach(({ port, events }) => {
+            if (events.has(event))
+                port.postMessage({ type: 'event', event, data });
+        });
+    };
+
+    // errors outside of calls (e.g. in timers or unhandled promises) would otherwise only be visible in the worker's console
+    const reportUncaughtError = (error: unknown) =>
+        clients.forEach(({ port }) => {
+            try {
+                port.postMessage({ type: 'uncaughtError', error });
+            } catch {
+                port.postMessage({ type: 'uncaughtError', error: `${error}` });
+            }
+        });
+    self.addEventListener('error', event =>
+        reportUncaughtError(event.error ?? event.message)
+    );
+    self.addEventListener('unhandledrejection', event =>
+        reportUncaughtError(event.reason)
+    );
 
     // hold a lock as long as this worker lives, so windows can check whether this worker is still alive
     const lockHeld = new Promise<void>(resolve => {
@@ -141,7 +229,37 @@ const workerRuntime = (
             }
         };
 
+        // the id of the window using this port, set once the window said hello
+        let clientId: string | null = null;
+
         port.addEventListener('message', async ({ data }) => {
+            if (data?.type === 'hello') {
+                const hello = data as { clientId: string; lock: boolean };
+                const id = hello.clientId;
+                clientId = id;
+                clients.set(id, { port, events: new Set() });
+                // the window holds this lock as long as it lives (also in iframes). Once we get it, the window is gone.
+                if (hello.lock && self.navigator.locks) {
+                    self.navigator.locks.request(
+                        `${self.name}:client:${id}`,
+                        () => {
+                            clients.delete(id);
+                            port.close();
+                        }
+                    );
+                }
+                return;
+            }
+            if (data?.type === 'subscribe' || data?.type === 'unsubscribe') {
+                const client = clientId ? clients.get(clientId) : null;
+                if (!client) return;
+                (data as { events: string[] }).events.forEach(event =>
+                    data.type === 'subscribe'
+                        ? client.events.add(event)
+                        : client.events.delete(event)
+                );
+                return;
+            }
             if (data?.type !== 'run') return;
             const { uuid, args } = data as { uuid: string; args: unknown[] };
             try {
@@ -157,7 +275,12 @@ const workerRuntime = (
 
         // tell the window that this worker is ready and which instance it is
         readyToConnect.then(() =>
-            port.postMessage({ type: 'ready', instance, startedAt })
+            port.postMessage({
+                type: 'ready',
+                instance,
+                startedAt,
+                clients: clients.size,
+            })
         );
     });
 };
@@ -167,12 +290,14 @@ export default class TypedWorker<
     Args extends unknown[] = [],
     Return = void,
     Scripts extends Record<string, object> = Record<never, never>,
+    Events extends WorkerEventsType = Record<never, never>,
 > {
     readonly #function: WorkerFunction<
         WorkerExtraProperties,
         Scripts,
         Args,
-        Return
+        Return,
+        Events
     >;
     readonly #workerName: string;
     readonly #importableScripts: Scripts;
@@ -181,7 +306,13 @@ export default class TypedWorker<
     #nameCache: string | null = null;
     #connection: Promise<SharedWorker | null> | null = null;
     #instance: string | null = null;
-    #fallbackSelf: WorkerSelf<WorkerExtraProperties, Scripts> | null = null;
+    #fallbackSelf: WorkerSelf<WorkerExtraProperties, Scripts, Events> | null =
+        null;
+
+    // identifies this window towards the worker
+    readonly #clientId = crypto.randomUUID();
+    readonly #listeners = new Map<string, Set<(data: unknown) => void>>();
+    readonly #resumeCallbacks = new Set<() => void>();
 
     readonly #pending = new Map<
         string,
@@ -195,7 +326,13 @@ export default class TypedWorker<
 
     constructor(
         workerName: string,
-        fn: WorkerFunction<WorkerExtraProperties, Scripts, Args, Return>,
+        fn: WorkerFunction<
+            WorkerExtraProperties,
+            Scripts,
+            Args,
+            Return,
+            Events
+        >,
         importableScripts: Scripts
     ) {
         this.#workerName = workerName;
@@ -206,9 +343,25 @@ export default class TypedWorker<
     /**
      * The source code of the worker. It is deterministic for the same build, so it can be used for the worker's identity.
      * @returns The source code of the worker.
+     * @throws Error If the function or an importable script cannot be transferred via toString().
      */
     get #workerSource() {
         if (this.#source) return this.#source;
+
+        const notTransferable = Object.entries({
+            ...this.#importableScripts,
+            '[worker function]': this.#function,
+        })
+            .filter(
+                ([, exported]) =>
+                    !TRANSFERABLE_SOURCE.test(exported.toString().trim())
+            )
+            .map(([name]) => name);
+        if (notTransferable.length) {
+            throw new Error(
+                `These functions cannot be transferred to the worker, use arrow functions, function expressions or classes instead: ${notTransferable.join(', ')}`
+            );
+        }
 
         const scripts = Object.entries(this.#importableScripts)
             .map(
@@ -400,6 +553,15 @@ ${scripts}
             'message',
             (event: MessageEvent<WorkerMessage<Return>>) => {
                 const message = event.data;
+                if (message?.type === 'event')
+                    return this.#emit(message.event, message.data);
+                if (message?.type === 'uncaughtError') {
+                    return this.#log(
+                        'error',
+                        'An uncaught error occurred in the worker:',
+                        message.error
+                    );
+                }
                 if (message?.type !== 'result' && message?.type !== 'error')
                     return;
                 const pending = this.#pending.get(message.uuid);
@@ -427,11 +589,109 @@ ${scripts}
     }
 
     /**
+     * Sends a message to the worker. Messages to a closed port are ignored by the browser.
+     * @param worker - The connected worker.
+     * @param message - The message to send.
+     */
+    #post(worker: SharedWorker, message: WindowMessage<Args>) {
+        worker.port.postMessage(message);
+    }
+
+    /**
+     * Introduces this window to the worker, so that it can receive events.
+     * The window holds a lock as long as it lives, so the worker notices when the window is gone.
+     * The lock is held by this frame (not the top window), so closed iframes are noticed as well.
+     * @param worker - The connected worker.
+     */
+    async #registerClient(worker: SharedWorker) {
+        const locks = window.navigator.locks;
+        const lock = locks
+            ? await new Promise<boolean>(resolve => {
+                  locks
+                      .request(`${this.#name}:client:${this.#clientId}`, () => {
+                          resolve(true);
+                          // never release the lock
+                          return new Promise<void>(() => void 0);
+                      })
+                      .catch(() => resolve(false));
+              })
+            : false;
+        this.#post(worker, { type: 'hello', clientId: this.#clientId, lock });
+        // events may have been subscribed before the connection was established
+        if (this.#listeners.size) {
+            this.#post(worker, {
+                type: 'subscribe',
+                events: Array.from(this.#listeners.keys()),
+            });
+        }
+    }
+
+    /**
+     * Pages in the back/forward cache are frozen but stay connected.
+     * To avoid events piling up for them, they unsubscribe when hidden and subscribe again when shown.
+     * @param worker - The connected worker or null if running in the window.
+     */
+    #handlePageLifecycle(worker: SharedWorker | null) {
+        window.addEventListener('pagehide', () => {
+            if (worker && this.#listeners.size) {
+                this.#post(worker, {
+                    type: 'unsubscribe',
+                    events: Array.from(this.#listeners.keys()),
+                });
+            }
+        });
+        window.addEventListener('pageshow', event => {
+            if (!event.persisted) return;
+            if (worker && this.#listeners.size) {
+                this.#post(worker, {
+                    type: 'subscribe',
+                    events: Array.from(this.#listeners.keys()),
+                });
+            }
+            // events may have been missed while the page was frozen
+            this.#resumeCallbacks.forEach(callback => callback());
+        });
+    }
+
+    /**
+     * Calls all listeners of an event in this window.
+     * @param event - The name of the event.
+     * @param data - The data of the event.
+     */
+    #emit(event: string, data: unknown) {
+        this.#listeners.get(event)?.forEach(listener => {
+            try {
+                listener(data);
+            } catch (error) {
+                this.#log(
+                    'error',
+                    `A listener of event ${event} threw an error:`,
+                    error
+                );
+            }
+        });
+    }
+
+    /**
+     * Establishes the connection to the worker (or decides to run in the window) and registers this window.
+     * @returns A promise that resolves to the connected worker or null if the function should run in the window.
+     */
+    async #establishConnection(): Promise<SharedWorker | null> {
+        const worker = await this.#connectToWorker();
+        if (worker) {
+            this.#listen(worker);
+            await this.#registerClient(worker);
+        }
+        this.#handlePageLifecycle(worker);
+        return worker;
+    }
+
+    /**
      * Connects to the SharedWorker of this TypedWorker or starts it if it is not alive.
      * Starting is done while holding a lock, so that multiple windows do not start multiple workers.
      * @returns A promise that resolves to the connected worker or null if the function should run in the window.
      */
-    async #establishConnection(): Promise<SharedWorker | null> {
+    async #connectToWorker(): Promise<SharedWorker | null> {
         if (localStorage.getItem(DISABLE_SHARED_WORKER_KEY) === 'true') {
             this.#log(
                 'info',
@@ -449,14 +709,10 @@ ${scripts}
 
         let name: string;
         try {
+            // this throws if the worker's source cannot be built or the Web Crypto API is not available
             name = await this.#computeName();
         } catch (error) {
-            // e.g. the Web Crypto API is not available
-            this.#log(
-                'warn',
-                'Could not name the worker, running in the window:',
-                error
-            );
+            this.#log('error', 'Running in the window:', error);
             return null;
         }
 
@@ -495,8 +751,8 @@ ${scripts}
             const worker = await (locks
                 ? locks.request(`${name}:bootstrap`, connect)
                 : connect());
-            if (worker) this.#listen(worker);
-            else this.#log('warn', 'Could not connect, running in the window.');
+            if (!worker)
+                this.#log('warn', 'Could not connect, running in the window.');
             return worker;
         } catch (error) {
             this.#log(
@@ -518,7 +774,12 @@ ${scripts}
         // the fallback scope mimics the global scope of the worker: it contains the importable scripts and keeps state between calls
         this.#fallbackSelf ??= {
             ...this.#importableScripts,
-        } as unknown as WorkerSelf<WorkerExtraProperties, Scripts>;
+            // without a worker, only this window can receive events. Data is cloned like it would be by the worker.
+            publish: (event: string, data: unknown) => {
+                const clonedData = structuredClone(data);
+                queueMicrotask(() => this.#emit(event, clonedData));
+            },
+        } as unknown as WorkerSelf<WorkerExtraProperties, Scripts, Events>;
         try {
             const result = await this.#function(
                 this.#fallbackSelf,
@@ -556,5 +817,132 @@ ${scripts}
                 reject(error);
             }
         });
+    }
+
+    /**
+     * Listens to an event the worker publishes via `self.publish`.
+     * When running in the window (fallback), only events published by this window are received.
+     * @param event - The name of the event.
+     * @param listener - The function to call with the data of the event.
+     * @returns A function to stop listening.
+     */
+    public subscribe<Event extends string & keyof Events>(
+        event: Event,
+        listener: (data: Events[Event]) => void
+    ): () => void {
+        const listeners =
+            this.#listeners.get(event) ?? new Set<(data: unknown) => void>();
+        const isFirstListener = listeners.size === 0;
+        listeners.add(listener as (data: unknown) => void);
+        this.#listeners.set(event, listeners);
+
+        this.#connection ??= this.#establishConnection();
+        if (isFirstListener) {
+            this.#connection.then(worker => {
+                if (worker && this.#listeners.has(event))
+                    this.#post(worker, { type: 'subscribe', events: [event] });
+            });
+        }
+
+        return () => {
+            listeners.delete(listener as (data: unknown) => void);
+            if (listeners.size || this.#listeners.get(event) !== listeners)
+                return;
+            this.#listeners.delete(event);
+            this.#connection?.then(worker => {
+                if (worker && !this.#listeners.has(event)) {
+                    this.#post(worker, {
+                        type: 'unsubscribe',
+                        events: [event],
+                    });
+                }
+            });
+        };
+    }
+
+    /**
+     * Registers a callback for when this page is restored from the back/forward cache.
+     * Events published while the page was frozen have not been received, so consumers may want to fetch the current state.
+     * @param callback - The function to call.
+     * @returns A function to remove the callback.
+     */
+    public onResume(callback: () => void): () => void {
+        this.#resumeCallbacks.add(callback);
+        return () => this.#resumeCallbacks.delete(callback);
+    }
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- the arguments of each method are inferred individually
+type WorkerMethod<Self> = (self: Self, ...args: any[]) => unknown;
+
+type MethodArgs<Method> = Method extends (
+    self: never,
+    ...args: infer Args
+) => unknown
+    ? Args
+    : never;
+
+/**
+ * A TypedWorker that provides multiple methods instead of a single function.
+ * Like the function of a TypedWorker, each method is transferred via toString(),
+ * so it must be an arrow function or function expression and must not reference anything outside its own body.
+ * Methods can publish events to all subscribed windows via `self.publish`.
+ */
+export class TypedMultiWorker<
+    WorkerExtraProperties extends WorkerExtraPropertiesType,
+    Methods extends Record<
+        string,
+        WorkerMethod<WorkerSelf<WorkerExtraProperties, Scripts, Events>>
+    >,
+    Events extends WorkerEventsType = Record<never, never>,
+    Scripts extends Record<string, object> = Record<never, never>,
+> extends TypedWorker<
+    WorkerExtraProperties,
+    [method: string, ...args: unknown[]],
+    unknown,
+    Scripts,
+    Events
+> {
+    constructor(
+        workerName: string,
+        methods: Methods,
+        importableScripts: Scripts
+    ) {
+        super(
+            workerName,
+            // dispatches a call to the requested method, which is stored in the worker's scope like an importable script
+            // CAVEAT: This function is stringified, so it must not reference anything outside its own body!
+            (self, method, ...args) =>
+                (
+                    self as unknown as Record<
+                        string,
+                        (...methodArgs: unknown[]) => unknown
+                    >
+                )[`method:${method}`](self, ...args),
+            {
+                ...importableScripts,
+                ...Object.fromEntries(
+                    Object.entries(methods).map(([name, method]) => [
+                        `method:${name}`,
+                        method,
+                    ])
+                ),
+            } as Scripts
+        );
+    }
+
+    /**
+     * Calls a method of this worker.
+     * @param method - The name of the method.
+     * @param args - The arguments to pass to the method.
+     * @returns A promise that resolves with the result of the method.
+     */
+    public call<Method extends string & keyof Methods>(
+        method: Method,
+        ...args: MethodArgs<Methods[Method]>
+    ): Promise<Awaited<ReturnType<Methods[Method]>>> {
+        return this.run(method, ...args) as Promise<
+            Awaited<ReturnType<Methods[Method]>>
+        >;
     }
 }
