@@ -522,9 +522,14 @@ export default async (
                         list,
                         Object.entries(missions)
                             .filter(([mission, { el }]) => {
-                                if (el.isConnected) return true;
-                                delete missionOrderValuesById[list][mission];
-                                return false;
+                                if (!el.isConnected) {
+                                    delete missionOrderValuesById[list][mission];
+                                    return false;
+                                }
+                                // Hidden missions (e.g. alliance missions outside of the configured radius)
+                                // are kept in the DOM but must not be navigated to.
+                                // Only the entry itself is checked, so missions in collapsed containers still work.
+                                return getComputedStyle(el).display !== 'none';
                             })
                             .sort(
                                 (
