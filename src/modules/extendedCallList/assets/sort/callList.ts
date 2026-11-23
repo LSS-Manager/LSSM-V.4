@@ -523,7 +523,9 @@ export default async (
                         Object.entries(missions)
                             .filter(([mission, { el }]) => {
                                 if (!el.isConnected) {
-                                    delete missionOrderValuesById[list][mission];
+                                    delete missionOrderValuesById[list][
+                                        mission
+                                    ];
                                     return false;
                                 }
                                 // Hidden missions (e.g. alliance missions outside of the configured radius)
