@@ -22,6 +22,11 @@ export type WorkerSelf<
             event: Event,
             data: Events[Event]
         ): void;
+        /**
+         * Whether any window currently listens to an event, e.g. To only refresh data that is still needed.
+         * Frozen pages in the back/forward cache do not count.
+         */
+        hasSubscribers(event: string & keyof Events): boolean;
     };
 
 type WorkerFunction<
@@ -177,6 +182,7 @@ const workerRuntime = (
         navigator: Navigator;
         crypto: Crypto;
         publish?(event: string, data: unknown): void;
+        hasSubscribers?(event: string): boolean;
         addEventListener(
             type: 'connect',
             listener: (event: MessageEvent) => void
@@ -207,6 +213,8 @@ const workerRuntime = (
                 port.postMessage({ type: 'event', event, data });
         });
     };
+    self.hasSubscribers = event =>
+        Array.from(clients.values()).some(({ events }) => events.has(event));
 
     // errors outside of calls (e.g. in timers or unhandled promises) would otherwise only be visible in the worker's console
     const reportUncaughtError = (error: unknown) =>
@@ -868,6 +876,7 @@ ${scripts}
                 const clonedData = structuredClone(data);
                 queueMicrotask(() => this.#emit(event, clonedData));
             },
+            hasSubscribers: (event: string) => this.#listeners.has(event),
         } as unknown as WorkerSelf<WorkerExtraProperties, Scripts, Events>;
         try {
             const result = await this.#function(

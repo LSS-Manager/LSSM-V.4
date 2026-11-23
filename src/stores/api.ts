@@ -7,6 +7,7 @@ import { decode } from 'he';
 import { defineStore } from 'pinia';
 import { useTranslationStore } from '@stores/translationUtilities';
 import ApiWorker, {
+    type ApiResult,
     type MissionsArray,
     type MissionsById,
 } from '@workers/stores/api/api.worker';
@@ -174,11 +175,10 @@ export const defineAPIStore = defineStore('api', () => {
     const allSchoolings = ref<Schooling[]>([]);
     // endregion
 
-    // auto-update
-    setInterval(
-        () => lastUpdates.forEach((_, api) => _updateAPI(api, 'autoUpdate')),
-        API_UPDATE_AFTER
-    );
+    // the version of each API's data in this window, see ApiResult
+    const apiVersions = new Map<APIKey, string>();
+    // the APIs this window listens to. The worker refreshes them and sends their data whenever it has changed
+    const subscribedApis = new Set<APIKey>();
 
     /**
      * Modify a RequestInit object to include the LSSM headers.
@@ -294,6 +294,20 @@ export const defineAPIStore = defineStore('api', () => {
      * @param feature - The feature that is requesting the API.
      * @returns A promise that resolves with the fetched data.
      */
+    /**
+     * Listen to changes of an API: the worker refreshes it and sends the new data whenever it has changed.
+     * @param api - The API to listen to.
+     */
+    const _subscribe = <Api extends APIKey>(api: Api) => {
+        if (subscribedApis.has(api)) return;
+        subscribedApis.add(api);
+        ApiWorker.subscribe(`api:${api}`, ({ version, data }) => {
+            if (version === apiVersions.get(api)) return;
+            apiVersions.set(api, version);
+            _storeApi(api, data as APIs[Api]).then();
+        });
+    };
+
     const _updateAPI = <Api extends APIKey>(api: Api, feature: string) =>
         new Promise<APIs[Api]>((res, rej) => {
             // resolve and reject will be called when the fetch is done
@@ -312,16 +326,27 @@ export const defineAPIStore = defineStore('api', () => {
 
             const feat = `apiStore/_updateAPI:${api}(${feature})`;
 
+            _subscribe(api);
+
             // let's start the update on a worker
             (
                 ApiWorker.call(
                     'fetchApi',
                     api,
                     _getRequestInit({}, feat),
-                    smallBuildingsMap
-                ) as Promise<APIs[Api]>
+                    smallBuildingsMap,
+                    apiVersions.get(api)
+                ) as Promise<ApiResult<Api>>
             )
-                .then(value => _storeApi(api, value))
+                .then(({ version, data }) => {
+                    if (data && version !== apiVersions.get(api)) {
+                        apiVersions.set(api, version);
+                        return _storeApi(api, data);
+                    }
+                    // the data of this window is up to date
+                    lastUpdates.set(api, Date.now());
+                    return apiStorage[api].value;
+                })
                 .then(value => {
                     // success! let's resolve all the callbacks
                     let callback = currentlyRunningUpdates[api]?.shift();
@@ -341,6 +366,13 @@ export const defineAPIStore = defineStore('api', () => {
                     }
                 });
         });
+
+    // a page restored from the back/forward cache has missed the changes sent in the meantime
+    ApiWorker.onResume(() =>
+        subscribedApis.forEach(api =>
+            _updateAPI(api, 'apiStore/resume').catch(() => void 0)
+        )
+    );
 
     /**
      * Returns the stored value of an API or fetches it if it's older than API_UPDATE_AFTER.
