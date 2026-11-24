@@ -77,7 +77,11 @@ export default async (
             mission.element.getAttribute('mission_type_id') ?? '-1';
         const overlayIndex =
             mission.element.getAttribute('data-overlay-index') ?? 'null';
-        if (overlayIndex && overlayIndex !== 'null')
+        if (
+            overlayIndex &&
+            overlayIndex !== 'null' &&
+            overlayIndex !== 'undefined'
+        )
             missionType += `-${overlayIndex}`;
         const additionalOverlay =
             mission.element.getAttribute('data-additive-overlays') ?? 'null';

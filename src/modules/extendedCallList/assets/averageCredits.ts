@@ -22,7 +22,11 @@ export default async (
     const getMissionTypeFromPanel = (panel: HTMLDivElement): string => {
         let missionType = panel.getAttribute('mission_type_id') ?? '-1';
         const overlayIndex = panel.getAttribute('data-overlay-index') ?? 'null';
-        if (overlayIndex && overlayIndex !== 'null')
+        if (
+            overlayIndex &&
+            overlayIndex !== 'null' &&
+            overlayIndex !== 'undefined'
+        )
             missionType += `-${overlayIndex}`;
         const additionalOverlay =
             panel.getAttribute('data-additive-overlays') ?? 'null';

@@ -1,3 +1,5 @@
+import onMissionListRendered from './onMissionListRendered';
+
 import type { MissionMarkerAdd } from 'typings/Ingame';
 
 export interface ButtonGroupCallback {
@@ -44,23 +46,27 @@ export default (
         )
         .forEach(addButtonGroup);
 
+    const handleMission = (mission: HTMLDivElement) => {
+        let btnGroup = mission.querySelector<HTMLSpanElement>(
+            `.${btnGroupClass}`
+        );
+        if (!btnGroup) btnGroup = addButtonGroup(mission);
+        onUpdate({
+            element: mission,
+            btnGroup,
+            id: parseInt(mission.getAttribute('mission_id') ?? '-1'),
+        });
+    };
+
     LSSM.$stores.root.hook({
         event: 'missionMarkerAdd',
         callback(marker: MissionMarkerAdd) {
             const mission = document.querySelector<HTMLDivElement>(
                 `#mission_${marker.id}`
             );
-            if (mission) {
-                let btnGroup = mission.querySelector<HTMLSpanElement>(
-                    `.${btnGroupClass}`
-                );
-                if (!btnGroup) btnGroup = addButtonGroup(mission);
-                onUpdate({
-                    element: mission,
-                    btnGroup,
-                    id: parseInt(mission.getAttribute('mission_id') ?? '-1'),
-                });
-            }
+            if (mission) handleMission(mission);
         },
     });
+
+    onMissionListRendered(LSSM, handleMission);
 };

@@ -21,7 +21,11 @@ export default (Vue: VueConstructor): void => {
                 document
                     .querySelector<HTMLDivElement>('#mission_general_info')
                     ?.getAttribute('data-overlay-index') ?? 'null';
-            if (overlayIndex && overlayIndex !== 'null')
+            if (
+                overlayIndex &&
+                overlayIndex !== 'null' &&
+                overlayIndex !== 'undefined'
+            )
                 missionType += `-${overlayIndex}`;
             const additionalOverlay =
                 document

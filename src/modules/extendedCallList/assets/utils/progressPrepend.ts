@@ -1,3 +1,5 @@
+import onMissionListRendered from './onMissionListRendered';
+
 import type { MissionMarkerAdd } from 'typings/Ingame';
 
 export interface ProgressPrependCallback {
@@ -42,20 +44,24 @@ export default (
         )
         .forEach(updateProgressBar);
 
+    const handleMission = (mission: HTMLDivElement) => {
+        if (!mission.querySelector(`.${progressBarClass}`))
+            updateProgressBar(mission);
+        onUpdate({
+            missionPanel: mission,
+            id: parseInt(mission.getAttribute('mission_id') ?? '-1'),
+        });
+    };
+
     LSSM.$stores.root.hook({
         event: 'missionMarkerAdd',
         callback(marker: MissionMarkerAdd) {
             const mission = document.querySelector<HTMLDivElement>(
                 `#mission_${marker.id}`
             );
-            if (mission) {
-                if (!mission.querySelector(`.${progressBarClass}`))
-                    updateProgressBar(mission);
-                onUpdate({
-                    missionPanel: mission,
-                    id: parseInt(mission.getAttribute('mission_id') ?? '-1'),
-                });
-            }
+            if (mission) handleMission(mission);
         },
     });
+
+    onMissionListRendered(LSSM, handleMission);
 };
