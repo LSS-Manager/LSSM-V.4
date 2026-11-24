@@ -37,7 +37,9 @@ const defineConsoleStore = defineStore('console', () => {
         message: MessageParameter
     ) => {
         if (isComplexMessage(message))
+            // eslint-disable-next-line no-console -- This store is the app's console logging backend.
             return console[level](...prefixed(message.messages));
+        // eslint-disable-next-line no-console -- This store is the app's console logging backend.
         console[level](...prefixed([message]));
     };
 

@@ -1,4 +1,4 @@
-import he from 'he';
+import { escape, unescape } from 'he';
 
 import type { AllianceChatMessage } from 'typings/Ingame';
 
@@ -73,12 +73,12 @@ export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
         event: 'allianceChatHeaderInfo',
         returnModification: true,
         callback(e) {
-            const message = he.unescape(e);
+            const message = unescape(e);
             const links = message.match(urlRegex) || [];
             const texts = message.split(urlRegex);
             let newMessage = '';
             texts.forEach(text => {
-                if (text) newMessage += he.escape(text);
+                if (text) newMessage += escape(text);
                 const link = links.shift();
                 if (link) {
                     newMessage += `<a href="${link}" ${
