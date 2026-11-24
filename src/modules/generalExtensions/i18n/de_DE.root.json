@@ -48,6 +48,10 @@
             "description": "Zentriere Karte auf Positionen, auf die vorher zentriert wurde. – Funktioniert aktuell nur beim Kartentyp \"OpenStreetMap\"",
             "title": "Kartensprünge speichern"
         },
+        "noteMonospace": {
+            "description": "Zeigt Notizen in einer Schrift mit fester Zeichenbreite an, damit Tabellen und ausgerichteter Text leichter lesbar sind.",
+            "title": "Notizen in Festbreitenschrift"
+        },
         "notePreview": {
             "description": "Macht Links in den Notizen anklickbar, indem eine Vorschau der Notizen angezeigt wird.",
             "title": "Notizen"
