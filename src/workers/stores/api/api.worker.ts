@@ -36,9 +36,73 @@ export interface ApiResult<Api extends APIKey> {
     data?: APIs[Api];
 }
 
+// APIs whose single entries (vehicles and buildings) can be updated, e.g. by radio messages
+export type EntityApi = 'alliance_buildings' | 'buildings' | 'vehicles';
+type Entity = Building | Vehicle;
+
 // windows listening to `api:<name>` receive the new data whenever an API has changed
+// windows listening to `entities:<name>` receive single vehicles or buildings that have changed
 export type ApiEvents = {
     [Api in APIKey as `api:${Api}`]: { version: string; data: APIs[Api] };
+} & {
+    [Api in EntityApi as `entities:${Api}`]: {
+        entities: APIs[Api][number][];
+        // the version of the API after and before this change, see storeEntities
+        version?: string;
+        previousVersion?: string;
+    };
+};
+
+/**
+ * Stores single vehicles or buildings in the worker and sends those that have changed to the windows.
+ * The same change usually arrives several times, for example a radio message in every tab of the main page.
+ * So only entities that differ from the stored ones are sent.
+ * The stored data then differs from the last response, so the API gets a new version: The next refresh sends the full
+ * data again, which corrects wrong updates, and windows that missed the change (like frozen pages) know they are outdated.
+ * CAVEAT: This function is stringified (see TypedWorker), so it must not reference anything outside its own body!
+ * @param self - The scope of the worker.
+ * @param api - The API the entities belong to.
+ * @param entities - The vehicles or buildings to store.
+ * @returns The entities, merged with the stored ones.
+ */
+const storeEntities = <StoredEntity extends Entity>(
+    self: {
+        apiStorage?: Partial<Record<EntityApi, Record<number, Entity>>>;
+        apiVersions?: Map<string, string>;
+        publish(event: string, data: unknown): void;
+    },
+    api: EntityApi,
+    entities: StoredEntity[]
+): StoredEntity[] => {
+    const stored = self.apiStorage?.[api];
+    // the APIs of single entities lack some fields of the full APIs (e.g. assigned_equipments of vehicles),
+    // so entities are merged into the stored ones to keep those fields
+    const merged = entities.map(
+        entity => ({ ...stored?.[entity.id], ...entity }) as StoredEntity
+    );
+    const changed = merged.filter(
+        entity =>
+            !stored ||
+            JSON.stringify(stored[entity.id]) !== JSON.stringify(entity)
+    );
+    if (!changed.length) return merged;
+
+    const previousVersion = self.apiVersions?.get(api);
+    let version: string | undefined = undefined;
+    if (stored) {
+        changed.forEach(entity => (stored[entity.id] = entity));
+        if (previousVersion) {
+            // a version that never equals the hash of a response
+            version = `${previousVersion.split('+')[0]}+${crypto.randomUUID()}`;
+            self.apiVersions?.set(api, version);
+        }
+    }
+    self.publish(`entities:${api}`, {
+        entities: changed,
+        version,
+        previousVersion,
+    });
+    return merged;
 };
 
 interface ApiWorkerState {
@@ -69,9 +133,12 @@ const scripts = {
     checkRequestInit,
     updateBuildingTypeIfSmall,
     LSSMStorage,
+    storeEntities,
 } as const;
 
 type Self = WorkerSelf<ApiWorkerState, typeof scripts, ApiEvents>;
+// storeEntities only needs a part of the scope
+type EntityScope = Parameters<typeof storeEntities>[0];
 
 // CAVEAT: Each method is stringified (see TypedWorker), so it must not reference anything outside its own body!
 const methods = {
@@ -244,8 +311,18 @@ const methods = {
             init
         )
             .then<Building>(res => res.json())
-            .then(building =>
-                self.updateBuildingTypeIfSmall(building, smallBuildingsMap)
+            .then(
+                building =>
+                    self.storeEntities(
+                        self as unknown as EntityScope,
+                        'buildings',
+                        [
+                            self.updateBuildingTypeIfSmall(
+                                building,
+                                smallBuildingsMap
+                            ),
+                        ]
+                    )[0]
             );
     },
     fetchAllianceBuilding: async (
@@ -261,8 +338,18 @@ const methods = {
             init
         )
             .then<Building>(res => res.json())
-            .then(building =>
-                self.updateBuildingTypeIfSmall(building, smallBuildingsMap)
+            .then(
+                building =>
+                    self.storeEntities(
+                        self as unknown as EntityScope,
+                        'alliance_buildings',
+                        [
+                            self.updateBuildingTypeIfSmall(
+                                building,
+                                smallBuildingsMap
+                            ),
+                        ]
+                    )[0]
             );
     },
     fetchVehicle: async (
@@ -277,7 +364,16 @@ const methods = {
         return fetch(
             new URL(`/api/vehicles/${vehicleId}`, location.origin),
             init
-        ).then(res => res.json());
+        )
+            .then<Vehicle>(res => res.json())
+            .then(
+                vehicle =>
+                    self.storeEntities(
+                        self as unknown as EntityScope,
+                        'vehicles',
+                        [vehicle]
+                    )[0]
+            );
     },
     fetchVehiclesAtBuilding: async (
         self: Self,
@@ -291,7 +387,19 @@ const methods = {
         return fetch(
             new URL(`/api/buildings/${buildingId}/vehicles`, location.origin),
             init
-        ).then(res => res.json());
+        )
+            .then<Vehicle[]>(res => res.json())
+            .then(vehicles =>
+                self.storeEntities(
+                    self as unknown as EntityScope,
+                    'vehicles',
+                    vehicles
+                )
+            );
+    },
+    // a window has updated vehicles or buildings itself (e.g. from a radio message) and shares them with the other windows
+    updateEntities: (self: Self, api: EntityApi, entities: Entity[]) => {
+        self.storeEntities(self as unknown as EntityScope, api, entities);
     },
     fetchMissionTypes: async (
         self: Self,
