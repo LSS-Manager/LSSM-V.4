@@ -125,6 +125,11 @@ const isTransferable = (
  */
 export const DISABLE_SHARED_WORKER_KEY = `${PREFIX}_disableSharedWorker`;
 
+export interface TypedWorkerOptions {
+    // names of workers this worker replaces, so that their localStorage keys can be cleaned up
+    replaces?: string[];
+}
+
 // how long a window waits for a worker to confirm a connection before running in the window instead
 const READY_TIMEOUT = 10_000;
 // after starting a worker failed, windows run in the window for this long instead of waiting for a worker again
@@ -329,6 +334,8 @@ export default class TypedWorker<
     >;
     readonly #workerName: string;
     readonly #importableScripts: Scripts;
+    // names of workers this worker replaces, their localStorage keys are removed once they are not alive anymore
+    readonly #replaces: string[];
 
     #source: string | null = null;
     #nameCache: string | null = null;
@@ -365,11 +372,13 @@ export default class TypedWorker<
             Return,
             Events
         >,
-        importableScripts: Scripts
+        importableScripts: Scripts,
+        options: TypedWorkerOptions = {}
     ) {
         this.#workerName = workerName;
         this.#function = fn;
         this.#importableScripts = importableScripts;
+        this.#replaces = options.replaces ?? [];
     }
 
     /**
@@ -500,28 +509,36 @@ ${scripts}
     }
 
     /**
-     * Removes localStorage keys of outdated versions of this worker for the current user and locale.
+     * Removes localStorage keys of outdated versions of this worker for the current user and locale
+     * and keys of the workers this worker replaces.
      * Keys of other versions are kept while their worker is still alive, for example if a tab still uses an older build.
-     * Also removes the key used by older versions of TypedWorker.
+     * Also removes the keys used by older versions of TypedWorker.
      * @returns A promise that resolves once all outdated keys have been removed.
      */
     #removeOutdatedKeys() {
-        const legacyKey = `${PREFIX}:worker:${this.#workerName}`;
+        const legacyKeys = [this.#workerName, ...this.#replaces].map(
+            name => `${PREFIX}:worker:${name}`
+        );
+        const replacedPrefixes = this.#replaces.map(
+            name => `${PREFIX}:worker:${name}:`
+        );
         const failedSuffix = ':failed';
 
         // group the keys by worker, as checking the same lock concurrently would make a dead worker look alive
         const keysByWorker = new Map<string, string[]>();
         for (const key of Object.keys(localStorage)) {
-            if (key === legacyKey) {
+            if (legacyKeys.includes(key)) {
                 localStorage.removeItem(key);
                 continue;
             }
-            if (
-                !key.startsWith(this.#namePrefix) ||
-                key === this.#name ||
-                key === this.#failedKey
-            )
-                continue;
+            const isOutdatedVersion =
+                key.startsWith(this.#namePrefix) &&
+                key !== this.#name &&
+                key !== this.#failedKey;
+            const isReplaced = replacedPrefixes.some(prefix =>
+                key.startsWith(prefix)
+            );
+            if (!isOutdatedVersion && !isReplaced) continue;
             const workerName = key.endsWith(failedSuffix)
                 ? key.slice(0, -failedSuffix.length)
                 : key;
@@ -978,7 +995,8 @@ export class TypedMultiWorker<
     constructor(
         workerName: string,
         methods: Methods,
-        importableScripts: Scripts
+        importableScripts: Scripts,
+        options: TypedWorkerOptions = {}
     ) {
         super(
             workerName,
@@ -999,7 +1017,8 @@ export class TypedMultiWorker<
                         method,
                     ])
                 ),
-            } as Scripts
+            } as Scripts,
+            options
         );
     }
 
