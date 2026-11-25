@@ -25,7 +25,7 @@
         "@fortawesome/vue-fontawesome": "2.0.10",
         "acorn": "8.19.0",
         "acorn-walk": "8.3.5",
-        "broadcast-channel": "4.20.2",
+        "broadcast-channel": "7.4.0",
         "emoji-toolkit": "11.0.0",
         "he": "2.0.0",
         "highcharts": "11.4.9",
