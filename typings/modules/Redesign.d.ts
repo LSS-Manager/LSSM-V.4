@@ -43,7 +43,6 @@ import type { CombinedVueInstance } from 'vue/types/vue';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { RootScopeWithoutAll } from '../../src/modules/hotkeys/main';
 import type { useAPIStore } from '@stores/api';
-import type { useBroadcastStore } from '@stores/broadcast';
 import type { useConsoleStore } from '@stores/console';
 import type { useEventStore } from '@stores/event';
 import type { useModulesStore } from '@stores/modules';
@@ -125,7 +124,6 @@ interface Data<T extends RedesignKey | '' | 'default'> {
     };
     existingHotkeys: string[];
     apiStore: ReturnType<typeof useAPIStore>;
-    broadcastStore: ReturnType<typeof useBroadcastStore>;
     consoleStore: ReturnType<typeof useConsoleStore>;
     eventStore: ReturnType<typeof useEventStore>;
     modulesStore: ReturnType<typeof useModulesStore>;
