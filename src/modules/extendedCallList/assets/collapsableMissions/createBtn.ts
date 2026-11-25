@@ -12,6 +12,16 @@ const ICON_ACTIVE = 'up-right-and-down-left-from-center';
 const COLOR_INACTIVE = 'success';
 const ICON_INACTIVE = 'down-left-and-up-right-to-center';
 
+// sent to other windows when a button has been switched
+interface CollapsableUpdate {
+    missionId: string;
+    // whether the button was collapsed before switching it
+    wasActive: boolean;
+}
+
+// the handler for other windows is only registered once per window
+let handlerRegistered = false;
+
 const BTN_ACTIVE = `btn-${COLOR_ACTIVE}`;
 const BTN_INACTIVE = `btn-${COLOR_INACTIVE}`;
 
@@ -48,6 +58,36 @@ export default (
 ): CollapsableButton => {
     const btn: CollapsableButton = document.createElement('button');
 
+    if (!handlerRegistered) {
+        handlerRegistered = true;
+        LSSM.$stores.broadcast.on<CollapsableUpdate>(
+            'collapsableMissions_update',
+            ({ missionId: updatedMission, wasActive }) =>
+                document
+                    .querySelectorAll<HTMLButtonElement>(
+                        `#missions-panel-body button.${collapsableMissionBtnClass}${
+                            updatedMission !== '-1'
+                                ? `[data-mission="${updatedMission}"]`
+                                : `.${wasActive ? BTN_ACTIVE : BTN_INACTIVE}`
+                        }`
+                    )
+                    .forEach(button => {
+                        switchBtnState(button, $m);
+                        // collapse or expand the mission like the sending window did
+                        const btnGroup = button.parentElement;
+                        if (btnGroup) {
+                            toggle(
+                                btnGroup,
+                                button,
+                                button.dataset.mission ?? '-1',
+                                collapsedClass,
+                                collapsedBarContentClass
+                            );
+                        }
+                    })
+        );
+    }
+
     btn.classList.add(
         collapsableMissionBtnClass,
         'btn',
@@ -67,49 +107,15 @@ export default (
 
     btn.append(icon);
 
+    // other windows switch their buttons of this mission (or all of them) as well
     const send = () =>
-        LSSM.$stores.broadcast.sendCustomMessage<{
-            missionId: string;
-            collapsableMissionBtnClass: string;
-            btnClassList: string;
-            BTN_ACTIVE: string;
-            BTN_INACTIVE: string;
-            switchBtnState: string;
-        }>({
-            name: 'collapsableMissions_update',
-            handler(msg) {
-                document
-                    .querySelectorAll<HTMLButtonElement>(
-                        `#missions-panel-body button.${
-                            msg.data.collapsableMissionBtnClass
-                        }${
-                            msg.data.missionId !== '-1'
-                                ? `[data-mission="${msg.data.missionId}"]`
-                                : `.${
-                                      (msg.data.btnClassList as string)
-                                          .split(' ')
-                                          .includes(
-                                              msg.data.BTN_ACTIVE as string
-                                          )
-                                          ? msg.data.BTN_ACTIVE
-                                          : msg.data.BTN_INACTIVE
-                                  }`
-                        }`
-                    )
-                    .forEach(btn =>
-                        // eslint-disable-next-line no-eval
-                        eval(`${msg.data.switchBtnState}`)(btn)
-                    );
-            },
-            data: {
+        LSSM.$stores.broadcast.send<CollapsableUpdate>(
+            'collapsableMissions_update',
+            {
                 missionId,
-                collapsableMissionBtnClass,
-                btnClassList: btn.getAttribute('string') ?? '',
-                BTN_ACTIVE,
-                BTN_INACTIVE,
-                switchBtnState: switchBtnState.toString(),
-            },
-        });
+                wasActive: btn.classList.contains(BTN_ACTIVE),
+            }
+        );
 
     const store = async () => {
         if (missionId === '-1') {

@@ -1,3 +1,28 @@
+interface CenterMapData {
+    lat: number;
+    lng: number;
+}
+
+/**
+ * The main page centers its map on a mission when a mission window asks for it.
+ * @param LSSM - The LSSM instance of the main page.
+ */
+export const registerCenterMapHandler = (LSSM: Vue) =>
+    LSSM.$stores.broadcast.on<CenterMapData>('center_map', ({ lat, lng }) => {
+        if (window.location.pathname !== '/') return;
+        if (window.hasOwnProperty('mapkit')) {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            window.map.setCenterAnimated(
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                new window.mapkit.Coordinate(lat, lng)
+            );
+        } else {
+            window.map.setView([lat, lng], window.map.getZoom());
+        }
+    });
+
 export default (LSSM: Vue): void => {
     const mission_info = document.querySelector<HTMLDivElement>(
         '#mission_general_info'
@@ -18,28 +43,9 @@ export default (LSSM: Vue): void => {
     centerImg.style.width = '1em';
     icon?.before(centerImg);
     centerImg.addEventListener('click', () =>
-        LSSM.$stores.broadcast.sendCustomMessage<{ lat: number; lng: number }>({
-            name: 'center_map',
-            handler(msg) {
-                if (window.location.pathname !== '/') return;
-                const lat = msg.data.lat as number;
-                const lng = msg.data.lng as number;
-                if (window.hasOwnProperty('mapkit')) {
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    window.map.setCenterAnimated(
-                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                        // @ts-ignore
-                        new window.mapkit.Coordinate(lat, lng)
-                    );
-                } else {
-                    window.map.setView([lat, lng], window.map.getZoom());
-                }
-            },
-            data: {
-                lat: latitude,
-                lng: longitude,
-            },
+        LSSM.$stores.broadcast.send<CenterMapData>('center_map', {
+            lat: latitude,
+            lng: longitude,
         })
     );
 };

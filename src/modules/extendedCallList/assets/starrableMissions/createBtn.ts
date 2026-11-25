@@ -4,6 +4,15 @@ export interface StarrableButton extends HTMLButtonElement {
     switch?(triggeredInMissionWindow?: boolean): Promise<void>;
 }
 
+// sent to other windows when a button has been switched
+interface StarredUpdate {
+    missionId: string;
+    triggeredInMissionWindow: boolean;
+}
+
+// the handler for other windows is only registered once per window
+let handlerRegistered = false;
+
 const switchBtnState = (
     btn: HTMLButtonElement,
     triggeredInMissionWindow = false
@@ -37,6 +46,21 @@ export default (
 ): StarrableButton => {
     const btn: StarrableButton = document.createElement('button');
 
+    if (!handlerRegistered) {
+        handlerRegistered = true;
+        LSSM.$stores.broadcast.on<StarredUpdate>(
+            'starredMissions_update',
+            ({ missionId: updatedMission, triggeredInMissionWindow }) =>
+                document
+                    .querySelectorAll<HTMLButtonElement>(
+                        `button.${starredMissionBtnClass}[data-mission="${updatedMission}"]`
+                    )
+                    .forEach(button =>
+                        switchBtnState(button, triggeredInMissionWindow)
+                    )
+        );
+    }
+
     btn.classList.add(
         starredMissionBtnClass,
         'btn',
@@ -48,36 +72,12 @@ export default (
     icon.classList.add(`fa${isStarred ? 's' : 'r'}`, 'fa-star');
     btn.append(icon);
 
+    // other windows switch their buttons of this mission as well
     const send = (triggeredInMissionWindow = false) =>
-        LSSM.$stores.broadcast
-            .sendCustomMessage<{
-                missionId: string;
-                starredMissionBtnClass: string;
-                triggeredInMissionWindow: boolean;
-                switchBtnState: string;
-            }>({
-                name: 'starredMissions_update',
-                handler(msg) {
-                    document
-                        .querySelectorAll<HTMLButtonElement>(
-                            `button.${msg.data.starredMissionBtnClass}[data-mission="${msg.data.missionId}"]`
-                        )
-                        .forEach(btn =>
-                            // eslint-disable-next-line no-eval
-                            eval(`${msg.data.switchBtnState}`)(
-                                btn,
-                                msg.data.triggeredInMissionWindow
-                            )
-                        );
-                },
-                data: {
-                    missionId,
-                    starredMissionBtnClass,
-                    triggeredInMissionWindow,
-                    switchBtnState: switchBtnState.toString(),
-                },
-            })
-            .then();
+        LSSM.$stores.broadcast.send<StarredUpdate>('starredMissions_update', {
+            missionId,
+            triggeredInMissionWindow,
+        });
 
     const store = async () => {
         const missions = await getSetting<string[]>('starredMissions', []);
