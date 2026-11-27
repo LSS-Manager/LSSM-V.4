@@ -16,6 +16,152 @@ type WorkerFunction<
     Return = void,
 > = (self: WorkerSelf<ExtraProperties, Scripts>, ...args: Args) => Return;
 
+// region messages between windows and workers
+interface RunMessage<Args extends unknown[]> {
+    type: 'run';
+    uuid: string;
+    args: Args;
+}
+interface ReadyMessage {
+    type: 'ready';
+    instance: string;
+    startedAt: number;
+}
+interface ResultMessage<Return> {
+    type: 'result';
+    uuid: string;
+    result: Awaited<Return>;
+}
+interface ErrorMessage {
+    type: 'error';
+    uuid: string;
+    error: unknown;
+}
+type WorkerMessage<Return> =
+    ErrorMessage | ReadyMessage | ResultMessage<Return>;
+// endregion
+
+/**
+ * If this key is set to `'true'` in localStorage, all TypedWorkers run their function in the window instead of a SharedWorker.
+ * Meant for debugging and as an emergency switch.
+ */
+export const DISABLE_SHARED_WORKER_KEY = `${PREFIX}_disableSharedWorker`;
+
+// how long a window waits for a worker to confirm a connection before running in the window instead
+const READY_TIMEOUT = 10_000;
+// after starting a worker failed, windows run in the window for this long instead of waiting for a worker again
+const FAILED_RETRY_AFTER = 60_000;
+
+declare global {
+    interface Uint8Array<
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars -- the type parameter must match the declaration in TypeScript's lib for merging
+        TArrayBuffer extends ArrayBufferLike = ArrayBufferLike,
+    > {
+        /**
+         * Returns the bytes as a hexadecimal string.
+         * Supported by all browsers in our browserslist, but not yet typed by TypeScript.
+         */
+        toHex(): string;
+    }
+}
+
+/**
+ * Returns the topmost window if it is accessible (same origin), the current window otherwise.
+ * Using the topmost window allows the worker and its URL to exist as long as possible.
+ * @returns The topmost accessible window.
+ */
+const getTopWindow = (): Window & typeof globalThis => {
+    try {
+        const top = window.top;
+        // accessing the origin of a cross-origin window throws
+        if (top && top.location.origin === window.location.origin)
+            return top as Window & typeof globalThis;
+    } catch {
+        // top is cross-origin, we cannot use it
+    }
+    return window;
+};
+
+/**
+ * This is the runtime of each TypedWorker. It runs inside the SharedWorker.
+ * CAVEAT: This function is stringified, so it must not reference anything outside its own body!
+ * @param self - The global scope of the SharedWorker.
+ * @param workerFunction - The function this worker executes.
+ */
+const workerRuntime = (
+    self: {
+        name: string;
+        navigator: Navigator;
+        crypto: Crypto;
+        addEventListener(
+            type: 'connect',
+            listener: (event: MessageEvent) => void
+        ): void;
+    },
+    workerFunction: (scope: typeof self, ...args: unknown[]) => unknown
+) => {
+    const instance = self.crypto.randomUUID().slice(0, 8);
+    const startedAt = Date.now();
+
+    // hold a lock as long as this worker lives, so windows can check whether this worker is still alive
+    const lockHeld = new Promise<void>(resolve => {
+        if (!self.navigator.locks) return resolve();
+        self.navigator.locks.request(`${self.name}:alive`, () => {
+            resolve();
+            // never release the lock
+            return new Promise<void>(() => void 0);
+        });
+    });
+    // Usually, the lock is acquired within milliseconds. If another worker with the same name holds it
+    // (which should not happen), this worker still has to be usable, so it does not wait forever.
+    const readyToConnect = Promise.race([
+        lockHeld,
+        new Promise<void>(resolve => setTimeout(resolve, 1000)),
+    ]);
+
+    self.addEventListener('connect', event => {
+        const port = event.ports[0];
+
+        const post = (
+            message:
+                | { type: 'error'; uuid: string; error: unknown }
+                | { type: 'result'; uuid: string; result: unknown }
+        ) => {
+            try {
+                port.postMessage(message);
+            } catch (error) {
+                // the result or error could not be cloned, report this instead of letting the call hang
+                port.postMessage({
+                    type: 'error',
+                    uuid: message.uuid,
+                    error: new Error(
+                        `TypedWorker could not transfer the message: ${error}`
+                    ),
+                });
+            }
+        };
+
+        port.addEventListener('message', async ({ data }) => {
+            if (data?.type !== 'run') return;
+            const { uuid, args } = data as { uuid: string; args: unknown[] };
+            try {
+                const result = await workerFunction(self, ...args);
+                post({ type: 'result', uuid, result });
+            } catch (error) {
+                post({ type: 'error', uuid, error });
+            }
+        });
+
+        // we've used addEventListener, so we need to explicitly start the port
+        port.start();
+
+        // tell the window that this worker is ready and which instance it is
+        readyToConnect.then(() =>
+            port.postMessage({ type: 'ready', instance, startedAt })
+        );
+    });
+};
+
 export default class TypedWorker<
     WorkerExtraProperties extends WorkerExtraPropertiesType,
     Args extends unknown[] = [],
@@ -30,166 +176,385 @@ export default class TypedWorker<
     >;
     readonly #workerName: string;
     readonly #importableScripts: Scripts;
-    readonly #importableScriptsUrls = new Map<keyof Scripts, string>();
 
-    #worker: SharedWorker | null = null;
+    #source: string | null = null;
+    #nameCache: string | null = null;
+    #connection: Promise<SharedWorker | null> | null = null;
+    #instance: string | null = null;
+    #fallbackSelf: WorkerSelf<WorkerExtraProperties, Scripts> | null = null;
 
-    // it is a good idea to use the topmost window to create the object URL as that allows the worker to exist as long as possible
-    readonly #top = window.top ?? window.parent ?? window;
+    readonly #pending = new Map<
+        string,
+        {
+            resolve(result: Awaited<Return>): void;
+            reject(reason: unknown): void;
+        }
+    >();
+
+    readonly #top = getTopWindow();
 
     constructor(
         workerName: string,
         fn: WorkerFunction<WorkerExtraProperties, Scripts, Args, Return>,
         importableScripts: Scripts
     ) {
-        this.#workerName = `${PREFIX}:worker:${workerName}`;
+        this.#workerName = workerName;
         this.#function = fn;
         this.#importableScripts = importableScripts;
-
-        if (this.#blob) {
-            fetch(this.#blob)
-                .then(res => {
-                    if (!res.ok) this.#revokeBlob();
-                })
-                .catch(() => this.#revokeBlob());
-        }
     }
 
-    get #blob() {
-        return localStorage.getItem(this.#workerName) ?? '';
-    }
+    /**
+     * The source code of the worker. It is deterministic for the same build, so it can be used for the worker's identity.
+     * @returns The source code of the worker.
+     */
+    get #workerSource() {
+        if (this.#source) return this.#source;
 
-    set #blob(value) {
-        localStorage.setItem(this.#workerName, value);
-    }
-
-    #revokeBlob() {
-        if (this.#blob) this.#top.URL.revokeObjectURL(this.#blob);
-
-        this.#worker = null;
-        localStorage.removeItem(this.#workerName);
-    }
-
-    get #importScriptsExpression() {
-        return Array.from(this.#importableScriptsUrls.entries())
+        const scripts = Object.entries(this.#importableScripts)
             .map(
-                ([name, url]) =>
-                    `/* ${name.toString()} */ ${JSON.stringify(url)}`
+                ([name, exported]) =>
+                    `// importable script: ${name}\nself[${JSON.stringify(name)}] = (${exported.toString()});`
             )
-            .join(', ');
+            .join('\n\n');
+
+        this.#source = `
+// this is the TypedWorker ${this.#workerName}
+'use strict';
+
+${scripts}
+
+// the runtime of TypedWorkers
+(${workerRuntime.toString()})(
+    self,
+    // the function of this worker
+    (${this.#function.toString()})
+);
+`.trim();
+
+        return this.#source;
     }
 
-    #getBlob() {
-        if (this.#blob) return this.#blob;
+    /**
+     * All keys of this worker for the current user and locale start with this prefix.
+     * @returns The prefix of the storage keys of this worker.
+     */
+    get #namePrefix() {
+        return `${PREFIX}:worker:${this.#workerName}:${window.user_id ?? 'unknown'}:${window.I18n?.locale ?? 'unknown'}:`;
+    }
 
-        const blob = new Blob(
-            [
-                `
-// this is the TypedWorker ${this.#workerName}
-
-                ${
-                    this.#importScriptsExpression
-                        ? `
-// import scripts for this worker
-self.importScripts(${this.#importScriptsExpression});
-`
-                        : ''
-                }
-
-// a connection is opened
-self.addEventListener('connect', event => {
-    const port = event.ports[0];
-    // once a message is received, call the worker function, await it and post the result back
-    port.addEventListener('message', async event => {
-        const [uuid, data] = event.data;
-        try {
-            const result = await (
-${this.#function.toString()}
-            )(self, ...data);
-            port.postMessage({uuid, result});
-        } catch (error) {
-            // has an error been thrown? post it back to the main thread, the TypedWorker class will cause the promise to reject
-            port.postMessage({uuid, error});
-        }
-    });
-    // we've used addEventListener, so we need to explicitly start the port
-    port.start();
-});
-`.trim(),
-            ],
-            { type: 'text/javascript' }
+    /**
+     * Computes the name of the SharedWorker once. It is also the localStorage key storing the URL of the worker.
+     * Windows only share a worker if they use the same code for the same user and locale.
+     * @returns A promise that resolves to the name of the worker.
+     */
+    async #computeName() {
+        if (this.#nameCache) return this.#nameCache;
+        const digest = await crypto.subtle.digest(
+            'SHA-256',
+            new TextEncoder().encode(this.#workerSource)
         );
-        this.#blob = this.#top.URL.createObjectURL(blob);
+        // the first 16 hex characters (64 bits) of the SHA-256 are enough to tell versions of the code apart
+        this.#nameCache = `${this.#namePrefix}${new Uint8Array(digest).toHex().slice(0, 16)}`;
+        return this.#nameCache;
+    }
 
-        this.#top.addEventListener('beforeunload', () => this.#revokeBlob());
-        this.#top.addEventListener('unload', () => this.#revokeBlob());
+    /**
+     * The name of the SharedWorker, see #computeName.
+     * @returns The name of the worker.
+     * @throws Error If the name has not been computed yet.
+     */
+    get #name() {
+        if (!this.#nameCache) {
+            throw new Error(
+                'The name of the worker has not been computed yet.'
+            );
+        }
+        return this.#nameCache;
+    }
 
-        return this.#blob;
+    /**
+     * Logs a message prefixed with the name of this worker.
+     * @param level - The console level to use.
+     * @param messages - The messages to log.
+     */
+    #log(level: 'error' | 'info' | 'warn', ...messages: unknown[]) {
+        useConsoleStore()[level]({
+            messages: [
+                `[TypedWorker ${this.#workerName}${this.#instance ? `#${this.#instance}` : ''}]`,
+                ...messages,
+            ],
+        });
+    }
+
+    /**
+     * The localStorage key storing when starting this worker failed the last time.
+     * @returns The localStorage key.
+     */
+    get #failedKey() {
+        return `${this.#name}:failed`;
+    }
+
+    /**
+     * Removes localStorage keys of outdated versions of this worker for the current user and locale.
+     * Keys of other versions are kept while their worker is still alive, for example if a tab still uses an older build.
+     * Also removes the key used by older versions of TypedWorker.
+     * @returns A promise that resolves once all outdated keys have been removed.
+     */
+    #removeOutdatedKeys() {
+        const legacyKey = `${PREFIX}:worker:${this.#workerName}`;
+        const failedSuffix = ':failed';
+
+        // group the keys by worker, as checking the same lock concurrently would make a dead worker look alive
+        const keysByWorker = new Map<string, string[]>();
+        for (const key of Object.keys(localStorage)) {
+            if (key === legacyKey) {
+                localStorage.removeItem(key);
+                continue;
+            }
+            if (
+                !key.startsWith(this.#namePrefix) ||
+                key === this.#name ||
+                key === this.#failedKey
+            )
+                continue;
+            const workerName = key.endsWith(failedSuffix)
+                ? key.slice(0, -failedSuffix.length)
+                : key;
+            keysByWorker.set(workerName, [
+                ...(keysByWorker.get(workerName) ?? []),
+                key,
+            ]);
+        }
+
+        return Promise.all(
+            Array.from(keysByWorker, async ([workerName, keys]) => {
+                if (!(await this.#isWorkerAlive(workerName)))
+                    keys.forEach(key => localStorage.removeItem(key));
+            })
+        );
+    }
+
+    /**
+     * Checks whether a worker is alive. A living worker holds a lock.
+     * @param name - The name of the worker to check. Defaults to the name of this worker.
+     * @returns A promise that resolves to true if the worker is alive or if this cannot be checked.
+     */
+    #isWorkerAlive(name = this.#name) {
+        const locks = this.#top.navigator.locks;
+        if (!locks) return Promise.resolve(true);
+        // if we can get the lock, nobody (no worker) is holding it
+        return locks.request(
+            `${name}:alive`,
+            { ifAvailable: true },
+            lock => lock === null
+        );
+    }
+
+    /**
+     * Tries to connect to a worker at the given URL and waits for it to confirm the connection.
+     * @param url - The (blob) URL of the worker.
+     * @returns A promise that resolves to the connected worker or null if the connection failed.
+     */
+    #tryConnect(url: string) {
+        return new Promise<SharedWorker | null>(resolve => {
+            let worker: SharedWorker;
+            try {
+                worker = new this.#top.SharedWorker(url, this.#name);
+            } catch (error) {
+                this.#log('warn', 'Could not create SharedWorker:', error);
+                return resolve(null);
+            }
+
+            const finish = (result: SharedWorker | null) => {
+                window.clearTimeout(timeout);
+                worker.removeEventListener('error', onError);
+                worker.port.removeEventListener('message', onMessage);
+                if (!result) worker.port.close();
+                resolve(result);
+            };
+            const onError = () => finish(null);
+            const onMessage = (event: MessageEvent<WorkerMessage<Return>>) => {
+                if (event.data?.type !== 'ready') return;
+                this.#instance = event.data.instance;
+                finish(worker);
+            };
+            const timeout = window.setTimeout(
+                () => finish(null),
+                READY_TIMEOUT
+            );
+
+            // a dead URL causes an error event if there is no worker anymore (at least in Chrome, Firefox needs the timeout)
+            worker.addEventListener('error', onError);
+            worker.port.addEventListener('message', onMessage);
+            // we've used addEventListener, so we need to explicitly start the port
+            worker.port.start();
+        });
+    }
+
+    /**
+     * Handles all messages of a connected worker.
+     * @param worker - The connected worker.
+     */
+    #listen(worker: SharedWorker) {
+        worker.port.addEventListener(
+            'message',
+            (event: MessageEvent<WorkerMessage<Return>>) => {
+                const message = event.data;
+                if (message?.type !== 'result' && message?.type !== 'error')
+                    return;
+                const pending = this.#pending.get(message.uuid);
+                if (!pending) return;
+                this.#pending.delete(message.uuid);
+                if (message.type === 'error') {
+                    this.#log(
+                        'error',
+                        'An error has been thrown in the worker:',
+                        message.error
+                    );
+                    pending.reject(message.error);
+                } else {
+                    pending.resolve(message.result);
+                }
+            }
+        );
+        // this should not happen after the worker has been ready, but let's be safe and not let calls hang
+        worker.addEventListener('error', event => {
+            this.#log('error', 'The worker reported an error:', event);
+            this.#pending.forEach(({ reject }) => reject(event));
+            this.#pending.clear();
+            this.#connection = null;
+        });
+    }
+
+    /**
+     * Connects to the SharedWorker of this TypedWorker or starts it if it is not alive.
+     * Starting is done while holding a lock, so that multiple windows do not start multiple workers.
+     * @returns A promise that resolves to the connected worker or null if the function should run in the window.
+     */
+    async #establishConnection(): Promise<SharedWorker | null> {
+        if (localStorage.getItem(DISABLE_SHARED_WORKER_KEY) === 'true') {
+            this.#log(
+                'info',
+                `SharedWorkers are disabled via localStorage key ${DISABLE_SHARED_WORKER_KEY}, running in the window.`
+            );
+            return null;
+        }
+        if (typeof this.#top.SharedWorker !== 'function') {
+            this.#log(
+                'info',
+                'SharedWorkers are not supported, running in the window.'
+            );
+            return null;
+        }
+
+        let name: string;
+        try {
+            name = await this.#computeName();
+        } catch (error) {
+            // e.g. the Web Crypto API is not available
+            this.#log(
+                'warn',
+                'Could not name the worker, running in the window:',
+                error
+            );
+            return null;
+        }
+
+        const connect = async () => {
+            await this.#removeOutdatedKeys();
+
+            const storedUrl = localStorage.getItem(name);
+            // a dead URL still connects to a living worker, so we can use it as long as the worker is alive
+            if (storedUrl && (await this.#isWorkerAlive())) {
+                const worker = await this.#tryConnect(storedUrl);
+                if (worker) return worker;
+            }
+
+            // if starting the worker failed recently, don't let every window wait for the timeout again
+            const failedAt = Number(localStorage.getItem(this.#failedKey));
+            if (failedAt > Date.now() - FAILED_RETRY_AFTER) {
+                this.#log(
+                    'warn',
+                    `Starting the worker failed at ${new Date(failedAt).toLocaleTimeString()}, not retrying yet.`
+                );
+                return null;
+            }
+
+            const url = this.#top.URL.createObjectURL(
+                new Blob([this.#workerSource], { type: 'text/javascript' })
+            );
+            localStorage.setItem(name, url);
+            const worker = await this.#tryConnect(url);
+            if (worker) localStorage.removeItem(this.#failedKey);
+            else localStorage.setItem(this.#failedKey, Date.now().toString());
+            return worker;
+        };
+
+        try {
+            const locks = this.#top.navigator.locks;
+            const worker = await (locks
+                ? locks.request(`${name}:bootstrap`, connect)
+                : connect());
+            if (worker) this.#listen(worker);
+            else this.#log('warn', 'Could not connect, running in the window.');
+            return worker;
+        } catch (error) {
+            this.#log(
+                'warn',
+                'Could not connect, running in the window:',
+                error
+            );
+            return null;
+        }
+    }
+
+    /**
+     * Runs the function of this worker in the window. This is the fallback if SharedWorkers cannot be used.
+     * Arguments and results are cloned to behave the same as in a worker.
+     * @param args - The arguments to pass to the function.
+     * @returns A promise that resolves with the result of the function.
+     */
+    async #runInWindow(args: Args): Promise<Awaited<Return>> {
+        // the fallback scope mimics the global scope of the worker: it contains the importable scripts and keeps state between calls
+        this.#fallbackSelf ??= {
+            ...this.#importableScripts,
+        } as unknown as WorkerSelf<WorkerExtraProperties, Scripts>;
+        try {
+            const result = await this.#function(
+                this.#fallbackSelf,
+                ...structuredClone(args)
+            );
+            return structuredClone(result);
+        } catch (error) {
+            this.#log(
+                'error',
+                'An error has been thrown in the window fallback:',
+                error
+            );
+            throw error;
+        }
     }
 
     public async run(...args: Args): Promise<Awaited<Return>> {
-        // import importable scripts if they are not yet imported
-        for (const script in this.#importableScripts) {
-            if (this.#importableScriptsUrls.has(script)) continue;
+        this.#connection ??= this.#establishConnection();
+        const worker = await this.#connection;
 
-            const exported = this.#importableScripts[script];
-
-            const textContent = `
-// this is ${script} (being imported into ${this.#workerName})
-self.${script} = (${exported.toString()});
-`.trim();
-
-            if (!textContent) continue;
-            const blob = new Blob([textContent], {
-                type: 'text/javascript',
-            });
-            const url = URL.createObjectURL(blob);
-            this.#importableScriptsUrls.set(script, url);
-        }
-
-        // create a new SharedWorker if the worker doesn't exist yet
-        if (!this.#worker) {
-            this.#worker = new this.#top.SharedWorker(
-                this.#getBlob(),
-                this.#workerName
-            );
-        }
+        if (!worker) return this.#runInWindow(args);
 
         return new Promise<Awaited<Return>>((resolve, reject) => {
-            // this is a backup for the case the worker is not initialized (anymore)
-            if (!this.#worker)
-                return reject(new Error('Worker not initialized'));
-
             const uuid = crypto.randomUUID();
-
-            type MessageType =
-                | { uuid: typeof uuid; error: Error }
-                | { uuid: typeof uuid; result: Awaited<Return> };
-
-            const listener = (event: MessageEvent<MessageType>) => {
-                if (event.data.uuid !== uuid) return;
-                if ('error' in event.data) {
-                    useConsoleStore().error({
-                        messages: [
-                            `An error has been thrown in TypedWorker ${this.#workerName}, living on URL ${this.#blob}.`,
-                            event.data.error,
-                        ],
-                    });
-                    reject(event.data.error);
-                } else {
-                    resolve(event.data.result);
-                }
-                this.#worker?.port.removeEventListener('message', listener);
-            };
-
-            // once a message is received, resolve or reject the promise based on if the message is an error or not
-            this.#worker.port.addEventListener('message', listener);
-
-            // we've used addEventListener, so we need to explicitly start the port
-            this.#worker.port.start();
-
-            // let's send the arguments to the worker
-            this.#worker.port.postMessage([uuid, args]);
+            this.#pending.set(uuid, { resolve, reject });
+            try {
+                worker.port.postMessage({
+                    type: 'run',
+                    uuid,
+                    args,
+                } satisfies RunMessage<Args>);
+            } catch (error) {
+                // e.g. the arguments could not be cloned
+                this.#pending.delete(uuid);
+                reject(error);
+            }
         });
     }
 }
