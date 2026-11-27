@@ -12505,7 +12505,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:3.5.46, vue@npm:^3.4.15, vue@npm:^3.4.16"":
+"vue@npm:3.5.46, vue@npm:^3.4.15, vue@npm:^3.4.16":
   version: 3.5.46
   resolution: "vue@npm:3.5.46"
   dependencies:
