@@ -85,7 +85,7 @@
         "eslint-plugin-prettier": "5.5.7",
         "eslint-plugin-regexp": "3.3.3",
         "eslint-plugin-tsdoc": "0.5.4",
-        "eslint-plugin-unicorn": "78.0.0",
+        "eslint-plugin-unicorn": "80.0.0",
         "eslint-plugin-vue": "10.12.1",
         "globals": "17.14.0",
         "html-loader": "5.1.0",
