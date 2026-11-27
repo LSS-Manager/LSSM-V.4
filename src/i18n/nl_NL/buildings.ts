@@ -88,6 +88,15 @@ export default {
                 givesParkingLots: 1,
                 unlocksVehicleTypes: [155, 156],
             },
+            {
+                caption: 'Blusrobot',
+                credits: 100_000,
+                coins: 10,
+                duration: '5 Dagen',
+                isVehicleExtension: true,
+                givesParkingLots: 1,
+                unlocksVehicleTypes: [157, 159],
+            },
             ...multiplyExtension(
                 {
                     caption: 'Haakarmbak parkeerplaats',
@@ -1667,5 +1676,26 @@ export default {
         schools: [4],
         startParkingLots: 1,
         icon: 'train',
+    },
+    28: {
+        caption: 'Ligplaats Blusboot',
+        color: '#ff1500',
+        coins: 50,
+        credits: 500_000,
+        levelPrices: {
+            credits: [10_000],
+            coins: [10],
+        },
+        extensions: [],
+        levelcost: ['1. 10.000'],
+        maxBuildings: 'Geen limiet',
+        maxLevel: 16,
+        special: '',
+        startPersonnel: 2,
+        startVehicles: [],
+        schoolingTypes: ['Brandweer'],
+        schools: [4],
+        startParkingLots: 1,
+        icon: 'ship',
     },
 } satisfies Record<number, InternalBuilding>;

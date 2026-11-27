@@ -81,4 +81,12 @@ export default registerEquipment({
         coins: 10,
         staff: { min: 0 },
     },
+    fire_extinguisher_robot_equipment: {
+        id: 'fire_extinguisher_robot_equipment',
+        caption: 'RC-BU-BRB',
+        size: 10,
+        credits: 15_000,
+        coins: 10,
+        staff: { min: 0 },
+    },
 });

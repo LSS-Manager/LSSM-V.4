@@ -2627,4 +2627,59 @@ export default {
         special:
             'Benodigd een speciale opleiding in het trekkend voertuig. (Veeredder)',
     },
+    157: {
+        caption: 'DB-BRB',
+        color: '#ff1500',
+        credits: 45_000,
+        coins: 15,
+        staff: {
+            min: 3,
+            max: 3,
+            training: {
+                Brandweer: {
+                    fire_extinguisher_robot: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        icon: 'truck-moving',
+        possibleBuildings: [0, 17],
+        waterTank: 10_000,
+    },
+    158: {
+        caption: 'Blusboot',
+        color: '#ff1500',
+        credits: 150_000,
+        coins: 20,
+        staff: {
+            min: 2,
+            max: 6,
+            training: {
+                Brandweer: {
+                    firefighting_marine: {
+                        min: 1,
+                    },
+                    firefighting_marine_captain: {
+                        min: 1,
+                    },
+                },
+            },
+        },
+        icon: 'ship',
+        possibleBuildings: [28],
+    },
+    159: {
+        caption: 'BMH-BRB',
+        color: '#ff1500',
+        credits: 6000,
+        coins: 6,
+        staff: {
+            min: 0,
+            max: 0,
+        },
+        icon: 'square',
+        possibleBuildings: [0, 17],
+        special: 'Benodigd een speciale opleiding in het trekkend voertuig. (Manschap Blusrobot)',
+    },
 } satisfies Record<number, InternalVehicle>;

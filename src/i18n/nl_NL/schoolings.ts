@@ -182,6 +182,24 @@ export default {
             staffList: 'Veeredder',
             key: 'livestock_hoist',
         },
+        {
+            caption: 'Manschap Blusrobot',
+            duration: '5 Dagen',
+            staffList: 'Manschap Blusrobot',
+            key: 'fire_extinguisher_robot',
+        },
+        {
+            caption: 'Kapitein Blusboot',
+            duration: '5 Dagen',
+            staffList: 'Kapitein Blusboot',
+            key: 'firefighting_marine_captain',
+        },
+        {
+            caption: 'Manschap Blusboot',
+            duration: '5 Dagen',
+            staffList: 'Manschap Blusboot',
+            key: 'firefighting_marine',
+        },
     ],
     Politie: [
         {
