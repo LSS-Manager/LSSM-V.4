@@ -119,12 +119,12 @@
     "@typescript-eslint/eslint-plugin": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
         "url": "https://typescript-eslint.io/packages/eslint-plugin",
-        "version": "8.72.1"
+        "version": "8.73.0"
     },
     "@typescript-eslint/parser": {
         "icon": "https://typescript-eslint.io/img/typescript.svg",
         "url": "https://typescript-eslint.io/packages/parser",
-        "version": "8.72.1"
+        "version": "8.73.0"
     },
     "@vuepress/bundler-vite": {
         "url": "https://github.com/vuepress",
@@ -172,7 +172,7 @@
     "all-contributors-cli": {
         "icon": "https://avatars.githubusercontent.com/u/46410174",
         "url": "https://github.com/all-contributors/all-contributors-cli#readme",
-        "version": "7.0.0"
+        "version": "7.0.3"
     },
     "broadcast-channel": {
         "icon": "https://raw.githubusercontent.com/pubkey/broadcast-channel/master/docs/files/icon.png",
@@ -181,7 +181,7 @@
     },
     "ci-info": {
         "url": "https://github.com/watson/ci-info",
-        "version": "4.4.0"
+        "version": "4.5.0"
     },
     "cloc": {
         "url": "https://github.com/kentcdodds/cloc#readme",
@@ -204,7 +204,7 @@
     "eslint": {
         "icon": "https://eslint.org/icon-512.png",
         "url": "https://eslint.org",
-        "version": "10.14.0"
+        "version": "10.15.0"
     },
     "eslint-config-prettier": {
         "icon": "https://prettier.io/icon.png",
@@ -224,7 +224,7 @@
     },
     "eslint-plugin-jsdoc": {
         "url": "https://github.com/gajus/eslint-plugin-jsdoc#readme",
-        "version": "65.4.5"
+        "version": "65.5.0"
     },
     "eslint-plugin-markdownlint": {
         "url": "https://gitlab.com/pawelbbdrozd/eslint-plugin-markdownlint/-/blob/main/README.md",
@@ -252,7 +252,7 @@
     "eslint-plugin-vue": {
         "icon": "https://vuejs.org/logo.svg",
         "url": "https://eslint.vuejs.org",
-        "version": "10.12.0"
+        "version": "10.12.1"
     },
     "globals": {
         "version": "17.14.0"
@@ -321,7 +321,7 @@
     "prettier": {
         "icon": "https://prettier.io/icon.png",
         "url": "https://prettier.io",
-        "version": "3.9.10"
+        "version": "3.10.1"
     },
     "qrcode": {
         "url": "http://github.com/soldair/node-qrcode",
@@ -330,12 +330,12 @@
     "sass": {
         "icon": "https://sass-lang.com/assets/img/logos/logo.svg",
         "url": "https://github.com/sass/dart-sass",
-        "version": "1.108.1"
+        "version": "1.108.2"
     },
     "sass-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
         "url": "https://github.com/webpack/sass-loader",
-        "version": "17.1.0"
+        "version": "17.1.1"
     },
     "semver": {
         "version": "7.8.6"
@@ -346,7 +346,7 @@
         "version": "2.1.0"
     },
     "simple-git": {
-        "version": "4.0.2"
+        "version": "4.1.0"
     },
     "simpleheat": {
         "url": "https://github.com/mourner/simpleheat",
@@ -355,7 +355,7 @@
     "terser": {
         "icon": "https://terser.org/img/terser-square-logo.png",
         "url": "https://terser.org",
-        "version": "5.51.2"
+        "version": "5.51.4"
     },
     "ts-loader": {
         "icon": "https://webpack.js.org/assets/icon-square-big.svg",
