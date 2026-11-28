@@ -101,7 +101,10 @@ utils(Vue);
         translations: useTranslationStore(),
     };
 
-    window.addEventListener('pagehide', () => {
+    window.addEventListener('pagehide', event => {
+        // the page is put into the back/forward cache and may be restored later
+        // tearing down LSSM here would leave a dead instance after restoring
+        if (event.persisted) return;
         LSSM.$destroy();
         window[PREFIX] = null;
         const readonly = ['$attrs', '$listeners'];
